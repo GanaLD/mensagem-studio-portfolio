@@ -199,6 +199,14 @@
           "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
           "transition_in": "fade",
           "transition_out": "crossfade"
+        },
+        {
+          "duration": 8,
+          "id": "hero-slide-msqkd1pn-qjxs",
+          "intensity": 60,
+          "media_id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+          "transition_in": "fade",
+          "transition_out": "crossfade"
         }
       ],
       "subtitle": "",
