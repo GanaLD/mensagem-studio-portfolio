@@ -330,6 +330,20 @@
             "label": "Projetos da categoria",
             "type": "section_projects",
             "visible": false
+          },
+          {
+            "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+            "core": false,
+            "direction": "left",
+            "eyebrow": "Seleção",
+            "id": "section-block-msqke5m7-qkiem",
+            "label": "Carrossel de projetos",
+            "motion_mode": "auto",
+            "pause_on_hover": true,
+            "speed": "medium",
+            "title": "Em destaque",
+            "type": "auto_carousel",
+            "visible": true
           }
         ],
         "body": "",
