@@ -1,0 +1,299 @@
+{
+  "app_version": "6.0.5",
+  "collections": {},
+  "folders": {
+    "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
+      "title": "Lateral Banners",
+      "visible": true
+    },
+    "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
+      "title": "Carrossel",
+      "visible": true
+    },
+    "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
+      "title": "Edição de vídeos",
+      "visible": true
+    },
+    "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
+      "title": "Motion",
+      "visible": true
+    },
+    "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
+      "title": "Banners",
+      "visible": true
+    },
+    "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
+      "title": "Lâminas para divulgação",
+      "visible": true
+    },
+    "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
+      "title": "Campanha 007 Completa",
+      "visible": true
+    },
+    "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
+      "title": "DERMACAST",
+      "visible": true
+    },
+    "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+      "title": "Banner mobile",
+      "visible": true
+    }
+  },
+  "identity": {
+    "accent_color": "#2FD59A",
+    "description": "Uma seleção de projetos, campanhas e experiências construídas pela Mensagem Studio.",
+    "hero_line": "Ideias que ganham forma, ritmo e presença.",
+    "instagram_url": "https://www.instagram.com/mensagem_studio/",
+    "portfolio_title": "Portfólio",
+    "public_url": "https://portfolio.mensagemstudio.com.br/",
+    "site_url": "https://www.mensagemstudio.com.br/",
+    "studio_name": "MENSAGEM STUDIO"
+  },
+  "project_sections": {
+    "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_": {
+      "title": "CARROSSEL V HACKER",
+      "visible": true
+    },
+    "17ytoPQgi88br27-K9zt3tYzNd4FP945f": {
+      "title": "CARROSSEL IMG",
+      "visible": true
+    },
+    "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
+      "title": "CARROSSEL EVO",
+      "visible": true
+    },
+    "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9": {
+      "title": "CARROSSEL",
+      "visible": true
+    },
+    "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
+      "title": "Carrossel Rennova",
+      "visible": true
+    }
+  },
+  "projects": {
+    "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Cabeçalho do case",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "Banner MOBILE Allergan",
+      "visible": true
+    }
+  },
+  "publication": {
+    "direct_drive_media": true,
+    "github_branch": "main",
+    "github_owner": "GanaLD",
+    "github_repository": "mensagem-studio-portfolio",
+    "public_domain": "portfolio.mensagemstudio.com.br",
+    "strict_public_validation": true
+  },
+  "schema_version": 5,
+  "site_builder": {
+    "about": {
+      "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
+      "eyebrow": "Mensagem Studio",
+      "title": "Ideias com direção, forma e movimento.",
+      "visible": true
+    },
+    "animations": {
+      "global": {
+        "background_motion": "medium",
+        "section_flow": "integrated"
+      },
+      "texts": {
+        "delay": 100,
+        "direction": "up",
+        "duration": 800,
+        "easing": "ease-out",
+        "offset": 40,
+        "opacity": 0,
+        "type": "reveal"
+      }
+    },
+    "contact": {
+      "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
+      "eyebrow": "Contato",
+      "title": "Vamos criar algo juntos?",
+      "visible": true
+    },
+    "hero": {
+      "cta_label": "Explorar projeto",
+      "effect": "cinematic",
+      "height": "fullscreen",
+      "kicker": "Portfólio · Direção criativa",
+      "media_id": "",
+      "overlay": "medium",
+      "position_x": 50,
+      "position_y": 50,
+      "rotation_seconds": 6.2,
+      "scroll_label": "Role para explorar",
+      "slides": [],
+      "subtitle": "",
+      "text_position": "bottom-left",
+      "title": ""
+    },
+    "home": {
+      "blocks": [
+        {
+          "core": true,
+          "id": "core-hero",
+          "label": "Hero",
+          "type": "hero",
+          "visible": true
+        },
+        {
+          "core": true,
+          "id": "core-intro",
+          "label": "Introdução",
+          "type": "intro",
+          "visible": true
+        },
+        {
+          "core": true,
+          "id": "core-lettering",
+          "label": "Lettering",
+          "type": "lettering",
+          "visible": true
+        },
+        {
+          "core": true,
+          "id": "core-projects",
+          "label": "Projetos",
+          "type": "projects",
+          "visible": true
+        },
+        {
+          "core": true,
+          "id": "core-about",
+          "label": "Sobre",
+          "type": "about",
+          "visible": true
+        },
+        {
+          "core": true,
+          "id": "core-contact",
+          "label": "Contato",
+          "type": "contact",
+          "visible": true
+        }
+      ]
+    },
+    "layout": {
+      "ambient_motion": true,
+      "ambient_strength": "medium",
+      "card_interaction": "responsive",
+      "card_parallax": true,
+      "card_video_preview": true,
+      "card_video_preview_mode": "hover",
+      "hero_expand": true,
+      "hero_fullscreen": true,
+      "motion_enabled": true,
+      "motion_preset": "cinematic",
+      "parallax_strength": "medium",
+      "project_viewer": "fullscreen",
+      "projects_style": "uniform",
+      "reveal_style": "cinematic"
+    },
+    "lettering": {
+      "direction": "left",
+      "eyebrow": "Mensagem Studio",
+      "speed": "medium",
+      "style": "split",
+      "text": "Ideias que ganham forma, ritmo e presença.",
+      "visible": true
+    },
+    "navigation": {
+      "about_label": "Sobre",
+      "contact_label": "Contato",
+      "menu_label": "Menu",
+      "menu_title": "Navegação",
+      "projects_label": "Projetos",
+      "show_drive_sections": true,
+      "show_home_sections": true,
+      "side_menu_enabled": true
+    },
+    "projects": {
+      "eyebrow": "Portfólio selecionado",
+      "filters": {
+        "all_label": "Todos",
+        "all_visible": true,
+        "order": [
+          "all",
+          "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+          "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
+          "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
+          "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
+          "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
+          "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
+          "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
+          "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
+        ]
+      },
+      "title": "Projetos",
+      "visible": true
+    },
+    "section_pages": {
+      "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Banner mobile"
+      }
+    }
+  },
+  "workspace": {
+    "drive_root_id": "1ePsjyC57ddsmZYfQPB7OvyA8V1XHbZj0",
+    "drive_root_name": "Portfólio Aesthetic",
+    "id": "mensagem-studio",
+    "name": "Mensagem Studio"
+  }
+}
