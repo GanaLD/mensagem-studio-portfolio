@@ -322,7 +322,7 @@
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
             "label": "Cabeçalho",
             "type": "section_header",
-            "visible": true
+            "visible": false
           },
           {
             "core": true,
