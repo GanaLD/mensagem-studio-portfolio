@@ -191,6 +191,14 @@
           "media_id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
           "transition_in": "fade",
           "transition_out": "crossfade"
+        },
+        {
+          "duration": 8,
+          "id": "hero-slide-msqkcz6e-gyra",
+          "intensity": 60,
+          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "transition_in": "fade",
+          "transition_out": "crossfade"
         }
       ],
       "subtitle": "",
