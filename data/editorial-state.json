@@ -329,7 +329,7 @@
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
             "label": "Projetos da categoria",
             "type": "section_projects",
-            "visible": true
+            "visible": false
           }
         ],
         "body": "",
