@@ -1,6 +1,6 @@
 {
   "schema_version": 16,
-  "app_version": "6.0.6",
+  "app_version": "6.1.1",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -17354,7 +17354,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.305
+    "duration_seconds": 7.105
   },
   "publication_ready": false,
   "public_validation": {

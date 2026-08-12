@@ -1256,18 +1256,9 @@ function projectVideo(item) {
   const wrap = document.createElement('div');
   wrap.className = 'project-video-wrap';
 
-  // Local preview can stream through the authenticated StudioFrame proxy with
-  // byte-range support. On the published static site, Google Drive download URLs
-  // are not consistently streamable across browsers even when they are public;
-  // the Drive /preview player is the reliable playback surface.
-  if (!IS_EDITOR_PREVIEW) {
-    const source = item.preview_url || (item.preview_candidates || [])[0] || item.external_url;
-    if (source) {
-      wrap.append(driveFrame(item));
-      return wrap;
-    }
-  }
-
+  // Prefer validated direct video bytes in both editor and public site. Google
+  // Drive /preview can transiently return HTTP 5xx; the iframe remains a fallback
+  // instead of being the only playback path.
   const sources = uniqueUrls([item.media_url, ...(item.media_candidates || [])]);
   if (sources.length) {
     const video = document.createElement('video');
