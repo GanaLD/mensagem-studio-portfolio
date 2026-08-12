@@ -159,7 +159,16 @@
       "position_y": 50,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [],
+      "slides": [
+        {
+          "duration": 6,
+          "id": "hero-slide-msqkbwo4-q8hf",
+          "intensity": 60,
+          "media_id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
+          "transition_in": "fade",
+          "transition_out": "crossfade"
+        }
+      ],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
