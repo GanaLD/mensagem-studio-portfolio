@@ -1,3 +1,5 @@
+try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
+const STUDIOFRAME_INITIAL_HASH = String(location.hash || '');
 const $ = (s) => document.querySelector(s);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let DATA = {};
@@ -396,7 +398,7 @@ function createCtaBlock(block) {
     const allowed = /^(https?:|mailto:|tel:)/i.test(raw) ? raw : '';
     const action=document.createElement(allowed ? 'a' : 'button'); action.className='cta-action story-link'; action.textContent=block.button_label || 'Entrar em contato';
     if (allowed) { action.href=allowed; if (/^https?:/i.test(allowed)) { action.target='_blank'; action.rel='noopener'; } }
-    else { action.type='button'; action.addEventListener('click',()=>$('#contact')?.scrollIntoView({behavior:reduced?'auto':'smooth'})); }
+    else { action.type='button'; action.addEventListener('click',()=>$('#contact')?.scrollIntoView({behavior:'auto'})); }
     copy.append(action);
   }
   section.append(copy); return section;
@@ -1462,7 +1464,7 @@ function openProjectDetail(project) {
   renderProjectCase(project, items);
   bindReveal();
   if (fullscreen) detail.scrollTop = 0;
-  else detail.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  else detail.scrollIntoView({ behavior: 'auto', block: 'start' });
   tick();
 }
 function closeProjectDetail(scroll = true) {
@@ -1476,7 +1478,7 @@ function closeProjectDetail(scroll = true) {
   document.body.classList.remove('project-viewer-open');
   $('#projectMediaList')?.replaceChildren();
   if (active !== 'all' && sectionPageConfig(active)?.enabled !== false) { renderSectionPage(active); } else { grid.hidden = false; }
-  if (!fullscreen && scroll) $('#projects').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  if (!fullscreen && scroll) $('#projects').scrollIntoView({ behavior: 'auto', block: 'start' });
   if (fullscreen && Math.abs(scrollY - projectScrollY) > 2) scrollTo({ top: projectScrollY, behavior: 'auto' });
 }
 
@@ -1644,7 +1646,7 @@ addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') changeGallery(-1);
   if (event.key === 'ArrowRight') changeGallery(1);
 });
-$('#menu')?.addEventListener('click', () => ($('#projectsBlock') || $('#portfolioHeading'))?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }));
+$('#menu')?.addEventListener('click', () => ($('#projectsBlock') || $('#portfolioHeading'))?.scrollIntoView({ behavior: 'auto' }));
 
 // Compatibility marker for the V5 visual contract: classList.toggle('is-visible' remains represented while V5.14 reveals only once.
 function bindReveal() {
@@ -1817,7 +1819,7 @@ $('#sideMenu')?.addEventListener('click',(event)=>{if(event.target.closest('[dat
 $('#sideMenuLinks')?.addEventListener('click',(event)=>{
   const button=event.target.closest('.side-menu-link');if(!button)return;
   const filterId=button.dataset.filterId||'';if(filterId)select(filterId,false);
-  const target=document.querySelector(button.dataset.target||'');closeSideMenu();target?.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+  const target=document.querySelector(button.dataset.target||'');closeSideMenu();target?.scrollIntoView({behavior:'auto',block:'start'});
 });
 addEventListener('keydown',(event)=>{if(event.key==='Escape')closeSideMenu()});
 
@@ -1842,3 +1844,11 @@ load().catch((error) => {
   $('#empty').textContent = `Não foi possível carregar o portfólio: ${error.message}`;
   console.error(error);
 });
+
+// V6.1.2 — posição inicial determinística. Recarregar build/preview não herda
+// uma posição vertical antiga do navegador quando não existe deep-link real.
+addEventListener('pageshow', () => {
+  if (!STUDIOFRAME_INITIAL_HASH) {
+    requestAnimationFrame(() => scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+  }
+}, { once: true });

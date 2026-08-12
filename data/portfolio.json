@@ -1,6 +1,6 @@
 {
   "schema_version": 16,
-  "app_version": "6.1.1",
+  "app_version": "6.2.2",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -25,7 +25,56 @@
       "show_drive_sections": true
     },
     "hero": {
-      "slides": [],
+      "slides": [
+        {
+          "id": "hero-slide-msqkbwo4-q8hf",
+          "media_id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
+          "duration": 6,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        },
+        {
+          "id": "hero-slide-msqkcbsm-aes7",
+          "media_id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
+          "duration": 6,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        },
+        {
+          "id": "hero-slide-msqkcfjp-kje7",
+          "media_id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
+          "duration": 6,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        },
+        {
+          "id": "hero-slide-msqkcmqh-qeo5",
+          "media_id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+          "duration": 8,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        },
+        {
+          "id": "hero-slide-msqkcz6e-gyra",
+          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "duration": 8,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        },
+        {
+          "id": "hero-slide-msqkd1pn-qjxs",
+          "media_id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+          "duration": 8,
+          "transition_in": "fade",
+          "transition_out": "crossfade",
+          "intensity": 60
+        }
+      ],
       "media_id": "",
       "title": "",
       "subtitle": "",
@@ -135,18 +184,32 @@
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
             "label": "Cabeçalho",
             "type": "section_header",
-            "visible": true
+            "visible": false
           },
           {
             "core": true,
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
             "label": "Projetos da categoria",
             "type": "section_projects",
-            "visible": true
+            "visible": false
+          },
+          {
+            "id": "section-block-msqke5m7-qkiem",
+            "type": "auto_carousel",
+            "visible": false,
+            "core": false,
+            "label": "Carrossel de projetos",
+            "eyebrow": "Seleção",
+            "title": "Em destaque",
+            "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+            "motion_mode": "auto",
+            "speed": "medium",
+            "direction": "left",
+            "pause_on_hover": true
           }
         ],
         "body": "",
-        "enabled": true,
+        "enabled": false,
         "eyebrow": "Categoria",
         "title": "Banner mobile"
       },
@@ -359,7 +422,158 @@
       "ambient_strength": "medium"
     }
   },
-  "hero_assets": {},
+  "hero_assets": {
+    "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX": {
+      "id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
+      "title": "26_06_16_WebBanner_Rennova",
+      "description": "",
+      "type": "image",
+      "mime": "image/png",
+      "width": 2560,
+      "height": 367,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&export=download",
+      "external_url": "https://drive.google.com/file/d/1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/uc?id=1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX&export=download"
+      ],
+      "hero_autoplay": false,
+      "autoplay_grid": false
+    },
+    "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {
+      "id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
+      "title": "WEB-BANNER EVO",
+      "description": "",
+      "type": "image",
+      "mime": "image/png",
+      "width": 2560,
+      "height": 367,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&export=download",
+      "external_url": "https://drive.google.com/file/d/1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/uc?id=1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7&export=download"
+      ],
+      "hero_autoplay": false,
+      "autoplay_grid": false
+    },
+    "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke": {
+      "id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
+      "title": "WEB-BANNER",
+      "description": "",
+      "type": "image",
+      "mime": "image/png",
+      "width": 2560,
+      "height": 367,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&export=download",
+      "external_url": "https://drive.google.com/file/d/1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/uc?id=1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke&export=download"
+      ],
+      "hero_autoplay": false,
+      "autoplay_grid": false
+    },
+    "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej": {
+      "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+      "title": "06 Dermacast - LAILA FRIZON",
+      "description": "",
+      "type": "video",
+      "mime": "video/mp4",
+      "width": 1920,
+      "height": 1080,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+      "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
+      "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
+      ],
+      "hero_autoplay": true,
+      "autoplay_grid": true
+    },
+    "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja": {
+      "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+      "title": "Dermacast - JULIA PEPES_1",
+      "description": "",
+      "type": "video",
+      "mime": "video/mp4",
+      "width": 1920,
+      "height": 1080,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+      "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
+      "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
+      ],
+      "hero_autoplay": true,
+      "autoplay_grid": true
+    },
+    "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG": {
+      "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+      "title": "Dermacast - NATASHA RAMOS",
+      "description": "",
+      "type": "video",
+      "mime": "video/mp4",
+      "width": 1920,
+      "height": 1080,
+      "resource_key": "",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
+      "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+      "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
+      "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
+      ],
+      "hero_autoplay": true,
+      "autoplay_grid": true
+    }
+  },
   "filters": [
     {
       "id": "all",
@@ -17354,7 +17568,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.105
+    "duration_seconds": 7.504
   },
   "publication_ready": false,
   "public_validation": {
