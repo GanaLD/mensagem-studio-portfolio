@@ -343,7 +343,7 @@
             "speed": "medium",
             "title": "Em destaque",
             "type": "auto_carousel",
-            "visible": true
+            "visible": false
           }
         ],
         "body": "",
