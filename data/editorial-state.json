@@ -347,7 +347,7 @@
           }
         ],
         "body": "",
-        "enabled": true,
+        "enabled": false,
         "eyebrow": "Categoria",
         "title": "Banner mobile"
       }
