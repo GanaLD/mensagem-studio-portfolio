@@ -1,5 +1,5 @@
 {
-  "app_version": "6.2.2",
+  "app_version": "6.3.0",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -219,41 +219,71 @@
           "core": true,
           "id": "core-hero",
           "label": "Hero",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
           "type": "hero",
           "visible": true
         },
         {
           "core": true,
+          "eyebrow": "",
           "id": "core-intro",
           "label": "Introdução",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "title": "",
           "type": "intro",
-          "visible": true
+          "visible": false
         },
         {
           "core": true,
+          "eyebrow": "",
           "id": "core-lettering",
           "label": "Lettering",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "style": "inherit",
+          "title": "",
           "type": "lettering",
           "visible": true
         },
         {
           "core": true,
+          "eyebrow": "",
+          "grid_columns": "3",
           "id": "core-projects",
           "label": "Projetos",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "title": "",
           "type": "projects",
           "visible": true
         },
         {
           "core": true,
+          "eyebrow": "",
           "id": "core-about",
           "label": "Sobre",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "title": "",
           "type": "about",
           "visible": true
         },
         {
           "core": true,
+          "eyebrow": "",
           "id": "core-contact",
           "label": "Contato",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "title": "",
           "type": "contact",
           "visible": true
         }
