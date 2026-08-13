@@ -1,6 +1,6 @@
 {
   "schema_version": 16,
-  "app_version": "6.5.0",
+  "app_version": "7.1.0",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -14,6 +14,285 @@
     "public_url": "https://mensagemstudio.shop/"
   },
   "site_builder": {
+    "site_tree": {
+      "version": 3,
+      "root_id": "site",
+      "nodes": [
+        {
+          "id": "site-overview",
+          "parent_id": "site",
+          "kind": "panel",
+          "label": "Visão geral",
+          "tab": "workspace",
+          "order": 10
+        },
+        {
+          "id": "global",
+          "parent_id": "site",
+          "kind": "group",
+          "label": "GLOBAL",
+          "order": 20,
+          "tab": ""
+        },
+        {
+          "id": "global-header",
+          "parent_id": "global",
+          "kind": "component",
+          "label": "Header / Menu",
+          "tab": "header",
+          "order": 10
+        },
+        {
+          "id": "global-footer",
+          "parent_id": "global",
+          "kind": "component",
+          "label": "Footer / Contato / Sociais",
+          "tab": "footer",
+          "order": 20
+        },
+        {
+          "id": "global-design",
+          "parent_id": "global",
+          "kind": "component",
+          "label": "Identidade / Design",
+          "tab": "design",
+          "order": 30
+        },
+        {
+          "id": "pages",
+          "parent_id": "site",
+          "kind": "group",
+          "label": "PÁGINAS",
+          "order": 30,
+          "tab": ""
+        },
+        {
+          "id": "pages-manager",
+          "parent_id": "pages",
+          "kind": "section-editor",
+          "label": "Páginas / subpáginas",
+          "tab": "pagebuilder",
+          "order": 1
+        },
+        {
+          "id": "pages-sections",
+          "parent_id": "pages",
+          "kind": "section-editor",
+          "label": "Seções / Carrosséis",
+          "tab": "sections",
+          "order": 5
+        },
+        {
+          "id": "page-home",
+          "parent_id": "pages",
+          "kind": "group",
+          "label": "Home",
+          "order": 10,
+          "tab": ""
+        },
+        {
+          "id": "home-structure",
+          "parent_id": "page-home",
+          "kind": "section-editor",
+          "label": "Estrutura da Home",
+          "tab": "home",
+          "order": 10
+        },
+        {
+          "id": "home-grid",
+          "parent_id": "page-home",
+          "kind": "section-editor",
+          "label": "Grid principal",
+          "tab": "homegrid",
+          "order": 20
+        },
+        {
+          "id": "home-hero",
+          "parent_id": "page-home",
+          "kind": "section-editor",
+          "label": "Banner / Hero",
+          "tab": "hero",
+          "order": 30
+        },
+        {
+          "id": "page-categories",
+          "parent_id": "pages",
+          "kind": "group",
+          "label": "Categorias",
+          "order": 20,
+          "tab": ""
+        },
+        {
+          "id": "categories-pages",
+          "parent_id": "page-categories",
+          "kind": "section-editor",
+          "label": "Páginas e ordem",
+          "tab": "categorypages",
+          "order": 10
+        },
+        {
+          "id": "categories-projects",
+          "parent_id": "page-categories",
+          "kind": "section-editor",
+          "label": "Projetos e mídias",
+          "tab": "projects",
+          "order": 20
+        },
+        {
+          "id": "categories-drive",
+          "parent_id": "page-categories",
+          "kind": "section-editor",
+          "label": "Acervo do Drive",
+          "tab": "categories",
+          "order": 30
+        },
+        {
+          "id": "project-template",
+          "parent_id": "site",
+          "kind": "group",
+          "label": "TEMPLATE DE PROJETO",
+          "order": 40,
+          "tab": ""
+        },
+        {
+          "id": "project-presentation",
+          "parent_id": "project-template",
+          "kind": "section-editor",
+          "label": "Apresentação / mídia",
+          "tab": "projects",
+          "order": 10
+        },
+        {
+          "id": "publication-group",
+          "parent_id": "site",
+          "kind": "group",
+          "label": "PUBLICAÇÃO",
+          "order": 50,
+          "tab": ""
+        },
+        {
+          "id": "publication-main",
+          "parent_id": "publication-group",
+          "kind": "panel",
+          "label": "Publicar atualização",
+          "tab": "publication",
+          "order": 10
+        },
+        {
+          "id": "publication-diagnostics",
+          "parent_id": "publication-group",
+          "kind": "panel",
+          "label": "Diagnóstico",
+          "tab": "diagnostics",
+          "order": 20
+        }
+      ]
+    },
+    "global": {
+      "header": {
+        "height": 72,
+        "padding_x": 4,
+        "background_mode": "adaptive",
+        "background_opacity": 84,
+        "blur": 18,
+        "background_color": "#070707",
+        "text_color": "#f4f4ef",
+        "hover_color": "#ffffff",
+        "sticky": true,
+        "border": true,
+        "logo_visible": true,
+        "logo_label": "MENSAGEM STUDIO",
+        "font_family": "display",
+        "font_size_desktop": 10,
+        "font_size_mobile": 12,
+        "font_weight": "500",
+        "item_gap": 22,
+        "mobile_mode": "drawer",
+        "menu_items": [
+          {
+            "id": "home",
+            "label": "Home",
+            "target": "/",
+            "visible": false,
+            "order": 10,
+            "parent_id": ""
+          },
+          {
+            "id": "projects",
+            "label": "Projetos",
+            "target": "/#projectsBlock",
+            "visible": true,
+            "order": 20,
+            "parent_id": ""
+          },
+          {
+            "id": "about",
+            "label": "Sobre",
+            "target": "/#about",
+            "visible": true,
+            "order": 30,
+            "parent_id": ""
+          },
+          {
+            "id": "contact",
+            "label": "Contato",
+            "target": "/#contact",
+            "visible": true,
+            "order": 40,
+            "parent_id": ""
+          }
+        ]
+      },
+      "footer": {
+        "visible": true,
+        "studio_name": "MENSAGEM STUDIO",
+        "tagline": "Direção criativa, design e experiências visuais.",
+        "background_color": "#070707",
+        "text_color": "#f4f4ef",
+        "muted_color": "#8e918f",
+        "divider": true,
+        "alignment": "between",
+        "font_size": 12,
+        "icon_size": 20,
+        "gap": 18,
+        "whatsapp_visible": true,
+        "whatsapp_number": "5541999999937",
+        "whatsapp_label": "Contrate nossos serviços de design",
+        "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
+        "copyright": "© Mensagem Studio. Todos os direitos reservados.",
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/mensagem_studio/",
+            "visible": true,
+            "order": 10
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "url": "",
+            "visible": false,
+            "order": 20
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "url": "",
+            "visible": false,
+            "order": 30
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "url": "",
+            "visible": false,
+            "order": 40
+          }
+        ]
+      }
+    },
+    "custom_pages": {},
     "navigation": {
       "projects_label": "Projetos",
       "about_label": "Sobre",
@@ -22,7 +301,10 @@
       "menu_label": "Menu",
       "menu_title": "Navegação",
       "show_home_sections": true,
-      "show_drive_sections": true
+      "show_drive_sections": true,
+      "about_visible": true,
+      "contact_visible": true,
+      "projects_visible": true
     },
     "hero": {
       "slides": [
@@ -299,22 +581,17 @@
       "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
         "blocks": [
           {
-            "id": "section-block-msrlk0no-3uz0o",
-            "type": "auto_carousel",
-            "visible": true,
-            "core": false,
-            "label": "Carrossel de projetos",
-            "section_size": "normal",
-            "section_width": "full",
-            "section_background": "none",
-            "eyebrow": "Seleção",
-            "title": "Em destaque",
+            "body": "",
+            "body_size": "",
             "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-            "motion_mode": "auto",
-            "speed": "medium",
-            "direction": "left",
-            "pause_on_hover": true,
             "content_mode": "selected",
+            "core": false,
+            "direction": "left",
+            "eyebrow": "Seleção",
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
+            "id": "section-block-msrlk0no-3uz0o",
             "items": [
               {
                 "id": "section-item-msrlk674-0is",
@@ -349,18 +626,23 @@
                 "action_label": ""
               }
             ],
-            "body": "",
-            "font_family": "display",
-            "title_size": "",
-            "title_weight": "400",
-            "title_line_height": "",
-            "title_letter_spacing": "auto",
+            "label": "Carrossel de projetos",
+            "motion_mode": "auto",
+            "pause_on_hover": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "speed": "medium",
             "text_align": "left",
             "text_transform": "none",
+            "title": "Em destaque",
             "title_color": "text",
-            "eyebrow_size": "",
-            "eyebrow_color": "accent",
-            "body_size": ""
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "auto_carousel",
+            "visible": true
           },
           {
             "body_size": "",
@@ -434,180 +716,180 @@
         "title": "Banner mobile"
       },
       "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Banners",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Banners"
       },
       "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Campanha 007 Completa",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Campanha 007 Completa"
       },
       "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Carrossel",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Carrossel"
       },
       "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "DERMACAST",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "DERMACAST"
       },
       "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Edição de vídeos",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Edição de vídeos"
       },
       "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Lateral Banners",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Lateral Banners"
       },
       "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Lâminas para divulgação",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Lâminas para divulgação"
       },
       "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
-        "enabled": true,
-        "eyebrow": "Categoria",
-        "title": "Motion",
-        "body": "",
         "blocks": [
           {
+            "core": true,
             "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-header",
-            "type": "section_header",
             "label": "Cabeçalho",
-            "visible": true,
-            "core": true
+            "type": "section_header",
+            "visible": true
           },
           {
+            "core": true,
             "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-projects",
-            "type": "section_projects",
             "label": "Projetos da categoria",
-            "visible": true,
-            "core": true
+            "type": "section_projects",
+            "visible": true
           }
-        ]
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Motion"
       }
     },
     "animations": {
@@ -18623,7 +18905,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.161
+    "duration_seconds": 7.157
   },
   "publication_ready": false,
   "public_validation": {
