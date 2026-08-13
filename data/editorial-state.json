@@ -3,8 +3,8 @@
     "app_version": "7.2.0",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "43bb27dd026137a0e62e",
-    "saved_at": "2026-08-13T19:10:40.705162+00:00"
+    "revision": "764159a53c10e29ec1ac",
+    "saved_at": "2026-08-13T19:10:46.708863+00:00"
   },
   "app_version": "7.2.0",
   "collections": {},
@@ -471,7 +471,7 @@
         },
         {
           "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
-          "body_size": "",
+          "body_size": "23",
           "core": true,
           "eyebrow": "",
           "eyebrow_color": "accent",
