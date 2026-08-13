@@ -248,7 +248,7 @@
           "style": "inherit",
           "title": "",
           "type": "lettering",
-          "visible": true
+          "visible": false
         },
         {
           "core": true,
