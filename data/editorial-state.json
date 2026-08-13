@@ -3,8 +3,8 @@
     "app_version": "7.2.0",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "3bf2adfea0c03f9bb335",
-    "saved_at": "2026-08-13T19:09:15.489403+00:00"
+    "revision": "43bb27dd026137a0e62e",
+    "saved_at": "2026-08-13T19:10:24.300169+00:00"
   },
   "app_version": "7.2.0",
   "collections": {},
@@ -489,7 +489,7 @@
           "title_letter_spacing": "auto",
           "title_line_height": "",
           "title_size": "",
-          "title_weight": "400",
+          "title_weight": "500",
           "type": "contact",
           "visible": true
         }
