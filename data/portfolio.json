@@ -1,6 +1,6 @@
 {
   "schema_version": 16,
-  "app_version": "6.2.2",
+  "app_version": "6.4.0",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -11,7 +11,7 @@
     "accent_color": "#2FD59A",
     "site_url": "https://www.mensagemstudio.com.br/",
     "instagram_url": "https://www.instagram.com/mensagem_studio/",
-    "public_url": "https://portfolio.mensagemstudio.com.br/"
+    "public_url": "https://mensagemstudio.shop/"
   },
   "site_builder": {
     "navigation": {
@@ -87,7 +87,15 @@
       "kicker": "Portfólio · Direção criativa",
       "cta_label": "Explorar projeto",
       "scroll_label": "Role para explorar",
-      "rotation_seconds": 6.2
+      "rotation_seconds": 6.2,
+      "format": "cinema21",
+      "fit": "cover",
+      "reference_width": 2560,
+      "reference_height": 1080,
+      "frame_bg": "#090909",
+      "mobile_fit": "cover",
+      "mobile_position_x": 50,
+      "mobile_position_y": 50
     },
     "lettering": {
       "visible": true,
@@ -133,46 +141,147 @@
     "home": {
       "blocks": [
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
           "id": "core-hero",
           "label": "Hero",
           "type": "hero",
-          "visible": true
+          "visible": true,
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         },
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
+          "eyebrow": "",
           "id": "core-intro",
           "label": "Introdução",
+          "title": "",
           "type": "intro",
-          "visible": true
+          "visible": false,
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         },
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
+          "eyebrow": "",
           "id": "core-lettering",
           "label": "Lettering",
+          "style": "inherit",
+          "title": "",
           "type": "lettering",
-          "visible": true
+          "visible": false,
+          "direction": "left",
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         },
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
+          "eyebrow": "",
+          "grid_columns": "3",
           "id": "core-projects",
           "label": "Projetos",
+          "title": "",
           "type": "projects",
-          "visible": true
+          "visible": true,
+          "card_ratio": "4x3",
+          "grid_gap": "normal",
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         },
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
+          "eyebrow": "",
           "id": "core-about",
           "label": "Sobre",
+          "title": "",
           "type": "about",
-          "visible": true
+          "visible": true,
+          "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         },
         {
+          "section_size": "normal",
+          "section_width": "full",
+          "section_background": "none",
           "core": true,
+          "eyebrow": "",
           "id": "core-contact",
           "label": "Contato",
+          "title": "",
           "type": "contact",
-          "visible": true
+          "visible": true,
+          "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
+          "font_family": "display",
+          "title_size": "",
+          "title_weight": "400",
+          "title_line_height": "",
+          "title_letter_spacing": "auto",
+          "text_align": "left",
+          "text_transform": "none",
+          "title_color": "text",
+          "eyebrow_size": "",
+          "eyebrow_color": "accent",
+          "body_size": ""
         }
       ]
     },
@@ -184,28 +293,65 @@
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
             "label": "Cabeçalho",
             "type": "section_header",
-            "visible": false
+            "visible": false,
+            "font_family": "display",
+            "title_size": "",
+            "title_weight": "400",
+            "title_line_height": "",
+            "title_letter_spacing": "auto",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "eyebrow_size": "",
+            "eyebrow_color": "accent",
+            "body_size": "",
+            "section_width": "full",
+            "section_size": "normal",
+            "section_background": "none"
           },
           {
             "core": true,
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
             "label": "Projetos da categoria",
             "type": "section_projects",
-            "visible": false
+            "visible": false,
+            "grid_columns": "3",
+            "card_ratio": "4x3",
+            "grid_gap": "normal",
+            "section_width": "full",
+            "section_size": "normal",
+            "section_background": "none"
           },
           {
-            "id": "section-block-msqke5m7-qkiem",
+            "id": "section-block-msrkg12u-4gjhm",
             "type": "auto_carousel",
             "visible": false,
             "core": false,
             "label": "Carrossel de projetos",
+            "section_size": "normal",
+            "section_width": "full",
+            "section_background": "none",
             "eyebrow": "Seleção",
             "title": "Em destaque",
             "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
             "motion_mode": "auto",
             "speed": "medium",
             "direction": "left",
-            "pause_on_hover": true
+            "pause_on_hover": true,
+            "content_mode": "selected",
+            "items": [],
+            "body": "",
+            "font_family": "display",
+            "title_size": "",
+            "title_weight": "400",
+            "title_line_height": "",
+            "title_letter_spacing": "auto",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "eyebrow_size": "",
+            "eyebrow_color": "accent",
+            "body_size": ""
           }
         ],
         "body": "",
@@ -4604,6 +4750,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {
         "blocks": [
@@ -4668,6 +4819,11 @@
       "project_id": "media:1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
       "gallery_count": 1,
       "cover_media_id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
@@ -4743,6 +4899,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -4780,6 +4941,11 @@
       "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
       "gallery_count": 1,
       "cover_media_id": "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
@@ -4855,6 +5021,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -4892,6 +5063,11 @@
       "project_id": "media:1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb",
       "gallery_count": 1,
       "cover_media_id": "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb",
@@ -4967,6 +5143,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5004,6 +5185,11 @@
       "project_id": "media:11nGPVaeNIpB2vtubtneucmcf1rlilH2P",
       "gallery_count": 1,
       "cover_media_id": "11nGPVaeNIpB2vtubtneucmcf1rlilH2P",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "11nGPVaeNIpB2vtubtneucmcf1rlilH2P",
@@ -5079,6 +5265,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5116,6 +5307,11 @@
       "project_id": "media:1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O",
       "gallery_count": 1,
       "cover_media_id": "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O",
@@ -5191,6 +5387,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5228,6 +5429,11 @@
       "project_id": "media:1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u",
       "gallery_count": 1,
       "cover_media_id": "1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u",
@@ -5303,6 +5509,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5340,6 +5551,11 @@
       "project_id": "media:1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l",
       "gallery_count": 1,
       "cover_media_id": "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l",
@@ -5415,6 +5631,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5452,6 +5673,11 @@
       "project_id": "media:1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
       "gallery_count": 1,
       "cover_media_id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
@@ -5527,6 +5753,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5564,6 +5795,11 @@
       "project_id": "media:1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71",
       "gallery_count": 1,
       "cover_media_id": "1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71",
@@ -5639,6 +5875,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5676,6 +5917,11 @@
       "project_id": "media:1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z",
       "gallery_count": 1,
       "cover_media_id": "1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z",
@@ -5751,6 +5997,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5788,6 +6039,11 @@
       "project_id": "media:1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt",
       "gallery_count": 1,
       "cover_media_id": "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt",
@@ -5863,6 +6119,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -5900,6 +6161,11 @@
       "project_id": "media:1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll",
       "gallery_count": 1,
       "cover_media_id": "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll",
@@ -5975,6 +6241,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6012,6 +6283,11 @@
       "project_id": "media:1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
       "gallery_count": 1,
       "cover_media_id": "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
@@ -6087,6 +6363,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6124,6 +6405,11 @@
       "project_id": "media:1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo",
       "gallery_count": 1,
       "cover_media_id": "1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo",
@@ -6199,6 +6485,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6236,6 +6527,11 @@
       "project_id": "media:1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ",
       "gallery_count": 1,
       "cover_media_id": "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ",
@@ -6311,6 +6607,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6348,6 +6649,11 @@
       "project_id": "media:1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb",
       "gallery_count": 1,
       "cover_media_id": "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb",
@@ -6423,6 +6729,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6460,6 +6771,11 @@
       "project_id": "media:1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM",
       "gallery_count": 1,
       "cover_media_id": "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM",
@@ -6535,6 +6851,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6572,6 +6893,11 @@
       "project_id": "media:1PwxMtvQWJFDraxDLc2nntIprGgch-Ml_",
       "gallery_count": 1,
       "cover_media_id": "1PwxMtvQWJFDraxDLc2nntIprGgch-Ml_",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1PwxMtvQWJFDraxDLc2nntIprGgch-Ml_",
@@ -6647,6 +6973,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6684,6 +7015,11 @@
       "project_id": "media:128fOGCip0vtquE_3u4TsyMRrkpy_CiPO",
       "gallery_count": 1,
       "cover_media_id": "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO",
@@ -6759,6 +7095,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6796,6 +7137,11 @@
       "project_id": "media:1w55qe59iktNa4i5WdoknGNuFdtumThpB",
       "gallery_count": 1,
       "cover_media_id": "1w55qe59iktNa4i5WdoknGNuFdtumThpB",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1w55qe59iktNa4i5WdoknGNuFdtumThpB",
@@ -6871,6 +7217,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -6908,6 +7259,11 @@
       "project_id": "media:1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
       "gallery_count": 1,
       "cover_media_id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
@@ -6983,6 +7339,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7020,6 +7381,11 @@
       "project_id": "media:1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
       "gallery_count": 1,
       "cover_media_id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
@@ -7095,6 +7461,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7132,6 +7503,11 @@
       "project_id": "media:1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG",
       "gallery_count": 1,
       "cover_media_id": "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG",
@@ -7207,6 +7583,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7244,6 +7625,11 @@
       "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
       "gallery_count": 1,
       "cover_media_id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
@@ -7319,6 +7705,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7356,6 +7747,11 @@
       "project_id": "media:1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5",
       "gallery_count": 1,
       "cover_media_id": "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5",
@@ -7431,6 +7827,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7468,6 +7869,11 @@
       "project_id": "media:1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi",
       "gallery_count": 1,
       "cover_media_id": "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi",
@@ -7543,6 +7949,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7580,6 +7991,11 @@
       "project_id": "media:1tVJBX_1JckjczuocAaQDjLy3dfzpxf34",
       "gallery_count": 1,
       "cover_media_id": "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34",
@@ -7655,6 +8071,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7692,6 +8113,11 @@
       "project_id": "media:1_Oy_0P_2bFHdaO7hGbS9Ni2ZdmC3vW2U",
       "gallery_count": 1,
       "cover_media_id": "1_Oy_0P_2bFHdaO7hGbS9Ni2ZdmC3vW2U",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1_Oy_0P_2bFHdaO7hGbS9Ni2ZdmC3vW2U",
@@ -7767,6 +8193,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7804,6 +8235,11 @@
       "project_id": "media:1_ZbSYnsPuD5cRwNp-Z25oCETL5bNHymI",
       "gallery_count": 1,
       "cover_media_id": "1_ZbSYnsPuD5cRwNp-Z25oCETL5bNHymI",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1_ZbSYnsPuD5cRwNp-Z25oCETL5bNHymI",
@@ -7879,6 +8315,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -7916,6 +8357,11 @@
       "project_id": "media:1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4",
       "gallery_count": 1,
       "cover_media_id": "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4",
@@ -7991,6 +8437,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8028,6 +8479,11 @@
       "project_id": "media:19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN",
       "gallery_count": 1,
       "cover_media_id": "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN",
@@ -8103,6 +8559,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8140,6 +8601,11 @@
       "project_id": "media:1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc",
       "gallery_count": 1,
       "cover_media_id": "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc",
@@ -8215,6 +8681,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8252,6 +8723,11 @@
       "project_id": "media:1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B",
       "gallery_count": 1,
       "cover_media_id": "1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B",
@@ -8327,6 +8803,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8364,6 +8845,11 @@
       "project_id": "media:1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65",
       "gallery_count": 1,
       "cover_media_id": "1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65",
@@ -8439,6 +8925,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8476,6 +8967,11 @@
       "project_id": "media:1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk",
       "gallery_count": 1,
       "cover_media_id": "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk",
@@ -8551,6 +9047,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8588,6 +9089,11 @@
       "project_id": "media:1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V",
       "gallery_count": 1,
       "cover_media_id": "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V",
@@ -8663,6 +9169,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8700,6 +9211,11 @@
       "project_id": "media:1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9",
       "gallery_count": 1,
       "cover_media_id": "1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9",
@@ -8775,6 +9291,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8812,6 +9333,11 @@
       "project_id": "media:1UvMfBKsUlS2J3UvqBEmXYGVNp80ukxNp",
       "gallery_count": 1,
       "cover_media_id": "1UvMfBKsUlS2J3UvqBEmXYGVNp80ukxNp",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1UvMfBKsUlS2J3UvqBEmXYGVNp80ukxNp",
@@ -8887,6 +9413,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -8924,6 +9455,11 @@
       "project_id": "media:1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0",
       "gallery_count": 1,
       "cover_media_id": "1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0",
@@ -8999,6 +9535,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9036,6 +9577,11 @@
       "project_id": "media:1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
       "gallery_count": 1,
       "cover_media_id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
@@ -9111,6 +9657,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9148,6 +9699,11 @@
       "project_id": "media:1wmW18oM75UPX_o1wJSCd6SPznNiFEsaf",
       "gallery_count": 1,
       "cover_media_id": "1wmW18oM75UPX_o1wJSCd6SPznNiFEsaf",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1wmW18oM75UPX_o1wJSCd6SPznNiFEsaf",
@@ -9223,6 +9779,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9260,6 +9821,11 @@
       "project_id": "media:1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
       "gallery_count": 1,
       "cover_media_id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
@@ -9335,6 +9901,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9374,6 +9945,11 @@
       "project_id": "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9",
       "gallery_count": 4,
       "cover_media_id": "1UWfYKqFYALVgZ2K7VQRayeGi_0pGoVCs",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1UWfYKqFYALVgZ2K7VQRayeGi_0pGoVCs",
@@ -9524,6 +10100,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9563,6 +10144,11 @@
       "project_id": "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO",
       "gallery_count": 5,
       "cover_media_id": "1SsXywlZcgznu7z6VGO6PbR22l2rM1NFQ",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1SsXywlZcgznu7z6VGO6PbR22l2rM1NFQ",
@@ -9738,6 +10324,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9777,6 +10368,11 @@
       "project_id": "17ytoPQgi88br27-K9zt3tYzNd4FP945f",
       "gallery_count": 5,
       "cover_media_id": "1Juew5t2t6NJcJNYmElT25XKXT4_KMmYB",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Juew5t2t6NJcJNYmElT25XKXT4_KMmYB",
@@ -9952,6 +10548,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -9991,6 +10592,11 @@
       "project_id": "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8",
       "gallery_count": 6,
       "cover_media_id": "1Q706mede_kQ2-aRpPyxI_IDkyIGBJ2fU",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Q706mede_kQ2-aRpPyxI_IDkyIGBJ2fU",
@@ -10191,6 +10797,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10230,6 +10841,11 @@
       "project_id": "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_",
       "gallery_count": 5,
       "cover_media_id": "10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV",
@@ -10405,6 +11021,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10442,6 +11063,11 @@
       "project_id": "media:1zHbzd6zfn4dLTBfgrcET9N407_FVPZMR",
       "gallery_count": 1,
       "cover_media_id": "1zHbzd6zfn4dLTBfgrcET9N407_FVPZMR",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1zHbzd6zfn4dLTBfgrcET9N407_FVPZMR",
@@ -10517,6 +11143,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10554,6 +11185,11 @@
       "project_id": "media:1WwYWn6bvAapHen7qf-zx67pH3WwJsWit",
       "gallery_count": 1,
       "cover_media_id": "1WwYWn6bvAapHen7qf-zx67pH3WwJsWit",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1WwYWn6bvAapHen7qf-zx67pH3WwJsWit",
@@ -10629,6 +11265,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10666,6 +11307,11 @@
       "project_id": "media:1WAxMHZ9KuzlGtbnfXxQvhMq-YnJBg7CB",
       "gallery_count": 1,
       "cover_media_id": "1WAxMHZ9KuzlGtbnfXxQvhMq-YnJBg7CB",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1WAxMHZ9KuzlGtbnfXxQvhMq-YnJBg7CB",
@@ -10741,6 +11387,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10778,6 +11429,11 @@
       "project_id": "media:1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
       "gallery_count": 1,
       "cover_media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
@@ -10853,6 +11509,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -10890,6 +11551,11 @@
       "project_id": "media:1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
       "gallery_count": 1,
       "cover_media_id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
@@ -10965,6 +11631,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11002,6 +11673,11 @@
       "project_id": "media:1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
       "gallery_count": 1,
       "cover_media_id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
@@ -11077,6 +11753,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11114,6 +11795,11 @@
       "project_id": "media:1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
       "gallery_count": 1,
       "cover_media_id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
@@ -11189,6 +11875,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11226,6 +11917,11 @@
       "project_id": "media:1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
       "gallery_count": 1,
       "cover_media_id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
@@ -11301,6 +11997,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11338,6 +12039,11 @@
       "project_id": "media:1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
       "gallery_count": 1,
       "cover_media_id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
@@ -11413,6 +12119,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11450,6 +12161,11 @@
       "project_id": "media:1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
       "gallery_count": 1,
       "cover_media_id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
@@ -11525,6 +12241,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11562,6 +12283,11 @@
       "project_id": "media:1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
       "gallery_count": 1,
       "cover_media_id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
@@ -11637,6 +12363,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11674,6 +12405,11 @@
       "project_id": "media:1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
       "gallery_count": 1,
       "cover_media_id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
@@ -11749,6 +12485,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11786,6 +12527,11 @@
       "project_id": "media:1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
       "gallery_count": 1,
       "cover_media_id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
@@ -11861,6 +12607,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -11898,6 +12649,11 @@
       "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
       "gallery_count": 1,
       "cover_media_id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
@@ -11973,6 +12729,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12010,6 +12771,11 @@
       "project_id": "media:12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
       "gallery_count": 1,
       "cover_media_id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
@@ -12085,6 +12851,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12122,6 +12893,11 @@
       "project_id": "media:1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
       "gallery_count": 1,
       "cover_media_id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
@@ -12197,6 +12973,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12234,6 +13015,11 @@
       "project_id": "media:1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
       "gallery_count": 1,
       "cover_media_id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
@@ -12309,6 +13095,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12346,6 +13137,11 @@
       "project_id": "media:1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6",
       "gallery_count": 1,
       "cover_media_id": "1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6",
@@ -12421,6 +13217,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12458,6 +13259,11 @@
       "project_id": "media:1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx",
       "gallery_count": 1,
       "cover_media_id": "1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx",
@@ -12533,6 +13339,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12570,6 +13381,11 @@
       "project_id": "media:1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU",
       "gallery_count": 1,
       "cover_media_id": "1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU",
@@ -12645,6 +13461,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12682,6 +13503,11 @@
       "project_id": "media:1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
       "gallery_count": 1,
       "cover_media_id": "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
@@ -12757,6 +13583,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12794,6 +13625,11 @@
       "project_id": "media:1pY6O_EEYky4cJ3hcbRCSsnxOgL-lpmJ7",
       "gallery_count": 1,
       "cover_media_id": "1pY6O_EEYky4cJ3hcbRCSsnxOgL-lpmJ7",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1pY6O_EEYky4cJ3hcbRCSsnxOgL-lpmJ7",
@@ -12869,6 +13705,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -12906,6 +13747,11 @@
       "project_id": "media:1ddx1aV_dhomrJVWdpgefrwg7PAmz-jba",
       "gallery_count": 1,
       "cover_media_id": "1ddx1aV_dhomrJVWdpgefrwg7PAmz-jba",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1ddx1aV_dhomrJVWdpgefrwg7PAmz-jba",
@@ -12981,6 +13827,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13018,6 +13869,11 @@
       "project_id": "media:1PSTjNTTNBWLxMlA4jmKevWZd1tvk4X_T",
       "gallery_count": 1,
       "cover_media_id": "1PSTjNTTNBWLxMlA4jmKevWZd1tvk4X_T",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1PSTjNTTNBWLxMlA4jmKevWZd1tvk4X_T",
@@ -13093,6 +13949,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13130,6 +13991,11 @@
       "project_id": "media:1Tw0hVydoZ_djv-hnqZN5n5KvmRMRBUXZ",
       "gallery_count": 1,
       "cover_media_id": "1Tw0hVydoZ_djv-hnqZN5n5KvmRMRBUXZ",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Tw0hVydoZ_djv-hnqZN5n5KvmRMRBUXZ",
@@ -13205,6 +14071,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13242,6 +14113,11 @@
       "project_id": "media:1k3PlBr6-sOHhKMPWfQYx6ENZImteaxkY",
       "gallery_count": 1,
       "cover_media_id": "1k3PlBr6-sOHhKMPWfQYx6ENZImteaxkY",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1k3PlBr6-sOHhKMPWfQYx6ENZImteaxkY",
@@ -13317,6 +14193,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13354,6 +14235,11 @@
       "project_id": "media:1tH7gMS5Nfay3Wa694OI4Fut2HxiNzpou",
       "gallery_count": 1,
       "cover_media_id": "1tH7gMS5Nfay3Wa694OI4Fut2HxiNzpou",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1tH7gMS5Nfay3Wa694OI4Fut2HxiNzpou",
@@ -13429,6 +14315,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13466,6 +14357,11 @@
       "project_id": "media:1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
       "gallery_count": 1,
       "cover_media_id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
@@ -13541,6 +14437,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13578,6 +14479,11 @@
       "project_id": "media:1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
       "gallery_count": 1,
       "cover_media_id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
@@ -13653,6 +14559,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13690,6 +14601,11 @@
       "project_id": "media:1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
       "gallery_count": 1,
       "cover_media_id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
@@ -13765,6 +14681,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13802,6 +14723,11 @@
       "project_id": "media:1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
       "gallery_count": 1,
       "cover_media_id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
@@ -13877,6 +14803,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -13914,6 +14845,11 @@
       "project_id": "media:1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
       "gallery_count": 1,
       "cover_media_id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
@@ -13989,6 +14925,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -14026,6 +14967,11 @@
       "project_id": "media:1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
       "gallery_count": 1,
       "cover_media_id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
@@ -14101,6 +15047,11 @@
       "project_entity_featured": false,
       "project_entity_hero": false,
       "project_cover_media_id": "",
+      "project_cover_ratio": "inherit",
+      "project_cover_fit": "cover",
+      "project_cover_position_x": 50.0,
+      "project_cover_position_y": 50.0,
+      "project_cover_bg": "#111111",
       "project_entity_case_builder": {},
       "case_builder": {},
       "path": [
@@ -14138,6 +15089,11 @@
       "project_id": "media:1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
       "gallery_count": 1,
       "cover_media_id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
+      "cover_ratio": "inherit",
+      "cover_fit": "cover",
+      "cover_position_x": 50.0,
+      "cover_position_y": 50.0,
+      "cover_bg": "#111111",
       "gallery_items": [
         {
           "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
@@ -17568,7 +18524,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.504
+    "duration_seconds": 11.368
   },
   "publication_ready": false,
   "public_validation": {

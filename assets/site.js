@@ -95,11 +95,21 @@ function renderSiteBuilder() {
   const heroNode = $('#hero');
   if (heroNode) {
     heroNode.dataset.height = hero.height || 'fullscreen';
+    heroNode.dataset.format = hero.format || 'cinema21';
+    heroNode.dataset.fit = hero.fit || 'cover';
+    heroNode.dataset.mobileFit = hero.mobile_fit || hero.fit || 'cover';
     heroNode.dataset.textPosition = hero.text_position || 'bottom-left';
     heroNode.dataset.overlay = hero.overlay || 'medium';
     heroNode.dataset.effect = hero.effect || 'cinematic';
+    const refW=Math.max(640,Number(hero.reference_width||2560));
+    const refH=Math.max(320,Number(hero.reference_height||1080));
+    heroNode.style.setProperty('--hero-reference-ratio', String(refW/refH));
+    heroNode.style.setProperty('--hero-reference-height-vw', `${(refH/refW)*100}vw`);
+    heroNode.style.setProperty('--hero-frame-bg', hero.frame_bg || '#090909');
     heroNode.style.setProperty('--hero-position-x', `${Math.max(0, Math.min(100, Number(hero.position_x ?? 50)))}%`);
     heroNode.style.setProperty('--hero-position-y', `${Math.max(0, Math.min(100, Number(hero.position_y ?? 50)))}%`);
+    heroNode.style.setProperty('--hero-mobile-position-x', `${Math.max(0, Math.min(100, Number(hero.mobile_position_x ?? hero.position_x ?? 50)))}%`);
+    heroNode.style.setProperty('--hero-mobile-position-y', `${Math.max(0, Math.min(100, Number(hero.mobile_position_y ?? hero.position_y ?? 50)))}%`);
   }
   if ($('#heroTitle')) $('#heroTitle').textContent = hero.title || identity.portfolio_title || 'Portfólio';
   if ($('#heroDescription')) $('#heroDescription').textContent = hero.subtitle || identity.description || '';
@@ -161,21 +171,15 @@ const CORE_HOME_BLOCK_IDS = {
 
 function publicHomeBlocks() {
   const defaults = [
-    { id:'core-hero', type:'hero', visible:true, core:true },
-    { id:'core-intro', type:'intro', visible:true, core:true },
-    { id:'core-lettering', type:'lettering', visible:true, core:true },
-    { id:'core-projects', type:'projects', visible:true, core:true },
-    { id:'core-about', type:'about', visible:true, core:true },
-    { id:'core-contact', type:'contact', visible:true, core:true },
+    { id:'core-hero', type:'hero', visible:true, core:true, section_size:'viewport', section_width:'full' },
+    { id:'core-intro', type:'intro', visible:true, core:true, section_size:'normal', section_width:'full' },
+    { id:'core-lettering', type:'lettering', visible:true, core:true, section_size:'normal', section_width:'full' },
+    { id:'core-projects', type:'projects', visible:true, core:true, section_size:'normal', section_width:'full', grid_columns:'3' },
+    { id:'core-about', type:'about', visible:true, core:true, section_size:'normal', section_width:'full' },
+    { id:'core-contact', type:'contact', visible:true, core:true, section_size:'normal', section_width:'full' },
   ];
-  const configured = Array.isArray(DATA.site_builder?.home?.blocks)
-    ? DATA.site_builder.home.blocks.filter((block) => block && block.type).map((block) => ({ ...block }))
-    : [];
-  if (!configured.length) return defaults;
-  defaults.forEach((core) => {
-    if (!configured.some((block) => block.id === core.id)) configured.push(core);
-  });
-  return configured;
+  if (!Array.isArray(DATA.site_builder?.home?.blocks)) return defaults;
+  return DATA.site_builder.home.blocks.filter((block) => block && block.type).map((block) => ({ section_size:'normal', section_width:'full', section_background:'none', ...block }));
 }
 
 function projectForBlock(ref = '') {
@@ -285,16 +289,12 @@ function createSplitBlock(block) {
 }
 
 function createHorizontalProjectsBlock(block) {
+  const projects = editorialProjectsForBlock(block, 12);
+  if (!projects.length) return null;
   const section = document.createElement('section');
   section.className = 'modular-block block-horizontal reveal';
   section.append(blockHeading(block, 'Projetos em destaque'));
   const track = document.createElement('div'); track.className = 'horizontal-project-track';
-  const categoryId = block.category_id || 'all';
-  const projects = (DATA.projects || []).filter((project) => {
-    if (project.hidden) return false;
-    if (categoryId === 'all') return true;
-    return String(project.section_id || project.physical_category_id || '') === String(categoryId);
-  }).slice(0, 12);
   projects.forEach((project, index) => track.append(card(project, index)));
   section.append(track);
   return section;
@@ -309,7 +309,7 @@ function modularProjectsForCategory(categoryId = 'all', limit = 12) {
 }
 
 function createAutoCarouselBlock(block) {
-  const projects = modularProjectsForCategory(block.category_id || 'all', 8);
+  const projects = editorialProjectsForBlock(block, 8);
   if (!projects.length) return null;
   const section = document.createElement('section');
   section.className = 'modular-block block-auto-carousel reveal';
@@ -483,6 +483,7 @@ function editorialProjectFromItem(item = {}) {
 function editorialProjectsForBlock(block, fallbackLimit = 12) {
   const configured = Array.isArray(block.items) ? block.items.map(editorialProjectFromItem).filter(Boolean) : [];
   if (configured.length) return configured;
+  if (block.content_mode === 'selected') return [];
   return modularProjectsForCategory(block.category_id || 'all', fallbackLimit);
 }
 
@@ -564,6 +565,81 @@ function createSpacerBlock(block) {
   const section=document.createElement('section');section.className=`editorial-spacer size-${block.size||'medium'} transition-${block.transition||'atmosphere'}`;section.setAttribute('aria-hidden',block.title?'false':'true');if(block.title){const span=document.createElement('span');span.textContent=block.title;section.append(span)}return section;
 }
 
+
+function applyHomeBlockTypography(node, block = {}) {
+  if (!node) return;
+  node.classList.add('sf-home-block');
+  const fontMap = {
+    display: 'var(--display)',
+    body: 'var(--body)',
+    system: 'Arial, Helvetica, sans-serif',
+    serif: 'Georgia, Times New Roman, serif',
+    mono: 'ui-monospace, SFMono-Regular, Consolas, monospace',
+  };
+  const colorMap = { text:'var(--text)', accent:'var(--accent)', muted:'var(--muted)' };
+  const setOrRemove = (name, value) => {
+    if (value === undefined || value === null || value === '' || value === 'auto') node.style.removeProperty(name);
+    else node.style.setProperty(name, value);
+  };
+  node.style.setProperty('--sf-heading-font', fontMap[block.font_family || 'display'] || fontMap.display);
+  node.style.setProperty('--sf-heading-weight', String(block.title_weight || '400'));
+  node.style.setProperty('--sf-text-align', block.text_align || 'left');
+  node.style.setProperty('--sf-text-transform', block.text_transform || 'none');
+  node.style.setProperty('--sf-title-color', colorMap[block.title_color || 'text'] || colorMap.text);
+  node.style.setProperty('--sf-eyebrow-color', colorMap[block.eyebrow_color || 'accent'] || colorMap.accent);
+  setOrRemove('--sf-title-size', block.title_size ? `${block.title_size}px` : '');
+  setOrRemove('--sf-eyebrow-size', block.eyebrow_size ? `${block.eyebrow_size}px` : '');
+  setOrRemove('--sf-body-size', block.body_size ? `${block.body_size}px` : '');
+  setOrRemove('--sf-title-line-height', block.title_line_height || '');
+  setOrRemove('--sf-title-letter-spacing', block.title_letter_spacing || '');
+}
+
+function applyHomeSectionFrame(node, block = {}) {
+  if (!node) return;
+  [...node.classList].filter((name)=>name.startsWith('sf-section-')||name.startsWith('sf-grid-cols-')||name.startsWith('sf-card-ratio-')||name.startsWith('sf-grid-gap-')).forEach((name)=>node.classList.remove(name));
+  node.classList.add(`sf-section-width-${block.section_width || 'full'}`);
+  node.classList.add(`sf-section-size-${block.section_size || 'normal'}`);
+  node.classList.add(`sf-section-bg-${block.section_background || 'none'}`);
+  if (block.type === 'projects') {
+    node.classList.add(`sf-grid-cols-${block.grid_columns || '3'}`);
+    node.classList.add(`sf-card-ratio-${block.card_ratio || '4x3'}`);
+    node.classList.add(`sf-grid-gap-${block.grid_gap || 'normal'}`);
+  }
+  applyHomeBlockTypography(node, block);
+}
+
+function applyCoreBlockOverrides(node, block, builder) {
+  const explicit = (field, fallback='') => Object.prototype.hasOwnProperty.call(block, field) ? block[field] : fallback;
+  if (!node) return;
+  const identity = DATA.identity || {};
+  if (block.type === 'intro') {
+    const small=node.querySelector('small'); const text=node.querySelector('#heroLine');
+    if (small) small.textContent = explicit('eyebrow', identity.studio_name || 'Mensagem Studio');
+    if (text) text.textContent = explicit('title', identity.hero_line || '');
+  }
+  if (block.type === 'lettering') {
+    const cfg=builder.lettering||{}; const eyebrow=node.querySelector('#letteringEyebrow'); const primary=node.querySelector('#letteringText'); const clone=node.querySelector('#letteringClone');
+    const value=explicit('title', cfg.text || identity.hero_line || '');
+    if (eyebrow) eyebrow.textContent = explicit('eyebrow', cfg.eyebrow || identity.studio_name || 'Mensagem Studio');
+    if (primary) primary.textContent=value; if (clone) clone.textContent=value;
+    node.dataset.style = explicit('style', cfg.style || 'split') === 'inherit' ? (cfg.style || 'split') : explicit('style', cfg.style || 'split');
+    node.dataset.direction = explicit('direction', cfg.direction || 'left');
+  }
+  if (block.type === 'projects') {
+    const cfg=builder.projects||{}; const e=node.querySelector('#projectsEyebrow'); const t=node.querySelector('#projectsTitle');
+    if(e)e.textContent=explicit('eyebrow',cfg.eyebrow||'Portfólio selecionado'); if(t)t.textContent=explicit('title',cfg.title||'Projetos');
+    node.querySelector('#portfolioHeading')?.removeAttribute('hidden'); node.querySelector('#filters')?.removeAttribute('hidden'); node.querySelector('#projects')?.removeAttribute('hidden'); $('#menu')?.removeAttribute('hidden');
+  }
+  if (block.type === 'about') {
+    const cfg=builder.about||{}; const e=node.querySelector('#aboutEyebrow'); const t=node.querySelector('#aboutTitle'); const p=node.querySelector('#aboutBody');
+    if(e)e.textContent=explicit('eyebrow',cfg.eyebrow||'Mensagem Studio'); if(t)t.textContent=explicit('title',cfg.title||''); if(p)p.textContent=explicit('body',cfg.body||'');
+  }
+  if (block.type === 'contact') {
+    const cfg=builder.contact||{}; const e=node.querySelector('#contactEyebrow'); const t=node.querySelector('#contactTitle'); const p=node.querySelector('#contactBody');
+    if(e)e.textContent=explicit('eyebrow',cfg.eyebrow||'Contato'); if(t)t.textContent=explicit('title',cfg.title||''); if(p)p.textContent=explicit('body',cfg.body||'');
+  }
+}
+
 function createCustomHomeBlock(block) {
   if (block.visible === false) return null;
   let node = null;
@@ -584,7 +660,7 @@ function createCustomHomeBlock(block) {
   if (block.type === 'text') node = createTextBlock(block);
   if (block.type === 'lettering_custom') node = createCustomLetteringBlock(block);
   if (block.type === 'video_feature') node = createVideoFeatureBlock(block);
-  if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance'); }
+  if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance'); applyHomeSectionFrame(node, block); }
   return node;
 }
 
@@ -592,6 +668,7 @@ function renderHomeComposition() {
   const main = $('#top');
   if (!main) return;
   main.querySelectorAll('.home-modular-instance').forEach((node) => node.remove());
+  Object.values(CORE_HOME_BLOCK_IDS).forEach((id)=>{const node=document.getElementById(id);if(node)node.hidden=true;});
   const builder = DATA.site_builder || {};
   const projectsCfg = builder.projects || {};
   const aboutCfg = builder.about || {};
@@ -603,12 +680,9 @@ function renderHomeComposition() {
       const node = document.getElementById(coreId);
       if (!node) return;
       main.append(node);
-      const specificVisible = block.type === 'projects' ? projectsCfg.visible !== false
-        : block.type === 'about' ? aboutCfg.visible !== false
-        : block.type === 'contact' ? contactCfg.visible !== false
-        : block.type === 'lettering' ? letteringCfg.visible !== false
-        : true;
-      node.hidden = block.visible === false || !specificVisible;
+      node.hidden = block.visible === false;
+      applyHomeSectionFrame(node, block);
+      applyCoreBlockOverrides(node, block, builder);
       return;
     }
     const custom = createCustomHomeBlock(block);
@@ -623,7 +697,6 @@ function renderHomeComposition() {
 }
 
 
-
 function closeSideMenu() {
   const menu=$('#sideMenu');if(!menu)return;menu.classList.remove('is-open');menu.setAttribute('aria-hidden','true');$('#siteMenuTrigger')?.setAttribute('aria-expanded','false');document.body.classList.remove('menu-open');
 }
@@ -636,7 +709,10 @@ function renderSideNavigation() {
   $('#siteMenuTrigger')?.toggleAttribute('hidden',navigation.side_menu_enabled===false);
   root.replaceChildren();
   const addLink=(label,target,filterId='')=>{const button=document.createElement('button');button.type='button';button.className='side-menu-link';button.innerHTML=`<span>${esc(label)}</span><b>↗</b>`;button.dataset.target=target||'';if(filterId)button.dataset.filterId=filterId;root.append(button)};
-  addLink('Home','#hero');
+  const firstHomeBlock=publicHomeBlocks().find((block)=>block.visible!==false);
+  const firstCore=firstHomeBlock ? CORE_HOME_BLOCK_IDS[firstHomeBlock.type] : '';
+  const firstTarget=firstHomeBlock ? (firstCore?`#${firstCore}`:`#home-${String(firstHomeBlock.id||firstHomeBlock.type).replace(/[^a-zA-Z0-9_-]+/g,'-')}`) : '#top';
+  addLink('Home',firstTarget);
   if(navigation.show_home_sections!==false){
     publicHomeBlocks().forEach((block)=>{
       if(block.visible===false||block.type==='hero')return;
@@ -682,11 +758,12 @@ function sectionPageConfig(sectionId) {
   };
 }
 
-function createSectionHeaderBlock(sectionId, page) {
+function createSectionHeaderBlock(sectionId, page, block = {}) {
   const section = sectionForId(sectionId);
   if (!section) return null;
   const node = document.createElement('section');
   node.className = 'section-page-header reveal';
+  applyHomeSectionFrame(node, block);
   const meta = document.createElement('div'); meta.className = 'section-page-meta';
   const eyebrow = document.createElement('small'); eyebrow.textContent = page.eyebrow || 'Categoria';
   const count = document.createElement('span'); const total = projectsForSection(sectionId).length; count.textContent = `${total} ${total === 1 ? 'projeto' : 'projetos'}`;
@@ -697,9 +774,9 @@ function createSectionHeaderBlock(sectionId, page) {
   return node;
 }
 
-function createSectionProjectsBlock(sectionId) {
+function createSectionProjectsBlock(sectionId, block = {}) {
   const node = document.createElement('section');
-  node.className = 'section-page-projects reveal';
+  node.className = `section-page-projects reveal sf-grid-cols-${block.grid_columns || '3'} sf-card-ratio-${block.card_ratio || '4x3'} sf-grid-gap-${block.grid_gap || 'normal'} sf-section-width-${block.section_width || 'full'} sf-section-size-${block.section_size || 'normal'} sf-section-bg-${block.section_background || 'none'}`;
   const list = projectsForSection(sectionId);
   const grid = document.createElement('div'); grid.className = 'grid section-page-grid';
   list.forEach((project, index) => grid.append(card(project, index)));
@@ -730,8 +807,8 @@ function renderSectionPage(sectionId) {
   page.blocks.forEach((block) => {
     if (block.visible === false) return;
     let node = null;
-    if (block.type === 'section_header') node = createSectionHeaderBlock(sectionId, page);
-    else if (block.type === 'section_projects') node = createSectionProjectsBlock(sectionId);
+    if (block.type === 'section_header') node = createSectionHeaderBlock(sectionId, page, block);
+    else if (block.type === 'section_projects') node = createSectionProjectsBlock(sectionId, block);
     else node = createSectionCustomBlock(sectionId, block);
     if (node) { node.dataset.sectionBlockId = block.id || ''; root.append(node); }
   });
@@ -1154,6 +1231,19 @@ function bindCardVideoPreview(button, video) {
   observer.observe(button);
 }
 
+
+const COVER_RATIOS = { '4x3':'4 / 3', '16x9':'16 / 9', '21x9':'21 / 9', '1x1':'1 / 1', '4x5':'4 / 5' };
+function applyProjectCoverGeometry(project, media, image) {
+  const ratio = COVER_RATIOS[String(project?.cover_ratio || '')];
+  if (ratio && media) media.style.aspectRatio = ratio;
+  if (media) media.style.background = project?.cover_bg || '#121212';
+  if (image?.style) {
+    image.style.objectFit = project?.cover_fit === 'contain' ? 'contain' : 'cover';
+    image.style.objectPosition = `${Math.max(0,Math.min(100,Number(project?.cover_position_x ?? 50)))}% ${Math.max(0,Math.min(100,Number(project?.cover_position_y ?? 50)))}%`;
+    image.style.background = project?.cover_bg || '#121212';
+  }
+}
+
 function card(project, index) {
   const onOpen = arguments.length > 2 ? arguments[2] : null;
   const button = document.createElement('button');
@@ -1176,6 +1266,7 @@ function card(project, index) {
 
   const cardPoster = poster(project);
   cardPoster.classList?.add('card-poster');
+  applyProjectCoverGeometry(project, media, cardPoster);
   mediaInner.append(cardPoster);
   let previewVideo = null;
   if (project.type === 'video' && project.media_url && visualLayout.card_video_preview !== false) {
@@ -1407,6 +1498,41 @@ function renderLegacyMediaStream(project,items,captions=true,listNode=null){
   items.forEach((item,index)=>{const figure=caseMediaViewport(project,item,items,{caption:captions,className:'project-media-item reveal'});if(!figure)return;figure.style.setProperty('--reveal-delay',`${Math.min(index,5)*45}ms`);list.append(figure);});
 }
 
+function applyCaseHeaderPresentation(project, block = {}) {
+  const head=$('#projectDetailHead');
+  if(!head)return;
+  const eyebrow=$('#projectEyebrow');
+  const title=$('#projectDetailTitle');
+  const description=$('#projectDetailDescription');
+  const introMedia=$('#projectDetailIntroMedia');
+  const fallbackEyebrow=project.section_title || project.category || 'Projeto';
+  const fallbackTitle=project.gallery_title || project.title || 'Projeto';
+  const fallbackDescription=project.description || '';
+  if(eyebrow) eyebrow.textContent=Object.prototype.hasOwnProperty.call(block,'eyebrow') ? (block.eyebrow||'') : fallbackEyebrow;
+  if(title) title.textContent=Object.prototype.hasOwnProperty.call(block,'title') ? (block.title||fallbackTitle) : fallbackTitle;
+  if(description){
+    const value=Object.prototype.hasOwnProperty.call(block,'body') ? (block.body||'') : fallbackDescription;
+    description.textContent=value;
+    description.hidden=!value;
+  }
+  if(introMedia) introMedia.hidden = block.show_cover===false || block.header_layout==='copy-only' || !introMedia.children.length;
+  head.dataset.headerLayout=block.header_layout || 'media-copy';
+  head.dataset.bodyWidth=block.body_width || 'medium';
+  const fontMap={display:'var(--display)',body:'var(--body)',system:'Arial, Helvetica, sans-serif',serif:'Georgia, Times New Roman, serif',mono:'ui-monospace, SFMono-Regular, Consolas, monospace'};
+  const colorMap={text:'var(--text)',accent:'var(--accent)',muted:'var(--muted)'};
+  const set=(name,value)=>{if(value===undefined||value===null||value===''||value==='auto')head.style.removeProperty(name);else head.style.setProperty(name,value);};
+  head.style.setProperty('--case-heading-font',fontMap[block.font_family||'display']||fontMap.display);
+  head.style.setProperty('--case-heading-weight',String(block.title_weight||'400'));
+  head.style.setProperty('--case-text-align',block.text_align||'left');
+  head.style.setProperty('--case-title-color',colorMap[block.title_color||'text']||colorMap.text);
+  head.style.setProperty('--case-eyebrow-color',colorMap[block.eyebrow_color||'accent']||colorMap.accent);
+  set('--case-title-size',block.title_size?`${block.title_size}px`:'');
+  set('--case-body-size',block.body_size?`${block.body_size}px`:'');
+  set('--case-eyebrow-size',block.eyebrow_size?`${block.eyebrow_size}px`:'');
+  set('--case-title-line-height',block.title_line_height||'');
+  set('--case-title-letter-spacing',block.title_letter_spacing||'');
+}
+
 function renderProjectCase(project,items){
   const root=$('#projectCaseBlocks'); const head=$('#projectDetailHead'); const stream=$('#projectMediaList'); if(!root||!head||!stream)return;
   root.replaceChildren(); head.hidden=false; stream.hidden=false; stream.replaceChildren();
@@ -1414,7 +1540,7 @@ function renderProjectCase(project,items){
     // Keep the two legacy/core DOM nodes attached even when hidden. Their IDs
     // are reused on the next project open; detaching a hidden core node would
     // make subsequent viewer opens unable to find it with querySelector.
-    if(block.type==='case_header'){head.hidden=block.visible===false;root.append(head);return;}
+    if(block.type==='case_header'){head.hidden=block.visible===false;applyCaseHeaderPresentation(project,block);root.append(head);return;}
     if(block.type==='media_stream'){
       stream.hidden=block.visible===false;
       if(block.visible===false) stream.replaceChildren();
