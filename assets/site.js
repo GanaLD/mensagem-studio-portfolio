@@ -98,6 +98,7 @@ function renderSiteBuilder() {
     heroNode.dataset.format = hero.format || 'cinema21';
     heroNode.dataset.fit = hero.fit || 'cover';
     heroNode.dataset.mobileFit = hero.mobile_fit || hero.fit || 'cover';
+    heroNode.dataset.mobileFormat = hero.mobile_format || 'portrait45';
     heroNode.dataset.textPosition = hero.text_position || 'bottom-left';
     heroNode.dataset.overlay = hero.overlay || 'medium';
     heroNode.dataset.effect = hero.effect || 'cinematic';
@@ -110,6 +111,10 @@ function renderSiteBuilder() {
     heroNode.style.setProperty('--hero-position-y', `${Math.max(0, Math.min(100, Number(hero.position_y ?? 50)))}%`);
     heroNode.style.setProperty('--hero-mobile-position-x', `${Math.max(0, Math.min(100, Number(hero.mobile_position_x ?? hero.position_x ?? 50)))}%`);
     heroNode.style.setProperty('--hero-mobile-position-y', `${Math.max(0, Math.min(100, Number(hero.mobile_position_y ?? hero.position_y ?? 50)))}%`);
+    const mobileRefW=Math.max(480,Number(hero.mobile_reference_width||1080));
+    const mobileRefH=Math.max(480,Number(hero.mobile_reference_height||1350));
+    heroNode.style.setProperty('--hero-mobile-reference-ratio', String(mobileRefW/mobileRefH));
+    heroNode.style.setProperty('--hero-mobile-reference-height-vw', `${(mobileRefH/mobileRefW)*100}vw`);
   }
   if ($('#heroTitle')) $('#heroTitle').textContent = hero.title || identity.portfolio_title || 'Portfólio';
   if ($('#heroDescription')) $('#heroDescription').textContent = hero.subtitle || identity.description || '';
@@ -1022,26 +1027,34 @@ function configuredHeroSlides(heroConfig, visible) {
   const configured = Array.isArray(heroConfig.slides) ? heroConfig.slides : [];
   const assets = DATA.hero_assets || {};
   const output = [];
+  const resolve = (mediaId) => {
+    const id = String(mediaId || '');
+    if (!id) return { owner:null, media:null };
+    for (const project of visible) {
+      const found = (project.gallery_items || []).find((item) => String(item.id || '') === id);
+      if (found) return { owner:project, media:found };
+    }
+    return { owner:null, media:assets[id] || null };
+  };
   configured.forEach((slideConfig) => {
     const mediaId = String(slideConfig?.media_id || '');
-    if (!mediaId) return;
-    let owner = null;
-    let media = null;
-    for (const project of visible) {
-      const found = (project.gallery_items || []).find((item) => String(item.id || '') === mediaId);
-      if (found) { owner = project; media = found; break; }
-    }
-    media = media || assets[mediaId] || null;
+    const mobileMediaId = String(slideConfig?.mobile_media_id || '');
+    if (!mediaId && !mobileMediaId) return;
+    const webResolved = resolve(mediaId || mobileMediaId);
+    const mobileResolved = resolve(mobileMediaId);
+    const media = webResolved.media;
     if (!media) return;
+    const owner = webResolved.owner || mobileResolved.owner;
     const standalone = !owner;
     output.push({
-      ...(owner || { id: `hero:${mediaId}`, project_id: '', title: media.title || 'Banner', description: media.description || '' }),
+      ...(owner || { id: `hero:${mediaId || mobileMediaId}`, project_id: '', title: media.title || 'Banner', description: media.description || '' }),
       hero_asset: { ...media },
+      _hero_mobile_asset: mobileResolved.media ? { ...mobileResolved.media } : null,
       _hero_duration: Math.max(2, Math.min(30, Number(slideConfig.duration || heroConfig.rotation_seconds || 6))),
       _hero_transition_in: (() => { const value = String(slideConfig.transition_in || slideConfig.transition || 'fade'); const migrated = value === 'zoom' ? 'slow_zoom' : value; return ['fade','crossfade','slow_zoom','parallax','slide','reveal'].includes(migrated) ? migrated : 'fade'; })(),
       _hero_transition_out: (() => { const value = String(slideConfig.transition_out || 'crossfade'); const migrated = value === 'zoom' ? 'slow_zoom' : value; return ['fade','crossfade','slow_zoom','parallax','slide','reveal'].includes(migrated) ? migrated : 'crossfade'; })(),
       _hero_intensity: Math.max(0, Math.min(100, Number(slideConfig.intensity ?? 60))),
-      _hero_slide_id: String(slideConfig.id || mediaId),
+      _hero_slide_id: String(slideConfig.id || mediaId || mobileMediaId),
       _hero_standalone: standalone,
     });
   });
@@ -1051,7 +1064,10 @@ function configuredHeroSlides(heroConfig, visible) {
 function renderHero() {
   const visible = (DATA.projects || []).filter((project) => !project.hidden && ['image', 'video'].includes(project.type));
   const heroConfig = (DATA.site_builder || {}).hero || {};
-  const configuredSlides = configuredHeroSlides(heroConfig, visible);
+  let configuredSlides = configuredHeroSlides(heroConfig, visible);
+  if (!configuredSlides.length && (String(heroConfig.media_id || '').trim() || String(heroConfig.mobile_media_id || '').trim())) {
+    configuredSlides = configuredHeroSlides({ ...heroConfig, slides:[{ id:'hero-fallback', media_id:heroConfig.media_id || heroConfig.mobile_media_id || '', mobile_media_id:heroConfig.mobile_media_id || '', duration:heroConfig.rotation_seconds || 6.2 }] }, visible);
+  }
   const explicit = String(heroConfig.media_id || '').trim() ? visible.filter((project) => project.hero_selected) : [];
   const selected = visible.filter((project) => project.hero);
   const featured = visible.filter((project) => project.featured);
@@ -1080,27 +1096,38 @@ function renderHero() {
   if (!reduced && heroProjects.length > 1) scheduleHero();
 }
 
+const HERO_MOBILE_QUERY = matchMedia('(max-width:700px)');
+function heroAssetForViewport(project) {
+  const asset = HERO_MOBILE_QUERY.matches && project?._hero_mobile_asset ? project._hero_mobile_asset : project?.hero_asset;
+  return asset && asset.type ? { ...project, ...asset, title: project.title } : heroAsset(project);
+}
 function ensureHeroMedia(slide, project) {
-  if (slide.dataset.loaded === '1') return;
-  slide.dataset.loaded = '1';
-  project = heroAsset(project);
-  if (project.type === 'video' && project.hero_autoplay && project.media_url) {
+  const variant = HERO_MOBILE_QUERY.matches && project?._hero_mobile_asset ? 'mobile' : 'web';
+  if (slide.dataset.loadedVariant === variant && slide.childElementCount) return;
+  slide.dataset.loadedVariant = variant;
+  slide.replaceChildren();
+  project = heroAssetForViewport(project);
+  if (project.type === 'video' && project.hero_autoplay && (project.media_url || (project.media_candidates || []).length)) {
     const video = document.createElement('video');
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'metadata';
+    video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'metadata';
     video.poster = project.thumbnail_url || '';
-    video.src = project.media_url;
-    video.addEventListener('error', () => {
-      const fallback = imageWithFallback(project, heroCandidates(project), { lazy: false });
-      video.replaceWith(fallback);
-    }, { once: true });
+    const sources = uniqueUrls([project.media_url, ...(project.media_candidates || [])]);
+    let sourceIndex = 0;
+    const next = () => {
+      if (sourceIndex >= sources.length) { video.replaceWith(imageWithFallback(project, heroCandidates(project), { lazy: false })); return; }
+      video.src = sources[sourceIndex++]; video.load();
+    };
+    video.addEventListener('error', next);
+    next();
     slide.append(video);
   } else {
     slide.append(imageWithFallback(project, heroCandidates(project), { lazy: false }));
   }
 }
+HERO_MOBILE_QUERY.addEventListener?.('change', () => {
+  document.querySelectorAll('.hero-slide').forEach((slide) => { slide.dataset.loadedVariant = ''; });
+  activateHero(heroIndex, false);
+});
 
 function activateHero(index, manual = false) {
   if (!heroProjects.length) return;
@@ -1651,47 +1678,65 @@ function openMediaAt(project, requestedIndex = null) {
   renderGalleryItem();
 }
 
+function viewerUnavailable(project, reason = 'A mídia não pôde ser aberta.') {
+  const box = document.createElement('div');
+  box.className = 'viewer-unavailable';
+  const title = document.createElement('strong'); title.textContent = project.title || 'Mídia indisponível';
+  const copy = document.createElement('span'); copy.textContent = reason;
+  box.append(title, copy);
+  if (project.external_url) { const link=document.createElement('a'); link.href=project.external_url; link.target='_blank'; link.rel='noopener'; link.textContent='Abrir arquivo original'; box.append(link); }
+  return box;
+}
+function viewerLoading() { const node=document.createElement('div'); node.className='viewer-loading'; node.innerHTML='<i></i><span>Carregando mídia…</span>'; return node; }
 function renderGalleryItem() {
   const project = activeGallery[activeGalleryIndex];
   if (!project) return;
   const stage = $('#stage');
   stage.replaceChildren();
+  const loading = viewerLoading(); stage.append(loading);
   $('#lightboxTitle').textContent = activeGalleryTitle || project.title;
   const counter = $('#lightboxCounter');
   if (counter) counter.textContent = `${activeGalleryIndex + 1} / ${Math.max(activeGallery.length, 1)}`;
 
-  let media;
+  const finish = (node) => { if (loading.isConnected) loading.remove(); if (node && !node.isConnected) stage.append(node); };
+  let media = null;
   if (project.type === 'image') {
-    media = imageWithFallback(project, [project.media_url, ...(project.media_candidates || []), project.preview_url, ...(project.preview_candidates || []), project.thumbnail_url, ...(project.thumbnail_candidates || [])], { lazy: false });
-  } else if (project.type === 'video' && !IS_EDITOR_PREVIEW) {
-    media = driveFrame(project);
-  } else if (project.type === 'video' && (project.media_url || (project.media_candidates || []).length)) {
-    media = document.createElement('video');
+    const sources = uniqueUrls([project.media_url, ...(project.media_candidates || []), project.thumbnail_url, ...(project.thumbnail_candidates || [])]);
+    if (!sources.length) { finish(viewerUnavailable(project)); }
+    else {
+      media = document.createElement('img'); media.alt = project.title || ''; media.decoding='async'; media.className='viewer-media';
+      let sourceIndex=0;
+      const next=()=>{ if(sourceIndex>=sources.length){ media.remove(); finish(viewerUnavailable(project,'Nenhuma das URLs públicas da imagem respondeu.')); return; } media.src=sources[sourceIndex++]; };
+      media.addEventListener('load',()=>finish(media),{once:true}); media.addEventListener('error',next); stage.append(media); next();
+    }
+  } else if (project.type === 'video') {
     const sources = uniqueUrls([project.media_url, ...(project.media_candidates || [])]);
-    let sourceIndex = 0;
-    const nextSource = () => {
-      if (sourceIndex >= sources.length) return fallbackFrame(project, media);
-      media.src = sources[sourceIndex++];
-      media.load();
-      media.play().catch(() => {});
-    };
-    media.controls = true;
-    media.autoplay = true;
-    media.playsInline = true;
-    media.poster = project.thumbnail_url || '';
-    media.addEventListener('error', nextSource);
-    nextSource();
+    if (sources.length) {
+      media=document.createElement('video'); media.className='viewer-media'; media.controls=true; media.autoplay=true; media.playsInline=true; media.poster=project.thumbnail_url||'';
+      let sourceIndex=0;
+      const fallback=()=>{
+        if(sourceIndex<sources.length){media.src=sources[sourceIndex++];media.load();media.play().catch(()=>{});return;}
+        media.remove();
+        // Do not replace a failed public video with a potentially black Drive
+        // iframe inside the lightbox. Keep the viewer explicit and actionable.
+        // The visitor can still open the original/Drive preview in a new tab.
+        const fallbackProject = { ...project, external_url: project.external_url || project.preview_url || '' };
+        finish(viewerUnavailable(fallbackProject,'O vídeo não respondeu no player público. Abra o arquivo original para visualizar.'));
+      };
+      media.addEventListener('loadeddata',()=>finish(media),{once:true}); media.addEventListener('error',fallback); stage.append(media); fallback();
+    } else {
+      const fallbackProject = { ...project, external_url: project.external_url || project.preview_url || '' };
+      finish(viewerUnavailable(fallbackProject,'O vídeo não possui uma URL pública reproduzível.'));
+    }
   } else {
-    media = driveFrame(project);
+    const frame=driveFrame(project);
+    if(frame && frame.tagName==='IFRAME'){frame.classList.add('viewer-media');frame.addEventListener('load',()=>finish(frame),{once:true});stage.append(frame);setTimeout(()=>finish(frame),2200);} else finish(viewerUnavailable(project));
   }
-  stage.append(media);
 
   const hasMultiple = activeGallery.length > 1;
   $('#prevMedia')?.toggleAttribute('hidden', !hasMultiple);
   $('#nextMedia')?.toggleAttribute('hidden', !hasMultiple);
-  [...document.querySelectorAll('[data-gallery-index]')].forEach((node) => {
-    node.classList.toggle('is-active', Number(node.dataset.galleryIndex) === activeGalleryIndex);
-  });
+  [...document.querySelectorAll('[data-gallery-index]')].forEach((node) => node.classList.toggle('is-active', Number(node.dataset.galleryIndex) === activeGalleryIndex));
 }
 
 function renderGalleryStrip() {
