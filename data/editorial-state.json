@@ -518,7 +518,40 @@
             "eyebrow_size": "",
             "font_family": "display",
             "id": "section-block-msrlk0no-3uz0o",
-            "items": [],
+            "items": [
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msrlk674-0is",
+                "media_id": "",
+                "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msrlk8gu-5ic",
+                "media_id": "",
+                "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msrlkdr2-o9g",
+                "media_id": "",
+                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msrlkf9i-pjt",
+                "media_id": "",
+                "project_id": "media:1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
+                "title": ""
+              }
+            ],
             "label": "Carrossel de projetos",
             "motion_mode": "auto",
             "pause_on_hover": true,
