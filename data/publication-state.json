@@ -1,0 +1,47 @@
+{
+  "format": "studioframe-publication-v1",
+  "publication": {
+    "branch": "main",
+    "commit": "ed42af0718060a332a7881a52f768b982661a673",
+    "editorial_revision": "6c538d27da7202191ce6",
+    "manifest_sha256": "000570ccaed63b513445dbf0e2df40ca57a0eee9dcbee995d6fe5cfd92953bbd",
+    "published_at": "2026-08-13T17:18:52.161998+00:00",
+    "site_url": "https://mensagemstudio.shop/",
+    "stages": [
+      {
+        "key": "build",
+        "label": "Build local",
+        "message": "7 arquivos prontos para deploy.",
+        "status": "ok"
+      },
+      {
+        "key": "github",
+        "label": "GitHub",
+        "message": "GanaLD/mensagem-studio-portfolio autenticado como GanaLD",
+        "status": "ok"
+      },
+      {
+        "commit_sha": "ed42af0718060a332a7881a52f768b982661a673",
+        "key": "commit",
+        "label": "Commit público",
+        "message": "Branch main atualizada e confirmada por read-back.",
+        "status": "ok"
+      },
+      {
+        "key": "pages",
+        "label": "GitHub Pages",
+        "message": "Pages detectado · source=main//",
+        "status": "ok"
+      },
+      {
+        "key": "online",
+        "label": "Site online",
+        "message": "Commit aceito. Pages/domínio serão confirmados em segundo plano.",
+        "status": "pending",
+        "url": "https://mensagemstudio.shop/data/portfolio.json"
+      }
+    ],
+    "status": "deployed_unconfirmed"
+  },
+  "updated_at": "2026-08-13T17:18:52.220637+00:00"
+}
