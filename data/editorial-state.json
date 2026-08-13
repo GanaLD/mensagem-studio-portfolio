@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.1.0",
+    "app_version": "7.2.0",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "6c538d27da7202191ce6",
-    "saved_at": "2026-08-13T17:18:52.214171+00:00"
+    "revision": "3bf2adfea0c03f9bb335",
+    "saved_at": "2026-08-13T19:09:15.489403+00:00"
   },
-  "app_version": "7.1.0",
+  "app_version": "7.2.0",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -735,6 +735,10 @@
           {
             "body": "",
             "body_size": "",
+            "card_gap": "normal",
+            "card_ratio": "16x9",
+            "cards_desktop": "3",
+            "cards_mobile": "1",
             "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
             "content_mode": "selected",
             "core": false,
@@ -743,6 +747,7 @@
             "eyebrow_color": "accent",
             "eyebrow_size": "",
             "font_family": "display",
+            "hover_effect": "glow",
             "id": "section-block-msrlk0no-3uz0o",
             "items": [
               {
@@ -833,6 +838,10 @@
           {
             "body": "",
             "body_size": "",
+            "card_gap": "normal",
+            "card_ratio": "16x9",
+            "cards_desktop": "3",
+            "cards_mobile": "1",
             "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
             "content_mode": "selected",
             "core": false,
@@ -841,6 +850,7 @@
             "eyebrow_color": "accent",
             "eyebrow_size": "",
             "font_family": "display",
+            "hover_effect": "glow",
             "id": "section-block-msrkg12u-4gjhm",
             "items": [],
             "label": "Carrossel de projetos",
@@ -879,36 +889,28 @@
           "tab": "workspace"
         },
         {
-          "id": "global",
+          "id": "content",
           "kind": "group",
-          "label": "GLOBAL",
+          "label": "CONTEÚDO",
           "order": 20,
           "parent_id": "site",
           "tab": ""
         },
         {
-          "id": "global-header",
-          "kind": "component",
-          "label": "Header / Menu",
+          "id": "content-projects",
+          "kind": "section-editor",
+          "label": "Projetos do portfólio",
           "order": 10,
-          "parent_id": "global",
-          "tab": "header"
+          "parent_id": "content",
+          "tab": "projects"
         },
         {
-          "id": "global-footer",
-          "kind": "component",
-          "label": "Footer / Contato / Sociais",
+          "id": "content-collections",
+          "kind": "section-editor",
+          "label": "Coleções / Drive",
           "order": 20,
-          "parent_id": "global",
-          "tab": "footer"
-        },
-        {
-          "id": "global-design",
-          "kind": "component",
-          "label": "Identidade / Design",
-          "order": 30,
-          "parent_id": "global",
-          "tab": "design"
+          "parent_id": "content",
+          "tab": "categories"
         },
         {
           "id": "pages",
@@ -983,36 +985,36 @@
           "tab": "categorypages"
         },
         {
-          "id": "categories-projects",
-          "kind": "section-editor",
-          "label": "Projetos e mídias",
-          "order": 20,
-          "parent_id": "page-categories",
-          "tab": "projects"
-        },
-        {
-          "id": "categories-drive",
-          "kind": "section-editor",
-          "label": "Acervo do Drive",
-          "order": 30,
-          "parent_id": "page-categories",
-          "tab": "categories"
-        },
-        {
-          "id": "project-template",
+          "id": "global",
           "kind": "group",
-          "label": "TEMPLATE DE PROJETO",
-          "order": 40,
+          "label": "GLOBAL",
+          "order": 20,
           "parent_id": "site",
           "tab": ""
         },
         {
-          "id": "project-presentation",
-          "kind": "section-editor",
-          "label": "Apresentação / mídia",
+          "id": "global-header",
+          "kind": "component",
+          "label": "Header / Menu",
           "order": 10,
-          "parent_id": "project-template",
-          "tab": "projects"
+          "parent_id": "global",
+          "tab": "header"
+        },
+        {
+          "id": "global-footer",
+          "kind": "component",
+          "label": "Footer / Contato / Sociais",
+          "order": 20,
+          "parent_id": "global",
+          "tab": "footer"
+        },
+        {
+          "id": "global-design",
+          "kind": "component",
+          "label": "Identidade / Design",
+          "order": 30,
+          "parent_id": "global",
+          "tab": "design"
         },
         {
           "id": "publication-group",
@@ -1037,10 +1039,91 @@
           "order": 20,
           "parent_id": "publication-group",
           "tab": "diagnostics"
+        },
+        {
+          "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+          "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+          "kind": "category-page",
+          "label": "Banner mobile",
+          "order": 100,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
+          "id": "category-page:1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
+          "kind": "category-page",
+          "label": "Banners",
+          "order": 110,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
+          "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
+          "kind": "category-page",
+          "label": "Campanha 007 Completa",
+          "order": 120,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
+          "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
+          "kind": "category-page",
+          "label": "Carrossel",
+          "order": 130,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
+          "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
+          "kind": "category-page",
+          "label": "DERMACAST",
+          "order": 140,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
+          "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
+          "kind": "category-page",
+          "label": "Edição de vídeos",
+          "order": 150,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "kind": "category-page",
+          "label": "Lateral Banners",
+          "order": 160,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
+          "id": "category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
+          "kind": "category-page",
+          "label": "Lâminas para divulgação",
+          "order": 170,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
+          "id": "category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
+          "kind": "category-page",
+          "label": "Motion",
+          "order": 180,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
         }
       ],
       "root_id": "site",
-      "version": 3
+      "version": 4
     }
   },
   "workspace": {
