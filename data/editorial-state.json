@@ -1,5 +1,5 @@
 {
-  "app_version": "6.4.0",
+  "app_version": "6.5.0",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -163,8 +163,12 @@
       "kicker": "Portfólio · Direção criativa",
       "media_id": "",
       "mobile_fit": "cover",
+      "mobile_format": "portrait45",
+      "mobile_media_id": "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
       "mobile_position_x": 50,
       "mobile_position_y": 50,
+      "mobile_reference_height": 1350,
+      "mobile_reference_width": 1080,
       "overlay": "medium",
       "position_x": 50,
       "position_y": 50,
@@ -178,6 +182,7 @@
           "id": "hero-slide-msqkbwo4-q8hf",
           "intensity": 60,
           "media_id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         },
@@ -186,6 +191,7 @@
           "id": "hero-slide-msqkcbsm-aes7",
           "intensity": 60,
           "media_id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         },
@@ -194,6 +200,7 @@
           "id": "hero-slide-msqkcfjp-kje7",
           "intensity": 60,
           "media_id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         },
@@ -202,6 +209,7 @@
           "id": "hero-slide-msqkcmqh-qeo5",
           "intensity": 60,
           "media_id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         },
@@ -210,6 +218,7 @@
           "id": "hero-slide-msqkcz6e-gyra",
           "intensity": 60,
           "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         },
@@ -218,6 +227,7 @@
           "id": "hero-slide-msqkd1pn-qjxs",
           "intensity": 60,
           "media_id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+          "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
         }
@@ -495,6 +505,37 @@
             "title_weight": "400",
             "type": "auto_carousel",
             "visible": false
+          },
+          {
+            "body": "",
+            "body_size": "",
+            "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+            "content_mode": "selected",
+            "core": false,
+            "direction": "left",
+            "eyebrow": "Seleção",
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
+            "id": "section-block-msrlk0no-3uz0o",
+            "items": [],
+            "label": "Carrossel de projetos",
+            "motion_mode": "auto",
+            "pause_on_hover": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "speed": "medium",
+            "text_align": "left",
+            "text_transform": "none",
+            "title": "Em destaque",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "auto_carousel",
+            "visible": true
           }
         ],
         "body": "",
