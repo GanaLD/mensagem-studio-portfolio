@@ -1,5 +1,5 @@
 {
-  "app_version": "6.5.0",
+  "app_version": "7.0.0",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -124,7 +124,7 @@
     "public_domain": "mensagemstudio.shop",
     "strict_public_validation": true
   },
-  "schema_version": 5,
+  "schema_version": 6,
   "site_builder": {
     "about": {
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
@@ -152,6 +152,111 @@
       "eyebrow": "Contato",
       "title": "Vamos criar algo juntos?",
       "visible": true
+    },
+    "custom_pages": {},
+    "global": {
+      "footer": {
+        "alignment": "between",
+        "background_color": "#070707",
+        "copyright": "© Mensagem Studio. Todos os direitos reservados.",
+        "divider": true,
+        "font_size": 12,
+        "gap": 18,
+        "icon_size": 20,
+        "muted_color": "#8e918f",
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "order": 10,
+            "url": "https://www.instagram.com/mensagem_studio/",
+            "visible": true
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "order": 20,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "order": 30,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "order": 40,
+            "url": "",
+            "visible": false
+          }
+        ],
+        "studio_name": "MENSAGEM STUDIO",
+        "tagline": "Direção criativa, design e experiências visuais.",
+        "text_color": "#f4f4ef",
+        "visible": true,
+        "whatsapp_label": "Contrate nossos serviços de design",
+        "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
+        "whatsapp_number": "5541999999937",
+        "whatsapp_visible": true
+      },
+      "header": {
+        "background_color": "#070707",
+        "background_mode": "adaptive",
+        "background_opacity": 84,
+        "blur": 18,
+        "border": true,
+        "font_family": "display",
+        "font_size_desktop": 10,
+        "font_size_mobile": 12,
+        "font_weight": "500",
+        "height": 72,
+        "hover_color": "#ffffff",
+        "item_gap": 22,
+        "logo_label": "MENSAGEM STUDIO",
+        "logo_visible": true,
+        "menu_items": [
+          {
+            "id": "home",
+            "label": "Home",
+            "order": 10,
+            "parent_id": "",
+            "target": "/",
+            "visible": false
+          },
+          {
+            "id": "projects",
+            "label": "Projetos",
+            "order": 20,
+            "parent_id": "",
+            "target": "/#projectsBlock",
+            "visible": true
+          },
+          {
+            "id": "about",
+            "label": "Sobre",
+            "order": 30,
+            "parent_id": "",
+            "target": "/#about",
+            "visible": true
+          },
+          {
+            "id": "contact",
+            "label": "Contato",
+            "order": 40,
+            "parent_id": "",
+            "target": "/#contact",
+            "visible": true
+          }
+        ],
+        "mobile_mode": "drawer",
+        "padding_x": 4,
+        "sticky": true,
+        "text_color": "#f4f4ef"
+      }
     },
     "hero": {
       "cta_label": "Explorar projeto",
@@ -409,10 +514,13 @@
     },
     "navigation": {
       "about_label": "Sobre",
+      "about_visible": true,
       "contact_label": "Contato",
+      "contact_visible": true,
       "menu_label": "Menu",
       "menu_title": "Navegação",
       "projects_label": "Projetos",
+      "projects_visible": true,
       "show_drive_sections": true,
       "show_home_sections": true,
       "side_menu_enabled": true
@@ -439,6 +547,182 @@
       "visible": true
     },
     "section_pages": {
+      "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Lateral Banners"
+      },
+      "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Carrossel"
+      },
+      "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Edição de vídeos"
+      },
+      "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Motion"
+      },
+      "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Banners"
+      },
+      "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Lâminas para divulgação"
+      },
+      "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "Campanha 007 Completa"
+      },
+      "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "title": "DERMACAST"
+      },
       "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
         "blocks": [
           {
@@ -576,6 +860,180 @@
         "eyebrow": "Categoria",
         "title": "Banner mobile"
       }
+    },
+    "site_tree": {
+      "nodes": [
+        {
+          "id": "site-overview",
+          "kind": "panel",
+          "label": "Visão geral",
+          "order": 10,
+          "parent_id": "site",
+          "tab": "workspace"
+        },
+        {
+          "id": "global",
+          "kind": "group",
+          "label": "GLOBAL",
+          "order": 20,
+          "parent_id": "site",
+          "tab": ""
+        },
+        {
+          "id": "global-header",
+          "kind": "component",
+          "label": "Header / Menu",
+          "order": 10,
+          "parent_id": "global",
+          "tab": "header"
+        },
+        {
+          "id": "global-footer",
+          "kind": "component",
+          "label": "Footer / Contato / Sociais",
+          "order": 20,
+          "parent_id": "global",
+          "tab": "footer"
+        },
+        {
+          "id": "global-design",
+          "kind": "component",
+          "label": "Identidade / Design",
+          "order": 30,
+          "parent_id": "global",
+          "tab": "design"
+        },
+        {
+          "id": "pages",
+          "kind": "group",
+          "label": "PÁGINAS",
+          "order": 30,
+          "parent_id": "site",
+          "tab": ""
+        },
+        {
+          "id": "pages-manager",
+          "kind": "section-editor",
+          "label": "Páginas / subpáginas",
+          "order": 1,
+          "parent_id": "pages",
+          "tab": "pagebuilder"
+        },
+        {
+          "id": "pages-sections",
+          "kind": "section-editor",
+          "label": "Seções / Carrosséis",
+          "order": 5,
+          "parent_id": "pages",
+          "tab": "sections"
+        },
+        {
+          "id": "page-home",
+          "kind": "group",
+          "label": "Home",
+          "order": 10,
+          "parent_id": "pages",
+          "tab": ""
+        },
+        {
+          "id": "home-structure",
+          "kind": "section-editor",
+          "label": "Estrutura da Home",
+          "order": 10,
+          "parent_id": "page-home",
+          "tab": "home"
+        },
+        {
+          "id": "home-grid",
+          "kind": "section-editor",
+          "label": "Grid principal",
+          "order": 20,
+          "parent_id": "page-home",
+          "tab": "homegrid"
+        },
+        {
+          "id": "home-hero",
+          "kind": "section-editor",
+          "label": "Banner / Hero",
+          "order": 30,
+          "parent_id": "page-home",
+          "tab": "hero"
+        },
+        {
+          "id": "page-categories",
+          "kind": "group",
+          "label": "Categorias",
+          "order": 20,
+          "parent_id": "pages",
+          "tab": ""
+        },
+        {
+          "id": "categories-pages",
+          "kind": "section-editor",
+          "label": "Páginas e ordem",
+          "order": 10,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "id": "categories-projects",
+          "kind": "section-editor",
+          "label": "Projetos e mídias",
+          "order": 20,
+          "parent_id": "page-categories",
+          "tab": "projects"
+        },
+        {
+          "id": "categories-drive",
+          "kind": "section-editor",
+          "label": "Acervo do Drive",
+          "order": 30,
+          "parent_id": "page-categories",
+          "tab": "categories"
+        },
+        {
+          "id": "project-template",
+          "kind": "group",
+          "label": "TEMPLATE DE PROJETO",
+          "order": 40,
+          "parent_id": "site",
+          "tab": ""
+        },
+        {
+          "id": "project-presentation",
+          "kind": "section-editor",
+          "label": "Apresentação / mídia",
+          "order": 10,
+          "parent_id": "project-template",
+          "tab": "projects"
+        },
+        {
+          "id": "publication-group",
+          "kind": "group",
+          "label": "PUBLICAÇÃO",
+          "order": 50,
+          "parent_id": "site",
+          "tab": ""
+        },
+        {
+          "id": "publication-main",
+          "kind": "panel",
+          "label": "Publicar atualização",
+          "order": 10,
+          "parent_id": "publication-group",
+          "tab": "publication"
+        },
+        {
+          "id": "publication-diagnostics",
+          "kind": "panel",
+          "label": "Diagnóstico",
+          "order": 20,
+          "parent_id": "publication-group",
+          "tab": "diagnostics"
+        }
+      ],
+      "root_id": "site",
+      "version": 3
     }
   },
   "workspace": {
