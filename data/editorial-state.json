@@ -525,7 +525,7 @@
             "title_size": "",
             "title_weight": "400",
             "type": "auto_carousel",
-            "visible": true
+            "visible": false
           }
         ],
         "body": "",
