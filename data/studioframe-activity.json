@@ -1651,8 +1651,20 @@
       "kind": "editorial-sync",
       "revision": "18f3304ddee48ef4751e",
       "status": "ok"
+    },
+    {
+      "app_version": "7.9.9.0",
+      "at": "2026-08-14T22:29:02.211249+00:00",
+      "details": {
+        "commit": "e5e7dc28413ee5c50aa44b9908331dc02c8f1277"
+      },
+      "device_id": "device-3e7f29f7077c4942",
+      "id": "03bfee277d9df737c4cd",
+      "kind": "editorial-sync",
+      "revision": "18f3304ddee48ef4751e",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-14T22:28:46.337194+00:00"
+  "updated_at": "2026-08-14T22:29:02.792105+00:00"
 }
