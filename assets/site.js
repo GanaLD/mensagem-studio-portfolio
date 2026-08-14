@@ -2470,6 +2470,59 @@ $('#hero')?.addEventListener('click', (event) => {
   openActiveHeroProject();
 });
 
+
+const EDITOR_PREVIEW_METRICS={patches:0,failed:0,targetedRenders:0,lastRevision:''};
+if(IS_EDITOR_PREVIEW) window.__STUDIOFRAME_PREVIEW_METRICS__=EDITOR_PREVIEW_METRICS;
+function previewJson(value){try{return JSON.stringify(value??null);}catch(_){return '';}}
+function previewHomeBlocksFor(builder={}){
+  const defaults=[
+    {id:'core-hero',type:'hero',visible:true,core:true,section_size:'viewport',section_width:'full'},
+    {id:'core-intro',type:'intro',visible:true,core:true,section_size:'normal',section_width:'full'},
+    {id:'core-lettering',type:'lettering',visible:true,core:true,section_size:'normal',section_width:'full'},
+    {id:'core-projects',type:'projects',visible:true,core:true,section_size:'normal',section_width:'full',grid_columns:'3'},
+    {id:'core-about',type:'about',visible:true,core:true,section_size:'normal',section_width:'full'},
+    {id:'core-contact',type:'contact',visible:true,core:true,section_size:'normal',section_width:'full'},
+  ];
+  const blocks=builder?.home?.blocks;
+  return Array.isArray(blocks)?blocks.filter((b)=>b&&b.type).map((b)=>({section_size:'normal',section_width:'full',section_background:'none',...b})):defaults;
+}
+function previewHomeStructure(builder={}){return previewHomeBlocksFor(builder).map((b)=>[b.id||'',b.type||'',b.visible!==false]);}
+function patchHomeCompositionInPlace(previousBuilder={},nextBuilder={}){
+  const before=previewHomeBlocksFor(previousBuilder),after=previewHomeBlocksFor(nextBuilder);
+  if(previewJson(previewHomeStructure(previousBuilder))!==previewJson(previewHomeStructure(nextBuilder)))return false;
+  const beforeById=new Map(before.map((b)=>[String(b.id||''),b]));
+  for(const block of after){
+    const coreId=CORE_HOME_BLOCK_IDS[block.type];
+    if(coreId){const node=document.getElementById(coreId);if(!node)continue;node.hidden=block.visible===false;applyHomeSectionFrame(node,block);applyCoreBlockOverrides(node,block,nextBuilder);continue;}
+    const id=String(block.id||''), previous=beforeById.get(id); if(previewJson(previous)===previewJson(block))continue;
+    const current=document.querySelector(`[data-home-block-id="${CSS.escape(id)}"]`), replacement=createCustomHomeBlock(block);
+    if(current&&replacement){replacement.id=current.id;current.replaceWith(replacement);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+    else if(current&&!replacement){current.remove();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+    else if(!current&&replacement){$('#top')?.append(replacement);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+  }
+  bindReveal();tick();return true;
+}
+function heroSourceSignature(builder={}){const h=builder.hero||{};return previewJson({media_id:h.media_id||'',mobile_media_id:h.mobile_media_id||'',slides:h.slides||[],autoplay:h.autoplay,rotation_seconds:h.rotation_seconds});}
+function applyEditorPreviewPatch(payload={}){
+  if(!IS_EDITOR_PREVIEW)return;
+  const previousBuilder=DATA.site_builder||{},previousIdentity=DATA.identity||{};
+  const nextBuilder=payload.site_builder&&typeof payload.site_builder==='object'?payload.site_builder:previousBuilder;
+  const nextIdentity=payload.identity&&typeof payload.identity==='object'?payload.identity:previousIdentity;
+  if(previewJson(previewHomeStructure(previousBuilder))!==previewJson(previewHomeStructure(nextBuilder))){window.parent?.postMessage({type:'studioframe-preview-reload-required',reason:'home-structure-changed'},location.origin);return;}
+  DATA.site_builder=nextBuilder;DATA.identity=nextIdentity;renderSiteBuilder();
+  const serviceDetail=currentServiceDetail(),servicesPage=isServicesPage(),customPage=currentCustomPage();
+  if(serviceDetail){if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServiceDetailPage(serviceDetail.category,serviceDetail.item);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}
+  else if(servicesPage){if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServicesPage();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}
+  else if(customPage){const id=String(customPage.id||''),beforePage=previousBuilder.custom_pages?.[id],nextPage=nextBuilder.custom_pages?.[id];if(previewJson(beforePage)!==previewJson(nextPage)){const current=currentCustomPage();if(current){renderCustomPage(current);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}}
+  else{
+    patchHomeCompositionInPlace(previousBuilder,nextBuilder);
+    if(previewJson(previousBuilder.projects?.filters)!==previewJson(nextBuilder.projects?.filters))renderFilters();
+    if(heroSourceSignature(previousBuilder)!==heroSourceSignature(nextBuilder)){renderHero();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+    if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServicesHome();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+  }
+  renderSideNavigation();EDITOR_PREVIEW_METRICS.patches+=1;EDITOR_PREVIEW_METRICS.lastRevision=String(payload.revision||'');
+  window.parent?.postMessage({type:'studioframe-preview-applied',revision:payload.revision||'',patches:EDITOR_PREVIEW_METRICS.patches,targeted_renders:EDITOR_PREVIEW_METRICS.targetedRenders},location.origin);
+}
 function restoreEditorPreviewState(state = {}) {
   const apply = () => {
     const projectId = String(state.project_id || '');
@@ -2488,8 +2541,12 @@ function restoreEditorPreviewState(state = {}) {
   setTimeout(apply, 320);
 }
 addEventListener('message', (event) => {
-  if (event.origin !== location.origin || event.data?.type !== 'studioframe-restore-preview') return;
-  restoreEditorPreviewState(event.data.state || {});
+  if (event.origin !== location.origin) return;
+  if (event.data?.type === 'studioframe-restore-preview') { restoreEditorPreviewState(event.data.state || {}); return; }
+  if (event.data?.type === 'studioframe-preview-patch') {
+    try { applyEditorPreviewPatch(event.data || {}); }
+    catch (error) { EDITOR_PREVIEW_METRICS.failed += 1; console.error('Preview patch falhou:',error); window.parent?.postMessage({type:'studioframe-preview-reload-required',reason:`patch-error:${error?.message||error}`},location.origin); }
+  }
 });
 
 load().then(() => {

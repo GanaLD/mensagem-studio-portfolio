@@ -1,6 +1,8 @@
 {
   "schema_version": 16,
-  "app_version": "7.9.5.3",
+  "app_version": "7.9.6.1",
+  "build_id": "V7961-PREVIEW-PERFORMANCE-20260814",
+  "editorial_revision": "b197e4db815c0167a7f5",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -46,9 +48,9 @@
       "brand_text_transform": "uppercase",
       "brand_color": "#2D82F0",
       "background_style": "luminous",
-      "background_animation": "medium",
+      "background_animation": "strong",
       "block_style": "glass",
-      "block_radius": 18,
+      "block_radius": 22,
       "block_spacing": "normal",
       "shadow_style": "soft"
     },
@@ -5898,18 +5900,18 @@
           "height": 12047,
           "order": 3,
           "resource_key": "",
-          "thumbnail_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "media_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
+          "thumbnail_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "media_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
           "external_url": "https://drive.google.com/file/d/1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF/view?usp=drivesdk",
           "thumbnail_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "hero_autoplay": false,
           "autoplay_grid": false
@@ -6159,14 +6161,14 @@
           "order": 0,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -6338,14 +6340,14 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-      "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+      "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
       "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+        "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -15115,18 +15117,18 @@
       "drive_path": [
         "Lateral Banners"
       ],
-      "thumbnail_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-      "media_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-      "preview_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+      "media_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+      "preview_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
       "external_url": "https://drive.google.com/file/d/1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF/view?usp=drivesdk",
       "thumbnail_candidates": [
-        "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+        "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+        "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
       ],
       "preview_candidates": [
-        "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+        "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
       ],
       "hero_autoplay": false,
       "autoplay_grid": false,
@@ -15154,18 +15156,18 @@
           "id": "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
           "title": "BANNER-0,80x2,0---2",
           "description": "",
-          "thumbnail_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "media_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
+          "thumbnail_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "media_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
           "external_url": "https://drive.google.com/file/d/1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF/view?usp=drivesdk",
           "thumbnail_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "mime": "image/png",
           "type": "image",
@@ -15180,18 +15182,18 @@
         "id": "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
         "title": "BANNER-0,80x2,0---2",
         "description": "",
-        "thumbnail_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-        "media_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-        "preview_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
+        "thumbnail_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+        "media_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+        "preview_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
         "external_url": "https://drive.google.com/file/d/1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF/view?usp=drivesdk",
         "thumbnail_candidates": [
-          "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+          "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+          "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
         ],
         "preview_candidates": [
-          "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+          "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
         ],
         "mime": "image/png",
         "type": "image",
@@ -15970,14 +15972,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-      "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+      "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
       "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+        "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -16009,14 +16011,14 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -16035,14 +16037,14 @@
         "title": "Cópia de SCULPT DERMALINK",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-        "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+        "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
         "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
         "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+          "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -19686,18 +19688,18 @@
           "id": "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
           "title": "BANNER-0,80x2,0---2",
           "description": "",
-          "thumbnail_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "media_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download",
+          "thumbnail_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "media_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400",
           "external_url": "https://drive.google.com/file/d/1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF/view?usp=drivesdk",
           "thumbnail_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&export=download"
+            "https://drive.google.com/thumbnail?id=1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF&sz=w2400"
           ],
           "mime": "image/png",
           "type": "image",
@@ -19932,14 +19934,14 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
+            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -20178,7 +20180,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 6.526
+    "duration_seconds": 7.054
   },
   "publication_ready": true,
   "public_validation": {

@@ -1,15 +1,17 @@
 {
-  "app_version": "7.9.5.3",
-  "build_revision": "1b688bc2fe175eef80a9",
-  "bundle_sha256": "1b688bc2fe175eef80a95a60f0711151c59f9a373bcaf6e02ec9f64fad5f8a36",
+  "app_version": "7.9.6.1",
+  "build_id": "V7961-PREVIEW-PERFORMANCE-20260814",
+  "build_revision": "b55aa76624c6312778c7",
+  "bundle_sha256": "b55aa76624c6312778c71075d5a3e5d1856747457058c4cbcaae16031a24f49a",
+  "editorial_revision": "b197e4db815c0167a7f5",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 966114,
-      "sha256": "99e387944104ed7fde3b461e0951956e1f3b7118c819e4e57b439327327cd290"
+      "bytes": 971216,
+      "sha256": "5ddaf1b7b2578660ab1d8202e0ba1f5d1f73d369d308259a03fdb7fa3f440529"
     },
     "CNAME": {
       "bytes": 21,
@@ -36,16 +38,16 @@
       "sha256": "4e08665bf21d489eadac21b7e3093be9fd1a2db500d985b02e8f69995b8d0f9e"
     },
     "assets/site.js": {
-      "bytes": 166684,
-      "sha256": "a54d7d3ff75e93c4c8d65572eeab2a8aef3c3f263541914ae8fe3795d717a3c2"
+      "bytes": 172162,
+      "sha256": "8481a412c655eed652943ec9d862aa85ea7924077aaa37ef70b4e96688bf0f8b"
     },
     "data/portfolio.json": {
-      "bytes": 888085,
-      "sha256": "ae1095a01c0b4119d10aabd557172f57c35a6b4f0f6e77e0d1faabad50ac0427"
+      "bytes": 887719,
+      "sha256": "7b2183b7a557b7c90e50fd4556e3a16ada32a103975557544dffa4d465c41d4d"
     },
     "index.html": {
-      "bytes": 966114,
-      "sha256": "99e387944104ed7fde3b461e0951956e1f3b7118c819e4e57b439327327cd290"
+      "bytes": 971216,
+      "sha256": "5ddaf1b7b2578660ab1d8202e0ba1f5d1f73d369d308259a03fdb7fa3f440529"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 6568,
@@ -190,7 +192,7 @@
   },
   "format": "studioframe-public-build-v2",
   "stats": {
-    "bytes": 75679554,
+    "bytes": 75694870,
     "files": 46,
     "largest_file_bytes": 30422982,
     "route_shells": 35
