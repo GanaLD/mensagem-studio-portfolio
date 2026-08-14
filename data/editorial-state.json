@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.9.4",
+    "app_version": "7.9.5.3",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "5da16c520b1d0b09b9ac",
-    "saved_at": "2026-08-14T14:53:19.545832+00:00"
+    "revision": "0d5152286b6c0929acf8",
+    "saved_at": "2026-08-14T16:40:31.358215+00:00"
   },
-  "app_version": "7.9.4",
+  "app_version": "7.9.5.3",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -570,19 +570,33 @@
       "about_visible": true,
       "contact_label": "Contato",
       "contact_visible": true,
+      "floating_button_size": 42,
+      "floating_gap": 8,
+      "floating_position": "left",
+      "floating_whatsapp_label": "WhatsApp",
+      "floating_whatsapp_message": "",
+      "floating_whatsapp_number": "",
+      "floating_whatsapp_visible": true,
       "menu_label": "Menu",
+      "menu_panel_width": 520,
+      "menu_text_size": 48,
       "menu_title": "Navegação",
       "projects_label": "Projetos",
       "projects_visible": true,
+      "show_contact_link": true,
       "show_drive_sections": true,
       "show_home_sections": true,
-      "side_menu_enabled": true
+      "show_services_link": true,
+      "show_top_link": true,
+      "side_menu_enabled": true,
+      "top_label": "Ir para o topo"
     },
     "projects": {
       "eyebrow": "Portfólio selecionado",
       "filters": {
         "all_label": "Todos",
         "all_visible": true,
+        "display_mode": "menu",
         "order": [
           "all",
           "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
