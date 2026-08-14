@@ -1,6 +1,6 @@
 {
   "schema_version": 16,
-  "app_version": "7.9.3",
+  "app_version": "7.9.5.3",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -483,756 +483,1028 @@
       "response_note": "Retorno comercial em até 1 dia útil.",
       "categories": [
         {
-          "id": "social-media",
-          "order": 10,
-          "visible": true,
-          "featured": true,
-          "number": "01",
-          "title": "Artes para Redes Sociais",
-          "short_title": "Social Media",
-          "description": "Peças consistentes e adaptáveis para fortalecer a presença visual de marcas nas redes.",
           "accent": "#0071e3",
           "cover_media_id": "",
+          "description": "Peças consistentes e adaptáveis para fortalecer a presença visual de marcas nas redes.",
+          "featured": true,
+          "id": "social-media",
+          "number": "01",
+          "order": 10,
           "services": [
             {
-              "id": "social-single",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Arte avulsa para post ou story",
-              "description": "Uma peça estática em formato principal, com adaptação simples quando prevista no briefing.",
-              "price_type": "from",
-              "price": 90.0,
-              "unit": "por peça",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "2 a 3 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Arquivo final para publicação",
                 "Versão JPG ou PNG",
                 "Ajustes de texto e composição"
-              ]
+              ],
+              "description": "Uma peça estática em formato principal, com adaptação simples quando prevista no briefing.",
+              "featured": false,
+              "full_path": "servicos/arte-avulsa-para-post-ou-story",
+              "id": "social-single",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Social Media",
+              "page_intro": "Uma peça estática em formato principal, com adaptação simples quando prevista no briefing.",
+              "page_title": "Arte avulsa para post ou story",
+              "price": 90.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "arte-avulsa-para-post-ou-story",
+              "title": "Arte avulsa para post ou story",
+              "unit": "por peça",
+              "visible": true
             },
             {
-              "id": "social-carousel",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Carrossel com até 5 páginas",
-              "description": "Narrativa visual sequencial com capa, desenvolvimento e encerramento.",
-              "price_type": "from",
-              "price": 250.0,
-              "unit": "por carrossel",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "3 a 5 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Até 5 páginas",
                 "Identidade visual consistente",
                 "Arquivos prontos para publicação"
-              ]
+              ],
+              "description": "Narrativa visual sequencial com capa, desenvolvimento e encerramento.",
+              "featured": true,
+              "full_path": "servicos/carrossel-com-ate-5-paginas",
+              "id": "social-carousel",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Social Media",
+              "page_intro": "Narrativa visual sequencial com capa, desenvolvimento e encerramento.",
+              "page_title": "Carrossel com até 5 páginas",
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "carrossel-com-ate-5-paginas",
+              "title": "Carrossel com até 5 páginas",
+              "unit": "por carrossel",
+              "visible": true
             },
             {
-              "id": "social-pack-10",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Pacote com 10 criativos",
-              "description": "Conjunto visual para calendário de conteúdo, campanha ou lançamento.",
-              "price_type": "from",
-              "price": 800.0,
-              "unit": "por pacote",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "7 a 12 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "10 peças estáticas",
                 "Unidade visual entre as peças",
                 "Organização por formatos"
-              ]
+              ],
+              "description": "Conjunto visual para calendário de conteúdo, campanha ou lançamento.",
+              "featured": false,
+              "full_path": "servicos/pacote-com-10-criativos",
+              "id": "social-pack-10",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Social Media",
+              "page_intro": "Conjunto visual para calendário de conteúdo, campanha ou lançamento.",
+              "page_title": "Pacote com 10 criativos",
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "pacote-com-10-criativos",
+              "title": "Pacote com 10 criativos",
+              "unit": "por pacote",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Social Media",
+          "title": "Artes para Redes Sociais",
+          "visible": true
         },
         {
-          "id": "video-editing",
-          "order": 20,
-          "visible": true,
-          "featured": true,
-          "number": "02",
-          "title": "Edição de Vídeos",
-          "short_title": "Vídeo",
-          "description": "Edição para redes, campanhas, podcasts, conteúdo institucional e plataformas digitais.",
           "accent": "#7c3aed",
           "cover_media_id": "",
+          "description": "Edição para redes, campanhas, podcasts, conteúdo institucional e plataformas digitais.",
+          "featured": true,
+          "id": "video-editing",
+          "number": "02",
+          "order": 20,
           "services": [
             {
-              "id": "video-reel-basic",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Reel básico de até 90 segundos",
-              "description": "Cortes, ritmo, trilha fornecida ou licenciada pelo cliente e acabamento para redes.",
-              "price_type": "from",
-              "price": 120.0,
-              "unit": "por vídeo",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "2 a 4 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Edição vertical",
                 "Correção básica de cor",
                 "Exportação para redes"
-              ]
+              ],
+              "description": "Cortes, ritmo, trilha fornecida ou licenciada pelo cliente e acabamento para redes.",
+              "featured": false,
+              "full_path": "servicos/reel-basico-de-ate-90-segundos",
+              "id": "video-reel-basic",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Vídeo",
+              "page_intro": "Cortes, ritmo, trilha fornecida ou licenciada pelo cliente e acabamento para redes.",
+              "page_title": "Reel básico de até 90 segundos",
+              "price": 120.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "reel-basico-de-ate-90-segundos",
+              "title": "Reel básico de até 90 segundos",
+              "unit": "por vídeo",
+              "visible": true
             },
             {
-              "id": "video-reel-motion",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Reel com motion, legendas e efeitos",
-              "description": "Edição dinâmica com elementos gráficos, legendagem e recursos de retenção.",
-              "price_type": "from",
-              "price": 280.0,
-              "unit": "por vídeo",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "3 a 6 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Motion e legendas",
                 "Tratamento de áudio",
                 "Efeitos e acabamento"
-              ]
+              ],
+              "description": "Edição dinâmica com elementos gráficos, legendagem e recursos de retenção.",
+              "featured": true,
+              "full_path": "servicos/reel-com-motion-legendas-e-efeitos",
+              "id": "video-reel-motion",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Vídeo",
+              "page_intro": "Edição dinâmica com elementos gráficos, legendagem e recursos de retenção.",
+              "page_title": "Reel com motion, legendas e efeitos",
+              "price": 280.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "reel-com-motion-legendas-e-efeitos",
+              "title": "Reel com motion, legendas e efeitos",
+              "unit": "por vídeo",
+              "visible": true
             },
             {
-              "id": "video-pack-8",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Pacote com 8 Reels",
-              "description": "Pacote recorrente para calendário de conteúdo e presença contínua.",
-              "price_type": "from",
-              "price": 800.0,
-              "unit": "por pacote",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "10 a 20 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "8 vídeos verticais",
                 "Padrão visual do projeto",
                 "Arquivos organizados"
-              ]
+              ],
+              "description": "Pacote recorrente para calendário de conteúdo e presença contínua.",
+              "featured": false,
+              "full_path": "servicos/pacote-com-8-reels",
+              "id": "video-pack-8",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Vídeo",
+              "page_intro": "Pacote recorrente para calendário de conteúdo e presença contínua.",
+              "page_title": "Pacote com 8 Reels",
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "pacote-com-8-reels",
+              "title": "Pacote com 8 Reels",
+              "unit": "por pacote",
+              "visible": true
             },
             {
-              "id": "video-institutional",
-              "order": 40,
-              "visible": true,
-              "featured": false,
-              "title": "Vídeo institucional de 1 a 3 minutos",
-              "description": "Montagem narrativa para apresentação de marca, produto, evento ou serviço.",
-              "price_type": "from",
-              "price": 500.0,
-              "unit": "por projeto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "7 a 15 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Montagem narrativa",
                 "Tratamento de cor e áudio",
                 "Versão final em alta qualidade"
-              ]
+              ],
+              "description": "Montagem narrativa para apresentação de marca, produto, evento ou serviço.",
+              "featured": false,
+              "full_path": "servicos/video-institucional-de-1-a-3-minutos",
+              "id": "video-institutional",
+              "order": 40,
+              "page_enabled": true,
+              "page_eyebrow": "Vídeo",
+              "page_intro": "Montagem narrativa para apresentação de marca, produto, evento ou serviço.",
+              "page_title": "Vídeo institucional de 1 a 3 minutos",
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "video-institucional-de-1-a-3-minutos",
+              "title": "Vídeo institucional de 1 a 3 minutos",
+              "unit": "por projeto",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Vídeo",
+          "title": "Edição de Vídeos",
+          "visible": true
         },
         {
-          "id": "audiovisual-production",
-          "order": 30,
-          "visible": true,
-          "featured": true,
-          "number": "03",
-          "title": "Produção Audiovisual",
-          "short_title": "Produção",
-          "description": "Planejamento e captação de entrevistas, workshops, produtos, conteúdos e campanhas.",
           "accent": "#ff6b00",
           "cover_media_id": "",
+          "description": "Planejamento e captação de entrevistas, workshops, produtos, conteúdos e campanhas.",
+          "featured": true,
+          "id": "audiovisual-production",
+          "number": "03",
+          "order": 30,
           "services": [
             {
-              "id": "av-capture-2h",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Captação essencial de até 2 horas",
-              "description": "Captação compacta em uma locação, adequada a entrevistas, conteúdos e demonstrações.",
-              "price_type": "from",
-              "price": 500.0,
-              "unit": "por sessão",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "conforme agenda",
-              "revisions": 0,
               "deliverables": [
                 "Captação em uma locação",
                 "Organização dos arquivos",
                 "Direção técnica básica"
-              ]
+              ],
+              "description": "Captação compacta em uma locação, adequada a entrevistas, conteúdos e demonstrações.",
+              "featured": false,
+              "full_path": "servicos/captacao-essencial-de-ate-2-horas",
+              "id": "av-capture-2h",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Produção",
+              "page_intro": "Captação compacta em uma locação, adequada a entrevistas, conteúdos e demonstrações.",
+              "page_title": "Captação essencial de até 2 horas",
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 0,
+              "slug": "captacao-essencial-de-ate-2-horas",
+              "title": "Captação essencial de até 2 horas",
+              "unit": "por sessão",
+              "visible": true
             },
             {
-              "id": "av-half-day",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Meia diária de produção",
-              "description": "Produção audiovisual de até 4 horas para conteúdo de marca, workshops ou produtos.",
-              "price_type": "from",
-              "price": 900.0,
-              "unit": "por diária",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "conforme agenda",
-              "revisions": 0,
               "deliverables": [
                 "Até 4 horas de captação",
                 "Planejamento técnico",
                 "Arquivos brutos organizados"
-              ]
+              ],
+              "description": "Produção audiovisual de até 4 horas para conteúdo de marca, workshops ou produtos.",
+              "featured": true,
+              "full_path": "servicos/meia-diaria-de-producao",
+              "id": "av-half-day",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Produção",
+              "page_intro": "Produção audiovisual de até 4 horas para conteúdo de marca, workshops ou produtos.",
+              "page_title": "Meia diária de produção",
+              "price": 900.0,
+              "price_type": "from",
+              "revisions": 0,
+              "slug": "meia-diaria-de-producao",
+              "title": "Meia diária de produção",
+              "unit": "por diária",
+              "visible": true
             },
             {
-              "id": "av-full-day",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Diária de produção audiovisual",
-              "description": "Captação estruturada para projetos com maior volume de cenas e necessidades técnicas.",
-              "price_type": "from",
-              "price": 1500.0,
-              "unit": "por diária",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "conforme agenda",
-              "revisions": 0,
               "deliverables": [
                 "Até 8 horas de captação",
                 "Direção de cena",
                 "Organização do material"
-              ]
+              ],
+              "description": "Captação estruturada para projetos com maior volume de cenas e necessidades técnicas.",
+              "featured": false,
+              "full_path": "servicos/diaria-de-producao-audiovisual",
+              "id": "av-full-day",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Produção",
+              "page_intro": "Captação estruturada para projetos com maior volume de cenas e necessidades técnicas.",
+              "page_title": "Diária de produção audiovisual",
+              "price": 1500.0,
+              "price_type": "from",
+              "revisions": 0,
+              "slug": "diaria-de-producao-audiovisual",
+              "title": "Diária de produção audiovisual",
+              "unit": "por diária",
+              "visible": true
             },
             {
-              "id": "av-product-video",
-              "order": 40,
-              "visible": true,
-              "featured": false,
-              "title": "Vídeo de produto",
-              "description": "Captação dirigida para demonstrar atributos, uso, textura e diferenciais do produto.",
-              "price_type": "from",
-              "price": 600.0,
-              "unit": "por projeto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Planejamento de cenas",
                 "Captação do produto",
                 "Edição de uma versão principal"
-              ]
+              ],
+              "description": "Captação dirigida para demonstrar atributos, uso, textura e diferenciais do produto.",
+              "featured": false,
+              "full_path": "servicos/video-de-produto",
+              "id": "av-product-video",
+              "order": 40,
+              "page_enabled": true,
+              "page_eyebrow": "Produção",
+              "page_intro": "Captação dirigida para demonstrar atributos, uso, textura e diferenciais do produto.",
+              "page_title": "Vídeo de produto",
+              "price": 600.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "video-de-produto",
+              "title": "Vídeo de produto",
+              "unit": "por projeto",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Produção",
+          "title": "Produção Audiovisual",
+          "visible": true
         },
         {
-          "id": "motion-vfx",
-          "order": 40,
-          "visible": true,
-          "featured": true,
-          "number": "04",
-          "title": "Motion Design e VFX",
-          "short_title": "Motion e VFX",
-          "description": "Animação, composição e efeitos visuais que ampliam impacto, clareza e movimento.",
           "accent": "#00a896",
           "cover_media_id": "",
+          "description": "Animação, composição e efeitos visuais que ampliam impacto, clareza e movimento.",
+          "featured": true,
+          "id": "motion-vfx",
+          "number": "04",
+          "order": 40,
           "services": [
             {
-              "id": "motion-logo",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Animação de logotipo",
-              "description": "Abertura ou assinatura animada com movimento alinhado à identidade da marca.",
-              "price_type": "from",
-              "price": 250.0,
-              "unit": "por animação",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "4 a 7 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Animação principal",
                 "Versão com fundo transparente quando aplicável",
                 "Exportações para uso digital"
-              ]
+              ],
+              "description": "Abertura ou assinatura animada com movimento alinhado à identidade da marca.",
+              "featured": false,
+              "full_path": "servicos/animacao-de-logotipo",
+              "id": "motion-logo",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Motion e VFX",
+              "page_intro": "Abertura ou assinatura animada com movimento alinhado à identidade da marca.",
+              "page_title": "Animação de logotipo",
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "animacao-de-logotipo",
+              "title": "Animação de logotipo",
+              "unit": "por animação",
+              "visible": true
             },
             {
-              "id": "motion-social",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Motion para redes sociais",
-              "description": "Peça curta com tipografia, grafismos, produtos ou informações em movimento.",
-              "price_type": "from",
-              "price": 350.0,
-              "unit": "por peça",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "4 a 8 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Motion vertical ou quadrado",
                 "Design de movimento",
                 "Arquivo final otimizado"
-              ]
+              ],
+              "description": "Peça curta com tipografia, grafismos, produtos ou informações em movimento.",
+              "featured": true,
+              "full_path": "servicos/motion-para-redes-sociais",
+              "id": "motion-social",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Motion e VFX",
+              "page_intro": "Peça curta com tipografia, grafismos, produtos ou informações em movimento.",
+              "page_title": "Motion para redes sociais",
+              "price": 350.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "motion-para-redes-sociais",
+              "title": "Motion para redes sociais",
+              "unit": "por peça",
+              "visible": true
             },
             {
-              "id": "vfx-shot",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Composição e VFX por cena",
-              "description": "Tracking, recorte, integração de elementos, limpeza ou composição visual.",
-              "price_type": "from",
-              "price": 300.0,
-              "unit": "por cena",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "conforme complexidade",
-              "revisions": 2,
               "deliverables": [
                 "Composição da cena",
                 "Tracking quando necessário",
                 "Render final"
-              ]
+              ],
+              "description": "Tracking, recorte, integração de elementos, limpeza ou composição visual.",
+              "featured": false,
+              "full_path": "servicos/composicao-e-vfx-por-cena",
+              "id": "vfx-shot",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Motion e VFX",
+              "page_intro": "Tracking, recorte, integração de elementos, limpeza ou composição visual.",
+              "page_title": "Composição e VFX por cena",
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "composicao-e-vfx-por-cena",
+              "title": "Composição e VFX por cena",
+              "unit": "por cena",
+              "visible": true
             },
             {
-              "id": "motion-packshot",
-              "order": 40,
-              "visible": true,
-              "featured": false,
-              "title": "Packshot animado de produto",
-              "description": "Apresentação final do produto com luz, textos, grafismos e movimento.",
-              "price_type": "from",
-              "price": 450.0,
-              "unit": "por peça",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Animação do produto",
                 "Textos e destaques",
                 "Versão final para campanha"
-              ]
+              ],
+              "description": "Apresentação final do produto com luz, textos, grafismos e movimento.",
+              "featured": false,
+              "full_path": "servicos/packshot-animado-de-produto",
+              "id": "motion-packshot",
+              "order": 40,
+              "page_enabled": true,
+              "page_eyebrow": "Motion e VFX",
+              "page_intro": "Apresentação final do produto com luz, textos, grafismos e movimento.",
+              "page_title": "Packshot animado de produto",
+              "price": 450.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "packshot-animado-de-produto",
+              "title": "Packshot animado de produto",
+              "unit": "por peça",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Motion e VFX",
+          "title": "Motion Design e VFX",
+          "visible": true
         },
         {
-          "id": "photo-editing",
-          "order": 50,
-          "visible": true,
-          "featured": false,
-          "number": "05",
-          "title": "Edição de Fotos",
-          "short_title": "Fotos",
-          "description": "Tratamento técnico e estético para retratos, produtos, eventos e comunicação visual.",
           "accent": "#e5484d",
           "cover_media_id": "",
+          "description": "Tratamento técnico e estético para retratos, produtos, eventos e comunicação visual.",
+          "featured": false,
+          "id": "photo-editing",
+          "number": "05",
+          "order": 50,
           "services": [
             {
-              "id": "photo-basic",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Correção básica",
-              "description": "Ajustes de exposição, contraste, cor, enquadramento e nitidez.",
-              "price_type": "from",
-              "price": 30.0,
-              "unit": "por foto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "2 a 4 dias úteis",
-              "revisions": 1,
               "deliverables": [
                 "Correção de cor e luz",
                 "Enquadramento",
                 "Arquivo final em alta resolução"
-              ]
+              ],
+              "description": "Ajustes de exposição, contraste, cor, enquadramento e nitidez.",
+              "featured": false,
+              "full_path": "servicos/correcao-basica",
+              "id": "photo-basic",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Fotos",
+              "page_intro": "Ajustes de exposição, contraste, cor, enquadramento e nitidez.",
+              "page_title": "Correção básica",
+              "price": 30.0,
+              "price_type": "from",
+              "revisions": 1,
+              "slug": "correcao-basica",
+              "title": "Correção básica",
+              "unit": "por foto",
+              "visible": true
             },
             {
-              "id": "photo-retouch",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Retoque avançado",
-              "description": "Tratamento detalhado de pele, produto, superfícies e imperfeições.",
-              "price_type": "from",
-              "price": 60.0,
-              "unit": "por foto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "3 a 6 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Retoque detalhado",
                 "Tratamento de cor",
                 "Finalização em alta resolução"
-              ]
+              ],
+              "description": "Tratamento detalhado de pele, produto, superfícies e imperfeições.",
+              "featured": true,
+              "full_path": "servicos/retoque-avancado",
+              "id": "photo-retouch",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Fotos",
+              "page_intro": "Tratamento detalhado de pele, produto, superfícies e imperfeições.",
+              "page_title": "Retoque avançado",
+              "price": 60.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "retoque-avancado",
+              "title": "Retoque avançado",
+              "unit": "por foto",
+              "visible": true
             },
             {
-              "id": "photo-pack-10",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Pacote com 10 fotos",
-              "description": "Tratamento padronizado para ensaio, produto, evento ou catálogo.",
-              "price_type": "from",
-              "price": 300.0,
-              "unit": "por pacote",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 1,
               "deliverables": [
                 "10 imagens tratadas",
                 "Consistência de cor",
                 "Arquivos organizados"
-              ]
+              ],
+              "description": "Tratamento padronizado para ensaio, produto, evento ou catálogo.",
+              "featured": false,
+              "full_path": "servicos/pacote-com-10-fotos",
+              "id": "photo-pack-10",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Fotos",
+              "page_intro": "Tratamento padronizado para ensaio, produto, evento ou catálogo.",
+              "page_title": "Pacote com 10 fotos",
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 1,
+              "slug": "pacote-com-10-fotos",
+              "title": "Pacote com 10 fotos",
+              "unit": "por pacote",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Fotos",
+          "title": "Edição de Fotos",
+          "visible": true
         },
         {
-          "id": "image-manipulation",
-          "order": 60,
-          "visible": true,
-          "featured": false,
-          "number": "06",
-          "title": "Manipulação de Imagens",
-          "short_title": "Manipulação",
-          "description": "Fotomontagens e composições publicitárias com integração de luz, textura e perspectiva.",
           "accent": "#d946ef",
           "cover_media_id": "",
+          "description": "Fotomontagens e composições publicitárias com integração de luz, textura e perspectiva.",
+          "featured": false,
+          "id": "image-manipulation",
+          "number": "06",
+          "order": 60,
           "services": [
             {
-              "id": "manipulation-simple",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Montagem simples",
-              "description": "Recortes e combinação direta de elementos com ajuste visual básico.",
-              "price_type": "from",
-              "price": 80.0,
-              "unit": "por imagem",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "2 a 4 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Recorte e composição",
                 "Ajuste de cor",
                 "Arquivo final"
-              ]
+              ],
+              "description": "Recortes e combinação direta de elementos com ajuste visual básico.",
+              "featured": false,
+              "full_path": "servicos/montagem-simples",
+              "id": "manipulation-simple",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Manipulação",
+              "page_intro": "Recortes e combinação direta de elementos com ajuste visual básico.",
+              "page_title": "Montagem simples",
+              "price": 80.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "montagem-simples",
+              "title": "Montagem simples",
+              "unit": "por imagem",
+              "visible": true
             },
             {
-              "id": "manipulation-ad",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Composição publicitária",
-              "description": "Peça com direção visual, integração de elementos e acabamento para campanha.",
-              "price_type": "from",
-              "price": 250.0,
-              "unit": "por imagem",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "4 a 8 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Composição completa",
                 "Integração de luz e cor",
                 "Finalização publicitária"
-              ]
+              ],
+              "description": "Peça com direção visual, integração de elementos e acabamento para campanha.",
+              "featured": true,
+              "full_path": "servicos/composicao-publicitaria",
+              "id": "manipulation-ad",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Manipulação",
+              "page_intro": "Peça com direção visual, integração de elementos e acabamento para campanha.",
+              "page_title": "Composição publicitária",
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "composicao-publicitaria",
+              "title": "Composição publicitária",
+              "unit": "por imagem",
+              "visible": true
             },
             {
-              "id": "manipulation-complex",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Composição complexa",
-              "description": "Construção visual com múltiplas fontes, cenários e alto nível de detalhamento.",
-              "price_type": "from",
-              "price": 700.0,
-              "unit": "por imagem",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "7 a 15 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Direção da composição",
                 "Múltiplos elementos",
                 "Arquivo final em alta resolução"
-              ]
+              ],
+              "description": "Construção visual com múltiplas fontes, cenários e alto nível de detalhamento.",
+              "featured": false,
+              "full_path": "servicos/composicao-complexa",
+              "id": "manipulation-complex",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Manipulação",
+              "page_intro": "Construção visual com múltiplas fontes, cenários e alto nível de detalhamento.",
+              "page_title": "Composição complexa",
+              "price": 700.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "composicao-complexa",
+              "title": "Composição complexa",
+              "unit": "por imagem",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Manipulação",
+          "title": "Manipulação de Imagens",
+          "visible": true
         },
         {
-          "id": "visual-identity",
-          "order": 70,
-          "visible": true,
-          "featured": true,
-          "number": "07",
-          "title": "Identidade Visual",
-          "short_title": "Identidade",
-          "description": "Sistemas de marca coerentes, reconhecíveis e preparados para aplicações reais.",
           "accent": "#f5a524",
           "cover_media_id": "",
+          "description": "Sistemas de marca coerentes, reconhecíveis e preparados para aplicações reais.",
+          "featured": true,
+          "id": "visual-identity",
+          "number": "07",
+          "order": 70,
           "services": [
             {
-              "id": "identity-essential",
-              "order": 10,
-              "visible": true,
-              "featured": true,
-              "title": "Manual essencial",
-              "description": "Organização dos fundamentos da identidade e das regras principais de aplicação.",
-              "price_type": "from",
-              "price": 1500.0,
-              "unit": "por projeto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "15 a 25 dias úteis",
-              "revisions": 3,
               "deliverables": [
                 "Logotipo e versões",
                 "Paleta e tipografia",
                 "Regras essenciais de uso"
-              ]
+              ],
+              "description": "Organização dos fundamentos da identidade e das regras principais de aplicação.",
+              "featured": true,
+              "full_path": "servicos/manual-essencial",
+              "id": "identity-essential",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Identidade",
+              "page_intro": "Organização dos fundamentos da identidade e das regras principais de aplicação.",
+              "page_title": "Manual essencial",
+              "price": 1500.0,
+              "price_type": "from",
+              "revisions": 3,
+              "slug": "manual-essencial",
+              "title": "Manual essencial",
+              "unit": "por projeto",
+              "visible": true
             },
             {
-              "id": "identity-complete",
-              "order": 20,
-              "visible": true,
-              "featured": false,
-              "title": "Manual completo",
-              "description": "Sistema de identidade ampliado com linguagem gráfica, aplicações e documentação completa.",
-              "price_type": "from",
-              "price": 3000.0,
-              "unit": "por projeto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "25 a 45 dias úteis",
-              "revisions": 3,
               "deliverables": [
                 "Sistema completo de marca",
                 "Grafismos e padrões",
                 "Aplicações e manual detalhado"
-              ]
+              ],
+              "description": "Sistema de identidade ampliado com linguagem gráfica, aplicações e documentação completa.",
+              "featured": false,
+              "full_path": "servicos/manual-completo",
+              "id": "identity-complete",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Identidade",
+              "page_intro": "Sistema de identidade ampliado com linguagem gráfica, aplicações e documentação completa.",
+              "page_title": "Manual completo",
+              "price": 3000.0,
+              "price_type": "from",
+              "revisions": 3,
+              "slug": "manual-completo",
+              "title": "Manual completo",
+              "unit": "por projeto",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Identidade",
+          "title": "Identidade Visual",
+          "visible": true
         },
         {
-          "id": "campaign-art-direction",
-          "order": 80,
-          "visible": true,
-          "featured": true,
-          "number": "08",
-          "title": "Campanhas e Direção de Arte",
-          "short_title": "Campanhas",
-          "description": "Conceitos visuais e sistemas de campanha preparados para diferentes canais e formatos.",
           "accent": "#ff3b30",
           "cover_media_id": "",
+          "description": "Conceitos visuais e sistemas de campanha preparados para diferentes canais e formatos.",
+          "featured": true,
+          "id": "campaign-art-direction",
+          "number": "08",
+          "order": 80,
           "services": [
             {
-              "id": "campaign-kv",
-              "order": 10,
-              "visible": true,
-              "featured": true,
-              "title": "Key visual de campanha",
-              "description": "Imagem central que organiza conceito, atmosfera, tipografia e direção da campanha.",
-              "price_type": "from",
-              "price": 500.0,
-              "unit": "por conceito",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "7 a 12 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Conceito visual",
                 "Peça principal",
                 "Direção de aplicações"
-              ]
+              ],
+              "description": "Imagem central que organiza conceito, atmosfera, tipografia e direção da campanha.",
+              "featured": true,
+              "full_path": "servicos/key-visual-de-campanha",
+              "id": "campaign-kv",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Campanhas",
+              "page_intro": "Imagem central que organiza conceito, atmosfera, tipografia e direção da campanha.",
+              "page_title": "Key visual de campanha",
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "key-visual-de-campanha",
+              "title": "Key visual de campanha",
+              "unit": "por conceito",
+              "visible": true
             },
             {
-              "id": "campaign-package",
-              "order": 20,
-              "visible": true,
-              "featured": false,
-              "title": "Pacote visual de campanha",
-              "description": "Key visual e desdobramentos principais para redes, banners e comunicação digital.",
-              "price_type": "from",
-              "price": 1000.0,
-              "unit": "por campanha",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "10 a 20 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Key visual",
                 "Até 5 desdobramentos",
                 "Guia rápido de aplicação"
-              ]
+              ],
+              "description": "Key visual e desdobramentos principais para redes, banners e comunicação digital.",
+              "featured": false,
+              "full_path": "servicos/pacote-visual-de-campanha",
+              "id": "campaign-package",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Campanhas",
+              "page_intro": "Key visual e desdobramentos principais para redes, banners e comunicação digital.",
+              "page_title": "Pacote visual de campanha",
+              "price": 1000.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "pacote-visual-de-campanha",
+              "title": "Pacote visual de campanha",
+              "unit": "por campanha",
+              "visible": true
             },
             {
-              "id": "art-direction",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Direção de arte",
-              "description": "Definição da linguagem visual e acompanhamento criativo de uma entrega ou campanha.",
-              "price_type": "from",
-              "price": 800.0,
-              "unit": "por projeto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "conforme escopo",
-              "revisions": 2,
               "deliverables": [
                 "Direção visual",
                 "Referências e linguagem",
                 "Orientação dos desdobramentos"
-              ]
+              ],
+              "description": "Definição da linguagem visual e acompanhamento criativo de uma entrega ou campanha.",
+              "featured": false,
+              "full_path": "servicos/direcao-de-arte",
+              "id": "art-direction",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Campanhas",
+              "page_intro": "Definição da linguagem visual e acompanhamento criativo de uma entrega ou campanha.",
+              "page_title": "Direção de arte",
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "direcao-de-arte",
+              "title": "Direção de arte",
+              "unit": "por projeto",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Campanhas",
+          "title": "Campanhas e Direção de Arte",
+          "visible": true
         },
         {
-          "id": "products-ecommerce",
-          "order": 90,
-          "visible": true,
-          "featured": true,
-          "number": "09",
-          "title": "Produtos e E-commerce",
-          "short_title": "E-commerce",
-          "description": "Imagens e comunicação comercial para produtos, vitrines, catálogos e marketplaces.",
           "accent": "#32ade6",
           "cover_media_id": "",
+          "description": "Imagens e comunicação comercial para produtos, vitrines, catálogos e marketplaces.",
+          "featured": true,
+          "id": "products-ecommerce",
+          "number": "09",
+          "order": 90,
           "services": [
             {
-              "id": "product-image",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Imagem tratada de produto",
-              "description": "Recorte, limpeza, correção e preparação comercial de uma imagem de produto.",
-              "price_type": "from",
-              "price": 50.0,
-              "unit": "por imagem",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "2 a 4 dias úteis",
-              "revisions": 1,
               "deliverables": [
                 "Tratamento do produto",
                 "Fundo conforme briefing",
                 "Arquivo para e-commerce"
-              ]
+              ],
+              "description": "Recorte, limpeza, correção e preparação comercial de uma imagem de produto.",
+              "featured": false,
+              "full_path": "servicos/imagem-tratada-de-produto",
+              "id": "product-image",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "E-commerce",
+              "page_intro": "Recorte, limpeza, correção e preparação comercial de uma imagem de produto.",
+              "page_title": "Imagem tratada de produto",
+              "price": 50.0,
+              "price_type": "from",
+              "revisions": 1,
+              "slug": "imagem-tratada-de-produto",
+              "title": "Imagem tratada de produto",
+              "unit": "por imagem",
+              "visible": true
             },
             {
-              "id": "product-pack-10",
-              "order": 20,
-              "visible": true,
-              "featured": true,
-              "title": "Pacote com 10 imagens de produto",
-              "description": "Tratamento padronizado para catálogo, loja virtual ou marketplace.",
-              "price_type": "from",
-              "price": 400.0,
-              "unit": "por pacote",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 1,
               "deliverables": [
                 "10 imagens tratadas",
                 "Padrão visual consistente",
                 "Arquivos organizados"
-              ]
+              ],
+              "description": "Tratamento padronizado para catálogo, loja virtual ou marketplace.",
+              "featured": true,
+              "full_path": "servicos/pacote-com-10-imagens-de-produto",
+              "id": "product-pack-10",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "E-commerce",
+              "page_intro": "Tratamento padronizado para catálogo, loja virtual ou marketplace.",
+              "page_title": "Pacote com 10 imagens de produto",
+              "price": 400.0,
+              "price_type": "from",
+              "revisions": 1,
+              "slug": "pacote-com-10-imagens-de-produto",
+              "title": "Pacote com 10 imagens de produto",
+              "unit": "por pacote",
+              "visible": true
             },
             {
-              "id": "marketplace-kit",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Kit visual para marketplace",
-              "description": "Imagem principal, destaques, benefícios e peças complementares para um anúncio.",
-              "price_type": "from",
-              "price": 350.0,
-              "unit": "por produto",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 8 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Imagem principal",
                 "Até 4 imagens informativas",
                 "Adaptação ao canal"
-              ]
+              ],
+              "description": "Imagem principal, destaques, benefícios e peças complementares para um anúncio.",
+              "featured": false,
+              "full_path": "servicos/kit-visual-para-marketplace",
+              "id": "marketplace-kit",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "E-commerce",
+              "page_intro": "Imagem principal, destaques, benefícios e peças complementares para um anúncio.",
+              "page_title": "Kit visual para marketplace",
+              "price": 350.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "kit-visual-para-marketplace",
+              "title": "Kit visual para marketplace",
+              "unit": "por produto",
+              "visible": true
             },
             {
-              "id": "ecommerce-banner",
-              "order": 40,
-              "visible": true,
-              "featured": false,
-              "title": "Banner para loja ou coleção",
-              "description": "Peça comercial para vitrine, lançamento, categoria ou ação promocional.",
-              "price_type": "from",
-              "price": 250.0,
-              "unit": "por banner",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "3 a 6 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Banner principal",
                 "Uma adaptação de formato",
                 "Arquivo pronto para publicação"
-              ]
+              ],
+              "description": "Peça comercial para vitrine, lançamento, categoria ou ação promocional.",
+              "featured": false,
+              "full_path": "servicos/banner-para-loja-ou-colecao",
+              "id": "ecommerce-banner",
+              "order": 40,
+              "page_enabled": true,
+              "page_eyebrow": "E-commerce",
+              "page_intro": "Peça comercial para vitrine, lançamento, categoria ou ação promocional.",
+              "page_title": "Banner para loja ou coleção",
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "banner-para-loja-ou-colecao",
+              "title": "Banner para loja ou coleção",
+              "unit": "por banner",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "E-commerce",
+          "title": "Produtos e E-commerce",
+          "visible": true
         },
         {
-          "id": "illustration-script-storyboard",
-          "order": 100,
-          "visible": true,
-          "featured": true,
-          "number": "10",
-          "title": "Ilustração, Roteiro e Storyboard",
-          "short_title": "Narrativa Visual",
-          "description": "Ideias transformadas em personagens, cenas, roteiros e planejamento visual de produção.",
           "accent": "#a855f7",
           "cover_media_id": "",
+          "description": "Ideias transformadas em personagens, cenas, roteiros e planejamento visual de produção.",
+          "featured": true,
+          "id": "illustration-script-storyboard",
+          "number": "10",
+          "order": 100,
           "services": [
             {
-              "id": "illustration-single",
-              "order": 10,
-              "visible": true,
-              "featured": false,
-              "title": "Ilustração individual",
-              "description": "Ilustração para conteúdo, campanha, apresentação ou peça editorial.",
-              "price_type": "from",
-              "price": 200.0,
-              "unit": "por ilustração",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Esboço aprovado",
                 "Arte final",
                 "Arquivo em alta resolução"
-              ]
+              ],
+              "description": "Ilustração para conteúdo, campanha, apresentação ou peça editorial.",
+              "featured": false,
+              "full_path": "servicos/ilustracao-individual",
+              "id": "illustration-single",
+              "order": 10,
+              "page_enabled": true,
+              "page_eyebrow": "Narrativa Visual",
+              "page_intro": "Ilustração para conteúdo, campanha, apresentação ou peça editorial.",
+              "page_title": "Ilustração individual",
+              "price": 200.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "ilustracao-individual",
+              "title": "Ilustração individual",
+              "unit": "por ilustração",
+              "visible": true
             },
             {
-              "id": "character-design",
-              "order": 20,
-              "visible": true,
-              "featured": false,
-              "title": "Criação de personagem",
-              "description": "Desenvolvimento visual de personagem com linguagem, silhueta e características próprias.",
-              "price_type": "from",
-              "price": 300.0,
-              "unit": "por personagem",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "7 a 15 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Pesquisa visual",
                 "Desenvolvimento do personagem",
                 "Arte final"
-              ]
+              ],
+              "description": "Desenvolvimento visual de personagem com linguagem, silhueta e características próprias.",
+              "featured": false,
+              "full_path": "servicos/criacao-de-personagem",
+              "id": "character-design",
+              "order": 20,
+              "page_enabled": true,
+              "page_eyebrow": "Narrativa Visual",
+              "page_intro": "Desenvolvimento visual de personagem com linguagem, silhueta e características próprias.",
+              "page_title": "Criação de personagem",
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "criacao-de-personagem",
+              "title": "Criação de personagem",
+              "unit": "por personagem",
+              "visible": true
             },
             {
-              "id": "script-short",
-              "order": 30,
-              "visible": true,
-              "featured": false,
-              "title": "Roteiro curto publicitário",
-              "description": "Estrutura narrativa para vídeo curto, campanha, anúncio ou conteúdo de marca.",
-              "price_type": "from",
-              "price": 250.0,
-              "unit": "por roteiro",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "3 a 7 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Conceito narrativo",
                 "Roteiro estruturado",
                 "Indicações de cena e fala"
-              ]
+              ],
+              "description": "Estrutura narrativa para vídeo curto, campanha, anúncio ou conteúdo de marca.",
+              "featured": false,
+              "full_path": "servicos/roteiro-curto-publicitario",
+              "id": "script-short",
+              "order": 30,
+              "page_enabled": true,
+              "page_eyebrow": "Narrativa Visual",
+              "page_intro": "Estrutura narrativa para vídeo curto, campanha, anúncio ou conteúdo de marca.",
+              "page_title": "Roteiro curto publicitário",
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "roteiro-curto-publicitario",
+              "title": "Roteiro curto publicitário",
+              "unit": "por roteiro",
+              "visible": true
             },
             {
-              "id": "storyboard-8",
-              "order": 40,
-              "visible": true,
-              "featured": true,
-              "title": "Storyboard com até 8 quadros",
-              "description": "Planejamento visual de cenas, enquadramentos, ações e continuidade.",
-              "price_type": "from",
-              "price": 400.0,
-              "unit": "por sequência",
+              "cover_media_id": "",
+              "cta_label": "Solicitar orçamento",
               "deadline": "5 a 10 dias úteis",
-              "revisions": 2,
               "deliverables": [
                 "Até 8 quadros",
                 "Indicação de câmera e ação",
                 "Arquivo final para produção"
-              ]
+              ],
+              "description": "Planejamento visual de cenas, enquadramentos, ações e continuidade.",
+              "featured": true,
+              "full_path": "servicos/storyboard-com-ate-8-quadros",
+              "id": "storyboard-8",
+              "order": 40,
+              "page_enabled": true,
+              "page_eyebrow": "Narrativa Visual",
+              "page_intro": "Planejamento visual de cenas, enquadramentos, ações e continuidade.",
+              "page_title": "Storyboard com até 8 quadros",
+              "price": 400.0,
+              "price_type": "from",
+              "revisions": 2,
+              "slug": "storyboard-com-ate-8-quadros",
+              "title": "Storyboard com até 8 quadros",
+              "unit": "por sequência",
+              "visible": true
             }
-          ]
+          ],
+          "short_title": "Narrativa Visual",
+          "title": "Ilustração, Roteiro e Storyboard",
+          "visible": true
         }
       ]
     },
@@ -1243,8 +1515,21 @@
       "side_menu_enabled": true,
       "menu_label": "Menu",
       "menu_title": "Navegação",
+      "show_top_link": true,
+      "top_label": "Ir para o topo",
+      "show_services_link": true,
+      "show_contact_link": true,
       "show_home_sections": true,
       "show_drive_sections": true,
+      "floating_position": "left",
+      "floating_button_size": 42,
+      "floating_gap": 8,
+      "menu_panel_width": 520,
+      "menu_text_size": 48,
+      "floating_whatsapp_visible": true,
+      "floating_whatsapp_label": "WhatsApp",
+      "floating_whatsapp_number": "",
+      "floating_whatsapp_message": "",
       "about_visible": true,
       "contact_visible": true,
       "projects_visible": true
@@ -1358,7 +1643,8 @@
           "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
           "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
-        ]
+        ],
+        "display_mode": "menu"
       }
     },
     "about": {
@@ -1988,14 +2274,14 @@
       "height": 1080,
       "resource_key": "",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
       "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+        "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -2013,14 +2299,14 @@
       "height": 1080,
       "resource_key": "",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
       "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+        "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -2038,14 +2324,14 @@
       "height": 1080,
       "resource_key": "",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
       "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+        "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -2932,14 +3218,14 @@
           "order": 0,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -3348,14 +3634,14 @@
           "order": 16,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download"
+            "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
@@ -3423,14 +3709,14 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -5089,14 +5375,14 @@
           "order": 0,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
           "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+            "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -5115,14 +5401,14 @@
           "order": 1,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download"
+            "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
@@ -5141,14 +5427,14 @@
           "order": 2,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
           "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+            "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -5167,14 +5453,14 @@
           "order": 3,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
           "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+            "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -5189,14 +5475,14 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
       "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+        "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -5259,14 +5545,14 @@
           "order": 1,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
@@ -5285,14 +5571,14 @@
           "order": 2,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download"
+            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
@@ -5311,14 +5597,14 @@
           "order": 3,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download"
+            "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
@@ -5337,14 +5623,14 @@
           "order": 4,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download"
+            "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
@@ -5363,14 +5649,14 @@
           "order": 5,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download"
+            "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
@@ -5389,14 +5675,14 @@
           "order": 6,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download"
+            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
@@ -5442,14 +5728,14 @@
           "order": 8,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download"
+            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
@@ -5468,14 +5754,14 @@
           "order": 9,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download"
+            "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
@@ -5873,14 +6159,14 @@
           "order": 0,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -5926,14 +6212,14 @@
           "order": 2,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download"
+            "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
@@ -5952,14 +6238,14 @@
           "order": 3,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
@@ -5978,14 +6264,14 @@
           "order": 4,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download"
+            "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
@@ -6004,14 +6290,14 @@
           "order": 5,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
@@ -6030,14 +6316,14 @@
           "order": 6,
           "resource_key": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download"
+            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
@@ -6052,14 +6338,14 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+        "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -8937,14 +9223,14 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -8976,14 +9262,14 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -9002,14 +9288,14 @@
         "title": "07.07 DIA D",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
         "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+          "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -10889,14 +11175,14 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
       "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download"
+        "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
@@ -10928,14 +11214,14 @@
           "title": "SPOILER 07.07",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download"
+            "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
@@ -10954,14 +11240,14 @@
         "title": "SPOILER 07.07",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
         "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download"
+          "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
@@ -12746,14 +13032,14 @@
         "DERMACAST"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
       "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+        "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -12785,14 +13071,14 @@
           "title": "06 Dermacast - LAILA FRIZON",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
           "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+            "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -12811,14 +13097,14 @@
         "title": "06 Dermacast - LAILA FRIZON",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
         "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+          "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -12868,14 +13154,14 @@
         "DERMACAST"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
       "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download"
+        "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
@@ -12907,14 +13193,14 @@
           "title": "CORTE 04",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download"
+            "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
@@ -12933,14 +13219,14 @@
         "title": "CORTE 04",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
         "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download"
+          "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
@@ -12990,14 +13276,14 @@
         "DERMACAST"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
       "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+        "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -13029,14 +13315,14 @@
           "title": "Dermacast - JULIA PEPES_1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
           "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+            "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -13055,14 +13341,14 @@
         "title": "Dermacast - JULIA PEPES_1",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
         "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+          "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -13112,14 +13398,14 @@
         "DERMACAST"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
       "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+        "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -13151,14 +13437,14 @@
           "title": "Dermacast - NATASHA RAMOS",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
           "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+            "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -13177,14 +13463,14 @@
         "title": "Dermacast - NATASHA RAMOS",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
         "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+          "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -13361,14 +13647,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
       "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download"
+        "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
@@ -13400,14 +13686,14 @@
           "title": "FINAL GALDERMA WORKSHOP",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
@@ -13426,14 +13712,14 @@
         "title": "FINAL GALDERMA WORKSHOP",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
         "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download"
+          "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
@@ -13483,14 +13769,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
       "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download"
+        "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
@@ -13522,14 +13808,14 @@
           "title": "FINAL VIDEO MERZ",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download"
+            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
@@ -13548,14 +13834,14 @@
         "title": "FINAL VIDEO MERZ",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
         "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download"
+          "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
@@ -13605,14 +13891,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
       "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download"
+        "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
@@ -13644,14 +13930,14 @@
           "title": "pilula Rejuvital 2",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download"
+            "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
@@ -13670,14 +13956,14 @@
         "title": "pilula Rejuvital 2",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
         "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download"
+          "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
@@ -13727,14 +14013,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
       "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download"
+        "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
@@ -13766,14 +14052,14 @@
           "title": "PROJETO 01",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download"
+            "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
@@ -13792,14 +14078,14 @@
         "title": "PROJETO 01",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
         "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download"
+          "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
@@ -13849,14 +14135,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
       "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download"
+        "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
@@ -13888,14 +14174,14 @@
           "title": "PROJETO 02 allergan",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download"
+            "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
@@ -13914,14 +14200,14 @@
         "title": "PROJETO 02 allergan",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
         "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download"
+          "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
@@ -13971,14 +14257,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
       "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download"
+        "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
@@ -14010,14 +14296,14 @@
           "title": "REJUVITAL AMANDA 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download"
+            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
@@ -14036,14 +14322,14 @@
         "title": "REJUVITAL AMANDA 1",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
         "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download"
+          "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
@@ -14220,14 +14506,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
       "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download"
+        "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
@@ -14259,14 +14545,14 @@
           "title": "WORKSHOP  EVO FINAL",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download"
+            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
@@ -14285,14 +14571,14 @@
         "title": "WORKSHOP  EVO FINAL",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
         "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download"
+          "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
@@ -14342,14 +14628,14 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
       "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download"
+        "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
@@ -14381,14 +14667,14 @@
           "title": "WORKSHOP",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download"
+            "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
@@ -14407,14 +14693,14 @@
         "title": "WORKSHOP",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
         "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download"
+          "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
@@ -15684,14 +15970,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+        "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -15723,14 +16009,14 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -15749,14 +16035,14 @@
         "title": "Cópia de SCULPT DERMALINK",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
         "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+          "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -15933,14 +16219,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
       "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download"
+        "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
@@ -15972,14 +16258,14 @@
           "title": "POST3",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download"
+            "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
@@ -15998,14 +16284,14 @@
         "title": "POST3",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
         "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download"
+          "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
@@ -16055,14 +16341,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
       "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+        "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
@@ -16094,14 +16380,14 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
@@ -16120,14 +16406,14 @@
         "title": "post4",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
         "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+          "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
@@ -16177,14 +16463,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
       "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download"
+        "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
@@ -16216,14 +16502,14 @@
           "title": "STORY AI 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download"
+            "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
@@ -16242,14 +16528,14 @@
         "title": "STORY AI 1",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
         "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download"
+          "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
@@ -16299,14 +16585,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
       "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download"
+        "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
@@ -16338,14 +16624,14 @@
           "title": "STORY",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
@@ -16364,14 +16650,14 @@
         "title": "STORY",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
         "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download"
+          "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
@@ -16421,14 +16707,14 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600",
-      "media_url": "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download",
+      "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
       "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
       "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download"
+        "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
         "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
@@ -16460,14 +16746,14 @@
           "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download"
+            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
@@ -16486,14 +16772,14 @@
         "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600",
-        "media_url": "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download",
+        "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
         "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
         "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download"
+          "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
           "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
@@ -17355,14 +17641,14 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download"
+            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
@@ -17915,14 +18201,14 @@
           "title": "SPOILER 07.07",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download"
+            "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
@@ -18802,14 +19088,14 @@
           "title": "06 Dermacast - LAILA FRIZON",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview",
           "external_url": "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download"
+            "https://drive.usercontent.google.com/download?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej/preview"
@@ -18837,14 +19123,14 @@
           "title": "CORTE 04",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download"
+            "https://drive.usercontent.google.com/download?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
@@ -18872,14 +19158,14 @@
           "title": "Dermacast - JULIA PEPES_1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview",
           "external_url": "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download"
+            "https://drive.usercontent.google.com/download?id=1D0MFKiql4UsBbUBAs7I1y4-vexgRADja&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja/preview"
@@ -18907,14 +19193,14 @@
           "title": "Dermacast - NATASHA RAMOS",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview",
           "external_url": "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download"
+            "https://drive.usercontent.google.com/download?id=1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG/preview"
@@ -18979,14 +19265,14 @@
           "title": "FINAL GALDERMA WORKSHOP",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
@@ -19014,14 +19300,14 @@
           "title": "FINAL VIDEO MERZ",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download"
+            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
@@ -19049,14 +19335,14 @@
           "title": "pilula Rejuvital 2",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download"
+            "https://drive.usercontent.google.com/download?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
@@ -19084,14 +19370,14 @@
           "title": "PROJETO 01",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download"
+            "https://drive.usercontent.google.com/download?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
@@ -19119,14 +19405,14 @@
           "title": "PROJETO 02 allergan",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download"
+            "https://drive.usercontent.google.com/download?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
@@ -19154,14 +19440,14 @@
           "title": "REJUVITAL AMANDA 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download"
+            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
@@ -19226,14 +19512,14 @@
           "title": "WORKSHOP  EVO FINAL",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download"
+            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
@@ -19261,14 +19547,14 @@
           "title": "WORKSHOP",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download"
+            "https://drive.usercontent.google.com/download?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
@@ -19646,14 +19932,14 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download"
+            "https://drive.usercontent.google.com/download?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
@@ -19718,14 +20004,14 @@
           "title": "POST3",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download"
+            "https://drive.usercontent.google.com/download?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
@@ -19753,14 +20039,14 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
@@ -19788,14 +20074,14 @@
           "title": "STORY AI 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download"
+            "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
@@ -19823,14 +20109,14 @@
           "title": "STORY",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download"
+            "https://drive.usercontent.google.com/download?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
@@ -19858,14 +20144,14 @@
           "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600",
-          "media_url": "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download",
+          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
           "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download"
+            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
             "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
@@ -19892,7 +20178,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.113
+    "duration_seconds": 7.071
   },
   "publication_ready": true,
   "public_validation": {

@@ -32,6 +32,7 @@ async function load() {
     DATA = await response.json();
   }
   hydrateHostedAssetUrls(DATA);
+  warmMediaOrigins(DATA);
   const identity = DATA.identity || {};
   document.documentElement.style.setProperty('--accent', identity.accent_color || '#2FD59A');
   document.title = `${identity.studio_name || 'Mensagem Studio'} | ${identity.portfolio_title || 'Portfólio'}`;
@@ -44,9 +45,11 @@ async function load() {
   $('#heroLine').textContent = identity.hero_line || '';
   renderSiteBuilder();
   renderHero();
+  const serviceDetail = currentServiceDetail();
   const servicesPage = isServicesPage();
   const customPage = currentCustomPage();
-  if(servicesPage){ renderServicesPage(); }
+  if(serviceDetail){ renderServiceDetailPage(serviceDetail.category, serviceDetail.item); }
+  else if(servicesPage){ renderServicesPage(); }
   else if(customPage){ renderCustomPage(customPage); } else {
     renderFilters();
     const hashSection = sectionFromLocation();
@@ -95,22 +98,79 @@ function videoSourceCandidates(item = {}) {
     .filter((url) => !/\/preview(?:\?|$)/i.test(url));
 }
 
-function bindVideoSourceFallback(video, candidates, exhausted = null) {
-  const sources = uniqueUrls(candidates || []);
+const MEDIA_LOAD_TIMEOUT_MS = 9000;
+const MEDIA_NEAR_VIEWPORT_MARGIN = '420px 0px';
+const MEDIA_FAILED_URL_TTL_MS = 60000;
+const MEDIA_FAILED_URLS = new Map();
+
+function mediaUrlRecentlyFailed(url) {
+  const failedAt = MEDIA_FAILED_URLS.get(String(url || ''));
+  if (!failedAt) return false;
+  if (Date.now() - failedAt > MEDIA_FAILED_URL_TTL_MS) { MEDIA_FAILED_URLS.delete(String(url || '')); return false; }
+  return true;
+}
+function markMediaUrlFailed(url) { if (url) MEDIA_FAILED_URLS.set(String(url), Date.now()); }
+
+function warmMediaOrigins(data = {}) {
+  const urls = [];
+  const push = (value) => { if (typeof value === 'string' && /^https?:\/\//i.test(value)) urls.push(value); };
+  (data.hero_projects || data.projects || []).slice(0, 8).forEach((item) => {
+    push(item?.thumbnail_url); push(item?.media_url); push(item?.preview_url);
+    (item?.thumbnail_candidates || []).slice(0, 2).forEach(push);
+  });
+  Object.values(data.hero_assets || {}).slice(0, 4).forEach((item) => { push(item?.thumbnail_url); push(item?.media_url); });
+  const origins = [...new Set(urls.map((value) => { try { return new URL(value, location.href).origin; } catch (_) { return ''; } }).filter(Boolean))].slice(0, 3);
+  origins.forEach((origin) => {
+    if ([...document.head.querySelectorAll('link[data-sf-preconnect]')].some((link) => link.dataset.sfPreconnect === origin)) return;
+    const preconnect = document.createElement('link'); preconnect.rel = 'preconnect'; preconnect.href = origin; preconnect.crossOrigin = 'anonymous'; preconnect.dataset.sfPreconnect = origin; document.head.append(preconnect);
+    const dns = document.createElement('link'); dns.rel = 'dns-prefetch'; dns.href = origin; document.head.append(dns);
+  });
+}
+
+function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = false } = {}) {
+  const sources = uniqueUrls(candidates || []).filter((url) => !mediaUrlRecentlyFailed(url));
   let sourceIndex = 0;
+  let started = false;
   const next = () => {
+    if (video.currentSrc || video.src) markMediaUrlFailed(video.currentSrc || video.src);
     if (sourceIndex >= sources.length) {
       video.dataset.failed = '1';
       if (typeof exhausted === 'function') exhausted();
       return;
     }
     video.dataset.failed = '0';
+    video.classList.remove('is-media-ready');
     video.src = sources[sourceIndex++];
     video.load();
   };
+  const ensure = () => { if (started) return; started = true; next(); };
   video.addEventListener('error', next);
-  next();
+  video.addEventListener('canplay', () => video.classList.add('is-media-ready'));
+  video.__studioframeEnsureSource = ensure;
+  if (!defer) ensure();
   return video;
+}
+
+function ensureVideoSource(video) {
+  if (!video) return;
+  if (typeof video.__studioframeEnsureSource === 'function') video.__studioframeEnsureSource();
+}
+
+function bindDeferredAutoplay(video, target = video, { threshold = 0.18 } = {}) {
+  if (!video) return;
+  if (!('IntersectionObserver' in window)) { ensureVideoSource(video); if (video.autoplay) video.play().catch(() => {}); return; }
+  const loader = new IntersectionObserver((entries, observer) => {
+    if (entries.some((entry) => entry.isIntersecting)) { ensureVideoSource(video); observer.disconnect(); }
+  }, { rootMargin: MEDIA_NEAR_VIEWPORT_MARGIN, threshold: 0 });
+  loader.observe(target);
+  const player = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!video.autoplay) return;
+      if (entry.isIntersecting && entry.intersectionRatio >= threshold) { ensureVideoSource(video); video.play().catch(() => {}); }
+      else video.pause();
+    });
+  }, { threshold: [0, threshold, .5, .85] });
+  player.observe(target);
 }
 
 
@@ -306,12 +366,28 @@ function renderSiteBuilder() {
   if ($('#sideMenuTitle')) $('#sideMenuTitle').textContent = navigation.menu_title || 'Navegação';
   if ($('#sideMenuStudio')) $('#sideMenuStudio').textContent = identity.studio_name || 'Mensagem Studio';
   document.body.classList.toggle('side-menu-enabled', navigation.side_menu_enabled !== false);
+  document.body.dataset.floatingPosition = navigation.floating_position === 'right' ? 'right' : 'left';
+  document.documentElement.style.setProperty('--site-floating-button-size', `${Math.max(32,Math.min(72,Number(navigation.floating_button_size||42)))}px`);
+  document.documentElement.style.setProperty('--site-floating-gap', `${Math.max(0,Math.min(32,Number(navigation.floating_gap??8)))}px`);
+  document.documentElement.style.setProperty('--site-menu-panel-width', `${Math.max(320,Math.min(760,Number(navigation.menu_panel_width||520)))}px`);
+  document.documentElement.style.setProperty('--site-menu-text-size', `${Math.max(24,Math.min(64,Number(navigation.menu_text_size||48)))}px`);
+  const floatingWhatsapp=$('#floatingWhatsapp');
+  if(floatingWhatsapp){
+    const globalFooter=builder.global?.footer||{}, serviceConfig=builder.services||{};
+    const number=String(navigation.floating_whatsapp_number||globalFooter.whatsapp_number||serviceConfig.whatsapp_number||'').replace(/\D/g,'');
+    const message=String(navigation.floating_whatsapp_message||globalFooter.whatsapp_message||serviceConfig.whatsapp_message||'').trim();
+    floatingWhatsapp.href=number?`https://wa.me/${number}${message?`?text=${encodeURIComponent(message)}`:''}`:'#';
+    floatingWhatsapp.hidden=navigation.floating_whatsapp_visible===false||!number;
+    const label=$('#floatingWhatsappLabel');if(label)label.textContent=navigation.floating_whatsapp_label||'WhatsApp';
+  }
 
   if ($('#projectsEyebrow')) $('#projectsEyebrow').textContent = projects.eyebrow || 'Portfólio selecionado';
   if ($('#projectsTitle')) $('#projectsTitle').textContent = projects.title || 'Projetos';
   const showProjects = projects.visible !== false;
+  const filterBarMode=['menu','inline','sticky'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'menu';
+  document.body.dataset.filterBarMode=filterBarMode;
   $('#portfolioHeading')?.toggleAttribute('hidden', !showProjects);
-  $('#filters')?.toggleAttribute('hidden', !showProjects);
+  $('#filters')?.toggleAttribute('hidden', !showProjects || filterBarMode==='menu');
   $('#projects')?.toggleAttribute('hidden', !showProjects);
   $('#menu')?.toggleAttribute('hidden', !showProjects || navigation.projects_visible === false);
 
@@ -640,7 +716,10 @@ function createVideoFeatureBlock(block) {
   const media=document.createElement('div'); media.className='video-feature-stage';
   if (IS_EDITOR_PREVIEW && item.media_url && block.autoplay !== false) {
     const video=document.createElement('video'); video.src=item.media_url; video.muted=true; video.loop=true; video.autoplay=true; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.addEventListener('error',()=>video.replaceWith(projectVideo(item))); media.append(video);
-  } else media.append(projectVideo(item));
+  } else {
+    const video=document.createElement('video'); video.muted=true; video.loop=true; video.autoplay=block.autoplay!==false; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.preload='none';
+    bindVideoSourceFallback(video,videoSourceCandidates(item),()=>video.replaceWith(projectVideoFallback(item)),{defer:true}); media.append(video); bindDeferredAutoplay(video,media);
+  }
   section.append(copy,media);
   return section;
 }
@@ -759,7 +838,7 @@ function createHomeVideoBlock(block) {
   const section=document.createElement('section');section.className=`modular-block editorial-section block-home-video width-${block.width||'full'} scroll-${block.scroll_behavior||'parallax'} effect-${block.section_effect||'reveal'} reveal`;
   if(block.title||block.eyebrow||block.body)section.append(blockHeading(block,block.title||''));
   const stage=document.createElement('div');stage.className=`home-video-stage ratio-${String(block.ratio||'16:9').replace(':','x')}`;
-  const video=document.createElement('video');video.src=media.media_url||media.preview_url||'';video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='metadata';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';video.addEventListener('error',()=>video.replaceWith(projectVideo(media)));stage.append(video);section.append(stage);return section;
+  const video=document.createElement('video');video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='none';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>video.replaceWith(projectVideo(media)),{defer:true});stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
 }
 
 function createEditorialGalleryBlock(block) {
@@ -924,6 +1003,9 @@ function servicesHref(hash=''){const slug=servicesSlug();const base=location.pro
 function isServicesPage(){const query=new URLSearchParams(location.search);return servicesConfig().visible!==false&&(requestedRoutePath()===servicesSlug()||query.get('page')==='services');}
 function visibleServiceCategories(){return (Array.isArray(servicesConfig().categories)?servicesConfig().categories:[]).filter((category)=>category&&category.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));}
 function visibleServiceItems(category){return (Array.isArray(category?.services)?category.services:[]).filter((item)=>item&&item.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));}
+function visibleServiceRecords(){const rows=[];visibleServiceCategories().forEach((category)=>visibleServiceItems(category).forEach((item)=>rows.push({category,item})));return rows;}
+function serviceDetailHref(item,hash=''){const route=normalizePath(item?.full_path||`${servicesSlug()}/${canonicalRouteSlug(item?.slug||item?.title||item?.id||'servico')}`);const base=location.protocol==='file:'?`./${route}/index.html`:`/${route}/`;return `${base}${hash||''}`;}
+function currentServiceDetail(){const path=requestedRoutePath();if(!path||path===servicesSlug())return null;return visibleServiceRecords().find(({item})=>item.page_enabled!==false&&normalizePath(item.full_path||`${servicesSlug()}/${item.slug}`)===path)||null;}
 function servicePrice(item={}){if(servicesConfig().show_prices===false||item.price_type==='quote')return 'Sob consulta';const value=Number(item.price||0);if(!value)return 'Sob consulta';const formatted=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:Number.isInteger(value)?0:2}).format(value);return `${item.price_type==='fixed'?'':'A partir de '}${formatted}`;}
 function serviceWhatsappHref(category,item=null,extra=''){const config=servicesConfig(),number=String(config.whatsapp_number||'').replace(/\D/g,''),subject=item?.title||category?.title||'',message=String(config.whatsapp_message||'Olá! Gostaria de solicitar um orçamento.').trim(),detail=String(extra||'').trim(),parts=[message,subject?`Serviço: ${subject}`:'',detail].filter(Boolean);return `https://wa.me/${number}?text=${encodeURIComponent(parts.join('\n\n'))}`;}
 const SERVICE_QUOTE_SELECTION=new Map();
@@ -934,13 +1016,13 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.media_url,...(media.media_candidates||[]),media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));return visual;}
+function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:true});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));return visual;}
 function serviceCategoryCard(category,index){
   const config=servicesConfig(),article=document.createElement('article');article.className='service-area-card reveal';article.style.setProperty('--service-accent',category.accent||'var(--accent)');article.id=`service-${category.id}`;
   const visual=serviceCategoryVisual(category),copy=document.createElement('div');copy.className='service-area-copy';const meta=document.createElement('div');meta.className='service-area-meta';meta.innerHTML=`<span>${esc(category.number||String(index+1).padStart(2,'0'))}</span><small>${visibleServiceItems(category).length} opções</small>`;
   const title=document.createElement('h2');title.textContent=category.title||'Serviço';const description=document.createElement('p');description.textContent=category.description||'';const list=document.createElement('div');list.className='service-price-list';
   visibleServiceItems(category).forEach((item)=>{const key=serviceSelectionKey(category,item),row=document.createElement('article');row.className=`service-price-card${item.featured?' featured':''}`;row.dataset.serviceKey=key;const head=document.createElement('div'),itemTitle=document.createElement('h3');itemTitle.textContent=item.title||'Serviço';const price=document.createElement('strong');price.textContent=servicePrice(item);head.append(itemTitle,price);const body=document.createElement('p');body.textContent=item.description||'';const facts=document.createElement('div');facts.className='service-facts';if(item.unit){const unit=document.createElement('span');unit.textContent=item.unit;facts.append(unit);}if(config.show_deadlines!==false&&item.deadline){const deadline=document.createElement('span');deadline.textContent=item.deadline;facts.append(deadline);}if(config.show_revisions!==false){const revisions=document.createElement('span');revisions.textContent=`${Number(item.revisions||0)} ${Number(item.revisions||0)===1?'revisão':'revisões'}`;facts.append(revisions);}const deliverables=document.createElement('ul');if(config.show_deliverables!==false)(item.deliverables||[]).forEach((value)=>{const li=document.createElement('li');li.textContent=value;deliverables.append(li);});
-    const actions=document.createElement('div');actions.className='service-item-actions-public';const select=document.createElement('button');select.type='button';select.className='service-item-select';select.dataset.serviceSelect=key;select.textContent='Adicionar ao orçamento';const direct=document.createElement('a');direct.className='service-item-direct';direct.href=serviceWhatsappHref(category,item);direct.target='_blank';direct.rel='noopener';direct.textContent='Falar agora ↗';actions.append(select,direct);row.append(head,body,facts);if(deliverables.children.length)row.append(deliverables);row.append(actions);list.append(row);
+    const actions=document.createElement('div');actions.className='service-item-actions-public';const select=document.createElement('button');select.type='button';select.className='service-item-select';select.dataset.serviceSelect=key;select.textContent='Adicionar ao orçamento';if(item.page_enabled!==false){const details=document.createElement('a');details.className='service-item-details';details.href=serviceDetailHref(item);details.textContent='Ver detalhes ↗';actions.append(details);}const direct=document.createElement('a');direct.className='service-item-direct';direct.href=serviceWhatsappHref(category,item);direct.target='_blank';direct.rel='noopener';direct.textContent='Falar agora ↗';actions.append(select,direct);row.append(head,body,facts);if(deliverables.children.length)row.append(deliverables);row.append(actions);list.append(row);
   });
   copy.append(meta,title,description,list);article.append(visual,copy);return article;
 }
@@ -950,6 +1032,24 @@ function serviceQuoteMessage(){const records=selectedServiceRecords(),name=$('#s
 function updateServiceQuoteUI(){const records=selectedServiceRecords(),count=records.length;document.querySelectorAll('[data-service-select]').forEach((button)=>{const selected=SERVICE_QUOTE_SELECTION.has(button.dataset.serviceSelect);button.classList.toggle('selected',selected);button.textContent=selected?'Selecionado ✓':'Adicionar ao orçamento';});const output=$('#serviceQuoteCount');if(output)output.textContent=`${count} ${count===1?'serviço selecionado':'serviços selecionados'}`;const list=$('#serviceQuoteSelection');if(list)list.innerHTML=count?records.map(({category,item,key})=>`<li><span><small>${esc(category.short_title||category.title)}</small><strong>${esc(item.title)}</strong></span><button type="button" data-service-remove="${esc(key)}">×</button></li>`).join(''):'<li class="empty-selection">Nenhum serviço selecionado. Você também pode enviar um briefing aberto.</li>';const dock=$('#serviceQuoteDock');if(dock){dock.hidden=count===0;dock.querySelector('strong').textContent=`${count} selecionado${count===1?'':'s'}`;}const send=$('#serviceQuoteSend');if(send)send.textContent=servicesConfig().brief_button||'Enviar solicitação no WhatsApp';}
 function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false)return null;const first=visibleServiceCategories()[0],firstAnchor=first?`#service-${first.id}`:'#top',section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2>${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form"><div class="services-quote-summary"><div><strong id="serviceQuoteCount">0 serviços selecionados</strong><a href="${esc(firstAnchor)}">Adicionar serviços</a></div><ul id="serviceQuoteSelection"></ul></div><div class="services-lead-fields"><label>Seu nome<input id="serviceLeadName" autocomplete="name" placeholder="Como podemos chamar você?"></label><label>Marca ou empresa<input id="serviceLeadCompany" autocomplete="organization" placeholder="Opcional"></label><label>Prazo desejado<input id="serviceLeadTimeline" placeholder="Ex.: ainda este mês"></label><label class="wide">Conte um pouco sobre o projeto<textarea id="serviceLeadDetails" rows="5" placeholder="Objetivo, formatos, quantidade, referências e o que já está pronto"></textarea></label></div><button class="service-quote-send" id="serviceQuoteSend" type="button">${esc(config.brief_button||'Enviar solicitação no WhatsApp')}</button><small>Ao continuar, o briefing será organizado em uma mensagem. Nenhum dado é enviado antes do clique.</small></div>`;return section;}
 function bindServiceCommerce(root){root.addEventListener('click',(event)=>{const select=event.target.closest('[data-service-select]');if(select){const key=select.dataset.serviceSelect;if(SERVICE_QUOTE_SELECTION.has(key))SERVICE_QUOTE_SELECTION.delete(key);else SERVICE_QUOTE_SELECTION.set(key,true);updateServiceQuoteUI();return;}const remove=event.target.closest('[data-service-remove]');if(remove){SERVICE_QUOTE_SELECTION.delete(remove.dataset.serviceRemove);updateServiceQuoteUI();return;}if(event.target.closest('#serviceQuoteSend')){window.open(serviceWhatsappHref(null,null,serviceQuoteMessage()),'_blank','noopener');return;}if(event.target.closest('[data-service-open-brief]')){$('#service-brief')?.scrollIntoView({behavior:'smooth',block:'start'});}});}
+function renderServiceDetailPage(category,item){
+  const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;
+  ['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});
+  root.hidden=false;root.replaceChildren();root.className='service-detail-page';root.style.setProperty('--service-accent',category?.accent||'var(--accent)');document.body.dataset.page='service-detail';
+  document.title=`${item.page_title||item.title||'Serviço'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
+  const hero=document.createElement('section');hero.className='service-detail-hero reveal';
+  const visual=document.createElement('div');visual.className='service-detail-visual';const media=servicePublicMedia(item.cover_media_id||category.cover_media_id);
+  if(media){if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:false,priority:'high'}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:false,priority:'high',upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));}
+  else visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;
+  const copy=document.createElement('div');copy.className='service-detail-copy';const back=document.createElement('a');back.className='service-detail-back';back.href=servicesHref(`#service-${category.id}`);back.textContent='← Voltar para serviços';const eyebrow=document.createElement('small');eyebrow.textContent=item.page_eyebrow||category.short_title||category.title||'Serviço';const title=document.createElement('h1');title.textContent=item.page_title||item.title||'Serviço';const intro=document.createElement('p');intro.textContent=item.page_intro||item.description||'';const price=document.createElement('strong');price.className='service-detail-price';price.textContent=servicePrice(item);copy.append(back,eyebrow,title,intro,price);
+  const facts=document.createElement('div');facts.className='service-detail-facts';if(item.unit)facts.innerHTML+=`<div><small>UNIDADE</small><strong>${esc(item.unit)}</strong></div>`;if(config.show_deadlines!==false&&item.deadline)facts.innerHTML+=`<div><small>PRAZO</small><strong>${esc(item.deadline)}</strong></div>`;if(config.show_revisions!==false)facts.innerHTML+=`<div><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></div>`;copy.append(facts);
+  const actions=document.createElement('div');actions.className='service-detail-actions';const primary=document.createElement('a');primary.href=serviceWhatsappHref(category,item);primary.target='_blank';primary.rel='noopener';primary.textContent=item.cta_label||config.cta_label||'Solicitar orçamento';const catalog=document.createElement('a');catalog.href=servicesHref(`#service-${category.id}`);catalog.textContent='Ver catálogo completo';actions.append(primary,catalog);copy.append(actions);hero.append(visual,copy);root.append(hero);
+  const body=document.createElement('section');body.className='service-detail-body reveal';const about=document.createElement('div');about.innerHTML=`<small>SOBRE O SERVIÇO</small><h2>${esc(item.title||'Serviço')}</h2><p>${esc(item.description||item.page_intro||'')}</p>`;body.append(about);
+  const deliverables=(Array.isArray(item.deliverables)?item.deliverables:[]).filter(Boolean);if(config.show_deliverables!==false&&deliverables.length){const deliver=document.createElement('div');deliver.className='service-detail-deliverables';deliver.innerHTML='<small>ENTREGÁVEIS</small><h2>O que está incluído</h2>';const ul=document.createElement('ul');deliverables.forEach((value)=>{const li=document.createElement('li');li.textContent=value;ul.append(li);});deliver.append(ul);body.append(deliver);}root.append(body);
+  const next=visibleServiceRecords().filter(({item:other})=>other.page_enabled!==false&&String(other.id)!==String(item.id)).slice(0,3);if(next.length){const related=document.createElement('section');related.className='service-detail-related reveal';related.innerHTML='<small>OUTRAS SOLUÇÕES</small><h2>Serviços que podem complementar o projeto</h2>';const grid=document.createElement('div');next.forEach(({category:cat,item:other})=>{const a=document.createElement('a');a.href=serviceDetailHref(other);a.innerHTML=`<span>${esc(cat.short_title||cat.title||'Serviço')}</span><strong>${esc(other.title||'Serviço')}</strong><i>↗</i>`;grid.append(a);});related.append(grid);root.append(related);}
+  bindReveal();tick();
+}
+
 function renderServicesPage(){
   const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='services-public-page';root.dataset.serviceLayout=config.layout_style||'editorial';root.dataset.catalogDensity=config.catalog_density||'comfortable';root.dataset.coverRatio=config.cover_ratio||'portrait';document.body.dataset.page='services';document.title=`${config.title||'Serviços'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
   const categories=visibleServiceCategories(),options=categories.reduce((total,category)=>total+visibleServiceItems(category).length,0),head=document.createElement('header');head.className='services-public-head reveal';const headCopy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Soluções criativas';const title=document.createElement('h1');title.textContent=config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.intro||'';const actions=document.createElement('div');actions.className='services-head-actions';const primary=document.createElement(config.brief_visible===false?'a':'button');if(primary.tagName==='BUTTON'){primary.type='button';primary.dataset.serviceOpenBrief='';primary.textContent='Montar orçamento';}else{primary.href=serviceWhatsappHref(null,null);primary.target='_blank';primary.rel='noopener';primary.textContent=config.cta_label||'Solicitar orçamento';}const note=document.createElement('span');note.textContent=config.response_note||'';actions.append(primary,note);headCopy.append(eyebrow,title,intro,actions);const stats=document.createElement('dl');stats.className='services-head-stats';stats.innerHTML=`<div><dt>${categories.length}</dt><dd>áreas criativas</dd></div><div><dt>${options}</dt><dd>soluções comerciais</dd></div><div><dt>BR</dt><dd>atendimento remoto</dd></div>`;head.append(headCopy,stats);root.append(head);
@@ -962,7 +1062,7 @@ function renderServicesPage(){
   const dock=document.createElement('button');dock.type='button';dock.id='serviceQuoteDock';dock.className='service-quote-dock';dock.dataset.serviceOpenBrief='';dock.hidden=true;dock.innerHTML='<span>ORÇAMENTO</span><strong>0 selecionados</strong><i>Continuar →</i>';root.append(dock);bindServiceCommerce(root);updateServiceQuoteUI();
 }
 function renderServicesHome(){
-  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.media_url,...(media.media_candidates||[]),media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
+  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:true});visual.append(video);bindDeferredAutoplay(video,card);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
 }
 
 function publicCustomPages(){const pages=DATA.site_builder?.custom_pages||{};return Object.values(pages).filter((page)=>page&&page.visible!==false);}
@@ -987,19 +1087,20 @@ function renderSideNavigation() {
   $('#siteMenuTrigger')?.toggleAttribute('hidden', navigation.side_menu_enabled===false && !mobileDrawer);
   root.replaceChildren();
   const addLink=(label,target,filterId='',depth=0)=>{const button=document.createElement('button');button.type='button';button.className='side-menu-link';button.style.setProperty('--menu-depth',String(depth));button.innerHTML=`<span>${esc(label)}</span><b>↗</b>`;button.dataset.target=target||'';if(filterId)button.dataset.filterId=filterId;root.append(button)};
-  // Mobile/drawer navigation follows the same global menu tree as the desktop
-  // header, including custom pages and subpages. Editorial section shortcuts
-  // remain available below it when enabled.
+  if(navigation.show_top_link!==false) addLink(navigation.top_label||'Ir para o topo','#top');
+  // The floating menu reuses the global menu tree; dedicated visibility toggles
+  // can suppress Services/Contact without creating a second route model.
   const menuItems=(DATA.site_builder?.global?.header?.menu_items||[]).filter((item)=>item&&item.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));
   if(menuItems.length){
     const depthFor=(item)=>{let depth=0,parent=item.parent_id,seen=new Set();while(parent&&!seen.has(parent)){seen.add(parent);const p=menuItems.find((x)=>x.id===parent);if(!p)break;depth+=1;parent=p.parent_id;}return depth;};
-    menuItems.forEach((item)=>addLink(item.label||'Página',publicRouteHref(item.target||'#'),'',depthFor(item)));
+    menuItems.forEach((item)=>{
+      if(item.id==='home') return;
+      if(item.id==='services'&&navigation.show_services_link===false) return;
+      if(item.id==='contact'&&navigation.show_contact_link===false) return;
+      addLink(item.label||'Página',publicRouteHref(item.target||'#'),'',depthFor(item));
+    });
   }
-  const firstHomeBlock=publicHomeBlocks().find((block)=>block.visible!==false);
-  const firstCore=firstHomeBlock ? CORE_HOME_BLOCK_IDS[firstHomeBlock.type] : '';
-  const firstTarget=firstHomeBlock ? (firstCore?`#${firstCore}`:`#home-${String(firstHomeBlock.id||firstHomeBlock.type).replace(/[^a-zA-Z0-9_-]+/g,'-')}`) : '#top';
-  addLink('Home',firstTarget);
-  if(navigation.show_home_sections!==false){
+  if(navigation.show_home_sections===true){
     publicHomeBlocks().forEach((block)=>{
       if(block.visible===false||block.type==='hero')return;
       const coreId=CORE_HOME_BLOCK_IDS[block.type];
@@ -1009,7 +1110,7 @@ function renderSideNavigation() {
     });
   }
   if(navigation.show_drive_sections!==false){
-    (DATA.filters||[]).filter((item)=>String(item.id)!=='all').forEach((item)=>addLink(item.title||item.name||'Seção','#projectsBlock',String(item.id)));
+    (DATA.filters||[]).forEach((item)=>addLink(item.title||item.name||(String(item.id)==='all'?'Todos':'Categoria'),'#projectsBlock',String(item.id),1));
   }
 }
 
@@ -1261,35 +1362,83 @@ function uniqueUrls(values = []) {
   return [...new Set(values.filter(Boolean))];
 }
 
-function mediaPlaceholder(project) {
+function mediaPlaceholder(project, { unavailable = false } = {}) {
   const placeholder = document.createElement('span');
-  placeholder.className = 'media-placeholder';
-  placeholder.textContent = project.type === 'folder' ? 'PASTA' : project.type === 'video' ? 'PLAY' : project.type === 'pdf' ? 'PDF' : 'MÍDIA';
+  const folder = project?.type === 'folder';
+  placeholder.className = `media-placeholder ${unavailable ? 'is-unavailable' : 'is-loading'}`;
+  if (folder) { placeholder.classList.add('is-folder'); placeholder.textContent = 'PASTA'; }
+  else if (unavailable) { placeholder.innerHTML = '<i aria-hidden="true">↗</i><small>Sem prévia</small>'; }
+  else { placeholder.setAttribute('aria-hidden', 'true'); placeholder.innerHTML = '<i></i>'; }
   return placeholder;
 }
 
-function imageWithFallback(project, urls, { lazy = true } = {}) {
-  const candidates = uniqueUrls(urls);
-  if (!candidates.length) return mediaPlaceholder(project);
-  const image = document.createElement('img');
-  if (lazy) image.loading = 'lazy';
-  image.decoding = 'async';
-  image.alt = project.title;
-  let index = 0;
-  const next = () => {
-    if (index >= candidates.length) {
-      image.replaceWith(mediaPlaceholder(project));
-      return;
-    }
-    image.src = candidates[index++];
+function armImageTimeout(image, next, timeoutMs) {
+  let timer = 0;
+  const arm = () => { clearTimeout(timer); if (!image.complete) timer = setTimeout(next, timeoutMs); };
+  const clear = () => clearTimeout(timer);
+  if (image.loading === 'lazy' && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, io) => {
+      if (entries.some((entry) => entry.isIntersecting)) { arm(); io.disconnect(); }
+    }, { rootMargin: MEDIA_NEAR_VIEWPORT_MARGIN, threshold: 0 });
+    observer.observe(image);
+  } else arm();
+  image.addEventListener('load', clear);
+  image.addEventListener('error', clear);
+  return { arm, clear };
+}
+
+function queueImageUpgrade(image, urls = []) {
+  const candidates = uniqueUrls(urls).filter((url) => url && url !== image.currentSrc && url !== image.src && !mediaUrlRecentlyFailed(url));
+  if (!candidates.length) return;
+  const upgrade = () => {
+    let index = 0;
+    const tryNext = () => {
+      if (index >= candidates.length) return;
+      const url = candidates[index++];
+      const probe = new Image(); probe.decoding = 'async';
+      probe.onload = () => { image.src = url; image.dataset.quality = 'full'; };
+      probe.onerror = () => { markMediaUrlFailed(url); tryNext(); };
+      probe.src = url;
+    };
+    tryNext();
   };
+  if ('requestIdleCallback' in window) requestIdleCallback(upgrade, { timeout: 1500 });
+  else setTimeout(upgrade, 180);
+}
+
+function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
+  const candidates = uniqueUrls(urls).filter((url) => !mediaUrlRecentlyFailed(url));
+  if (!candidates.length) return mediaPlaceholder(project, { unavailable: true });
+  const image = document.createElement('img');
+  image.className = 'media-progressive-image is-loading';
+  image.loading = lazy ? 'lazy' : 'eager';
+  image.decoding = 'async';
+  if ('fetchPriority' in image) image.fetchPriority = priority;
+  image.alt = project?.title || '';
+  let index = 0;
+  let timeoutHandle = null;
+  const clearTimer = () => { if (timeoutHandle?.clear) timeoutHandle.clear(); timeoutHandle = null; };
+  const next = () => {
+    clearTimer();
+    const failed = image.currentSrc || image.src; if (failed) markMediaUrlFailed(failed);
+    if (index >= candidates.length) { image.replaceWith(mediaPlaceholder(project, { unavailable: true })); return; }
+    image.src = candidates[index++];
+    timeoutHandle = armImageTimeout(image, next, timeoutMs);
+  };
+  image.addEventListener('load', () => {
+    clearTimer(); image.classList.remove('is-loading'); image.classList.add('is-loaded');
+    queueMicrotask(() => image.parentElement?.classList.add('media-loaded'));
+    if (upgradeUrls.length) queueImageUpgrade(image, upgradeUrls);
+  });
   image.addEventListener('error', next);
   next();
   return image;
 }
 
 function poster(project) {
-  return imageWithFallback(project, [project.thumbnail_url, ...(project.thumbnail_candidates || [])]);
+  const primary = [project.thumbnail_url, ...(project.thumbnail_candidates || [])];
+  if (project.type !== 'video') primary.push(project.media_url, ...(project.media_candidates || []), project.preview_url, ...(project.preview_candidates || []));
+  return imageWithFallback(project, primary);
 }
 
 
@@ -1299,9 +1448,12 @@ function heroAsset(project) {
 
 function heroCandidates(project) {
   if (project.type === 'image') {
-    return uniqueUrls([project.media_url, ...(project.media_candidates || []), project.thumbnail_url, ...(project.thumbnail_candidates || [])]);
+    return uniqueUrls([project.thumbnail_url, ...(project.thumbnail_candidates || []), project.media_url, ...(project.media_candidates || [])]);
   }
   return uniqueUrls([project.thumbnail_url, ...(project.thumbnail_candidates || [])]);
+}
+function heroUpgradeCandidates(project) {
+  return project.type === 'image' ? uniqueUrls([project.media_url, ...(project.media_candidates || [])]) : [];
 }
 
 function configuredHeroSlides(heroConfig, visible) {
@@ -1395,14 +1547,14 @@ function ensureHeroMedia(slide, project) {
     const sources = uniqueUrls([project.media_url, ...(project.media_candidates || [])]);
     let sourceIndex = 0;
     const next = () => {
-      if (sourceIndex >= sources.length) { video.replaceWith(imageWithFallback(project, heroCandidates(project), { lazy: false })); return; }
+      if (sourceIndex >= sources.length) { video.replaceWith(imageWithFallback(project, heroCandidates(project), { lazy: false, priority: 'high', upgradeUrls: heroUpgradeCandidates(project) })); return; }
       video.src = sources[sourceIndex++]; video.load();
     };
     video.addEventListener('error', next);
     next();
     slide.append(video);
   } else {
-    slide.append(imageWithFallback(project, heroCandidates(project), { lazy: false }));
+    slide.append(imageWithFallback(project, heroCandidates(project), { lazy: false, priority: 'high', upgradeUrls: heroUpgradeCandidates(project) }));
   }
 }
 HERO_MOBILE_QUERY.addEventListener?.('change', () => {
@@ -1506,6 +1658,7 @@ function bindCardVideoPreview(button, video) {
   const finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const start = () => {
     if (video.dataset.failed === '1') return;
+    ensureVideoSource(video);
     video.classList.add('is-previewing');
     video.play().catch(() => {});
   };
@@ -1585,9 +1738,9 @@ function card(project, index) {
     previewVideo.muted = true;
     previewVideo.loop = true;
     previewVideo.playsInline = true;
-    previewVideo.preload = 'metadata';
+    previewVideo.preload = 'none';
     previewVideo.setAttribute('aria-hidden', 'true');
-    bindVideoSourceFallback(previewVideo, previewSources);
+    bindVideoSourceFallback(previewVideo, previewSources, null, { defer: true });
     mediaInner.append(previewVideo);
   }
   media.append(mediaInner, type, action);
@@ -1636,20 +1789,22 @@ function unavailableMedia(item) {
 }
 
 function projectImage(item) {
-  const urls = projectMediaUrls(item);
+  const urls = projectMediaUrls(item).filter((url) => !mediaUrlRecentlyFailed(url));
   if (!urls.length) return unavailableMedia(item);
   const image = document.createElement('img');
+  image.className = 'media-progressive-image is-loading';
   image.alt = item.title || '';
   image.loading = 'lazy';
   image.decoding = 'async';
   let index = 0;
+  let timeoutHandle = null;
+  const clearTimer = () => { if (timeoutHandle?.clear) timeoutHandle.clear(); timeoutHandle = null; };
   const next = () => {
-    if (index >= urls.length) {
-      image.replaceWith(unavailableMedia(item));
-      return;
-    }
-    image.src = urls[index++];
+    clearTimer(); const failed = image.currentSrc || image.src; if (failed) markMediaUrlFailed(failed);
+    if (index >= urls.length) { image.replaceWith(unavailableMedia(item)); return; }
+    image.src = urls[index++]; timeoutHandle = armImageTimeout(image, next, 12000);
   };
+  image.addEventListener('load', () => { clearTimer(); image.classList.remove('is-loading'); image.classList.add('is-loaded'); queueMicrotask(() => image.parentElement?.classList.add('media-loaded')); });
   image.addEventListener('error', next);
   next();
   return image;
@@ -2209,11 +2364,24 @@ function updateLetteringAndAmbient() {
     ambient.style.setProperty('--ambient-power', String(reduced ? 0 : power));
   }
   const atmosphere=$('#editorialAtmosphere');
+  const pageProgress=clamp(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight));
   if(atmosphere){
-    const pageProgress=clamp(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight));
     atmosphere.style.setProperty('--atmosphere-progress',pageProgress.toFixed(4));
     atmosphere.style.setProperty('--atmosphere-y',`${((pageProgress-.5)*26).toFixed(2)}vh`);
     atmosphere.style.setProperty('--atmosphere-x',`${((ambientPointerX-.5)*8).toFixed(2)}vw`);
+  }
+  if(document.body.dataset.backgroundStyle==='luminous'){
+    const motionOff=reduced||document.body.dataset.backgroundMotion==='off';
+    const finePointer=!motionOff&&matchMedia('(hover:hover) and (pointer:fine)').matches;
+    const lx=motionOff ? .72 :(finePointer?ambientPointerX:(.5+Math.sin(pageProgress*Math.PI*2)*.18));
+    const ly=motionOff ? .28 :(finePointer?ambientPointerY:(.18+pageProgress*.64));
+    const sx=motionOff ? .18 :(.82-(pageProgress*.22));
+    const sy=motionOff ? .78 :(.78-(pageProgress*.48));
+    document.documentElement.style.setProperty('--luminous-x',`${(clamp(lx)*100).toFixed(1)}%`);
+    document.documentElement.style.setProperty('--luminous-y',`${(clamp(ly)*100).toFixed(1)}%`);
+    document.documentElement.style.setProperty('--luminous-secondary-x',`${(clamp(sx)*100).toFixed(1)}%`);
+    document.documentElement.style.setProperty('--luminous-secondary-y',`${(clamp(sy)*100).toFixed(1)}%`);
+    document.documentElement.style.setProperty('--luminous-opacity',String(motionOff ? .52 :(.68+Math.sin(pageProgress*Math.PI)*.18).toFixed(3)));
   }
 }
 
