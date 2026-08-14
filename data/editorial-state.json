@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.8.2",
-    "device_id": "device-3e7f29f7077c4942",
+    "app_version": "7.9.3",
+    "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "b2d085bfc539221cdcb8",
-    "saved_at": "2026-08-14T02:27:21.812562+00:00"
+    "revision": "f7e80788ddd7afe0a2e3",
+    "saved_at": "2026-08-14T13:38:17.659757+00:00"
   },
-  "app_version": "7.8.2",
+  "app_version": "7.9.3",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -273,9 +273,17 @@
             "visible": false
           },
           {
+            "id": "services",
+            "label": "Serviços",
+            "order": 20,
+            "parent_id": "",
+            "target": "/servicos/",
+            "visible": true
+          },
+          {
             "id": "projects",
             "label": "Projetos",
-            "order": 20,
+            "order": 30,
             "parent_id": "",
             "target": "/#projectsBlock",
             "visible": true
@@ -283,7 +291,7 @@
           {
             "id": "about",
             "label": "Sobre",
-            "order": 30,
+            "order": 40,
             "parent_id": "",
             "target": "/#about",
             "visible": true
@@ -291,7 +299,7 @@
           {
             "id": "contact",
             "label": "Contato",
-            "order": 40,
+            "order": 50,
             "parent_id": "",
             "target": "/#contact",
             "visible": true
@@ -916,6 +924,798 @@
         "title": "Banner mobile"
       }
     },
+    "services": {
+      "brief_body": "Selecione uma ou mais soluções e envie um briefing organizado diretamente pelo WhatsApp.",
+      "brief_button": "Enviar solicitação no WhatsApp",
+      "brief_title": "Monte sua solicitação de orçamento",
+      "brief_visible": true,
+      "catalog_density": "comfortable",
+      "categories": [
+        {
+          "accent": "#0071e3",
+          "cover_media_id": "",
+          "description": "Peças consistentes e adaptáveis para fortalecer a presença visual de marcas nas redes.",
+          "featured": true,
+          "id": "social-media",
+          "number": "01",
+          "order": 10,
+          "services": [
+            {
+              "deadline": "2 a 3 dias úteis",
+              "deliverables": [
+                "Arquivo final para publicação",
+                "Versão JPG ou PNG",
+                "Ajustes de texto e composição"
+              ],
+              "description": "Uma peça estática em formato principal, com adaptação simples quando prevista no briefing.",
+              "featured": false,
+              "id": "social-single",
+              "order": 10,
+              "price": 90.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Arte avulsa para post ou story",
+              "unit": "por peça",
+              "visible": true
+            },
+            {
+              "deadline": "3 a 5 dias úteis",
+              "deliverables": [
+                "Até 5 páginas",
+                "Identidade visual consistente",
+                "Arquivos prontos para publicação"
+              ],
+              "description": "Narrativa visual sequencial com capa, desenvolvimento e encerramento.",
+              "featured": true,
+              "id": "social-carousel",
+              "order": 20,
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Carrossel com até 5 páginas",
+              "unit": "por carrossel",
+              "visible": true
+            },
+            {
+              "deadline": "7 a 12 dias úteis",
+              "deliverables": [
+                "10 peças estáticas",
+                "Unidade visual entre as peças",
+                "Organização por formatos"
+              ],
+              "description": "Conjunto visual para calendário de conteúdo, campanha ou lançamento.",
+              "featured": false,
+              "id": "social-pack-10",
+              "order": 30,
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Pacote com 10 criativos",
+              "unit": "por pacote",
+              "visible": true
+            }
+          ],
+          "short_title": "Social Media",
+          "title": "Artes para Redes Sociais",
+          "visible": true
+        },
+        {
+          "accent": "#7c3aed",
+          "cover_media_id": "",
+          "description": "Edição para redes, campanhas, podcasts, conteúdo institucional e plataformas digitais.",
+          "featured": true,
+          "id": "video-editing",
+          "number": "02",
+          "order": 20,
+          "services": [
+            {
+              "deadline": "2 a 4 dias úteis",
+              "deliverables": [
+                "Edição vertical",
+                "Correção básica de cor",
+                "Exportação para redes"
+              ],
+              "description": "Cortes, ritmo, trilha fornecida ou licenciada pelo cliente e acabamento para redes.",
+              "featured": false,
+              "id": "video-reel-basic",
+              "order": 10,
+              "price": 120.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Reel básico de até 90 segundos",
+              "unit": "por vídeo",
+              "visible": true
+            },
+            {
+              "deadline": "3 a 6 dias úteis",
+              "deliverables": [
+                "Motion e legendas",
+                "Tratamento de áudio",
+                "Efeitos e acabamento"
+              ],
+              "description": "Edição dinâmica com elementos gráficos, legendagem e recursos de retenção.",
+              "featured": true,
+              "id": "video-reel-motion",
+              "order": 20,
+              "price": 280.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Reel com motion, legendas e efeitos",
+              "unit": "por vídeo",
+              "visible": true
+            },
+            {
+              "deadline": "10 a 20 dias úteis",
+              "deliverables": [
+                "8 vídeos verticais",
+                "Padrão visual do projeto",
+                "Arquivos organizados"
+              ],
+              "description": "Pacote recorrente para calendário de conteúdo e presença contínua.",
+              "featured": false,
+              "id": "video-pack-8",
+              "order": 30,
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Pacote com 8 Reels",
+              "unit": "por pacote",
+              "visible": true
+            },
+            {
+              "deadline": "7 a 15 dias úteis",
+              "deliverables": [
+                "Montagem narrativa",
+                "Tratamento de cor e áudio",
+                "Versão final em alta qualidade"
+              ],
+              "description": "Montagem narrativa para apresentação de marca, produto, evento ou serviço.",
+              "featured": false,
+              "id": "video-institutional",
+              "order": 40,
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Vídeo institucional de 1 a 3 minutos",
+              "unit": "por projeto",
+              "visible": true
+            }
+          ],
+          "short_title": "Vídeo",
+          "title": "Edição de Vídeos",
+          "visible": true
+        },
+        {
+          "accent": "#ff6b00",
+          "cover_media_id": "",
+          "description": "Planejamento e captação de entrevistas, workshops, produtos, conteúdos e campanhas.",
+          "featured": true,
+          "id": "audiovisual-production",
+          "number": "03",
+          "order": 30,
+          "services": [
+            {
+              "deadline": "conforme agenda",
+              "deliverables": [
+                "Captação em uma locação",
+                "Organização dos arquivos",
+                "Direção técnica básica"
+              ],
+              "description": "Captação compacta em uma locação, adequada a entrevistas, conteúdos e demonstrações.",
+              "featured": false,
+              "id": "av-capture-2h",
+              "order": 10,
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 0,
+              "title": "Captação essencial de até 2 horas",
+              "unit": "por sessão",
+              "visible": true
+            },
+            {
+              "deadline": "conforme agenda",
+              "deliverables": [
+                "Até 4 horas de captação",
+                "Planejamento técnico",
+                "Arquivos brutos organizados"
+              ],
+              "description": "Produção audiovisual de até 4 horas para conteúdo de marca, workshops ou produtos.",
+              "featured": true,
+              "id": "av-half-day",
+              "order": 20,
+              "price": 900.0,
+              "price_type": "from",
+              "revisions": 0,
+              "title": "Meia diária de produção",
+              "unit": "por diária",
+              "visible": true
+            },
+            {
+              "deadline": "conforme agenda",
+              "deliverables": [
+                "Até 8 horas de captação",
+                "Direção de cena",
+                "Organização do material"
+              ],
+              "description": "Captação estruturada para projetos com maior volume de cenas e necessidades técnicas.",
+              "featured": false,
+              "id": "av-full-day",
+              "order": 30,
+              "price": 1500.0,
+              "price_type": "from",
+              "revisions": 0,
+              "title": "Diária de produção audiovisual",
+              "unit": "por diária",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "Planejamento de cenas",
+                "Captação do produto",
+                "Edição de uma versão principal"
+              ],
+              "description": "Captação dirigida para demonstrar atributos, uso, textura e diferenciais do produto.",
+              "featured": false,
+              "id": "av-product-video",
+              "order": 40,
+              "price": 600.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Vídeo de produto",
+              "unit": "por projeto",
+              "visible": true
+            }
+          ],
+          "short_title": "Produção",
+          "title": "Produção Audiovisual",
+          "visible": true
+        },
+        {
+          "accent": "#00a896",
+          "cover_media_id": "",
+          "description": "Animação, composição e efeitos visuais que ampliam impacto, clareza e movimento.",
+          "featured": true,
+          "id": "motion-vfx",
+          "number": "04",
+          "order": 40,
+          "services": [
+            {
+              "deadline": "4 a 7 dias úteis",
+              "deliverables": [
+                "Animação principal",
+                "Versão com fundo transparente quando aplicável",
+                "Exportações para uso digital"
+              ],
+              "description": "Abertura ou assinatura animada com movimento alinhado à identidade da marca.",
+              "featured": false,
+              "id": "motion-logo",
+              "order": 10,
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Animação de logotipo",
+              "unit": "por animação",
+              "visible": true
+            },
+            {
+              "deadline": "4 a 8 dias úteis",
+              "deliverables": [
+                "Motion vertical ou quadrado",
+                "Design de movimento",
+                "Arquivo final otimizado"
+              ],
+              "description": "Peça curta com tipografia, grafismos, produtos ou informações em movimento.",
+              "featured": true,
+              "id": "motion-social",
+              "order": 20,
+              "price": 350.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Motion para redes sociais",
+              "unit": "por peça",
+              "visible": true
+            },
+            {
+              "deadline": "conforme complexidade",
+              "deliverables": [
+                "Composição da cena",
+                "Tracking quando necessário",
+                "Render final"
+              ],
+              "description": "Tracking, recorte, integração de elementos, limpeza ou composição visual.",
+              "featured": false,
+              "id": "vfx-shot",
+              "order": 30,
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Composição e VFX por cena",
+              "unit": "por cena",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "Animação do produto",
+                "Textos e destaques",
+                "Versão final para campanha"
+              ],
+              "description": "Apresentação final do produto com luz, textos, grafismos e movimento.",
+              "featured": false,
+              "id": "motion-packshot",
+              "order": 40,
+              "price": 450.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Packshot animado de produto",
+              "unit": "por peça",
+              "visible": true
+            }
+          ],
+          "short_title": "Motion e VFX",
+          "title": "Motion Design e VFX",
+          "visible": true
+        },
+        {
+          "accent": "#e5484d",
+          "cover_media_id": "",
+          "description": "Tratamento técnico e estético para retratos, produtos, eventos e comunicação visual.",
+          "featured": false,
+          "id": "photo-editing",
+          "number": "05",
+          "order": 50,
+          "services": [
+            {
+              "deadline": "2 a 4 dias úteis",
+              "deliverables": [
+                "Correção de cor e luz",
+                "Enquadramento",
+                "Arquivo final em alta resolução"
+              ],
+              "description": "Ajustes de exposição, contraste, cor, enquadramento e nitidez.",
+              "featured": false,
+              "id": "photo-basic",
+              "order": 10,
+              "price": 30.0,
+              "price_type": "from",
+              "revisions": 1,
+              "title": "Correção básica",
+              "unit": "por foto",
+              "visible": true
+            },
+            {
+              "deadline": "3 a 6 dias úteis",
+              "deliverables": [
+                "Retoque detalhado",
+                "Tratamento de cor",
+                "Finalização em alta resolução"
+              ],
+              "description": "Tratamento detalhado de pele, produto, superfícies e imperfeições.",
+              "featured": true,
+              "id": "photo-retouch",
+              "order": 20,
+              "price": 60.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Retoque avançado",
+              "unit": "por foto",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "10 imagens tratadas",
+                "Consistência de cor",
+                "Arquivos organizados"
+              ],
+              "description": "Tratamento padronizado para ensaio, produto, evento ou catálogo.",
+              "featured": false,
+              "id": "photo-pack-10",
+              "order": 30,
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 1,
+              "title": "Pacote com 10 fotos",
+              "unit": "por pacote",
+              "visible": true
+            }
+          ],
+          "short_title": "Fotos",
+          "title": "Edição de Fotos",
+          "visible": true
+        },
+        {
+          "accent": "#d946ef",
+          "cover_media_id": "",
+          "description": "Fotomontagens e composições publicitárias com integração de luz, textura e perspectiva.",
+          "featured": false,
+          "id": "image-manipulation",
+          "number": "06",
+          "order": 60,
+          "services": [
+            {
+              "deadline": "2 a 4 dias úteis",
+              "deliverables": [
+                "Recorte e composição",
+                "Ajuste de cor",
+                "Arquivo final"
+              ],
+              "description": "Recortes e combinação direta de elementos com ajuste visual básico.",
+              "featured": false,
+              "id": "manipulation-simple",
+              "order": 10,
+              "price": 80.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Montagem simples",
+              "unit": "por imagem",
+              "visible": true
+            },
+            {
+              "deadline": "4 a 8 dias úteis",
+              "deliverables": [
+                "Composição completa",
+                "Integração de luz e cor",
+                "Finalização publicitária"
+              ],
+              "description": "Peça com direção visual, integração de elementos e acabamento para campanha.",
+              "featured": true,
+              "id": "manipulation-ad",
+              "order": 20,
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Composição publicitária",
+              "unit": "por imagem",
+              "visible": true
+            },
+            {
+              "deadline": "7 a 15 dias úteis",
+              "deliverables": [
+                "Direção da composição",
+                "Múltiplos elementos",
+                "Arquivo final em alta resolução"
+              ],
+              "description": "Construção visual com múltiplas fontes, cenários e alto nível de detalhamento.",
+              "featured": false,
+              "id": "manipulation-complex",
+              "order": 30,
+              "price": 700.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Composição complexa",
+              "unit": "por imagem",
+              "visible": true
+            }
+          ],
+          "short_title": "Manipulação",
+          "title": "Manipulação de Imagens",
+          "visible": true
+        },
+        {
+          "accent": "#f5a524",
+          "cover_media_id": "",
+          "description": "Sistemas de marca coerentes, reconhecíveis e preparados para aplicações reais.",
+          "featured": true,
+          "id": "visual-identity",
+          "number": "07",
+          "order": 70,
+          "services": [
+            {
+              "deadline": "15 a 25 dias úteis",
+              "deliverables": [
+                "Logotipo e versões",
+                "Paleta e tipografia",
+                "Regras essenciais de uso"
+              ],
+              "description": "Organização dos fundamentos da identidade e das regras principais de aplicação.",
+              "featured": true,
+              "id": "identity-essential",
+              "order": 10,
+              "price": 1500.0,
+              "price_type": "from",
+              "revisions": 3,
+              "title": "Manual essencial",
+              "unit": "por projeto",
+              "visible": true
+            },
+            {
+              "deadline": "25 a 45 dias úteis",
+              "deliverables": [
+                "Sistema completo de marca",
+                "Grafismos e padrões",
+                "Aplicações e manual detalhado"
+              ],
+              "description": "Sistema de identidade ampliado com linguagem gráfica, aplicações e documentação completa.",
+              "featured": false,
+              "id": "identity-complete",
+              "order": 20,
+              "price": 3000.0,
+              "price_type": "from",
+              "revisions": 3,
+              "title": "Manual completo",
+              "unit": "por projeto",
+              "visible": true
+            }
+          ],
+          "short_title": "Identidade",
+          "title": "Identidade Visual",
+          "visible": true
+        },
+        {
+          "accent": "#ff3b30",
+          "cover_media_id": "",
+          "description": "Conceitos visuais e sistemas de campanha preparados para diferentes canais e formatos.",
+          "featured": true,
+          "id": "campaign-art-direction",
+          "number": "08",
+          "order": 80,
+          "services": [
+            {
+              "deadline": "7 a 12 dias úteis",
+              "deliverables": [
+                "Conceito visual",
+                "Peça principal",
+                "Direção de aplicações"
+              ],
+              "description": "Imagem central que organiza conceito, atmosfera, tipografia e direção da campanha.",
+              "featured": true,
+              "id": "campaign-kv",
+              "order": 10,
+              "price": 500.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Key visual de campanha",
+              "unit": "por conceito",
+              "visible": true
+            },
+            {
+              "deadline": "10 a 20 dias úteis",
+              "deliverables": [
+                "Key visual",
+                "Até 5 desdobramentos",
+                "Guia rápido de aplicação"
+              ],
+              "description": "Key visual e desdobramentos principais para redes, banners e comunicação digital.",
+              "featured": false,
+              "id": "campaign-package",
+              "order": 20,
+              "price": 1000.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Pacote visual de campanha",
+              "unit": "por campanha",
+              "visible": true
+            },
+            {
+              "deadline": "conforme escopo",
+              "deliverables": [
+                "Direção visual",
+                "Referências e linguagem",
+                "Orientação dos desdobramentos"
+              ],
+              "description": "Definição da linguagem visual e acompanhamento criativo de uma entrega ou campanha.",
+              "featured": false,
+              "id": "art-direction",
+              "order": 30,
+              "price": 800.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Direção de arte",
+              "unit": "por projeto",
+              "visible": true
+            }
+          ],
+          "short_title": "Campanhas",
+          "title": "Campanhas e Direção de Arte",
+          "visible": true
+        },
+        {
+          "accent": "#32ade6",
+          "cover_media_id": "",
+          "description": "Imagens e comunicação comercial para produtos, vitrines, catálogos e marketplaces.",
+          "featured": true,
+          "id": "products-ecommerce",
+          "number": "09",
+          "order": 90,
+          "services": [
+            {
+              "deadline": "2 a 4 dias úteis",
+              "deliverables": [
+                "Tratamento do produto",
+                "Fundo conforme briefing",
+                "Arquivo para e-commerce"
+              ],
+              "description": "Recorte, limpeza, correção e preparação comercial de uma imagem de produto.",
+              "featured": false,
+              "id": "product-image",
+              "order": 10,
+              "price": 50.0,
+              "price_type": "from",
+              "revisions": 1,
+              "title": "Imagem tratada de produto",
+              "unit": "por imagem",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "10 imagens tratadas",
+                "Padrão visual consistente",
+                "Arquivos organizados"
+              ],
+              "description": "Tratamento padronizado para catálogo, loja virtual ou marketplace.",
+              "featured": true,
+              "id": "product-pack-10",
+              "order": 20,
+              "price": 400.0,
+              "price_type": "from",
+              "revisions": 1,
+              "title": "Pacote com 10 imagens de produto",
+              "unit": "por pacote",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 8 dias úteis",
+              "deliverables": [
+                "Imagem principal",
+                "Até 4 imagens informativas",
+                "Adaptação ao canal"
+              ],
+              "description": "Imagem principal, destaques, benefícios e peças complementares para um anúncio.",
+              "featured": false,
+              "id": "marketplace-kit",
+              "order": 30,
+              "price": 350.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Kit visual para marketplace",
+              "unit": "por produto",
+              "visible": true
+            },
+            {
+              "deadline": "3 a 6 dias úteis",
+              "deliverables": [
+                "Banner principal",
+                "Uma adaptação de formato",
+                "Arquivo pronto para publicação"
+              ],
+              "description": "Peça comercial para vitrine, lançamento, categoria ou ação promocional.",
+              "featured": false,
+              "id": "ecommerce-banner",
+              "order": 40,
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Banner para loja ou coleção",
+              "unit": "por banner",
+              "visible": true
+            }
+          ],
+          "short_title": "E-commerce",
+          "title": "Produtos e E-commerce",
+          "visible": true
+        },
+        {
+          "accent": "#a855f7",
+          "cover_media_id": "",
+          "description": "Ideias transformadas em personagens, cenas, roteiros e planejamento visual de produção.",
+          "featured": true,
+          "id": "illustration-script-storyboard",
+          "number": "10",
+          "order": 100,
+          "services": [
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "Esboço aprovado",
+                "Arte final",
+                "Arquivo em alta resolução"
+              ],
+              "description": "Ilustração para conteúdo, campanha, apresentação ou peça editorial.",
+              "featured": false,
+              "id": "illustration-single",
+              "order": 10,
+              "price": 200.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Ilustração individual",
+              "unit": "por ilustração",
+              "visible": true
+            },
+            {
+              "deadline": "7 a 15 dias úteis",
+              "deliverables": [
+                "Pesquisa visual",
+                "Desenvolvimento do personagem",
+                "Arte final"
+              ],
+              "description": "Desenvolvimento visual de personagem com linguagem, silhueta e características próprias.",
+              "featured": false,
+              "id": "character-design",
+              "order": 20,
+              "price": 300.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Criação de personagem",
+              "unit": "por personagem",
+              "visible": true
+            },
+            {
+              "deadline": "3 a 7 dias úteis",
+              "deliverables": [
+                "Conceito narrativo",
+                "Roteiro estruturado",
+                "Indicações de cena e fala"
+              ],
+              "description": "Estrutura narrativa para vídeo curto, campanha, anúncio ou conteúdo de marca.",
+              "featured": false,
+              "id": "script-short",
+              "order": 30,
+              "price": 250.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Roteiro curto publicitário",
+              "unit": "por roteiro",
+              "visible": true
+            },
+            {
+              "deadline": "5 a 10 dias úteis",
+              "deliverables": [
+                "Até 8 quadros",
+                "Indicação de câmera e ação",
+                "Arquivo final para produção"
+              ],
+              "description": "Planejamento visual de cenas, enquadramentos, ações e continuidade.",
+              "featured": true,
+              "id": "storyboard-8",
+              "order": 40,
+              "price": 400.0,
+              "price_type": "from",
+              "revisions": 2,
+              "title": "Storyboard com até 8 quadros",
+              "unit": "por sequência",
+              "visible": true
+            }
+          ],
+          "short_title": "Narrativa Visual",
+          "title": "Ilustração, Roteiro e Storyboard",
+          "visible": true
+        }
+      ],
+      "cover_ratio": "portrait",
+      "cta_body": "Conte o que você precisa e receba uma proposta adequada ao projeto.",
+      "cta_label": "Solicitar orçamento",
+      "cta_title": "Vamos construir algo relevante?",
+      "eyebrow": "Soluções criativas",
+      "home_intro": "Dez frentes de trabalho que podem ser contratadas separadamente ou combinadas em uma solução completa.",
+      "home_title": "Como posso transformar seu projeto",
+      "intro": "Design, audiovisual e direção criativa para marcas, produtos, campanhas e experiências digitais.",
+      "layout_style": "editorial",
+      "menu_label": "Serviços",
+      "price_note": "Valores iniciais. O orçamento final considera escopo, prazo, volume e complexidade.",
+      "process_body": "Escolha as soluções, descreva o projeto e receba uma proposta com escopo, prazo e investimento.",
+      "process_steps": [
+        "Escolha os serviços",
+        "Envie o briefing",
+        "Receba a proposta",
+        "Aprove e acompanhe"
+      ],
+      "process_title": "Um processo claro do briefing à entrega",
+      "process_visible": true,
+      "response_note": "Retorno comercial em até 1 dia útil.",
+      "show_deadlines": true,
+      "show_deliverables": true,
+      "show_on_home": true,
+      "show_prices": true,
+      "show_revisions": true,
+      "slug": "servicos",
+      "title": "Serviços profissionais",
+      "visible": true,
+      "whatsapp_message": "Olá! Gostaria de solicitar um orçamento para um projeto.",
+      "whatsapp_number": "5541999999937"
+    },
     "site_tree": {
       "nodes": [
         {
@@ -973,6 +1773,14 @@
           "order": 5,
           "parent_id": "pages",
           "tab": "sections"
+        },
+        {
+          "id": "page-services",
+          "kind": "section-editor",
+          "label": "Serviços e preços",
+          "order": 8,
+          "parent_id": "pages",
+          "tab": "services"
         },
         {
           "id": "page-home",
