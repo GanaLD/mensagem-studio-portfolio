@@ -1,7 +1,7 @@
 {
   "app_version": "7.9.5.3",
-  "build_revision": "7741da53280e27fc9263",
-  "bundle_sha256": "7741da53280e27fc92634e4e323636545b79c557a2382a55ab30dae8df1f15aa",
+  "build_revision": "1b688bc2fe175eef80a9",
+  "bundle_sha256": "1b688bc2fe175eef80a95a60f0711151c59f9a373bcaf6e02ec9f64fad5f8a36",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -9,7 +9,7 @@
     },
     "404.html": {
       "bytes": 966114,
-      "sha256": "57801e4222b3438114cd01493f64dc836e42cb102d4f392cbee1c31f5fb91aa2"
+      "sha256": "99e387944104ed7fde3b461e0951956e1f3b7118c819e4e57b439327327cd290"
     },
     "CNAME": {
       "bytes": 21,
@@ -41,11 +41,11 @@
     },
     "data/portfolio.json": {
       "bytes": 888085,
-      "sha256": "5cf16f3b020af6148ef3b8549991ed71ebfbeac29313c0b94a93d3df25237de6"
+      "sha256": "ae1095a01c0b4119d10aabd557172f57c35a6b4f0f6e77e0d1faabad50ac0427"
     },
     "index.html": {
       "bytes": 966114,
-      "sha256": "57801e4222b3438114cd01493f64dc836e42cb102d4f392cbee1c31f5fb91aa2"
+      "sha256": "99e387944104ed7fde3b461e0951956e1f3b7118c819e4e57b439327327cd290"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 6568,
