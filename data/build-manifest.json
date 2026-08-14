@@ -1,0 +1,184 @@
+{
+  "app_version": "7.9.3",
+  "build_revision": "ed86e7938dd29b6fa76d",
+  "bundle_sha256": "ed86e7938dd29b6fa76dbb9d462fbfeeb7916a8fff575146eeac71025fb33545",
+  "files": {
+    ".nojekyll": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "404.html": {
+      "bytes": 919794,
+      "sha256": "35f6475ed6a427e7a6b65c58ddbfe8fd83cf4ee220a0fe12d84456e5692227d5"
+    },
+    "CNAME": {
+      "bytes": 21,
+      "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
+    },
+    "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4": {
+      "bytes": 30422982,
+      "sha256": "c4912de00d3d661a4813f298d702b0ba852df92d17f06a4e4f2c0e6514710c39"
+    },
+    "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4": {
+      "bytes": 12056887,
+      "sha256": "1081316b1f1f0af9d9fe8344c85409a90653417bdc33c7a124f47e7caf75d2aa"
+    },
+    "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4": {
+      "bytes": 22642217,
+      "sha256": "79f08ca5ced733eead66d4cc46f8c965cdeabd831b51876ac9968abede37f90e"
+    },
+    "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4": {
+      "bytes": 7207783,
+      "sha256": "028951ae70cc1ac105af04df84bf24be9ebd7c8c0601c599105c86dd55df2872"
+    },
+    "assets/site.css": {
+      "bytes": 122602,
+      "sha256": "cb9dde74cd7d9bce1f872fe60cf23e8a09b98661e00c08d2d494d27be1737846"
+    },
+    "assets/site.js": {
+      "bytes": 150299,
+      "sha256": "1a3dda40d144b0561b6f17eaf4ced9f32502312cc74258c4dd58bdd5dd21792f"
+    },
+    "data/portfolio.json": {
+      "bytes": 863801,
+      "sha256": "ef0421a90974627aff0d6016d516db08254dfdc7e7bf110fdcedac26ae6a5aff"
+    },
+    "index.html": {
+      "bytes": 919794,
+      "sha256": "35f6475ed6a427e7a6b65c58ddbfe8fd83cf4ee220a0fe12d84456e5692227d5"
+    },
+    "servicos/index.html": {
+      "bytes": 6225,
+      "sha256": "420b58ac4d68b7da2bc079c35e9e3b6b12787e9cd169c023a70ddb8ca52b0a20"
+    }
+  },
+  "format": "studioframe-public-build-v2",
+  "stats": {
+    "bytes": 75312405,
+    "files": 12,
+    "largest_file_bytes": 30422982,
+    "route_shells": 1
+  },
+  "video_assets": {
+    "bytes": 72329869,
+    "fallbacks": [
+      {
+        "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+        "reason": "arquivo com 441824490 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+        "reason": "arquivo com 442432566 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+        "reason": "arquivo com 994196016 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+        "reason": "arquivo com 138658170 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+        "reason": "arquivo com 41649753 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
+        "reason": "arquivo com 66408814 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
+        "reason": "arquivo com 107488587 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
+        "reason": "arquivo com 134341932 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
+        "reason": "arquivo com 34287744 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
+        "reason": "arquivo com 87377134 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
+        "reason": "arquivo com 41860434 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+        "reason": "arquivo com 287941449 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
+        "reason": "arquivo com 215851728 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
+        "reason": "arquivo com 96163364 bytes excede o limite de 33554432"
+      },
+      {
+        "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
+        "reason": "vídeo excede o limite seguro do build GitHub"
+      },
+      {
+        "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
+        "reason": "vídeo excede o limite seguro do build GitHub"
+      },
+      {
+        "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "reason": "vídeo excede o limite seguro do build GitHub"
+      },
+      {
+        "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "reason": "vídeo excede o limite seguro do build GitHub"
+      },
+      {
+        "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
+        "reason": "vídeo excede o limite seguro do build GitHub"
+      },
+      {
+        "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
+        "reason": "arquivo com 295203486 bytes excede o limite de 33554432"
+      }
+    ],
+    "hosted": 4,
+    "items": [
+      {
+        "bytes": 7207783,
+        "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
+        "mime": "video/mp4",
+        "modified_time": "",
+        "path": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+        "sha256": "028951ae70cc1ac105af04df84bf24be9ebd7c8c0601c599105c86dd55df2872"
+      },
+      {
+        "bytes": 22642217,
+        "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
+        "mime": "video/mp4",
+        "modified_time": "",
+        "path": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+        "sha256": "79f08ca5ced733eead66d4cc46f8c965cdeabd831b51876ac9968abede37f90e"
+      },
+      {
+        "bytes": 30422982,
+        "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
+        "mime": "video/mp4",
+        "modified_time": "",
+        "path": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+        "sha256": "c4912de00d3d661a4813f298d702b0ba852df92d17f06a4e4f2c0e6514710c39"
+      },
+      {
+        "bytes": 12056887,
+        "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
+        "mime": "video/mp4",
+        "modified_time": "",
+        "path": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+        "sha256": "1081316b1f1f0af9d9fe8344c85409a90653417bdc33c7a124f47e7caf75d2aa"
+      }
+    ],
+    "mode": "size-safe-hybrid-github-drive",
+    "skipped": 20
+  }
+}

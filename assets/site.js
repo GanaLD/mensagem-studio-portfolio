@@ -27,10 +27,11 @@ async function load() {
   } else if (window.__PB_PREVIEW_DATA__) {
     DATA = window.__PB_PREVIEW_DATA__;
   } else {
-    const response = await fetch('data/portfolio.json', { cache: 'no-store' });
+    const response = await fetch(`${publicAssetBase()}data/portfolio.json`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`portfolio.json HTTP ${response.status}`);
     DATA = await response.json();
   }
+  hydrateHostedAssetUrls(DATA);
   const identity = DATA.identity || {};
   document.documentElement.style.setProperty('--accent', identity.accent_color || '#2FD59A');
   document.title = `${identity.studio_name || 'Mensagem Studio'} | ${identity.portfolio_title || 'Portfólio'}`;
@@ -43,17 +44,73 @@ async function load() {
   $('#heroLine').textContent = identity.hero_line || '';
   renderSiteBuilder();
   renderHero();
+  const servicesPage = isServicesPage();
   const customPage = currentCustomPage();
-  if(customPage){ renderCustomPage(customPage); } else {
+  if(servicesPage){ renderServicesPage(); }
+  else if(customPage){ renderCustomPage(customPage); } else {
     renderFilters();
     const hashSection = sectionFromLocation();
     const validFilterIds = new Set((DATA.filters || []).map((item) => String(item.id)));
     const initialFilter = hashSection && validFilterIds.has(String(hashSection)) ? hashSection : (Array.isArray(DATA.filters) && DATA.filters.length ? DATA.filters[0].id : 'all');
     select(initialFilter, false);
     renderHomeComposition();
+    renderServicesHome();
   }
   renderSideNavigation();
   bindMotion();
+}
+
+function publicAssetBase() {
+  const configured = String(window.__PB_ASSET_BASE__ || '');
+  if (configured) return configured.endsWith('/') ? configured : `${configured}/`;
+  if (location.protocol === 'file:') return './';
+  return location.pathname === '/site' || location.pathname.startsWith('/site/') ? '/site/' : '/';
+}
+
+function hostedAssetBase() {
+  return new URL(publicAssetBase(), location.href).href;
+}
+
+function hydrateHostedAssetUrls(value) {
+  const base = hostedAssetBase();
+  const visit = (current) => {
+    if (Array.isArray(current)) {
+      current.forEach((item, index) => {
+        if (typeof item === 'string' && item.startsWith('assets/')) current[index] = `${base}${item}`;
+        else visit(item);
+      });
+      return;
+    }
+    if (!current || typeof current !== 'object') return;
+    Object.entries(current).forEach(([key, item]) => {
+      if (typeof item === 'string' && item.startsWith('assets/')) current[key] = `${base}${item}`;
+      else visit(item);
+    });
+  };
+  visit(value);
+}
+
+function videoSourceCandidates(item = {}) {
+  return uniqueUrls([item.media_url, ...(item.media_candidates || []), item.preview_url, ...(item.preview_candidates || [])])
+    .filter((url) => !/\/preview(?:\?|$)/i.test(url));
+}
+
+function bindVideoSourceFallback(video, candidates, exhausted = null) {
+  const sources = uniqueUrls(candidates || []);
+  let sourceIndex = 0;
+  const next = () => {
+    if (sourceIndex >= sources.length) {
+      video.dataset.failed = '1';
+      if (typeof exhausted === 'function') exhausted();
+      return;
+    }
+    video.dataset.failed = '0';
+    video.src = sources[sourceIndex++];
+    video.load();
+  };
+  video.addEventListener('error', next);
+  next();
+  return video;
 }
 
 
@@ -82,9 +139,9 @@ function applyGlobalHeader(builder, navigation, identity) {
   sorted.filter((item)=>!item.parent_id).forEach((item)=>{
     const children=(childMap.get(item.id)||[]).filter((child)=>child.visible!==false);
     if(children.length && item.target){
-      const wrapper=document.createElement('div');wrapper.className='topnav-dropdown';wrapper.dataset.dynamicMenuItem=item.id;const parent=document.createElement('a');parent.href=item.target;parent.textContent=item.label||'Página';parent.className='topnav-dropdown-parent';const submenu=document.createElement('div');submenu.className='topnav-submenu';children.forEach((child)=>{const a=document.createElement('a');a.href=child.target||'#';a.textContent=child.label||'Página';submenu.append(a);});wrapper.append(parent,submenu);wrapper.hidden=item.visible===false;topnav?.append(wrapper);return;
+      const wrapper=document.createElement('div');wrapper.className='topnav-dropdown';wrapper.dataset.dynamicMenuItem=item.id;const parent=document.createElement('a');parent.href=publicRouteHref(item.target);parent.textContent=item.label||'Página';parent.className='topnav-dropdown-parent';const submenu=document.createElement('div');submenu.className='topnav-submenu';children.forEach((child)=>{const a=document.createElement('a');a.href=publicRouteHref(child.target||'#');a.textContent=child.label||'Página';submenu.append(a);});wrapper.append(parent,submenu);wrapper.hidden=item.visible===false;topnav?.append(wrapper);return;
     }
-    let node = nodeById[item.id]; if(!node&&item.target){node=document.createElement('a');node.dataset.dynamicMenuItem=item.id;node.href=item.target;nodeById[item.id]=node;} if(!node)return;node.textContent=item.label||node.textContent;node.hidden=item.visible===false;if(node.tagName==='A'&&item.target)node.href=item.target;topnav?.append(node);
+    let node = nodeById[item.id]; if(!node&&item.target){node=document.createElement('a');node.dataset.dynamicMenuItem=item.id;node.href=publicRouteHref(item.target);nodeById[item.id]=node;} if(!node)return;node.textContent=item.label||node.textContent;node.hidden=item.visible===false;if(node.tagName==='A'&&item.target)node.href=publicRouteHref(item.target);topnav?.append(node);
   });
   const height = Math.max(48, Math.min(160, Number(header.height || 72)));
   const pad = Math.max(1, Math.min(12, Number(header.padding_x || 4)));
@@ -128,6 +185,43 @@ function applyGlobalFooter(builder, identity){
   node.dataset.align=footer.alignment||'between';node.dataset.divider=footer.divider===false?'off':'on';document.documentElement.style.setProperty('--footer-bg',footer.background_color||'#070707');document.documentElement.style.setProperty('--footer-text',footer.text_color||'#f4f4ef');document.documentElement.style.setProperty('--footer-muted',footer.muted_color||'#8e918f');document.documentElement.style.setProperty('--footer-font-size',`${Math.max(9,Number(footer.font_size||12))}px`);document.documentElement.style.setProperty('--footer-icon-size',`${Math.max(14,Number(footer.icon_size||20))}px`);document.documentElement.style.setProperty('--footer-gap',`${Math.max(4,Number(footer.gap||18))}px`);
 }
 
+function applySiteAppearance(builder = {}, identity = {}) {
+  const appearance = builder.appearance || {};
+  const mode = ['apple','dark','light','contrast','custom'].includes(appearance.color_mode) ? appearance.color_mode : 'dark';
+  const defaults = mode === 'apple'
+    ? {bg:'#F5F5F7',surface:'#FFFFFF',text:'#1D1D1F',muted:'#6E6E73',accent:'#0071E3'}
+    : mode === 'light'
+    ? {bg:'#F3F6FA',surface:'#FFFFFF',text:'#172033',muted:'#58697D',accent:'#006B5B'}
+    : (mode === 'contrast'
+      ? {bg:'#030303',surface:'#111111',text:'#FFFFFF',muted:'#E0E0E0',accent:'#66F2C2'}
+      : {bg:'#07090D',surface:'#111722',text:'#F4F7FB',muted:'#AAB5C4',accent:identity.accent_color||'#2FD59A'});
+  const values = {bg:appearance.background_color||defaults.bg,surface:appearance.surface_color||defaults.surface,text:appearance.text_color||defaults.text,muted:appearance.muted_color||defaults.muted,accent:appearance.accent_color||defaults.accent};
+  document.documentElement.style.setProperty('--bg',values.bg);
+  document.documentElement.style.setProperty('--surface',values.surface);
+  document.documentElement.style.setProperty('--text',values.text);
+  document.documentElement.style.setProperty('--muted',values.muted);
+  document.documentElement.style.setProperty('--accent',values.accent);
+  document.documentElement.style.setProperty('--line',`color-mix(in srgb, ${values.text} 19%, transparent)`);
+  document.documentElement.style.setProperty('--site-block-radius',`${Math.max(0,Math.min(40,Number(appearance.block_radius??14)))}px`);
+  const brandFont = appearance.brand_font_family === 'body' ? 'var(--body)' : (appearance.brand_font_family === 'system' ? 'Arial, sans-serif' : 'var(--display)');
+  document.documentElement.style.setProperty('--site-brand-font-family',brandFont);
+  document.documentElement.style.setProperty('--site-brand-font-desktop',`${Math.max(8,Math.min(48,Number(appearance.brand_font_size_desktop??12)))}px`);
+  document.documentElement.style.setProperty('--site-brand-font-mobile',`${Math.max(8,Math.min(40,Number(appearance.brand_font_size_mobile??12)))}px`);
+  document.documentElement.style.setProperty('--site-brand-font-weight',String(appearance.brand_font_weight||'500'));
+  document.documentElement.style.setProperty('--site-brand-letter-spacing',`${Math.max(-.05,Math.min(.4,Number(appearance.brand_letter_spacing??.16)))}em`);
+  document.documentElement.style.setProperty('--site-brand-text-transform',appearance.brand_text_transform==='none'?'none':'uppercase');
+  document.documentElement.style.setProperty('--site-brand-color',appearance.brand_color||values.text);
+  const logo=$('#logo');
+  if(logo){logo.textContent=appearance.brand_title||logo.textContent||identity.studio_name||'MENSAGEM STUDIO';logo.hidden=appearance.brand_title_visible===false;}
+  document.body.dataset.siteColorMode=mode;
+  document.body.dataset.backgroundStyle=appearance.background_style||'aurora';
+  document.body.dataset.blockStyle=appearance.block_style||'glass';
+  document.body.dataset.blockSpacing=appearance.block_spacing||'normal';
+  document.body.dataset.shadowStyle=appearance.shadow_style||'soft';
+  const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.content=values.bg;
+  return appearance;
+}
+
 function renderSiteBuilder() {
   const builder = DATA.site_builder || {};
   const navigation = builder.navigation || {};
@@ -138,6 +232,7 @@ function renderSiteBuilder() {
   const contact = builder.contact || {};
   const identity = DATA.identity || {};
   applyGlobalHeader(builder, navigation, identity);
+  const appearance = applySiteAppearance(builder, identity);
   applyGlobalFooter(builder, identity);
   const animations = builder.animations || {};
   const globalAnimation = animations.global || {};
@@ -150,7 +245,7 @@ function renderSiteBuilder() {
   document.body.dataset.cardInteraction = visualLayout.card_interaction || 'responsive';
   document.body.dataset.cardVideoPreview = visualLayout.card_video_preview === false ? 'off' : (visualLayout.card_video_preview_mode || 'hover');
   document.body.dataset.ambient = visualLayout.ambient_motion === false ? 'off' : (visualLayout.ambient_strength || 'medium');
-  document.body.dataset.backgroundMotion = globalAnimation.background_motion || document.body.dataset.ambient || 'medium';
+  document.body.dataset.backgroundMotion = appearance.background_animation || globalAnimation.background_motion || document.body.dataset.ambient || 'medium';
   document.body.dataset.sectionFlow = globalAnimation.section_flow || 'integrated';
   document.body.dataset.textAnimation = textAnimation.type || 'reveal';
   document.body.dataset.textDirection = textAnimation.direction || 'up';
@@ -391,11 +486,13 @@ function createAutoCarouselBlock(block) {
   section.dataset.direction = block.direction || 'left';
   section.dataset.pauseHover = block.pause_on_hover === false ? 'false' : 'true';
   section.dataset.motionMode = block.motion_mode === 'manual' ? 'manual' : 'auto';
+  section.dataset.cardGap = block.card_gap || 'normal';
+  section.dataset.hoverEffect = block.hover_effect || 'glow';
   section.append(blockHeading(block, 'Em destaque'));
   const viewport = document.createElement('div'); viewport.className = 'auto-carousel-viewport';
   const strip = document.createElement('div'); strip.className = 'auto-carousel-strip';
   const addSet = (clone = false) => projects.forEach((project, index) => {
-    const node = card(project, index);
+    const node = applyCarouselCardAppearance(card(project, index), block);
     node.classList.add('auto-carousel-card');
     if (clone) { node.dataset.carouselClone = '1'; node.setAttribute('aria-hidden','true'); node.tabIndex = -1; }
     strip.append(node);
@@ -485,6 +582,35 @@ function createTextBlock(block) {
   return section;
 }
 
+function structuredLines(value='') {
+  return String(value || '').split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map((line) => {
+    const split = line.indexOf('|');
+    return split < 0 ? { lead:line, body:'' } : { lead:line.slice(0,split).trim(), body:line.slice(split+1).trim() };
+  });
+}
+
+function createStructuredContentBlock(block, type) {
+  const items = structuredLines(block.body);
+  if (!items.length) return null;
+  const section = document.createElement('section');
+  section.className = `modular-block block-${type} reveal`;
+  section.append(blockHeading({ ...block, body:'' }, block.title || ''));
+  const list = document.createElement('div'); list.className = `${type}-list`;
+  items.forEach((item, index) => {
+    if (type === 'accordion') {
+      const details=document.createElement('details');details.className='accordion-item';
+      const summary=document.createElement('summary');summary.innerHTML=`<span>${String(index+1).padStart(2,'0')}</span><strong>${esc(item.lead)}</strong><b>＋</b>`;
+      const p=document.createElement('p');p.textContent=item.body;details.append(summary,p);list.append(details);return;
+    }
+    const article=document.createElement('article');article.className=`${type}-item`;
+    const number=document.createElement('span');number.textContent=String(index+1).padStart(2,'0');
+    const lead=document.createElement(type==='metrics'?'strong':'h3');lead.textContent=item.lead;
+    const body=document.createElement('p');body.textContent=item.body;
+    article.append(number,lead,body);list.append(article);
+  });
+  section.append(list);return section;
+}
+
 function createCustomLetteringBlock(block) {
   const text = String(block.title || '').trim();
   if (!text) return null;
@@ -561,6 +687,17 @@ function editorialProjectsForBlock(block, fallbackLimit = 12) {
   return modularProjectsForCategory(block.category_id || 'all', fallbackLimit);
 }
 
+function applyCarouselCardAppearance(node, block = {}) {
+  if (!node) return node;
+  const media = node.querySelector('.media');
+  const ratios = { '16x9':'16 / 9', '4x3':'4 / 3', '1x1':'1 / 1', '4x5':'4 / 5' };
+  if (media) media.style.aspectRatio = ratios[block.card_ratio || '16x9'] || ratios['16x9'];
+  node.dataset.carouselHover = block.hover_effect || 'glow';
+  node.style.setProperty('--carousel-cards-desktop', String(Math.max(2, Math.min(4, Number(block.cards_desktop || 3)))));
+  node.style.setProperty('--carousel-cards-mobile', String(Math.max(1, Math.min(2, Number(block.cards_mobile || 1)))));
+  return node;
+}
+
 function createEditorialCarouselBlock(block) {
   const projects = editorialProjectsForBlock(block, 12);
   if (!projects.length) return null;
@@ -570,12 +707,14 @@ function createEditorialCarouselBlock(block) {
   section.className = `modular-block editorial-section block-editorial-carousel format-${format} mode-${mode} reveal`;
   section.dataset.speed = block.speed || 'medium';
   section.dataset.direction = block.direction || 'left';
+  section.dataset.cardGap = block.card_gap || 'normal';
+  section.dataset.hoverEffect = block.hover_effect || 'glow';
   section.append(blockHeading(block, 'Projetos em movimento'));
   const shell=document.createElement('div'); shell.className='editorial-carousel-shell';
   const viewport=document.createElement('div'); viewport.className='editorial-carousel-viewport';
   const strip=document.createElement('div'); strip.className='editorial-carousel-strip';
   const appendSet=(clone=false)=>projects.forEach((project,index)=>{
-    const node=card(project,index); node.classList.add('editorial-carousel-card');
+    const node=applyCarouselCardAppearance(card(project,index),block); node.classList.add('editorial-carousel-card');
     if(project.editorial_action_label) node.dataset.actionLabel=project.editorial_action_label;
     if(clone){node.dataset.carouselClone='1';node.setAttribute('aria-hidden','true');node.tabIndex=-1;}
     strip.append(node);
@@ -734,6 +873,10 @@ function createCustomHomeBlock(block) {
   if (block.type === 'text') node = createTextBlock(block);
   if (block.type === 'lettering_custom') node = createCustomLetteringBlock(block);
   if (block.type === 'video_feature') node = createVideoFeatureBlock(block);
+  if (block.type === 'metrics') node = createStructuredContentBlock(block,'metrics');
+  if (block.type === 'process') node = createStructuredContentBlock(block,'process');
+  if (block.type === 'testimonials') node = createStructuredContentBlock(block,'testimonials');
+  if (block.type === 'accordion') node = createStructuredContentBlock(block,'accordion');
   if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance'); applyHomeSectionFrame(node, block); }
   return node;
 }
@@ -772,9 +915,59 @@ function renderHomeComposition() {
 
 
 
+function servicesConfig(){return DATA.site_builder?.services||{};}
+function canonicalRouteSlug(value='servicos'){return String(value||'servicos').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'servicos';}
+function servicesSlug(){return canonicalRouteSlug(servicesConfig().slug||'servicos');}
+function publicRouteHref(value='#'){const target=String(value||'#');if(location.protocol!=='file:'||!target.startsWith('/'))return target;return `.${target}`;}
+function requestedRoutePath(){const query=new URLSearchParams(location.search);return normalizePath(query.get('sf_route')||location.pathname);}
+function servicesHref(hash=''){const slug=servicesSlug();const base=location.protocol==='file:'?`./${slug}/index.html`:`/${slug}/`;return `${base}${hash||''}`;}
+function isServicesPage(){const query=new URLSearchParams(location.search);return servicesConfig().visible!==false&&(requestedRoutePath()===servicesSlug()||query.get('page')==='services');}
+function visibleServiceCategories(){return (Array.isArray(servicesConfig().categories)?servicesConfig().categories:[]).filter((category)=>category&&category.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));}
+function visibleServiceItems(category){return (Array.isArray(category?.services)?category.services:[]).filter((item)=>item&&item.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));}
+function servicePrice(item={}){if(servicesConfig().show_prices===false||item.price_type==='quote')return 'Sob consulta';const value=Number(item.price||0);if(!value)return 'Sob consulta';const formatted=new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:Number.isInteger(value)?0:2}).format(value);return `${item.price_type==='fixed'?'':'A partir de '}${formatted}`;}
+function serviceWhatsappHref(category,item=null,extra=''){const config=servicesConfig(),number=String(config.whatsapp_number||'').replace(/\D/g,''),subject=item?.title||category?.title||'',message=String(config.whatsapp_message||'Olá! Gostaria de solicitar um orçamento.').trim(),detail=String(extra||'').trim(),parts=[message,subject?`Serviço: ${subject}`:'',detail].filter(Boolean);return `https://wa.me/${number}?text=${encodeURIComponent(parts.join('\n\n'))}`;}
+const SERVICE_QUOTE_SELECTION=new Map();
+function serviceSelectionKey(category,item){return `${category.id}:${item.id}`;}
+function serviceSelectionRecord(key){for(const category of visibleServiceCategories()){for(const item of visibleServiceItems(category)){if(serviceSelectionKey(category,item)===key)return {category,item,key};}}return null;}
+function servicePublicMedia(mediaId){
+  if(!mediaId)return null;const target=String(mediaId);let found=null;
+  const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
+  visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
+}
+function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.media_url,...(media.media_candidates||[]),media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));return visual;}
+function serviceCategoryCard(category,index){
+  const config=servicesConfig(),article=document.createElement('article');article.className='service-area-card reveal';article.style.setProperty('--service-accent',category.accent||'var(--accent)');article.id=`service-${category.id}`;
+  const visual=serviceCategoryVisual(category),copy=document.createElement('div');copy.className='service-area-copy';const meta=document.createElement('div');meta.className='service-area-meta';meta.innerHTML=`<span>${esc(category.number||String(index+1).padStart(2,'0'))}</span><small>${visibleServiceItems(category).length} opções</small>`;
+  const title=document.createElement('h2');title.textContent=category.title||'Serviço';const description=document.createElement('p');description.textContent=category.description||'';const list=document.createElement('div');list.className='service-price-list';
+  visibleServiceItems(category).forEach((item)=>{const key=serviceSelectionKey(category,item),row=document.createElement('article');row.className=`service-price-card${item.featured?' featured':''}`;row.dataset.serviceKey=key;const head=document.createElement('div'),itemTitle=document.createElement('h3');itemTitle.textContent=item.title||'Serviço';const price=document.createElement('strong');price.textContent=servicePrice(item);head.append(itemTitle,price);const body=document.createElement('p');body.textContent=item.description||'';const facts=document.createElement('div');facts.className='service-facts';if(item.unit){const unit=document.createElement('span');unit.textContent=item.unit;facts.append(unit);}if(config.show_deadlines!==false&&item.deadline){const deadline=document.createElement('span');deadline.textContent=item.deadline;facts.append(deadline);}if(config.show_revisions!==false){const revisions=document.createElement('span');revisions.textContent=`${Number(item.revisions||0)} ${Number(item.revisions||0)===1?'revisão':'revisões'}`;facts.append(revisions);}const deliverables=document.createElement('ul');if(config.show_deliverables!==false)(item.deliverables||[]).forEach((value)=>{const li=document.createElement('li');li.textContent=value;deliverables.append(li);});
+    const actions=document.createElement('div');actions.className='service-item-actions-public';const select=document.createElement('button');select.type='button';select.className='service-item-select';select.dataset.serviceSelect=key;select.textContent='Adicionar ao orçamento';const direct=document.createElement('a');direct.className='service-item-direct';direct.href=serviceWhatsappHref(category,item);direct.target='_blank';direct.rel='noopener';direct.textContent='Falar agora ↗';actions.append(select,direct);row.append(head,body,facts);if(deliverables.children.length)row.append(deliverables);row.append(actions);list.append(row);
+  });
+  copy.append(meta,title,description,list);article.append(visual,copy);return article;
+}
+function serviceProcessSection(){const config=servicesConfig(),steps=(Array.isArray(config.process_steps)?config.process_steps:[]).filter(Boolean);if(config.process_visible===false||!steps.length)return null;const section=document.createElement('section');section.className='services-process reveal';const copy=document.createElement('div');copy.innerHTML=`<small>PROCESSO</small><h2>${esc(config.process_title||'Um processo claro do briefing à entrega')}</h2><p>${esc(config.process_body||'')}</p>`;const list=document.createElement('ol');steps.forEach((step,index)=>{const item=document.createElement('li');item.innerHTML=`<span>${String(index+1).padStart(2,'0')}</span><strong>${esc(step)}</strong>`;list.append(item);});section.append(copy,list);return section;}
+function selectedServiceRecords(){return [...SERVICE_QUOTE_SELECTION.keys()].map(serviceSelectionRecord).filter(Boolean);}
+function serviceQuoteMessage(){const records=selectedServiceRecords(),name=$('#serviceLeadName')?.value?.trim()||'',company=$('#serviceLeadCompany')?.value?.trim()||'',timeline=$('#serviceLeadTimeline')?.value?.trim()||'',details=$('#serviceLeadDetails')?.value?.trim()||'',lines=records.map(({category,item})=>`• ${category.title} — ${item.title} (${servicePrice(item)})`);return [`Solicitação de orçamento StudioFrame`,name?`Nome: ${name}`:'',company?`Marca/empresa: ${company}`:'',timeline?`Prazo desejado: ${timeline}`:'',lines.length?`Serviços selecionados:\n${lines.join('\n')}`:'Serviços: preciso de orientação para escolher',details?`Resumo do projeto:\n${details}`:''].filter(Boolean).join('\n\n');}
+function updateServiceQuoteUI(){const records=selectedServiceRecords(),count=records.length;document.querySelectorAll('[data-service-select]').forEach((button)=>{const selected=SERVICE_QUOTE_SELECTION.has(button.dataset.serviceSelect);button.classList.toggle('selected',selected);button.textContent=selected?'Selecionado ✓':'Adicionar ao orçamento';});const output=$('#serviceQuoteCount');if(output)output.textContent=`${count} ${count===1?'serviço selecionado':'serviços selecionados'}`;const list=$('#serviceQuoteSelection');if(list)list.innerHTML=count?records.map(({category,item,key})=>`<li><span><small>${esc(category.short_title||category.title)}</small><strong>${esc(item.title)}</strong></span><button type="button" data-service-remove="${esc(key)}">×</button></li>`).join(''):'<li class="empty-selection">Nenhum serviço selecionado. Você também pode enviar um briefing aberto.</li>';const dock=$('#serviceQuoteDock');if(dock){dock.hidden=count===0;dock.querySelector('strong').textContent=`${count} selecionado${count===1?'':'s'}`;}const send=$('#serviceQuoteSend');if(send)send.textContent=servicesConfig().brief_button||'Enviar solicitação no WhatsApp';}
+function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false)return null;const first=visibleServiceCategories()[0],firstAnchor=first?`#service-${first.id}`:'#top',section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2>${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form"><div class="services-quote-summary"><div><strong id="serviceQuoteCount">0 serviços selecionados</strong><a href="${esc(firstAnchor)}">Adicionar serviços</a></div><ul id="serviceQuoteSelection"></ul></div><div class="services-lead-fields"><label>Seu nome<input id="serviceLeadName" autocomplete="name" placeholder="Como podemos chamar você?"></label><label>Marca ou empresa<input id="serviceLeadCompany" autocomplete="organization" placeholder="Opcional"></label><label>Prazo desejado<input id="serviceLeadTimeline" placeholder="Ex.: ainda este mês"></label><label class="wide">Conte um pouco sobre o projeto<textarea id="serviceLeadDetails" rows="5" placeholder="Objetivo, formatos, quantidade, referências e o que já está pronto"></textarea></label></div><button class="service-quote-send" id="serviceQuoteSend" type="button">${esc(config.brief_button||'Enviar solicitação no WhatsApp')}</button><small>Ao continuar, o briefing será organizado em uma mensagem. Nenhum dado é enviado antes do clique.</small></div>`;return section;}
+function bindServiceCommerce(root){root.addEventListener('click',(event)=>{const select=event.target.closest('[data-service-select]');if(select){const key=select.dataset.serviceSelect;if(SERVICE_QUOTE_SELECTION.has(key))SERVICE_QUOTE_SELECTION.delete(key);else SERVICE_QUOTE_SELECTION.set(key,true);updateServiceQuoteUI();return;}const remove=event.target.closest('[data-service-remove]');if(remove){SERVICE_QUOTE_SELECTION.delete(remove.dataset.serviceRemove);updateServiceQuoteUI();return;}if(event.target.closest('#serviceQuoteSend')){window.open(serviceWhatsappHref(null,null,serviceQuoteMessage()),'_blank','noopener');return;}if(event.target.closest('[data-service-open-brief]')){$('#service-brief')?.scrollIntoView({behavior:'smooth',block:'start'});}});}
+function renderServicesPage(){
+  const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='services-public-page';root.dataset.serviceLayout=config.layout_style||'editorial';root.dataset.catalogDensity=config.catalog_density||'comfortable';root.dataset.coverRatio=config.cover_ratio||'portrait';document.body.dataset.page='services';document.title=`${config.title||'Serviços'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
+  const categories=visibleServiceCategories(),options=categories.reduce((total,category)=>total+visibleServiceItems(category).length,0),head=document.createElement('header');head.className='services-public-head reveal';const headCopy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Soluções criativas';const title=document.createElement('h1');title.textContent=config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.intro||'';const actions=document.createElement('div');actions.className='services-head-actions';const primary=document.createElement(config.brief_visible===false?'a':'button');if(primary.tagName==='BUTTON'){primary.type='button';primary.dataset.serviceOpenBrief='';primary.textContent='Montar orçamento';}else{primary.href=serviceWhatsappHref(null,null);primary.target='_blank';primary.rel='noopener';primary.textContent=config.cta_label||'Solicitar orçamento';}const note=document.createElement('span');note.textContent=config.response_note||'';actions.append(primary,note);headCopy.append(eyebrow,title,intro,actions);const stats=document.createElement('dl');stats.className='services-head-stats';stats.innerHTML=`<div><dt>${categories.length}</dt><dd>áreas criativas</dd></div><div><dt>${options}</dt><dd>soluções comerciais</dd></div><div><dt>BR</dt><dd>atendimento remoto</dd></div>`;head.append(headCopy,stats);root.append(head);
+  const nav=document.createElement('nav');nav.className='services-jump-nav';visibleServiceCategories().forEach((category)=>{const a=document.createElement('a');a.href=`#service-${category.id}`;a.textContent=category.short_title||category.title;nav.append(a);});root.append(nav);
+  const process=serviceProcessSection();if(process)root.append(process);
+  const grid=document.createElement('div');grid.className='services-category-stack';visibleServiceCategories().forEach((category,index)=>grid.append(serviceCategoryCard(category,index)));root.append(grid);
+  if(config.price_note){const note=document.createElement('p');note.className='services-price-note';note.textContent=config.price_note;root.append(note);}
+  const quote=serviceQuoteBuilder();if(quote)root.append(quote);
+  const cta=document.createElement('section');cta.className='services-final-cta reveal';const ctaCopy=document.createElement('div');const ctaTitle=document.createElement('h2');ctaTitle.textContent=config.cta_title||'Vamos construir algo relevante?';const ctaBody=document.createElement('p');ctaBody.textContent=config.cta_body||'';ctaCopy.append(ctaTitle,ctaBody);const link=document.createElement('a');link.href=serviceWhatsappHref(null,null);link.target='_blank';link.rel='noopener';link.textContent=config.cta_label||'Solicitar orçamento';cta.append(ctaCopy,link);root.append(cta);bindReveal();tick();
+  const dock=document.createElement('button');dock.type='button';dock.id='serviceQuoteDock';dock.className='service-quote-dock';dock.dataset.serviceOpenBrief='';dock.hidden=true;dock.innerHTML='<span>ORÇAMENTO</span><strong>0 selecionados</strong><i>Continuar →</i>';root.append(dock);bindServiceCommerce(root);updateServiceQuoteUI();
+}
+function renderServicesHome(){
+  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.media_url,...(media.media_candidates||[]),media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
+}
+
 function publicCustomPages(){const pages=DATA.site_builder?.custom_pages||{};return Object.values(pages).filter((page)=>page&&page.visible!==false);}
 function normalizePath(value=''){return String(value||'').replace(/^https?:\/\/[^/]+/i,'').replace(/^\/+|\/+$/g,'').toLowerCase();}
-function currentCustomPage(){const path=normalizePath(location.pathname);if(!path)return null;return publicCustomPages().find((page)=>normalizePath(page.full_path||page.slug)===path)||null;}
+function currentCustomPage(){const path=requestedRoutePath();if(!path)return null;return publicCustomPages().find((page)=>normalizePath(page.full_path||page.slug)===path)||null;}
 function renderCustomPage(page){
   const root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.dataset.pageId=page.id||'';
   const head=document.createElement('header');head.className='custom-public-page-head reveal';if(page.eyebrow){const e=document.createElement('small');e.textContent=page.eyebrow;head.append(e);}const h=document.createElement('h1');h.textContent=page.title||'Página';head.append(h);if(page.intro){const p=document.createElement('p');p.textContent=page.intro;head.append(p);}root.append(head);
@@ -800,7 +993,7 @@ function renderSideNavigation() {
   const menuItems=(DATA.site_builder?.global?.header?.menu_items||[]).filter((item)=>item&&item.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));
   if(menuItems.length){
     const depthFor=(item)=>{let depth=0,parent=item.parent_id,seen=new Set();while(parent&&!seen.has(parent)){seen.add(parent);const p=menuItems.find((x)=>x.id===parent);if(!p)break;depth+=1;parent=p.parent_id;}return depth;};
-    menuItems.forEach((item)=>addLink(item.label||'Página',item.target||'#','',depthFor(item)));
+    menuItems.forEach((item)=>addLink(item.label||'Página',publicRouteHref(item.target||'#'),'',depthFor(item)));
   }
   const firstHomeBlock=publicHomeBlocks().find((block)=>block.visible!==false);
   const firstCore=firstHomeBlock ? CORE_HOME_BLOCK_IDS[firstHomeBlock.type] : '';
@@ -1322,8 +1515,9 @@ function bindCardVideoPreview(button, video) {
     try { video.currentTime = 0; } catch (_) {}
   };
   video.addEventListener('error', () => {
-    video.dataset.failed = '1';
-    video.classList.remove('is-previewing');
+    queueMicrotask(() => {
+      if (video.dataset.failed === '1') video.classList.remove('is-previewing');
+    });
   });
   if (mode === 'always') {
     const observer = new IntersectionObserver((entries) => {
@@ -1384,15 +1578,16 @@ function card(project, index) {
   applyProjectCoverGeometry(project, media, cardPoster);
   mediaInner.append(cardPoster);
   let previewVideo = null;
-  if (project.type === 'video' && project.media_url && visualLayout.card_video_preview !== false) {
+  const previewSources = videoSourceCandidates(project);
+  if (project.type === 'video' && previewSources.length && visualLayout.card_video_preview !== false) {
     previewVideo = document.createElement('video');
     previewVideo.className = 'card-preview-video';
-    previewVideo.src = project.media_url;
     previewVideo.muted = true;
     previewVideo.loop = true;
     previewVideo.playsInline = true;
     previewVideo.preload = 'metadata';
     previewVideo.setAttribute('aria-hidden', 'true');
+    bindVideoSourceFallback(previewVideo, previewSources);
     mediaInner.append(previewVideo);
   }
   media.append(mediaInner, type, action);
@@ -1467,24 +1662,18 @@ function projectVideo(item) {
   // Prefer validated direct video bytes in both editor and public site. Google
   // Drive /preview can transiently return HTTP 5xx; the iframe remains a fallback
   // instead of being the only playback path.
-  const sources = uniqueUrls([item.media_url, ...(item.media_candidates || [])]);
+  const sources = videoSourceCandidates(item);
   if (sources.length) {
     const video = document.createElement('video');
     video.controls = true;
     video.playsInline = true;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
     video.preload = 'metadata';
     video.poster = item.thumbnail_url || (item.thumbnail_candidates || [])[0] || '';
-    let index = 0;
-    const next = () => {
-      if (index >= sources.length) {
-        video.replaceWith(driveFrame(item));
-        return;
-      }
-      video.src = sources[index++];
-      video.load();
-    };
-    video.addEventListener('error', next);
-    next();
+    bindVideoSourceFallback(video, sources, () => video.replaceWith(projectVideoFallback(item)));
+    video.addEventListener('canplay', () => video.play().catch(() => {}), { once:true });
     wrap.append(video);
     return wrap;
   }
@@ -1495,7 +1684,9 @@ function projectVideo(item) {
 function projectVideoFallback(item) {
   const fallback = document.createElement('div');
   fallback.className = 'project-video-fallback';
-  fallback.append(projectImage(item));
+  const frame = driveFrame(item);
+  if (frame && frame.tagName === 'IFRAME') fallback.append(frame);
+  else fallback.append(projectImage(item));
   const target = item.preview_url || (item.preview_candidates || [])[0] || item.external_url;
   if (target) {
     const link = document.createElement('a');
@@ -1685,6 +1876,7 @@ function openProjectDetail(project) {
   const grid = $('#grid');
   const empty = $('#empty');
   const fullscreen = (visualLayout.project_viewer || 'fullscreen') === 'fullscreen';
+  detail.dataset.projectId = String(project.project_id || project.id || project.gallery_id || '');
   projectScrollY = scrollY;
   detail.classList.toggle('is-fullscreen', fullscreen);
   document.body.classList.toggle('project-viewer-open', fullscreen);
@@ -1715,6 +1907,7 @@ function closeProjectDetail(scroll = true) {
   if (detail.hidden) return;
   const fullscreen = detail.classList.contains('is-fullscreen');
   detail.hidden = true;
+  delete detail.dataset.projectId;
   detail.classList.remove('is-fullscreen');
   document.body.classList.remove('project-viewer-open');
   $('#projectMediaList')?.replaceChildren();
@@ -1808,9 +2001,14 @@ function renderGalleryItem() {
         clearTimeout(videoTimer);
         if(sourceIndex<sources.length){media.src=sources[sourceIndex++];media.load();media.play().catch(()=>{});videoTimer=setTimeout(fallback,10000);return;}
         media.remove();
-        // Do not replace a failed public video with a potentially black Drive
-        // iframe inside the lightbox. Keep the viewer explicit and actionable.
-        // The visitor can still open the original/Drive preview in a new tab.
+        const frame=driveFrame(project);
+        if(frame && frame.tagName==='IFRAME'){
+          frame.classList.add('viewer-media');
+          frame.addEventListener('load',()=>finish(frame),{once:true});
+          stage.append(frame);
+          setTimeout(()=>finish(frame),2200);
+          return;
+        }
         const fallbackProject = { ...project, external_url: project.external_url || project.preview_url || '' };
         finish(viewerUnavailable(fallbackProject,'O vídeo não respondeu no player público. Abra o arquivo original para visualizar.'));
       };
@@ -2104,7 +2302,31 @@ $('#hero')?.addEventListener('click', (event) => {
   openActiveHeroProject();
 });
 
-load().catch((error) => {
+function restoreEditorPreviewState(state = {}) {
+  const apply = () => {
+    const projectId = String(state.project_id || '');
+    if (projectId) {
+      const project = (DATA.projects || []).find((item) => [item.project_id,item.id,item.gallery_id].some((value) => String(value || '') === projectId));
+      const navigation = !project ? (DATA.navigation_nodes || []).find((item) => [item.project_id,item.id,item.gallery_id].some((value) => String(value || '') === projectId)) : null;
+      if (project) openProjectDetail(project);
+      else if (navigation) openProjectDetail(navigationNodeAsProject(navigation));
+      const detail = $('#projectDetail');
+      if (detail && !detail.hidden) detail.scrollTop = Math.max(0, Number(state.project_scroll_top || 0));
+    }
+    scrollTo({ top:Math.max(0,Number(state.top || 0)), left:Math.max(0,Number(state.left || 0)), behavior:'auto' });
+  };
+  requestAnimationFrame(apply);
+  setTimeout(apply, 80);
+  setTimeout(apply, 320);
+}
+addEventListener('message', (event) => {
+  if (event.origin !== location.origin || event.data?.type !== 'studioframe-restore-preview') return;
+  restoreEditorPreviewState(event.data.state || {});
+});
+
+load().then(() => {
+  if (window.parent !== window) window.parent.postMessage({ type:'studioframe-preview-ready' }, location.origin);
+}).catch((error) => {
   $('#empty').hidden = false;
   $('#empty').textContent = `Não foi possível carregar o portfólio: ${error.message}`;
   console.error(error);
