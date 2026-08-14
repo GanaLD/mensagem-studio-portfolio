@@ -3,8 +3,8 @@
     "app_version": "7.9.5.3",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "0d5152286b6c0929acf8",
-    "saved_at": "2026-08-14T16:41:54.726839+00:00"
+    "revision": "8463ad380871db5d893f",
+    "saved_at": "2026-08-14T16:42:00.364245+00:00"
   },
   "app_version": "7.9.5.3",
   "collections": {},
@@ -158,7 +158,7 @@
       "accent_color": "#006B5B",
       "background_animation": "soft",
       "background_color": "#F3F6FA",
-      "background_style": "mesh",
+      "background_style": "luminous",
       "block_radius": 18,
       "block_spacing": "airy",
       "block_style": "cards",
