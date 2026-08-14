@@ -3,8 +3,8 @@
     "app_version": "7.8.2",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "6c5b9a7980145259adb5",
-    "saved_at": "2026-08-14T02:27:16.752450+00:00"
+    "revision": "b2d085bfc539221cdcb8",
+    "saved_at": "2026-08-14T02:27:21.812562+00:00"
   },
   "app_version": "7.8.2",
   "collections": {},
@@ -185,19 +185,19 @@
     },
     "custom_pages": {},
     "editor_appearance": {
-      "accent_color": "#42BE65",
-      "background_color": "#161616",
-      "border_color": "#6F6F6F",
+      "accent_color": "#007A68",
+      "background_color": "#EEF3F8",
+      "border_color": "#70859A",
       "density": "comfortable",
       "font_scale": "large",
       "grid_size": 24,
       "grid_visible": true,
-      "muted_color": "#C6C6C6",
-      "preset": "dark",
-      "radius": 10,
-      "surface_alt_color": "#393939",
-      "surface_color": "#262626",
-      "text_color": "#F4F4F4"
+      "muted_color": "#526277",
+      "preset": "light",
+      "radius": 12,
+      "surface_alt_color": "#E3EAF2",
+      "surface_color": "#FFFFFF",
+      "text_color": "#172033"
     },
     "global": {
       "footer": {
