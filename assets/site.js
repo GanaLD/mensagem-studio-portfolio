@@ -98,10 +98,16 @@ function videoSourceCandidates(item = {}) {
     .filter((url) => !/\/preview(?:\?|$)/i.test(url));
 }
 
-const MEDIA_LOAD_TIMEOUT_MS = 9000;
+const MEDIA_LOAD_TIMEOUT_MS = 6500;
 const MEDIA_NEAR_VIEWPORT_MARGIN = '420px 0px';
 const MEDIA_FAILED_URL_TTL_MS = 60000;
 const MEDIA_FAILED_URLS = new Map();
+const MEDIA_DIAGNOSTICS = window.__STUDIOFRAME_MEDIA_DIAGNOSTICS__ = window.__STUDIOFRAME_MEDIA_DIAGNOSTICS__ || { loaded:0, failed:0, fallback:0, events:[] };
+function mediaDiagnostic(item, status, url = '', detail = '') {
+  const event={at:new Date().toISOString(),id:String(item?.id||item?.cover_media_id||''),title:String(item?.title||''),status,url:String(url||''),detail:String(detail||'')};
+  MEDIA_DIAGNOSTICS.events.push(event); if(MEDIA_DIAGNOSTICS.events.length>120) MEDIA_DIAGNOSTICS.events.splice(0,MEDIA_DIAGNOSTICS.events.length-120);
+  if(status==='loaded') MEDIA_DIAGNOSTICS.loaded++; else if(status==='failed') MEDIA_DIAGNOSTICS.failed++; else if(status==='fallback') MEDIA_DIAGNOSTICS.fallback++;
+}
 
 function mediaUrlRecentlyFailed(url) {
   const failedAt = MEDIA_FAILED_URLS.get(String(url || ''));
@@ -1407,7 +1413,13 @@ function queueImageUpgrade(image, urls = []) {
 }
 
 function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
-  const candidates = uniqueUrls(urls).filter((url) => !mediaUrlRecentlyFailed(url));
+  const allCandidates = uniqueUrls(urls);
+  // A transient failure must never permanently remove the only usable URL.
+  // Fresh URLs are tried first, recently failed URLs remain as last-resort retry.
+  const candidates = [
+    ...allCandidates.filter((url) => !mediaUrlRecentlyFailed(url)),
+    ...allCandidates.filter((url) => mediaUrlRecentlyFailed(url)),
+  ];
   if (!candidates.length) return mediaPlaceholder(project, { unavailable: true });
   const image = document.createElement('img');
   image.className = 'media-progressive-image is-loading';
@@ -1418,27 +1430,44 @@ function imageWithFallback(project, urls, { lazy = true, priority = 'auto', time
   let index = 0;
   let timeoutHandle = null;
   const clearTimer = () => { if (timeoutHandle?.clear) timeoutHandle.clear(); timeoutHandle = null; };
-  const next = () => {
+  const next = (reason = 'error') => {
     clearTimer();
-    const failed = image.currentSrc || image.src; if (failed) markMediaUrlFailed(failed);
+    const failed = image.currentSrc || image.src;
+    if (failed) { markMediaUrlFailed(failed); mediaDiagnostic(project,'failed',failed,reason); }
     if (index >= candidates.length) { image.replaceWith(mediaPlaceholder(project, { unavailable: true })); return; }
-    image.src = candidates[index++];
-    timeoutHandle = armImageTimeout(image, next, timeoutMs);
+    const url=candidates[index++];
+    if(index>1) mediaDiagnostic(project,'fallback',url,`candidate-${index}`);
+    image.src = url;
+    timeoutHandle = armImageTimeout(image, () => next('timeout'), timeoutMs);
   };
   image.addEventListener('load', () => {
     clearTimer(); image.classList.remove('is-loading'); image.classList.add('is-loaded');
+    mediaDiagnostic(project,'loaded',image.currentSrc||image.src,`candidate-${Math.max(1,index)}`);
     queueMicrotask(() => image.parentElement?.classList.add('media-loaded'));
     if (upgradeUrls.length) queueImageUpgrade(image, upgradeUrls);
   });
-  image.addEventListener('error', next);
-  next();
+  image.addEventListener('error', () => next('browser-error'));
+  next('initial');
   return image;
 }
 
-function poster(project) {
-  const primary = [project.thumbnail_url, ...(project.thumbnail_candidates || [])];
-  if (project.type !== 'video') primary.push(project.media_url, ...(project.media_candidates || []), project.preview_url, ...(project.preview_candidates || []));
-  return imageWithFallback(project, primary);
+function projectCoverRecord(project = {}) {
+  const items = Array.isArray(project.gallery_items) ? project.gallery_items.filter(Boolean) : [];
+  const direct = uniqueUrls([project.thumbnail_url, ...(project.thumbnail_candidates || []), project.media_url, ...(project.media_candidates || []), project.preview_url, ...(project.preview_candidates || [])]);
+  if (direct.length) return project;
+  const wanted = String(project.cover_media_id || '');
+  const cover = items.find((item) => String(item?.id || '') === wanted)
+    || items.find((item) => uniqueUrls([item?.thumbnail_url, ...(item?.thumbnail_candidates || []), item?.media_url, ...(item?.media_candidates || [])]).length)
+    || items[0];
+  return cover ? { ...project, ...cover, title: project.title || cover.title || '', project_id: project.project_id || project.id, cover_media_id: cover.id || wanted } : project;
+}
+
+function poster(project, { eager = false } = {}) {
+  const cover = projectCoverRecord(project);
+  const primary = [cover.thumbnail_url, ...(cover.thumbnail_candidates || [])];
+  // Images can be rendered directly; video/PDF must use a real poster image.
+  if (cover.type === 'image') primary.push(cover.media_url, ...(cover.media_candidates || []), cover.preview_url, ...(cover.preview_candidates || []));
+  return imageWithFallback(cover, primary, { lazy: !eager, priority: eager ? 'high' : 'auto', timeoutMs: eager ? 4500 : MEDIA_LOAD_TIMEOUT_MS });
 }
 
 
@@ -1726,7 +1755,7 @@ function card(project, index) {
   action.className = 'media-action';
   action.innerHTML = '<span>Explorar</span><b>↗</b>';
 
-  const cardPoster = poster(project);
+  const cardPoster = poster(project, { eager: index < 6 });
   cardPoster.classList?.add('card-poster');
   applyProjectCoverGeometry(project, media, cardPoster);
   mediaInner.append(cardPoster);
@@ -1756,15 +1785,16 @@ function card(project, index) {
 }
 
 function projectMediaUrls(item) {
-  // Use the same thumbnail chain that successfully renders the grid as the
-  // first guaranteed browser-displayable fallback, then try larger public URLs.
+  const cover = projectCoverRecord(item);
+  // Try full-resolution public media first. Stable hosted/authenticated poster
+  // remains the guaranteed fallback when Drive public delivery is unavailable.
   return uniqueUrls([
-    item.thumbnail_url,
-    ...(item.thumbnail_candidates || []),
-    item.media_url,
-    ...(item.media_candidates || []),
-    item.preview_url,
-    ...(item.preview_candidates || []),
+    cover.media_url,
+    ...(cover.media_candidates || []),
+    cover.preview_url,
+    ...(cover.preview_candidates || []),
+    cover.thumbnail_url,
+    ...(cover.thumbnail_candidates || []),
   ]);
 }
 
@@ -1789,7 +1819,7 @@ function unavailableMedia(item) {
 }
 
 function projectImage(item) {
-  const urls = projectMediaUrls(item).filter((url) => !mediaUrlRecentlyFailed(url));
+  const urls = projectMediaUrls(item);
   if (!urls.length) return unavailableMedia(item);
   const image = document.createElement('img');
   image.className = 'media-progressive-image is-loading';
