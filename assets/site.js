@@ -133,27 +133,77 @@ function warmMediaOrigins(data = {}) {
   });
 }
 
-function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = false } = {}) {
-  const sources = uniqueUrls(candidates || []).filter((url) => !mediaUrlRecentlyFailed(url));
+function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = false, timeoutMs = 14000 } = {}) {
+  const allSources = uniqueUrls(candidates || []);
+  // A transient failure may be retried last; never delete the only stream URL.
+  const sources = [
+    ...allSources.filter((url) => !mediaUrlRecentlyFailed(url)),
+    ...allSources.filter((url) => mediaUrlRecentlyFailed(url)),
+  ];
   let sourceIndex = 0;
   let started = false;
-  const next = () => {
-    if (video.currentSrc || video.src) markMediaUrlFailed(video.currentSrc || video.src);
+  let sourceReady = false;
+  let timer = null;
+  let activeUrl = '';
+  const clearTimer = () => { if (timer) clearTimeout(timer); timer = null; };
+  const ready = () => {
+    sourceReady = true;
+    clearTimer();
+    video.dataset.failed = '0';
+    video.dataset.ready = '1';
+    video.classList.add('is-media-ready');
+    mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'loaded',video.currentSrc||video.src,'video-ready');
+  };
+  const next = (reason = 'error') => {
+    clearTimer();
+    if (activeUrl && !sourceReady) {
+      markMediaUrlFailed(activeUrl);
+      mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'failed',activeUrl,reason);
+    }
+    sourceReady = false;
+    video.dataset.ready = '0';
+    video.classList.remove('is-media-ready');
     if (sourceIndex >= sources.length) {
       video.dataset.failed = '1';
+      video.removeAttribute('src');
+      try { video.load(); } catch (_) {}
       if (typeof exhausted === 'function') exhausted();
       return;
     }
     video.dataset.failed = '0';
-    video.classList.remove('is-media-ready');
-    video.src = sources[sourceIndex++];
-    video.load();
+    activeUrl = sources[sourceIndex++];
+    video.src = activeUrl;
+    try { video.load(); } catch (_) {}
+    timer = setTimeout(() => { if (!sourceReady) next('timeout'); }, Math.max(4000, Number(timeoutMs || 14000)));
   };
-  const ensure = () => { if (started) return; started = true; next(); };
-  video.addEventListener('error', next);
-  video.addEventListener('canplay', () => video.classList.add('is-media-ready'));
+  const ensure = () => { if (started) return; started = true; next('initial'); };
+  video.addEventListener('error', () => next('browser-error'));
+  video.addEventListener('loadedmetadata', ready);
+  video.addEventListener('loadeddata', ready);
+  video.addEventListener('canplay', ready);
   video.__studioframeEnsureSource = ensure;
   if (!defer) ensure();
+  return video;
+}
+
+function configureInlineVideoPlayer(video, item = {}, { autoplay = false, muted = false, loop = false } = {}) {
+  video.controls = true;
+  video.playsInline = true;
+  video.autoplay = Boolean(autoplay);
+  video.muted = Boolean(muted);
+  video.loop = Boolean(loop);
+  video.preload = 'metadata';
+  video.poster = item.thumbnail_url || (item.thumbnail_candidates || [])[0] || '';
+  video.dataset.mediaId = String(item.id || '');
+  video.dataset.mediaTitle = String(item.title || '');
+  // Presentation-only player: suppress the browser's download / remote playback
+  // affordances. This is UI hardening, not DRM; the portfolio never links to a
+  // downloadable video file as a visitor action.
+  video.setAttribute('controlsList', 'nodownload noremoteplayback');
+  video.setAttribute('disableRemotePlayback', '');
+  video.disableRemotePlayback = true;
+  video.addEventListener('contextmenu', (event) => event.preventDefault());
+  video.addEventListener('dragstart', (event) => event.preventDefault());
   return video;
 }
 
@@ -510,20 +560,12 @@ function createShowcaseBlock(block) {
   return section;
 }
 
-function createFullMediaBlock(block) {
-  const project = projectForBlock(block.project_id);
-  if (!project) return null;
-  const section = document.createElement('section');
-  section.className = 'modular-block block-full-media reveal';
-  if (block.title) section.append(blockHeading(block));
-  const gallery = galleryFor(project);
-  const mediaItem = (gallery.items || []).find((item) => ['image','video'].includes(item.type)) || project;
-  const media = document.createElement('div'); media.className = 'full-media-stage';
-  if (mediaItem.type === 'video') media.append(projectVideo(mediaItem));
-  else { const inner = document.createElement('div'); inner.className='modular-media-inner'; inner.dataset.parallax='detail'; inner.append(projectImage(mediaItem)); media.append(inner); }
-  section.append(media);
-  bindBlockOpen(media, project);
-  return section;
+function createFullMediaBlock(block,context={}) {
+  const section=document.createElement('section');section.className='modular-block block-full-media reveal';if(block.title) section.append(blockHeading(block));
+  if(block.media_id&&typeof context.mediaResolver==='function'){
+    const direct=context.mediaResolver(block.media_id),media=document.createElement('div');media.className='full-media-stage';const directNode=context.mediaNode?.(direct)||null;if(directNode)media.append(directNode);else return null;section.append(media);if(block.caption){const cap=document.createElement('p');cap.className='service-commercial-caption';cap.textContent=block.caption;section.append(cap);}return section;
+  }
+  const project=projectForBlock(block.project_id);if(!project)return null;const gallery=galleryFor(project);const mediaItem=(gallery.items||[]).find((item)=>['image','video'].includes(item.type))||project;const media=document.createElement('div');media.className='full-media-stage';if(mediaItem.type==='video')media.append(projectVideo(mediaItem));else{const inner=document.createElement('div');inner.className='modular-media-inner';inner.dataset.parallax='detail';inner.append(projectImage(mediaItem));media.append(inner);}section.append(media);bindBlockOpen(media,project);return section;
 }
 
 function createSplitBlock(block) {
@@ -643,18 +685,8 @@ function createMarqueeBlock(block) {
   viewport.append(track); section.append(viewport); return section;
 }
 
-function createCtaBlock(block) {
-  const section=document.createElement('section'); section.className='modular-block block-cta reveal';
-  const copy=blockHeading(block, 'Vamos criar algo juntos?');
-  const raw=String(block.button_url||'').trim();
-  if (block.button_label) {
-    const allowed = /^(https?:|mailto:|tel:)/i.test(raw) ? raw : '';
-    const action=document.createElement(allowed ? 'a' : 'button'); action.className='cta-action story-link'; action.textContent=block.button_label || 'Entrar em contato';
-    if (allowed) { action.href=allowed; if (/^https?:/i.test(allowed)) { action.target='_blank'; action.rel='noopener'; } }
-    else { action.type='button'; action.addEventListener('click',()=>$('#contact')?.scrollIntoView({behavior:'auto'})); }
-    copy.append(action);
-  }
-  section.append(copy); return section;
+function createCtaBlock(block,context={}) {
+  const section=document.createElement('section');section.className='modular-block block-cta reveal';const copy=blockHeading(block,context.defaultTitle||'Vamos criar algo juntos?');const raw=String(block.button_url||context.defaultButtonUrl||'').trim();const label=block.button_label||context.defaultButtonLabel||'Entrar em contato';if(label){const allowed=/^(https?:|mailto:|tel:)/i.test(raw)?raw:'';const action=document.createElement(allowed?'a':'button');action.className='cta-action story-link';action.textContent=label;if(allowed){action.href=allowed;if(/^https?:/i.test(allowed)){action.target='_blank';action.rel='noopener';}}else{action.type='button';action.addEventListener('click',()=>$('#contact')?.scrollIntoView({behavior:'auto'}));}copy.append(action);}section.append(copy);return section;
 }
 
 function createTextBlock(block) {
@@ -847,10 +879,12 @@ function createHomeVideoBlock(block) {
   const video=document.createElement('video');video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='none';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>video.replaceWith(projectVideo(media)),{defer:true});stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
 }
 
-function createEditorialGalleryBlock(block) {
-  const projects=editorialProjectsForBlock(block,12);if(!projects.length)return null;
-  const section=document.createElement('section');section.className=`modular-block editorial-section block-editorial-gallery columns-${block.columns||'3'} style-${block.gallery_style||'uniform'} reveal`;section.append(blockHeading(block,'Galeria'));
-  const grid=document.createElement('div');grid.className='editorial-gallery-grid';projects.forEach((project,index)=>{const node=card(project,index);node.classList.add('editorial-gallery-card');grid.append(node)});section.append(grid);return section;
+function createEditorialGalleryBlock(block,context={}) {
+  const section=document.createElement('section');section.className=`modular-block editorial-section block-editorial-gallery columns-${block.columns||'3'} style-${block.gallery_style||'uniform'} reveal`;section.append(blockHeading(block,'Galeria'));const grid=document.createElement('div');grid.className='editorial-gallery-grid';
+  if(Array.isArray(block.media_ids)&&block.media_ids.length&&typeof context.mediaResolver==='function'){
+    block.media_ids.map(context.mediaResolver).filter(Boolean).forEach((media)=>{const figure=document.createElement('figure');figure.className='editorial-gallery-direct-media';const node=context.mediaNode?.(media);if(node)figure.append(node);if(media.title){const caption=document.createElement('figcaption');caption.textContent=media.title;figure.append(caption);}grid.append(figure);});if(!grid.children.length)return null;section.append(grid);return section;
+  }
+  const projects=editorialProjectsForBlock(block,12);if(!projects.length)return null;projects.forEach((project,index)=>{const node=card(project,index);node.classList.add('editorial-gallery-card');grid.append(node)});section.append(grid);return section;
 }
 
 function createHighlightsBlock(block) {
@@ -894,10 +928,8 @@ function applyHomeBlockTypography(node, block = {}) {
 
 function applyHomeSectionFrame(node, block = {}) {
   if (!node) return;
-  [...node.classList].filter((name)=>name.startsWith('sf-section-')||name.startsWith('sf-grid-cols-')||name.startsWith('sf-card-ratio-')||name.startsWith('sf-grid-gap-')).forEach((name)=>node.classList.remove(name));
-  node.classList.add(`sf-section-width-${block.section_width || 'full'}`);
-  node.classList.add(`sf-section-size-${block.section_size || 'normal'}`);
-  node.classList.add(`sf-section-bg-${block.section_background || 'none'}`);
+  applySharedPageBlockFrame(node,block);
+  [...node.classList].filter((name)=>name.startsWith('sf-grid-cols-')||name.startsWith('sf-card-ratio-')||name.startsWith('sf-grid-gap-')).forEach((name)=>node.classList.remove(name));
   if (block.type === 'projects') {
     node.classList.add(`sf-grid-cols-${block.grid_columns || '3'}`);
     node.classList.add(`sf-card-ratio-${block.card_ratio || '4x3'}`);
@@ -938,30 +970,29 @@ function applyCoreBlockOverrides(node, block, builder) {
   }
 }
 
+const SHARED_PAGE_RENDERERS=new Set(['text','process','accordion','cta','spacer','full_media','editorial_gallery']);
+const LEGACY_SERVICE_RENDER_MAP={service_overview:'text',service_process:'process',service_faq:'accordion',service_cta:'cta',media:'full_media',service_gallery:'editorial_gallery'};
+function normalizeSharedPublicBlock(block={}){const type=LEGACY_SERVICE_RENDER_MAP[block.type]||block.type||'text';return {...block,type,visible:block.visible!==false,desktop_visible:block.desktop_visible!==false,mobile_visible:block.mobile_visible!==false,section_width:block.section_width||'full',section_size:block.section_size||'normal',section_background:block.section_background||'none',mobile_section_width:block.mobile_section_width||'auto',mobile_section_size:block.mobile_section_size||'inherit'};}
+function applySharedPageBlockFrame(node,block={}){if(!node)return node;block=normalizeSharedPublicBlock(block);[...node.classList].filter((name)=>name.startsWith('sf-section-')||name==='sf-hide-desktop'||name==='sf-hide-mobile'||name.startsWith('sf-mobile-')).forEach((name)=>node.classList.remove(name));node.classList.add(`sf-section-width-${block.section_width||'full'}`,`sf-section-size-${block.section_size||'normal'}`,`sf-section-bg-${block.section_background||'none'}`);if(block.desktop_visible===false)node.classList.add('sf-hide-desktop');if(block.mobile_visible===false)node.classList.add('sf-hide-mobile');if(block.mobile_section_width&&block.mobile_section_width!=='auto')node.classList.add(`sf-mobile-width-${block.mobile_section_width}`);if(block.mobile_section_size&&block.mobile_section_size!=='inherit')node.classList.add(`sf-mobile-size-${block.mobile_section_size}`);return node;}
+function createSharedPageBlock(block,context={}){block=normalizeSharedPublicBlock(block);if(block.visible===false||!SHARED_PAGE_RENDERERS.has(block.type))return null;let node=null;if(block.type==='text')node=createTextBlock(block);if(block.type==='process')node=createStructuredContentBlock(block,'process');if(block.type==='accordion')node=createStructuredContentBlock(block,'accordion');if(block.type==='cta')node=createCtaBlock(block,context);if(block.type==='spacer')node=createSpacerBlock(block);if(block.type==='full_media')node=createFullMediaBlock(block,context);if(block.type==='editorial_gallery')node=createEditorialGalleryBlock(block,context);if(node)applySharedPageBlockFrame(node,block);return node;}
+
 function createCustomHomeBlock(block) {
   if (block.visible === false) return null;
-  let node = null;
+  let node = createSharedPageBlock(block);
   if (block.type === 'editorial_carousel') node = createEditorialCarouselBlock(block);
   if (block.type === 'editorial_blocks') node = createEditorialBlocksBlock(block);
   if (block.type === 'home_video') node = createHomeVideoBlock(block);
-  if (block.type === 'editorial_gallery') node = createEditorialGalleryBlock(block);
   if (block.type === 'highlights') node = createHighlightsBlock(block);
-  if (block.type === 'spacer') node = createSpacerBlock(block);
   if (block.type === 'showcase') node = createShowcaseBlock(block);
-  if (block.type === 'full_media') node = createFullMediaBlock(block);
   if (block.type === 'split') node = createSplitBlock(block);
   if (block.type === 'horizontal_projects') node = createHorizontalProjectsBlock(block);
   if (block.type === 'auto_carousel') node = createAutoCarouselBlock(block);
   if (block.type === 'spotlight') node = createSpotlightBlock(block);
   if (block.type === 'marquee') node = createMarqueeBlock(block);
-  if (block.type === 'cta') node = createCtaBlock(block);
-  if (block.type === 'text') node = createTextBlock(block);
   if (block.type === 'lettering_custom') node = createCustomLetteringBlock(block);
   if (block.type === 'video_feature') node = createVideoFeatureBlock(block);
   if (block.type === 'metrics') node = createStructuredContentBlock(block,'metrics');
-  if (block.type === 'process') node = createStructuredContentBlock(block,'process');
   if (block.type === 'testimonials') node = createStructuredContentBlock(block,'testimonials');
-  if (block.type === 'accordion') node = createStructuredContentBlock(block,'accordion');
   if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance'); applyHomeSectionFrame(node, block); }
   return node;
 }
@@ -1038,22 +1069,27 @@ function serviceQuoteMessage(){const records=selectedServiceRecords(),name=$('#s
 function updateServiceQuoteUI(){const records=selectedServiceRecords(),count=records.length;document.querySelectorAll('[data-service-select]').forEach((button)=>{const selected=SERVICE_QUOTE_SELECTION.has(button.dataset.serviceSelect);button.classList.toggle('selected',selected);button.textContent=selected?'Selecionado ✓':'Adicionar ao orçamento';});const output=$('#serviceQuoteCount');if(output)output.textContent=`${count} ${count===1?'serviço selecionado':'serviços selecionados'}`;const list=$('#serviceQuoteSelection');if(list)list.innerHTML=count?records.map(({category,item,key})=>`<li><span><small>${esc(category.short_title||category.title)}</small><strong>${esc(item.title)}</strong></span><button type="button" data-service-remove="${esc(key)}">×</button></li>`).join(''):'<li class="empty-selection">Nenhum serviço selecionado. Você também pode enviar um briefing aberto.</li>';const dock=$('#serviceQuoteDock');if(dock){dock.hidden=count===0;dock.querySelector('strong').textContent=`${count} selecionado${count===1?'':'s'}`;}const send=$('#serviceQuoteSend');if(send)send.textContent=servicesConfig().brief_button||'Enviar solicitação no WhatsApp';}
 function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false)return null;const first=visibleServiceCategories()[0],firstAnchor=first?`#service-${first.id}`:'#top',section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2>${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form"><div class="services-quote-summary"><div><strong id="serviceQuoteCount">0 serviços selecionados</strong><a href="${esc(firstAnchor)}">Adicionar serviços</a></div><ul id="serviceQuoteSelection"></ul></div><div class="services-lead-fields"><label>Seu nome<input id="serviceLeadName" autocomplete="name" placeholder="Como podemos chamar você?"></label><label>Marca ou empresa<input id="serviceLeadCompany" autocomplete="organization" placeholder="Opcional"></label><label>Prazo desejado<input id="serviceLeadTimeline" placeholder="Ex.: ainda este mês"></label><label class="wide">Conte um pouco sobre o projeto<textarea id="serviceLeadDetails" rows="5" placeholder="Objetivo, formatos, quantidade, referências e o que já está pronto"></textarea></label></div><button class="service-quote-send" id="serviceQuoteSend" type="button">${esc(config.brief_button||'Enviar solicitação no WhatsApp')}</button><small>Ao continuar, o briefing será organizado em uma mensagem. Nenhum dado é enviado antes do clique.</small></div>`;return section;}
 function bindServiceCommerce(root){root.addEventListener('click',(event)=>{const select=event.target.closest('[data-service-select]');if(select){const key=select.dataset.serviceSelect;if(SERVICE_QUOTE_SELECTION.has(key))SERVICE_QUOTE_SELECTION.delete(key);else SERVICE_QUOTE_SELECTION.set(key,true);updateServiceQuoteUI();return;}const remove=event.target.closest('[data-service-remove]');if(remove){SERVICE_QUOTE_SELECTION.delete(remove.dataset.serviceRemove);updateServiceQuoteUI();return;}if(event.target.closest('#serviceQuoteSend')){window.open(serviceWhatsappHref(null,null,serviceQuoteMessage()),'_blank','noopener');return;}if(event.target.closest('[data-service-open-brief]')){$('#service-brief')?.scrollIntoView({behavior:'smooth',block:'start'});}});}
+function servicePageBlocks(category,item){
+  const config=servicesConfig(),slug=canonicalRouteSlug(item?.id||item?.title||'servico');const source=Array.isArray(item?.blocks)?item.blocks:[{id:`${slug}-hero`,type:'service_hero',visible:true},{id:`${slug}-overview`,type:'text',visible:true,eyebrow:'Sobre o serviço'},{id:`${slug}-benefits`,type:'service_benefits',visible:true,eyebrow:'Benefícios',title:'Por que este serviço',items:[]},{id:`${slug}-deliverables`,type:'service_deliverables',visible:true,eyebrow:'Entregáveis',title:'O que está incluído',items:[]},{id:`${slug}-pricing`,type:'service_pricing',visible:true,eyebrow:'Investimento',title:'Escopo comercial'},{id:`${slug}-process`,type:'process',visible:true,eyebrow:'Processo',title:'Como o projeto acontece'},{id:`${slug}-cta`,type:'cta',visible:true,eyebrow:'Vamos conversar',title:'Pronto para começar?',body:'Conte o que você precisa e receba uma proposta adequada ao projeto.'}];
+  return source.filter(Boolean).map((raw)=>{const block=normalizeSharedPublicBlock(raw);if(block.type==='text'){block.title=block.title||item.title||'Serviço';block.body=block.body||item.description||item.page_intro||'';}if(block.type==='process'&&!String(block.body||'').trim()){block.body=(Array.isArray(raw.items)&&raw.items.length?raw.items:(item.process_steps?.length?item.process_steps:config.process_steps||[])).filter(Boolean).map((value)=>`${value} |`).join('\n');}if(block.type==='accordion'&&!String(block.body||'').trim()){block.body=(raw.items||item.faq||[]).map((row)=>typeof row==='object'?`${row.question||''} | ${row.answer||''}`:String(row||'')).join('\n');}return block;}).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
+}
+function serviceBlockFrame(node,block){applySharedPageBlockFrame(node,block);node.classList.add('service-commercial-section','reveal');node.dataset.serviceBlockId=block.id||'';node.dataset.serviceBlockType=block.type||'';return node;}
+function serviceBlockHeading(block,defaults={}){const wrap=document.createElement('div');wrap.className='service-commercial-heading';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||defaults.eyebrow||'';const title=document.createElement('h2');title.textContent=block.title||defaults.title||'';const body=document.createElement('p');body.textContent=block.body||defaults.body||'';if(eyebrow.textContent)wrap.append(eyebrow);if(title.textContent)wrap.append(title);if(body.textContent)wrap.append(body);return wrap;}
+function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload=hero?'metadata':'none';video.poster=media.thumbnail_url||'';configureInlineVideoPlayer?.(video);bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:!hero});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
+function createServiceCommercialBlock(category,item,block){
+  if(!block||block.visible===false)return null;block=normalizeSharedPublicBlock(block);const config=servicesConfig();
+  const shared=createSharedPageBlock(block,{defaultTitle:'Pronto para começar?',defaultButtonUrl:serviceWhatsappHref(category,item),defaultButtonLabel:block.button_label||item.cta_label||config.cta_label||'Solicitar orçamento',mediaResolver:servicePublicMedia,mediaNode:(media)=>serviceMediaNode(media)});
+  if(shared){serviceBlockFrame(shared,block);shared.classList.add('service-commercial-shared');return shared;}
+  let node=document.createElement('section');serviceBlockFrame(node,block);
+  if(block.type==='service_hero'){node.classList.add('service-detail-hero');const visual=document.createElement('div');visual.className='service-detail-visual';const media=servicePublicMedia(block.media_id||item.cover_media_id||category.cover_media_id),mediaNode=serviceMediaNode(media,{hero:true});if(mediaNode)visual.append(mediaNode);else visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;const copy=document.createElement('div');copy.className='service-detail-copy';const back=document.createElement('a');back.className='service-detail-back';back.href=servicesHref(`#service-${category.id}`);back.textContent='← Voltar para serviços';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||item.page_eyebrow||category.short_title||category.title||'Serviço';const title=document.createElement('h1');title.textContent=block.title||item.page_title||item.title||'Serviço';const intro=document.createElement('p');intro.textContent=block.body||item.page_intro||item.description||'';const price=document.createElement('strong');price.className='service-detail-price';price.textContent=servicePrice(item);copy.append(back,eyebrow,title,intro,price);const facts=document.createElement('div');facts.className='service-detail-facts';if(item.unit)facts.innerHTML+=`<div><small>UNIDADE</small><strong>${esc(item.unit)}</strong></div>`;if(config.show_deadlines!==false&&item.deadline)facts.innerHTML+=`<div><small>PRAZO</small><strong>${esc(item.deadline)}</strong></div>`;if(config.show_revisions!==false)facts.innerHTML+=`<div><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></div>`;copy.append(facts);const actions=document.createElement('div');actions.className='service-detail-actions';const primary=document.createElement('a');primary.href=serviceWhatsappHref(category,item);primary.target='_blank';primary.rel='noopener';primary.textContent=item.cta_label||config.cta_label||'Solicitar orçamento';const catalog=document.createElement('a');catalog.href=servicesHref(`#service-${category.id}`);catalog.textContent='Ver catálogo completo';actions.append(primary,catalog);copy.append(actions);node.append(visual,copy);return node;}
+  if(block.type==='service_benefits'||block.type==='service_deliverables'){const source=Array.isArray(block.items)&&block.items.length?block.items:(block.type==='service_benefits'?(item.benefits?.length?item.benefits:item.deliverables||[]):item.deliverables||[]);node.classList.add('service-commercial-list');node.append(serviceBlockHeading(block,{eyebrow:block.type==='service_benefits'?'Benefícios':'Entregáveis',title:block.type==='service_benefits'?'Por que este serviço':'O que está incluído'}));const list=document.createElement('ul');source.filter(Boolean).forEach((value)=>{const li=document.createElement('li');li.textContent=value;list.append(li);});if(list.children.length)node.append(list);return node;}
+  if(block.type==='service_pricing'){node.classList.add('service-commercial-pricing');node.append(serviceBlockHeading(block,{eyebrow:'Investimento',title:'Escopo comercial'}));const grid=document.createElement('div');grid.className='service-commercial-facts';grid.innerHTML=`<article><small>INVESTIMENTO</small><strong>${esc(servicePrice(item))}</strong></article>${item.unit?`<article><small>UNIDADE</small><strong>${esc(item.unit)}</strong></article>`:''}${config.show_deadlines!==false&&item.deadline?`<article><small>PRAZO</small><strong>${esc(item.deadline)}</strong></article>`:''}${config.show_revisions!==false?`<article><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></article>`:''}`;node.append(grid);return node;}
+  return null;
+}
 function renderServiceDetailPage(category,item){
-  const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;
-  ['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});
-  root.hidden=false;root.replaceChildren();root.className='service-detail-page';root.style.setProperty('--service-accent',category?.accent||'var(--accent)');document.body.dataset.page='service-detail';
-  document.title=`${item.page_title||item.title||'Serviço'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
-  const hero=document.createElement('section');hero.className='service-detail-hero reveal';
-  const visual=document.createElement('div');visual.className='service-detail-visual';const media=servicePublicMedia(item.cover_media_id||category.cover_media_id);
-  if(media){if(media.type==='video'){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='metadata';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.replaceWith(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:false,priority:'high'}));});visual.append(video);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:false,priority:'high',upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));}
-  else visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;
-  const copy=document.createElement('div');copy.className='service-detail-copy';const back=document.createElement('a');back.className='service-detail-back';back.href=servicesHref(`#service-${category.id}`);back.textContent='← Voltar para serviços';const eyebrow=document.createElement('small');eyebrow.textContent=item.page_eyebrow||category.short_title||category.title||'Serviço';const title=document.createElement('h1');title.textContent=item.page_title||item.title||'Serviço';const intro=document.createElement('p');intro.textContent=item.page_intro||item.description||'';const price=document.createElement('strong');price.className='service-detail-price';price.textContent=servicePrice(item);copy.append(back,eyebrow,title,intro,price);
-  const facts=document.createElement('div');facts.className='service-detail-facts';if(item.unit)facts.innerHTML+=`<div><small>UNIDADE</small><strong>${esc(item.unit)}</strong></div>`;if(config.show_deadlines!==false&&item.deadline)facts.innerHTML+=`<div><small>PRAZO</small><strong>${esc(item.deadline)}</strong></div>`;if(config.show_revisions!==false)facts.innerHTML+=`<div><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></div>`;copy.append(facts);
-  const actions=document.createElement('div');actions.className='service-detail-actions';const primary=document.createElement('a');primary.href=serviceWhatsappHref(category,item);primary.target='_blank';primary.rel='noopener';primary.textContent=item.cta_label||config.cta_label||'Solicitar orçamento';const catalog=document.createElement('a');catalog.href=servicesHref(`#service-${category.id}`);catalog.textContent='Ver catálogo completo';actions.append(primary,catalog);copy.append(actions);hero.append(visual,copy);root.append(hero);
-  const body=document.createElement('section');body.className='service-detail-body reveal';const about=document.createElement('div');about.innerHTML=`<small>SOBRE O SERVIÇO</small><h2>${esc(item.title||'Serviço')}</h2><p>${esc(item.description||item.page_intro||'')}</p>`;body.append(about);
-  const deliverables=(Array.isArray(item.deliverables)?item.deliverables:[]).filter(Boolean);if(config.show_deliverables!==false&&deliverables.length){const deliver=document.createElement('div');deliver.className='service-detail-deliverables';deliver.innerHTML='<small>ENTREGÁVEIS</small><h2>O que está incluído</h2>';const ul=document.createElement('ul');deliverables.forEach((value)=>{const li=document.createElement('li');li.textContent=value;ul.append(li);});deliver.append(ul);body.append(deliver);}root.append(body);
-  const next=visibleServiceRecords().filter(({item:other})=>other.page_enabled!==false&&String(other.id)!==String(item.id)).slice(0,3);if(next.length){const related=document.createElement('section');related.className='service-detail-related reveal';related.innerHTML='<small>OUTRAS SOLUÇÕES</small><h2>Serviços que podem complementar o projeto</h2>';const grid=document.createElement('div');next.forEach(({category:cat,item:other})=>{const a=document.createElement('a');a.href=serviceDetailHref(other);a.innerHTML=`<span>${esc(cat.short_title||cat.title||'Serviço')}</span><strong>${esc(other.title||'Serviço')}</strong><i>↗</i>`;grid.append(a);});related.append(grid);root.append(related);}
-  bindReveal();tick();
+  const root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='service-detail-page service-commercial-page';root.style.setProperty('--service-accent',category?.accent||'var(--accent)');document.body.dataset.page='service-detail';document.title=`${item.page_title||item.title||'Serviço'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
+  const blocks=servicePageBlocks(category,item);blocks.forEach((block)=>{const node=createServiceCommercialBlock(category,item,block);if(node)root.append(node);});
+  const next=visibleServiceRecords().filter(({item:other})=>other.page_enabled!==false&&String(other.id)!==String(item.id)).slice(0,3);if(next.length){const related=document.createElement('section');related.className='service-detail-related reveal';related.innerHTML='<small>OUTRAS SOLUÇÕES</small><h2>Serviços que podem complementar o projeto</h2>';const grid=document.createElement('div');next.forEach(({category:cat,item:other})=>{const a=document.createElement('a');a.href=serviceDetailHref(other);a.innerHTML=`<span>${esc(cat.short_title||cat.title||'Serviço')}</span><strong>${esc(other.title||'Serviço')}</strong><i>↗</i>`;grid.append(a);});related.append(grid);root.append(related);}bindReveal();tick();
 }
 
 function renderServicesPage(){
@@ -1395,21 +1431,35 @@ function armImageTimeout(image, next, timeoutMs) {
 
 function queueImageUpgrade(image, urls = []) {
   const candidates = uniqueUrls(urls).filter((url) => url && url !== image.currentSrc && url !== image.src && !mediaUrlRecentlyFailed(url));
-  if (!candidates.length) return;
+  if (!candidates.length || image.dataset.stablePoster === '1') return;
   const upgrade = () => {
     let index = 0;
     const tryNext = () => {
-      if (index >= candidates.length) return;
+      if (index >= candidates.length || !image.isConnected) return;
       const url = candidates[index++];
-      const probe = new Image(); probe.decoding = 'async';
-      probe.onload = () => { image.src = url; image.dataset.quality = 'full'; };
+      const probe = new Image();
+      probe.decoding = 'async';
+      probe.alt = image.alt || '';
+      probe.className = image.className;
+      probe.loading = 'eager';
+      if ('fetchPriority' in probe) probe.fetchPriority = 'low';
+      probe.onload = async () => {
+        try { if (probe.decode) await probe.decode(); } catch (_) {}
+        if (!image.isConnected) return;
+        // Never mutate the source of the last-known-good image. Swap only an
+        // image that is already completely loaded, so a failed upgrade cannot
+        // blank a poster that was visible on screen.
+        probe.dataset.quality = 'full';
+        probe.style.cssText = image.style.cssText;
+        image.replaceWith(probe);
+      };
       probe.onerror = () => { markMediaUrlFailed(url); tryNext(); };
       probe.src = url;
     };
     tryNext();
   };
-  if ('requestIdleCallback' in window) requestIdleCallback(upgrade, { timeout: 1500 });
-  else setTimeout(upgrade, 180);
+  if ('requestIdleCallback' in window) requestIdleCallback(upgrade, { timeout: 1800 });
+  else setTimeout(upgrade, 240);
 }
 
 function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
@@ -1422,6 +1472,7 @@ function imageWithFallback(project, urls, { lazy = true, priority = 'auto', time
   ];
   if (!candidates.length) return mediaPlaceholder(project, { unavailable: true });
   const image = document.createElement('img');
+  if (project?.hosted_poster) image.dataset.stablePoster = '1';
   image.className = 'media-progressive-image is-loading';
   image.loading = lazy ? 'lazy' : 'eager';
   image.decoding = 'async';
@@ -1444,7 +1495,7 @@ function imageWithFallback(project, urls, { lazy = true, priority = 'auto', time
     clearTimer(); image.classList.remove('is-loading'); image.classList.add('is-loaded');
     mediaDiagnostic(project,'loaded',image.currentSrc||image.src,`candidate-${Math.max(1,index)}`);
     queueMicrotask(() => image.parentElement?.classList.add('media-loaded'));
-    if (upgradeUrls.length) queueImageUpgrade(image, upgradeUrls);
+    if (upgradeUrls.length && !project?.hosted_poster) queueImageUpgrade(image, upgradeUrls);
   });
   image.addEventListener('error', () => next('browser-error'));
   next('initial');
@@ -1685,22 +1736,28 @@ function bindCardVideoPreview(button, video) {
   if (!video || visualLayout.card_video_preview === false || reduced) return;
   const mode = visualLayout.card_video_preview_mode || 'hover';
   const finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
-  const start = () => {
-    if (video.dataset.failed === '1') return;
-    ensureVideoSource(video);
+  let requested = false;
+  const revealWhenReady = () => {
+    if (!requested || video.dataset.failed === '1' || video.dataset.ready !== '1') return;
     video.classList.add('is-previewing');
     video.play().catch(() => {});
   };
+  const start = () => {
+    if (video.dataset.failed === '1') return;
+    requested = true;
+    ensureVideoSource(video);
+    revealWhenReady();
+  };
   const stop = () => {
+    requested = false;
     video.classList.remove('is-previewing');
     video.pause();
     try { video.currentTime = 0; } catch (_) {}
   };
-  video.addEventListener('error', () => {
-    queueMicrotask(() => {
-      if (video.dataset.failed === '1') video.classList.remove('is-previewing');
-    });
-  });
+  video.addEventListener('loadeddata', revealWhenReady);
+  video.addEventListener('canplay', revealWhenReady);
+  video.addEventListener('playing', revealWhenReady);
+  video.addEventListener('error', () => video.classList.remove('is-previewing'));
   if (mode === 'always') {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => entry.isIntersecting && entry.intersectionRatio >= .45 ? start() : stop());
@@ -1715,11 +1772,8 @@ function bindCardVideoPreview(button, video) {
     button.addEventListener('focusout', stop);
     return;
   }
-  // Touch devices have no hover: preview only the card that dominates the viewport.
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => entry.isIntersecting && entry.intersectionRatio >= .68 ? start() : stop());
-  }, { threshold: [0, .35, .68, .9], rootMargin: '-8% 0px -8% 0px' });
-  observer.observe(button);
+  // On touch there is no hover. Keep the stable poster visible; opening the
+  // project is the explicit user action that starts the real video player.
 }
 
 
@@ -1769,6 +1823,8 @@ function card(project, index) {
     previewVideo.playsInline = true;
     previewVideo.preload = 'none';
     previewVideo.setAttribute('aria-hidden', 'true');
+    previewVideo.dataset.mediaId = String(project.id || '');
+    previewVideo.dataset.mediaTitle = String(project.title || '');
     bindVideoSourceFallback(previewVideo, previewSources, null, { defer: true });
     mediaInner.append(previewVideo);
   }
@@ -1843,44 +1899,29 @@ function projectImage(item) {
 function projectVideo(item) {
   const wrap = document.createElement('div');
   wrap.className = 'project-video-wrap';
-
-  // Prefer validated direct video bytes in both editor and public site. Google
-  // Drive /preview can transiently return HTTP 5xx; the iframe remains a fallback
-  // instead of being the only playback path.
   const sources = videoSourceCandidates(item);
+  const video = configureInlineVideoPlayer(document.createElement('video'), item, { autoplay:false, muted:false, loop:false });
+  video.classList.add('project-inline-video');
   if (sources.length) {
-    const video = document.createElement('video');
-    video.controls = true;
-    video.playsInline = true;
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.preload = 'metadata';
-    video.poster = item.thumbnail_url || (item.thumbnail_candidates || [])[0] || '';
-    bindVideoSourceFallback(video, sources, () => video.replaceWith(projectVideoFallback(item)));
-    video.addEventListener('canplay', () => video.play().catch(() => {}), { once:true });
+    bindVideoSourceFallback(video, sources, () => {
+      video.replaceWith(projectVideoFallback(item));
+    }, { timeoutMs: 16000 });
     wrap.append(video);
     return wrap;
   }
-  wrap.append(driveFrame(item));
+  wrap.append(projectVideoFallback(item));
   return wrap;
 }
 
 function projectVideoFallback(item) {
   const fallback = document.createElement('div');
   fallback.className = 'project-video-fallback';
-  const frame = driveFrame(item);
-  if (frame && frame.tagName === 'IFRAME') fallback.append(frame);
-  else fallback.append(projectImage(item));
-  const target = item.preview_url || (item.preview_candidates || [])[0] || item.external_url;
-  if (target) {
-    const link = document.createElement('a');
-    link.href = target;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.textContent = 'Reproduzir vídeo ↗';
-    fallback.append(link);
-  }
+  const posterNode = imageWithFallback(item, [item.thumbnail_url, ...(item.thumbnail_candidates || [])], { lazy:false, priority:'high' });
+  posterNode.classList?.add('project-video-fallback-poster');
+  const note = document.createElement('span');
+  note.className = 'project-video-fallback-note';
+  note.textContent = 'Vídeo temporariamente indisponível para reprodução.';
+  fallback.append(posterNode, note);
   return fallback;
 }
 
@@ -2076,7 +2117,12 @@ function openProjectDetail(project) {
   if (introMedia) {
     introMedia.replaceChildren();
     const cover = items.find((item) => String(item.id) === String(project.cover_media_id || '')) || items[0] || project;
-    if (cover) introMedia.append(imageWithFallback(cover, [cover.thumbnail_url, ...(cover.thumbnail_candidates || []), cover.media_url, ...(cover.media_candidates || [])], { lazy: false }));
+    if (cover) {
+      const intro = cover.type === 'image'
+        ? imageWithFallback(cover, [cover.thumbnail_url, ...(cover.thumbnail_candidates || []), cover.media_url, ...(cover.media_candidates || [])], { lazy:false, priority:'high' })
+        : imageWithFallback(cover, [cover.thumbnail_url, ...(cover.thumbnail_candidates || [])], { lazy:false, priority:'high' });
+      introMedia.append(intro);
+    }
     introMedia.hidden = !cover;
   }
   renderProjectCase(project, items);
@@ -2150,7 +2196,6 @@ function viewerUnavailable(project, reason = 'A mídia não pôde ser aberta.') 
   const title = document.createElement('strong'); title.textContent = project.title || 'Mídia indisponível';
   const copy = document.createElement('span'); copy.textContent = reason;
   box.append(title, copy);
-  if (project.external_url) { const link=document.createElement('a'); link.href=project.external_url; link.target='_blank'; link.rel='noopener'; link.textContent='Abrir arquivo original'; box.append(link); }
   return box;
 }
 function viewerLoading() { const node=document.createElement('div'); node.className='viewer-loading'; node.innerHTML='<i></i><span>Carregando mídia…</span>'; return node; }
@@ -2178,30 +2223,19 @@ function renderGalleryItem() {
       media.addEventListener('load',()=>{clearTimeout(imageTimer);finish(media);},{once:true}); media.addEventListener('error',next); stage.append(media); next();
     }
   } else if (project.type === 'video') {
-    const sources = uniqueUrls([project.media_url, ...(project.media_candidates || [])]);
+    const sources = videoSourceCandidates(project);
     if (sources.length) {
-      media=document.createElement('video'); media.className='viewer-media'; media.controls=true; media.autoplay=true; media.playsInline=true; media.poster=project.thumbnail_url||'';
-      let sourceIndex=0; let videoTimer=null;
-      const fallback=()=>{
-        clearTimeout(videoTimer);
-        if(sourceIndex<sources.length){media.src=sources[sourceIndex++];media.load();media.play().catch(()=>{});videoTimer=setTimeout(fallback,10000);return;}
+      media = configureInlineVideoPlayer(document.createElement('video'), project, { autoplay:false, muted:false, loop:false });
+      media.className = 'viewer-media';
+      stage.append(media);
+      bindVideoSourceFallback(media, sources, () => {
         media.remove();
-        const frame=driveFrame(project);
-        if(frame && frame.tagName==='IFRAME'){
-          frame.classList.add('viewer-media');
-          frame.addEventListener('load',()=>finish(frame),{once:true});
-          stage.append(frame);
-          setTimeout(()=>finish(frame),2200);
-          return;
-        }
-        const fallbackProject = { ...project, external_url: project.external_url || project.preview_url || '' };
-        finish(viewerUnavailable(fallbackProject,'O vídeo não respondeu no player público. Abra o arquivo original para visualizar.'));
-      };
-      media.addEventListener('loadeddata',()=>{clearTimeout(videoTimer);finish(media);},{once:true}); media.addEventListener('error',fallback); stage.append(media); fallback();
-    } else {
-      const fallbackProject = { ...project, external_url: project.external_url || project.preview_url || '' };
-      finish(viewerUnavailable(fallbackProject,'O vídeo não possui uma URL pública reproduzível.'));
-    }
+        finish(viewerUnavailable(project,'O vídeo está temporariamente indisponível para reprodução.'));
+      }, { timeoutMs:16000 });
+      const ready=()=>finish(media);
+      media.addEventListener('loadeddata',ready,{once:true});
+      media.addEventListener('canplay',ready,{once:true});
+    } else finish(viewerUnavailable(project,'O vídeo não possui uma fonte reproduzível.'));
   } else {
     const frame=driveFrame(project);
     if(frame && frame.tagName==='IFRAME'){frame.classList.add('viewer-media');frame.addEventListener('load',()=>finish(frame),{once:true});stage.append(frame);setTimeout(()=>finish(frame),2200);} else finish(viewerUnavailable(project));
