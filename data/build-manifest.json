@@ -1,17 +1,17 @@
 {
-  "app_version": "7.9.7.1",
-  "build_id": "V7971-UNIFIED-PAGE-BUILDER-20260814",
-  "build_revision": "dee6db71602ebe1275bd",
-  "bundle_sha256": "dee6db71602ebe1275bd9bc06fbd6f2673e359029436b9704f326f64840e1a93",
-  "editorial_revision": "23f57059340e2118f5f1",
+  "app_version": "7.9.9.0",
+  "build_id": "V7990-INTEGRATED-QUOTE-20260814",
+  "build_revision": "05cac3e20148de002ab5",
+  "bundle_sha256": "05cac3e20148de002ab55ef22ae46c9426503e04fb742749bceaec97311fdeec",
+  "editorial_revision": "18f3304ddee48ef4751e",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1149002,
-      "sha256": "c8ccec93f6a30dfac0dd143e3349a755b8606260fc970c494575acd74c8528a0"
+      "bytes": 1221388,
+      "sha256": "b31978f828cb75cf064ea9b3c943abfab8eb52263d42242c50b69522dc909a39"
     },
     "CNAME": {
       "bytes": 21,
@@ -422,20 +422,20 @@
       "sha256": "f0d25210906bfc00f4ca587f83b5c4048e0e22a9b78cf7733f258e8aa13633ab"
     },
     "assets/site.css": {
-      "bytes": 141216,
-      "sha256": "6e9d832e278c92d4592235371ac7b0248545c3b564ac550c4a43dba279dc245e"
+      "bytes": 149893,
+      "sha256": "3b1cc6b2354a448edeffebf6309f3196b2c14c9b17cc276f8b6e60c9f0e0fade"
     },
     "assets/site.js": {
-      "bytes": 183744,
-      "sha256": "3f6156f665656270675f6e65e9168c20465bc85304948725df902a41db12ffea"
+      "bytes": 201844,
+      "sha256": "e90f3640ab66b0238566d7c203d6e527c65dba220c1bc6ce994379d4ff9ebe64"
     },
     "data/portfolio.json": {
-      "bytes": 1177779,
-      "sha256": "3e87af62c715b7357458b0efe113a2af206bf749776f79ea3a572df72e2edb60"
+      "bytes": 1273714,
+      "sha256": "aecf946772711d4de162d0ab9c50288b146ffa3298996543f117f2ee13a04a48"
     },
     "index.html": {
-      "bytes": 1149002,
-      "sha256": "c8ccec93f6a30dfac0dd143e3349a755b8606260fc970c494575acd74c8528a0"
+      "bytes": 1221388,
+      "sha256": "b31978f828cb75cf064ea9b3c943abfab8eb52263d42242c50b69522dc909a39"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 6568,
@@ -581,7 +581,7 @@
   "format": "studioframe-public-build-v2",
   "poster_assets": {
     "bytes": 3300475,
-    "downloaded_bytes": 0,
+    "downloaded_bytes": 3300475,
     "fallbacks": [],
     "hosted": 101,
     "items": [
@@ -1395,13 +1395,13 @@
       }
     ],
     "mode": "priority-authenticated-stable-posters-v7964",
-    "reused_bytes": 3300475,
+    "reused_bytes": 0,
     "skipped": 0
   },
   "stats": {
-    "bytes": 7331209,
+    "bytes": 7598693,
     "files": 143,
-    "largest_file_bytes": 1177779,
+    "largest_file_bytes": 1273714,
     "route_shells": 35
   },
   "video_assets": {
