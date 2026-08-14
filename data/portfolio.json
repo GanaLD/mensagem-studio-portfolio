@@ -41,15 +41,15 @@
       "brand_font_family": "display",
       "brand_font_size_desktop": 12,
       "brand_font_size_mobile": 12,
-      "brand_font_weight": "500",
-      "brand_letter_spacing": 0.16,
+      "brand_font_weight": "700",
+      "brand_letter_spacing": 0.25,
       "brand_text_transform": "uppercase",
-      "brand_color": "#F4F7FB",
-      "background_style": "mesh",
-      "background_animation": "soft",
-      "block_style": "cards",
+      "brand_color": "#2D82F0",
+      "background_style": "luminous",
+      "background_animation": "medium",
+      "block_style": "glass",
       "block_radius": 18,
-      "block_spacing": "airy",
+      "block_spacing": "normal",
       "shadow_style": "soft"
     },
     "site_tree": {
@@ -20178,7 +20178,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 17,
-    "duration_seconds": 7.071
+    "duration_seconds": 7.808
   },
   "publication_ready": true,
   "public_validation": {

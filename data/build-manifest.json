@@ -1,15 +1,15 @@
 {
   "app_version": "7.9.5.3",
-  "build_revision": "cc067337fe18631fe8a8",
-  "bundle_sha256": "cc067337fe18631fe8a8b507cc5ae04a763e1405ae6ef682a170a934a12ff202",
+  "build_revision": "7741da53280e27fc9263",
+  "bundle_sha256": "7741da53280e27fc92634e4e323636545b79c557a2382a55ab30dae8df1f15aa",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 966106,
-      "sha256": "7edca1211b8ce7d410b0ce4429ccfaf8ac2d378751cc7e8eac56bfe83d483170"
+      "bytes": 966114,
+      "sha256": "57801e4222b3438114cd01493f64dc836e42cb102d4f392cbee1c31f5fb91aa2"
     },
     "CNAME": {
       "bytes": 21,
@@ -40,12 +40,12 @@
       "sha256": "a54d7d3ff75e93c4c8d65572eeab2a8aef3c3f263541914ae8fe3795d717a3c2"
     },
     "data/portfolio.json": {
-      "bytes": 888077,
-      "sha256": "d19054136e497f88143174f06ae2a4324620638026b1f640e672ff54519e10a6"
+      "bytes": 888085,
+      "sha256": "5cf16f3b020af6148ef3b8549991ed71ebfbeac29313c0b94a93d3df25237de6"
     },
     "index.html": {
-      "bytes": 966106,
-      "sha256": "7edca1211b8ce7d410b0ce4429ccfaf8ac2d378751cc7e8eac56bfe83d483170"
+      "bytes": 966114,
+      "sha256": "57801e4222b3438114cd01493f64dc836e42cb102d4f392cbee1c31f5fb91aa2"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 6568,
@@ -190,7 +190,7 @@
   },
   "format": "studioframe-public-build-v2",
   "stats": {
-    "bytes": 75679530,
+    "bytes": 75679554,
     "files": 46,
     "largest_file_bytes": 30422982,
     "route_shells": 35
