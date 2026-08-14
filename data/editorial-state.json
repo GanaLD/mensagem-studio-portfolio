@@ -3,8 +3,8 @@
     "app_version": "7.9.5.3",
     "device_id": "device-9c7ce0cf4d204b46",
     "format": "studioframe-editorial-v1",
-    "revision": "231c15bc1ce6c0dc14c7",
-    "saved_at": "2026-08-14T16:42:30.767460+00:00"
+    "revision": "94b26d54e4c5017ae9b0",
+    "saved_at": "2026-08-14T16:42:36.894384+00:00"
   },
   "app_version": "7.9.5.3",
   "collections": {},
@@ -166,7 +166,7 @@
       "brand_font_family": "display",
       "brand_font_size_desktop": 12,
       "brand_font_size_mobile": 12,
-      "brand_font_weight": "500",
+      "brand_font_weight": "700",
       "brand_letter_spacing": 0.16,
       "brand_text_transform": "uppercase",
       "brand_title": "MENSAGEM STUDIO",
