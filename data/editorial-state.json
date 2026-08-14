@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.2.0",
-    "device_id": "device-9c7ce0cf4d204b46",
+    "app_version": "7.3.0",
+    "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "650beef393de878d8b4d",
-    "saved_at": "2026-08-13T19:11:06.111811+00:00"
+    "revision": "e0004987d3eb8571f258",
+    "saved_at": "2026-08-14T00:55:18.235237+00:00"
   },
-  "app_version": "7.2.0",
+  "app_version": "7.3.0",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -154,6 +154,29 @@
         "type": "reveal"
       }
     },
+    "appearance": {
+      "accent_color": "#2FD59A",
+      "background_animation": "medium",
+      "background_color": "#07090D",
+      "background_style": "aurora",
+      "block_radius": 14,
+      "block_spacing": "normal",
+      "block_style": "glass",
+      "brand_color": "#F4F7FB",
+      "brand_font_family": "display",
+      "brand_font_size_desktop": 12,
+      "brand_font_size_mobile": 12,
+      "brand_font_weight": "500",
+      "brand_letter_spacing": 0.16,
+      "brand_text_transform": "uppercase",
+      "brand_title": "MENSAGEM STUDIO",
+      "brand_title_visible": true,
+      "color_mode": "dark",
+      "muted_color": "#AAB5C4",
+      "shadow_style": "soft",
+      "surface_color": "#111722",
+      "text_color": "#F4F7FB"
+    },
     "contact": {
       "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
       "eyebrow": "Contato",
@@ -161,6 +184,21 @@
       "visible": true
     },
     "custom_pages": {},
+    "editor_appearance": {
+      "accent_color": "#007A68",
+      "background_color": "#EEF3F8",
+      "border_color": "#70859A",
+      "density": "comfortable",
+      "font_scale": "large",
+      "grid_size": 24,
+      "grid_visible": true,
+      "muted_color": "#526277",
+      "preset": "light",
+      "radius": 12,
+      "surface_alt_color": "#E3EAF2",
+      "surface_color": "#FFFFFF",
+      "text_color": "#172033"
+    },
     "global": {
       "footer": {
         "alignment": "between",
@@ -985,6 +1023,30 @@
           "tab": "categorypages"
         },
         {
+          "id": "appearance",
+          "kind": "group",
+          "label": "APARÊNCIA",
+          "order": 40,
+          "parent_id": "site",
+          "tab": ""
+        },
+        {
+          "id": "appearance-editor",
+          "kind": "component",
+          "label": "Aparência do editor",
+          "order": 10,
+          "parent_id": "appearance",
+          "tab": "editorappearance"
+        },
+        {
+          "id": "appearance-site",
+          "kind": "component",
+          "label": "Aparência do site final",
+          "order": 20,
+          "parent_id": "appearance",
+          "tab": "siteappearance"
+        },
+        {
           "id": "global",
           "kind": "group",
           "label": "GLOBAL",
@@ -1123,7 +1185,7 @@
         }
       ],
       "root_id": "site",
-      "version": 4
+      "version": 5
     }
   },
   "workspace": {
