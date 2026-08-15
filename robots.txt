@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mensagemstudio.shop/sitemap.xml
