@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.9.9.0",
+    "app_version": "7.12.2",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "18f3304ddee48ef4751e",
-    "saved_at": "2026-08-14T22:30:54.432034+00:00"
+    "revision": "8afdc28c9cc832b51237",
+    "saved_at": "2026-08-15T01:21:10.181106+00:00"
   },
-  "app_version": "7.9.9.0",
+  "app_version": "7.12.2",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -58,22 +58,67 @@
   },
   "project_sections": {
     "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "title": "CARROSSEL V HACKER",
       "visible": true
     },
     "17ytoPQgi88br27-K9zt3tYzNd4FP945f": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "title": "CARROSSEL IMG",
       "visible": true
     },
     "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "title": "CARROSSEL EVO",
       "visible": true
     },
     "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "title": "CARROSSEL",
       "visible": true
     },
     "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "title": "Carrossel Rennova",
       "visible": true
     }
@@ -131,7 +176,7 @@
     "public_domain": "mensagemstudio.shop",
     "strict_public_validation": true
   },
-  "schema_version": 7,
+  "schema_version": 8,
   "site_builder": {
     "about": {
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
@@ -658,6 +703,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Lateral Banners"
       },
       "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
@@ -680,6 +734,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Carrossel"
       },
       "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
@@ -702,6 +765,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Edição de vídeos"
       },
       "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
@@ -724,6 +796,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Motion"
       },
       "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
@@ -746,6 +827,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Banners"
       },
       "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
@@ -768,6 +858,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Lâminas para divulgação"
       },
       "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
@@ -790,6 +889,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Campanha 007 Completa"
       },
       "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
@@ -812,6 +920,15 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "DERMACAST"
       },
       "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
@@ -975,12 +1092,34 @@
         "body": "",
         "enabled": false,
         "eyebrow": "Categoria",
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
         "title": "Banner mobile"
       }
     },
+    "seo": {
+      "home": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "projects_slug": "projetos",
+      "title_suffix": "MENSAGEM STUDIO"
+    },
     "services": {
       "brief_body": "Selecione uma ou mais soluções e envie um briefing organizado diretamente pelo WhatsApp.",
-      "brief_button": "Enviar solicitação no WhatsApp",
+      "brief_button": "Abrir orçamento",
       "brief_title": "Monte sua solicitação de orçamento",
       "brief_visible": true,
       "catalog_density": "comfortable",
@@ -1239,6 +1378,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "arte-avulsa-para-post-ou-story",
               "title": "Arte avulsa para post ou story",
               "unit": "por peça",
@@ -1489,6 +1637,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "carrossel-com-ate-5-paginas",
               "title": "Carrossel com até 5 páginas",
               "unit": "por carrossel",
@@ -1739,6 +1896,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "pacote-com-10-criativos",
               "title": "Pacote com 10 criativos",
               "unit": "por pacote",
@@ -2003,6 +2169,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "reel-basico-de-ate-90-segundos",
               "title": "Reel básico de até 90 segundos",
               "unit": "por vídeo",
@@ -2253,6 +2428,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "reel-com-motion-legendas-e-efeitos",
               "title": "Reel com motion, legendas e efeitos",
               "unit": "por vídeo",
@@ -2503,6 +2687,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "pacote-com-8-reels",
               "title": "Pacote com 8 Reels",
               "unit": "por pacote",
@@ -2753,6 +2946,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "video-institucional-de-1-a-3-minutos",
               "title": "Vídeo institucional de 1 a 3 minutos",
               "unit": "por projeto",
@@ -3017,6 +3219,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 0,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "captacao-essencial-de-ate-2-horas",
               "title": "Captação essencial de até 2 horas",
               "unit": "por sessão",
@@ -3267,6 +3478,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 0,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "meia-diaria-de-producao",
               "title": "Meia diária de produção",
               "unit": "por diária",
@@ -3517,6 +3737,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 0,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "diaria-de-producao-audiovisual",
               "title": "Diária de produção audiovisual",
               "unit": "por diária",
@@ -3767,6 +3996,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "video-de-produto",
               "title": "Vídeo de produto",
               "unit": "por projeto",
@@ -4031,6 +4269,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "animacao-de-logotipo",
               "title": "Animação de logotipo",
               "unit": "por animação",
@@ -4281,6 +4528,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "motion-para-redes-sociais",
               "title": "Motion para redes sociais",
               "unit": "por peça",
@@ -4531,6 +4787,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "composicao-e-vfx-por-cena",
               "title": "Composição e VFX por cena",
               "unit": "por cena",
@@ -4781,6 +5046,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "packshot-animado-de-produto",
               "title": "Packshot animado de produto",
               "unit": "por peça",
@@ -5045,6 +5319,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 1,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "correcao-basica",
               "title": "Correção básica",
               "unit": "por foto",
@@ -5295,6 +5578,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "retoque-avancado",
               "title": "Retoque avançado",
               "unit": "por foto",
@@ -5545,6 +5837,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 1,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "pacote-com-10-fotos",
               "title": "Pacote com 10 fotos",
               "unit": "por pacote",
@@ -5809,6 +6110,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "montagem-simples",
               "title": "Montagem simples",
               "unit": "por imagem",
@@ -6059,6 +6369,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "composicao-publicitaria",
               "title": "Composição publicitária",
               "unit": "por imagem",
@@ -6309,6 +6628,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "composicao-complexa",
               "title": "Composição complexa",
               "unit": "por imagem",
@@ -6573,6 +6901,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 3,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "manual-essencial",
               "title": "Manual essencial",
               "unit": "por projeto",
@@ -6823,6 +7160,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 3,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "manual-completo",
               "title": "Manual completo",
               "unit": "por projeto",
@@ -7087,6 +7433,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "key-visual-de-campanha",
               "title": "Key visual de campanha",
               "unit": "por conceito",
@@ -7337,6 +7692,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "pacote-visual-de-campanha",
               "title": "Pacote visual de campanha",
               "unit": "por campanha",
@@ -7587,6 +7951,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "direcao-de-arte",
               "title": "Direção de arte",
               "unit": "por projeto",
@@ -7851,6 +8224,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 1,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "imagem-tratada-de-produto",
               "title": "Imagem tratada de produto",
               "unit": "por imagem",
@@ -8101,6 +8483,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 1,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "pacote-com-10-imagens-de-produto",
               "title": "Pacote com 10 imagens de produto",
               "unit": "por pacote",
@@ -8351,6 +8742,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "kit-visual-para-marketplace",
               "title": "Kit visual para marketplace",
               "unit": "por produto",
@@ -8601,6 +9001,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "banner-para-loja-ou-colecao",
               "title": "Banner para loja ou coleção",
               "unit": "por banner",
@@ -8865,6 +9274,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "ilustracao-individual",
               "title": "Ilustração individual",
               "unit": "por ilustração",
@@ -9115,6 +9533,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "criacao-de-personagem",
               "title": "Criação de personagem",
               "unit": "por personagem",
@@ -9365,6 +9792,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "roteiro-curto-publicitario",
               "title": "Roteiro curto publicitário",
               "unit": "por roteiro",
@@ -9615,6 +10051,15 @@
               "process_steps": [],
               "related_projects": [],
               "revisions": 2,
+              "seo": {
+                "canonical": "",
+                "description": "",
+                "follow": true,
+                "image_media_id": "",
+                "index": true,
+                "slug": "",
+                "title": ""
+              },
               "slug": "storyboard-com-ate-8-quadros",
               "title": "Storyboard com até 8 quadros",
               "unit": "por sequência",
@@ -9659,6 +10104,15 @@
       "quote_title": "Seu orçamento",
       "quote_whatsapp_intro": "Olá! Gostaria de solicitar um orçamento.",
       "response_note": "Retorno comercial em até 1 dia útil.",
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
       "show_deadlines": true,
       "show_deliverables": true,
       "show_on_home": true,
@@ -9719,6 +10173,14 @@
           "order": 1,
           "parent_id": "pages",
           "tab": "pagebuilder"
+        },
+        {
+          "id": "pages-seo",
+          "kind": "section-editor",
+          "label": "SEO individual",
+          "order": 3,
+          "parent_id": "pages",
+          "tab": "seo"
         },
         {
           "id": "pages-sections",
