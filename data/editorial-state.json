@@ -3,8 +3,8 @@
     "app_version": "7.12.4",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "4b10efcc796ecb22d5c3",
-    "saved_at": "2026-08-15T17:24:51.897367+00:00"
+    "revision": "26c1012a822c92a2c7af",
+    "saved_at": "2026-08-15T17:24:59.081460+00:00"
   },
   "app_version": "7.12.4",
   "collections": {},
@@ -1023,16 +1023,44 @@
       "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
         "blocks": [
           {
+            "body_size": "",
             "core": true,
+            "desktop_visible": true,
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
             "type": "section_header",
             "visible": true
           },
           {
+            "card_ratio": "4x3",
             "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-projects",
             "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
             "type": "section_projects",
             "visible": true
           }
