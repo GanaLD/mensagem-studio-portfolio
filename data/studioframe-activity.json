@@ -2013,8 +2013,20 @@
       "kind": "editorial-sync",
       "revision": "26c1012a822c92a2c7af",
       "status": "ok"
+    },
+    {
+      "app_version": "7.12.4",
+      "at": "2026-08-15T17:27:35.960064+00:00",
+      "details": {
+        "commit": "e4022008264607512d7e522ecff69eb4c8cb7f81"
+      },
+      "device_id": "device-3e7f29f7077c4942",
+      "id": "112bf5b048eeaba20813",
+      "kind": "editorial-sync",
+      "revision": "26c1012a822c92a2c7af",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-15T17:25:28.530385+00:00"
+  "updated_at": "2026-08-15T17:27:36.724258+00:00"
 }
