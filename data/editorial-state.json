@@ -3,8 +3,8 @@
     "app_version": "7.12.5",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "2c34d4447df00b31b519",
-    "saved_at": "2026-08-15T17:52:36.344333+00:00"
+    "revision": "23bcc0209ad2ce060140",
+    "saved_at": "2026-08-15T17:52:43.454056+00:00"
   },
   "app_version": "7.12.5",
   "collections": {},
@@ -1190,6 +1190,14 @@
               {
                 "action_label": "",
                 "description": "",
+                "id": "section-item-msrlkdr2-o9g",
+                "media_id": "",
+                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
                 "id": "section-item-msrlk674-0is",
                 "media_id": "",
                 "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
@@ -1201,14 +1209,6 @@
                 "id": "section-item-msrlk8gu-5ic",
                 "media_id": "",
                 "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
-                "title": ""
-              },
-              {
-                "action_label": "",
-                "description": "",
-                "id": "section-item-msrlkdr2-o9g",
-                "media_id": "",
-                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
                 "title": ""
               },
               {
