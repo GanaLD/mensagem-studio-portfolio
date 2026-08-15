@@ -3,8 +3,8 @@
     "app_version": "7.12.2",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "8afdc28c9cc832b51237",
-    "saved_at": "2026-08-15T01:21:19.766811+00:00"
+    "revision": "6bf930c72cb06ad26a8d",
+    "saved_at": "2026-08-15T01:21:26.781787+00:00"
   },
   "app_version": "7.12.2",
   "collections": {},
@@ -57,6 +57,19 @@
     "studio_name": "MENSAGEM STUDIO"
   },
   "project_sections": {
+    "1-aM_k157VuMK3WvoKVfPlw3rAvA7rhgh": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CORTES",
+      "visible": true
+    },
     "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_": {
       "seo": {
         "canonical": "",
@@ -109,6 +122,19 @@
       "title": "CARROSSEL",
       "visible": true
     },
+    "1VJKZFBV5fWEaO_1I66HAjn6yJtCuBntZ": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "EPISODIO COMPLETO",
+      "visible": true
+    },
     "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
       "seo": {
         "canonical": "",
@@ -120,6 +146,19 @@
         "title": ""
       },
       "title": "Carrossel Rennova",
+      "visible": true
+    },
+    "1Zgcw2vJGRMAOfu66qef-O4RARrEmnCIt": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL BACIO",
       "visible": true
     }
   },
