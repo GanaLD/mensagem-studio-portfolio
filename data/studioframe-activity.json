@@ -2423,8 +2423,22 @@
       "kind": "editorial-sync",
       "revision": "7e9f9a365a18d1fbbffc",
       "status": "ok"
+    },
+    {
+      "app_version": "7.12.6",
+      "at": "2026-08-15T18:56:29.729652+00:00",
+      "details": {
+        "commit": "bcb935253aabd236c1de41be62e13836ebbf968b",
+        "site_url": "https://mensagemstudio.shop/",
+        "state_commit": "75e864f8dbd940129fc78c4559fbaf54beb1a6bd"
+      },
+      "device_id": "device-3e7f29f7077c4942",
+      "id": "b1cfa8ec553ec7a41de8",
+      "kind": "publication",
+      "revision": "7e9f9a365a18d1fbbffc",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-15T18:50:38.435074+00:00"
+  "updated_at": "2026-08-15T18:56:30.352446+00:00"
 }
