@@ -3,8 +3,8 @@
     "app_version": "7.12.4",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "63ec6ffa0bd2f45bd109",
-    "saved_at": "2026-08-15T17:33:20.352634+00:00"
+    "revision": "52db0ed47f283feba414",
+    "saved_at": "2026-08-15T17:33:27.936869+00:00"
   },
   "app_version": "7.12.4",
   "collections": {},
@@ -843,16 +843,44 @@
       "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
         "blocks": [
           {
+            "body_size": "",
             "core": true,
+            "desktop_visible": true,
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
             "type": "section_header",
             "visible": true
           },
           {
+            "card_ratio": "4x3",
             "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-projects",
             "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
             "type": "section_projects",
             "visible": true
           }
