@@ -116,6 +116,66 @@ function videoSourceCandidates(item = {}) {
     .filter((url) => !/\/preview(?:\?|$)/i.test(url));
 }
 
+
+function videoChunkCandidates(item = {}) {
+  return uniqueUrls(item.video_chunk_urls || []);
+}
+
+async function buildChunkedVideoObjectUrl(item = {}, video = null) {
+  const urls = videoChunkCandidates(item);
+  if (!urls.length) return '';
+  const parts = [];
+  let loaded = 0;
+  const total = Number(item.video_chunk_bytes || 0);
+  if (video) {
+    video.dataset.chunkLoading = '1';
+    video.dataset.chunkProgress = '0';
+  }
+  for (const url of urls) {
+    const response = await fetch(url, { cache: 'force-cache', credentials: 'same-origin' });
+    if (!response.ok) throw new Error(`chunk HTTP ${response.status}`);
+    const data = await response.arrayBuffer();
+    if (!data.byteLength) throw new Error('chunk vazio');
+    parts.push(data); loaded += data.byteLength;
+    if (video) video.dataset.chunkProgress = String(total > 0 ? Math.min(100, Math.round((loaded / total) * 100)) : 0);
+  }
+  const blob = new Blob(parts, { type: String(item.video_chunk_mime || item.mime || 'video/mp4') });
+  const objectUrl = URL.createObjectURL(blob);
+  if (video) {
+    video.dataset.chunkLoading = '0';
+    video.dataset.chunkProgress = '100';
+    video.__studioframeObjectUrl = objectUrl;
+  }
+  return objectUrl;
+}
+
+function bindPublishedVideoSource(video, item = {}, exhausted = null, options = {}) {
+  const chunks = videoChunkCandidates(item);
+  if (!chunks.length) return bindVideoSourceFallback(video, videoSourceCandidates(item), exhausted, options);
+  const directFallbacks = videoSourceCandidates(item);
+  let started = false;
+  const defer = Boolean(options.defer);
+  const ensure = () => {
+    if (started) return;
+    started = true;
+    buildChunkedVideoObjectUrl(item, video).then((objectUrl) => {
+      bindVideoSourceFallback(video, [objectUrl, ...directFallbacks], exhausted, { ...options, defer:false, metadataReady:false, timeoutMs:Math.max(45000, Number(options.timeoutMs || 45000)) });
+    }).catch((error) => {
+      mediaDiagnostic(item, 'failed', '', `chunked-video:${error?.message || error}`);
+      bindVideoSourceFallback(video, directFallbacks, exhausted, { ...options, defer:false });
+    });
+  };
+  video.__studioframeEnsureSource = ensure;
+  video.addEventListener('emptied', () => {
+    if (video.__studioframeObjectUrl && video.dataset.failed === '1') {
+      try { URL.revokeObjectURL(video.__studioframeObjectUrl); } catch (_) {}
+      video.__studioframeObjectUrl = '';
+    }
+  });
+  if (!defer) ensure();
+  return video;
+}
+
 const MEDIA_LOAD_TIMEOUT_MS = 6500;
 const MEDIA_NEAR_VIEWPORT_MARGIN = '420px 0px';
 const MEDIA_FAILED_URL_TTL_MS = 60000;
@@ -197,6 +257,13 @@ function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = 
   const ensure = () => { if (started) return; started = true; next('initial'); };
   video.addEventListener('error', () => next('browser-error'));
   if (metadataReady) video.addEventListener('loadedmetadata', ready);
+  else video.addEventListener('loadedmetadata', () => {
+    // Metadata proves the candidate is a real media stream. Keep the stable
+    // poster visible until a decodable frame exists, but stop treating a slow
+    // first frame as a dead URL.
+    clearTimer();
+    timer = setTimeout(() => { if (!sourceReady) next('frame-timeout'); }, Math.max(30000, Number(timeoutMs || 45000)));
+  });
   video.addEventListener('loadeddata', ready);
   video.addEventListener('canplay', ready);
   video.__studioframeEnsureSource = ensure;
@@ -774,7 +841,7 @@ function createVideoFeatureBlock(block) {
     const video=document.createElement('video'); video.src=item.media_url; video.muted=true; video.loop=true; video.autoplay=true; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.addEventListener('error',()=>video.replaceWith(projectVideo(item))); media.append(video);
   } else {
     const video=document.createElement('video'); video.muted=true; video.loop=true; video.autoplay=block.autoplay!==false; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.preload='none';
-    bindVideoSourceFallback(video,videoSourceCandidates(item),()=>video.replaceWith(projectVideoFallback(item)),{defer:true}); media.append(video); bindDeferredAutoplay(video,media);
+    bindPublishedVideoSource(video,item,()=>video.replaceWith(projectVideoFallback(item)),{defer:true,metadataReady:false,timeoutMs:45000}); media.append(video); bindDeferredAutoplay(video,media);
   }
   section.append(copy,media);
   return section;
@@ -894,7 +961,7 @@ function createHomeVideoBlock(block) {
   const section=document.createElement('section');section.className=`modular-block editorial-section block-home-video width-${block.width||'full'} scroll-${block.scroll_behavior||'parallax'} effect-${block.section_effect||'reveal'} reveal`;
   if(block.title||block.eyebrow||block.body)section.append(blockHeading(block,block.title||''));
   const stage=document.createElement('div');stage.className=`home-video-stage ratio-${String(block.ratio||'16:9').replace(':','x')}`;
-  const video=document.createElement('video');video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='none';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>video.replaceWith(projectVideo(media)),{defer:true});stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
+  const video=document.createElement('video');video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='none';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';bindPublishedVideoSource(video,media,()=>video.replaceWith(projectVideo(media)),{defer:true,metadataReady:false,timeoutMs:45000});stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
 }
 
 function createEditorialGalleryBlock(block,context={}) {
@@ -1121,7 +1188,7 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:true});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));return visual;}
+function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);if(!media.hosted_video_chunked){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:true,metadataReady:false,timeoutMs:45000});visual.append(video);bindDeferredAutoplay(video,visual);}}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));return visual;}
 function serviceCategoryCard(category,index){
   const config=servicesConfig(),article=document.createElement('article');article.className='service-area-card reveal';article.style.setProperty('--service-accent',category.accent||'var(--accent)');article.id=`service-${category.id}`;
   const visual=serviceCategoryVisual(category),copy=document.createElement('div');copy.className='service-area-copy';const meta=document.createElement('div');meta.className='service-area-meta';meta.innerHTML=`<span>${esc(category.number||String(index+1).padStart(2,'0'))}</span><small>${visibleServiceItems(category).length} opções</small>`;
@@ -1151,7 +1218,7 @@ function servicePageBlocks(category,item){
 }
 function serviceBlockFrame(node,block){applySharedPageBlockFrame(node,block);node.classList.add('service-commercial-section','reveal');node.dataset.serviceBlockId=block.id||'';node.dataset.serviceBlockType=block.type||'';return node;}
 function serviceBlockHeading(block,defaults={}){const wrap=document.createElement('div');wrap.className='service-commercial-heading';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||defaults.eyebrow||'';const title=document.createElement('h2');title.textContent=block.title||defaults.title||'';const body=document.createElement('p');body.textContent=block.body||defaults.body||'';if(eyebrow.textContent)wrap.append(eyebrow);if(title.textContent)wrap.append(title);if(body.textContent)wrap.append(body);return wrap;}
-function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=configureInlineVideoPlayer(document.createElement('video'),media,{autoplay:true,muted:true,loop:true,controls:false,preload:hero?'metadata':'none'});video.classList.add('service-commercial-video');bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:!hero,metadataReady:false});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
+function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=configureInlineVideoPlayer(document.createElement('video'),media,{autoplay:true,muted:true,loop:true,controls:false,preload:hero?'metadata':'none'});video.classList.add('service-commercial-video');bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:!hero,metadataReady:false,timeoutMs:45000});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
 function createServiceCommercialBlock(category,item,block){
   if(!block||block.visible===false)return null;block=normalizeSharedPublicBlock(block);const config=servicesConfig();
   const shared=createSharedPageBlock(block,{defaultTitle:'Pronto para começar?',defaultButtonUrl:serviceWhatsappHref(category,item),defaultButtonLabel:block.button_label||item.cta_label||config.cta_label||'Solicitar orçamento',quoteServiceId:String(item.id||''),mediaResolver:servicePublicMedia,mediaNode:(media)=>serviceMediaNode(media)});
@@ -1180,7 +1247,7 @@ function renderServicesPage(){
   bindServiceCommerce(root);updateServiceQuoteUI();
 }
 function renderServicesHome(){
-  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindVideoSourceFallback(video,videoSourceCandidates(media),()=>{video.remove();},{defer:true});visual.append(video);bindDeferredAutoplay(video,card);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
+  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);if(!media.hosted_video_chunked){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:true,metadataReady:false,timeoutMs:45000});visual.append(video);bindDeferredAutoplay(video,card);}}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
 }
 
 function publicCustomPages(){const pages=DATA.site_builder?.custom_pages||{};return Object.values(pages).filter((page)=>page&&page.visible!==false);}
@@ -1891,7 +1958,7 @@ function card(project, index) {
   mediaInner.append(cardPoster);
   let previewVideo = null;
   const previewSources = videoSourceCandidates(project);
-  if (project.type === 'video' && previewSources.length && visualLayout.card_video_preview !== false) {
+  if (project.type === 'video' && !project.hosted_video_chunked && previewSources.length && visualLayout.card_video_preview !== false) {
     previewVideo = document.createElement('video');
     previewVideo.className = 'card-preview-video';
     previewVideo.muted = true;
@@ -1978,10 +2045,10 @@ function projectVideo(item) {
   const sources = videoSourceCandidates(item);
   const video = configureInlineVideoPlayer(document.createElement('video'), item, { autoplay:false, muted:false, loop:false });
   video.classList.add('project-inline-video');
-  if (sources.length) {
-    bindVideoSourceFallback(video, sources, () => {
+  if (sources.length || videoChunkCandidates(item).length) {
+    bindPublishedVideoSource(video, item, () => {
       video.replaceWith(projectVideoFallback(item));
-    }, { timeoutMs: 16000 });
+    }, { timeoutMs: 45000, metadataReady:false });
     wrap.append(video);
     return wrap;
   }
@@ -2300,14 +2367,14 @@ function renderGalleryItem() {
     }
   } else if (project.type === 'video') {
     const sources = videoSourceCandidates(project);
-    if (sources.length) {
+    if (sources.length || videoChunkCandidates(project).length) {
       media = configureInlineVideoPlayer(document.createElement('video'), project, { autoplay:false, muted:false, loop:false });
       media.className = 'viewer-media';
       stage.append(media);
-      bindVideoSourceFallback(media, sources, () => {
+      bindPublishedVideoSource(media, project, () => {
         media.remove();
         finish(viewerUnavailable(project,'O vídeo está temporariamente indisponível para reprodução.'));
-      }, { timeoutMs:16000 });
+      }, { timeoutMs:45000, metadataReady:false });
       const ready=()=>finish(media);
       media.addEventListener('loadeddata',ready,{once:true});
       media.addEventListener('canplay',ready,{once:true});

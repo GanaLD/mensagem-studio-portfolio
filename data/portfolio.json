@@ -1,8 +1,8 @@
 {
   "schema_version": 16,
-  "app_version": "7.12.4",
-  "build_id": "V7124-EDITOR-STABILITY-CATEGORY-NAV-20260815",
-  "editorial_revision": "26c1012a822c92a2c7af",
+  "app_version": "7.12.6",
+  "build_id": "V7126-WEB-VIDEO-OPTIMIZATION-20260815",
+  "editorial_revision": "7e9f9a365a18d1fbbffc",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -9819,6 +9819,14 @@
             "id": "section-block-msrlk0no-3uz0o",
             "items": [
               {
+                "id": "section-item-msrlkdr2-o9g",
+                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+                "media_id": "",
+                "title": "",
+                "description": "",
+                "action_label": ""
+              },
+              {
                 "id": "section-item-msrlk674-0is",
                 "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
                 "media_id": "",
@@ -9829,14 +9837,6 @@
               {
                 "id": "section-item-msrlk8gu-5ic",
                 "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
-                "media_id": "",
-                "title": "",
-                "description": "",
-                "action_label": ""
-              },
-              {
-                "id": "section-item-msrlkdr2-o9g",
-                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
                 "media_id": "",
                 "title": "",
                 "description": "",
@@ -10031,46 +10031,46 @@
       "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
         "blocks": [
           {
+            "body_size": "",
             "core": true,
+            "desktop_visible": true,
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-header",
             "label": "Cabeçalho",
-            "type": "section_header",
-            "visible": true,
-            "font_family": "display",
-            "title_size": "",
-            "title_weight": "400",
-            "title_line_height": "",
-            "title_letter_spacing": "auto",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
             "text_align": "left",
             "text_transform": "none",
             "title_color": "text",
-            "eyebrow_size": "",
-            "eyebrow_color": "accent",
-            "body_size": "",
-            "desktop_visible": true,
-            "mobile_visible": true,
-            "section_width": "full",
-            "section_size": "normal",
-            "mobile_section_width": "auto",
-            "mobile_section_size": "inherit",
-            "section_background": "none"
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "section_header",
+            "visible": true
           },
           {
+            "card_ratio": "4x3",
             "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
             "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-projects",
             "label": "Projetos da categoria",
-            "type": "section_projects",
-            "visible": true,
-            "grid_columns": "3",
-            "card_ratio": "4x3",
-            "grid_gap": "normal",
-            "desktop_visible": true,
-            "mobile_visible": true,
-            "section_width": "full",
-            "section_size": "normal",
-            "mobile_section_width": "auto",
             "mobile_section_size": "inherit",
-            "section_background": "none"
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "type": "section_projects",
+            "visible": true
           }
         ],
         "body": "",
@@ -10090,16 +10090,44 @@
       "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
         "blocks": [
           {
+            "body_size": "",
             "core": true,
+            "desktop_visible": true,
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
             "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
             "type": "section_header",
             "visible": true
           },
           {
+            "card_ratio": "4x3",
             "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
             "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-projects",
             "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
             "type": "section_projects",
             "visible": true
           }
@@ -10152,16 +10180,44 @@
       "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
         "blocks": [
           {
+            "body_size": "",
             "core": true,
+            "desktop_visible": true,
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "text_align": "left",
+            "text_transform": "none",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
             "type": "section_header",
             "visible": true
           },
           {
+            "card_ratio": "4x3",
             "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
             "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-projects",
             "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
             "type": "section_projects",
             "visible": true
           }
@@ -11580,22 +11636,24 @@
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5",
@@ -12044,22 +12102,24 @@
           "resource_key": "",
           "modified_time": "2026-07-01T20:40:17.000Z",
           "thumbnail_url": "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
-          "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
+          "media_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+          "preview_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1wmW18oM75UPX_o1wJSCd6SPznNiFEsaf",
@@ -12102,22 +12162,24 @@
           "resource_key": "",
           "modified_time": "2026-07-06T12:41:33.000Z",
           "thumbnail_url": "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
-          "preview_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview",
+          "media_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+          "preview_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
           "external_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
             "https://drive.google.com/thumbnail?id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false
         }
       ],
       "gallery_id": "nav:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
@@ -12127,22 +12189,25 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+      "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+      "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "hero_autoplay": true,
       "hidden": false,
-      "hosted_poster": true
+      "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
+      "autoplay_grid": true
     },
     {
       "id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
@@ -14368,22 +14433,24 @@
           "resource_key": "",
           "modified_time": "2026-06-19T21:09:09.000Z",
           "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-          "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+          "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+          "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
@@ -14498,22 +14565,24 @@
           "resource_key": "",
           "modified_time": "2026-06-19T21:09:09.000Z",
           "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-          "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+          "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+          "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         }
       ],
       "gallery_id": "nav:1-aM_k157VuMK3WvoKVfPlw3rAvA7rhgh",
@@ -14523,22 +14592,25 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-      "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+      "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+      "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
       "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
         "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+        "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+        "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
       ],
       "hero_autoplay": true,
       "hidden": false,
-      "hosted_poster": true
+      "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
+      "autoplay_grid": true
     },
     {
       "id": "1VJKZFBV5fWEaO_1I66HAjn6yJtCuBntZ",
@@ -14699,22 +14771,24 @@
           "resource_key": "",
           "modified_time": "2026-08-03T12:06:45.000Z",
           "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-          "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+          "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+          "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
           "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
             "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
@@ -14728,22 +14802,24 @@
           "resource_key": "",
           "modified_time": "2026-06-11T16:45:07.000Z",
           "thumbnail_url": "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
+          "media_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+          "preview_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
@@ -14757,22 +14833,24 @@
           "resource_key": "",
           "modified_time": "2026-05-22T20:42:58.000Z",
           "thumbnail_url": "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
+          "media_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+          "preview_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
@@ -14786,22 +14864,24 @@
           "resource_key": "",
           "modified_time": "2026-06-24T18:35:11.000Z",
           "thumbnail_url": "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
-          "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
+          "media_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+          "preview_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
@@ -14815,22 +14895,24 @@
           "resource_key": "",
           "modified_time": "2026-06-12T14:57:02.000Z",
           "thumbnail_url": "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
-          "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
+          "media_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+          "preview_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
@@ -14844,22 +14926,24 @@
           "resource_key": "",
           "modified_time": "2026-07-09T20:37:22.000Z",
           "thumbnail_url": "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
-          "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
+          "media_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+          "preview_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
@@ -14873,22 +14957,24 @@
           "resource_key": "",
           "modified_time": "2026-07-13T12:53:00.000Z",
           "thumbnail_url": "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
+          "media_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+          "preview_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
@@ -14902,22 +14988,24 @@
           "resource_key": "",
           "modified_time": "2026-07-20T19:18:34.000Z",
           "thumbnail_url": "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
-          "preview_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview",
+          "media_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+          "preview_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
           "external_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
             "https://drive.google.com/thumbnail?id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
@@ -14931,22 +15019,24 @@
           "resource_key": "",
           "modified_time": "2026-07-06T14:48:21.000Z",
           "thumbnail_url": "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
+          "media_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+          "preview_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
@@ -14960,22 +15050,24 @@
           "resource_key": "",
           "modified_time": "2026-05-14T20:06:49.000Z",
           "thumbnail_url": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
-          "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
+          "media_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+          "preview_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         }
       ],
       "gallery_id": "nav:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
@@ -14985,22 +15077,25 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-      "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+      "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+      "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
       "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
         "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+        "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+        "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
       ],
       "hero_autoplay": true,
       "hidden": false,
-      "hosted_poster": true
+      "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
+      "autoplay_grid": true
     },
     {
       "id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
@@ -15434,22 +15529,24 @@
           "resource_key": "",
           "modified_time": "2026-07-12T18:16:43.865Z",
           "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-          "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+          "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+          "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
@@ -15463,22 +15560,24 @@
           "resource_key": "",
           "modified_time": "2026-05-15T13:33:08.000Z",
           "thumbnail_url": "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
-          "preview_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview",
+          "media_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+          "preview_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
           "external_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
             "https://drive.google.com/thumbnail?id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false
         },
         {
           "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
@@ -15492,22 +15591,24 @@
           "resource_key": "",
           "modified_time": "2026-05-15T16:34:46.000Z",
           "thumbnail_url": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
-          "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
+          "media_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+          "preview_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
@@ -15521,22 +15622,24 @@
           "resource_key": "",
           "modified_time": "2026-05-15T18:14:18.000Z",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
+          "media_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+          "preview_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
@@ -15550,22 +15653,24 @@
           "resource_key": "",
           "modified_time": "2026-06-26T12:36:32.000Z",
           "thumbnail_url": "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
-          "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
+          "media_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+          "preview_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false
         },
         {
           "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
@@ -15579,22 +15684,24 @@
           "resource_key": "",
           "modified_time": "2026-06-09T20:35:07.000Z",
           "thumbnail_url": "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
-          "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
+          "media_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+          "preview_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
@@ -15608,22 +15715,24 @@
           "resource_key": "",
           "modified_time": "2026-04-06T21:15:42.000Z",
           "thumbnail_url": "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
+          "media_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+          "preview_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         }
       ],
       "gallery_id": "nav:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
@@ -15633,22 +15742,25 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-      "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+      "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+      "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+        "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+        "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
       ],
       "hero_autoplay": true,
       "hidden": false,
-      "hosted_poster": true
+      "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
+      "autoplay_grid": true
     }
   ],
   "projects": [
@@ -18858,18 +18970,18 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+      "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+      "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -18898,18 +19010,18 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -18919,7 +19031,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -18927,18 +19042,18 @@
         "title": "07.07 DIA D",
         "description": "",
         "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+        "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+        "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
         "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
           "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+          "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+          "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -18948,10 +19063,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-03T20:17:22.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/campanha-007-completa/07-07-dia-d"
     },
     {
@@ -20954,18 +21074,18 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
-      "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
+      "media_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+      "preview_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
       "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
         "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+        "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
+        "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -20994,18 +21114,18 @@
           "title": "SPOILER 07.07",
           "description": "",
           "thumbnail_url": "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
-          "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
+          "media_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+          "preview_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -21015,7 +21135,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-01T20:40:17.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -21023,18 +21146,18 @@
         "title": "SPOILER 07.07",
         "description": "",
         "thumbnail_url": "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
-        "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
+        "media_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+        "preview_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
         "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
           "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+          "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
+          "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -21044,10 +21167,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-01T20:40:17.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/campanha-007-completa/spoiler-07-07"
     },
     {
@@ -21216,18 +21344,18 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
-      "preview_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview",
+      "media_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+      "preview_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
       "external_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
         "https://drive.google.com/thumbnail?id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+        "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview"
+        "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -21256,18 +21384,18 @@
           "title": "É HOJE 0707",
           "description": "",
           "thumbnail_url": "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
-          "preview_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview",
+          "media_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+          "preview_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
           "external_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
             "https://drive.google.com/thumbnail?id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -21277,7 +21405,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-06T12:41:33.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -21285,18 +21416,18 @@
         "title": "É HOJE 0707",
         "description": "",
         "thumbnail_url": "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
-        "preview_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview",
+        "media_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+        "preview_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
         "external_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
           "https://drive.google.com/thumbnail?id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+          "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview"
+          "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -21306,10 +21437,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-06T12:41:33.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": false,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": false,
       "seo_route": "projetos/campanha-007-completa/e-hoje-0707"
     },
     {
@@ -22875,18 +23011,18 @@
         "CORTES"
       ],
       "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-      "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+      "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+      "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
       "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
         "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+        "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+        "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -22915,18 +23051,18 @@
           "title": "CORTE 04",
           "description": "",
           "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-          "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+          "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+          "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -22936,7 +23072,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-19T21:09:09.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -22944,18 +23083,18 @@
         "title": "CORTE 04",
         "description": "",
         "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-        "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+        "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+        "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
         "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
           "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+          "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+          "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -22965,10 +23104,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-19T21:09:09.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/dermacast/cortes"
     },
     {
@@ -23195,18 +23339,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-      "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+      "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+      "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
       "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
         "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+        "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+        "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23235,18 +23379,18 @@
           "title": "ALLERGAN ANJA 4",
           "description": "",
           "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-          "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+          "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+          "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
           "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
             "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23256,7 +23400,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-08-03T12:06:45.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23264,18 +23411,18 @@
         "title": "ALLERGAN ANJA 4",
         "description": "",
         "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-        "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+        "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+        "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
         "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
           "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+          "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+          "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23285,10 +23432,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-08-03T12:06:45.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/allergan-anja-4"
     },
     {
@@ -23326,18 +23478,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
+      "media_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+      "preview_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
       "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
         "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
+        "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
+        "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23366,18 +23518,18 @@
           "title": "FINAL GALDERMA WORKSHOP",
           "description": "",
           "thumbnail_url": "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
+          "media_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+          "preview_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23387,7 +23539,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-11T16:45:07.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23395,18 +23550,18 @@
         "title": "FINAL GALDERMA WORKSHOP",
         "description": "",
         "thumbnail_url": "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
+        "media_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+        "preview_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
         "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
           "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
+          "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
+          "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23416,10 +23571,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-11T16:45:07.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/final-galderma-workshop"
     },
     {
@@ -23457,18 +23617,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
+      "media_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+      "preview_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
       "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
         "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
+        "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
+        "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23497,18 +23657,18 @@
           "title": "FINAL VIDEO MERZ",
           "description": "",
           "thumbnail_url": "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
+          "media_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+          "preview_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23518,7 +23678,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-22T20:42:58.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23526,18 +23689,18 @@
         "title": "FINAL VIDEO MERZ",
         "description": "",
         "thumbnail_url": "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
+        "media_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+        "preview_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
         "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
           "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
+          "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
+          "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23547,10 +23710,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-05-22T20:42:58.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/final-video-merz"
     },
     {
@@ -23588,18 +23756,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
-      "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
+      "media_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+      "preview_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
       "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
         "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI"
+        "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
+        "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23628,18 +23796,18 @@
           "title": "pilula Rejuvital 2",
           "description": "",
           "thumbnail_url": "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
-          "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
+          "media_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+          "preview_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23649,7 +23817,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-24T18:35:11.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23657,18 +23828,18 @@
         "title": "pilula Rejuvital 2",
         "description": "",
         "thumbnail_url": "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
-        "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
+        "media_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+        "preview_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
         "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
           "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI"
+          "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
+          "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23678,10 +23849,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-24T18:35:11.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/pilula-rejuvital-2"
     },
     {
@@ -23719,18 +23895,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
-      "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
+      "media_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+      "preview_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
       "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
         "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o"
+        "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
+        "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23759,18 +23935,18 @@
           "title": "PROJETO 01",
           "description": "",
           "thumbnail_url": "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
-          "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
+          "media_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+          "preview_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23780,7 +23956,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-12T14:57:02.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23788,18 +23967,18 @@
         "title": "PROJETO 01",
         "description": "",
         "thumbnail_url": "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
-        "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
+        "media_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+        "preview_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
         "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
           "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o"
+          "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
+          "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23809,10 +23988,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-12T14:57:02.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/projeto-01"
     },
     {
@@ -23850,18 +24034,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
-      "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
+      "media_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+      "preview_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
       "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
         "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR"
+        "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
+        "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -23890,18 +24074,18 @@
           "title": "PROJETO 02 allergan",
           "description": "",
           "thumbnail_url": "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
-          "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
+          "media_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+          "preview_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -23911,7 +24095,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-09T20:37:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -23919,18 +24106,18 @@
         "title": "PROJETO 02 allergan",
         "description": "",
         "thumbnail_url": "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
-        "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
+        "media_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+        "preview_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
         "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
           "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR"
+          "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
+          "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -23940,10 +24127,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-09T20:37:22.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/projeto-02-allergan"
     },
     {
@@ -23981,18 +24173,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
+      "media_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+      "preview_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
       "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
         "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
+        "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
+        "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -24021,18 +24213,18 @@
           "title": "REJUVITAL AMANDA 1",
           "description": "",
           "thumbnail_url": "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
+          "media_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+          "preview_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -24042,7 +24234,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-13T12:53:00.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -24050,18 +24245,18 @@
         "title": "REJUVITAL AMANDA 1",
         "description": "",
         "thumbnail_url": "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
+        "media_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+        "preview_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
         "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
           "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
+          "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
+          "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -24071,10 +24266,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-13T12:53:00.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/rejuvital-amanda-1"
     },
     {
@@ -24112,18 +24312,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
-      "preview_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview",
+      "media_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+      "preview_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
       "external_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
         "https://drive.google.com/thumbnail?id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ"
+        "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview"
+        "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -24152,18 +24352,18 @@
           "title": "REJUVITAL AMANDA 2",
           "description": "",
           "thumbnail_url": "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
-          "preview_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview",
+          "media_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+          "preview_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
           "external_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
             "https://drive.google.com/thumbnail?id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -24173,7 +24373,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-20T19:18:34.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -24181,18 +24384,18 @@
         "title": "REJUVITAL AMANDA 2",
         "description": "",
         "thumbnail_url": "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
-        "preview_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview",
+        "media_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+        "preview_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
         "external_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
           "https://drive.google.com/thumbnail?id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ"
+          "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview"
+          "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -24202,10 +24405,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-20T19:18:34.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/rejuvital-amanda-2"
     },
     {
@@ -24243,18 +24451,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
+      "media_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+      "preview_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
       "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
         "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
+        "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
+        "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -24283,18 +24491,18 @@
           "title": "WORKSHOP  EVO FINAL",
           "description": "",
           "thumbnail_url": "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
+          "media_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+          "preview_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -24304,7 +24512,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-06T14:48:21.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -24312,18 +24523,18 @@
         "title": "WORKSHOP  EVO FINAL",
         "description": "",
         "thumbnail_url": "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
+        "media_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+        "preview_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
         "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
           "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
+          "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
+          "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -24333,10 +24544,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-06T14:48:21.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/workshop-evo-final"
     },
     {
@@ -24374,18 +24590,18 @@
         "Edição de vídeos"
       ],
       "thumbnail_url": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
-      "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
+      "media_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+      "preview_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
       "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
         "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H"
+        "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
+        "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -24414,18 +24630,18 @@
           "title": "WORKSHOP",
           "description": "",
           "thumbnail_url": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
-          "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
+          "media_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+          "preview_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -24435,7 +24651,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-14T20:06:49.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -24443,18 +24662,18 @@
         "title": "WORKSHOP",
         "description": "",
         "thumbnail_url": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
-        "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
+        "media_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+        "preview_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
         "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
           "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H"
+          "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
+          "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -24464,10 +24683,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-05-14T20:06:49.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/edicao-de-videos/workshop"
     },
     {
@@ -25946,18 +26170,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-      "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+      "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+      "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
       "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
         "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+        "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+        "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -25986,18 +26210,18 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-          "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+          "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+          "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26007,7 +26231,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-12T18:16:43.865Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26015,18 +26242,18 @@
         "title": "Cópia de SCULPT DERMALINK",
         "description": "",
         "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-        "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+        "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+        "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
         "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
           "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+          "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+          "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26036,10 +26263,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-12T18:16:43.865Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/motion/copia-de-sculpt-dermalink"
     },
     {
@@ -26077,18 +26309,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
-      "preview_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview",
+      "media_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+      "preview_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
       "external_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
         "https://drive.google.com/thumbnail?id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+        "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview"
+        "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26117,18 +26349,18 @@
           "title": "FINAL REELS",
           "description": "",
           "thumbnail_url": "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
-          "preview_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview",
+          "media_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+          "preview_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
           "external_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
             "https://drive.google.com/thumbnail?id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26138,7 +26370,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T13:33:08.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26146,18 +26381,18 @@
         "title": "FINAL REELS",
         "description": "",
         "thumbnail_url": "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
-        "preview_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview",
+        "media_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+        "preview_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
         "external_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
           "https://drive.google.com/thumbnail?id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+          "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview"
+          "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26167,10 +26402,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-05-15T13:33:08.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": false,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": false,
       "seo_route": "projetos/motion/final-reels"
     },
     {
@@ -26208,18 +26448,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
-      "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
+      "media_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+      "preview_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
       "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
         "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+        "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
+        "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26248,18 +26488,18 @@
           "title": "POST3",
           "description": "",
           "thumbnail_url": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
-          "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
+          "media_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+          "preview_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26269,7 +26509,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T16:34:46.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26277,18 +26520,18 @@
         "title": "POST3",
         "description": "",
         "thumbnail_url": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
-        "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
+        "media_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+        "preview_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
         "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
           "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+          "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
+          "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26298,10 +26541,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-05-15T16:34:46.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/motion/post3"
     },
     {
@@ -26339,18 +26587,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-      "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
+      "media_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+      "preview_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
       "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+        "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
+        "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26379,18 +26627,18 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
+          "media_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+          "preview_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26400,7 +26648,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T18:14:18.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26408,18 +26659,18 @@
         "title": "post4",
         "description": "",
         "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-        "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
+        "media_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+        "preview_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
         "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+          "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
+          "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26429,10 +26680,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-05-15T18:14:18.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/motion/post4"
     },
     {
@@ -26470,18 +26726,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
-      "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
+      "media_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+      "preview_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
       "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
         "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+        "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
+        "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26510,18 +26766,18 @@
           "title": "STORY AI 1",
           "description": "",
           "thumbnail_url": "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
-          "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
+          "media_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+          "preview_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26531,7 +26787,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-26T12:36:32.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26539,18 +26798,18 @@
         "title": "STORY AI 1",
         "description": "",
         "thumbnail_url": "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
-        "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
+        "media_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+        "preview_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
         "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
           "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+          "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
+          "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26560,10 +26819,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-26T12:36:32.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": false,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": false,
       "seo_route": "projetos/motion/story-ai-1"
     },
     {
@@ -26601,18 +26865,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
-      "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
+      "media_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+      "preview_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
       "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
         "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+        "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
+        "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26641,18 +26905,18 @@
           "title": "STORY",
           "description": "",
           "thumbnail_url": "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
-          "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
+          "media_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+          "preview_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26662,7 +26926,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-09T20:35:07.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26670,18 +26937,18 @@
         "title": "STORY",
         "description": "",
         "thumbnail_url": "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
-        "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
+        "media_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+        "preview_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
         "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
           "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+          "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
+          "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26691,10 +26958,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-06-09T20:35:07.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/motion/story"
     },
     {
@@ -26732,18 +27004,18 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
+      "media_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+      "preview_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
       "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
         "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
+        "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
+        "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -26772,18 +27044,18 @@
           "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
           "description": "",
           "thumbnail_url": "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
+          "media_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+          "preview_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -26793,7 +27065,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-04-06T21:15:42.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -26801,18 +27076,18 @@
         "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
         "description": "",
         "thumbnail_url": "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
+        "media_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+        "preview_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
         "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
           "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
+          "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
+          "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -26822,10 +27097,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-04-06T21:15:42.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/motion/vd-speaker-13-joao-pithon-sinclair"
     }
   ],
@@ -27782,18 +28062,18 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -27803,7 +28083,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -28390,18 +28673,18 @@
           "title": "SPOILER 07.07",
           "description": "",
           "thumbnail_url": "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
-          "preview_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview",
+          "media_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+          "preview_url": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
           "external_url": "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.jpg",
             "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy/preview"
+            "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -28411,7 +28694,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-01T20:40:17.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -28466,18 +28752,18 @@
           "title": "É HOJE 0707",
           "description": "",
           "thumbnail_url": "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
-          "preview_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview",
+          "media_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+          "preview_url": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
           "external_url": "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.jpg",
             "https://drive.google.com/thumbnail?id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t/preview"
+            "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -28487,7 +28773,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-06T12:41:33.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29460,18 +29749,18 @@
           "title": "CORTE 04",
           "description": "",
           "thumbnail_url": "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
-          "preview_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview",
+          "media_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+          "preview_url": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
           "external_url": "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.jpg",
             "https://drive.google.com/thumbnail?id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ/preview"
+            "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29481,7 +29770,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-19T21:09:09.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29592,18 +29884,18 @@
           "title": "ALLERGAN ANJA 4",
           "description": "",
           "thumbnail_url": "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
-          "preview_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview",
+          "media_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+          "preview_url": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
           "external_url": "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.jpg",
             "https://drive.google.com/thumbnail?id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT/preview"
+            "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29613,7 +29905,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-08-03T12:06:45.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29630,18 +29925,18 @@
           "title": "FINAL GALDERMA WORKSHOP",
           "description": "",
           "thumbnail_url": "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview",
+          "media_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+          "preview_url": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
           "external_url": "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.jpg",
             "https://drive.google.com/thumbnail?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1Gg2A7a4COva4j5ocytoYgYZCnpn62g72&export=download&authuser=0&confirm=t"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72/preview"
+            "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29651,7 +29946,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-11T16:45:07.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29668,18 +29966,18 @@
           "title": "FINAL VIDEO MERZ",
           "description": "",
           "thumbnail_url": "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview",
+          "media_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+          "preview_url": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
           "external_url": "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.jpg",
             "https://drive.google.com/thumbnail?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr&export=download&authuser=0&confirm=t"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr/preview"
+            "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29689,7 +29987,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-22T20:42:58.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29706,18 +30007,18 @@
           "title": "pilula Rejuvital 2",
           "description": "",
           "thumbnail_url": "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
-          "preview_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview",
+          "media_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+          "preview_url": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
           "external_url": "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.jpg",
             "https://drive.google.com/thumbnail?id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1OO14itSGeowOPQmW96t8d0FlZq5yVxnI"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI/preview"
+            "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29727,7 +30028,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-24T18:35:11.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29744,18 +30048,18 @@
           "title": "PROJETO 01",
           "description": "",
           "thumbnail_url": "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
-          "preview_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview",
+          "media_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+          "preview_url": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
           "external_url": "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.jpg",
             "https://drive.google.com/thumbnail?id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o/preview"
+            "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29765,7 +30069,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-12T14:57:02.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29782,18 +30089,18 @@
           "title": "PROJETO 02 allergan",
           "description": "",
           "thumbnail_url": "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
-          "preview_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview",
+          "media_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+          "preview_url": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
           "external_url": "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.jpg",
             "https://drive.google.com/thumbnail?id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR/preview"
+            "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29803,7 +30110,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-09T20:37:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29820,18 +30130,18 @@
           "title": "REJUVITAL AMANDA 1",
           "description": "",
           "thumbnail_url": "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview",
+          "media_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+          "preview_url": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
           "external_url": "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.jpg",
             "https://drive.google.com/thumbnail?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO&export=download&authuser=0&confirm=t"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO/preview"
+            "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29841,7 +30151,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-13T12:53:00.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29858,18 +30171,18 @@
           "title": "REJUVITAL AMANDA 2",
           "description": "",
           "thumbnail_url": "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
-          "preview_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview",
+          "media_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+          "preview_url": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
           "external_url": "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.jpg",
             "https://drive.google.com/thumbnail?id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ/preview"
+            "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29879,7 +30192,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-20T19:18:34.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29896,18 +30212,18 @@
           "title": "WORKSHOP  EVO FINAL",
           "description": "",
           "thumbnail_url": "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview",
+          "media_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+          "preview_url": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
           "external_url": "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.jpg",
             "https://drive.google.com/thumbnail?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5&export=download&authuser=0&confirm=t"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5/preview"
+            "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29917,7 +30233,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-06T14:48:21.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29934,18 +30253,18 @@
           "title": "WORKSHOP",
           "description": "",
           "thumbnail_url": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
-          "preview_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview",
+          "media_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+          "preview_url": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
           "external_url": "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
             "https://drive.google.com/thumbnail?id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H/preview"
+            "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -29955,7 +30274,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-14T20:06:49.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30390,18 +30712,18 @@
           "title": "Cópia de SCULPT DERMALINK",
           "description": "",
           "thumbnail_url": "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
-          "preview_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview",
+          "media_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+          "preview_url": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
           "external_url": "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.jpg",
             "https://drive.google.com/thumbnail?id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM/preview"
+            "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30411,7 +30733,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-12T18:16:43.865Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30428,18 +30753,18 @@
           "title": "FINAL REELS",
           "description": "",
           "thumbnail_url": "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
-          "preview_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview",
+          "media_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+          "preview_url": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
           "external_url": "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.jpg",
             "https://drive.google.com/thumbnail?id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz/preview"
+            "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30449,7 +30774,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T13:33:08.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30466,18 +30794,18 @@
           "title": "POST3",
           "description": "",
           "thumbnail_url": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
-          "preview_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview",
+          "media_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+          "preview_url": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
           "external_url": "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
             "https://drive.google.com/thumbnail?id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb/preview"
+            "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30487,7 +30815,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T16:34:46.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30504,18 +30835,18 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview",
+          "media_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+          "preview_url": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
           "external_url": "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg/preview"
+            "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30525,7 +30856,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-05-15T18:14:18.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30542,18 +30876,18 @@
           "title": "STORY AI 1",
           "description": "",
           "thumbnail_url": "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
-          "preview_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview",
+          "media_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+          "preview_url": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
           "external_url": "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.jpg",
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE/preview"
+            "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30563,7 +30897,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-26T12:36:32.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": false,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30580,18 +30917,18 @@
           "title": "STORY",
           "description": "",
           "thumbnail_url": "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
-          "preview_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview",
+          "media_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+          "preview_url": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
           "external_url": "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.jpg",
             "https://drive.google.com/thumbnail?id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED/preview"
+            "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30601,7 +30938,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-06-09T20:35:07.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -30618,18 +30958,18 @@
           "title": "VD SPEAKER 13 JOÃO PITHON SINCLAIR",
           "description": "",
           "thumbnail_url": "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview",
+          "media_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+          "preview_url": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
           "external_url": "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.jpg",
             "https://drive.google.com/thumbnail?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1beWkRgffY9Brko94NH00Sb_ghoMaGdp8&export=download&authuser=0&confirm=t"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8/preview"
+            "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -30639,7 +30979,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-04-06T21:15:42.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     }
@@ -30655,7 +30998,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 20,
-    "duration_seconds": 8.087
+    "duration_seconds": 7.847
   },
   "publication_ready": true,
   "public_validation": {
@@ -31532,13 +31875,320 @@
     "mode": "priority-authenticated-stable-posters-v7964"
   },
   "video_assets": {
-    "hosted": 0,
-    "skipped": 0,
-    "bytes": 0,
+    "hosted": 21,
+    "optimized": 18,
+    "skipped": 3,
+    "bytes": 197668289,
+    "items": [
+      {
+        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+        "path": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+        "bytes": 11943151,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-03T20:17:22.000Z",
+        "sha256": "6b11e9c9931f6954a9537c390d930564a2ad7a14c73be510869afc79c777db28",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 138658170,
+        "target_bytes": 14680064,
+        "video_kbit": 1694,
+        "duration": 59.033333
+      },
+      {
+        "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+        "path": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+        "bytes": 6168463,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-01T20:40:17.000Z",
+        "sha256": "74ea9dcc086a97c3ab2dea830fd3e98c528b7d7369aedb004341c9160ddf520b",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 41649753,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 17.166667
+      },
+      {
+        "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
+        "path": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+        "bytes": 7207783,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-06T12:41:33.000Z",
+        "sha256": "028951ae70cc1ac105af04df84bf24be9ebd7c8c0601c599105c86dd55df2872",
+        "optimized": false,
+        "source_bytes": 7207783
+      },
+      {
+        "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
+        "path": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+        "bytes": 12945995,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-19T21:09:09.000Z",
+        "sha256": "79f4545b172feef76169237fea4bf9c778bdccef8305b2db18064161e27c64ae",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 66408814,
+        "target_bytes": 14680064,
+        "video_kbit": 1969,
+        "duration": 51.166667
+      },
+      {
+        "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
+        "path": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+        "bytes": 11689816,
+        "mime": "video/mp4",
+        "modified_time": "2026-08-03T12:06:45.000Z",
+        "sha256": "997938e3f028cec868679a09597c6e61a887423f33c4d3180640aa4d318d9932",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 22642217,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 31.1
+      },
+      {
+        "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
+        "path": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+        "bytes": 12390385,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-11T16:45:07.000Z",
+        "sha256": "e8e47bca4aa85ddfe54b6e9928c8dfe1d048c73fe07c5b979e9a25f0196d650d",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 107488587,
+        "target_bytes": 14680064,
+        "video_kbit": 2309,
+        "duration": 43.933333
+      },
+      {
+        "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
+        "path": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+        "bytes": 11549885,
+        "mime": "video/mp4",
+        "modified_time": "2026-05-22T20:42:58.000Z",
+        "sha256": "55ee7084b72e59d28bf630eb708b65217a78ade0070242a1b8e1dcf700d1edf0",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 134341932,
+        "target_bytes": 14680064,
+        "video_kbit": 1786,
+        "duration": 56.156104
+      },
+      {
+        "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
+        "path": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+        "bytes": 10324691,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-24T18:35:11.000Z",
+        "sha256": "058154060ea637e9136acb9e5a02962f782f2deddf05b74306791cbe98be6cfa",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 34287744,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 26.533333
+      },
+      {
+        "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
+        "path": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+        "bytes": 11449354,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-12T14:57:02.000Z",
+        "sha256": "1311828d0540dc1ca2c5d86673036d2c69df2a7059048e7fd817763ecfe180f0",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 87377134,
+        "target_bytes": 14680064,
+        "video_kbit": 2840,
+        "duration": 36.0
+      },
+      {
+        "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
+        "path": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+        "bytes": 12009042,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-09T20:37:22.000Z",
+        "sha256": "c46881acf9c889485851c00c64bfb4a4ef5bda2f4499b2973b678dc88efc8182",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 41860434,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 31.966667
+      },
+      {
+        "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+        "path": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+        "bytes": 10940546,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-13T12:53:00.000Z",
+        "sha256": "647b684d7a1a14397aca49770f1459a811c980ab04671efbcf4782b584971588",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 287941449,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 30.433333
+      },
+      {
+        "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
+        "path": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+        "bytes": 9014010,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-20T19:18:34.000Z",
+        "sha256": "a75b3b8fff57355f89612cb72bf5113723bb626933159b34f3383ab55b67ea8e",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 30422982,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 23.390042
+      },
+      {
+        "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
+        "path": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+        "bytes": 8636686,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-06T14:48:21.000Z",
+        "sha256": "ee4dd09d00d888bf35cab26e5de83747852e0d2a8b8033e3d2911da18596dce1",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 215851728,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 23.833333
+      },
+      {
+        "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
+        "path": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+        "bytes": 11684725,
+        "mime": "video/mp4",
+        "modified_time": "2026-05-14T20:06:49.000Z",
+        "sha256": "535a956e88ae1818a50bfd59c4ed7f0f31a100726e6f21973a91da2f4cd2837e",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 96163364,
+        "target_bytes": 14680064,
+        "video_kbit": 2550,
+        "duration": 39.9399
+      },
+      {
+        "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
+        "path": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+        "bytes": 6130832,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-12T18:16:43.865Z",
+        "sha256": "1540c72413e753fbe480163a3d9b1ea081184fc067da2f5e0bb6cf00f02276c9",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 20829146,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 16.291667
+      },
+      {
+        "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
+        "path": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+        "bytes": 12056887,
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T13:33:08.000Z",
+        "sha256": "1081316b1f1f0af9d9fe8344c85409a90653417bdc33c7a124f47e7caf75d2aa",
+        "optimized": false,
+        "source_bytes": 12056887
+      },
+      {
+        "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
+        "path": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+        "bytes": 3855439,
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T16:34:46.000Z",
+        "sha256": "9a974556d5261ab6097e8f153ba470452176768034b6735a4d0e2fba983cd863",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 18020278,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 9.300958
+      },
+      {
+        "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "path": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+        "bytes": 3056999,
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T18:14:18.000Z",
+        "sha256": "5737a968fdadb62fede30a1355fafa2ec0c10e3bb2dbb0c8cad1a8b3455b4b69",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 14949261,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 7.799458
+      },
+      {
+        "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "path": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+        "bytes": 8716836,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-26T12:36:32.000Z",
+        "sha256": "4464a5160d802d3cd0db8eadfa4986d5038208b49357ab5aa4e7c530f1c4f2aa",
+        "optimized": false,
+        "source_bytes": 8716836
+      },
+      {
+        "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
+        "path": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+        "bytes": 3282214,
+        "mime": "video/mp4",
+        "modified_time": "2026-06-09T20:35:07.000Z",
+        "sha256": "165f8db2b1e8a88cab0680cbdcc5904a138040b983dff68e5bcacf0b4fa334a0",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 23724332,
+        "target_bytes": 14680064,
+        "video_kbit": 3200,
+        "duration": 9.776438
+      },
+      {
+        "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
+        "path": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+        "bytes": 12614550,
+        "mime": "video/mp4",
+        "modified_time": "2026-04-06T21:15:42.000Z",
+        "sha256": "05cbd396055cb225b33ca78a405dd07f7d1c852800704482f2d6e2dbdba3b288",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 295203486,
+        "target_bytes": 14680064,
+        "video_kbit": 1665,
+        "duration": 60.0
+      }
+    ],
+    "fallbacks": [
+      {
+        "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+        "reason": "derivado web ainda ficou grande (17.0 MiB)"
+      },
+      {
+        "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+        "reason": "derivado web ainda ficou grande (28.5 MiB)"
+      },
+      {
+        "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+        "reason": "derivado web ainda ficou grande (38.6 MiB)"
+      }
+    ],
     "reused_bytes": 0,
-    "downloaded_bytes": 0,
-    "items": [],
-    "mode": "drive-full-media-poster-only-v7963"
+    "downloaded_bytes": 3584255389,
+    "optimized_bytes": 169686783,
+    "budget_bytes": 335544320,
+    "preferred_target_bytes": 14680064,
+    "mode": "web-optimized-same-origin-v7126",
+    "optimization_profile": "web-h264-720p-abr-v7126",
+    "ffmpeg": {
+      "available": true,
+      "installed": true,
+      "version": "9.0.1"
+    }
   },
   "seo": {
     "version": 1,
