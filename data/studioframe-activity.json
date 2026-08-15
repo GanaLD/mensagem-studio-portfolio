@@ -2025,8 +2025,22 @@
       "kind": "editorial-sync",
       "revision": "26c1012a822c92a2c7af",
       "status": "ok"
+    },
+    {
+      "app_version": "7.12.4",
+      "at": "2026-08-15T17:27:35.324232+00:00",
+      "details": {
+        "commit": "87430159d45c8af31048f05602a4b37854fe2635",
+        "site_url": "https://mensagemstudio.shop/",
+        "state_commit": "e4022008264607512d7e522ecff69eb4c8cb7f81"
+      },
+      "device_id": "device-3e7f29f7077c4942",
+      "id": "a964c421c54604d4e647",
+      "kind": "publication",
+      "revision": "26c1012a822c92a2c7af",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-15T17:27:36.724258+00:00"
+  "updated_at": "2026-08-15T17:27:38.952808+00:00"
 }
