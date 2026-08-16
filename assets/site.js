@@ -69,11 +69,13 @@ async function load() {
   } else {
     renderFilters();
     const hashSection = sectionFromLocation();
-    const validFilterIds = new Set((DATA.filters || []).map((item) => String(item.id)));
-    const initialFilter = hashSection && validFilterIds.has(String(hashSection)) ? hashSection : (Array.isArray(DATA.filters) && DATA.filters.length ? DATA.filters[0].id : 'all');
+    const publicFilters = publicPortfolioFilterItems();
+    const validFilterIds = new Set(publicFilters.map((item) => String(item.id)));
+    const initialFilter = hashSection && validFilterIds.has(String(hashSection)) ? hashSection : (publicFilters.length ? publicFilters[0].id : 'all');
     select(initialFilter, false);
     renderHomeComposition();
     renderServicesHome();
+    placeHomeHorizontalNavigation();
   }
   loadQuoteState();
   ensureGlobalQuoteUI();
@@ -295,6 +297,15 @@ function configureInlineVideoPlayer(video, item = {}, { autoplay = false, muted 
 function ensureVideoSource(video) {
   if (!video) return;
   if (typeof video.__studioframeEnsureSource === 'function') video.__studioframeEnsureSource();
+}
+
+function createResilientVideo(item = {}, options = {}) {
+  const { exhausted = null, defer = false, timeoutMs = 45000, metadataReady = false, className = '', ...playerOptions } = options || {};
+  const video = configureInlineVideoPlayer(document.createElement('video'), item, playerOptions);
+  if (className) video.className = className;
+  video.dataset.mediaContract = 'v71211';
+  bindPublishedVideoSource(video, item, exhausted, { defer, timeoutMs, metadataReady });
+  return video;
 }
 
 function bindDeferredAutoplay(video, target = video, { threshold = 0.18 } = {}) {
@@ -837,12 +848,8 @@ function createVideoFeatureBlock(block) {
   const copy=blockHeading(block,project.title);
   if (!block.body && project.description) { const p=document.createElement('p'); p.textContent=project.description; copy.append(p); }
   const media=document.createElement('div'); media.className='video-feature-stage';
-  if (IS_EDITOR_PREVIEW && item.media_url && block.autoplay !== false) {
-    const video=document.createElement('video'); video.src=item.media_url; video.muted=true; video.loop=true; video.autoplay=true; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.addEventListener('error',()=>video.replaceWith(projectVideo(item))); media.append(video);
-  } else {
-    const video=document.createElement('video'); video.muted=true; video.loop=true; video.autoplay=block.autoplay!==false; video.playsInline=true; video.controls=false; video.poster=item.thumbnail_url || ''; video.preload='none';
-    bindPublishedVideoSource(video,item,()=>video.replaceWith(projectVideoFallback(item)),{defer:true,metadataReady:false,timeoutMs:45000}); media.append(video); bindDeferredAutoplay(video,media);
-  }
+  const video=createResilientVideo(item,{autoplay:block.autoplay!==false,muted:true,loop:true,controls:false,preload:'none',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>video.replaceWith(projectVideoFallback(item))});
+  media.append(video); bindDeferredAutoplay(video,media);
   section.append(copy,media);
   return section;
 }
@@ -961,7 +968,7 @@ function createHomeVideoBlock(block) {
   const section=document.createElement('section');section.className=`modular-block editorial-section block-home-video width-${block.width||'full'} scroll-${block.scroll_behavior||'parallax'} effect-${block.section_effect||'reveal'} reveal`;
   if(block.title||block.eyebrow||block.body)section.append(blockHeading(block,block.title||''));
   const stage=document.createElement('div');stage.className=`home-video-stage ratio-${String(block.ratio||'16:9').replace(':','x')}`;
-  const video=document.createElement('video');video.poster=media.thumbnail_url||'';video.playsInline=true;video.autoplay=block.autoplay!==false;video.muted=block.muted!==false;video.loop=block.loop!==false;video.controls=block.controls===true;video.preload='none';if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';bindPublishedVideoSource(video,media,()=>video.replaceWith(projectVideo(media)),{defer:true,metadataReady:false,timeoutMs:45000});stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
+  const video=createResilientVideo(media,{autoplay:block.autoplay!==false,muted:block.muted!==false,loop:block.loop!==false,controls:block.controls===true,preload:'none',className:'home-resilient-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>video.replaceWith(projectVideoFallback(media))});if(block.scroll_behavior==='parallax')stage.dataset.parallax='detail';stage.append(video);bindDeferredAutoplay(video,stage);section.append(stage);return section;
 }
 
 function createEditorialGalleryBlock(block,context={}) {
@@ -1016,7 +1023,7 @@ function applyHomeSectionFrame(node, block = {}) {
   applySharedPageBlockFrame(node,block);
   [...node.classList].filter((name)=>name.startsWith('sf-grid-cols-')||name.startsWith('sf-card-ratio-')||name.startsWith('sf-grid-gap-')).forEach((name)=>node.classList.remove(name));
   if (block.type === 'projects') {
-    node.classList.add(`sf-grid-cols-${block.grid_columns || '3'}`);
+    node.classList.add(`sf-grid-cols-${block.grid_columns || '2'}`);
     node.classList.add(`sf-card-ratio-${block.card_ratio || '4x3'}`);
     node.classList.add(`sf-grid-gap-${block.grid_gap || 'normal'}`);
   }
@@ -1101,7 +1108,11 @@ function placeHomeHorizontalNavigation() {
   const projects=DATA.site_builder?.projects||{};
   const mode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
   filters.toggleAttribute('hidden', projects.visible===false||mode==='menu');
-  if(!filters.hidden) hero.insertAdjacentElement('afterend',filters);
+  if(filters.hidden)return;
+  // Stage 2 recovery: the HOME bar has one structural anchor only: the real Hero.
+  // Never anchor it to Projects/Services and never simulate placement with sticky/fixed CSS.
+  hero.insertAdjacentElement('afterend',filters);
+  filters.dataset.homePlacement='after-hero';
 }
 
 function renderHomeComposition() {
@@ -1198,7 +1209,7 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);if(!media.hosted_video_chunked){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:true,metadataReady:false,timeoutMs:45000});visual.append(video);bindDeferredAutoplay(video,visual);}}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));return visual;}
+function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(!media){visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true,upgradeUrls:[...(media.thumbnail_candidates||[])]});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:'none',className:'service-category-preview-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));return visual;}
 function serviceCategoryCard(category,index){
   const config=servicesConfig(),article=document.createElement('article');article.className='service-area-card reveal';article.style.setProperty('--service-accent',category.accent||'var(--accent)');article.id=`service-${category.id}`;
   const visual=serviceCategoryVisual(category),copy=document.createElement('div');copy.className='service-area-copy';const meta=document.createElement('div');meta.className='service-area-meta';meta.innerHTML=`<span>${esc(category.number||String(index+1).padStart(2,'0'))}</span><small>${visibleServiceItems(category).length} opções</small>`;
@@ -1228,7 +1239,7 @@ function servicePageBlocks(category,item){
 }
 function serviceBlockFrame(node,block){applySharedPageBlockFrame(node,block);node.classList.add('service-commercial-section','reveal');node.dataset.serviceBlockId=block.id||'';node.dataset.serviceBlockType=block.type||'';return node;}
 function serviceBlockHeading(block,defaults={}){const wrap=document.createElement('div');wrap.className='service-commercial-heading';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||defaults.eyebrow||'';const title=document.createElement('h2');title.textContent=block.title||defaults.title||'';const body=document.createElement('p');body.textContent=block.body||defaults.body||'';if(eyebrow.textContent)wrap.append(eyebrow);if(title.textContent)wrap.append(title);if(body.textContent)wrap.append(body);return wrap;}
-function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=configureInlineVideoPlayer(document.createElement('video'),media,{autoplay:true,muted:true,loop:true,controls:false,preload:hero?'metadata':'none'});video.classList.add('service-commercial-video');bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:!hero,metadataReady:false,timeoutMs:45000});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
+function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:hero?'metadata':'none',className:'service-commercial-video',defer:!hero,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
 function createServiceCommercialBlock(category,item,block){
   if(!block||block.visible===false)return null;block=normalizeSharedPublicBlock(block);const config=servicesConfig();
   const shared=createSharedPageBlock(block,{defaultTitle:'Pronto para começar?',defaultButtonUrl:serviceWhatsappHref(category,item),defaultButtonLabel:block.button_label||item.cta_label||config.cta_label||'Solicitar orçamento',quoteServiceId:String(item.id||''),mediaResolver:servicePublicMedia,mediaNode:(media)=>serviceMediaNode(media)});
@@ -1247,7 +1258,7 @@ function renderServiceDetailPage(category,item){$('#filters')?.setAttribute('hid
 
 function renderServicesPage(){$('#filters')?.setAttribute('hidden','');
   const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='services-public-page';root.dataset.serviceLayout=config.layout_style||'editorial';root.dataset.catalogDensity=config.catalog_density||'comfortable';root.dataset.coverRatio=config.cover_ratio||'portrait';document.body.dataset.page='services';document.title=`${config.title||'Serviços'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
-  const categories=visibleServiceCategories(),options=categories.reduce((total,category)=>total+visibleServiceItems(category).length,0),head=document.createElement('header');head.className='services-public-head reveal';const headCopy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Soluções criativas';const title=document.createElement('h1');title.textContent=config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.intro||'';const actions=document.createElement('div');actions.className='services-head-actions';const useQuote=quoteEnabled()&&config.brief_visible!==false,primary=document.createElement(useQuote?'button':'a');if(useQuote){primary.type='button';primary.dataset.serviceOpenBrief='';primary.textContent=config.brief_button||'Abrir orçamento';}else{primary.href=serviceWhatsappHref(null,null);primary.target='_blank';primary.rel='noopener';primary.textContent=config.cta_label||'Solicitar orçamento';}const note=document.createElement('span');note.textContent=config.response_note||'';actions.append(primary,note);headCopy.append(eyebrow,title,intro,actions);const stats=document.createElement('dl');stats.className='services-head-stats';stats.innerHTML=`<div><dt>${categories.length}</dt><dd>áreas criativas</dd></div><div><dt>${options}</dt><dd>soluções comerciais</dd></div><div><dt>BR</dt><dd>atendimento remoto</dd></div>`;head.append(headCopy,stats);root.append(head);
+  const categories=visibleServiceCategories(),options=categories.reduce((total,category)=>total+visibleServiceItems(category).length,0),head=document.createElement('section');head.className='services-public-head reveal';const headCopy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Soluções criativas';const title=document.createElement('h1');title.textContent=config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.intro||'';const actions=document.createElement('div');actions.className='services-head-actions';const useQuote=quoteEnabled()&&config.brief_visible!==false,primary=document.createElement(useQuote?'button':'a');if(useQuote){primary.type='button';primary.dataset.serviceOpenBrief='';primary.textContent=config.brief_button||'Abrir orçamento';}else{primary.href=serviceWhatsappHref(null,null);primary.target='_blank';primary.rel='noopener';primary.textContent=config.cta_label||'Solicitar orçamento';}const note=document.createElement('span');note.textContent=config.response_note||'';actions.append(primary,note);headCopy.append(eyebrow,title,intro,actions);const stats=document.createElement('dl');stats.className='services-head-stats';stats.innerHTML=`<div><dt>${categories.length}</dt><dd>áreas criativas</dd></div><div><dt>${options}</dt><dd>soluções comerciais</dd></div><div><dt>BR</dt><dd>atendimento remoto</dd></div>`;head.append(headCopy,stats);root.append(head);
   const nav=document.createElement('nav');nav.className='services-jump-nav horizontal-context-nav';nav.setAttribute('aria-label','Áreas de serviços');visibleServiceCategories().forEach((category)=>{const a=document.createElement('a');a.href=`#service-${category.id}`;a.textContent=category.short_title||category.title;nav.append(a);});root.append(nav);
   const process=serviceProcessSection();if(process)root.append(process);
   const grid=document.createElement('div');grid.className='services-category-stack';visibleServiceCategories().forEach((category,index)=>grid.append(serviceCategoryCard(category,index)));root.append(grid);
@@ -1257,7 +1268,7 @@ function renderServicesPage(){$('#filters')?.setAttribute('hidden','');
   bindServiceCommerce(root);updateServiceQuoteUI();
 }
 function renderServicesHome(){
-  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true});posterNode.classList?.add('service-video-poster');visual.append(posterNode);if(!media.hosted_video_chunked){const video=document.createElement('video');video.muted=true;video.loop=true;video.autoplay=true;video.playsInline=true;video.preload='none';video.poster=media.thumbnail_url||'';bindPublishedVideoSource(video,media,()=>{video.remove();},{defer:true,metadataReady:false,timeoutMs:45000});visual.append(video);bindDeferredAutoplay(video,card);}}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();
+  const config=servicesConfig();document.querySelector('#servicesOverview')?.remove();if(config.visible===false||config.show_on_home===false)return;const categories=visibleServiceCategories();if(!categories.length)return;const section=document.createElement('section');section.id='servicesOverview';section.className='services-home-section reveal';const head=document.createElement('div');head.className='services-home-head';const copy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Serviços';const title=document.createElement('h2');title.textContent=config.home_title||config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.home_intro||config.intro||'';copy.append(eyebrow,title,intro);const link=document.createElement('a');link.href=servicesHref();link.textContent='Ver serviços e valores';head.append(copy,link);section.append(head);const grid=document.createElement('div');grid.className='services-home-grid';categories.forEach((category,index)=>{const card=document.createElement('a');card.href=servicesHref(`#service-${category.id}`);card.className='service-home-card';card.style.setProperty('--service-accent',category.accent||'var(--accent)');const media=servicePublicMedia(category.cover_media_id);if(media){card.classList.add('has-cover');const visual=document.createElement('span');visual.className='service-home-card-visual';if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:true,upgradeUrls:[...(media.thumbnail_candidates||[])]});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:'none',className:'service-home-preview-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});visual.append(video);bindDeferredAutoplay(video,card);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.media_url,...(media.media_candidates||[])]}));card.append(visual);}const number=document.createElement('span');number.textContent=category.number||String(index+1).padStart(2,'0');const name=document.createElement('strong');name.textContent=category.title||'Serviço';const body=document.createElement('p');body.textContent=category.description||'';const arrow=document.createElement('i');arrow.textContent='↗';card.append(number,name,body,arrow);grid.append(card);});section.append(grid);const before=$('#about')||$('#contact')||null;(before?.parentNode||$('#top'))?.insertBefore(section,before);bindReveal();placeHomeHorizontalNavigation();
 }
 
 function publicCustomPages(){const pages=DATA.site_builder?.custom_pages||{};return Object.values(pages).filter((page)=>page&&page.visible!==false);}
@@ -1305,7 +1316,7 @@ function renderSideNavigation() {
     });
   }
   if(navigation.show_drive_sections!==false){
-    (DATA.filters||[]).forEach((item)=>addLink(item.title||item.name||(String(item.id)==='all'?'Todos':'Categoria'),'#projectsBlock',String(item.id),1));
+    publicPortfolioFilterItems().forEach((item)=>addLink(item.title||item.name||(String(item.id)==='all'?'Todos':'Categoria'),'#projectsBlock',String(item.id),1));
   }
 }
 
@@ -1329,7 +1340,7 @@ function sectionPageConfig(sectionId) {
   const projectsId = `section-${sectionId}-projects`;
   const blocks = Array.isArray(source.blocks) ? source.blocks.filter((block) => block && block.type).map((block) => ({ ...block })) : [];
   if (!blocks.some((block) => String(block.id || '') === headerId)) blocks.unshift({ id:headerId, type:'section_header', visible:true, core:true });
-  if (!blocks.some((block) => String(block.id || '') === projectsId)) blocks.push({ id:projectsId, type:'section_projects', visible:true, core:true });
+  if (!blocks.some((block) => String(block.id || '') === projectsId)) blocks.push({ id:projectsId, type:'section_projects', visible:true, core:true, grid_columns:'2', card_ratio:'16x9' });
   return {
     ...source,
     enabled: source.enabled !== false,
@@ -1434,24 +1445,61 @@ function appendServicesNavigationLink(filters) {
   filters.append(link);
 }
 
+function canonicalPortfolioCategories() {
+  const sectionRows = Array.isArray(DATA.sections) ? DATA.sections.filter((item) => item && item.kind !== 'collection') : [];
+  const depthOneRows = Array.isArray(DATA.navigation_nodes)
+    ? DATA.navigation_nodes.filter((item) => item && Number(item.depth || 0) === 1 && !item.hidden)
+    : [];
+  // The structural source is strictly root Portfolio folders. Union sections
+  // with depth=1 nodes so an incomplete filters payload can never erase a real
+  // root category. Projects/subfolders (depth >= 2) are never eligible here.
+  const structural = [...sectionRows, ...depthOneRows];
+  const configured = Array.isArray(DATA.filters) ? DATA.filters : [];
+  const filterMeta = new Map(configured.filter((item) => String(item?.id || '') !== 'all').map((item, index) => [String(item.id), {...item, _filter_index:index}]));
+  const editorOrder = Array.isArray(DATA.site_builder?.projects?.filters?.order) ? DATA.site_builder.projects.filters.order.map(String) : [];
+  const editorRank = new Map(editorOrder.map((id,index)=>[String(id),index]));
+  const seen = new Set();
+  const categories = [];
+  structural.forEach((section, structuralIndex) => {
+    const id = String(section?.id || '');
+    if (!id || id === 'all' || seen.has(id)) return;
+    seen.add(id);
+    const meta = filterMeta.get(id) || {};
+    // New builds export navigation_visible on sections. Missing means legacy
+    // manifest and remains visible rather than silently losing a real category.
+    if (section.navigation_visible === false || meta.navigation_visible === false) return;
+    const explicitRank = editorRank.has(id) ? Number(editorRank.get(id)) : 999999;
+    const filterRank = Number.isFinite(Number(meta._filter_index)) ? Number(meta._filter_index) : 999999;
+    categories.push({
+      id,
+      title: meta.title || section.title || section.name || 'Categoria',
+      kind: 'section',
+      order: Number.isFinite(Number(section.order)) ? Number(section.order) : structuralIndex,
+      _editor_rank: explicitRank,
+      _filter_index: filterRank,
+    });
+  });
+  categories.sort((a,b) => (a._editor_rank-b._editor_rank) || (a._filter_index-b._filter_index) || (a.order-b.order) || String(a.title).localeCompare(String(b.title),'pt-BR'));
+  return categories.map(({_editor_rank,_filter_index,...item}) => item);
+}
+
+function publicPortfolioFilterItems() {
+  const filterCfg = DATA.site_builder?.projects?.filters || {};
+  const configured = Array.isArray(DATA.filters) ? DATA.filters : [];
+  const configuredAll = configured.find((item) => String(item?.id || '') === 'all');
+  const items = [];
+  if (filterCfg.all_visible !== false) items.push({id:'all', title:configuredAll?.title || filterCfg.all_label || 'Todos', kind:'all'});
+  items.push(...canonicalPortfolioCategories());
+  return items;
+}
+
 function renderFilters() {
   const filters = $('#filters');
   if (!filters) return;
   filters.replaceChildren();
-  // V5.12.1: ``filters`` is now the canonical public tab model. Its order is
-  // edited in Site Builder and is also used by the exporter to order sections
-  // and projects when the visitor selects the aggregate view.
-  const configured = Array.isArray(DATA.filters) && DATA.filters.length ? DATA.filters : null;
-  if (configured) {
-    configured.forEach((item) => filters.append(filterButton(item.title || (item.id === 'all' ? 'Todos' : 'Categoria'), item.id)));
-  } else {
-    filters.append(filterButton('Todos', 'all'));
-    const sections = Array.isArray(DATA.sections) && DATA.sections.length
-      ? DATA.sections
-      : (DATA.categories || []).filter((item) => item.kind !== 'collection');
-    sections.forEach((section) => filters.append(filterButton(section.title, section.id)));
-  }
+  publicPortfolioFilterItems().forEach((item) => filters.append(filterButton(item.title || (item.id === 'all' ? 'Todos' : 'Categoria'), item.id)));
   appendServicesNavigationLink(filters);
+  placeHomeHorizontalNavigation();
 }
 
 function filterButton(label, id) {
@@ -1540,7 +1588,7 @@ function select(id, pushHistory = false) {
   closeProjectDetail(false);
   [...$('#filters').children].forEach((button) => button.classList.toggle('is-active', button.dataset.id === id));
   const isAll = id === 'all';
-  const navigation = isAll ? (DATA.navigation_nodes || []).filter((node) => !node.hidden) : [];
+  const navigation = isAll ? (DATA.navigation_nodes || []).filter((node) => !node.hidden && Number(node.depth || 0) === 1) : [];
   const list = isAll ? [] : (DATA.projects || []).filter((project) => {
     if (project.hidden) return false;
     const sectionId = project.section_id || project.physical_category_id || project.category_id;
@@ -1598,7 +1646,7 @@ function armImageTimeout(image, next, timeoutMs) {
 
 function queueImageUpgrade(image, urls = []) {
   const candidates = uniqueUrls(urls).filter((url) => url && url !== image.currentSrc && url !== image.src && !mediaUrlRecentlyFailed(url));
-  if (!candidates.length || image.dataset.stablePoster === '1') return;
+  if (!candidates.length) return;
   const upgrade = () => {
     let index = 0;
     const tryNext = () => {
@@ -1625,8 +1673,9 @@ function queueImageUpgrade(image, urls = []) {
     };
     tryNext();
   };
-  if ('requestIdleCallback' in window) requestIdleCallback(upgrade, { timeout: 1800 });
-  else setTimeout(upgrade, 240);
+  if (image.loading === 'eager') setTimeout(upgrade, 80);
+  else if ('requestIdleCallback' in window) requestIdleCallback(upgrade, { timeout: 1200 });
+  else setTimeout(upgrade, 180);
 }
 
 function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
@@ -1662,7 +1711,7 @@ function imageWithFallback(project, urls, { lazy = true, priority = 'auto', time
     clearTimer(); image.classList.remove('is-loading'); image.classList.add('is-loaded');
     mediaDiagnostic(project,'loaded',image.currentSrc||image.src,`candidate-${Math.max(1,index)}`);
     queueMicrotask(() => image.parentElement?.classList.add('media-loaded'));
-    if (upgradeUrls.length && !project?.hosted_poster) queueImageUpgrade(image, upgradeUrls);
+    if (upgradeUrls.length) queueImageUpgrade(image, upgradeUrls);
   });
   image.addEventListener('error', () => next('browser-error'));
   next('initial');
@@ -1682,10 +1731,18 @@ function projectCoverRecord(project = {}) {
 
 function poster(project, { eager = false } = {}) {
   const cover = projectCoverRecord(project);
-  const primary = [cover.thumbnail_url, ...(cover.thumbnail_candidates || [])];
-  // Images can be rendered directly; video/PDF must use a real poster image.
-  if (cover.type === 'image') primary.push(cover.media_url, ...(cover.media_candidates || []), cover.preview_url, ...(cover.preview_candidates || []));
-  return imageWithFallback(cover, primary, { lazy: !eager, priority: eager ? 'high' : 'auto', timeoutMs: eager ? 4500 : MEDIA_LOAD_TIMEOUT_MS });
+  const thumbnails = uniqueUrls([cover.thumbnail_url, ...(cover.thumbnail_candidates || [])]);
+  const imageUpgrades = cover.type === 'image'
+    ? uniqueUrls([cover.preview_url, ...(cover.preview_candidates || []), cover.media_url, ...(cover.media_candidates || [])])
+    : uniqueUrls([...(cover.thumbnail_candidates || [])]);
+  const primary = thumbnails.length ? thumbnails : (cover.type === 'image' ? imageUpgrades : []);
+  // Stage 3: show a fast stable poster first, then swap only after a sharper
+  // Drive candidate has fully loaded. This keeps previews responsive without
+  // stretching a tiny thumbnail as the final image.
+  return imageWithFallback(cover, primary, {
+    lazy: !eager, priority: eager ? 'high' : 'auto', timeoutMs: eager ? 6500 : MEDIA_LOAD_TIMEOUT_MS,
+    upgradeUrls: imageUpgrades,
+  });
 }
 
 
@@ -1788,17 +1845,9 @@ function ensureHeroMedia(slide, project) {
   slide.replaceChildren();
   project = heroAssetForViewport(project);
   if (project.type === 'video' && project.hero_autoplay && (project.media_url || (project.media_candidates || []).length)) {
-    const video = document.createElement('video');
-    video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'metadata';
-    video.poster = project.thumbnail_url || '';
-    const sources = uniqueUrls([project.media_url, ...(project.media_candidates || [])]);
-    let sourceIndex = 0;
-    const next = () => {
-      if (sourceIndex >= sources.length) { video.replaceWith(imageWithFallback(project, heroCandidates(project), { lazy: false, priority: 'high', upgradeUrls: heroUpgradeCandidates(project) })); return; }
-      video.src = sources[sourceIndex++]; video.load();
-    };
-    video.addEventListener('error', next);
-    next();
+    const video = createResilientVideo(project, { autoplay:true, muted:true, loop:true, controls:false, preload:'metadata', className:'hero-resilient-video', timeoutMs:45000, metadataReady:false, exhausted:() => {
+      video.replaceWith(imageWithFallback(project, heroCandidates(project), { lazy:false, priority:'high', upgradeUrls:heroUpgradeCandidates(project) }));
+    }});
     slide.append(video);
   } else {
     slide.append(imageWithFallback(project, heroCandidates(project), { lazy: false, priority: 'high', upgradeUrls: heroUpgradeCandidates(project) }));
@@ -1983,22 +2032,16 @@ function card(project, index) {
   let previewVideo = null;
   const previewSources = videoSourceCandidates(project);
   if (project.type === 'video' && !project.hosted_video_chunked && previewSources.length && visualLayout.card_video_preview !== false) {
-    previewVideo = document.createElement('video');
-    previewVideo.className = 'card-preview-video';
-    previewVideo.muted = true;
-    previewVideo.loop = true;
-    previewVideo.playsInline = true;
-    previewVideo.preload = 'none';
+    previewVideo = createResilientVideo(project, { autoplay:false, muted:true, loop:true, controls:false, preload:'none', className:'card-preview-video', defer:true, metadataReady:false, timeoutMs:45000 });
     previewVideo.setAttribute('aria-hidden', 'true');
-    previewVideo.dataset.mediaId = String(project.id || '');
-    previewVideo.dataset.mediaTitle = String(project.title || '');
-    bindVideoSourceFallback(previewVideo, previewSources, null, { defer: true });
     mediaInner.append(previewVideo);
   }
   media.append(mediaInner, type, action);
 
   const copy = document.createElement('span');
   copy.className = 'copy';
+  if (Number(project.title_size || 0) > 0) copy.style.setProperty('--project-card-title-size', `${Math.max(14,Math.min(48,Number(project.title_size)))}px`);
+  if (Number(project.description_size || 0) > 0) copy.style.setProperty('--project-card-description-size', `${Math.max(9,Math.min(24,Number(project.description_size)))}px`);
   copy.innerHTML = `<span><h3>${esc(project.title)}</h3><p>${esc(project.description || project.path?.join(' · ') || '')}</p></span><em>${String(index + 1).padStart(2, '0')}</em>`;
   button.append(media, copy);
   bindCardInteraction(button, media, mediaInner);
@@ -2067,12 +2110,10 @@ function projectVideo(item) {
   const wrap = document.createElement('div');
   wrap.className = 'project-video-wrap';
   const sources = videoSourceCandidates(item);
-  const video = configureInlineVideoPlayer(document.createElement('video'), item, { autoplay:false, muted:false, loop:false });
-  video.classList.add('project-inline-video');
   if (sources.length || videoChunkCandidates(item).length) {
-    bindPublishedVideoSource(video, item, () => {
+    const video = createResilientVideo(item, { autoplay:false, muted:false, loop:false, controls:true, preload:'metadata', className:'project-inline-video', exhausted:() => {
       video.replaceWith(projectVideoFallback(item));
-    }, { timeoutMs: 45000, metadataReady:false });
+    }, timeoutMs:45000, metadataReady:false });
     wrap.append(video);
     return wrap;
   }
@@ -2083,7 +2124,21 @@ function projectVideo(item) {
 function projectVideoFallback(item) {
   const fallback = document.createElement('div');
   fallback.className = 'project-video-fallback';
-  const posterNode = imageWithFallback(item, [item.thumbnail_url, ...(item.thumbnail_candidates || [])], { lazy:false, priority:'high' });
+  const drivePreview = uniqueUrls([item.preview_url, ...(item.preview_candidates || [])]).find((url) => /\/preview(?:\?|$)/i.test(url));
+  if (drivePreview) {
+    const frame = document.createElement('iframe');
+    frame.className = 'project-drive-preview-player';
+    frame.src = drivePreview;
+    frame.title = item.title || 'Vídeo no Google Drive';
+    frame.allow = 'autoplay; fullscreen; encrypted-media';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.loading = 'eager';
+    fallback.dataset.playbackFallback = 'drive-preview';
+    fallback.append(frame);
+    return fallback;
+  }
+  const posterNode = imageWithFallback(item, [item.thumbnail_url, ...(item.thumbnail_candidates || [])], { lazy:false, priority:'high', upgradeUrls:[...(item.thumbnail_candidates || [])] });
   posterNode.classList?.add('project-video-fallback-poster');
   const note = document.createElement('span');
   note.className = 'project-video-fallback-note';
@@ -2197,8 +2252,10 @@ function renderLegacyMediaStream(project,items,captions=true,listNode=null){
   items.forEach((item,index)=>{const figure=caseMediaViewport(project,item,items,{caption:captions,className:'project-media-item reveal'});if(!figure)return;figure.style.setProperty('--reveal-delay',`${Math.min(index,5)*45}ms`);list.append(figure);});
 }
 
-function applyCaseHeaderPresentation(project, block = {}) {
-  const head=$('#projectDetailHead');
+function applyCaseHeaderPresentation(project, block = {}, headNode = null) {
+  // renderProjectCase temporarily detaches the core head while rebuilding the case.
+  // Accept that detached node explicitly so editorial typography is never lost.
+  const head=headNode || $('#projectDetailHead');
   if(!head)return;
   const eyebrow=$('#projectEyebrow');
   const title=$('#projectDetailTitle');
@@ -2214,8 +2271,9 @@ function applyCaseHeaderPresentation(project, block = {}) {
     description.textContent=value;
     description.hidden=!value;
   }
-  if(introMedia) introMedia.hidden = block.show_cover===false || block.header_layout==='copy-only' || !introMedia.children.length;
-  head.dataset.headerLayout=block.header_layout || 'media-copy';
+  const headerLayout=block.header_layout || 'copy-only';
+  if(introMedia) introMedia.hidden = block.show_cover===false || headerLayout==='copy-only' || !introMedia.children.length;
+  head.dataset.headerLayout=headerLayout;
   head.dataset.bodyWidth=block.body_width || 'medium';
   const fontMap={display:'var(--display)',body:'var(--body)',system:'Arial, Helvetica, sans-serif',serif:'Georgia, Times New Roman, serif',mono:'ui-monospace, SFMono-Regular, Consolas, monospace'};
   const colorMap={text:'var(--text)',accent:'var(--accent)',muted:'var(--muted)'};
@@ -2225,8 +2283,10 @@ function applyCaseHeaderPresentation(project, block = {}) {
   head.style.setProperty('--case-text-align',block.text_align||'left');
   head.style.setProperty('--case-title-color',colorMap[block.title_color||'text']||colorMap.text);
   head.style.setProperty('--case-eyebrow-color',colorMap[block.eyebrow_color||'accent']||colorMap.accent);
-  set('--case-title-size',block.title_size?`${block.title_size}px`:'');
-  set('--case-body-size',block.body_size?`${block.body_size}px`:'');
+  const safeTitleSize = Number(block.title_size || project.title_size || 0);
+  const safeBodySize = Number(block.body_size || project.description_size || 0);
+  set('--case-title-size',safeTitleSize?`clamp(26px,${Math.max(18,Math.min(120,safeTitleSize))}px,80px)`:'');
+  set('--case-body-size',safeBodySize?`clamp(11px,${Math.max(9,Math.min(32,safeBodySize))}px,22px)`:'');
   set('--case-eyebrow-size',block.eyebrow_size?`${block.eyebrow_size}px`:'');
   set('--case-title-line-height',block.title_line_height||'');
   set('--case-title-letter-spacing',block.title_letter_spacing||'');
@@ -2239,7 +2299,7 @@ function renderProjectCase(project,items){
     // Keep the two legacy/core DOM nodes attached even when hidden. Their IDs
     // are reused on the next project open; detaching a hidden core node would
     // make subsequent viewer opens unable to find it with querySelector.
-    if(block.type==='case_header'){head.hidden=block.visible===false;applyCaseHeaderPresentation(project,block);root.append(head);return;}
+    if(block.type==='case_header'){head.hidden=block.visible===false;applyCaseHeaderPresentation(project,block,head);root.append(head);return;}
     if(block.type==='media_stream'){
       stream.hidden=block.visible===false;
       if(block.visible===false) stream.replaceChildren();
@@ -2285,9 +2345,7 @@ function openProjectDetail(project) {
     introMedia.replaceChildren();
     const cover = items.find((item) => String(item.id) === String(project.cover_media_id || '')) || items[0] || project;
     if (cover) {
-      const intro = cover.type === 'image'
-        ? imageWithFallback(cover, [cover.thumbnail_url, ...(cover.thumbnail_candidates || []), cover.media_url, ...(cover.media_candidates || [])], { lazy:false, priority:'high' })
-        : imageWithFallback(cover, [cover.thumbnail_url, ...(cover.thumbnail_candidates || [])], { lazy:false, priority:'high' });
+      const intro = poster(cover, { eager:true });
       introMedia.append(intro);
     }
     introMedia.hidden = !cover;
@@ -2392,17 +2450,17 @@ function renderGalleryItem() {
   } else if (project.type === 'video') {
     const sources = videoSourceCandidates(project);
     if (sources.length || videoChunkCandidates(project).length) {
-      media = configureInlineVideoPlayer(document.createElement('video'), project, { autoplay:false, muted:false, loop:false });
-      media.className = 'viewer-media';
-      stage.append(media);
-      bindPublishedVideoSource(media, project, () => {
+      media = createResilientVideo(project, { autoplay:false, muted:false, loop:false, controls:true, preload:'metadata', className:'viewer-media', exhausted:() => {
         media.remove();
-        finish(viewerUnavailable(project,'O vídeo está temporariamente indisponível para reprodução.'));
-      }, { timeoutMs:45000, metadataReady:false });
+        const fallback = projectVideoFallback(project);
+        fallback.classList.add('viewer-media');
+        finish(fallback);
+      }, timeoutMs:45000, metadataReady:false });
+      stage.append(media);
       const ready=()=>finish(media);
       media.addEventListener('loadeddata',ready,{once:true});
       media.addEventListener('canplay',ready,{once:true});
-    } else finish(viewerUnavailable(project,'O vídeo não possui uma fonte reproduzível.'));
+    } else { const fallback=projectVideoFallback(project); fallback.classList.add('viewer-media'); finish(fallback); }
   } else {
     const frame=driveFrame(project);
     if(frame && frame.tagName==='IFRAME'){frame.classList.add('viewer-media');frame.addEventListener('load',()=>finish(frame),{once:true});stage.append(frame);setTimeout(()=>finish(frame),2200);} else finish(viewerUnavailable(project));
@@ -2474,7 +2532,7 @@ function closeMedia() {
 }
 
 $('#projectBack')?.addEventListener('click', () => closeProjectDetail(true));
-addEventListener('popstate', () => { const section=sectionFromLocation(); const ids=new Set((DATA.filters||[]).map((item)=>String(item.id))); select(section && ids.has(String(section)) ? section : 'all', false); });
+addEventListener('popstate', () => { const section=sectionFromLocation(); const ids=new Set(publicPortfolioFilterItems().map((item)=>String(item.id))); select(section && ids.has(String(section)) ? section : 'all', false); });
 $('#close').addEventListener('click', closeMedia);
 $('#prevMedia')?.addEventListener('click', () => changeGallery(-1));
 $('#nextMedia')?.addEventListener('click', () => changeGallery(1));
@@ -2750,6 +2808,7 @@ function applyEditorPreviewPatch(payload={}){
     if(previewJson(previousBuilder.projects?.filters)!==previewJson(nextBuilder.projects?.filters))renderFilters();
     if(heroSourceSignature(previousBuilder)!==heroSourceSignature(nextBuilder)){renderHero();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
     if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServicesHome();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+    placeHomeHorizontalNavigation();
   }
   if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){loadQuoteState();ensureGlobalQuoteUI();}
   renderSideNavigation();EDITOR_PREVIEW_METRICS.patches+=1;EDITOR_PREVIEW_METRICS.lastRevision=String(payload.revision||'');
