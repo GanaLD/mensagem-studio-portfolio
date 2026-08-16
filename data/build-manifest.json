@@ -1,105 +1,101 @@
 {
-  "app_version": "7.12.6",
-  "build_id": "V7126-WEB-VIDEO-OPTIMIZATION-20260815",
-  "build_revision": "74875bb4cc938573a8f9",
-  "bundle_sha256": "74875bb4cc938573a8f9c6d18afc0534ed606ea84a11744aa4cd61cf5c35455c",
-  "editorial_revision": "7e9f9a365a18d1fbbffc",
+  "app_version": "7.12.8",
+  "build_id": "V7128-PUBLICATION-TRANSPORT-RELIABILITY-20260815",
+  "build_revision": "73bb677ad27fac1c8fb3",
+  "bundle_sha256": "73bb677ad27fac1c8fb3368e040c33bb06cd30c1d97a5dbb11550ece1d06755a",
+  "editorial_revision": "7e7901d64795312cae18",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1351728,
-      "sha256": "5c36cfe48cb528c6f101e00c6207f726f0a250d3143ee897ab122b66f11359c9"
+      "bytes": 1343424,
+      "sha256": "8a90f5c6e5b9902b0205d53a6b0092cee905bd386f897654b7c0ebd02a3daf1b"
     },
     "CNAME": {
       "bytes": 21,
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
     "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4": {
-      "bytes": 9014010,
-      "sha256": "a75b3b8fff57355f89612cb72bf5113723bb626933159b34f3383ab55b67ea8e"
-    },
-    "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4": {
-      "bytes": 11943151,
-      "sha256": "6b11e9c9931f6954a9537c390d930564a2ad7a14c73be510869afc79c777db28"
+      "bytes": 5123334,
+      "sha256": "945a049a79ade9806e6524069b275672faccd02e0a9459f7dccfdf102205fe82"
     },
     "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4": {
-      "bytes": 12009042,
-      "sha256": "c46881acf9c889485851c00c64bfb4a4ef5bda2f4499b2973b678dc88efc8182"
+      "bytes": 5031325,
+      "sha256": "bd909a921d13e0ba3bb3a942d1a0a2a8e4a46e559abdd8f65912ce76282c75dd"
     },
     "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4": {
-      "bytes": 11684725,
-      "sha256": "535a956e88ae1818a50bfd59c4ed7f0f31a100726e6f21973a91da2f4cd2837e"
+      "bytes": 4976000,
+      "sha256": "d5cf05c19bd3b25e4c8397931e0fd89539415e397632f50e446543340e3f8403"
     },
     "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4": {
-      "bytes": 3282214,
-      "sha256": "165f8db2b1e8a88cab0680cbdcc5904a138040b983dff68e5bcacf0b4fa334a0"
+      "bytes": 3249836,
+      "sha256": "5a5e2feb3da5ca29fb54ebd8f3980a94b83babb0a5b7ff30bdcefcb907989828"
     },
     "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4": {
-      "bytes": 12390385,
-      "sha256": "e8e47bca4aa85ddfe54b6e9928c8dfe1d048c73fe07c5b979e9a25f0196d650d"
+      "bytes": 5341878,
+      "sha256": "c01300459611de4e5c27ce74bb972412d580cdd5851219e64996eca5ab1fb9dd"
     },
     "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4": {
-      "bytes": 11549885,
-      "sha256": "55ee7084b72e59d28bf630eb708b65217a78ade0070242a1b8e1dcf700d1edf0"
+      "bytes": 4911358,
+      "sha256": "eceda0d44b181869bb63718ac6a64457666c802a811a2ada3f07c12c45c8ccd1"
     },
     "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4": {
-      "bytes": 12056887,
-      "sha256": "1081316b1f1f0af9d9fe8344c85409a90653417bdc33c7a124f47e7caf75d2aa"
+      "bytes": 1667100,
+      "sha256": "01cd29cc241d540822a7f900b331a58ae53b36610030e0dc68ae0adea76ed6d5"
     },
     "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4": {
-      "bytes": 10324691,
-      "sha256": "058154060ea637e9136acb9e5a02962f782f2deddf05b74306791cbe98be6cfa"
+      "bytes": 5184071,
+      "sha256": "3325e93e7e7791b89e16b1799647811537cbdd548ec5a400540912ef03870f22"
     },
     "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4": {
-      "bytes": 8636686,
-      "sha256": "ee4dd09d00d888bf35cab26e5de83747852e0d2a8b8033e3d2911da18596dce1"
+      "bytes": 4921456,
+      "sha256": "e34a07a61189855833092195b67ac64a1fb38f23fbf9df8dc05d3b844812354c"
     },
     "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4": {
-      "bytes": 3855439,
-      "sha256": "9a974556d5261ab6097e8f153ba470452176768034b6735a4d0e2fba983cd863"
+      "bytes": 3855421,
+      "sha256": "395c1689accec63705d96a09875d5b1210de451d2d37d3e4070ab7da9defc3e8"
     },
     "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4": {
-      "bytes": 11449354,
-      "sha256": "1311828d0540dc1ca2c5d86673036d2c69df2a7059048e7fd817763ecfe180f0"
+      "bytes": 4887820,
+      "sha256": "f5632890c56676f582e9c2fe4a775d9c8377948afd0413e4867eabc9d99f44ae"
     },
     "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4": {
-      "bytes": 6168463,
-      "sha256": "74ea9dcc086a97c3ab2dea830fd3e98c528b7d7369aedb004341c9160ddf520b"
+      "bytes": 4903001,
+      "sha256": "628acbc5b4b4f8a9d73b310785b129d8a90b319e2c0b9fca02da1170f3e5383c"
     },
     "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4": {
-      "bytes": 12614550,
-      "sha256": "05cbd396055cb225b33ca78a405dd07f7d1c852800704482f2d6e2dbdba3b288"
+      "bytes": 4962205,
+      "sha256": "6546f5f27ce422039a3a9570cec01609511dc32b801ed5ea5c29755b71e9ee35"
     },
     "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4": {
-      "bytes": 11689816,
-      "sha256": "997938e3f028cec868679a09597c6e61a887423f33c4d3180640aa4d318d9932"
+      "bytes": 5062706,
+      "sha256": "974b803ddf2b4b9cc4acaaa111898ee7048d8af7966daf1d65344ef61770cd86"
     },
     "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4": {
-      "bytes": 7207783,
-      "sha256": "028951ae70cc1ac105af04df84bf24be9ebd7c8c0601c599105c86dd55df2872"
+      "bytes": 3621086,
+      "sha256": "a5663db0d2f5f3583b99fe8727bb260b948a80dd8b38508489d42140fef64ec8"
     },
     "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4": {
-      "bytes": 6130832,
-      "sha256": "1540c72413e753fbe480163a3d9b1ea081184fc067da2f5e0bb6cf00f02276c9"
+      "bytes": 5138994,
+      "sha256": "3a369d576bc4526af90ae5892380b65044df4ed28afbfe8dead263529f25d011"
     },
     "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4": {
-      "bytes": 10940546,
-      "sha256": "647b684d7a1a14397aca49770f1459a811c980ab04671efbcf4782b584971588"
+      "bytes": 4956712,
+      "sha256": "278862fd8555ab389af68b5a12d7f52cda20241165bb5956675335b2d2f65949"
     },
     "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4": {
-      "bytes": 8716836,
-      "sha256": "4464a5160d802d3cd0db8eadfa4986d5038208b49357ab5aa4e7c530f1c4f2aa"
+      "bytes": 2424821,
+      "sha256": "60cddf02118744ed62ea831ff6fda9520fecde29de407a131af67b4b777726a4"
     },
     "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4": {
-      "bytes": 3056999,
-      "sha256": "5737a968fdadb62fede30a1355fafa2ec0c10e3bb2dbb0c8cad1a8b3455b4b69"
+      "bytes": 3036352,
+      "sha256": "3095ee2df5ef8575678f0074f605fb2c133f0d9202e096771dc00f3c7316e06e"
     },
     "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4": {
-      "bytes": 12945995,
-      "sha256": "79f4545b172feef76169237fea4bf9c778bdccef8305b2db18064161e27c64ae"
+      "bytes": 5530763,
+      "sha256": "fd469b91358af2d3527b15edfe7ca58bd0ba0a91cb51196e3913f85caa68f747"
     },
     "assets/posters/1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9.png": {
       "bytes": 40848,
@@ -538,12 +534,12 @@
       "sha256": "d047e15bc3c1fc94416241c2217714f360497df038498493500f419396e62cc5"
     },
     "data/portfolio.json": {
-      "bytes": 1441793,
-      "sha256": "7607deb2bbf6a70a338e72b41fc2f0ba6c0ab2514728e92eef84fa86fce8fef9"
+      "bytes": 1430500,
+      "sha256": "412b38f142be5185d883a6a6932e8404652f8586a015a6d78dcda52d981baae8"
     },
     "index.html": {
-      "bytes": 1352013,
-      "sha256": "b3f6acee53575499414ec2bb646ce39cb6831a9ade1eca89a01e4442756ce28b"
+      "bytes": 1343709,
+      "sha256": "6a327026b89f0b58f123b40351abb2a3b4234e82240d6c8c14a601505dd9514f"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8036,
@@ -903,143 +899,143 @@
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 8175,
-      "sha256": "febc0b20e05f8d154dbeb85397731f69eebcb533bf92f8ba2364c69904a76b8c"
+      "sha256": "d1a626395b5de65a9d03d7ab07b70432fb1def5e2715b07b00cb984cc0bc505b"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
       "bytes": 8315,
-      "sha256": "7139df9ec038c714f640d340eebe7c4d5a96a57efa1c254d8060c0590f0ef4c5"
+      "sha256": "b5aa7f3031c8a9b9585ca180c6787c355aa0c53f2713c0a1e6c6c7fc8849d1ca"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
       "bytes": 8223,
-      "sha256": "e3396c4ec823aab514e0f00531b4b68b6a4ced3b71c86c3c205b3d5ed88fd028"
+      "sha256": "e741df371fc27f5b685d5c6a1361d56f17322037b738c26c086e940715f1f7be"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
       "bytes": 8339,
-      "sha256": "73c35ed9335743731f0bd45fe31c807612f2872620d3072668f37a7e87336d66"
+      "sha256": "89a4e3c629b9c1e41de7509c2d02b3181b2ec7588ca2ebcb4c1681238dcb3e2a"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
       "bytes": 8199,
-      "sha256": "82a8c099fc652ac724ec3a3027c87ea3221d13032cc9781676eabee2b31e75f4"
+      "sha256": "602237b589bc9460dd870914eb9e127615001c8d1a90a465bc341f1ad555fb5f"
     },
     "servicos/composicao-complexa/index.html": {
       "bytes": 8191,
-      "sha256": "dd6c3d79cff2e661361e5bfb0af6b824314d9272a52bd5ab54ea09e90fcd7c14"
+      "sha256": "e560b1cb41d29d21fd9474d18ced2a88df77d24b215a6474b0b8e5521f0d9972"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
       "bytes": 8215,
-      "sha256": "6246b4d2063d8d92902fa5afa4d500144c0baeb68d2a97602de4532e1350abbc"
+      "sha256": "d7c58052e1d5cba74667750f1071279c6a8ad55850fd56770faeefa40868c73b"
     },
     "servicos/composicao-publicitaria/index.html": {
       "bytes": 8219,
-      "sha256": "efd7655996d9f39e2e901bd42b722cf5223a3c23f96abe98a64884642a7515b9"
+      "sha256": "d08ad6609c18fe7209c6d3e5d0d89480381e8f5ab33eacfdb27ab85d6d8e3391"
     },
     "servicos/correcao-basica/index.html": {
       "bytes": 8087,
-      "sha256": "93ab1bca7b2454b25fcd3567b3745daf955bdf66518def7f705dd32da48626c0"
+      "sha256": "6469219bcc12ff682a72dace675bd93a22855322ca793eb81297372cc385989a"
     },
     "servicos/criacao-de-personagem/index.html": {
       "bytes": 8235,
-      "sha256": "5d3a15306be76dc8872016853dec109fc2264faf43e9603f2cc6fcb5a034434f"
+      "sha256": "a31cca5d126820e4e45c7b7d4e78136bc87e8c5bb2c08f067da44bdf7fe5e75d"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
       "bytes": 8303,
-      "sha256": "997f532899c071d8953b4253dbd410e787e89d18d857842b13caba72bb5c92b3"
+      "sha256": "e017f118a9d6f3968c6b93b475a54dc8ddda70d147ab63bf42a7f832c77fdc94"
     },
     "servicos/direcao-de-arte/index.html": {
       "bytes": 8167,
-      "sha256": "297770dcc1772b2368068950bff2e342dffc0fe06ab80c72e73638bf1613e0b9"
+      "sha256": "34bd85f0020dfc68be30739e6e6ecaf7eecc5f2e333a3114eb25fd72b4c3bdb5"
     },
     "servicos/ilustracao-individual/index.html": {
       "bytes": 8167,
-      "sha256": "d683eef03eab1f501ea82ce1f652c2813627dd13ad5649658c61cda7b7a0881b"
+      "sha256": "b65226db7cea743920a3d6c2ae4bacdb21ab6b91e18c655d6bdd91256925108b"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
       "bytes": 8215,
-      "sha256": "85c8f41a7391d0f1b4bb0aaad52990ad542eb42930a5565fcb279da1ce64571f"
+      "sha256": "ebca2871b0dbb05a6bd4f040c49040e19e9c5dac5b83b7dcab9c9992aba60eaf"
     },
     "servicos/index.html": {
       "bytes": 8108,
-      "sha256": "7e683e96d045dcdfeb8a8c43bd91fb73aad49856a4e0915266632c018d167d15"
+      "sha256": "923a856f4018f791bf9f370ca4a56e70412c917db636ff96de0dfe1b33f0227a"
     },
     "servicos/key-visual-de-campanha/index.html": {
       "bytes": 8211,
-      "sha256": "143cf2225e3470e6bfed19d1c9ccaf4e3921f512ea0b35c1f3dff07cdaa55b6d"
+      "sha256": "95e751e7b06cf534d936e283555d1bfa893faebf4cfbcb14522d975a09a67327"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
       "bytes": 8243,
-      "sha256": "a7df13dd650ae1d5a33da45f81d35b678f500862518bbfeca539d6ae4e378b4e"
+      "sha256": "6e8554a6218b497b815f551dece4c277628dd97bf937da434f9849531327401f"
     },
     "servicos/manual-completo/index.html": {
       "bytes": 8195,
-      "sha256": "94fa5a37178d3d785682587dea2caf7f783b56dcebb1561d4fed3ed48d887281"
+      "sha256": "c81f7781fe3d6f64dbd51a3c771fabd3d73d42457d02c79d5c0fcac8bdaf90d6"
     },
     "servicos/manual-essencial/index.html": {
       "bytes": 8159,
-      "sha256": "161e2331a173c6a1cab7363305a54bcfbeb89f913ee07e9410b37bb660143368"
+      "sha256": "ee09e06e5ff539d15f0307d7bdf95e0aee67a233426a8e8501c01a153ece0c03"
     },
     "servicos/meia-diaria-de-producao/index.html": {
       "bytes": 8239,
-      "sha256": "917f3805e9cbe18c6000fa7965258de72e5f7fa9e0ff5d691a50337c6431e945"
+      "sha256": "72334c7210cdee2115bf088baf759fce99696a14a138d2d851057d22aa4edf29"
     },
     "servicos/montagem-simples/index.html": {
       "bytes": 8107,
-      "sha256": "c3e5d23c363ad4a245b50b534d931de8c7df509a35f9e0226a1d43ca17eed358"
+      "sha256": "5f024bf4613d7b9c9af350e64c854c9a1dba04687fcf74365af84d98406fda55"
     },
     "servicos/motion-para-redes-sociais/index.html": {
       "bytes": 8211,
-      "sha256": "12765f88aeffbfb71adeda147bc97e5d2ac2ee52d3d9cd16eb8a97d85b2e4ef9"
+      "sha256": "c57afb326fa497489963d019e62eb58c48ba6ca7566ccafcbb122dba31f6ff4e"
     },
     "servicos/packshot-animado-de-produto/index.html": {
       "bytes": 8199,
-      "sha256": "8c1f5285120dc0465c21e5cda927f7ff298a6761e71b8f206266c741236a8f13"
+      "sha256": "1d952ee55496583643416c1d108b0d2cb50ae0a2dcbd6e4a057b47062cd4d190"
     },
     "servicos/pacote-com-10-criativos/index.html": {
       "bytes": 8167,
-      "sha256": "e9e99901aba695c9be796f44f974a805b25fff2ec5da26b7e4deda7f74cb0cda"
+      "sha256": "bb67a55dfd58558a5d13e59cd30476f5aceaeb4de3ab27634451e616d85d511b"
     },
     "servicos/pacote-com-10-fotos/index.html": {
       "bytes": 8111,
-      "sha256": "5a353599548a0b3d8c8a82cbf8f67313ee64d9706ece3df775bc653c8104e671"
+      "sha256": "60fb1c291c9801e1abe52b305680c8445f24d09ccd21aaa1b2f8eefa187fe6e8"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
       "bytes": 8223,
-      "sha256": "188367daca3b2c1537f738d18dd413b13fce89b1fe23078c5fdb5b3af660bc5a"
+      "sha256": "06c5325d57e114bc378375488c1de1eaa85852e212771224ccf74a6cb4c33d42"
     },
     "servicos/pacote-com-8-reels/index.html": {
       "bytes": 8123,
-      "sha256": "6550c0eea46943beacd0bc88f25d092aadd7784a572688f5448f1a8688a31418"
+      "sha256": "00ba0b1b7054da2c4ffa392a70aef692af0d5e6641e40a3ddee2f04408a034c8"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
       "bytes": 8231,
-      "sha256": "47797a57edf1b6f8e15a718a6fb70c0ffc73945f635087626c50c2d3a5a95ffa"
+      "sha256": "0cfe825b6e4c2b83047d2b4fd689b867fb0e734207e50bc2498a04af568b2f62"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
       "bytes": 8279,
-      "sha256": "46fdd71bd9706422b9b51224c9545947d0cbbf694dfb7a82becbdc1b8142acfb"
+      "sha256": "5b2b05abb63adab49887e237a72d7e3276ea783d305d2730e902ec43fa3e9936"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
       "bytes": 8295,
-      "sha256": "5d368d95296057242fb4a2cbf21bf24d166993aeabd144d1f935a763d9267413"
+      "sha256": "a745eb166efcdfbec148e0363f0b2c741d70d39034fe97df2eb22447371dddda"
     },
     "servicos/retoque-avancado/index.html": {
       "bytes": 8107,
-      "sha256": "50e2f56b3dcbfcf5d5fb1f63d5d67998eabf8e051a76cc9b1b70675a34190cbd"
+      "sha256": "43bc46e68371ed74d228b19895aae35cb7ba9dbde428b253b84ee87efff17a9c"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
       "bytes": 8231,
-      "sha256": "8ace3513e473b023b45ec729165d5ee5a8a3171c079569133191a5317ab766be"
+      "sha256": "82d875880630feb33c702a75cdda3d9e7ef0e69cf633daff73c3c9d21490b3d9"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
       "bytes": 8203,
-      "sha256": "176249c2ae6580e482c71e545624667c3b97f2571eb11e2ca49e843b2c6abf6b"
+      "sha256": "129dae6035275ac8601bd428f1e6acde0927a0838bb4fa3dd350cde2b74f3587"
     },
     "servicos/video-de-produto/index.html": {
       "bytes": 8175,
-      "sha256": "1d8458e2d7eb5de4f855b63af0e7f961fa11b1b1e04cac47e53cee0bbf4835b8"
+      "sha256": "419525018e7c83a33f942aa0d63097b0df950e4ebc8aab6d0f6543d3475d9663"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
       "bytes": 8299,
-      "sha256": "1c0a09a19fceec2f9c4add635803b8709e6db1115a7c2132e1040a5da592df05"
+      "sha256": "ca9fbbbdc351dfca39cc4e846c183639430922dc9c9260e8403cf2090b6dd555"
     },
     "sitemap.xml": {
       "bytes": 11386,
@@ -1084,14 +1080,6 @@
         "modified_time": "2026-05-14T20:06:49.000Z",
         "path": "assets/posters/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.jpg",
         "sha256": "dda21701fe0e47f7073edc8eddac42603ed311e167b51ab2fdd9c7536836bede"
-      },
-      {
-        "bytes": 14693,
-        "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
-        "mime": "image/jpeg",
-        "modified_time": "2026-07-31T11:02:31.000Z",
-        "path": "assets/posters/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja.jpg",
-        "sha256": "91f3f1e24bb2e583459cd63abb7751ab54cfbe7223ea2ab3b9d2e2047d4e87b6"
       },
       {
         "bytes": 8288,
@@ -1156,14 +1144,6 @@
         "modified_time": "2026-05-15T16:34:46.000Z",
         "path": "assets/posters/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.jpg",
         "sha256": "a083ee476b3f6d975316bcf9c16c886cda7621646506e5e3292e846a4305d203"
-      },
-      {
-        "bytes": 13037,
-        "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
-        "mime": "image/jpeg",
-        "modified_time": "2026-06-09T17:21:19.000Z",
-        "path": "assets/posters/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG.jpg",
-        "sha256": "ac68c13ac96be24660e6cd664638dcd780200ea8ba85f60cb639ae5cb72b9435"
       },
       {
         "bytes": 9432,
@@ -1702,6 +1682,22 @@
         "sha256": "492581d5a7a2a04f0b2b3be2737588fcdb67dee826e0ad53eb3120244d0a3df7"
       },
       {
+        "bytes": 14693,
+        "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+        "mime": "image/jpeg",
+        "modified_time": "2026-07-31T11:02:31.000Z",
+        "path": "assets/posters/1D0MFKiql4UsBbUBAs7I1y4-vexgRADja.jpg",
+        "sha256": "91f3f1e24bb2e583459cd63abb7751ab54cfbe7223ea2ab3b9d2e2047d4e87b6"
+      },
+      {
+        "bytes": 13037,
+        "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+        "mime": "image/jpeg",
+        "modified_time": "2026-06-09T17:21:19.000Z",
+        "path": "assets/posters/1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG.jpg",
+        "sha256": "ac68c13ac96be24660e6cd664638dcd780200ea8ba85f60cb639ae5cb72b9435"
+      },
+      {
         "bytes": 58450,
         "id": "1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf",
         "mime": "image/png",
@@ -1915,16 +1911,20 @@
     "skipped": 0
   },
   "stats": {
-    "bytes": 206711636,
-    "files": 260,
-    "largest_file_bytes": 12945995,
+    "bytes": 97801685,
+    "files": 259,
+    "largest_file_bytes": 5530763,
     "route_shells": 123
   },
   "video_assets": {
     "budget_bytes": 335544320,
-    "bytes": 197668289,
+    "bytes": 88786239,
     "downloaded_bytes": 3584255389,
     "fallbacks": [
+      {
+        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+        "reason": "FFmpeg não conseguiu gerar derivado web: erro desconhecido"
+      },
       {
         "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
         "reason": "derivado web ainda ficou grande (17.0 MiB)"
@@ -1940,27 +1940,12 @@
     ],
     "ffmpeg": {
       "available": true,
-      "installed": true,
-      "version": "9.0.1"
+      "installed": false
     },
-    "hosted": 21,
+    "hosted": 20,
     "items": [
       {
-        "bytes": 11943151,
-        "duration": 59.033333,
-        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
-        "mime": "video/mp4",
-        "modified_time": "2026-07-03T20:17:22.000Z",
-        "optimization_profile": "web-h264-720p-abr-v7126",
-        "optimized": true,
-        "path": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
-        "sha256": "6b11e9c9931f6954a9537c390d930564a2ad7a14c73be510869afc79c777db28",
-        "source_bytes": 138658170,
-        "target_bytes": 14680064,
-        "video_kbit": 1694
-      },
-      {
-        "bytes": 6168463,
+        "bytes": 4903001,
         "duration": 17.166667,
         "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
         "mime": "video/mp4",
@@ -1968,23 +1953,27 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
-        "sha256": "74ea9dcc086a97c3ab2dea830fd3e98c528b7d7369aedb004341c9160ddf520b",
+        "sha256": "628acbc5b4b4f8a9d73b310785b129d8a90b319e2c0b9fca02da1170f3e5383c",
         "source_bytes": 41649753,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 2542
       },
       {
-        "bytes": 7207783,
+        "bytes": 3621086,
+        "duration": 7.375,
         "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
         "mime": "video/mp4",
         "modified_time": "2026-07-06T12:41:33.000Z",
-        "optimized": false,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
         "path": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
-        "sha256": "028951ae70cc1ac105af04df84bf24be9ebd7c8c0601c599105c86dd55df2872",
-        "source_bytes": 7207783
+        "sha256": "a5663db0d2f5f3583b99fe8727bb260b948a80dd8b38508489d42140fef64ec8",
+        "source_bytes": 7207783,
+        "target_bytes": 6291456,
+        "video_kbit": 3200
       },
       {
-        "bytes": 12945995,
+        "bytes": 5530763,
         "duration": 51.166667,
         "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
         "mime": "video/mp4",
@@ -1992,13 +1981,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
-        "sha256": "79f4545b172feef76169237fea4bf9c778bdccef8305b2db18064161e27c64ae",
+        "sha256": "fd469b91358af2d3527b15edfe7ca58bd0ba0a91cb51196e3913f85caa68f747",
         "source_bytes": 66408814,
-        "target_bytes": 14680064,
-        "video_kbit": 1969
+        "target_bytes": 6291456,
+        "video_kbit": 789
       },
       {
-        "bytes": 11689816,
+        "bytes": 5062706,
         "duration": 31.1,
         "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
         "mime": "video/mp4",
@@ -2006,13 +1995,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
-        "sha256": "997938e3f028cec868679a09597c6e61a887423f33c4d3180640aa4d318d9932",
+        "sha256": "974b803ddf2b4b9cc4acaaa111898ee7048d8af7966daf1d65344ef61770cd86",
         "source_bytes": 22642217,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1360
       },
       {
-        "bytes": 12390385,
+        "bytes": 5341878,
         "duration": 43.933333,
         "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
         "mime": "video/mp4",
@@ -2020,13 +2009,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
-        "sha256": "e8e47bca4aa85ddfe54b6e9928c8dfe1d048c73fe07c5b979e9a25f0196d650d",
+        "sha256": "c01300459611de4e5c27ce74bb972412d580cdd5851219e64996eca5ab1fb9dd",
         "source_bytes": 107488587,
-        "target_bytes": 14680064,
-        "video_kbit": 2309
+        "target_bytes": 6291456,
+        "video_kbit": 935
       },
       {
-        "bytes": 11549885,
+        "bytes": 4911358,
         "duration": 56.156104,
         "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
         "mime": "video/mp4",
@@ -2034,13 +2023,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
-        "sha256": "55ee7084b72e59d28bf630eb708b65217a78ade0070242a1b8e1dcf700d1edf0",
+        "sha256": "eceda0d44b181869bb63718ac6a64457666c802a811a2ada3f07c12c45c8ccd1",
         "source_bytes": 134341932,
-        "target_bytes": 14680064,
-        "video_kbit": 1786
+        "target_bytes": 6291456,
+        "video_kbit": 710
       },
       {
-        "bytes": 10324691,
+        "bytes": 5184071,
         "duration": 26.533333,
         "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
         "mime": "video/mp4",
@@ -2048,13 +2037,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
-        "sha256": "058154060ea637e9136acb9e5a02962f782f2deddf05b74306791cbe98be6cfa",
+        "sha256": "3325e93e7e7791b89e16b1799647811537cbdd548ec5a400540912ef03870f22",
         "source_bytes": 34287744,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1611
       },
       {
-        "bytes": 11449354,
+        "bytes": 4887820,
         "duration": 36.0,
         "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
         "mime": "video/mp4",
@@ -2062,13 +2051,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
-        "sha256": "1311828d0540dc1ca2c5d86673036d2c69df2a7059048e7fd817763ecfe180f0",
+        "sha256": "f5632890c56676f582e9c2fe4a775d9c8377948afd0413e4867eabc9d99f44ae",
         "source_bytes": 87377134,
-        "target_bytes": 14680064,
-        "video_kbit": 2840
+        "target_bytes": 6291456,
+        "video_kbit": 1162
       },
       {
-        "bytes": 12009042,
+        "bytes": 5031325,
         "duration": 31.966667,
         "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
         "mime": "video/mp4",
@@ -2076,13 +2065,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
-        "sha256": "c46881acf9c889485851c00c64bfb4a4ef5bda2f4499b2973b678dc88efc8182",
+        "sha256": "bd909a921d13e0ba3bb3a942d1a0a2a8e4a46e559abdd8f65912ce76282c75dd",
         "source_bytes": 41860434,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1321
       },
       {
-        "bytes": 10940546,
+        "bytes": 4956712,
         "duration": 30.433333,
         "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
         "mime": "video/mp4",
@@ -2090,13 +2079,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
-        "sha256": "647b684d7a1a14397aca49770f1459a811c980ab04671efbcf4782b584971588",
+        "sha256": "278862fd8555ab389af68b5a12d7f52cda20241165bb5956675335b2d2f65949",
         "source_bytes": 287941449,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1392
       },
       {
-        "bytes": 9014010,
+        "bytes": 5123334,
         "duration": 23.390042,
         "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
         "mime": "video/mp4",
@@ -2104,13 +2093,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
-        "sha256": "a75b3b8fff57355f89612cb72bf5113723bb626933159b34f3383ab55b67ea8e",
+        "sha256": "945a049a79ade9806e6524069b275672faccd02e0a9459f7dccfdf102205fe82",
         "source_bytes": 30422982,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1840
       },
       {
-        "bytes": 8636686,
+        "bytes": 4921456,
         "duration": 23.833333,
         "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
         "mime": "video/mp4",
@@ -2118,13 +2107,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
-        "sha256": "ee4dd09d00d888bf35cab26e5de83747852e0d2a8b8033e3d2911da18596dce1",
+        "sha256": "e34a07a61189855833092195b67ac64a1fb38f23fbf9df8dc05d3b844812354c",
         "source_bytes": 215851728,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 1804
       },
       {
-        "bytes": 11684725,
+        "bytes": 4976000,
         "duration": 39.9399,
         "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
         "mime": "video/mp4",
@@ -2132,13 +2121,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
-        "sha256": "535a956e88ae1818a50bfd59c4ed7f0f31a100726e6f21973a91da2f4cd2837e",
+        "sha256": "d5cf05c19bd3b25e4c8397931e0fd89539415e397632f50e446543340e3f8403",
         "source_bytes": 96163364,
-        "target_bytes": 14680064,
-        "video_kbit": 2550
+        "target_bytes": 6291456,
+        "video_kbit": 1038
       },
       {
-        "bytes": 6130832,
+        "bytes": 5138994,
         "duration": 16.291667,
         "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
         "mime": "video/mp4",
@@ -2146,23 +2135,27 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
-        "sha256": "1540c72413e753fbe480163a3d9b1ea081184fc067da2f5e0bb6cf00f02276c9",
+        "sha256": "3a369d576bc4526af90ae5892380b65044df4ed28afbfe8dead263529f25d011",
         "source_bytes": 20829146,
-        "target_bytes": 14680064,
-        "video_kbit": 3200
+        "target_bytes": 6291456,
+        "video_kbit": 2684
       },
       {
-        "bytes": 12056887,
+        "bytes": 1667100,
+        "duration": 6.047708,
         "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
         "mime": "video/mp4",
         "modified_time": "2026-05-15T13:33:08.000Z",
-        "optimized": false,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
         "path": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
-        "sha256": "1081316b1f1f0af9d9fe8344c85409a90653417bdc33c7a124f47e7caf75d2aa",
-        "source_bytes": 12056887
+        "sha256": "01cd29cc241d540822a7f900b331a58ae53b36610030e0dc68ae0adea76ed6d5",
+        "source_bytes": 12056887,
+        "target_bytes": 6291456,
+        "video_kbit": 3200
       },
       {
-        "bytes": 3855439,
+        "bytes": 3855421,
         "duration": 9.300958,
         "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
         "mime": "video/mp4",
@@ -2170,13 +2163,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
-        "sha256": "9a974556d5261ab6097e8f153ba470452176768034b6735a4d0e2fba983cd863",
+        "sha256": "395c1689accec63705d96a09875d5b1210de451d2d37d3e4070ab7da9defc3e8",
         "source_bytes": 18020278,
-        "target_bytes": 14680064,
+        "target_bytes": 6291456,
         "video_kbit": 3200
       },
       {
-        "bytes": 3056999,
+        "bytes": 3036352,
         "duration": 7.799458,
         "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "mime": "video/mp4",
@@ -2184,23 +2177,27 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
-        "sha256": "5737a968fdadb62fede30a1355fafa2ec0c10e3bb2dbb0c8cad1a8b3455b4b69",
+        "sha256": "3095ee2df5ef8575678f0074f605fb2c133f0d9202e096771dc00f3c7316e06e",
         "source_bytes": 14949261,
-        "target_bytes": 14680064,
+        "target_bytes": 6291456,
         "video_kbit": 3200
       },
       {
-        "bytes": 8716836,
+        "bytes": 2424821,
+        "duration": 6.5,
         "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
         "mime": "video/mp4",
         "modified_time": "2026-06-26T12:36:32.000Z",
-        "optimized": false,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
         "path": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
-        "sha256": "4464a5160d802d3cd0db8eadfa4986d5038208b49357ab5aa4e7c530f1c4f2aa",
-        "source_bytes": 8716836
+        "sha256": "60cddf02118744ed62ea831ff6fda9520fecde29de407a131af67b4b777726a4",
+        "source_bytes": 8716836,
+        "target_bytes": 6291456,
+        "video_kbit": 3200
       },
       {
-        "bytes": 3282214,
+        "bytes": 3249836,
         "duration": 9.776438,
         "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
         "mime": "video/mp4",
@@ -2208,13 +2205,13 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
-        "sha256": "165f8db2b1e8a88cab0680cbdcc5904a138040b983dff68e5bcacf0b4fa334a0",
+        "sha256": "5a5e2feb3da5ca29fb54ebd8f3980a94b83babb0a5b7ff30bdcefcb907989828",
         "source_bytes": 23724332,
-        "target_bytes": 14680064,
+        "target_bytes": 6291456,
         "video_kbit": 3200
       },
       {
-        "bytes": 12614550,
+        "bytes": 4962205,
         "duration": 60.0,
         "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
         "mime": "video/mp4",
@@ -2222,18 +2219,18 @@
         "optimization_profile": "web-h264-720p-abr-v7126",
         "optimized": true,
         "path": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
-        "sha256": "05cbd396055cb225b33ca78a405dd07f7d1c852800704482f2d6e2dbdba3b288",
+        "sha256": "6546f5f27ce422039a3a9570cec01609511dc32b801ed5ea5c29755b71e9ee35",
         "source_bytes": 295203486,
-        "target_bytes": 14680064,
-        "video_kbit": 1665
+        "target_bytes": 6291456,
+        "video_kbit": 658
       }
     ],
-    "mode": "web-optimized-same-origin-v7126",
+    "mode": "cache-first-rest-safe-video-v7128",
     "optimization_profile": "web-h264-720p-abr-v7126",
-    "optimized": 18,
-    "optimized_bytes": 169686783,
-    "preferred_target_bytes": 14680064,
+    "optimized": 20,
+    "optimized_bytes": 88786239,
+    "preferred_target_bytes": 6291456,
     "reused_bytes": 0,
-    "skipped": 3
+    "skipped": 4
   }
 }
