@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.12.11",
+    "app_version": "7.12.12",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "4bfa538d2cf88e04a20b",
-    "saved_at": "2026-08-16T18:24:05.261601+00:00"
+    "revision": "b57f83899cd32a5d1669",
+    "saved_at": "2026-08-16T19:19:46.947010+00:00"
   },
-  "app_version": "7.12.11",
+  "app_version": "7.12.12",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -389,17 +389,7 @@
       "reference_width": 2560,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [
-        {
-          "duration": 8,
-          "id": "hero-slide-msw3z05s-pdxc",
-          "intensity": 60,
-          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        }
-      ],
+      "slides": [],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
@@ -1315,12 +1305,16 @@
       "categories": [
         {
           "accent": "#0071e3",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Peças consistentes e adaptáveis para fortalecer a presença visual de marcas nas redes.",
           "featured": true,
           "id": "social-media",
           "number": "01",
           "order": 10,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -2101,17 +2095,24 @@
             }
           ],
           "short_title": "Social Media",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Artes para Redes Sociais",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#7c3aed",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Edição para redes, campanhas, podcasts, conteúdo institucional e plataformas digitais.",
           "featured": true,
           "id": "video-editing",
           "number": "02",
           "order": 20,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -3151,17 +3152,24 @@
             }
           ],
           "short_title": "Vídeo",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Edição de Vídeos",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#ff6b00",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Planejamento e captação de entrevistas, workshops, produtos, conteúdos e campanhas.",
           "featured": true,
           "id": "audiovisual-production",
           "number": "03",
           "order": 30,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -4201,17 +4209,24 @@
             }
           ],
           "short_title": "Produção",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Produção Audiovisual",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#00a896",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Animação, composição e efeitos visuais que ampliam impacto, clareza e movimento.",
           "featured": true,
           "id": "motion-vfx",
           "number": "04",
           "order": 40,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -5251,17 +5266,24 @@
             }
           ],
           "short_title": "Motion e VFX",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Motion Design e VFX",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#e5484d",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Tratamento técnico e estético para retratos, produtos, eventos e comunicação visual.",
           "featured": false,
           "id": "photo-editing",
           "number": "05",
           "order": 50,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -6042,17 +6064,24 @@
             }
           ],
           "short_title": "Fotos",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Edição de Fotos",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#d946ef",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Fotomontagens e composições publicitárias com integração de luz, textura e perspectiva.",
           "featured": false,
           "id": "image-manipulation",
           "number": "06",
           "order": 60,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -6833,17 +6862,24 @@
             }
           ],
           "short_title": "Manipulação",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Manipulação de Imagens",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#f5a524",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Sistemas de marca coerentes, reconhecíveis e preparados para aplicações reais.",
           "featured": true,
           "id": "visual-identity",
           "number": "07",
           "order": 70,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -7365,17 +7401,24 @@
             }
           ],
           "short_title": "Identidade",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Identidade Visual",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#ff3b30",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Conceitos visuais e sistemas de campanha preparados para diferentes canais e formatos.",
           "featured": true,
           "id": "campaign-art-direction",
           "number": "08",
           "order": 80,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -8156,17 +8199,24 @@
             }
           ],
           "short_title": "Campanhas",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Campanhas e Direção de Arte",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#32ade6",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Imagens e comunicação comercial para produtos, vitrines, catálogos e marketplaces.",
           "featured": true,
           "id": "products-ecommerce",
           "number": "09",
           "order": 90,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -9206,17 +9256,24 @@
             }
           ],
           "short_title": "E-commerce",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Produtos e E-commerce",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         },
         {
           "accent": "#a855f7",
+          "cover_fit": "cover",
           "cover_media_id": "",
+          "cover_position_x": 50,
+          "cover_position_y": 50,
           "description": "Ideias transformadas em personagens, cenas, roteiros e planejamento visual de produção.",
           "featured": true,
           "id": "illustration-script-storyboard",
           "number": "10",
           "order": 100,
+          "overlay_strength": 0.38,
           "services": [
             {
               "benefits": [],
@@ -10256,8 +10313,11 @@
             }
           ],
           "short_title": "Narrativa Visual",
+          "show_cover": true,
+          "text_alignment": "left",
           "title": "Ilustração, Roteiro e Storyboard",
-          "visible": true
+          "visible": true,
+          "visual_height": "large"
         }
       ],
       "cover_ratio": "portrait",
