@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.12.12",
+    "app_version": "7.12.15",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d89b3427592c12025965",
-    "saved_at": "2026-08-16T19:24:28.278980+00:00"
+    "revision": "7f33bdf2bcbe5faad75e",
+    "saved_at": "2026-08-16T23:31:02.448883+00:00"
   },
-  "app_version": "7.12.12",
+  "app_version": "7.12.15",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -360,6 +360,7 @@
             "visible": true
           }
         ],
+        "menu_schema_version": 1,
         "mobile_mode": "compact",
         "padding_x": 4,
         "sticky": true,
@@ -506,6 +507,34 @@
           "title_weight": "400",
           "type": "projects",
           "visible": true
+        },
+        {
+          "body": "",
+          "channel_cta_label": "Conheça o canal",
+          "channel_url": "",
+          "core": false,
+          "desktop_visible": true,
+          "id": "youtube-showcase-main",
+          "label": "YouTube Showcase",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "primary_cta_label": "Assistir",
+          "ratio": "16:9",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "wide",
+          "show_channel_link": false,
+          "show_external_link": true,
+          "text_align": "left",
+          "title": "",
+          "type": "youtube_showcase",
+          "video_id": "G_2jdXfXxiI",
+          "visible": true,
+          "width": "wide",
+          "youtube_cta_label": "Ver no YouTube",
+          "youtube_url": "https://www.youtube.com/watch?v=G_2jdXfXxiI",
+          "youtube_valid": true
         },
         {
           "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
