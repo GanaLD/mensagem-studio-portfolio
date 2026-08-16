@@ -525,7 +525,7 @@ function renderSiteBuilder() {
   if ($('#projectsEyebrow')) $('#projectsEyebrow').textContent = projects.eyebrow || 'Portfólio selecionado';
   if ($('#projectsTitle')) $('#projectsTitle').textContent = projects.title || 'Projetos';
   const showProjects = projects.visible !== false;
-  const filterBarMode=['menu','inline','sticky'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'menu';
+  const filterBarMode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
   document.body.dataset.filterBarMode=filterBarMode;
   $('#portfolioHeading')?.toggleAttribute('hidden', !showProjects);
   $('#filters')?.toggleAttribute('hidden', !showProjects || filterBarMode==='menu');
@@ -1095,6 +1095,15 @@ function createCustomHomeBlock(block) {
   return node;
 }
 
+function placeHomeHorizontalNavigation() {
+  const main=$('#top'), hero=$('#hero'), filters=$('#filters');
+  if(!main||!hero||!filters)return;
+  const projects=DATA.site_builder?.projects||{};
+  const mode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
+  filters.toggleAttribute('hidden', projects.visible===false||mode==='menu');
+  if(!filters.hidden) hero.insertAdjacentElement('afterend',filters);
+}
+
 function renderHomeComposition() {
   const main = $('#top');
   if (!main) return;
@@ -1123,6 +1132,7 @@ function renderHomeComposition() {
       main.append(custom);
     }
   });
+  placeHomeHorizontalNavigation();
   bindReveal();
   tick();
 }
@@ -1229,16 +1239,16 @@ function createServiceCommercialBlock(category,item,block){
   if(block.type==='service_pricing'){node.classList.add('service-commercial-pricing');node.append(serviceBlockHeading(block,{eyebrow:'Investimento',title:'Escopo comercial'}));const grid=document.createElement('div');grid.className='service-commercial-facts';grid.innerHTML=`<article><small>INVESTIMENTO</small><strong>${esc(servicePrice(item))}</strong></article>${item.unit?`<article><small>UNIDADE</small><strong>${esc(item.unit)}</strong></article>`:''}${config.show_deadlines!==false&&item.deadline?`<article><small>PRAZO</small><strong>${esc(item.deadline)}</strong></article>`:''}${config.show_revisions!==false?`<article><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></article>`:''}`;node.append(grid);return node;}
   return null;
 }
-function renderServiceDetailPage(category,item){
+function renderServiceDetailPage(category,item){$('#filters')?.setAttribute('hidden','');
   const root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='service-detail-page service-commercial-page';root.style.setProperty('--service-accent',category?.accent||'var(--accent)');document.body.dataset.page='service-detail';document.title=`${item.page_title||item.title||'Serviço'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
   const blocks=servicePageBlocks(category,item);blocks.forEach((block)=>{const node=createServiceCommercialBlock(category,item,block);if(node)root.append(node);});
   const next=visibleServiceRecords().filter(({item:other})=>other.page_enabled!==false&&String(other.id)!==String(item.id)).slice(0,3);if(next.length){const related=document.createElement('section');related.className='service-detail-related reveal';related.innerHTML='<small>OUTRAS SOLUÇÕES</small><h2>Serviços que podem complementar o projeto</h2>';const grid=document.createElement('div');next.forEach(({category:cat,item:other})=>{const a=document.createElement('a');a.href=serviceDetailHref(other);a.innerHTML=`<span>${esc(cat.short_title||cat.title||'Serviço')}</span><strong>${esc(other.title||'Serviço')}</strong><i>↗</i>`;grid.append(a);});related.append(grid);root.append(related);}bindReveal();tick();
 }
 
-function renderServicesPage(){
+function renderServicesPage(){$('#filters')?.setAttribute('hidden','');
   const config=servicesConfig(),root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.className='services-public-page';root.dataset.serviceLayout=config.layout_style||'editorial';root.dataset.catalogDensity=config.catalog_density||'comfortable';root.dataset.coverRatio=config.cover_ratio||'portrait';document.body.dataset.page='services';document.title=`${config.title||'Serviços'} | ${DATA.identity?.studio_name||'Mensagem Studio'}`;
   const categories=visibleServiceCategories(),options=categories.reduce((total,category)=>total+visibleServiceItems(category).length,0),head=document.createElement('header');head.className='services-public-head reveal';const headCopy=document.createElement('div');const eyebrow=document.createElement('small');eyebrow.textContent=config.eyebrow||'Soluções criativas';const title=document.createElement('h1');title.textContent=config.title||'Serviços profissionais';const intro=document.createElement('p');intro.textContent=config.intro||'';const actions=document.createElement('div');actions.className='services-head-actions';const useQuote=quoteEnabled()&&config.brief_visible!==false,primary=document.createElement(useQuote?'button':'a');if(useQuote){primary.type='button';primary.dataset.serviceOpenBrief='';primary.textContent=config.brief_button||'Abrir orçamento';}else{primary.href=serviceWhatsappHref(null,null);primary.target='_blank';primary.rel='noopener';primary.textContent=config.cta_label||'Solicitar orçamento';}const note=document.createElement('span');note.textContent=config.response_note||'';actions.append(primary,note);headCopy.append(eyebrow,title,intro,actions);const stats=document.createElement('dl');stats.className='services-head-stats';stats.innerHTML=`<div><dt>${categories.length}</dt><dd>áreas criativas</dd></div><div><dt>${options}</dt><dd>soluções comerciais</dd></div><div><dt>BR</dt><dd>atendimento remoto</dd></div>`;head.append(headCopy,stats);root.append(head);
-  const nav=document.createElement('nav');nav.className='services-jump-nav';visibleServiceCategories().forEach((category)=>{const a=document.createElement('a');a.href=`#service-${category.id}`;a.textContent=category.short_title||category.title;nav.append(a);});root.append(nav);
+  const nav=document.createElement('nav');nav.className='services-jump-nav horizontal-context-nav';nav.setAttribute('aria-label','Áreas de serviços');visibleServiceCategories().forEach((category)=>{const a=document.createElement('a');a.href=`#service-${category.id}`;a.textContent=category.short_title||category.title;nav.append(a);});root.append(nav);
   const process=serviceProcessSection();if(process)root.append(process);
   const grid=document.createElement('div');grid.className='services-category-stack';visibleServiceCategories().forEach((category,index)=>grid.append(serviceCategoryCard(category,index)));root.append(grid);
   if(config.price_note){const note=document.createElement('p');note.className='services-price-note';note.textContent=config.price_note;root.append(note);}
@@ -1253,7 +1263,7 @@ function renderServicesHome(){
 function publicCustomPages(){const pages=DATA.site_builder?.custom_pages||{};return Object.values(pages).filter((page)=>page&&page.visible!==false);}
 function normalizePath(value=''){return String(value||'').replace(/^https?:\/\/[^/]+/i,'').replace(/^\/+|\/+$/g,'').toLowerCase();}
 function currentCustomPage(){const path=requestedRoutePath();if(!path)return null;return publicCustomPages().find((page)=>normalizePath(page.full_path||page.slug)===path)||null;}
-function renderCustomPage(page){
+function renderCustomPage(page){$('#filters')?.setAttribute('hidden','');
   const root=$('#customPageRoot'),main=$('#top');if(!root||!main)return;['hero','introBlock','lettering','projectsBlock','about','contact'].forEach((id)=>{const node=$('#'+id);if(node)node.hidden=true;});root.hidden=false;root.replaceChildren();root.dataset.pageId=page.id||'';
   const head=document.createElement('header');head.className='custom-public-page-head reveal';if(page.eyebrow){const e=document.createElement('small');e.textContent=page.eyebrow;head.append(e);}const h=document.createElement('h1');h.textContent=page.title||'Página';head.append(h);if(page.intro){const p=document.createElement('p');p.textContent=page.intro;head.append(p);}root.append(head);
   (Array.isArray(page.sections)?page.sections:[]).forEach((block)=>{const node=createCustomHomeBlock(block);if(node){node.classList.remove('home-modular-instance');node.classList.add('custom-public-page-section');root.append(node);}});bindReveal();tick();
@@ -1412,8 +1422,21 @@ function updateSectionLocation(id, push = false) {
   history[method]({ section:id }, '', next);
 }
 
+function appendServicesNavigationLink(filters) {
+  const config = servicesConfig();
+  if (!filters || config.visible === false) return;
+  const link = document.createElement('a');
+  link.className = 'filter filter-services-link';
+  link.href = servicesHref();
+  link.textContent = config.menu_label || 'Serviços';
+  link.dataset.kind = 'services';
+  link.setAttribute('aria-label', `${link.textContent} · área comercial`);
+  filters.append(link);
+}
+
 function renderFilters() {
   const filters = $('#filters');
+  if (!filters) return;
   filters.replaceChildren();
   // V5.12.1: ``filters`` is now the canonical public tab model. Its order is
   // edited in Site Builder and is also used by the exporter to order sections
@@ -1421,13 +1444,14 @@ function renderFilters() {
   const configured = Array.isArray(DATA.filters) && DATA.filters.length ? DATA.filters : null;
   if (configured) {
     configured.forEach((item) => filters.append(filterButton(item.title || (item.id === 'all' ? 'Todos' : 'Categoria'), item.id)));
-    return;
+  } else {
+    filters.append(filterButton('Todos', 'all'));
+    const sections = Array.isArray(DATA.sections) && DATA.sections.length
+      ? DATA.sections
+      : (DATA.categories || []).filter((item) => item.kind !== 'collection');
+    sections.forEach((section) => filters.append(filterButton(section.title, section.id)));
   }
-  filters.append(filterButton('Todos', 'all'));
-  const sections = Array.isArray(DATA.sections) && DATA.sections.length
-    ? DATA.sections
-    : (DATA.categories || []).filter((item) => item.kind !== 'collection');
-  sections.forEach((section) => filters.append(filterButton(section.title, section.id)));
+  appendServicesNavigationLink(filters);
 }
 
 function filterButton(label, id) {

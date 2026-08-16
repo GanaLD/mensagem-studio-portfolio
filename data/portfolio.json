@@ -1,8 +1,8 @@
 {
   "schema_version": 16,
-  "app_version": "7.12.8",
-  "build_id": "V7128-PUBLICATION-TRANSPORT-RELIABILITY-20260815",
-  "editorial_revision": "7e7901d64795312cae18",
+  "app_version": "7.12.10",
+  "build_id": "V71210-HORIZONTAL-NAVIGATION-FLOW-20260816",
+  "editorial_revision": "406a8945e0c0fe1dd9ca",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -346,21 +346,21 @@
         "height": 72,
         "padding_x": 4,
         "background_mode": "adaptive",
-        "background_opacity": 84,
-        "blur": 18,
-        "background_color": "#070707",
+        "background_opacity": 30,
+        "blur": 25,
+        "background_color": "#00cca3",
         "text_color": "#f4f4ef",
         "hover_color": "#ffffff",
         "sticky": true,
         "border": true,
         "logo_visible": true,
         "logo_label": "MENSAGEM STUDIO",
-        "font_family": "display",
+        "font_family": "body",
         "font_size_desktop": 10,
         "font_size_mobile": 12,
-        "font_weight": "500",
+        "font_weight": "600",
         "item_gap": 22,
-        "mobile_mode": "drawer",
+        "mobile_mode": "compact",
         "menu_items": [
           {
             "id": "home",
@@ -421,7 +421,36 @@
         "whatsapp_label": "Contrate nossos serviços de design",
         "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
         "copyright": "© Mensagem Studio. Todos os direitos reservados.",
-        "socials": []
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "url": "",
+            "visible": true,
+            "order": 10
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "url": "",
+            "visible": false,
+            "order": 20
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "url": "",
+            "visible": false,
+            "order": 30
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "url": "",
+            "visible": false,
+            "order": 40
+          }
+        ]
       }
     },
     "seo": {
@@ -9465,7 +9494,7 @@
       "menu_text_size": 48,
       "floating_whatsapp_visible": true,
       "floating_whatsapp_label": "WhatsApp",
-      "floating_whatsapp_number": "",
+      "floating_whatsapp_number": "259",
       "floating_whatsapp_message": "",
       "about_visible": true,
       "contact_visible": true,
@@ -9526,7 +9555,7 @@
           "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
         ],
-        "display_mode": "menu"
+        "display_mode": "inline"
       }
     },
     "about": {
@@ -11355,22 +11384,24 @@
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "hero_autoplay": true,
           "autoplay_grid": true,
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true
         },
         {
           "id": "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5",
@@ -11906,22 +11937,25 @@
       "type": "video",
       "mime": "video/mp4",
       "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+      "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+      "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "hero_autoplay": true,
       "hidden": false,
-      "hosted_poster": true
+      "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
+      "autoplay_grid": true
     },
     {
       "id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
@@ -12104,18 +12138,18 @@
           "resource_key": "",
           "modified_time": "2026-08-05T13:08:03.000Z",
           "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-          "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-          "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+          "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
           "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "hero_autoplay": false,
           "autoplay_grid": false,
@@ -13928,18 +13962,18 @@
           "resource_key": "",
           "modified_time": "2026-08-05T13:08:03.000Z",
           "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-          "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-          "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+          "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
           "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "hero_autoplay": false,
           "autoplay_grid": false,
@@ -14069,18 +14103,18 @@
       "type": "image",
       "mime": "image/png",
       "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-      "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-      "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+      "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+      "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
       "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "preview_candidates": [
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "hero_autoplay": false,
       "hidden": false,
@@ -18684,18 +18718,18 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-      "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+      "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+      "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
       "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
         "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "preview_candidates": [
-        "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+        "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
       ],
       "hero_autoplay": true,
       "autoplay_grid": true,
@@ -18724,18 +18758,18 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -18745,7 +18779,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ],
       "hero_asset": {
@@ -18753,18 +18790,18 @@
         "title": "07.07 DIA D",
         "description": "",
         "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-        "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+        "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+        "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
         "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
           "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+          "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
         ],
         "preview_candidates": [
-          "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+          "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -18774,10 +18811,15 @@
         "hero_autoplay": true,
         "resource_key": "",
         "modified_time": "2026-07-03T20:17:22.000Z",
-        "hosted_poster": true
+        "hosted_poster": true,
+        "hosted_video": true,
+        "hosted_video_optimized": true,
+        "autoplay_grid": true
       },
       "hero_selected": false,
       "hosted_poster": true,
+      "hosted_video": true,
+      "hosted_video_optimized": true,
       "seo_route": "projetos/campanha-007-completa/07-07-dia-d"
     },
     {
@@ -22472,18 +22514,18 @@
         "CARROSSEL V HACKER"
       ],
       "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-      "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-      "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+      "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+      "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
       "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
       "thumbnail_candidates": [
         "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "preview_candidates": [
-        "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+        "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
       ],
       "hero_autoplay": false,
       "autoplay_grid": false,
@@ -22512,18 +22554,18 @@
           "title": "CARROSSEL-V-HACKER_01",
           "description": "",
           "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-          "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-          "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+          "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
           "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "mime": "image/png",
           "type": "image",
@@ -22653,18 +22695,18 @@
         "title": "CARROSSEL-V-HACKER_01",
         "description": "",
         "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-        "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-        "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+        "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+        "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
         "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
         "thumbnail_candidates": [
           "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-          "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+          "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+          "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
         ],
         "preview_candidates": [
-          "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+          "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
         ],
         "mime": "image/png",
         "type": "image",
@@ -27768,18 +27810,18 @@
           "title": "07.07 DIA D",
           "description": "",
           "thumbnail_url": "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
-          "media_url": "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview",
+          "media_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+          "preview_url": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
           "external_url": "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.jpg",
             "https://drive.google.com/thumbnail?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&sz=w1600"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68&export=download&authuser=0&confirm=t"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "preview_candidates": [
-            "https://drive.google.com/file/d/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68/preview"
+            "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -27789,7 +27831,10 @@
           "hero_autoplay": true,
           "resource_key": "",
           "modified_time": "2026-07-03T20:17:22.000Z",
-          "hosted_poster": true
+          "hosted_poster": true,
+          "hosted_video": true,
+          "hosted_video_optimized": true,
+          "autoplay_grid": true
         }
       ]
     },
@@ -29302,18 +29347,18 @@
           "title": "CARROSSEL-V-HACKER_01",
           "description": "",
           "thumbnail_url": "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-          "media_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
-          "preview_url": "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download",
+          "media_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
+          "preview_url": "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400",
           "external_url": "https://drive.google.com/file/d/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV/view?usp=drivesdk",
           "thumbnail_candidates": [
             "assets/posters/10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV.png",
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&export=download"
+            "https://drive.google.com/thumbnail?id=10Qa517CbIrKwdAhx57Pkrf-OQ9CzIRHV&sz=w2400"
           ],
           "mime": "image/png",
           "type": "image",
@@ -30701,7 +30746,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 20,
-    "duration_seconds": 8.142
+    "duration_seconds": 7.991
   },
   "publication_ready": true,
   "public_validation": {
@@ -31578,11 +31623,24 @@
     "mode": "priority-authenticated-stable-posters-v7964"
   },
   "video_assets": {
-    "hosted": 20,
-    "optimized": 20,
-    "skipped": 4,
-    "bytes": 88786239,
+    "hosted": 21,
+    "optimized": 21,
+    "skipped": 3,
+    "bytes": 93897495,
     "items": [
+      {
+        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+        "path": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+        "bytes": 5111256,
+        "mime": "video/mp4",
+        "modified_time": "2026-07-03T20:17:22.000Z",
+        "sha256": "b7ab234cd3020c0634b69d0c57c8202b0cfd7c76139c2dd22f7b156ee5347b94",
+        "optimized": true,
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "source_bytes": 0,
+        "target_bytes": 6291456,
+        "cache_hit": true
+      },
       {
         "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
         "path": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
@@ -31592,10 +31650,9 @@
         "sha256": "628acbc5b4b4f8a9d73b310785b129d8a90b319e2c0b9fca02da1170f3e5383c",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 41649753,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 2542,
-        "duration": 17.166667
+        "cache_hit": true
       },
       {
         "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
@@ -31606,10 +31663,9 @@
         "sha256": "a5663db0d2f5f3583b99fe8727bb260b948a80dd8b38508489d42140fef64ec8",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 7207783,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 7.375
+        "cache_hit": true
       },
       {
         "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
@@ -31620,10 +31676,9 @@
         "sha256": "fd469b91358af2d3527b15edfe7ca58bd0ba0a91cb51196e3913f85caa68f747",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 66408814,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 789,
-        "duration": 51.166667
+        "cache_hit": true
       },
       {
         "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
@@ -31634,10 +31689,9 @@
         "sha256": "974b803ddf2b4b9cc4acaaa111898ee7048d8af7966daf1d65344ef61770cd86",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 22642217,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1360,
-        "duration": 31.1
+        "cache_hit": true
       },
       {
         "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
@@ -31648,10 +31702,9 @@
         "sha256": "c01300459611de4e5c27ce74bb972412d580cdd5851219e64996eca5ab1fb9dd",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 107488587,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 935,
-        "duration": 43.933333
+        "cache_hit": true
       },
       {
         "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
@@ -31662,10 +31715,9 @@
         "sha256": "eceda0d44b181869bb63718ac6a64457666c802a811a2ada3f07c12c45c8ccd1",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 134341932,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 710,
-        "duration": 56.156104
+        "cache_hit": true
       },
       {
         "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
@@ -31676,10 +31728,9 @@
         "sha256": "3325e93e7e7791b89e16b1799647811537cbdd548ec5a400540912ef03870f22",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 34287744,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1611,
-        "duration": 26.533333
+        "cache_hit": true
       },
       {
         "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
@@ -31690,10 +31741,9 @@
         "sha256": "f5632890c56676f582e9c2fe4a775d9c8377948afd0413e4867eabc9d99f44ae",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 87377134,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1162,
-        "duration": 36.0
+        "cache_hit": true
       },
       {
         "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
@@ -31704,10 +31754,9 @@
         "sha256": "bd909a921d13e0ba3bb3a942d1a0a2a8e4a46e559abdd8f65912ce76282c75dd",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 41860434,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1321,
-        "duration": 31.966667
+        "cache_hit": true
       },
       {
         "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
@@ -31718,10 +31767,9 @@
         "sha256": "278862fd8555ab389af68b5a12d7f52cda20241165bb5956675335b2d2f65949",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 287941449,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1392,
-        "duration": 30.433333
+        "cache_hit": true
       },
       {
         "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
@@ -31732,10 +31780,9 @@
         "sha256": "945a049a79ade9806e6524069b275672faccd02e0a9459f7dccfdf102205fe82",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 30422982,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1840,
-        "duration": 23.390042
+        "cache_hit": true
       },
       {
         "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
@@ -31746,10 +31793,9 @@
         "sha256": "e34a07a61189855833092195b67ac64a1fb38f23fbf9df8dc05d3b844812354c",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 215851728,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1804,
-        "duration": 23.833333
+        "cache_hit": true
       },
       {
         "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
@@ -31760,10 +31806,9 @@
         "sha256": "d5cf05c19bd3b25e4c8397931e0fd89539415e397632f50e446543340e3f8403",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 96163364,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 1038,
-        "duration": 39.9399
+        "cache_hit": true
       },
       {
         "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
@@ -31774,10 +31819,9 @@
         "sha256": "3a369d576bc4526af90ae5892380b65044df4ed28afbfe8dead263529f25d011",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 20829146,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 2684,
-        "duration": 16.291667
+        "cache_hit": true
       },
       {
         "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
@@ -31788,10 +31832,9 @@
         "sha256": "01cd29cc241d540822a7f900b331a58ae53b36610030e0dc68ae0adea76ed6d5",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 12056887,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 6.047708
+        "cache_hit": true
       },
       {
         "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
@@ -31802,10 +31845,9 @@
         "sha256": "395c1689accec63705d96a09875d5b1210de451d2d37d3e4070ab7da9defc3e8",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 18020278,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 9.300958
+        "cache_hit": true
       },
       {
         "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
@@ -31816,10 +31858,9 @@
         "sha256": "3095ee2df5ef8575678f0074f605fb2c133f0d9202e096771dc00f3c7316e06e",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 14949261,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 7.799458
+        "cache_hit": true
       },
       {
         "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
@@ -31830,10 +31871,9 @@
         "sha256": "60cddf02118744ed62ea831ff6fda9520fecde29de407a131af67b4b777726a4",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 8716836,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 6.5
+        "cache_hit": true
       },
       {
         "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
@@ -31844,10 +31884,9 @@
         "sha256": "5a5e2feb3da5ca29fb54ebd8f3980a94b83babb0a5b7ff30bdcefcb907989828",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 23724332,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 3200,
-        "duration": 9.776438
+        "cache_hit": true
       },
       {
         "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
@@ -31858,17 +31897,12 @@
         "sha256": "6546f5f27ce422039a3a9570cec01609511dc32b801ed5ea5c29755b71e9ee35",
         "optimized": true,
         "optimization_profile": "web-h264-720p-abr-v7126",
-        "source_bytes": 295203486,
+        "source_bytes": 0,
         "target_bytes": 6291456,
-        "video_kbit": 658,
-        "duration": 60.0
+        "cache_hit": true
       }
     ],
     "fallbacks": [
-      {
-        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
-        "reason": "FFmpeg não conseguiu gerar derivado web: erro desconhecido"
-      },
       {
         "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
         "reason": "derivado web ainda ficou grande (17.0 MiB)"
@@ -31882,9 +31916,9 @@
         "reason": "derivado web ainda ficou grande (38.6 MiB)"
       }
     ],
-    "reused_bytes": 0,
-    "downloaded_bytes": 3584255389,
-    "optimized_bytes": 88786239,
+    "reused_bytes": 93897495,
+    "downloaded_bytes": 1878453072,
+    "optimized_bytes": 0,
     "budget_bytes": 335544320,
     "preferred_target_bytes": 6291456,
     "mode": "cache-first-rest-safe-video-v7128",
