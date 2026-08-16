@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.12.6",
+    "app_version": "7.12.8",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "7e9f9a365a18d1fbbffc",
-    "saved_at": "2026-08-15T19:29:20.966337+00:00"
+    "revision": "7e7901d64795312cae18",
+    "saved_at": "2026-08-16T12:26:35.407682+00:00"
   },
-  "app_version": "7.12.6",
+  "app_version": "7.12.8",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -293,36 +293,7 @@
         "gap": 18,
         "icon_size": 20,
         "muted_color": "#8e918f",
-        "socials": [
-          {
-            "id": "instagram",
-            "label": "Instagram",
-            "order": 10,
-            "url": "https://www.instagram.com/mensagem_studio/",
-            "visible": true
-          },
-          {
-            "id": "behance",
-            "label": "Behance",
-            "order": 20,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "linkedin",
-            "label": "LinkedIn",
-            "order": 30,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "youtube",
-            "label": "YouTube",
-            "order": 40,
-            "url": "",
-            "visible": false
-          }
-        ],
+        "socials": [],
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
@@ -406,7 +377,7 @@
       "media_id": "",
       "mobile_fit": "cover",
       "mobile_format": "portrait45",
-      "mobile_media_id": "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+      "mobile_media_id": "",
       "mobile_position_x": 50,
       "mobile_position_y": 50,
       "mobile_reference_height": 1350,
@@ -418,62 +389,7 @@
       "reference_width": 2560,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [
-        {
-          "duration": 6,
-          "id": "hero-slide-msqkbwo4-q8hf",
-          "intensity": 60,
-          "media_id": "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        },
-        {
-          "duration": 6,
-          "id": "hero-slide-msqkcbsm-aes7",
-          "intensity": 60,
-          "media_id": "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        },
-        {
-          "duration": 6,
-          "id": "hero-slide-msqkcfjp-kje7",
-          "intensity": 60,
-          "media_id": "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        },
-        {
-          "duration": 8,
-          "id": "hero-slide-msqkcmqh-qeo5",
-          "intensity": 60,
-          "media_id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        },
-        {
-          "duration": 8,
-          "id": "hero-slide-msqkcz6e-gyra",
-          "intensity": 60,
-          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        },
-        {
-          "duration": 8,
-          "id": "hero-slide-msqkd1pn-qjxs",
-          "intensity": 60,
-          "media_id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
-          "mobile_media_id": "",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        }
-      ],
+      "slides": [],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
