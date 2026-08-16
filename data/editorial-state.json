@@ -3,8 +3,8 @@
     "app_version": "7.12.8",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "bac29486eb15002043f9",
-    "saved_at": "2026-08-16T12:43:22.512817+00:00"
+    "revision": "1b25bcb3b13008a33ae1",
+    "saved_at": "2026-08-16T12:43:30.943083+00:00"
   },
   "app_version": "7.12.8",
   "collections": {},
@@ -360,7 +360,7 @@
             "visible": true
           }
         ],
-        "mobile_mode": "drawer",
+        "mobile_mode": "compact",
         "padding_x": 4,
         "sticky": true,
         "text_color": "#f4f4ef"
