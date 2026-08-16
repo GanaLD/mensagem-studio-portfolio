@@ -3,8 +3,8 @@
     "app_version": "7.12.10",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "35dd9d199eb7ff914b1a",
-    "saved_at": "2026-08-16T15:00:06.714704+00:00"
+    "revision": "483438fb7ad07d677c22",
+    "saved_at": "2026-08-16T15:00:20.095176+00:00"
   },
   "app_version": "7.12.10",
   "collections": {},
@@ -612,7 +612,7 @@
       "show_home_sections": true,
       "show_services_link": true,
       "show_top_link": true,
-      "side_menu_enabled": true,
+      "side_menu_enabled": false,
       "top_label": "Ir para o topo"
     },
     "projects": {
