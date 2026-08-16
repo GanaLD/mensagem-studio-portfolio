@@ -3,8 +3,8 @@
     "app_version": "7.12.12",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b57f83899cd32a5d1669",
-    "saved_at": "2026-08-16T19:20:18.584599+00:00"
+    "revision": "fceba44dffdc72d86c83",
+    "saved_at": "2026-08-16T19:20:26.058030+00:00"
   },
   "app_version": "7.12.12",
   "collections": {},
@@ -325,22 +325,22 @@
             "order": 10,
             "parent_id": "",
             "target": "/",
+            "visible": false
+          },
+          {
+            "id": "projects",
+            "label": "Projetos",
+            "order": 20,
+            "parent_id": "",
+            "target": "/#projectsBlock",
             "visible": true
           },
           {
             "id": "services",
             "label": "Serviços",
-            "order": 20,
-            "parent_id": "",
-            "target": "/servicos/",
-            "visible": true
-          },
-          {
-            "id": "projects",
-            "label": "Projetos",
             "order": 30,
             "parent_id": "",
-            "target": "/#projectsBlock",
+            "target": "/servicos/",
             "visible": true
           },
           {
