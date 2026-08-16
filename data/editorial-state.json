@@ -3,8 +3,8 @@
     "app_version": "7.12.11",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d5d74accf3887c37c52d",
-    "saved_at": "2026-08-16T17:59:08.154061+00:00"
+    "revision": "ba50d8b5f9fa0072332c",
+    "saved_at": "2026-08-16T17:59:16.324342+00:00"
   },
   "app_version": "7.12.11",
   "collections": {},
@@ -1118,7 +1118,7 @@
                 "description": "",
                 "id": "section-item-msrlkdr2-o9g",
                 "media_id": "",
-                "project_id": "media:1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+                "project_id": "",
                 "title": ""
               },
               {
@@ -1126,7 +1126,7 @@
                 "description": "",
                 "id": "section-item-msrlk674-0is",
                 "media_id": "",
-                "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+                "project_id": "",
                 "title": ""
               },
               {
@@ -1134,7 +1134,7 @@
                 "description": "",
                 "id": "section-item-msrlk8gu-5ic",
                 "media_id": "",
-                "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+                "project_id": "",
                 "title": ""
               },
               {
@@ -1142,7 +1142,7 @@
                 "description": "",
                 "id": "section-item-msrlkf9i-pjt",
                 "media_id": "",
-                "project_id": "media:1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF",
+                "project_id": "",
                 "title": ""
               }
             ],
