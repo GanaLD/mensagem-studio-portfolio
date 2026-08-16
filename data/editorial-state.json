@@ -3,8 +3,8 @@
     "app_version": "7.12.8",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "1b25bcb3b13008a33ae1",
-    "saved_at": "2026-08-16T12:43:30.943083+00:00"
+    "revision": "3dd2d301584a7055c161",
+    "saved_at": "2026-08-16T12:43:39.222424+00:00"
   },
   "app_version": "7.12.8",
   "collections": {},
@@ -309,10 +309,10 @@
         "background_opacity": 30,
         "blur": 25,
         "border": true,
-        "font_family": "display",
+        "font_family": "body",
         "font_size_desktop": 10,
         "font_size_mobile": 12,
-        "font_weight": "500",
+        "font_weight": "600",
         "height": 72,
         "hover_color": "#ffffff",
         "item_gap": 22,
