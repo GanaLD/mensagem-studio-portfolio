@@ -1,17 +1,17 @@
 {
-  "app_version": "7.12.12",
-  "build_id": "V71212-COMMERCIAL-SERVICES-VISUAL-BUILDER-20260816",
-  "build_revision": "f465a9eae2c138117afd",
-  "bundle_sha256": "f465a9eae2c138117afdc8bbbb491d5e8934ebf9282eedc6f6c7b51277b9d5a9",
-  "editorial_revision": "d89b3427592c12025965",
+  "app_version": "7.12.15",
+  "build_id": "V71215-YOUTUBE-SHOWCASE-WIDGET-20260816",
+  "build_revision": "6acd1e6f336f9a538563",
+  "bundle_sha256": "6acd1e6f336f9a53856363707233ed0382eef5141f92b9525f96746607de4ac2",
+  "editorial_revision": "55809ad59588fcea34fb",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1500122,
-      "sha256": "ba087dc054db1034a12a51344970d5181074b4d6691bd4a9df337ff8dbd9989e"
+      "bytes": 1519890,
+      "sha256": "f86ddf294aa67d1d309a6f19e670618fc0bf75357c469fc57a1843863718da53"
     },
     "CNAME": {
       "bytes": 21,
@@ -446,20 +446,20 @@
       "sha256": "f0d25210906bfc00f4ca587f83b5c4048e0e22a9b78cf7733f258e8aa13633ab"
     },
     "assets/site.css": {
-      "bytes": 157344,
-      "sha256": "5cd07b47ca9597a3324ce861482d6720d2639532de4ce34c73ce425c45bce706"
+      "bytes": 168105,
+      "sha256": "631aee4c0e544bd2cc5bbf5a2294bc71baabfa26f14b2c26e374bfb1557de579"
     },
     "assets/site.js": {
-      "bytes": 218847,
-      "sha256": "7e219a906cfcc558fcc61cd51c825b9c94b82b4d485d766e551ad374b3b8f463"
+      "bytes": 223346,
+      "sha256": "c4a036f0e61a9f8a548e57580bd43f631e7be45db35dcafd418170ad2fce48ff"
     },
     "data/portfolio.json": {
-      "bytes": 1590985,
-      "sha256": "ee83dc7bd5d4e67e77ecc59e58c140099097dd2b9e6927b844c10985d816be78"
+      "bytes": 1598627,
+      "sha256": "8e79aa667c6eabb5c5bd6f894c5d5a068b6b89295b3b5efe972b3a15b4708f56"
     },
     "index.html": {
-      "bytes": 1500407,
-      "sha256": "aad0027b61628c0fec6b756d4315bfac04e3c2b36493cd7479ae0dffd60f19e2"
+      "bytes": 1520175,
+      "sha256": "32a11683bca1ace37c53d0d29eab1d4b93c6d54abf4e669ac2061609090d97ab"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8036,
@@ -1831,9 +1831,9 @@
     "skipped": 0
   },
   "stats": {
-    "bytes": 9504366,
+    "bytes": 9566804,
     "files": 239,
-    "largest_file_bytes": 1590985,
+    "largest_file_bytes": 1598627,
     "route_shells": 123
   },
   "video_assets": {

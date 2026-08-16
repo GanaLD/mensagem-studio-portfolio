@@ -334,26 +334,34 @@ function hexToRgbTuple(value, fallback = '7,7,7') {
   return `${parseInt(hex.slice(0,2),16)},${parseInt(hex.slice(2,4),16)},${parseInt(hex.slice(4,6),16)}`;
 }
 
+function publicMenuItems(surface='side') {
+  const projected=DATA.site_builder?.public_menu?.items;
+  const legacy=DATA.site_builder?.global?.header?.menu_items;
+  const source=Array.isArray(projected)?projected:(Array.isArray(legacy)?legacy:[]);
+  return source.filter((item)=>{
+    if(!item||item.visible===false)return false;
+    const surfaces=Array.isArray(item.surfaces)?item.surfaces:['header','side'];
+    return surfaces.includes(surface);
+  }).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));
+}
+
 function applyGlobalHeader(builder, navigation, identity) {
   const header = builder.global?.header || {};
   const headerNode = $('#header');
   if (!headerNode) return;
-  const items = Array.isArray(header.menu_items) && header.menu_items.length ? header.menu_items.slice() : [
-    {id:'projects',label:navigation.projects_label || 'Projetos',visible:navigation.projects_visible !== false,order:10},
-    {id:'about',label:navigation.about_label || 'Sobre',visible:navigation.about_visible !== false,order:20},
-    {id:'contact',label:navigation.contact_label || 'Contato',visible:navigation.contact_visible !== false,order:30},
-  ];
+  const items = publicMenuItems('header');
   const nodeById = { projects:$('#menu'), about:$('#navAbout'), contact:$('#navContact') };
   const topnav = $('#topnav');
   topnav?.querySelectorAll('[data-dynamic-menu-item]').forEach((node)=>node.remove());
-  const sorted=items.slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));
+  Object.values(nodeById).forEach((node)=>{if(node)node.hidden=true;});
+  const sorted=items.slice();
   const childMap=new Map(); sorted.forEach((item)=>{if(item.parent_id){if(!childMap.has(item.parent_id))childMap.set(item.parent_id,[]);childMap.get(item.parent_id).push(item);}});
   sorted.filter((item)=>!item.parent_id).forEach((item)=>{
     const children=(childMap.get(item.id)||[]).filter((child)=>child.visible!==false);
     if(children.length && item.target){
       const wrapper=document.createElement('div');wrapper.className='topnav-dropdown';wrapper.dataset.dynamicMenuItem=item.id;const parent=document.createElement('a');parent.href=publicRouteHref(item.target);parent.textContent=item.label||'Página';parent.className='topnav-dropdown-parent';const submenu=document.createElement('div');submenu.className='topnav-submenu';children.forEach((child)=>{const a=document.createElement('a');a.href=publicRouteHref(child.target||'#');a.textContent=child.label||'Página';submenu.append(a);});wrapper.append(parent,submenu);wrapper.hidden=item.visible===false;topnav?.append(wrapper);return;
     }
-    let node = nodeById[item.id]; if(!node&&item.target){node=document.createElement('a');node.dataset.dynamicMenuItem=item.id;node.href=publicRouteHref(item.target);nodeById[item.id]=node;} if(!node)return;node.textContent=item.label||node.textContent;node.hidden=item.visible===false;if(node.tagName==='A'&&item.target)node.href=publicRouteHref(item.target);topnav?.append(node);
+    let node = nodeById[item.id]; if(!node&&item.target){node=document.createElement('a');node.dataset.dynamicMenuItem=item.id;node.href=publicRouteHref(item.target);nodeById[item.id]=node;} if(!node)return;node.textContent=item.label||node.textContent;node.hidden=false;if(node.tagName==='A'&&item.target)node.href=publicRouteHref(item.target);topnav?.append(node);
   });
   const height = Math.max(48, Math.min(160, Number(header.height || 72)));
   const pad = Math.max(1, Math.min(12, Number(header.padding_x || 4)));
@@ -511,9 +519,6 @@ function renderSiteBuilder() {
   if ($('#letteringText')) $('#letteringText').textContent = letteringText;
   if ($('#letteringClone')) $('#letteringClone').textContent = letteringText;
 
-  if ($('#menu')) $('#menu').textContent = navigation.projects_label || 'Projetos';
-  if ($('#navAbout')) $('#navAbout').textContent = navigation.about_label || 'Sobre';
-  if ($('#navContact')) $('#navContact').textContent = navigation.contact_label || 'Contato';
   if ($('#siteMenuLabel')) $('#siteMenuLabel').textContent = navigation.menu_label || 'Menu';
   if ($('#sideMenuTitle')) $('#sideMenuTitle').textContent = navigation.menu_title || 'Navegação';
   if ($('#sideMenuStudio')) $('#sideMenuStudio').textContent = identity.studio_name || 'Mensagem Studio';
@@ -541,19 +546,16 @@ function renderSiteBuilder() {
   $('#portfolioHeading')?.toggleAttribute('hidden', !showProjects);
   $('#filters')?.toggleAttribute('hidden', !showProjects || filterBarMode==='menu');
   $('#projects')?.toggleAttribute('hidden', !showProjects);
-  $('#menu')?.toggleAttribute('hidden', !showProjects || navigation.projects_visible === false);
 
   if ($('#aboutEyebrow')) $('#aboutEyebrow').textContent = about.eyebrow || 'Mensagem Studio';
   if ($('#aboutTitle')) $('#aboutTitle').textContent = about.title || '';
   if ($('#aboutBody')) $('#aboutBody').textContent = about.body || '';
   $('#about')?.toggleAttribute('hidden', about.visible === false);
-  $('#navAbout')?.toggleAttribute('hidden', about.visible === false || navigation.about_visible === false);
 
   if ($('#contactEyebrow')) $('#contactEyebrow').textContent = contact.eyebrow || 'Contato';
   if ($('#contactTitle')) $('#contactTitle').textContent = contact.title || '';
   if ($('#contactBody')) $('#contactBody').textContent = contact.body || '';
   $('#contact')?.toggleAttribute('hidden', contact.visible === false);
-  $('#navContact')?.toggleAttribute('hidden', contact.visible === false || navigation.contact_visible === false);
 
   const contactSite = $('#contactSite');
   const contactInstagram = $('#contactInstagram');
@@ -572,6 +574,7 @@ function publicHomeBlocks() {
     { id:'core-intro', type:'intro', visible:true, core:true, section_size:'normal', section_width:'full' },
     { id:'core-lettering', type:'lettering', visible:true, core:true, section_size:'normal', section_width:'full' },
     { id:'core-projects', type:'projects', visible:true, core:true, section_size:'normal', section_width:'full', grid_columns:'3' },
+    { id:'youtube-showcase-main', type:'youtube_showcase', label:'YouTube Showcase', visible:true, youtube_url:'https://www.youtube.com/watch?v=G_2jdXfXxiI', title:'', body:'', primary_cta_label:'Assistir', youtube_cta_label:'Ver no YouTube', channel_url:'', channel_cta_label:'Conheça o canal', show_external_link:true, show_channel_link:false, ratio:'16:9', width:'wide', section_size:'normal', section_width:'wide', section_background:'none' },
     { id:'core-about', type:'about', visible:true, core:true, section_size:'normal', section_width:'full' },
     { id:'core-contact', type:'contact', visible:true, core:true, section_size:'normal', section_width:'full' },
   ];
@@ -963,6 +966,79 @@ function createEditorialBlocksBlock(block) {
   const grid=document.createElement('div');grid.className='editorial-project-grid';projects.forEach((project,index)=>{const node=card(project,index);node.classList.add('editorial-project-card');grid.append(node)});section.append(grid);return section;
 }
 
+function normalizeYouTubeVideoId(value='') {
+  const raw=String(value||'').trim();
+  if (/^[A-Za-z0-9_-]{11}$/.test(raw)) return raw;
+  let url;
+  try { url=new URL(raw); } catch (_error) { return ''; }
+  const host=String(url.hostname||'').toLowerCase().replace(/^www\./,'').replace(/^m\./,'');
+  let id='';
+  if (host==='youtu.be') id=String(url.pathname||'').split('/').filter(Boolean)[0]||'';
+  else if (host==='youtube.com'||host.endsWith('.youtube.com')||host==='youtube-nocookie.com'||host.endsWith('.youtube-nocookie.com')) {
+    if (url.pathname==='/watch') id=url.searchParams.get('v')||'';
+    else {
+      const parts=String(url.pathname||'').split('/').filter(Boolean);
+      if (['embed','shorts','live'].includes(parts[0])) id=parts[1]||'';
+    }
+  }
+  return /^[A-Za-z0-9_-]{11}$/.test(id)?id:'';
+}
+
+function safeYouTubeChannelUrl(value='') {
+  const raw=String(value||'').trim(); if(!raw)return '';
+  try {
+    const url=new URL(raw); const host=String(url.hostname||'').toLowerCase().replace(/^www\./,'').replace(/^m\./,'');
+    if(host==='youtube.com'||host.endsWith('.youtube.com')) return url.href;
+  } catch (_error) {}
+  return '';
+}
+
+function createYouTubeShowcaseBlock(block) {
+  const videoId=normalizeYouTubeVideoId(block.youtube_url||block.video_id||'');
+  if(!videoId)return null;
+  const section=document.createElement('section');
+  section.className=`modular-block editorial-section block-youtube-showcase width-${['normal','full','wide'].includes(block.width)?block.width:'wide'} reveal`;
+  section.dataset.youtubeVideoId=videoId;
+  if(block.title||block.eyebrow||block.body)section.append(blockHeading(block,block.title||''));
+
+  const stage=document.createElement('div'); stage.className=`youtube-showcase-stage ratio-${String(block.ratio||'16:9').replace(':','x')}`;
+  const thumbnail=document.createElement('img'); thumbnail.className='youtube-showcase-thumbnail'; thumbnail.loading='lazy'; thumbnail.decoding='async'; thumbnail.alt=block.title?`Prévia do vídeo ${block.title}`:'Prévia do vídeo no YouTube';
+  const thumbnailCandidates=[
+    `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+    `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`,
+    `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+  ];
+  let thumbnailCandidateIndex=0;
+  const advanceThumbnail=()=>{if(thumbnailCandidateIndex>=thumbnailCandidates.length-1)return false;thumbnailCandidateIndex+=1;thumbnail.src=thumbnailCandidates[thumbnailCandidateIndex];return true;};
+  thumbnail.src=thumbnailCandidates[thumbnailCandidateIndex];
+  thumbnail.addEventListener('error',advanceThumbnail);
+  thumbnail.addEventListener('load',()=>{if(thumbnail.naturalWidth&&thumbnail.naturalWidth<640)advanceThumbnail();});
+
+  const shade=document.createElement('span'); shade.className='youtube-showcase-shade'; shade.setAttribute('aria-hidden','true');
+  const play=document.createElement('button'); play.type='button'; play.className='youtube-showcase-play'; play.setAttribute('aria-label',block.primary_cta_label||'Assistir vídeo no YouTube');
+  const playIcon=document.createElement('span'); playIcon.className='youtube-showcase-play-icon'; playIcon.textContent='▶'; playIcon.setAttribute('aria-hidden','true');
+  const playLabel=document.createElement('strong'); playLabel.textContent=block.primary_cta_label||'Assistir'; play.append(playIcon,playLabel);
+  stage.append(thumbnail,shade,play);
+
+  const loadPlayer=()=>{
+    if(stage.dataset.playerLoaded==='1')return;
+    stage.dataset.playerLoaded='1';
+    const iframe=document.createElement('iframe'); iframe.className='youtube-showcase-player'; iframe.loading='lazy'; iframe.title=block.title||'Vídeo do YouTube'; iframe.allow='autoplay; encrypted-media; picture-in-picture; web-share'; iframe.allowFullscreen=true; iframe.referrerPolicy='strict-origin-when-cross-origin'; iframe.src=`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    const fallback=document.createElement('a'); fallback.className='youtube-showcase-fallback'; fallback.href=`https://www.youtube.com/watch?v=${videoId}`; fallback.target='_blank'; fallback.rel='noopener noreferrer'; fallback.textContent=block.youtube_cta_label||'Assistir no YouTube';
+    stage.replaceChildren(iframe,fallback);
+    requestAnimationFrame(()=>{try{iframe.focus({preventScroll:true});}catch(_error){iframe.focus();}});
+  };
+  play.addEventListener('click',loadPlayer);
+  section.append(stage);
+
+  const actions=[];
+  if(block.show_external_link!==false){const link=document.createElement('a');link.href=`https://www.youtube.com/watch?v=${videoId}`;link.target='_blank';link.rel='noopener noreferrer';link.textContent=block.youtube_cta_label||'Ver no YouTube';actions.push(link);}
+  const channelUrl=safeYouTubeChannelUrl(block.channel_url||'');
+  if(block.show_channel_link===true&&channelUrl){const link=document.createElement('a');link.href=channelUrl;link.target='_blank';link.rel='noopener noreferrer';link.textContent=block.channel_cta_label||'Conheça o canal';actions.push(link);}
+  if(actions.length){const bar=document.createElement('div');bar.className='youtube-showcase-actions';actions.forEach((link)=>bar.append(link));section.append(bar);}
+  return section;
+}
+
 function createHomeVideoBlock(block) {
   const media=publicMediaById(block.media_id||''); if(!media||media.type!=='video')return null;
   const section=document.createElement('section');section.className=`modular-block editorial-section block-home-video width-${block.width||'full'} scroll-${block.scroll_behavior||'parallax'} effect-${block.section_effect||'reveal'} reveal`;
@@ -1087,6 +1163,7 @@ function createCustomHomeBlock(block) {
   if (block.type === 'editorial_carousel') node = createEditorialCarouselBlock(block);
   if (block.type === 'editorial_blocks') node = createEditorialBlocksBlock(block);
   if (block.type === 'home_video') node = createHomeVideoBlock(block);
+  if (block.type === 'youtube_showcase') node = createYouTubeShowcaseBlock(block);
   if (block.type === 'highlights') node = createHighlightsBlock(block);
   if (block.type === 'showcase') node = createShowcaseBlock(block);
   if (block.type === 'split') node = createSplitBlock(block);
@@ -1231,7 +1308,7 @@ function ensureQuoteUiIfMissing(){if(quoteEnabled()&&!$('#globalQuotePanel'))ens
 function renderGlobalQuotePanel(){const list=$('#globalQuoteItems'),summaryNode=$('#globalQuoteSummary');const config=servicesConfig(),records=quoteResolvedItems();if(list){if(!records.length)list.innerHTML='<div class="global-quote-empty"><strong>Seu orçamento está vazio.</strong><span>Adicione serviços e continue navegando pelo site.</span></div>';else list.innerHTML=records.map(({category,item,line,package:pkg,reference})=>{const packages=Array.isArray(item.packages)?item.packages:[];const packageSelect=packages.length?`<label>Pacote/opção<select data-quote-package="${esc(line.id)}"><option value="">Padrão do serviço</option>${packages.map((row)=>`<option value="${esc(row.id)}" ${String(row.id)===String(line.package_id)?'selected':''}>${esc(row.label)} · ${esc(quoteLinePriceLabel(row,null,1))}</option>`).join('')}</select></label>`:'';const ref=reference?`<span class="quote-reference">Referência: ${esc(reference.title||'Projeto do portfólio')}</span>`:'';const price=config.quote_show_estimate!==false?`<strong data-quote-line-price="${esc(line.id)}">${esc(quoteLinePriceLabel(item,pkg,line.quantity))}</strong>`:'';const deadline=String(pkg?.deadline||item.deadline||''),revisions=pkg?.revisions==null?Number(item.revisions||0):Number(pkg.revisions||0),meta=[config.quote_show_deadline!==false&&deadline?deadline:'',config.quote_show_revisions!==false?`${revisions} ${revisions===1?'revisão':'revisões'}`:''].filter(Boolean).join(' · ');return `<article class="global-quote-item" data-quote-line="${esc(line.id)}"><div class="quote-item-head"><div><small>${esc(category.short_title||category.title)}</small><h3>${esc(item.title)}</h3>${ref}</div>${price}<button type="button" data-quote-remove="${esc(line.id)}" aria-label="Remover">×</button></div>${meta?`<p class="quote-item-meta">${esc(meta)}</p>`:''}<div class="quote-item-controls">${packageSelect}<label>Quantidade<input type="number" min="1" max="99" value="${Math.max(1,Number(line.quantity)||1)}" data-quote-quantity="${esc(line.id)}"></label><label class="wide">Observação<textarea rows="2" data-quote-note="${esc(line.id)}" placeholder="Detalhes específicos deste item">${esc(line.note||'')}</textarea></label></div></article>`;}).join('');}if(summaryNode){const summary=quoteSummary();summaryNode.hidden=config.quote_show_estimate===false||!records.length;summaryNode.innerHTML=summaryNode.hidden?'':`<small>ESTIMATIVA</small><strong>${esc(summary.label)}</strong><span>Valor final depende da confirmação do escopo.</span>`;}const lead=QUOTE_STATE.lead||{};[['quoteLeadName','name'],['quoteLeadCompany','company'],['quoteLeadTimeline','timeline'],['quoteLeadDetails','details']].forEach(([id,field])=>{const node=document.getElementById(id);if(node&&document.activeElement!==node)node.value=lead[field]||'';});const dock=$('#globalQuoteDock');if(dock){dock.hidden=!quoteEnabled();const count=QUOTE_STATE.items.reduce((total,line)=>total+Math.max(1,Number(line.quantity)||1),0);dock.querySelector('[data-quote-count]').textContent=String(count);dock.classList.toggle('has-items',count>0);}document.querySelectorAll('[data-service-select]').forEach((button)=>{const record=serviceSelectionRecord(button.dataset.serviceSelect);const selected=record&&QUOTE_STATE.items.some((line)=>String(line.service_id)===String(record.item.id));button.classList.toggle('selected',Boolean(selected));button.textContent=selected?'Adicionado ✓':(config.quote_item_action_label||'Adicionar ao orçamento');});document.querySelectorAll('[data-quote-inline-count]').forEach((node)=>{const count=QUOTE_STATE.items.length;node.textContent=`${count} ${count===1?'serviço no orçamento':'serviços no orçamento'}`;});}
 function refreshQuoteComputedUi(lineId=''){const config=servicesConfig(),records=quoteResolvedItems();if(lineId&&config.quote_show_estimate!==false){const resolved=records.find(({line})=>String(line.id)===String(lineId)),priceNode=document.querySelector(`[data-quote-line-price="${CSS.escape(String(lineId))}"]`);if(resolved&&priceNode)priceNode.textContent=quoteLinePriceLabel(resolved.item,resolved.package,resolved.line.quantity);}const summaryNode=$('#globalQuoteSummary');if(summaryNode){const summary=quoteSummary();summaryNode.hidden=config.quote_show_estimate===false||!records.length;summaryNode.innerHTML=summaryNode.hidden?'':`<small>ESTIMATIVA</small><strong>${esc(summary.label)}</strong><span>Valor final depende da confirmação do escopo.</span>`;}const dock=$('#globalQuoteDock');if(dock){const count=QUOTE_STATE.items.reduce((total,line)=>total+Math.max(1,Number(line.quantity)||1),0);dock.querySelector('[data-quote-count]').textContent=String(count);dock.classList.toggle('has-items',count>0);}document.querySelectorAll('[data-quote-inline-count]').forEach((node)=>{const count=QUOTE_STATE.items.length;node.textContent=`${count} ${count===1?'serviço no orçamento':'serviços no orçamento'}`;});}
 function updateServiceQuoteUI(){ensureQuoteUiIfMissing();renderGlobalQuotePanel();}
-function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false||config.quote_enabled===false)return null;const section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2>${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form services-quote-integrated"><strong data-quote-inline-count>0 serviços no orçamento</strong><p>As escolhas ficam salvas neste navegador enquanto você visita serviços, cases e outras páginas.</p><button class="service-quote-send" type="button" data-quote-open>${esc(config.brief_button||config.quote_title||'Abrir orçamento')}</button><small>Nenhum dado é enviado antes de você finalizar pelo WhatsApp.</small></div>`;return section;}
+function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false||config.quote_enabled===false)return null;const section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.dataset.budgetLayout='split';section.setAttribute('aria-labelledby','serviceBriefTitle');section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2 id="serviceBriefTitle">${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form services-quote-integrated"><strong data-quote-inline-count>0 serviços no orçamento</strong><p>As escolhas ficam salvas neste navegador enquanto você visita serviços, cases e outras páginas.</p><button class="service-quote-send" type="button" data-quote-open>${esc(config.brief_button||config.quote_title||'Abrir orçamento')}</button><small>Nenhum dado é enviado antes de você finalizar pelo WhatsApp.</small></div>`;return section;}
 function bindQuoteEvents(){if(QUOTE_EVENTS_BOUND)return;QUOTE_EVENTS_BOUND=true;document.addEventListener('click',(event)=>{const select=event.target.closest('[data-service-select]');if(select){const record=serviceSelectionRecord(select.dataset.serviceSelect);if(record)addQuoteItem(record.item.id,{open:false});return;}const add=event.target.closest('[data-quote-add-service]');if(add){addQuoteItem(add.dataset.quoteAddService,{packageId:add.dataset.quotePackageId||'',open:true});return;}const similar=event.target.closest('[data-quote-similar]');if(similar){addQuoteItem(similar.dataset.quoteSimilar,{referenceProjectId:similar.dataset.quoteProjectId||'',open:true});return;}if(event.target.closest('[data-quote-open],[data-service-open-brief]')){openQuotePanel();return;}if(event.target.closest('[data-quote-close]')){closeQuotePanel();return;}const remove=event.target.closest('[data-quote-remove]');if(remove){removeQuoteItem(remove.dataset.quoteRemove);return;}if(event.target.closest('[data-quote-clear]')){clearQuote();return;}if(event.target.closest('[data-quote-send]')){if(!QUOTE_STATE.items.length){openQuotePanel();return;}quoteLeadFromDom();saveQuoteState();window.open(quoteWhatsappHref(),'_blank','noopener');return;}});document.addEventListener('input',(event)=>{const lineId=event.target.dataset?.quoteQuantity||event.target.dataset?.quoteNote||'';if(lineId){const line=QUOTE_STATE.items.find((row)=>String(row.id)===String(lineId));if(!line)return;if(event.target.dataset.quoteQuantity){line.quantity=Math.max(1,Math.min(99,Number(event.target.value)||1));persistQuoteStateQuiet();refreshQuoteComputedUi(line.id);return;}if(event.target.dataset.quoteNote!==undefined){line.note=String(event.target.value||'').slice(0,1200);persistQuoteStateQuiet();return;}}const leadMap={quoteLeadName:'name',quoteLeadCompany:'company',quoteLeadTimeline:'timeline',quoteLeadDetails:'details'};const field=leadMap[event.target.id];if(field){QUOTE_STATE.lead[field]=String(event.target.value||'').slice(0,2000);try{localStorage.setItem(QUOTE_STORAGE_KEY,JSON.stringify({...QUOTE_STATE,updated_at:new Date().toISOString()}));}catch(_){}}});document.addEventListener('change',(event)=>{const packageId=event.target.dataset?.quotePackage;const quantityId=event.target.dataset?.quoteQuantity;if(quantityId){const line=QUOTE_STATE.items.find((row)=>String(row.id)===String(quantityId));if(line){line.quantity=Math.max(1,Math.min(99,Number(event.target.value)||1));saveQuoteState();}return;}if(!packageId)return;const line=QUOTE_STATE.items.find((row)=>String(row.id)===String(packageId));if(!line)return;const record=quoteServiceRecord(line.service_id);line.package_id=record&&quotePackageRecord(record.item,event.target.value)?event.target.value:'';saveQuoteState();});addEventListener('keydown',(event)=>{if(event.key==='Escape'&&$('#globalQuotePanel')?.classList.contains('is-open'))closeQuotePanel();});}
 let SERVICE_CATALOG_NAV_BOUND=false;
 function bindServiceCatalogNavigation(){if(SERVICE_CATALOG_NAV_BOUND)return;SERVICE_CATALOG_NAV_BOUND=true;const go=(event)=>{const card=event.target.closest?.('.service-price-card[data-service-detail-href]');if(!card)return;if(event.target.closest('a,button,input,select,textarea,label'))return;if(event.type==='keydown'&&!['Enter',' '].includes(event.key))return;if(event.type==='keydown')event.preventDefault();location.href=card.dataset.serviceDetailHref;};document.addEventListener('click',go);document.addEventListener('keydown',go);}
@@ -1295,32 +1372,11 @@ function renderSideNavigation() {
   const mobileDrawer = DATA.site_builder?.global?.header?.mobile_mode === 'drawer';
   $('#siteMenuTrigger')?.toggleAttribute('hidden', navigation.side_menu_enabled===false && !mobileDrawer);
   root.replaceChildren();
-  const addLink=(label,target,filterId='',depth=0)=>{const button=document.createElement('button');button.type='button';button.className='side-menu-link';button.style.setProperty('--menu-depth',String(depth));button.innerHTML=`<span>${esc(label)}</span><b>↗</b>`;button.dataset.target=target||'';if(filterId)button.dataset.filterId=filterId;root.append(button)};
-  if(navigation.show_top_link!==false) addLink(navigation.top_label||'Ir para o topo','#top');
-  // The floating menu reuses the global menu tree; dedicated visibility toggles
-  // can suppress Services/Contact without creating a second route model.
-  const menuItems=(DATA.site_builder?.global?.header?.menu_items||[]).filter((item)=>item&&item.visible!==false).slice().sort((a,b)=>Number(a.order||0)-Number(b.order||0));
-  if(menuItems.length){
-    const depthFor=(item)=>{let depth=0,parent=item.parent_id,seen=new Set();while(parent&&!seen.has(parent)){seen.add(parent);const p=menuItems.find((x)=>x.id===parent);if(!p)break;depth+=1;parent=p.parent_id;}return depth;};
-    menuItems.forEach((item)=>{
-      if(item.id==='home') return;
-      if(item.id==='services'&&navigation.show_services_link===false) return;
-      if(item.id==='contact'&&navigation.show_contact_link===false) return;
-      addLink(item.label||'Página',publicRouteHref(item.target||'#'),'',depthFor(item));
-    });
-  }
-  if(navigation.show_home_sections===true){
-    publicHomeBlocks().forEach((block)=>{
-      if(block.visible===false||block.type==='hero')return;
-      const coreId=CORE_HOME_BLOCK_IDS[block.type];
-      const target=coreId?`#${coreId}`:`#home-${String(block.id||block.type).replace(/[^a-zA-Z0-9_-]+/g,'-')}`;
-      const label=block.label||block.title||({intro:'Introdução',lettering:'Manifesto',projects:navigation.projects_label||'Work',about:navigation.about_label||'Sobre',contact:navigation.contact_label||'Contato'}[block.type])||'Seção';
-      addLink(label,target);
-    });
-  }
-  if(navigation.show_drive_sections!==false){
-    publicPortfolioFilterItems().forEach((item)=>addLink(item.title||item.name||(String(item.id)==='all'?'Todos':'Categoria'),'#projectsBlock',String(item.id),1));
-  }
+  const menuItems=publicMenuItems('side');
+  const depthFor=(item)=>{let depth=0,parent=item.parent_id,seen=new Set();while(parent&&!seen.has(parent)){seen.add(parent);const p=menuItems.find((x)=>x.id===parent);if(!p)break;depth+=1;parent=p.parent_id;}return depth;};
+  menuItems.forEach((item)=>{
+    const button=document.createElement('button');button.type='button';button.className='side-menu-link';button.style.setProperty('--menu-depth',String(depthFor(item)));button.innerHTML=`<span>${esc(item.label||'Página')}</span><b>↗</b>`;button.dataset.target=publicRouteHref(item.target||'#');if(item.filter_id)button.dataset.filterId=String(item.filter_id);button.dataset.menuItemId=String(item.id||'');root.append(button);
+  });
 }
 
 // V5.19 · Section pages --------------------------------------------------------
@@ -2738,8 +2794,9 @@ $('#sideMenuClose')?.addEventListener('click',closeSideMenu);
 $('#sideMenu')?.addEventListener('click',(event)=>{if(event.target.closest('[data-side-menu-close]'))closeSideMenu();});
 $('#sideMenuLinks')?.addEventListener('click',(event)=>{
   const button=event.target.closest('.side-menu-link');if(!button)return;
-  const filterId=button.dataset.filterId||'';if(filterId)select(filterId,false);
+  const filterId=button.dataset.filterId||'';
   const targetValue=button.dataset.target||'';closeSideMenu();
+  if(filterId && !currentCustomPage() && (location.pathname==='/' || /\/index\.html$/.test(location.pathname))){select(filterId,true);return;}
   if(/^\//.test(targetValue)){ location.href=targetValue; return; }
   if(/^https?:\/\//i.test(targetValue)){ location.href=targetValue; return; }
   if(targetValue.startsWith('#')){ const target=document.querySelector(targetValue);target?.scrollIntoView({behavior:'auto',block:'start'}); }
@@ -2772,6 +2829,7 @@ function previewHomeBlocksFor(builder={}){
     {id:'core-intro',type:'intro',visible:true,core:true,section_size:'normal',section_width:'full'},
     {id:'core-lettering',type:'lettering',visible:true,core:true,section_size:'normal',section_width:'full'},
     {id:'core-projects',type:'projects',visible:true,core:true,section_size:'normal',section_width:'full',grid_columns:'3'},
+    {id:'youtube-showcase-main',type:'youtube_showcase',label:'YouTube Showcase',visible:true,youtube_url:'https://www.youtube.com/watch?v=G_2jdXfXxiI',title:'',body:'',primary_cta_label:'Assistir',youtube_cta_label:'Ver no YouTube',channel_url:'',channel_cta_label:'Conheça o canal',show_external_link:true,show_channel_link:false,ratio:'16:9',width:'wide',section_size:'normal',section_width:'wide',section_background:'none'},
     {id:'core-about',type:'about',visible:true,core:true,section_size:'normal',section_width:'full'},
     {id:'core-contact',type:'contact',visible:true,core:true,section_size:'normal',section_width:'full'},
   ];
