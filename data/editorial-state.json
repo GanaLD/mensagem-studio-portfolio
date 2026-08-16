@@ -3,8 +3,8 @@
     "app_version": "7.12.8",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "ba2b0dc5bce30ade60e8",
-    "saved_at": "2026-08-16T12:43:15.076957+00:00"
+    "revision": "bac29486eb15002043f9",
+    "saved_at": "2026-08-16T12:43:22.512817+00:00"
   },
   "app_version": "7.12.8",
   "collections": {},
@@ -304,10 +304,10 @@
         "whatsapp_visible": true
       },
       "header": {
-        "background_color": "#070707",
+        "background_color": "#00cca3",
         "background_mode": "adaptive",
         "background_opacity": 30,
-        "blur": 18,
+        "blur": 25,
         "border": true,
         "font_family": "display",
         "font_size_desktop": 10,
