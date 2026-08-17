@@ -946,3 +946,69 @@ body.menu-open .site-menu-trigger b{color:var(--bg)}
 .youtube-showcase-actions a:hover,.youtube-showcase-actions a:focus-visible,.youtube-showcase-fallback:hover,.youtube-showcase-fallback:focus-visible{border-color:var(--accent);color:var(--accent);outline:none}
 .youtube-showcase-fallback{position:absolute;right:14px;bottom:14px;z-index:2;background:rgba(8,8,8,.72);color:#fff;border-color:rgba(255,255,255,.22);backdrop-filter:blur(12px)}
 @media(max-width:700px){.block-youtube-showcase.width-wide,.block-youtube-showcase.width-normal{width:min(100% - 28px,760px)}.block-youtube-showcase{padding-block:48px}.youtube-showcase-stage{border-radius:16px}.youtube-showcase-play{min-height:46px;padding-right:14px}.youtube-showcase-play-icon{width:32px;height:32px}.youtube-showcase-actions{justify-content:flex-start}.youtube-showcase-fallback{right:10px;bottom:10px}}
+
+
+/* V7.12.16 · Regression Recovery — actual public UI contracts */
+/* Floating actions are one themed component, not three unrelated dark pills. */
+.site-floating-actions :is(.site-menu-trigger,.site-floating-whatsapp,.global-quote-dock){
+  border:1px solid color-mix(in srgb,var(--text) 18%,var(--line));
+  background:color-mix(in srgb,var(--surface) 94%,transparent);
+  color:var(--text);
+  box-shadow:0 12px 34px color-mix(in srgb,#000 14%,transparent);
+  -webkit-backdrop-filter:blur(18px) saturate(1.08);
+  backdrop-filter:blur(18px) saturate(1.08);
+}
+.site-floating-actions :is(.site-menu-trigger,.site-floating-whatsapp,.global-quote-dock):hover{
+  border-color:color-mix(in srgb,var(--accent) 68%,var(--line));
+  background:color-mix(in srgb,var(--surface) 90%,var(--accent) 10%);
+  color:var(--text);
+}
+.site-floating-actions .site-floating-whatsapp{text-decoration:none}
+.site-floating-actions :is(.site-menu-trigger b,.site-floating-whatsapp b,.global-quote-dock strong){
+  background:var(--accent);color:var(--accent-contrast,#07130e);
+}
+.site-floating-actions .global-quote-dock.has-items strong{color:var(--accent-contrast,#07130e)}
+body.menu-open .site-floating-actions .site-menu-trigger{background:color-mix(in srgb,var(--surface) 86%,var(--accent) 14%);color:var(--text)}
+body.menu-open .site-floating-actions .site-menu-trigger b{color:var(--accent-contrast,#07130e)}
+
+/* Quote panel: explicit layout ownership. Header, item copy and price/actions may not overlap. */
+.global-quote-panel{width:min(680px,100vw);grid-template-rows:auto minmax(0,1fr) auto;background:var(--surface)}
+.global-quote-panel>header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:24px;padding:clamp(24px,3vw,36px);height:auto!important;min-height:0!important;background:var(--surface);border-bottom:1px solid var(--line)}
+.global-quote-panel>header>div{max-width:540px;min-width:0}
+.global-quote-panel>header h2{margin:10px 0 12px;font-size:clamp(36px,4.2vw,58px);line-height:.95}
+.global-quote-panel>header p{max-width:54ch;font-size:12px;line-height:1.6}
+.global-quote-scroll{padding:clamp(20px,3vw,34px);min-width:0}
+.global-quote-items{gap:16px}
+.global-quote-item{padding:clamp(18px,2.4vw,26px);gap:16px;background:color-mix(in srgb,var(--bg) 56%,var(--surface));overflow:hidden}
+.quote-item-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start}
+.quote-item-copy{min-width:0}
+.quote-item-copy h3{margin:0;font-size:clamp(18px,2vw,24px);line-height:1.15;overflow-wrap:anywhere}
+.quote-item-actions{display:flex;align-items:flex-start;justify-content:flex-end;gap:10px;min-width:0}
+.quote-item-actions>strong{display:block;max-width:180px;font-size:12px;line-height:1.25;text-align:right;white-space:normal}
+.quote-item-actions>button{flex:0 0 30px;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}
+.quote-item-controls{grid-template-columns:minmax(0,1fr) minmax(100px,140px);gap:12px}
+.quote-item-controls :is(select,input,textarea),.global-quote-lead :is(input,textarea){min-width:0}
+.global-quote-summary{margin:18px 0 0}
+.global-quote-lead{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:22px}
+.global-quote-lead .wide{grid-column:1/-1}
+.global-quote-panel>footer{padding:18px clamp(20px,3vw,34px) calc(18px + env(safe-area-inset-bottom))}
+@media(max-width:620px){
+  .global-quote-panel{width:100vw}
+  .global-quote-panel>header{padding:24px 20px 20px}
+  .global-quote-scroll{padding:18px 20px 28px}
+  .quote-item-head{grid-template-columns:1fr}
+  .quote-item-actions{justify-content:space-between;align-items:center}
+  .quote-item-actions>strong{text-align:left;max-width:none}
+  .quote-item-controls,.global-quote-lead{grid-template-columns:1fr}
+  .quote-item-controls .wide,.global-quote-lead .wide{grid-column:1}
+  .global-quote-panel>footer{padding-inline:20px}
+}
+
+/* The contextual category bar is compact and never leaves a phantom empty band. */
+.filters:empty{display:none!important}
+.filters[hidden]{display:none!important}
+#introBlock[hidden],#portfolioHeading[hidden],.home-modular-instance[hidden]{display:none!important}
+
+/* Service area visuals: auto-selected Portfolio media gets the same professional treatment as an explicit cover. */
+.service-home-card.has-cover .service-home-card-visual,.service-category-visual:not(.is-abstract){background:var(--surface)}
+.service-home-card.has-cover>strong{text-shadow:0 2px 18px rgba(0,0,0,.34)}

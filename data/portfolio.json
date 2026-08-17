@@ -1,8 +1,8 @@
 {
   "schema_version": 16,
-  "app_version": "7.12.15",
-  "build_id": "V71215-YOUTUBE-SHOWCASE-WIDGET-20260816",
-  "editorial_revision": "55809ad59588fcea34fb",
+  "app_version": "7.12.16",
+  "build_id": "V71216-REGRESSION-RECOVERY-20260816",
+  "editorial_revision": "0cd50f62ab736f56c894",
   "generated_from": "google-drive",
   "link_policy": "validated-public-drive-links-with-fallbacks",
   "identity": {
@@ -1285,7 +1285,8 @@
           "text_alignment": "left",
           "title": "Artes para Redes Sociais",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#7c3aed",
@@ -2342,7 +2343,8 @@
           "text_alignment": "left",
           "title": "Edição de Vídeos",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#ff6b00",
@@ -3399,7 +3401,8 @@
           "text_alignment": "left",
           "title": "Produção Audiovisual",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#00a896",
@@ -4456,7 +4459,8 @@
           "text_alignment": "left",
           "title": "Motion Design e VFX",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#e5484d",
@@ -5254,7 +5258,8 @@
           "text_alignment": "left",
           "title": "Edição de Fotos",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#d946ef",
@@ -6052,7 +6057,8 @@
           "text_alignment": "left",
           "title": "Manipulação de Imagens",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#f5a524",
@@ -6591,7 +6597,8 @@
           "text_alignment": "left",
           "title": "Identidade Visual",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#ff3b30",
@@ -7389,7 +7396,8 @@
           "text_alignment": "left",
           "title": "Campanhas e Direção de Arte",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#32ade6",
@@ -8446,7 +8454,8 @@
           "text_alignment": "left",
           "title": "Produtos e E-commerce",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         },
         {
           "accent": "#a855f7",
@@ -9503,7 +9512,8 @@
           "text_alignment": "left",
           "title": "Ilustração, Roteiro e Storyboard",
           "visible": true,
-          "visual_height": "large"
+          "visual_height": "large",
+          "auto_cover": true
         }
       ],
       "seo": {
@@ -9726,42 +9736,42 @@
           "visible": true
         },
         {
-          "id": "youtube-showcase-main",
-          "type": "youtube_showcase",
-          "label": "YouTube Showcase",
-          "visible": true,
-          "youtube_url": "https://www.youtube.com/watch?v=G_2jdXfXxiI",
-          "title": "",
           "body": "",
-          "primary_cta_label": "Assistir",
-          "youtube_cta_label": "Ver no YouTube",
-          "channel_url": "",
+          "body_size": "",
           "channel_cta_label": "Conheça o canal",
-          "show_external_link": true,
-          "show_channel_link": false,
-          "ratio": "16:9",
-          "width": "wide",
-          "text_align": "left",
-          "section_size": "normal",
-          "section_width": "wide",
-          "section_background": "none",
-          "video_id": "G_2jdXfXxiI",
-          "youtube_valid": true,
+          "channel_url": "",
           "core": false,
           "desktop_visible": true,
-          "mobile_visible": true,
-          "mobile_section_width": "auto",
-          "mobile_section_size": "inherit",
+          "eyebrow_color": "accent",
+          "eyebrow_size": "",
           "font_family": "display",
+          "id": "youtube-showcase-main",
+          "label": "YouTube Showcase",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "primary_cta_label": "Assistir",
+          "ratio": "16:9",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "wide",
+          "show_channel_link": false,
+          "show_external_link": true,
+          "text_align": "left",
+          "text_transform": "none",
+          "title": "",
+          "title_color": "text",
+          "title_letter_spacing": "auto",
+          "title_line_height": "",
           "title_size": "",
           "title_weight": "400",
-          "title_line_height": "",
-          "title_letter_spacing": "auto",
-          "text_transform": "none",
-          "title_color": "text",
-          "eyebrow_size": "",
-          "eyebrow_color": "accent",
-          "body_size": ""
+          "type": "youtube_showcase",
+          "video_id": "G_2jdXfXxiI",
+          "visible": true,
+          "width": "wide",
+          "youtube_cta_label": "Ver no YouTube",
+          "youtube_url": "https://www.youtube.com/watch?v=G_2jdXfXxiI",
+          "youtube_valid": true
         },
         {
           "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
@@ -9819,7 +9829,8 @@
           "type": "contact",
           "visible": true
         }
-      ]
+      ],
+      "youtube_showcase_removed": false
     },
     "section_pages": {
       "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
@@ -32724,7 +32735,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 20,
-    "duration_seconds": 7.765
+    "duration_seconds": 7.894
   },
   "publication_ready": true,
   "public_validation": {
