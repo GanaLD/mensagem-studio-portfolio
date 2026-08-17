@@ -1,12 +1,12 @@
 {
   "_cloud": {
-    "app_version": "7.12.15",
+    "app_version": "7.12.16",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "55809ad59588fcea34fb",
-    "saved_at": "2026-08-16T23:44:44.226602+00:00"
+    "revision": "0cd50f62ab736f56c894",
+    "saved_at": "2026-08-17T00:22:22.666862+00:00"
   },
-  "app_version": "7.12.15",
+  "app_version": "7.12.16",
   "collections": {},
   "folders": {
     "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
@@ -602,7 +602,8 @@
           "type": "contact",
           "visible": true
         }
-      ]
+      ],
+      "youtube_showcase_removed": false
     },
     "layout": {
       "ambient_motion": true,
@@ -1344,6 +1345,7 @@
       "categories": [
         {
           "accent": "#0071e3",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -2142,6 +2144,7 @@
         },
         {
           "accent": "#7c3aed",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -3199,6 +3202,7 @@
         },
         {
           "accent": "#ff6b00",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -4256,6 +4260,7 @@
         },
         {
           "accent": "#00a896",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -5313,6 +5318,7 @@
         },
         {
           "accent": "#e5484d",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -6111,6 +6117,7 @@
         },
         {
           "accent": "#d946ef",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -6909,6 +6916,7 @@
         },
         {
           "accent": "#f5a524",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -7448,6 +7456,7 @@
         },
         {
           "accent": "#ff3b30",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -8246,6 +8255,7 @@
         },
         {
           "accent": "#32ade6",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
@@ -9303,6 +9313,7 @@
         },
         {
           "accent": "#a855f7",
+          "auto_cover": true,
           "cover_fit": "cover",
           "cover_media_id": "",
           "cover_position_x": 50,
