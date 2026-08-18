@@ -1,17 +1,17 @@
 {
   "app_version": "7.12.20",
   "build_id": "V71220-STAGE1-CLOUD-PREVIEW-STABILITY-STAGE4-ZERO-DRIVE-UI-VIDEO-20260817",
-  "build_revision": "afd0295d46ab9965b08a",
-  "bundle_sha256": "afd0295d46ab9965b08ab0ea015d68a13a698b2273eed650a7c77a77ed59e89b",
-  "editorial_revision": "5f52f4e82e53e788b6a7",
+  "build_revision": "584370d1f1a37cc09c46",
+  "bundle_sha256": "584370d1f1a37cc09c46f3d96bffeb1768fa3adbec014c038b389066f1beb0aa",
+  "editorial_revision": "800643d040a6517437e8",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1486785,
-      "sha256": "091e135f587ed18f594cd51b7f99f687d7911e9604d3c8affcabfc025e0e8360"
+      "bytes": 1487646,
+      "sha256": "b74c445fe55b9139595160da85b6c17767d38f384e0752601d3da266fce9281d"
     },
     "CNAME": {
       "bytes": 21,
@@ -462,12 +462,12 @@
       "sha256": "0940ac20208b8e98f0907e421fe2ed35be5ebe2902e635f5ef19e9d80d6e974d"
     },
     "data/portfolio.json": {
-      "bytes": 1551187,
-      "sha256": "c5478f4fcea2f6ac80d34fa60dcbec082f8e7fdc7471b57b3c6b5f83e8596d8f"
+      "bytes": 1552642,
+      "sha256": "1b04e8e11282bcdf794ad2bc1753723f93caa90a9496c8fe628dbfb827912ee7"
     },
     "index.html": {
-      "bytes": 1487070,
-      "sha256": "0a2e565557894376f5fdef4d3f1c742713f59849c280766432c924e9c71db447"
+      "bytes": 1487931,
+      "sha256": "d6b8fe9b1f51ed4ef783a61a7e4e7ef3b837691be1866d819abf5c575bf27344"
     },
     "nova-pagina/index.html": {
       "bytes": 8086,
@@ -1859,9 +1859,9 @@
     "skipped": 0
   },
   "stats": {
-    "bytes": 11012777,
+    "bytes": 11015954,
     "files": 242,
-    "largest_file_bytes": 1551187,
+    "largest_file_bytes": 1552642,
     "route_shells": 124
   },
   "video_assets": {
