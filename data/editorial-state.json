@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "3474f927230abd02d3dc",
-    "saved_at": "2026-08-18T00:28:19.066447+00:00"
+    "revision": "533227f487fdf1c8a594",
+    "saved_at": "2026-08-18T00:59:24.294528+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -409,36 +409,7 @@
         "gap": 18,
         "icon_size": 20,
         "muted_color": "#8e918f",
-        "socials": [
-          {
-            "id": "instagram",
-            "label": "Instagram",
-            "order": 10,
-            "url": "",
-            "visible": true
-          },
-          {
-            "id": "behance",
-            "label": "Behance",
-            "order": 20,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "linkedin",
-            "label": "LinkedIn",
-            "order": 30,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "youtube",
-            "label": "YouTube",
-            "order": 40,
-            "url": "",
-            "visible": false
-          }
-        ],
+        "socials": [],
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
@@ -544,17 +515,7 @@
       "reference_width": 2560,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [
-        {
-          "duration": 8,
-          "id": "hero-slide-msxx96q8-fg42",
-          "intensity": 60,
-          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
-          "mobile_media_id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        }
-      ],
+      "slides": [],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
@@ -653,6 +614,7 @@
           "font_family": "display",
           "grid_columns": "2",
           "grid_gap": "wide",
+          "header_visible": true,
           "id": "core-projects",
           "label": "Projetos",
           "mobile_section_size": "inherit",
@@ -820,7 +782,7 @@
       "top_label": "Ir para o topo"
     },
     "projects": {
-      "eyebrow": "Portfólio selecionado",
+      "eyebrow": "",
       "filters": {
         "all_label": "Todos",
         "all_visible": true,
@@ -838,7 +800,8 @@
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
         ]
       },
-      "title": "Projetos",
+      "header_visible": true,
+      "title": "",
       "visible": true
     },
     "section_pages": {
@@ -1515,6 +1478,7 @@
         "body": "",
         "enabled": false,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
