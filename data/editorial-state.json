@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "245c6bd1fc11861a77e5",
-    "saved_at": "2026-08-18T01:04:22.878079+00:00"
+    "revision": "5b8300c1ca8c56e80568",
+    "saved_at": "2026-08-18T01:04:30.539770+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -641,7 +641,7 @@
           "eyebrow_color": "accent",
           "eyebrow_size": "",
           "font_family": "display",
-          "grid_columns": "2",
+          "grid_columns": "4",
           "grid_gap": "wide",
           "header_visible": true,
           "id": "core-projects",
