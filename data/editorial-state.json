@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "ef0e747bccf8046de91a",
-    "saved_at": "2026-08-18T18:38:04.646649+00:00"
+    "revision": "8eef787b8a550107cd1f",
+    "saved_at": "2026-08-18T18:38:13.024265+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -121,7 +121,7 @@
         "position": "top_right",
         "shape": "pill",
         "show_icon": true,
-        "size": 42,
+        "size": 35,
         "style": "theme",
         "visible": true
       },
