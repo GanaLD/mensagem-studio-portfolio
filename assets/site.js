@@ -22,10 +22,21 @@ function esc(value = '') {
 }
 
 async function load() {
-  if (window.__PB_PUBLIC_DATA__) {
-    DATA = window.__PB_PUBLIC_DATA__;
-  } else if (window.__PB_PREVIEW_DATA__) {
+  if (window.__PB_PREVIEW_DATA__) {
     DATA = window.__PB_PREVIEW_DATA__;
+  } else if (location.protocol === 'http:' || location.protocol === 'https:') {
+    try {
+      const liveUrl = `${publicAssetBase()}data/portfolio.json?sf_live=${Date.now()}`;
+      const response = await fetch(liveUrl, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
+      if (!response.ok) throw new Error(`portfolio.json HTTP ${response.status}`);
+      DATA = await response.json();
+    } catch (error) {
+      if (!window.__PB_PUBLIC_DATA__) throw error;
+      console.warn('Manifesto online indisponível; usando snapshot inline como fallback:', error);
+      DATA = window.__PB_PUBLIC_DATA__;
+    }
+  } else if (window.__PB_PUBLIC_DATA__) {
+    DATA = window.__PB_PUBLIC_DATA__;
   } else {
     const response = await fetch(`${publicAssetBase()}data/portfolio.json`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`portfolio.json HTTP ${response.status}`);
@@ -113,9 +124,31 @@ function hydrateHostedAssetUrls(value) {
   visit(value);
 }
 
+function isStudioFrameVideoPlaybackCandidate(url) {
+  const value = String(url || '').trim();
+  if (!value || /^(?:javascript|data|vbscript):/i.test(value)) return false;
+  try {
+    const parsed = new URL(value, location.href);
+    const host = String(parsed.hostname || '').toLowerCase();
+    const path = String(parsed.pathname || '').toLowerCase();
+    if (host === 'accounts.google.com' || host.endsWith('.accounts.google.com')) return false;
+    if (host === 'drive.google.com') {
+      if (path === '/open' || path.startsWith('/open/')) return false;
+      if (path.startsWith('/file/d/')) return false;
+      if (/(?:^|\/)(?:preview|view)(?:\/|$)/i.test(path)) return false;
+    }
+    return true;
+  } catch (_) {
+    const lowered = value.toLowerCase();
+    if (lowered.includes('drive.google.com/open')) return false;
+    if (/drive\.google\.com\/file\/d\//i.test(value)) return false;
+    return !/accounts\.google\.com|servicelogin/i.test(value);
+  }
+}
+
 function videoSourceCandidates(item = {}) {
-  return uniqueUrls([item.media_url, ...(item.media_candidates || []), item.preview_url, ...(item.preview_candidates || [])])
-    .filter((url) => !/\/preview(?:\?|$)/i.test(url));
+  return uniqueUrls([item.media_url, ...(item.media_candidates || [])])
+    .filter(isStudioFrameVideoPlaybackCandidate);
 }
 
 
@@ -445,6 +478,17 @@ function applySiteAppearance(builder = {}, identity = {}) {
   return appearance;
 }
 
+
+const FLOATING_POSITIONS=['bottom_left','bottom_right','top_left','top_right'],FLOATING_STYLES=['theme','accent','minimal'];
+function floatingControlsFor(builder={},navigation={}){
+  const services=builder.services||{},src=builder.floating_controls||{},pos=navigation.floating_position==='right'?'bottom_right':'bottom_left',size=Math.max(32,Math.min(72,Number(navigation.floating_button_size||42))),num=(v,d,a,b)=>Math.max(a,Math.min(b,Number.isFinite(Number(v))?Math.round(Number(v)):d)),norm=(x={},d={})=>({visible:x.visible??d.visible??true,position:FLOATING_POSITIONS.includes(x.position)?x.position:d.position||pos,offset_x:num(x.offset_x??d.offset_x,0,-240,240),offset_y:num(x.offset_y??d.offset_y,0,-240,240),size:num(x.size??d.size,size,32,72),label:String(x.label||d.label||''),style:FLOATING_STYLES.includes(x.style)?x.style:d.style||'theme'});
+  const menu=norm(src.menu,{visible:navigation.side_menu_enabled!==false,label:navigation.menu_label||'Menu'}),whatsapp=norm(src.whatsapp,{visible:navigation.floating_whatsapp_visible!==false,label:navigation.floating_whatsapp_label||'WhatsApp'}),quote=norm(src.quote,{visible:true,label:services.quote_dock_label||'Orçamento'});
+  whatsapp.number=String(src.whatsapp?.number??navigation.floating_whatsapp_number??'').replace(/\D/g,'');whatsapp.message=String(src.whatsapp?.message??navigation.floating_whatsapp_message??'');return {menu,whatsapp,quote};
+}
+function applyFloatingControlNode(node,name,c){if(!node)return;Object.assign(node.dataset,{floatingControl:name,floatingPosition:c.position,floatingStyle:c.style});const s=node.style;s.setProperty('--floating-control-size',`${c.size}px`);s.setProperty('--floating-offset-x',`${c.offset_x}px`);s.setProperty('--floating-offset-y',`${c.offset_y}px`);s.setProperty('--floating-stack-offset','0px');node.hidden=c.visible===false;}
+function layoutFloatingControls(){const rank={menu:0,whatsapp:1,quote:2},groups={};document.querySelectorAll('.site-floating-control[data-floating-control]').forEach(n=>{if(n.hidden||getComputedStyle(n).display==='none')return;(groups[n.dataset.floatingPosition||'bottom_left']||=[]).push(n)});Object.values(groups).forEach(g=>{let x=0;g.sort((a,b)=>(rank[a.dataset.floatingControl]??9)-(rank[b.dataset.floatingControl]??9)).forEach(n=>{n.style.setProperty('--floating-stack-offset',`${Math.round(x)}px`);x+=n.getBoundingClientRect().width+8})});if(!window.__studioframeFloatingResizeBound){window.__studioframeFloatingResizeBound=1;addEventListener('resize',()=>requestAnimationFrame(layoutFloatingControls),{passive:true})}}
+function applyFloatingControls(builder={},navigation={}){const c=floatingControlsFor(builder,navigation),m=$('#siteFloatingMenuControl'),w=$('#siteFloatingWhatsappControl'),wa=$('#floatingWhatsapp'),q=$('#globalQuoteDock');applyFloatingControlNode(m,'menu',c.menu);document.body.classList.toggle('side-menu-enabled',c.menu.visible!==false);document.body.dataset.menuPanelSide=c.menu.position.endsWith('right')?'right':'left';if($('#siteMenuLabel'))$('#siteMenuLabel').textContent=c.menu.label||'Menu';applyFloatingControlNode(w,'whatsapp',c.whatsapp);if(wa){const f=builder.global?.footer||{},s=builder.services||{},n=String(c.whatsapp.number||f.whatsapp_number||s.whatsapp_number||'').replace(/\D/g,''),msg=String(c.whatsapp.message||f.whatsapp_message||s.whatsapp_message||'').trim();wa.href=n?`https://wa.me/${n}${msg?`?text=${encodeURIComponent(msg)}`:''}`:'#';w.hidden=c.whatsapp.visible===false||!n;if($('#floatingWhatsappLabel'))$('#floatingWhatsappLabel').textContent=c.whatsapp.label||'WhatsApp'}if(q){applyFloatingControlNode(q,'quote',c.quote);q.hidden=!quoteEnabled()||c.quote.visible===false;const l=q.querySelector('span');if(l)l.textContent=c.quote.label||'Orçamento';q.setAttribute('aria-label',c.quote.label||'Orçamento')}requestAnimationFrame(layoutFloatingControls);return c}
+
 function renderSiteBuilder() {
   const builder = DATA.site_builder || {};
   const navigation = builder.navigation || {};
@@ -522,24 +566,11 @@ function renderSiteBuilder() {
   if ($('#letteringText')) $('#letteringText').textContent = letteringText;
   if ($('#letteringClone')) $('#letteringClone').textContent = letteringText;
 
-  if ($('#siteMenuLabel')) $('#siteMenuLabel').textContent = navigation.menu_label || 'Menu';
   if ($('#sideMenuTitle')) $('#sideMenuTitle').textContent = navigation.menu_title || 'Navegação';
   if ($('#sideMenuStudio')) $('#sideMenuStudio').textContent = identity.studio_name || 'Mensagem Studio';
-  document.body.classList.toggle('side-menu-enabled', navigation.side_menu_enabled !== false);
-  document.body.dataset.floatingPosition = navigation.floating_position === 'right' ? 'right' : 'left';
-  document.documentElement.style.setProperty('--site-floating-button-size', `${Math.max(32,Math.min(72,Number(navigation.floating_button_size||42)))}px`);
-  document.documentElement.style.setProperty('--site-floating-gap', `${Math.max(0,Math.min(32,Number(navigation.floating_gap??8)))}px`);
   document.documentElement.style.setProperty('--site-menu-panel-width', `${Math.max(320,Math.min(760,Number(navigation.menu_panel_width||520)))}px`);
   document.documentElement.style.setProperty('--site-menu-text-size', `${Math.max(24,Math.min(64,Number(navigation.menu_text_size||48)))}px`);
-  const floatingWhatsapp=$('#floatingWhatsapp');
-  if(floatingWhatsapp){
-    const globalFooter=builder.global?.footer||{}, serviceConfig=builder.services||{};
-    const number=String(navigation.floating_whatsapp_number||globalFooter.whatsapp_number||serviceConfig.whatsapp_number||'').replace(/\D/g,'');
-    const message=String(navigation.floating_whatsapp_message||globalFooter.whatsapp_message||serviceConfig.whatsapp_message||'').trim();
-    floatingWhatsapp.href=number?`https://wa.me/${number}${message?`?text=${encodeURIComponent(message)}`:''}`:'#';
-    floatingWhatsapp.hidden=navigation.floating_whatsapp_visible===false||!number;
-    const label=$('#floatingWhatsappLabel');if(label)label.textContent=navigation.floating_whatsapp_label||'WhatsApp';
-  }
+  applyFloatingControls(builder,navigation);
 
   if ($('#projectsEyebrow')) $('#projectsEyebrow').textContent = projects.eyebrow || 'Portfólio selecionado';
   if ($('#projectsTitle')) $('#projectsTitle').textContent = projects.title || 'Projetos';
@@ -1310,44 +1341,9 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-function normalizedVisualSearch(value=''){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();}
-const SERVICE_AUTO_VISUAL_TERMS={
-  'social-media':['social','banner','banners','carrossel','lamina','divulgacao','post','story','campanha'],
-  'video-editing':['edicao de videos','edicao de video','video','reel','dermacast','podcast'],
-  'audiovisual-production':['producao audiovisual','audiovisual','dermacast','workshop','captacao','entrevista'],
-  'motion-vfx':['motion','vfx','animacao','efeitos'],
-  'photo-editing':['foto','fotos','fotografia','retrato'],
-  'image-manipulation':['manipulacao','composicao','banner','campanha'],
-  'visual-identity':['identidade','branding','logo','marca'],
-  'campaign-art-direction':['campanha','direcao de arte','key visual','007'],
-  'products-ecommerce':['produto','produtos','ecommerce','e commerce','marketplace','catalogo'],
-  'illustration-script-storyboard':['ilustracao','storyboard','roteiro','personagem','narrativa']
-};
-function serviceAutoVisualProject(category={}){
-  if(category.auto_cover===false)return null;
-  const projects=(DATA.projects||[]).filter((project)=>project&&!project.hidden);
-  if(!projects.length)return null;
-  const terms=(SERVICE_AUTO_VISUAL_TERMS[String(category.id||'')]||[])
-    .concat([category.title,category.short_title].map(normalizedVisualSearch).filter(Boolean));
-  let best=null,bestScore=-1;
-  projects.forEach((project,index)=>{
-    const hay=normalizedVisualSearch([project.title,project.description,project.category,project.section_title,project.path?.join?.(' ')].filter(Boolean).join(' '));
-    let score=0;
-    terms.forEach((term,termIndex)=>{const t=normalizedVisualSearch(term);if(t&&hay.includes(t))score+=Math.max(2,12-termIndex);});
-    const cover=projectCoverRecord(project);
-    const hasVisual=['image','video'].includes(String(cover?.type||''))&&uniqueUrls([cover?.thumbnail_url,...(cover?.thumbnail_candidates||[]),cover?.preview_url,...(cover?.preview_candidates||[]),cover?.media_url,...(cover?.media_candidates||[])]).length>0;
-    if(!hasVisual)return;
-    if(score>bestScore){bestScore=score;best={...cover,_serviceAutoCover:true,_serviceAutoIndex:index};}
-  });
-  if(best&&bestScore>0)return best;
-  // No semantic match: keep the section visual rather than falling back to an
-  // empty abstract tile. A deterministic category index distributes available
-  // Portfolio covers and remains stable between renders.
-  const categoryIndex=Math.max(0,visibleServiceCategories().findIndex((row)=>String(row.id)===String(category.id)));
-  const visualProjects=projects.map(projectCoverRecord).filter((cover)=>['image','video'].includes(String(cover?.type||''))&&uniqueUrls([cover?.thumbnail_url,...(cover?.thumbnail_candidates||[]),cover?.preview_url,...(cover?.preview_candidates||[]),cover?.media_url,...(cover?.media_candidates||[])]).length);
-  return visualProjects.length?{...visualProjects[categoryIndex%visualProjects.length],_serviceAutoCover:true}:null;
-}
-function resolvedServiceCategoryMedia(category={}){return servicePublicMedia(category.cover_media_id)||serviceAutoVisualProject(category);}
+// V7.12.20 Stage 2 / ADR-005: service-category media is editorially explicit only.
+// No semantic, deterministic, random or Portfolio-derived fallback is permitted.
+function resolvedServiceCategoryMedia(category={}){return servicePublicMedia(category.cover_media_id);}
 function serviceCategoryVisualSettings(category={},node=null){const fit=['cover','contain'].includes(category.cover_fit)?category.cover_fit:'cover',x=Math.max(0,Math.min(100,Number(category.cover_position_x??50))),y=Math.max(0,Math.min(100,Number(category.cover_position_y??50))),overlay=Math.max(0,Math.min(.85,Number(category.overlay_strength??.38))),align=['left','center','right'].includes(category.text_alignment)?category.text_alignment:'left',height=['compact','medium','large'].includes(category.visual_height)?category.visual_height:'large';if(node){node.style.setProperty('--service-cover-fit',fit);node.style.setProperty('--service-cover-x',`${x}%`);node.style.setProperty('--service-cover-y',`${y}%`);node.style.setProperty('--service-cover-overlay',String(overlay));node.dataset.visualHeight=height;node.dataset.textAlign=align;}return {fit,x,y,overlay,align,height,show:category.show_cover!==false};}
 function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const settings=serviceCategoryVisualSettings(category,visual),media=settings.show?resolvedServiceCategoryMedia(category):null;if(!media){visual.classList.add('is-abstract');visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[])]});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:'none',className:'service-category-preview-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])]}));return visual;}
 function serviceCategoryCard(category,index){
@@ -1362,12 +1358,12 @@ function serviceCategoryCard(category,index){
 function serviceProcessSection(){const config=servicesConfig(),steps=(Array.isArray(config.process_steps)?config.process_steps:[]).filter(Boolean);if(config.process_visible===false||!steps.length)return null;const section=document.createElement('section');section.className='services-process reveal';const copy=document.createElement('div');copy.innerHTML=`<small>PROCESSO</small><h2>${esc(config.process_title||'Um processo claro do briefing à entrega')}</h2><p>${esc(config.process_body||'')}</p>`;const list=document.createElement('ol');steps.forEach((step,index)=>{const item=document.createElement('li');item.innerHTML=`<span>${String(index+1).padStart(2,'0')}</span><strong>${esc(step)}</strong>`;list.append(item);});section.append(copy,list);return section;}
 function quoteLeadFromDom(){const map={name:'quoteLeadName',company:'quoteLeadCompany',timeline:'quoteLeadTimeline',details:'quoteLeadDetails'};Object.entries(map).forEach(([field,id])=>{const node=document.getElementById(id);if(node)QUOTE_STATE.lead[field]=String(node.value||'').slice(0,2000);});}
 function serviceQuoteMessage(){quoteLeadFromDom();const config=servicesConfig(),summary=quoteSummary(),records=quoteResolvedItems();const lines=[];records.forEach(({category,item,line,package:pkg,reference},index)=>{const price=quoteLinePriceLabel(item,pkg,line.quantity),deadline=String(pkg?.deadline||item.deadline||''),revisions=pkg?.revisions==null?Number(item.revisions||0):Number(pkg.revisions||0);lines.push(`${index+1}. ${category.title} — ${item.title}`);if(pkg)lines.push(`Pacote: ${pkg.label}`);lines.push(`Quantidade: ${Math.max(1,Number(line.quantity)||1)}`);if(config.quote_show_estimate!==false)lines.push(`Investimento: ${price}`);if(config.quote_show_deadline!==false&&deadline)lines.push(`Prazo indicado: ${deadline}`);if(config.quote_show_revisions!==false)lines.push(`Revisões: ${revisions}`);if(reference)lines.push(`Referência: ${reference.title||'Projeto do portfólio'}`);if(line.note)lines.push(`Observação: ${line.note}`);lines.push('');});const lead=QUOTE_STATE.lead||{};return [config.quote_whatsapp_intro||config.whatsapp_message||'Olá! Gostaria de solicitar um orçamento.',records.length?`SERVIÇOS\n\n${lines.join('\n').trim()}`:'SERVIÇOS\n\nPreciso de orientação para escolher os serviços.',config.quote_show_estimate!==false&&records.length?`RESUMO\n${summary.label}`:'',lead.name?`Nome: ${lead.name}`:'',lead.company?`Marca/empresa: ${lead.company}`:'',lead.timeline?`Prazo desejado: ${lead.timeline}`:'',lead.details?`Meu projeto:\n${lead.details}`:''].filter(Boolean).join('\n\n');}
-function quotePanelMarkup(){const config=servicesConfig();return `<div class="global-quote-backdrop" id="globalQuoteBackdrop" hidden data-quote-close></div><aside class="global-quote-panel" id="globalQuotePanel" aria-hidden="true" aria-label="${esc(config.quote_title||'Seu orçamento')}"><header><div><small>ORÇAMENTO</small><h2>${esc(config.quote_title||'Seu orçamento')}</h2><p>${esc(config.quote_intro||'')}</p></div><button type="button" data-quote-close aria-label="Fechar">×</button></header><div class="global-quote-scroll"><div id="globalQuoteItems" class="global-quote-items"></div><div id="globalQuoteSummary" class="global-quote-summary"></div><div class="global-quote-lead"><label>Seu nome<input id="quoteLeadName" autocomplete="name"></label><label>Marca ou empresa<input id="quoteLeadCompany" autocomplete="organization"></label><label>Prazo desejado<input id="quoteLeadTimeline" placeholder="Ex.: ainda este mês"></label><label class="wide">Conte um pouco sobre o projeto<textarea id="quoteLeadDetails" rows="4" placeholder="Objetivo, formatos, quantidade, referências e o que já está pronto"></textarea></label></div></div><footer><button type="button" class="quote-clear" data-quote-clear>Limpar</button><button type="button" class="quote-send" data-quote-send>${esc(config.quote_finish_label||'Finalizar pelo WhatsApp')}</button></footer></aside><button type="button" class="global-quote-dock" id="globalQuoteDock" data-quote-open aria-label="${esc(config.quote_dock_label||'Orçamento')}"><span>${esc(config.quote_dock_label||'Orçamento')}</span><strong data-quote-count>0</strong></button>`;}
-function ensureGlobalQuoteUI(){document.body.classList.remove('quote-panel-open');document.querySelectorAll('#globalQuotePanel,#globalQuoteBackdrop,#globalQuoteDock').forEach((node)=>node.remove());if(!quoteEnabled())return;const shell=document.createElement('div');shell.id='studioframeQuoteUi';shell.innerHTML=quotePanelMarkup();while(shell.firstChild)document.body.append(shell.firstChild);const dock=$('#globalQuoteDock'),floatingActions=$('#siteFloatingActions');if(dock&&floatingActions)floatingActions.append(dock);renderGlobalQuotePanel();bindQuoteEvents();}
+function quotePanelMarkup(){const config=servicesConfig(),control=floatingControlsFor(DATA.site_builder||{},DATA.site_builder?.navigation||{}).quote;return `<div class="global-quote-backdrop" id="globalQuoteBackdrop" hidden data-quote-close></div><aside class="global-quote-panel" id="globalQuotePanel" aria-hidden="true" aria-label="${esc(config.quote_title||'Seu orçamento')}"><header><div><small>ORÇAMENTO</small><h2>${esc(config.quote_title||'Seu orçamento')}</h2><p>${esc(config.quote_intro||'')}</p></div><button type="button" data-quote-close aria-label="Fechar">×</button></header><div class="global-quote-scroll"><div id="globalQuoteItems" class="global-quote-items"></div><div id="globalQuoteSummary" class="global-quote-summary"></div><div class="global-quote-lead"><label>Seu nome<input id="quoteLeadName" autocomplete="name"></label><label>Marca ou empresa<input id="quoteLeadCompany" autocomplete="organization"></label><label>Prazo desejado<input id="quoteLeadTimeline" placeholder="Ex.: ainda este mês"></label><label class="wide">Conte um pouco sobre o projeto<textarea id="quoteLeadDetails" rows="4" placeholder="Objetivo, formatos, quantidade, referências e o que já está pronto"></textarea></label></div></div><footer><button type="button" class="quote-clear" data-quote-clear>Limpar</button><button type="button" class="quote-send" data-quote-send>${esc(config.quote_finish_label||'Finalizar pelo WhatsApp')}</button></footer></aside><button type="button" class="global-quote-dock site-floating-control" id="globalQuoteDock" data-floating-control="quote" data-quote-open aria-label="${esc(control.label||'Orçamento')}"><span>${esc(control.label||'Orçamento')}</span><strong data-quote-count>0</strong></button>`;}
+function ensureGlobalQuoteUI(){document.body.classList.remove('quote-panel-open');document.querySelectorAll('#globalQuotePanel,#globalQuoteBackdrop,#globalQuoteDock').forEach((node)=>node.remove());if(!quoteEnabled())return;const shell=document.createElement('div');shell.id='studioframeQuoteUi';shell.innerHTML=quotePanelMarkup();while(shell.firstChild)document.body.append(shell.firstChild);applyFloatingControls(DATA.site_builder||{},DATA.site_builder?.navigation||{});renderGlobalQuotePanel();bindQuoteEvents();}
 function openQuotePanel(){if(!quoteEnabled())return;ensureQuoteUiIfMissing();const panel=$('#globalQuotePanel'),backdrop=$('#globalQuoteBackdrop');if(!panel)return;renderGlobalQuotePanel();panel.classList.add('is-open');panel.setAttribute('aria-hidden','false');if(backdrop)backdrop.hidden=false;document.body.classList.add('quote-panel-open');}
 function closeQuotePanel(){const panel=$('#globalQuotePanel'),backdrop=$('#globalQuoteBackdrop');panel?.classList.remove('is-open');panel?.setAttribute('aria-hidden','true');if(backdrop)backdrop.hidden=true;document.body.classList.remove('quote-panel-open');}
 function ensureQuoteUiIfMissing(){if(quoteEnabled()&&!$('#globalQuotePanel'))ensureGlobalQuoteUI();}
-function renderGlobalQuotePanel(){const list=$('#globalQuoteItems'),summaryNode=$('#globalQuoteSummary');const config=servicesConfig(),records=quoteResolvedItems();if(list){if(!records.length)list.innerHTML='<div class="global-quote-empty"><strong>Seu orçamento está vazio.</strong><span>Adicione serviços e continue navegando pelo site.</span></div>';else list.innerHTML=records.map(({category,item,line,package:pkg,reference})=>{const packages=Array.isArray(item.packages)?item.packages:[];const packageSelect=packages.length?`<label>Pacote/opção<select data-quote-package="${esc(line.id)}"><option value="">Padrão do serviço</option>${packages.map((row)=>`<option value="${esc(row.id)}" ${String(row.id)===String(line.package_id)?'selected':''}>${esc(row.label)} · ${esc(quoteLinePriceLabel(row,null,1))}</option>`).join('')}</select></label>`:'';const ref=reference?`<span class="quote-reference">Referência: ${esc(reference.title||'Projeto do portfólio')}</span>`:'';const price=config.quote_show_estimate!==false?`<strong data-quote-line-price="${esc(line.id)}">${esc(quoteLinePriceLabel(item,pkg,line.quantity))}</strong>`:'';const deadline=String(pkg?.deadline||item.deadline||''),revisions=pkg?.revisions==null?Number(item.revisions||0):Number(pkg.revisions||0),meta=[config.quote_show_deadline!==false&&deadline?deadline:'',config.quote_show_revisions!==false?`${revisions} ${revisions===1?'revisão':'revisões'}`:''].filter(Boolean).join(' · ');return `<article class="global-quote-item" data-quote-line="${esc(line.id)}"><div class="quote-item-head"><div class="quote-item-copy"><small>${esc(category.short_title||category.title)}</small><h3>${esc(item.title)}</h3>${ref}</div><div class="quote-item-actions">${price}<button type="button" data-quote-remove="${esc(line.id)}" aria-label="Remover">×</button></div></div>${meta?`<p class="quote-item-meta">${esc(meta)}</p>`:''}<div class="quote-item-controls">${packageSelect}<label>Quantidade<input type="number" min="1" max="99" value="${Math.max(1,Number(line.quantity)||1)}" data-quote-quantity="${esc(line.id)}"></label><label class="wide">Observação<textarea rows="2" data-quote-note="${esc(line.id)}" placeholder="Detalhes específicos deste item">${esc(line.note||'')}</textarea></label></div></article>`;}).join('');}if(summaryNode){const summary=quoteSummary();summaryNode.hidden=config.quote_show_estimate===false||!records.length;summaryNode.innerHTML=summaryNode.hidden?'':`<small>ESTIMATIVA</small><strong>${esc(summary.label)}</strong><span>Valor final depende da confirmação do escopo.</span>`;}const lead=QUOTE_STATE.lead||{};[['quoteLeadName','name'],['quoteLeadCompany','company'],['quoteLeadTimeline','timeline'],['quoteLeadDetails','details']].forEach(([id,field])=>{const node=document.getElementById(id);if(node&&document.activeElement!==node)node.value=lead[field]||'';});const dock=$('#globalQuoteDock');if(dock){dock.hidden=!quoteEnabled();const count=QUOTE_STATE.items.reduce((total,line)=>total+Math.max(1,Number(line.quantity)||1),0);dock.querySelector('[data-quote-count]').textContent=String(count);dock.classList.toggle('has-items',count>0);}document.querySelectorAll('[data-service-select]').forEach((button)=>{const record=serviceSelectionRecord(button.dataset.serviceSelect);const selected=record&&QUOTE_STATE.items.some((line)=>String(line.service_id)===String(record.item.id));button.classList.toggle('selected',Boolean(selected));button.textContent=selected?'Adicionado ✓':(config.quote_item_action_label||'Adicionar ao orçamento');});document.querySelectorAll('[data-quote-inline-count]').forEach((node)=>{const count=QUOTE_STATE.items.length;node.textContent=`${count} ${count===1?'serviço no orçamento':'serviços no orçamento'}`;});}
+function renderGlobalQuotePanel(){const list=$('#globalQuoteItems'),summaryNode=$('#globalQuoteSummary');const config=servicesConfig(),records=quoteResolvedItems();if(list){if(!records.length)list.innerHTML='<div class="global-quote-empty"><strong>Seu orçamento está vazio.</strong><span>Adicione serviços e continue navegando pelo site.</span></div>';else list.innerHTML=records.map(({category,item,line,package:pkg,reference})=>{const packages=Array.isArray(item.packages)?item.packages:[];const packageSelect=packages.length?`<label>Pacote/opção<select data-quote-package="${esc(line.id)}"><option value="">Padrão do serviço</option>${packages.map((row)=>`<option value="${esc(row.id)}" ${String(row.id)===String(line.package_id)?'selected':''}>${esc(row.label)} · ${esc(quoteLinePriceLabel(row,null,1))}</option>`).join('')}</select></label>`:'';const ref=reference?`<span class="quote-reference">Referência: ${esc(reference.title||'Projeto do portfólio')}</span>`:'';const price=config.quote_show_estimate!==false?`<strong data-quote-line-price="${esc(line.id)}">${esc(quoteLinePriceLabel(item,pkg,line.quantity))}</strong>`:'';const deadline=String(pkg?.deadline||item.deadline||''),revisions=pkg?.revisions==null?Number(item.revisions||0):Number(pkg.revisions||0),meta=[config.quote_show_deadline!==false&&deadline?deadline:'',config.quote_show_revisions!==false?`${revisions} ${revisions===1?'revisão':'revisões'}`:''].filter(Boolean).join(' · ');return `<article class="global-quote-item" data-quote-line="${esc(line.id)}"><div class="quote-item-head"><div class="quote-item-copy"><small>${esc(category.short_title||category.title)}</small><h3>${esc(item.title)}</h3>${ref}</div><div class="quote-item-actions">${price}<button type="button" data-quote-remove="${esc(line.id)}" aria-label="Remover">×</button></div></div>${meta?`<p class="quote-item-meta">${esc(meta)}</p>`:''}<div class="quote-item-controls">${packageSelect}<label>Quantidade<input type="number" min="1" max="99" value="${Math.max(1,Number(line.quantity)||1)}" data-quote-quantity="${esc(line.id)}"></label><label class="wide">Observação<textarea rows="2" data-quote-note="${esc(line.id)}" placeholder="Detalhes específicos deste item">${esc(line.note||'')}</textarea></label></div></article>`;}).join('');}if(summaryNode){const summary=quoteSummary();summaryNode.hidden=config.quote_show_estimate===false||!records.length;summaryNode.innerHTML=summaryNode.hidden?'':`<small>ESTIMATIVA</small><strong>${esc(summary.label)}</strong><span>Valor final depende da confirmação do escopo.</span>`;}const lead=QUOTE_STATE.lead||{};[['quoteLeadName','name'],['quoteLeadCompany','company'],['quoteLeadTimeline','timeline'],['quoteLeadDetails','details']].forEach(([id,field])=>{const node=document.getElementById(id);if(node&&document.activeElement!==node)node.value=lead[field]||'';});const dock=$('#globalQuoteDock');if(dock){const control=floatingControlsFor(DATA.site_builder||{},DATA.site_builder?.navigation||{}).quote;dock.hidden=!quoteEnabled()||control.visible===false;const label=dock.querySelector('span');if(label)label.textContent=control.label||'Orçamento';const count=QUOTE_STATE.items.reduce((total,line)=>total+Math.max(1,Number(line.quantity)||1),0);dock.querySelector('[data-quote-count]').textContent=String(count);dock.classList.toggle('has-items',count>0);requestAnimationFrame(layoutFloatingControls);}document.querySelectorAll('[data-service-select]').forEach((button)=>{const record=serviceSelectionRecord(button.dataset.serviceSelect);const selected=record&&QUOTE_STATE.items.some((line)=>String(line.service_id)===String(record.item.id));button.classList.toggle('selected',Boolean(selected));button.textContent=selected?'Adicionado ✓':(config.quote_item_action_label||'Adicionar ao orçamento');});document.querySelectorAll('[data-quote-inline-count]').forEach((node)=>{const count=QUOTE_STATE.items.length;node.textContent=`${count} ${count===1?'serviço no orçamento':'serviços no orçamento'}`;});}
 function refreshQuoteComputedUi(lineId=''){const config=servicesConfig(),records=quoteResolvedItems();if(lineId&&config.quote_show_estimate!==false){const resolved=records.find(({line})=>String(line.id)===String(lineId)),priceNode=document.querySelector(`[data-quote-line-price="${CSS.escape(String(lineId))}"]`);if(resolved&&priceNode)priceNode.textContent=quoteLinePriceLabel(resolved.item,resolved.package,resolved.line.quantity);}const summaryNode=$('#globalQuoteSummary');if(summaryNode){const summary=quoteSummary();summaryNode.hidden=config.quote_show_estimate===false||!records.length;summaryNode.innerHTML=summaryNode.hidden?'':`<small>ESTIMATIVA</small><strong>${esc(summary.label)}</strong><span>Valor final depende da confirmação do escopo.</span>`;}const dock=$('#globalQuoteDock');if(dock){const count=QUOTE_STATE.items.reduce((total,line)=>total+Math.max(1,Number(line.quantity)||1),0);dock.querySelector('[data-quote-count]').textContent=String(count);dock.classList.toggle('has-items',count>0);}document.querySelectorAll('[data-quote-inline-count]').forEach((node)=>{const count=QUOTE_STATE.items.length;node.textContent=`${count} ${count===1?'serviço no orçamento':'serviços no orçamento'}`;});}
 function updateServiceQuoteUI(){ensureQuoteUiIfMissing();renderGlobalQuotePanel();}
 function serviceQuoteBuilder(){const config=servicesConfig();if(config.brief_visible===false||config.quote_enabled===false)return null;const section=document.createElement('section');section.className='services-quote-builder reveal';section.id='service-brief';section.dataset.budgetLayout='split';section.setAttribute('aria-labelledby','serviceBriefTitle');section.innerHTML=`<div class="services-quote-intro"><small>ORÇAMENTO</small><h2 id="serviceBriefTitle">${esc(config.brief_title||'Monte sua solicitação de orçamento')}</h2><p>${esc(config.brief_body||'')}</p><span>${esc(config.response_note||'')}</span></div><div class="services-quote-form services-quote-integrated"><strong data-quote-inline-count>0 serviços no orçamento</strong><p>As escolhas ficam salvas neste navegador enquanto você visita serviços, cases e outras páginas.</p><button class="service-quote-send" type="button" data-quote-open>${esc(config.brief_button||config.quote_title||'Abrir orçamento')}</button><small>Nenhum dado é enviado antes de você finalizar pelo WhatsApp.</small></div>`;return section;}
@@ -2186,6 +2182,9 @@ function projectMediaUrls(item) {
 }
 
 function unavailableMedia(item) {
+  // ADR-003: a video failure is always owned by the StudioFrame player. Never
+  // promote external_url/preview_url/webViewLink into a visitor-facing action.
+  if (item?.type === 'video') return projectVideoFallback(item);
   const box = document.createElement('div');
   box.className = 'project-media-unavailable';
   const label = document.createElement('strong');
@@ -2245,20 +2244,7 @@ function projectVideo(item) {
 function projectVideoFallback(item) {
   const fallback = document.createElement('div');
   fallback.className = 'project-video-fallback';
-  const drivePreview = uniqueUrls([item.preview_url, ...(item.preview_candidates || [])]).find((url) => /\/preview(?:\?|$)/i.test(url));
-  if (drivePreview) {
-    const frame = document.createElement('iframe');
-    frame.className = 'project-drive-preview-player';
-    frame.src = drivePreview;
-    frame.title = item.title || 'Vídeo no Google Drive';
-    frame.allow = 'autoplay; fullscreen; encrypted-media';
-    frame.allowFullscreen = true;
-    frame.referrerPolicy = 'strict-origin-when-cross-origin';
-    frame.loading = 'eager';
-    fallback.dataset.playbackFallback = 'drive-preview';
-    fallback.append(frame);
-    return fallback;
-  }
+  fallback.dataset.playbackFallback = 'studioframe-unavailable';
   const posterNode = imageWithFallback(item, [item.thumbnail_url, ...(item.thumbnail_candidates || [])], { lazy:false, priority:'high', upgradeUrls:[...(item.thumbnail_candidates || [])] });
   posterNode.classList?.add('project-video-fallback-poster');
   const note = document.createElement('span');
@@ -2626,6 +2612,8 @@ function changeGallery(direction) {
 }
 
 function driveFrame(project) {
+  // Defensive Stage 4 guard: Drive iframe is never a video rendering path.
+  if (project?.type === 'video') return projectVideoFallback(project);
   const source = project.preview_url || (project.preview_candidates || [])[0] || project.external_url;
   if (!source) return poster(project);
   const frame = document.createElement('iframe');
@@ -2964,7 +2952,11 @@ addEventListener('message', (event) => {
 });
 
 load().then(() => {
-  if (window.parent !== window) window.parent.postMessage({ type:'studioframe-preview-ready' }, location.origin);
+  if (window.parent !== window) window.parent.postMessage({
+    type:'studioframe-preview-ready',
+    revision:String(DATA?.editorial_revision||''),
+    home_structure_signature:previewJson(previewHomeStructure(DATA?.site_builder||{})),
+  }, location.origin);
 }).catch((error) => {
   $('#empty').hidden = false;
   $('#empty').textContent = `Não foi possível carregar o portfólio: ${error.message}`;
