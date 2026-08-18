@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "66f47976235c3f7e11df",
-    "saved_at": "2026-08-18T00:09:11.165962+00:00"
+    "revision": "5f52f4e82e53e788b6a7",
+    "saved_at": "2026-08-18T00:09:18.301091+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -298,7 +298,24 @@
             "format": "wide",
             "hover_effect": "glow",
             "id": "page-section-msxwngo0-h4o",
-            "items": [],
+            "items": [
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msxwnkm5-rao",
+                "media_id": "",
+                "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msxwnmq0-qqb",
+                "media_id": "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+                "project_id": "media:1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+                "title": ""
+              }
+            ],
             "label": "Carrossel editorial",
             "mobile_section_size": "inherit",
             "mobile_section_width": "auto",
