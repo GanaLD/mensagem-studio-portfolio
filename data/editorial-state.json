@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "770f6632d5807c314f2b",
-    "saved_at": "2026-08-18T00:07:47.593873+00:00"
+    "revision": "686fc9edb55eb1cf0673",
+    "saved_at": "2026-08-18T00:07:55.088745+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -324,36 +324,7 @@
         "gap": 18,
         "icon_size": 20,
         "muted_color": "#8e918f",
-        "socials": [
-          {
-            "id": "instagram",
-            "label": "Instagram",
-            "order": 10,
-            "url": "",
-            "visible": true
-          },
-          {
-            "id": "behance",
-            "label": "Behance",
-            "order": 20,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "linkedin",
-            "label": "LinkedIn",
-            "order": 30,
-            "url": "",
-            "visible": false
-          },
-          {
-            "id": "youtube",
-            "label": "YouTube",
-            "order": 40,
-            "url": "",
-            "visible": false
-          }
-        ],
+        "socials": [],
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
@@ -450,17 +421,7 @@
       "reference_width": 2560,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [
-        {
-          "duration": 8,
-          "id": "hero-slide-msxwi0p2-ve6p",
-          "intensity": 60,
-          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
-          "mobile_media_id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
-          "transition_in": "fade",
-          "transition_out": "crossfade"
-        }
-      ],
+      "slides": [],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
@@ -732,16 +693,7 @@
         "all_visible": true,
         "display_mode": "inline",
         "order": [
-          "all",
-          "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
+          "all"
         ]
       },
       "title": "Projetos",
@@ -10684,87 +10636,6 @@
           "order": 20,
           "parent_id": "publication-group",
           "tab": "diagnostics"
-        },
-        {
-          "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "kind": "category-page",
-          "label": "Banner mobile",
-          "order": 100,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "id": "category-page:1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "kind": "category-page",
-          "label": "Banners",
-          "order": 110,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "kind": "category-page",
-          "label": "Campanha 007 Completa",
-          "order": 120,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "kind": "category-page",
-          "label": "Carrossel",
-          "order": 130,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "kind": "category-page",
-          "label": "DERMACAST",
-          "order": 140,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "kind": "category-page",
-          "label": "Edição de vídeos",
-          "order": 150,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
-          "order": 160,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "id": "category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "kind": "category-page",
-          "label": "Lâminas para divulgação",
-          "order": 170,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "id": "category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "kind": "category-page",
-          "label": "Motion",
-          "order": 180,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
         }
       ],
       "root_id": "site",
