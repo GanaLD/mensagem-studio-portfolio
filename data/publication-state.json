@@ -2,20 +2,20 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "5f078682942687751580d8b76fbb3e33f82d2de2e0df9b6f85b61b4bc902d810",
-    "commit": "921fca9f05ad5e0b1032b3f88d255c564769bed8",
-    "editorial_revision": "0cd50f62ab736f56c894",
-    "manifest_sha256": "60dc8b2a984c5651cccc6d34640c008b44f86951b2006b020400d4081a3c73c0",
-    "published_at": "2026-08-17T00:24:34.402836+00:00",
+    "bundle_sha256": "1c56df0b326e02fc81d07f08db77953e23a06715809ee21ae7e5e9cb487fc066",
+    "commit": "c324a11eff16f0a465d800a8f920c5c95fe0bb96",
+    "editorial_revision": "d059f0ebfb4833934125",
+    "manifest_sha256": "18c9c447394186edf2190738eb65a3c231d802356897b64bc4a80f7b5001ec4c",
+    "published_at": "2026-08-18T00:10:37.624644+00:00",
     "reused_bytes": 3547081,
     "reused_files": 111,
     "site_url": "https://mensagemstudio.shop/",
     "stages": [
       {
-        "bundle_sha256": "5f078682942687751580d8b76fbb3e33f82d2de2e0df9b6f85b61b4bc902d810",
+        "bundle_sha256": "1c56df0b326e02fc81d07f08db77953e23a06715809ee21ae7e5e9cb487fc066",
         "key": "build",
         "label": "Build local",
-        "message": "240 arquivos · 9.2 MB · 123 rotas leves prontas para deploy.",
+        "message": "242 arquivos · 10.6 MB · 123 rotas leves prontas para deploy.",
         "status": "ok"
       },
       {
@@ -25,17 +25,17 @@
         "status": "ok"
       },
       {
-        "commit_sha": "921fca9f05ad5e0b1032b3f88d255c564769bed8",
+        "commit_sha": "c324a11eff16f0a465d800a8f920c5c95fe0bb96",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=111 · enviados=129.",
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=111 · enviados=131.",
         "reused_bytes": 3547081,
         "reused_files": 111,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 6144528,
-        "uploaded_files": 129
+        "uploaded_bytes": 7525637,
+        "uploaded_files": 131
       },
       {
         "key": "pages",
@@ -53,8 +53,8 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 6144528,
-    "uploaded_files": 129
+    "uploaded_bytes": 7525637,
+    "uploaded_files": 131
   },
-  "updated_at": "2026-08-17T00:24:34.424526+00:00"
+  "updated_at": "2026-08-18T00:10:37.628943+00:00"
 }
