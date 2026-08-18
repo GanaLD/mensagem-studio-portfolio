@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "e77cc1c112cde642f464",
-    "saved_at": "2026-08-18T00:08:46.643476+00:00"
+    "revision": "31ee6324e8789866ed24",
+    "saved_at": "2026-08-18T00:08:55.474749+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -290,7 +290,7 @@
         },
         "show_in_menu": true,
         "slug": "nova-pagina",
-        "title": "Nova página",
+        "title": "PAGINA TESTE",
         "visible": true
       }
     },
@@ -10713,7 +10713,7 @@
         {
           "id": "custom-page:page-msxwn2dt-ec2u",
           "kind": "custom-page",
-          "label": "Nova página",
+          "label": "PAGINA TESTE",
           "order": 110,
           "page_id": "page-msxwn2dt-ec2u",
           "parent_id": "pages",
