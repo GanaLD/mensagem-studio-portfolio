@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V71220-STAGE5-3-HERO-CLOUD-20260818",
-  "editorial_revision": "ef0e747bccf8046de91a",
+  "editorial_revision": "6c0ec47b0b3d3c8fa497",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -8112,7 +8112,7 @@
         "position": "top_right",
         "offset_x": 0,
         "offset_y": 0,
-        "size": 42,
+        "size": 32,
         "label": "Orçamento",
         "style": "theme",
         "shape": "pill",
@@ -14020,7 +14020,7 @@
           "resource_key": "",
           "modified_time": "2026-05-15T18:14:18.000Z",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "preview_url": "",
           "external_url": "",
           "thumbnail_candidates": [
@@ -14029,7 +14029,7 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
           ],
           "preview_candidates": [],
           "hero_autoplay": true,
@@ -25329,7 +25329,7 @@
         "Motion"
       ],
       "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-      "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+      "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
       "preview_url": "",
       "external_url": "",
       "thumbnail_candidates": [
@@ -25338,7 +25338,7 @@
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
       ],
       "preview_candidates": [],
       "hero_autoplay": true,
@@ -25370,7 +25370,7 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "preview_url": "",
           "external_url": "",
           "thumbnail_candidates": [
@@ -25379,7 +25379,7 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
           ],
           "preview_candidates": [],
           "mime": "video/mp4",
@@ -25398,7 +25398,7 @@
         "title": "post4",
         "description": "",
         "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-        "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
         "preview_url": "",
         "external_url": "",
         "thumbnail_candidates": [
@@ -25407,7 +25407,7 @@
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
         ],
         "preview_candidates": [],
         "mime": "video/mp4",
@@ -29592,7 +29592,7 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "assets/posters/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.jpg",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "preview_url": "",
           "external_url": "",
           "thumbnail_candidates": [
@@ -29601,7 +29601,7 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
           ],
           "preview_candidates": [],
           "mime": "video/mp4",

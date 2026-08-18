@@ -1,17 +1,17 @@
 {
   "app_version": "7.12.20",
   "build_id": "V71220-STAGE5-3-HERO-CLOUD-20260818",
-  "build_revision": "722a22d448135e96101f",
-  "bundle_sha256": "722a22d448135e96101f100e332d80a223488d3992bf165b8efef579c1b3f6b8",
-  "editorial_revision": "ef0e747bccf8046de91a",
+  "build_revision": "c04c952af30225274b5d",
+  "bundle_sha256": "c04c952af30225274b5d76da91d64dac2c99fb33dd3014a066a435c44364b4b6",
+  "editorial_revision": "6c0ec47b0b3d3c8fa497",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1419251,
-      "sha256": "e4fc01f78aa7d25a95932be18a1bf2b86b08ba50e90153829cb1edb6bba58f8a"
+      "bytes": 1419291,
+      "sha256": "c88554fbf661d7d8043431fea6bd6a319ecf5e8cb4f0da8946c5785b804f0157"
     },
     "CNAME": {
       "bytes": 21,
@@ -146,12 +146,12 @@
       "sha256": "3131a60e53e7d9cb0d942ef501b708c276997c95b31c9e81edc8b74dd8754e4e"
     },
     "data/portfolio.json": {
-      "bytes": 1428953,
-      "sha256": "4157d16e5aab60c2f63156e5c8a78982720a89a0189fd65fff8feedc019fb875"
+      "bytes": 1428993,
+      "sha256": "ea4d04e6489bce45de50baf236cad4cc3f5fd7d6d43c4c5901474ff9fce22d64"
     },
     "index.html": {
-      "bytes": 1419536,
-      "sha256": "701dc5ead70906f7afa6220d8ba8af855ec646238fec2fdc3c2f8568c2cb895b"
+      "bytes": 1419576,
+      "sha256": "0e998ec1070568e0e8af102da67bb91f9cc58ba39f1f0dd5e1fd6696a257541a"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8386,
@@ -1224,9 +1224,9 @@
     "skipped": 79
   },
   "stats": {
-    "bytes": 18286643,
+    "bytes": 18286763,
     "files": 162,
-    "largest_file_bytes": 1428953,
+    "largest_file_bytes": 1428993,
     "route_shells": 123
   },
   "video_assets": {
