@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d059f0ebfb4833934125",
-    "saved_at": "2026-08-18T00:08:39.172158+00:00"
+    "revision": "e77cc1c112cde642f464",
+    "saved_at": "2026-08-18T00:08:46.643476+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -199,11 +199,13 @@
       "cover_position_y": 50,
       "cover_ratio": "inherit",
       "description": "",
+      "description_size": 0,
       "featured": false,
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
       "title": "Banner MOBILE Allergan",
+      "title_size": 0,
       "visible": true
     }
   },
@@ -267,7 +269,31 @@
       "title": "Vamos criar algo juntos?",
       "visible": true
     },
-    "custom_pages": {},
+    "custom_pages": {
+      "page-msxwn2dt-ec2u": {
+        "eyebrow": "",
+        "full_path": "nova-pagina",
+        "id": "page-msxwn2dt-ec2u",
+        "intro": "",
+        "menu_label": "Nova página",
+        "order": 10,
+        "parent_id": "",
+        "sections": [],
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "show_in_menu": true,
+        "slug": "nova-pagina",
+        "title": "Nova página",
+        "visible": true
+      }
+    },
     "editor_appearance": {
       "accent_color": "#007A68",
       "background_color": "#EEF3F8",
@@ -324,7 +350,36 @@
         "gap": 18,
         "icon_size": 20,
         "muted_color": "#8e918f",
-        "socials": [],
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "order": 10,
+            "url": "",
+            "visible": true
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "order": 20,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "order": 30,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "order": 40,
+            "url": "",
+            "visible": false
+          }
+        ],
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
@@ -388,6 +443,15 @@
             "order": 50,
             "parent_id": "",
             "target": "/#contact",
+            "visible": true
+          },
+          {
+            "id": "page:page-msxwn2dt-ec2u",
+            "label": "Nova página",
+            "order": 60,
+            "parent_id": "",
+            "target": "/nova-pagina/",
+            "target_valid": true,
             "visible": true
           }
         ],
@@ -10645,6 +10709,15 @@
           "order": 20,
           "parent_id": "publication-group",
           "tab": "diagnostics"
+        },
+        {
+          "id": "custom-page:page-msxwn2dt-ec2u",
+          "kind": "custom-page",
+          "label": "Nova página",
+          "order": 110,
+          "page_id": "page-msxwn2dt-ec2u",
+          "parent_id": "pages",
+          "tab": "pagebuilder"
         },
         {
           "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
