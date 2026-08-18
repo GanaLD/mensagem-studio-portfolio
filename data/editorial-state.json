@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "4585c81a11309b49f2e6",
-    "saved_at": "2026-08-18T10:32:03.051523+00:00"
+    "revision": "2ae64c1e4bfc6838250d",
+    "saved_at": "2026-08-18T10:32:12.776551+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -480,7 +480,56 @@
       "title": "Projetos",
       "visible": true
     },
-    "section_pages": {},
+    "section_pages": {
+      "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
+        "blocks": [
+          {
+            "core": true,
+            "eyebrow_size": "",
+            "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-header",
+            "label": "Cabeçalho",
+            "section_background": "none",
+            "section_width": "full",
+            "text_align": "left",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "card_ratio": "4x3",
+            "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
+            "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-projects",
+            "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Banners"
+      }
+    },
     "seo": {
       "home": {
         "canonical": "",
