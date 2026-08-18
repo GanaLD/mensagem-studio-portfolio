@@ -572,19 +572,21 @@ function renderSiteBuilder() {
   document.documentElement.style.setProperty('--site-menu-text-size', `${Math.max(24,Math.min(64,Number(navigation.menu_text_size||48)))}px`);
   applyFloatingControls(builder,navigation);
 
-  if ($('#projectsEyebrow')) $('#projectsEyebrow').textContent = projects.eyebrow || 'Portfólio selecionado';
-  if ($('#projectsTitle')) $('#projectsTitle').textContent = projects.title || 'Projetos';
+  const projectsHasEyebrow=Object.prototype.hasOwnProperty.call(projects,'eyebrow');
+  const projectsHasTitle=Object.prototype.hasOwnProperty.call(projects,'title');
+  const projectEyebrowText=String(projectsHasEyebrow?(projects.eyebrow??''):'Portfólio selecionado').trim();
+  const projectHeadingText=String(projectsHasTitle?(projects.title??''):'Projetos').trim();
+  if ($('#projectsEyebrow')) {$('#projectsEyebrow').textContent=projectEyebrowText;$('#projectsEyebrow').hidden=!projectEyebrowText;}
+  if ($('#projectsTitle')) {$('#projectsTitle').textContent=projectHeadingText;$('#projectsTitle').hidden=!projectHeadingText;}
   // V7.12.16: ghost-card guard. Do not leave a styled white/glass block on the
   // Home when its editorial copy is effectively empty.
   const introText=String(identity.hero_line||'').trim();
   const introNode=$('#introBlock');if(introNode)introNode.hidden=!introText;
-  const projectHeadingText=String(projects.title||'Projetos').trim();
-  const projectEyebrowText=String(projects.eyebrow||'Portfólio selecionado').trim();
-  const projectHeading=$('#portfolioHeading');if(projectHeading)projectHeading.hidden=projects.visible===false||(!projectHeadingText&&!projectEyebrowText);
+  const projectHeading=$('#portfolioHeading');if(projectHeading)projectHeading.hidden=projects.visible===false||projects.header_visible===false||(!projectHeadingText&&!projectEyebrowText);
   const showProjects = projects.visible !== false;
   const filterBarMode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
   document.body.dataset.filterBarMode=filterBarMode;
-  $('#portfolioHeading')?.toggleAttribute('hidden', !showProjects || (!projectHeadingText&&!projectEyebrowText));
+  $('#portfolioHeading')?.toggleAttribute('hidden', !showProjects || projects.header_visible===false || (!projectHeadingText&&!projectEyebrowText));
   $('#filters')?.toggleAttribute('hidden', !showProjects || filterBarMode==='menu');
   $('#projects')?.toggleAttribute('hidden', !showProjects);
 
@@ -1174,7 +1176,7 @@ function applyCoreBlockOverrides(node, block, builder) {
   if (block.type === 'projects') {
     const cfg=builder.projects||{}; const e=node.querySelector('#projectsEyebrow'); const t=node.querySelector('#projectsTitle');
     if(e)e.textContent=explicit('eyebrow',cfg.eyebrow||'Portfólio selecionado'); if(t)t.textContent=explicit('title',cfg.title||'Projetos');
-    node.querySelector('#portfolioHeading')?.removeAttribute('hidden'); node.querySelector('#filters')?.removeAttribute('hidden'); node.querySelector('#projects')?.removeAttribute('hidden'); $('#menu')?.removeAttribute('hidden');
+    updateProjectsHeadingVisibility(block,builder); node.querySelector('#filters')?.removeAttribute('hidden'); node.querySelector('#projects')?.removeAttribute('hidden'); $('#menu')?.removeAttribute('hidden');
   }
   if (block.type === 'about') {
     const cfg=builder.about||{}; const e=node.querySelector('#aboutEyebrow'); const t=node.querySelector('#aboutTitle'); const p=node.querySelector('#aboutBody');
@@ -1244,7 +1246,19 @@ function coreHomeBlockHasVisibleContent(node, block = {}) {
   if (!node || block.visible === false) return false;
   if (block.type === 'intro') return Boolean(node.querySelector('#heroLine')?.textContent?.trim());
   if (block.type === 'lettering') return Boolean(node.querySelector('#letteringText')?.textContent?.trim());
+  if (block.type === 'projects') return true; // grid may exist without its optional heading
   return true;
+}
+function updateProjectsHeadingVisibility(block={},builder={}){
+  const heading=$('#portfolioHeading');if(!heading)return;
+  const projects=builder.projects||{};
+  const explicitHeaderVisible=Object.prototype.hasOwnProperty.call(block,'header_visible')?block.header_visible!==false:projects.header_visible!==false;
+  const eyebrow=String(Object.prototype.hasOwnProperty.call(block,'eyebrow')?block.eyebrow:(projects.eyebrow??'')).trim();
+  const title=String(Object.prototype.hasOwnProperty.call(block,'title')?block.title:(projects.title??'')).trim();
+  const visible=explicitHeaderVisible&&Boolean(eyebrow||title);
+  heading.hidden=!visible;
+  const eyebrowNode=heading.querySelector('#projectsEyebrow');if(eyebrowNode){eyebrowNode.textContent=eyebrow;eyebrowNode.hidden=!eyebrow;}
+  const titleNode=heading.querySelector('#projectsTitle');if(titleNode){titleNode.textContent=title;titleNode.hidden=!title;}
 }
 
 function renderHomeComposition() {
@@ -1461,8 +1475,9 @@ function sectionPageConfig(sectionId) {
   return {
     ...source,
     enabled: source.enabled !== false,
-    eyebrow: source.eyebrow || 'Categoria',
-    title: source.title || section.title || 'Categoria',
+    header_visible: source.header_visible !== false,
+    eyebrow: Object.prototype.hasOwnProperty.call(source,'eyebrow') ? String(source.eyebrow??'') : 'Categoria',
+    title: Object.prototype.hasOwnProperty.call(source,'title') ? String(source.title??'') : String(section.title||'Categoria'),
     body: source.body || '',
     blocks,
   };
@@ -1475,10 +1490,11 @@ function createSectionHeaderBlock(sectionId, page, block = {}) {
   node.className = 'section-page-header reveal';
   applyHomeSectionFrame(node, block);
   const meta = document.createElement('div'); meta.className = 'section-page-meta';
-  const eyebrow = document.createElement('small'); eyebrow.textContent = page.eyebrow || 'Categoria';
+  if(page.header_visible===false || (!String(page.eyebrow||'').trim() && !String(page.title||'').trim() && !String(page.body||'').trim())) return null;
+  const eyebrow = document.createElement('small'); eyebrow.textContent = String(page.eyebrow||''); eyebrow.hidden=!eyebrow.textContent.trim();
   const count = document.createElement('span'); const total = projectsForSection(sectionId).length; count.textContent = `${total} ${total === 1 ? 'projeto' : 'projetos'}`;
   meta.append(eyebrow, count);
-  const title = document.createElement('h2'); title.textContent = page.title || section.title || 'Categoria'; title.dataset.parallaxText='14';
+  const title = document.createElement('h2'); title.textContent = String(page.title||''); title.hidden=!title.textContent.trim(); title.dataset.parallaxText='14';
   node.append(meta, title);
   if (page.body) { const body=document.createElement('p'); body.textContent=page.body; node.append(body); }
   return node;
@@ -1544,8 +1560,11 @@ function sectionFromLocation() {
 }
 
 function updateSectionLocation(id, push = false) {
-  const next = id === 'all' ? '#projects' : `#section=${encodeURIComponent(id)}`;
-  if (location.hash === next) return;
+  // The canonical HOME URL is the bare domain/path. "Todos" must never force
+  // #projects into the address merely because the default portfolio filter was rendered.
+  const next = id === 'all' ? `${location.pathname}${location.search}` : `#section=${encodeURIComponent(id)}`;
+  const current = id === 'all' ? `${location.pathname}${location.search}${location.hash}` : location.hash;
+  if ((id === 'all' && !location.hash) || (id !== 'all' && location.hash === next)) return;
   const method = push ? 'pushState' : 'replaceState';
   history[method]({ section:id }, '', next);
 }
@@ -2914,6 +2933,11 @@ function applyEditorPreviewPatch(payload={}){
   if(serviceDetail){if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServiceDetailPage(serviceDetail.category,serviceDetail.item);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}
   else if(servicesPage){if(previewJson(previousBuilder.services)!==previewJson(nextBuilder.services)){renderServicesPage();EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}
   else if(customPage){const id=String(customPage.id||''),beforePage=previousBuilder.custom_pages?.[id],nextPage=nextBuilder.custom_pages?.[id];if(previewJson(beforePage)!==previewJson(nextPage)){const current=currentCustomPage();if(current){renderCustomPage(current);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}}}
+  else if(sectionFromLocation() && sectionFromLocation()!=='all'){
+    const active=sectionFromLocation(),beforePage=previousBuilder.section_pages?.[active],nextPage=nextBuilder.section_pages?.[active];
+    if(previewJson(beforePage)!==previewJson(nextPage)){renderSectionPage(active);EDITOR_PREVIEW_METRICS.targetedRenders+=1;}
+    if(previewJson(previousBuilder.projects?.filters)!==previewJson(nextBuilder.projects?.filters))renderFilters();
+  }
   else{
     patchHomeCompositionInPlace(previousBuilder,nextBuilder);
     if(previewJson(previousBuilder.projects?.filters)!==previewJson(nextBuilder.projects?.filters))renderFilters();
