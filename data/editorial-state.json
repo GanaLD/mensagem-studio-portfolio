@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "b88a10cfe395bc1cd8f0",
-    "saved_at": "2026-08-18T10:33:46.952130+00:00"
+    "revision": "dd0300da956c36fa1b77",
+    "saved_at": "2026-08-18T10:33:58.361368+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -284,6 +284,15 @@
           "id": "hero-slide-msyiyucx-evx8",
           "intensity": 60,
           "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "mobile_media_id": "",
+          "transition_in": "fade",
+          "transition_out": "crossfade"
+        },
+        {
+          "duration": 8,
+          "id": "hero-slide-msyiz33w-flow",
+          "intensity": 60,
+          "media_id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
           "mobile_media_id": "",
           "transition_in": "fade",
           "transition_out": "crossfade"
