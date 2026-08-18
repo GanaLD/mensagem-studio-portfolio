@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "800643d040a6517437e8",
-    "saved_at": "2026-08-18T00:25:00.317746+00:00"
+    "revision": "f27a39f110bfb80d4178",
+    "saved_at": "2026-08-18T00:25:07.233365+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -634,14 +634,14 @@
         },
         {
           "body_size": "",
-          "card_ratio": "4x3",
+          "card_ratio": "4x5",
           "core": true,
           "desktop_visible": true,
           "eyebrow": "",
           "eyebrow_color": "accent",
           "eyebrow_size": "",
           "font_family": "display",
-          "grid_columns": "3",
+          "grid_columns": "2",
           "grid_gap": "normal",
           "id": "core-projects",
           "label": "Projetos",
