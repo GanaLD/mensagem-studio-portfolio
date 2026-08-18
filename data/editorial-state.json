@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "533227f487fdf1c8a594",
-    "saved_at": "2026-08-18T00:59:33.893214+00:00"
+    "revision": "963ea03439b89f393914",
+    "saved_at": "2026-08-18T00:59:54.666821+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -304,7 +304,7 @@
                 "description": "",
                 "id": "section-item-msxwnkm5-rao",
                 "media_id": "",
-                "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+                "project_id": "",
                 "title": ""
               },
               {
@@ -312,7 +312,7 @@
                 "description": "",
                 "id": "section-item-msxwnmq0-qqb",
                 "media_id": "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
-                "project_id": "media:1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+                "project_id": "",
                 "title": ""
               }
             ],
@@ -335,7 +335,7 @@
             "title_size": "",
             "title_weight": "400",
             "type": "editorial_carousel",
-            "visible": true
+            "visible": false
           }
         ],
         "seo": {
@@ -347,10 +347,10 @@
           "slug": "",
           "title": ""
         },
-        "show_in_menu": true,
+        "show_in_menu": false,
         "slug": "nova-pagina",
         "title": "PAGINA TESTE",
-        "visible": true
+        "visible": false
       }
     },
     "editor_appearance": {
