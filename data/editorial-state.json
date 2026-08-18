@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "9b8582132ebf02404dab",
-    "saved_at": "2026-08-18T00:04:40.520571+00:00"
+    "revision": "612cbb1c5716cdb66687",
+    "saved_at": "2026-08-18T00:04:48.314019+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -450,7 +450,17 @@
       "reference_width": 2560,
       "rotation_seconds": 6.2,
       "scroll_label": "Role para explorar",
-      "slides": [],
+      "slides": [
+        {
+          "duration": 8,
+          "id": "hero-slide-msxwi0p2-ve6p",
+          "intensity": 60,
+          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "mobile_media_id": "",
+          "transition_in": "fade",
+          "transition_out": "crossfade"
+        }
+      ],
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
