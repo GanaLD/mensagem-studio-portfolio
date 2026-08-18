@@ -1,8 +1,8 @@
 {
   "schema_version": 16,
   "app_version": "7.12.20",
-  "build_id": "V71220-STAGE5-2-CLOUD-STATE-20260817",
-  "editorial_revision": "ed10aa2e7fa79e8de0a6",
+  "build_id": "V71220-STAGE5-3-HERO-CLOUD-20260818",
+  "editorial_revision": "ef0e747bccf8046de91a",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -32,12 +32,12 @@
       "radius": 12
     },
     "appearance": {
-      "color_mode": "dark",
-      "background_color": "#07090D",
-      "surface_color": "#111722",
-      "text_color": "#F4F7FB",
-      "muted_color": "#AAB5C4",
-      "accent_color": "#2FD59A",
+      "color_mode": "light",
+      "background_color": "#F3F6FA",
+      "surface_color": "#FFFFFF",
+      "text_color": "#172033",
+      "muted_color": "#58697D",
+      "accent_color": "#006B5B",
       "brand_title_visible": true,
       "brand_title": "MENSAGEM STUDIO",
       "brand_font_family": "display",
@@ -47,11 +47,11 @@
       "brand_letter_spacing": 0.16,
       "brand_text_transform": "uppercase",
       "brand_color": "#F4F7FB",
-      "background_style": "aurora",
-      "background_animation": "medium",
+      "background_style": "luminous",
+      "background_animation": "soft",
       "block_style": "glass",
-      "block_radius": 14,
-      "block_spacing": "normal",
+      "block_radius": 21,
+      "block_spacing": "airy",
       "shadow_style": "soft"
     },
     "site_tree": {
@@ -29739,7 +29739,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 20,
-    "duration_seconds": 9.819
+    "duration_seconds": 9.926
   },
   "publication_ready": true,
   "public_validation": {
