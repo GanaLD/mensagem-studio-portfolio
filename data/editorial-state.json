@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "abd85b71ea0234ef670c",
-    "saved_at": "2026-08-18T01:01:31.574928+00:00"
+    "revision": "245c6bd1fc11861a77e5",
+    "saved_at": "2026-08-18T01:01:38.557525+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1321,7 +1321,7 @@
             "body_size": "",
             "card_gap": "normal",
             "card_ratio": "16x9",
-            "cards_desktop": "4",
+            "cards_desktop": "3",
             "cards_mobile": "1",
             "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
             "content_mode": "selected",
