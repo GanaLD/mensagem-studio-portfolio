@@ -1,17 +1,17 @@
 {
   "app_version": "7.12.20",
   "build_id": "V71220-STAGE1-CLOUD-PREVIEW-STABILITY-STAGE4-ZERO-DRIVE-UI-VIDEO-20260817",
-  "build_revision": "1c56df0b326e02fc81d0",
-  "bundle_sha256": "1c56df0b326e02fc81d07f08db77953e23a06715809ee21ae7e5e9cb487fc066",
-  "editorial_revision": "d059f0ebfb4833934125",
+  "build_revision": "afd0295d46ab9965b08a",
+  "bundle_sha256": "afd0295d46ab9965b08ab0ea015d68a13a698b2273eed650a7c77a77ed59e89b",
+  "editorial_revision": "5f52f4e82e53e788b6a7",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1483699,
-      "sha256": "8e06c8d34d13c50568e852b4c7ad9f78cded3dc4e95d836c24c213831bfa4a27"
+      "bytes": 1486785,
+      "sha256": "091e135f587ed18f594cd51b7f99f687d7911e9604d3c8affcabfc025e0e8360"
     },
     "CNAME": {
       "bytes": 21,
@@ -462,12 +462,16 @@
       "sha256": "0940ac20208b8e98f0907e421fe2ed35be5ebe2902e635f5ef19e9d80d6e974d"
     },
     "data/portfolio.json": {
-      "bytes": 1545751,
-      "sha256": "18c9c447394186edf2190738eb65a3c231d802356897b64bc4a80f7b5001ec4c"
+      "bytes": 1551187,
+      "sha256": "c5478f4fcea2f6ac80d34fa60dcbec082f8e7fdc7471b57b3c6b5f83e8596d8f"
     },
     "index.html": {
-      "bytes": 1483984,
-      "sha256": "f011d4f66568b74289d491ca0c24b6c385fb386458c5285c9042ce2948aff42d"
+      "bytes": 1487070,
+      "sha256": "0a2e565557894376f5fdef4d3f1c742713f59849c280766432c924e9c71db447"
+    },
+    "nova-pagina/index.html": {
+      "bytes": 8086,
+      "sha256": "1f2d9dcd6249e247c0e0f11e4348b93f069c87c2ccdd982a11506c6f03a4e5d2"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8459,
@@ -966,8 +970,8 @@
       "sha256": "4b7c77179cc7151bdee164ca74f391018648c40961a0da927514430102e9609c"
     },
     "sitemap.xml": {
-      "bytes": 11386,
-      "sha256": "f0208b9c6aeb6e4657649d7695735f345aacdec61e6fcb1a619b5b33a6a68e45"
+      "bytes": 11452,
+      "sha256": "cc61e36ee140cef0ac402cdc20b9f31c3807dfbc5e160f740e452d0c5a5c5933"
     }
   },
   "format": "studioframe-public-build-v2",
@@ -1855,10 +1859,10 @@
     "skipped": 0
   },
   "stats": {
-    "bytes": 10993017,
-    "files": 241,
-    "largest_file_bytes": 1545751,
-    "route_shells": 123
+    "bytes": 11012777,
+    "files": 242,
+    "largest_file_bytes": 1551187,
+    "route_shells": 124
   },
   "video_assets": {
     "bytes": 0,

@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V71220-STAGE1-CLOUD-PREVIEW-STABILITY-STAGE4-ZERO-DRIVE-UI-VIDEO-20260817",
-  "editorial_revision": "d059f0ebfb4833934125",
+  "editorial_revision": "5f52f4e82e53e788b6a7",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -259,6 +259,25 @@
           "order": 20
         },
         {
+          "id": "custom-page:page-msxwn2dt-ec2u",
+          "kind": "custom-page",
+          "label": "PAGINA TESTE",
+          "order": 110,
+          "page_id": "page-msxwn2dt-ec2u",
+          "parent_id": "pages",
+          "tab": "pagebuilder"
+        },
+        {
+          "id": "custom-section:page-msxwn2dt-ec2u:page-section-msxwngo0-h4o",
+          "kind": "custom-section",
+          "label": "Carrossel editorial",
+          "order": 10,
+          "page_id": "page-msxwn2dt-ec2u",
+          "parent_id": "custom-page:page-msxwn2dt-ec2u",
+          "section_id": "page-section-msxwngo0-h4o",
+          "tab": "pagebuilder"
+        },
+        {
           "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "kind": "category-page",
@@ -401,6 +420,15 @@
             "visible": true,
             "order": 50,
             "parent_id": ""
+          },
+          {
+            "id": "page:page-msxwn2dt-ec2u",
+            "label": "Nova página",
+            "order": 60,
+            "parent_id": "",
+            "target": "/nova-pagina/",
+            "target_valid": true,
+            "visible": true
           }
         ],
         "menu_schema_version": 1
@@ -422,7 +450,36 @@
         "whatsapp_label": "Contrate nossos serviços de design",
         "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
         "copyright": "© Mensagem Studio. Todos os direitos reservados.",
-        "socials": []
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "order": 10,
+            "url": "",
+            "visible": true
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "order": 20,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "order": 30,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "order": 40,
+            "url": "",
+            "visible": false
+          }
+        ]
       }
     },
     "seo": {
@@ -438,7 +495,90 @@
         "follow": true
       }
     },
-    "custom_pages": {},
+    "custom_pages": {
+      "page-msxwn2dt-ec2u": {
+        "eyebrow": "",
+        "full_path": "nova-pagina",
+        "id": "page-msxwn2dt-ec2u",
+        "intro": "",
+        "menu_label": "Nova página",
+        "order": 10,
+        "parent_id": "",
+        "sections": [
+          {
+            "body_size": "",
+            "card_gap": "normal",
+            "card_ratio": "16x9",
+            "cards_desktop": "3",
+            "cards_mobile": "1",
+            "category_id": "all",
+            "content_mode": "selected",
+            "controls": false,
+            "core": false,
+            "desktop_visible": true,
+            "direction": "left",
+            "eyebrow": "Seleção",
+            "eyebrow_color": "accent",
+            "eyebrow_size": "",
+            "font_family": "display",
+            "format": "wide",
+            "hover_effect": "glow",
+            "id": "page-section-msxwngo0-h4o",
+            "items": [
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msxwnkm5-rao",
+                "media_id": "",
+                "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu",
+                "title": ""
+              },
+              {
+                "action_label": "",
+                "description": "",
+                "id": "section-item-msxwnmq0-qqb",
+                "media_id": "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+                "project_id": "media:1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e",
+                "title": ""
+              }
+            ],
+            "label": "Carrossel editorial",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "motion_mode": "manual",
+            "pause_on_hover": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "speed": "medium",
+            "text_align": "left",
+            "text_transform": "none",
+            "title": "Projetos em movimento",
+            "title_color": "text",
+            "title_letter_spacing": "auto",
+            "title_line_height": "",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "editorial_carousel",
+            "visible": true
+          }
+        ],
+        "seo": {
+          "title": "",
+          "description": "",
+          "slug": "",
+          "canonical": "",
+          "image_media_id": "",
+          "index": true,
+          "follow": true
+        },
+        "show_in_menu": true,
+        "slug": "nova-pagina",
+        "title": "PAGINA TESTE",
+        "visible": true
+      }
+    },
     "services": {
       "visible": true,
       "show_on_home": true,
@@ -10587,6 +10727,20 @@
           "visible": true,
           "order": 50,
           "parent_id": "",
+          "surfaces": [
+            "header",
+            "side"
+          ],
+          "kind": "route"
+        },
+        {
+          "id": "page:page-msxwn2dt-ec2u",
+          "label": "Nova página",
+          "order": 60,
+          "parent_id": "",
+          "target": "/nova-pagina/",
+          "target_valid": true,
+          "visible": true,
           "surfaces": [
             "header",
             "side"
@@ -33787,6 +33941,20 @@
         "category_id": "illustration-script-storyboard"
       },
       {
+        "title": "PAGINA TESTE | MENSAGEM STUDIO",
+        "description": "",
+        "path": "nova-pagina",
+        "canonical": "https://mensagemstudio.shop/nova-pagina/",
+        "image": "https://mensagemstudio.shop/assets/posters/1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R.png",
+        "image_media_id": "",
+        "index": true,
+        "follow": true,
+        "robots": "index,follow",
+        "og_type": "website",
+        "kind": "custom_page",
+        "entity_id": "page-msxwn2dt-ec2u"
+      },
+      {
         "title": "Banner mobile | MENSAGEM STUDIO",
         "description": "Projetos de Banner mobile da Mensagem Studio.",
         "path": "projetos/banner-mobile",
@@ -35135,6 +35303,7 @@
       "https://mensagemstudio.shop/servicos/criacao-de-personagem/",
       "https://mensagemstudio.shop/servicos/roteiro-curto-publicitario/",
       "https://mensagemstudio.shop/servicos/storyboard-com-ate-8-quadros/",
+      "https://mensagemstudio.shop/nova-pagina/",
       "https://mensagemstudio.shop/projetos/banner-mobile/",
       "https://mensagemstudio.shop/projetos/banners/",
       "https://mensagemstudio.shop/projetos/campanha-007-completa/",
@@ -35224,7 +35393,13 @@
       "https://mensagemstudio.shop/projetos/motion/story/",
       "https://mensagemstudio.shop/projetos/motion/vd-speaker-13-joao-pithon-sinclair/"
     ],
-    "diagnostics": []
+    "diagnostics": [
+      {
+        "level": "warning",
+        "code": "empty-description",
+        "path": "nova-pagina"
+      }
+    ]
   },
   "media_readiness": {
     "drive_primary": true,
