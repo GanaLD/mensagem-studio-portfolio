@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "e73161bb0c5d61f3117a",
-    "saved_at": "2026-08-18T00:26:48.598628+00:00"
+    "revision": "3474f927230abd02d3dc",
+    "saved_at": "2026-08-18T00:26:56.654206+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -550,7 +550,7 @@
           "id": "hero-slide-msxx96q8-fg42",
           "intensity": 60,
           "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
-          "mobile_media_id": "",
+          "mobile_media_id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
           "transition_in": "fade",
           "transition_out": "crossfade"
         }
