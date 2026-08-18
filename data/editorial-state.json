@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "963ea03439b89f393914",
-    "saved_at": "2026-08-18T01:00:24.528598+00:00"
+    "revision": "b3a3dfc2954f9d36238b",
+    "saved_at": "2026-08-18T01:00:32.021932+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -409,7 +409,36 @@
         "gap": 18,
         "icon_size": 20,
         "muted_color": "#8e918f",
-        "socials": [],
+        "socials": [
+          {
+            "id": "instagram",
+            "label": "Instagram",
+            "order": 10,
+            "url": "",
+            "visible": true
+          },
+          {
+            "id": "behance",
+            "label": "Behance",
+            "order": 20,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "order": 30,
+            "url": "",
+            "visible": false
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "order": 40,
+            "url": "",
+            "visible": false
+          }
+        ],
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
