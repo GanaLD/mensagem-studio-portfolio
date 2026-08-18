@@ -2,18 +2,6 @@
   "events": [
     {
       "app_version": "7.9.6.4",
-      "at": "2026-08-14T19:21:50.023466+00:00",
-      "details": {
-        "commit": "508b4df47356ef00af8fc154f93a572a74e7637b"
-      },
-      "device_id": "device-9c7ce0cf4d204b46",
-      "id": "174662cd4defa87134ff",
-      "kind": "editorial-sync",
-      "revision": "8d76f6aabc567de7b9e5",
-      "status": "ok"
-    },
-    {
-      "app_version": "7.9.6.4",
       "at": "2026-08-14T19:21:56.463086+00:00",
       "details": {
         "commit": "10eca2d5ac03d1848ae0dbd1fd5587f3a0f07336"
@@ -3025,8 +3013,20 @@
       "kind": "editorial-sync",
       "revision": "3474f927230abd02d3dc",
       "status": "ok"
+    },
+    {
+      "app_version": "7.12.20",
+      "at": "2026-08-18T00:27:15.146155+00:00",
+      "details": {
+        "commit": "37af3d2ed56180b2c4b071faf1849b69f5e3cebf"
+      },
+      "device_id": "device-3e7f29f7077c4942",
+      "id": "cf1d3686ec136fda0a5b",
+      "kind": "editorial-sync",
+      "revision": "3474f927230abd02d3dc",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-18T00:27:08.585073+00:00"
+  "updated_at": "2026-08-18T00:27:15.750305+00:00"
 }
