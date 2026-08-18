@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "5b8300c1ca8c56e80568",
-    "saved_at": "2026-08-18T01:04:30.539770+00:00"
+    "revision": "ed4e1d20c48a3297253e",
+    "saved_at": "2026-08-18T01:04:38.095971+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -634,7 +634,7 @@
         },
         {
           "body_size": "",
-          "card_ratio": "4x5",
+          "card_ratio": "16x9",
           "core": true,
           "desktop_visible": true,
           "eyebrow": "",
