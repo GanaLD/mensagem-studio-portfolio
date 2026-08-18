@@ -581,7 +581,7 @@ function renderSiteBuilder() {
   // V7.12.16: ghost-card guard. Do not leave a styled white/glass block on the
   // Home when its editorial copy is effectively empty.
   const introText=String(identity.hero_line||'').trim();
-  const introNode=$('#introBlock');if(introNode)introNode.hidden=!introText;
+  const introNode=$('#introBlock');if(introNode){introNode.hidden=!introText;introNode.classList.toggle('is-empty-heading',!introText);}
   const projectHeading=$('#portfolioHeading');if(projectHeading)projectHeading.hidden=projects.visible===false||projects.header_visible===false||(!projectHeadingText&&!projectEyebrowText);
   const showProjects = projects.visible !== false;
   const filterBarMode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
@@ -1257,6 +1257,7 @@ function updateProjectsHeadingVisibility(block={},builder={}){
   const title=String(Object.prototype.hasOwnProperty.call(block,'title')?block.title:(projects.title??'')).trim();
   const visible=explicitHeaderVisible&&Boolean(eyebrow||title);
   heading.hidden=!visible;
+  heading.classList.toggle('is-empty-heading',!visible);
   const eyebrowNode=heading.querySelector('#projectsEyebrow');if(eyebrowNode){eyebrowNode.textContent=eyebrow;eyebrowNode.hidden=!eyebrow;}
   const titleNode=heading.querySelector('#projectsTitle');if(titleNode){titleNode.textContent=title;titleNode.hidden=!title;}
 }
