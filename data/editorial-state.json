@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b3a3dfc2954f9d36238b",
-    "saved_at": "2026-08-18T01:00:38.688108+00:00"
+    "revision": "245c6bd1fc11861a77e5",
+    "saved_at": "2026-08-18T01:00:45.145554+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -882,6 +882,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -941,6 +942,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1000,6 +1002,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1059,6 +1062,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1118,6 +1122,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1177,6 +1182,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1236,6 +1242,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
@@ -1295,6 +1302,7 @@
         "body": "",
         "enabled": true,
         "eyebrow": "Categoria",
+        "header_visible": true,
         "seo": {
           "canonical": "",
           "description": "",
