@@ -6,9 +6,9 @@
     "commit": "185656ae4eb07b964ec3e22f5fc179fe0cdc3257",
     "editorial_revision": "d6869d8431a79f7272c0",
     "manifest_sha256": "4358343494676ea186c3306e13f094bd2c6021a5c529d11fc6cd9d020583bc34",
-    "published_at": "2026-08-18T01:08:57.750670+00:00",
-    "reused_bytes": 5196787,
-    "reused_files": 113,
+    "published_at": "2026-08-18T01:10:53.901724+00:00",
+    "reused_bytes": 11086517,
+    "reused_files": 242,
     "site_url": "https://mensagemstudio.shop/",
     "stages": [
       {
@@ -28,14 +28,14 @@
         "commit_sha": "185656ae4eb07b964ec3e22f5fc179fe0cdc3257",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=113 · enviados=129.",
-        "reused_bytes": 5196787,
-        "reused_files": 113,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=242 · enviados=0.",
+        "reused_bytes": 11086517,
+        "reused_files": 242,
         "status": "ok",
         "transport": "github-rest-incremental",
-        "unchanged": false,
-        "uploaded_bytes": 5889730,
-        "uploaded_files": 129
+        "unchanged": true,
+        "uploaded_bytes": 0,
+        "uploaded_files": 0
       },
       {
         "key": "pages",
@@ -53,8 +53,8 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 5889730,
-    "uploaded_files": 129
+    "uploaded_bytes": 0,
+    "uploaded_files": 0
   },
-  "updated_at": "2026-08-18T01:08:57.755326+00:00"
+  "updated_at": "2026-08-18T01:10:53.907714+00:00"
 }
