@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "ed10aa2e7fa79e8de0a6",
-    "saved_at": "2026-08-18T18:33:35.467381+00:00"
+    "revision": "6162a45775c7ed78d471",
+    "saved_at": "2026-08-18T18:33:43.412097+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -53,13 +53,13 @@
       }
     },
     "appearance": {
-      "accent_color": "#2FD59A",
-      "background_animation": "medium",
-      "background_color": "#07090D",
-      "background_style": "aurora",
-      "block_radius": 14,
-      "block_spacing": "normal",
-      "block_style": "glass",
+      "accent_color": "#006B5B",
+      "background_animation": "soft",
+      "background_color": "#F3F6FA",
+      "background_style": "mesh",
+      "block_radius": 18,
+      "block_spacing": "airy",
+      "block_style": "cards",
       "brand_color": "#F4F7FB",
       "brand_font_family": "display",
       "brand_font_size_desktop": 12,
@@ -69,11 +69,11 @@
       "brand_text_transform": "uppercase",
       "brand_title": "MENSAGEM STUDIO",
       "brand_title_visible": true,
-      "color_mode": "dark",
-      "muted_color": "#AAB5C4",
+      "color_mode": "light",
+      "muted_color": "#58697D",
       "shadow_style": "soft",
-      "surface_color": "#111722",
-      "text_color": "#F4F7FB"
+      "surface_color": "#FFFFFF",
+      "text_color": "#172033"
     },
     "contact": {
       "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
