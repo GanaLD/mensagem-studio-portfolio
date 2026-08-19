@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "950723f530b6fb097a93",
-    "saved_at": "2026-08-19T00:34:32.169376+00:00"
+    "revision": "4b79573457fd9757a464",
+    "saved_at": "2026-08-19T00:34:40.539733+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -129,16 +129,16 @@
         "background_color": "#25d366",
         "border_color": "#25d366",
         "display_mode": "icon",
-        "foreground_color": "#ffffff",
+        "foreground_color": "#00ff11",
         "label": "WhatsApp",
         "message": "",
         "number": "",
         "offset_x": 0,
         "offset_y": 0,
         "position": "bottom_right",
-        "shape": "pill",
+        "shape": "circle",
         "size": 42,
-        "style": "theme",
+        "style": "custom",
         "visible": true
       }
     },
