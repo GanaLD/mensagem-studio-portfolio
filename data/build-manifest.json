@@ -1,21 +1,113 @@
 {
   "app_version": "7.12.20",
-  "build_id": "V71220-STAGE5-4",
-  "build_revision": "d2de53cb33759cee69a1",
-  "bundle_sha256": "d2de53cb33759cee69a16f218565f7915e4a4aba17e3a760a5d73c6575b3cc98",
-  "editorial_revision": "4b79573457fd9757a464",
+  "build_id": "V71220-STAGE5-5-1",
+  "build_revision": "ca85ca9d63b624bea655",
+  "bundle_sha256": "ca85ca9d63b624bea65556c34f112bdcae413ec5bb185a9d30b2b6220fc3f364",
+  "editorial_revision": "afeb1ce89e3d02417afb",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1489702,
-      "sha256": "ae0341d4dbbfebaf5b07b67d3e9309289821bb6fdafc92c1228c40a67ce23ed7"
+      "bytes": 1511979,
+      "sha256": "95a7ec506e46ce914e5a44fb39ae9c606457c31b98cff05f67f2006e546cc59a"
     },
     "CNAME": {
       "bytes": 21,
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
+    },
+    "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4": {
+      "bytes": 5123334,
+      "sha256": "945a049a79ade9806e6524069b275672faccd02e0a9459f7dccfdf102205fe82"
+    },
+    "assets/media/152WtGgQyDan29DOanoj8oSvsGHpTHnb8.mp4": {
+      "bytes": 5564618,
+      "sha256": "58f4a3b059eea7e623a0fe56035149d748ed02926dfd82a728d42cff5e006e11"
+    },
+    "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4": {
+      "bytes": 5111256,
+      "sha256": "b7ab234cd3020c0634b69d0c57c8202b0cfd7c76139c2dd22f7b156ee5347b94"
+    },
+    "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4": {
+      "bytes": 5031325,
+      "sha256": "bd909a921d13e0ba3bb3a942d1a0a2a8e4a46e559abdd8f65912ce76282c75dd"
+    },
+    "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4": {
+      "bytes": 4976000,
+      "sha256": "d5cf05c19bd3b25e4c8397931e0fd89539415e397632f50e446543340e3f8403"
+    },
+    "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4": {
+      "bytes": 3249836,
+      "sha256": "5a5e2feb3da5ca29fb54ebd8f3980a94b83babb0a5b7ff30bdcefcb907989828"
+    },
+    "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4": {
+      "bytes": 5341878,
+      "sha256": "c01300459611de4e5c27ce74bb972412d580cdd5851219e64996eca5ab1fb9dd"
+    },
+    "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4": {
+      "bytes": 4911358,
+      "sha256": "eceda0d44b181869bb63718ac6a64457666c802a811a2ada3f07c12c45c8ccd1"
+    },
+    "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4": {
+      "bytes": 1667100,
+      "sha256": "01cd29cc241d540822a7f900b331a58ae53b36610030e0dc68ae0adea76ed6d5"
+    },
+    "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4": {
+      "bytes": 5184071,
+      "sha256": "3325e93e7e7791b89e16b1799647811537cbdd548ec5a400540912ef03870f22"
+    },
+    "assets/media/1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr.mp4": {
+      "bytes": 5538807,
+      "sha256": "d5305e2fb443e18ea9333d4daf476f31a3a89313e3590a8c7ba52731a4726cb0"
+    },
+    "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4": {
+      "bytes": 4921456,
+      "sha256": "e34a07a61189855833092195b67ac64a1fb38f23fbf9df8dc05d3b844812354c"
+    },
+    "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4": {
+      "bytes": 3855421,
+      "sha256": "395c1689accec63705d96a09875d5b1210de451d2d37d3e4070ab7da9defc3e8"
+    },
+    "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4": {
+      "bytes": 4887820,
+      "sha256": "f5632890c56676f582e9c2fe4a775d9c8377948afd0413e4867eabc9d99f44ae"
+    },
+    "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4": {
+      "bytes": 4903001,
+      "sha256": "628acbc5b4b4f8a9d73b310785b129d8a90b319e2c0b9fca02da1170f3e5383c"
+    },
+    "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4": {
+      "bytes": 4962205,
+      "sha256": "6546f5f27ce422039a3a9570cec01609511dc32b801ed5ea5c29755b71e9ee35"
+    },
+    "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4": {
+      "bytes": 5062706,
+      "sha256": "974b803ddf2b4b9cc4acaaa111898ee7048d8af7966daf1d65344ef61770cd86"
+    },
+    "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4": {
+      "bytes": 3621086,
+      "sha256": "a5663db0d2f5f3583b99fe8727bb260b948a80dd8b38508489d42140fef64ec8"
+    },
+    "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4": {
+      "bytes": 5138994,
+      "sha256": "3a369d576bc4526af90ae5892380b65044df4ed28afbfe8dead263529f25d011"
+    },
+    "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4": {
+      "bytes": 4956712,
+      "sha256": "278862fd8555ab389af68b5a12d7f52cda20241165bb5956675335b2d2f65949"
+    },
+    "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4": {
+      "bytes": 2424821,
+      "sha256": "60cddf02118744ed62ea831ff6fda9520fecde29de407a131af67b4b777726a4"
+    },
+    "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4": {
+      "bytes": 3036352,
+      "sha256": "3095ee2df5ef8575678f0074f605fb2c133f0d9202e096771dc00f3c7316e06e"
+    },
+    "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4": {
+      "bytes": 5530763,
+      "sha256": "fd469b91358af2d3527b15edfe7ca58bd0ba0a91cb51196e3913f85caa68f747"
     },
     "assets/posters/1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9.png": {
       "bytes": 40848,
@@ -458,512 +550,512 @@
       "sha256": "dd3222974484b41fe94306a2364dce47a46e2d4844e26afde8df24109631c5c4"
     },
     "assets/site.js": {
-      "bytes": 234197,
-      "sha256": "3131a60e53e7d9cb0d942ef501b708c276997c95b31c9e81edc8b74dd8754e4e"
+      "bytes": 231521,
+      "sha256": "83bf519f61e7778335f87f3603f2da47abf33286cfb7321819a16e761f1978c4"
     },
     "data/portfolio.json": {
-      "bytes": 1521857,
-      "sha256": "40e7520bf0fb6cc50e6a2d7c6ca47acf502a89a971652970cf1e7059b293f04d"
+      "bytes": 1559150,
+      "sha256": "badac9969687f6e1d72c4225d8b397dbf98955a5b2d26740486bb43f1d63461c"
     },
     "index.html": {
-      "bytes": 1489987,
-      "sha256": "4c63a8c65496644b5b339e4b86bee52228b447e265d66bdac394f885794f3aec"
+      "bytes": 1512264,
+      "sha256": "f75e920c83f440d650543c5eb80a02cffd0e6391566f36ee83241bd4129d7b7c"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
-      "bytes": 8318,
-      "sha256": "40b4c1cde0de03256f74c8deca1816dc499fb3b4eeae3ffcd020c5ad5f54ea9b"
+      "bytes": 8324,
+      "sha256": "74fc0df20b8249c169ab3f9f03ee9eaa0f907cd198682c4e99002d5fbcbf5518"
     },
     "projetos/banner-mobile/index.html": {
-      "bytes": 8204,
-      "sha256": "420cafeda2a55e13876fa1d89fbfb6caec689aceaaf9de21e1f4688f7e894619"
+      "bytes": 8210,
+      "sha256": "c4f7b2923daffa0a77b73e14f15440d3b59f63fd39b7252aaeb4226b9b0d8a5c"
     },
     "projetos/banner-mobile/mobile-2/index.html": {
-      "bytes": 8198,
-      "sha256": "fe9d8b5e040acf458300ebfe2afdc3b1e82a9d3dc51a6ae8114ceaa85b2c9038"
+      "bytes": 8204,
+      "sha256": "2fba5d1ec2003367e675238e677791d744485effaf1c2ca718fe853b8179ebce"
     },
     "projetos/banner-mobile/mobile-bacio/index.html": {
-      "bytes": 8238,
-      "sha256": "6b57db605dc63975af32d68e6e3bfe4d39266b4529032a7a3e68273c06da9b6b"
+      "bytes": 8244,
+      "sha256": "a393297d9554f5181c3ab5e8bc6fccbbcd527cd7a03009aba7520ea2630c85a4"
     },
     "projetos/banner-mobile/mobile-banner/index.html": {
-      "bytes": 8246,
-      "sha256": "99b4752b7fc9c2aae293908834ffb0ac5cc08589417dc7c628cc1ae467d3fa39"
+      "bytes": 8252,
+      "sha256": "fef2a990897ae241e24f0e395c96e1874c9b6af3320a133105412c46ce3bccc6"
     },
     "projetos/banner-mobile/mobile-bellarine-26-05-27/index.html": {
-      "bytes": 8342,
-      "sha256": "1b226bac0d55cd6a07a15b9d5ac1fe06d5594e4b13e34bf87729b9f85a535493"
+      "bytes": 8348,
+      "sha256": "75a86615773302963df82663da342fe2bb298f136a6d9375e2550c74b594670a"
     },
     "projetos/banner-mobile/mobile-evo/index.html": {
-      "bytes": 8222,
-      "sha256": "23875edf87bcb9e0ee8f7e84e9dd5f71c99b5938c9ec7c88736e8451d6e3370d"
+      "bytes": 8228,
+      "sha256": "6e156453ff6f2b8bf87a823efe028fcb0c6cb316835f7777129628087dbd29f1"
     },
     "projetos/banner-mobile/mobile-galderma/index.html": {
-      "bytes": 8262,
-      "sha256": "9112679251ee505db8be6cc8173cafd137ded3b171e346fbc02152e55ab27c23"
+      "bytes": 8268,
+      "sha256": "e395f21f091fdadb1996baa0c65e646fc3992dc8448ff5136591c89196d4d10b"
     },
     "projetos/banner-mobile/mobile/index.html": {
-      "bytes": 8190,
-      "sha256": "a226775b74eae402c2dfbddb98c357c593ec6bd15ca08992c5173f0ee125c380"
+      "bytes": 8196,
+      "sha256": "6ac7630095ccd63a3ef6db5cfb8da3c07f3e31be1a239e53d34af62874c15427"
     },
     "projetos/banners/26-06-16-webbanner-rennova/index.html": {
-      "bytes": 8326,
-      "sha256": "96679a0aacb6b3de48a5a2d93c5904ee7a3da3d1cc17ee586e853cbdb19a5a61"
+      "bytes": 8332,
+      "sha256": "72e48ae3edd37e18ac64bbaa70696261faea2cebe539e905a596ca1d4ee804d1"
     },
     "projetos/banners/banner-allergan-topo/index.html": {
-      "bytes": 8278,
-      "sha256": "f9e63976e1c0d3d0e91e530115fcfde94ba4a5749d1c2be793239499455933a1"
+      "bytes": 8284,
+      "sha256": "8934519f00c9860b12892ccb813fc937f3835783d9e5dea67b3680a62a250ee3"
     },
     "projetos/banners/banner-centro-rejuv-400x1170/index.html": {
-      "bytes": 8342,
-      "sha256": "df962cbfbee33161e1a3578d7f30290ceab0a5251bdeab9d308e02a2ec7d65d0"
+      "bytes": 8348,
+      "sha256": "f219fa0ccf70901d9e8661b14e47f275bfea4307d9cbd5acb324fb1ecc039e70"
     },
     "projetos/banners/banner-centro-rejuvital/index.html": {
-      "bytes": 8302,
-      "sha256": "6b5350553e55f7e319555bd2dabb442c28c0b48192956c68dd27ad3bb9ea886a"
+      "bytes": 8308,
+      "sha256": "eb2eb33e3ab509201a816c029765ccad9603d376ea128677c378a51b9e39360a"
     },
     "projetos/banners/banner-elleva-17-06/index.html": {
-      "bytes": 8270,
-      "sha256": "4f321b0774ab699cd0e160942eccca183d691c0e08ebea59a3ffbe571ce55413"
+      "bytes": 8276,
+      "sha256": "c17f124a9b0feefdd15f9f928a04fa96bb506a7b7c119c99a5a556c492bb04d4"
     },
     "projetos/banners/banner-para-aprovar/index.html": {
-      "bytes": 8270,
-      "sha256": "200514e9a666e7e0df963d792c71fc33a260976562c4ad72579ce910df4c3ed9"
+      "bytes": 8276,
+      "sha256": "45108100cd8a46897e6d26565045285c552197d857851aa27465613ae5ce0116"
     },
     "projetos/banners/banner-rennova/index.html": {
-      "bytes": 8230,
-      "sha256": "bb786296b778a05bac4fd76c95109c728d5933f823ecbd0442f1f6781f462042"
+      "bytes": 8236,
+      "sha256": "976ef93b61005f0bf394c030acde5cef35c32fc0e25b797e27757bc2ffa6da4a"
     },
     "projetos/banners/banner-v-hacker/index.html": {
-      "bytes": 8238,
-      "sha256": "4be5a499e6c8adfdaf870cfb2b89f96f48fb902a255aff85677ef61f9627dbc7"
+      "bytes": 8244,
+      "sha256": "0ce76a9ab6aee193ec01e21aa749f903ec10a0b3c1b783ecacfbdf4be02475b1"
     },
     "projetos/banners/banner-verve/index.html": {
-      "bytes": 8214,
-      "sha256": "7a7fde9800bb0bfb5070cde9b31ab5bbd6462276377984216eebe741d231eae7"
+      "bytes": 8220,
+      "sha256": "68ecb62aec831edcbe442334868d4f264408da0283d3cb10ffe350dc88578d69"
     },
     "projetos/banners/index.html": {
-      "bytes": 8132,
-      "sha256": "9a493959c30fa852823a2872355abb3008201af2bd41290d3a415a3604ecd78e"
+      "bytes": 8138,
+      "sha256": "4efb1c055abf2e4d001bb6ffc1b6d7fe70131c4219186fa7f3f43c9ae7856570"
     },
     "projetos/banners/media-1eqhabmp8ryv0-brcewmvkpnjhblgvd71/index.html": {
-      "bytes": 8278,
-      "sha256": "918d4c121f6dbb7d75dac805680c5b7ab5ee7caa3e4b54bf5ed66401075118fc"
+      "bytes": 8284,
+      "sha256": "6a2efa15c2fe178b7db407ad1ecf1afa3b68df6e3a16c907fd97dd381b2053ff"
     },
     "projetos/banners/modelo-banner/index.html": {
-      "bytes": 8222,
-      "sha256": "4bebff0e4ccff497d5b8a5f75b551e544b036cf89c4d203be075b8ebea9590b8"
+      "bytes": 8228,
+      "sha256": "07dcb1908f3b279e7e4e0ea4630f80886ae61b7a1bcc57bc39c0474ab31781fb"
     },
     "projetos/banners/site-bellarine-26-05-27/index.html": {
-      "bytes": 8302,
-      "sha256": "9176c47dcdcf3be28d796bf6a1631d7354661d35d1760372500165c7e08abe96"
+      "bytes": 8308,
+      "sha256": "13bca78f183994ea62d16b1105ddf0184fee62ee61897f5516dcd36732bc5852"
     },
     "projetos/banners/web-banner-evo/index.html": {
-      "bytes": 8230,
-      "sha256": "2f96ffd2aa11a0fb1bd8b11251499b8b7a66a08ab3e21717498f72a656d84358"
+      "bytes": 8236,
+      "sha256": "6110eca42540a531c280529e75256c79118a1b7be2249659227f7d8e26bdfeca"
     },
     "projetos/banners/web-banner-lancamento-diamondx/index.html": {
-      "bytes": 8358,
-      "sha256": "7433d505ba6d42825e6ccf10a19ec4459f9b228f78ad5fd27d8838918371a1da"
+      "bytes": 8364,
+      "sha256": "53677d71e8b72b273b6c7ab6e9adb0256fa35967621366ab5440d076fb62c43f"
     },
     "projetos/banners/web-banner/index.html": {
-      "bytes": 8198,
-      "sha256": "44555f650eadaebab93f98c3d6409766214b6cc769b138c04e61b2a4b89294cb"
+      "bytes": 8204,
+      "sha256": "82a18a28ea963cc7868ca9a85c00d3b7dc8896e61967798494cf87786225e052"
     },
     "projetos/banners/webbanner-rennova-shape-lido/index.html": {
-      "bytes": 8342,
-      "sha256": "507120c8a6c5f10f253239fefeaf422e0ef7a97620b64fc03b117875f6ba9eec"
+      "bytes": 8348,
+      "sha256": "1e344683b207cb1d850333b16c8163b656fa36e48e812408a4aa3fc6758c89fa"
     },
     "projetos/campanha-007-completa/07-07-dia-d/index.html": {
-      "bytes": 8262,
-      "sha256": "bad4a061a7064a615cf876a553d18b674283dcf4007a43eba7c7129cf0a88657"
+      "bytes": 8268,
+      "sha256": "22281a2251b73d802a89533a48971c6ec33e6f2c113498cad79c3e1ee7d41010"
     },
     "projetos/campanha-007-completa/banner-7-7/index.html": {
-      "bytes": 8254,
-      "sha256": "1ec1423d3ebd8829a4e42fb1a113b9834b84094cac95eaa146069d4723687251"
+      "bytes": 8260,
+      "sha256": "77eeff0ec3077002f796184c86cdc96767880f26465fe2c5aea85488321fe017"
     },
     "projetos/campanha-007-completa/bioestimuladores/index.html": {
-      "bytes": 8302,
-      "sha256": "15b8a23338061079092f39ac7a8a436950bf30865c542a46b25fdc16eb74e99a"
+      "bytes": 8308,
+      "sha256": "29d63563734444314c01d9af19cde14df81a2738e2aea3f6b5878a2c0ddcc21b"
     },
     "projetos/campanha-007-completa/bioregeneradores/index.html": {
-      "bytes": 8302,
-      "sha256": "f988916b36615a7f3190c621dbdeaccbbdf940b296c46200b3864fe2942e238d"
+      "bytes": 8308,
+      "sha256": "f7ecf59066b51428419b37d1846f92b5702d11e50070d33055f4e0b68b063d11"
     },
     "projetos/campanha-007-completa/descartaveis/index.html": {
-      "bytes": 8274,
-      "sha256": "a97f7d20cd4e1e58facf8670b71968b564caf316bbe0a309ff843ee428d5f183"
+      "bytes": 8280,
+      "sha256": "f9ae58749bcfb0906c03fac854b9c01ef24abdf5e7e7ca4470d85c294bbf01e1"
     },
     "projetos/campanha-007-completa/e-hoje-0707/index.html": {
-      "bytes": 8266,
-      "sha256": "7f80c1484f8c1aa6ae3fcc62824b771099669ece6fd0b77e885b3ce27707daee"
+      "bytes": 8272,
+      "sha256": "823630715670e3055ac7d0ce27939918cadd9e922fdb0be8d6e59048a498dbba"
     },
     "projetos/campanha-007-completa/estatico-patrocinado/index.html": {
-      "bytes": 8338,
-      "sha256": "9e361c465f0da2675d82a35ce76e6d11378869951087661d21458b8de023d877"
+      "bytes": 8344,
+      "sha256": "cc61a08de1c601772d638a9785b988bb2afe605fe6ad21afd3831d379bd339f0"
     },
     "projetos/campanha-007-completa/fios-de-pdo/index.html": {
-      "bytes": 8262,
-      "sha256": "fa7a3db4eb96ca888127ec9f54a71f70a9353bc2a026da9c6ce0c9bfbb1794b5"
+      "bytes": 8268,
+      "sha256": "f2716871fcbf79e705353a9618aacad9a11ade4e82018201e9c282501c278485"
     },
     "projetos/campanha-007-completa/index.html": {
-      "bytes": 8300,
-      "sha256": "931f680d8e43db99a185cf7dc47ccee7156735fc493d9f18cde36c5b8fc85e76"
+      "bytes": 8306,
+      "sha256": "dcc3eabd2fe83b27090ba6decfea9630c8166d6b94cca3228634041ec41cc6d8"
     },
     "projetos/campanha-007-completa/laminas-dia-d-7-7/index.html": {
-      "bytes": 8318,
-      "sha256": "fb58a84a01f5d663de6947dda9b19a1347234af424655c5a70229090497e09ff"
+      "bytes": 8324,
+      "sha256": "a52d3c8ed8c9f7fd4246ed2624d34c44d58450751e979ca3666344eefa1b1629"
     },
     "projetos/campanha-007-completa/logo-07-07/index.html": {
-      "bytes": 8254,
-      "sha256": "54b446d8e8bad4a92f79cd8a72d7fd6f19de7c53fbc08c2330e4effd10a6cc32"
+      "bytes": 8260,
+      "sha256": "ae9fa334402708408f3b2abe37fb0ec82dc0c93befacde506ef57268a8fd082d"
     },
     "projetos/campanha-007-completa/mobile/index.html": {
-      "bytes": 8222,
-      "sha256": "3cc6c0fc0d72034bd99469967aeba39618aca2fc608d6fb267e090f12dbba440"
+      "bytes": 8228,
+      "sha256": "848be6f9938254f510849f98dc0835be1b1818f1baf9d3ad9f5775d1bbadb839"
     },
     "projetos/campanha-007-completa/prancheta-1/index.html": {
-      "bytes": 8262,
-      "sha256": "59651cfe349f2612def8c8b931228135eae3f8ccfa1f96e057cc85979962071c"
+      "bytes": 8268,
+      "sha256": "99d152e78d18b009b878dd066e40d4ec9c0c9787e088f2ebe6d9f33865349180"
     },
     "projetos/campanha-007-completa/prancheta-2/index.html": {
-      "bytes": 8262,
-      "sha256": "ff8a9bc992766f0e468e8b011521525ac95e9e9d4c727b6f2b4c1c60a79a4d98"
+      "bytes": 8268,
+      "sha256": "aeb7dbffeef62b2dd250c7da00968a00483352ed986207fa44510661c4726058"
     },
     "projetos/campanha-007-completa/prancheta-3/index.html": {
-      "bytes": 8262,
-      "sha256": "60e2a8c83849566fa1d4312a91ba49ee43bb8c11022484bd5a2f5bb5eb4a4922"
+      "bytes": 8268,
+      "sha256": "369f16580e8d430f704301e536c1497c48f407f5a63f6b54d6e6ddfcd0ea03da"
     },
     "projetos/campanha-007-completa/prancheta-4/index.html": {
-      "bytes": 8262,
-      "sha256": "16b70368a0778fb27b2704cee420c09cc80573f6ee14da5cc87184c873a317fe"
+      "bytes": 8268,
+      "sha256": "fbf02835c3f2bcf0d4c2925aaa30119ae081a3c90ba49ee5728ca884e79ee4f6"
     },
     "projetos/campanha-007-completa/preenchedores/index.html": {
-      "bytes": 8278,
-      "sha256": "6dbd7e1836f159cf20edb9c77c9b15aff0bd4730016ccba9da22a55cb612eedf"
+      "bytes": 8284,
+      "sha256": "49ecdc79976cdc1018af7e7970c86ff7bd4c6b50922db504d203c8b53ce2d0a6"
     },
     "projetos/campanha-007-completa/skinboosters/index.html": {
-      "bytes": 8270,
-      "sha256": "722d1f21919f0be9561fda9f6da6d84a7dd6bcde4a085476eec3c338f1db0b44"
+      "bytes": 8276,
+      "sha256": "6de75f6e6b9f7bceaa63b086a00e03bc7febb4e2053d563ced19c01d77b783c3"
     },
     "projetos/campanha-007-completa/spoiler-07-07/index.html": {
-      "bytes": 8278,
-      "sha256": "fde02f9ffab3ff8b72cf7711525c84c60352d3284c2c1261408ff7a31e20c340"
+      "bytes": 8284,
+      "sha256": "443e379fb8232b24a2cc2b5c0abb9f9900e92673aed0b636d029eb8e5fa327c4"
     },
     "projetos/campanha-007-completa/toxinas/index.html": {
-      "bytes": 8230,
-      "sha256": "7e73407fe906c78981c87bb32b1ca6961abbafd0cf67b5ddb0ff507bea66c08e"
+      "bytes": 8236,
+      "sha256": "c95b2557131a124a5f4fe399055653ed2f2f79ede561365536daa4655f425989"
     },
     "projetos/carrossel/carrossel-bacio/index.html": {
-      "bytes": 8246,
-      "sha256": "7157239771508158d5bbe477fa54406ee2eb67756eef59aec4197e7bbc64c1ba"
+      "bytes": 8252,
+      "sha256": "d33a37da320f21c364ea451de3617146d05275935e22131e13da92ae2d6ede9d"
     },
     "projetos/carrossel/carrossel-evo/index.html": {
-      "bytes": 8230,
-      "sha256": "df3fd48c796988f0ff875c99228cad538c833b1c0c16ad15dfcf17ed5f77b241"
+      "bytes": 8236,
+      "sha256": "fc8d228f19332ffc8d9bb843f1e3dec821357b380c868abc72d8f9ad88acb713"
     },
     "projetos/carrossel/carrossel-img/index.html": {
-      "bytes": 8230,
-      "sha256": "50467bb8a765acf663b15724336d5e08a8f2aaf872ba7d5bebe0d20c88a0dad0"
+      "bytes": 8236,
+      "sha256": "0d01e4fdbcbbc1f6031c22b0ee277c12d278689a9613ab0281690ba334ae70e4"
     },
     "projetos/carrossel/carrossel-rennova/index.html": {
-      "bytes": 8262,
-      "sha256": "399e70aa5082496e6898c6414e35c930a7e80384352dc130aa34f3bf168f4925"
+      "bytes": 8268,
+      "sha256": "b7cfcdc685061177b3bf9aa8f3f06dc267d4882616c7f836a00bddfe921c33fc"
     },
     "projetos/carrossel/carrossel-v-hacker/index.html": {
-      "bytes": 8270,
-      "sha256": "24ffd4f83821bec029a79414e75a525991e7aa026816a1f5538f92fc1699f735"
+      "bytes": 8276,
+      "sha256": "b36a21b23fc8aff9e823ee5ab30e978c00caf93a386987dd2aa1a33fd38abea7"
     },
     "projetos/carrossel/carrossel/index.html": {
-      "bytes": 8198,
-      "sha256": "dc7bda136da759f52f19ddaf96bf33b2b07c34e78cfce67f93f950b449d61f02"
+      "bytes": 8204,
+      "sha256": "264412741d79b5ce2b1df685bc8f249d0c34bc81331dfc108af4fb732cf41637"
     },
     "projetos/carrossel/index.html": {
-      "bytes": 8156,
-      "sha256": "fd9cd6b172232d10192de70bacf57ac8113c256303a7b5a3823e5f02d4e2bbd5"
+      "bytes": 8162,
+      "sha256": "c213ea62bb0567d76852a3372a5609d1c8253b601cfdf885a139755f9e384715"
     },
     "projetos/dermacast/cortes/index.html": {
-      "bytes": 8174,
-      "sha256": "3b3f3001922b2ea428c921c496478abffce3cf7f6cbaa9f89e1bacda603920db"
+      "bytes": 8180,
+      "sha256": "646d2a8c4299760a294b25e4b34ae2c6cd239ff040a13f1af5b585d0012ce8d9"
     },
     "projetos/dermacast/episodio-completo/index.html": {
-      "bytes": 8262,
-      "sha256": "95b6b152e4d65f6f8e774fc04058444a5769d3ff6bac4a9d09642256620ba895"
+      "bytes": 8268,
+      "sha256": "e065c5cfb29cfe20a9a073297c350986c3f4c0941ac01b9bb366a1da7d140bdb"
     },
     "projetos/dermacast/index.html": {
-      "bytes": 8156,
-      "sha256": "e8bcded304c33ce8b08a2b379d79f069b2902b7d4d2575ab8cae01cbe4aca366"
+      "bytes": 8162,
+      "sha256": "418a4024e11db9a5e4965ab453ca22bb840084563382a30e882f54b592298332"
     },
     "projetos/edicao-de-videos/allergan-anja-4/index.html": {
-      "bytes": 8274,
-      "sha256": "cde09124270370bedf580b80a0c15f03bc5abdcf69cf0038bc5a18cd8f84cd88"
+      "bytes": 8280,
+      "sha256": "6a00c2ceaecfd0e1aa2bfed1177bfd8ec12715d223eb083743fa6589da60068d"
     },
     "projetos/edicao-de-videos/final-galderma-workshop/index.html": {
-      "bytes": 8338,
-      "sha256": "3ac69eb6bc722dd1f0a562baf942e77b71f8ca0bc2d22c02d31cb282a87af1f2"
+      "bytes": 8344,
+      "sha256": "8956843d0135969e7b91d3d3d4d717cd4b3163437d73c8fed01fa9bc0f11d3bd"
     },
     "projetos/edicao-de-videos/final-video-merz/index.html": {
-      "bytes": 8282,
-      "sha256": "0b0533337c5e90e44eba0ddd0da46ac4c7628794b09d6df2b224831c04e574c8"
+      "bytes": 8288,
+      "sha256": "6d85c8a937e522040b4ba136d15434e36ef832b5f9e4c3e18c49f224cdfa9397"
     },
     "projetos/edicao-de-videos/index.html": {
-      "bytes": 8264,
-      "sha256": "3320c7501b73178381d22a2799c5c1dc4362ef8f5f3ad661176e026005674901"
+      "bytes": 8270,
+      "sha256": "0edc9070993b77cd5b3d96e7ac27f922656fdaf93e85c48bd0e4a02294bf2795"
     },
     "projetos/edicao-de-videos/pilula-rejuvital-2/index.html": {
-      "bytes": 8298,
-      "sha256": "317a134c40e728389aec814820b339b10a2c31412fd920bf30cfd41edca2b093"
+      "bytes": 8304,
+      "sha256": "21b1670ded33f5cce779b0af21ca36bba4bafff42c437d6e5fb2ba1c534aa2e3"
     },
     "projetos/edicao-de-videos/projeto-01/index.html": {
-      "bytes": 8234,
-      "sha256": "e33446d7825256c99d0248fc02ef16f51516025b5918ee77ae99e56db2318b66"
+      "bytes": 8240,
+      "sha256": "451be4ba15fe866f46e53fb0b470d6963efc2c980eb29acd9dc84a7e281553f7"
     },
     "projetos/edicao-de-videos/projeto-02-allergan/index.html": {
-      "bytes": 8306,
-      "sha256": "e26e436703125bec69433e57c2aff8f2f800690481f4350c477b65e6de68a166"
+      "bytes": 8312,
+      "sha256": "edcb194af2bdb4449c15558a0b9f7e5690e4ee60ad227567e5e1370fa5a5662c"
     },
     "projetos/edicao-de-videos/rejuvital-amanda-1/index.html": {
-      "bytes": 8298,
-      "sha256": "285f8fd5f8e11d00632c32b57410369741ec6a58232617b9e1a53a8fbb101e30"
+      "bytes": 8304,
+      "sha256": "2b1db07a6baf7d9100c76e39378b89370c961ce5a02b9f1cf3e483d26cfe0765"
     },
     "projetos/edicao-de-videos/rejuvital-amanda-2/index.html": {
-      "bytes": 8298,
-      "sha256": "8f3196c75fbeb6ca8c226fd4707ad4b994c321645495cc613d8201eb6dcd26bb"
+      "bytes": 8304,
+      "sha256": "fbffb6ed4cfd49010b180f6c4d27f7c7bdec39e9f07ec52e6e4d20f5d13d2cb3"
     },
     "projetos/edicao-de-videos/workshop-evo-final/index.html": {
-      "bytes": 8302,
-      "sha256": "eb7f154fcd2a297c56814252f05bc31f1f2494a259ec62160779fad283afbb55"
+      "bytes": 8308,
+      "sha256": "12ed888e41f3b47486ffdda2e43a13a55245a88863b5f3ab563fd6d833271907"
     },
     "projetos/edicao-de-videos/workshop/index.html": {
-      "bytes": 8218,
-      "sha256": "f1dc99d4bc23fe68febe9b0260b921e295cde74775f0628b24f4ba0483a40973"
+      "bytes": 8224,
+      "sha256": "1b61b2552cb398396150a97059af0783053fa0f58102e7d61c0f9917e7769061"
     },
     "projetos/laminas-para-divulgacao/index.html": {
-      "bytes": 8348,
-      "sha256": "e2115060f9cb96f63620f392eb86d98396dd908c232d5e6c7ce12ebad3f8f89c"
+      "bytes": 8354,
+      "sha256": "719ee896fa262ff544bb671dfe21d79d2cdc3321157ad18d84c93bbf02b382d8"
     },
     "projetos/laminas-para-divulgacao/lamina-2/index.html": {
-      "bytes": 8242,
-      "sha256": "e1c3935c8de0af74b1151557c8b264bccf0e4e9ac076521c1c7c1aed82426e19"
+      "bytes": 8248,
+      "sha256": "8c8b06f95af919b8a8e4b3e48ea84c968e5888e1b8261506e0b18034e1232670"
     },
     "projetos/laminas-para-divulgacao/lamina-3/index.html": {
-      "bytes": 8242,
-      "sha256": "5d477736a6a182242c428081a488d2a4cd2cd9e875a232948117fc25c28cacc8"
+      "bytes": 8248,
+      "sha256": "86840a886138cdba4ebcd033fa411b537deb5a375631f1fd302c572ce469444a"
     },
     "projetos/laminas-para-divulgacao/lamina-de-divulgacao-galderma-tarde/index.html": {
-      "bytes": 8462,
-      "sha256": "7b76a2c6f6a25de2b3967d3050a61fcf949ce336c294019bd01bf0c958136696"
+      "bytes": 8468,
+      "sha256": "d67311f2b1e26c6f42c9195ad7db70bafe7f87952876749883af06c6ac4b5cd0"
     },
     "projetos/laminas-para-divulgacao/lamina-de-divulgacao/index.html": {
-      "bytes": 8342,
-      "sha256": "380c66581fe51073d1699ea44e1a1ef8a4e223227fdb3d66e250bed7ad3af5f3"
+      "bytes": 8348,
+      "sha256": "475ebf36eece47941939b9397ed0463509dbc48003f0d1837e6b58f985995a4c"
     },
     "projetos/laminas-para-divulgacao/lamina-hands-on-experience/index.html": {
-      "bytes": 8394,
-      "sha256": "3c3218489cd86164dff9e1d648b5cbe1abed567a23b48ace7f8b64310de6dfbf"
+      "bytes": 8400,
+      "sha256": "4ca8ce8e90989986383a8cf933bdb0d3b57b0bc5df295d52ef09505f65da55a4"
     },
     "projetos/laminas-para-divulgacao/lamina/index.html": {
-      "bytes": 8238,
-      "sha256": "bde4b4ae132b0fd09b83d696d903e1ace796c328713451cc014b68e99c6b08d6"
+      "bytes": 8244,
+      "sha256": "3c47861f82433377b6a28cb90d6dca0caac79e41f73918f19c285cad8b88c9d6"
     },
     "projetos/laminas-para-divulgacao/post-6/index.html": {
-      "bytes": 8230,
-      "sha256": "d7b4a44b4d51366692a9b8feed23449749a2bc81393898e68bb57c683184fd44"
+      "bytes": 8236,
+      "sha256": "27e83de55ea188e03c132177d3f99e3a2bc90964e6df2ac8cbe8096e65c1f167"
     },
     "projetos/lateral-banners/230x610-banner-lateral-rennova/index.html": {
-      "bytes": 8390,
-      "sha256": "737e3a7a4835538709bd997ddeba683be8bd6aca71fb9664c2c78064a1599413"
+      "bytes": 8396,
+      "sha256": "0e1df7070b500455e2ecdaba3cbbeacf80b787779fd08bde979663b42e5d2d71"
     },
     "projetos/lateral-banners/460x1220-banner-lateral/index.html": {
-      "bytes": 8334,
-      "sha256": "fd7a1168efcdb45cbad135d1f290fa8bffdd5cec5462c07da6788ce7e8cc8480"
+      "bytes": 8340,
+      "sha256": "8f7196d24bdb0298ca4280a9a26d773b6eb6a9c84ec6a70f59795a66508354b0"
     },
     "projetos/lateral-banners/banner-0-80x2-0-1/index.html": {
-      "bytes": 8294,
-      "sha256": "72febed2f1397446ba496dd1d595d3d6c88c5121be161909a6fa0b997906e86b"
+      "bytes": 8300,
+      "sha256": "711ee273666f32e35177c7566fa2fafc8031b861e82c10a40faa1129a81150c2"
     },
     "projetos/lateral-banners/banner-0-80x2-0-2/index.html": {
-      "bytes": 8294,
-      "sha256": "0c155439c6ce61d3fe4ac50acffa19a1cf234178dd79eac7356b7e105057f3e6"
+      "bytes": 8300,
+      "sha256": "bb19cc6e422c590a0d3a47fba988e171cd4d8b8ae838063b37beaf6e46bbbc66"
     },
     "projetos/lateral-banners/index.html": {
-      "bytes": 8228,
-      "sha256": "a8d83f3ae3d60b7cbe3e13a14fc9589a52d578bb093dd54a989706b15bee6e41"
+      "bytes": 8234,
+      "sha256": "b4ca373cb01010fa9f90b59db28c30321be9c6577350d17d2771e2bfcd1f20ae"
     },
     "projetos/motion/copia-de-sculpt-dermalink/index.html": {
-      "bytes": 8318,
-      "sha256": "dc5a822a1982b9c15f564adc3a62136d7fca282ad549513a051be845157a0cbb"
+      "bytes": 8324,
+      "sha256": "829df6efde760cb903114c052738de2b9b2c744660a1c2009d72864d62ea8d58"
     },
     "projetos/motion/final-reels/index.html": {
-      "bytes": 8202,
-      "sha256": "cd0c8a4cec544dce86f2da174842e7120bff968157e1583def4a79ded859911f"
+      "bytes": 8208,
+      "sha256": "1bfe9c7c165ccbf8c297baab9c23c11d99a8478e305a50c7e190ce5c8ec27874"
     },
     "projetos/motion/index.html": {
-      "bytes": 8120,
-      "sha256": "a6c2bd329f26a06d4d1dfd47075c9c51a876172631ccd25cf40d5c4ea304cd5b"
+      "bytes": 8126,
+      "sha256": "3dc3558132f2412150e024d7b9d9d26beacba3fef2692e6deb7d8ab1b7f77810"
     },
     "projetos/motion/post3/index.html": {
-      "bytes": 8154,
-      "sha256": "0d1c5406921f5d7cca6c7041fdce66442751a9388b1e8b2828760fa9daf0c572"
+      "bytes": 8160,
+      "sha256": "4888253adf7d90803d2ce7178a29c4d9c41a78801a432cfbb057e3edd800ea74"
     },
     "projetos/motion/post4/index.html": {
-      "bytes": 8154,
-      "sha256": "b5f6577a6b223c211c930a4c233dd8e8a7f8f1820edda4e12c79331fe8eeca1a"
+      "bytes": 8160,
+      "sha256": "69bc08de29e93e253560976be1174fcf27421bbfdd12dea1e8172b0c98d554d6"
     },
     "projetos/motion/story-ai-1/index.html": {
-      "bytes": 8194,
-      "sha256": "6782d9ede8c77d03d9d41362127ebf9fbaf78dccd9e1afa665e8350206400956"
+      "bytes": 8200,
+      "sha256": "289e9f36b94ee79110506323924bf39e1deed1fe0579717b2a2f429f13467ea3"
     },
     "projetos/motion/story/index.html": {
-      "bytes": 8154,
-      "sha256": "fcdcf7b0aa15855e91bbeaa6bbb9607ae86698089e07793ff771e5db14e93640"
+      "bytes": 8160,
+      "sha256": "18d6e9d967756ba264f9070d6285ea4c8902b4161687c27061c38f9310c8b084"
     },
     "projetos/motion/vd-speaker-13-joao-pithon-sinclair/index.html": {
-      "bytes": 8390,
-      "sha256": "e33ccd74da6be9cca93fcf23e2726a807479a285c38bc8649c9a34881821983b"
+      "bytes": 8396,
+      "sha256": "d72e359cb254e4e1fdce4c8e1506940c8e7e43b4650078915bb0f49d27f0d7f9"
     },
     "robots.txt": {
       "bytes": 75,
       "sha256": "bff445912f08f4f49395bf74bc43762253d148329c4d344e113115c8be6e422b"
     },
     "servicos/animacao-de-logotipo/index.html": {
-      "bytes": 8457,
-      "sha256": "69f4535bfb1561a9e3a78d303d9d142bc96c5ff2e42f5ee4148bfc687d5ba357"
+      "bytes": 8463,
+      "sha256": "061be477e6d7ce27f2c37df66a529f4e8d95bff026454a6aa6e0e45533e09782"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
-      "bytes": 8597,
-      "sha256": "3d058a17e9c8c229099874c17961f759aa8c12c42909114c98ccdcf07d7d4d27"
+      "bytes": 8603,
+      "sha256": "1e9dc55f4df706f8b7533bc9559b1e01844a81107054e1d6d0aad847e4101462"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
-      "bytes": 8505,
-      "sha256": "d6666ffc5c9add9e502de8058e31267122edd82da26829e41830879d3626af15"
+      "bytes": 8511,
+      "sha256": "9fe06115ce3589a455e6f368f1a7f58fe52d3d224f28e67eea1f61b39b3384f9"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
-      "bytes": 8621,
-      "sha256": "aae049600e9494bf5c0cb8e7fb9044899af987d19f708d74d96190ff5c76d0f0"
+      "bytes": 8627,
+      "sha256": "11e9e462d17926587e355cfae4f8a9a462ee49b8ff23476bfcdd8b290e0a9c2a"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
-      "bytes": 8481,
-      "sha256": "da3d6ceb02cbc51585e04d7b1490f78323102ee3597083ed32dcb552adeffbc2"
+      "bytes": 8487,
+      "sha256": "980a87f6a90e9a07e5af90871a6fa9d22bab67998cd49604b5a5a60b1f83da46"
     },
     "servicos/composicao-complexa/index.html": {
-      "bytes": 8473,
-      "sha256": "ad9c975e432ccee79cbeeee0e354dc6f2ac9b892d9baa92f919ae51b6fa15cd0"
+      "bytes": 8479,
+      "sha256": "64d67958708cb29c3ae939c0c6246c4404f5ff1d571d2c8017c50a94cb0a9207"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
-      "bytes": 8497,
-      "sha256": "5670e19d85fcc92fd04fe97878271ef7827bdf2b9bfb90150193ad1685a356e5"
+      "bytes": 8503,
+      "sha256": "b0115549fe7ced17e3b8910670f705186b59c8e93e90b3fc806b49431478a55a"
     },
     "servicos/composicao-publicitaria/index.html": {
-      "bytes": 8501,
-      "sha256": "00498b57fa1875410d0c2379ebfef6efd39f06656e6a24e6dd43cccdde05ccae"
+      "bytes": 8507,
+      "sha256": "bfdadae23879feeeaffb77936d7b2a2ae1ac75a61b25e4c50ac173324f103e81"
     },
     "servicos/correcao-basica/index.html": {
-      "bytes": 8369,
-      "sha256": "e567ff091651613a5b9eacba4db91ed8b2adb21237a3c8af9c440167f410ba40"
+      "bytes": 8375,
+      "sha256": "99f600f78c2c4bb48d4aa525bbc44d780d6f3360edfadff9abc26076b12be4d0"
     },
     "servicos/criacao-de-personagem/index.html": {
-      "bytes": 8517,
-      "sha256": "d77a6f79fd0add9a16b053a86e6f554380e0f031b8b14c84e4d877c249657a0a"
+      "bytes": 8523,
+      "sha256": "d72e16ee7ccefe35927776ce84681e780737b053501b9b3b066d9c23de7ada87"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
-      "bytes": 8585,
-      "sha256": "a07c5881409c2aaa5e1fd3a036abf0add846be18b00002b76cb3bb008cefd732"
+      "bytes": 8591,
+      "sha256": "098927f4918e8251ae5ab3ddb70ad476afda624e6431c5b36f21771a02ffb8fc"
     },
     "servicos/direcao-de-arte/index.html": {
-      "bytes": 8449,
-      "sha256": "6f69375ab25f2e0cee59688af0cc933e1a546ed345cedc8699bd2d1faa062547"
+      "bytes": 8455,
+      "sha256": "fa1b765328e208d31924515d9710548294be62b67045a0541ad4cf5ca505d214"
     },
     "servicos/ilustracao-individual/index.html": {
-      "bytes": 8449,
-      "sha256": "1ab3f9a73e485826e61609494ca6585633e35cb57fbd08674412bda73a996ca7"
+      "bytes": 8455,
+      "sha256": "71d8cadb0c5f486e16ae97fe83ce6248e459d19bc82e25f00df30eae45a3e850"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
-      "bytes": 8497,
-      "sha256": "de850d9a9b09cdfc09d54f17a0f88565976026c9f8f4b7fc637e7ae7dc687b72"
+      "bytes": 8503,
+      "sha256": "e653c1a6f3dce4c0da20d9fdfa5caba34a9fbedc8222eac09d3b2954311205c5"
     },
     "servicos/index.html": {
-      "bytes": 8390,
-      "sha256": "0c43ddd8df58243e07726dd7f7140f2ce147a26ed06295d6895e70e790ce8df9"
+      "bytes": 8396,
+      "sha256": "e78e8e55abd27af466461873843566a17b5f40822a6b07c175cd82bf1ad54cb7"
     },
     "servicos/key-visual-de-campanha/index.html": {
-      "bytes": 8493,
-      "sha256": "55a9d8ec633d62f329ad4701424c8294970477099ce5fd0c7c78728a71bddd43"
+      "bytes": 8499,
+      "sha256": "ec85e985967bd3af29b78e4eba12f3ba49552a91a55e731784b2ed9430d50935"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
-      "bytes": 8525,
-      "sha256": "ff3e5a0a2ea4793ee1499a35b8d916bb502f62da495730f58300b40b76ac0234"
+      "bytes": 8531,
+      "sha256": "486915e0dc3fb9ced9b4c3e3325aff09bd91bc261d25dc64f04eb593f3736789"
     },
     "servicos/manual-completo/index.html": {
-      "bytes": 8477,
-      "sha256": "4ae231fdc76ea2b5acd8f46e5811ed737aaca63cf2a51ef6bad663b9f663b9c3"
+      "bytes": 8483,
+      "sha256": "e6e8e8af0751e635c02250368ee4424bb6b7d4efaf22ccc53db688d85f487d91"
     },
     "servicos/manual-essencial/index.html": {
-      "bytes": 8441,
-      "sha256": "67177cb110eaa251b8f75b9345f5cee1a4ac3b64e1ec456624410b1f4fccef52"
+      "bytes": 8447,
+      "sha256": "e7065514760745d1f119c5dcb182bd21648c8849ac663bb387118917910bd8d6"
     },
     "servicos/meia-diaria-de-producao/index.html": {
-      "bytes": 8521,
-      "sha256": "8bb5c1a0511329daac5793c926152d56b263932629068f9264d281c20484aa39"
+      "bytes": 8527,
+      "sha256": "117b6a70bb1e69681792b50c3e7d7d03b649e5c3424f1a4d22b1c514dccf1858"
     },
     "servicos/montagem-simples/index.html": {
-      "bytes": 8389,
-      "sha256": "82e2bdb86818dcf59399364da130a30027c227e7a3b9ceebae2cb86164e79c38"
+      "bytes": 8395,
+      "sha256": "a612f6103871bfab4509d80f304d7ff860cec11c45b32ff6a3917d363917e8c5"
     },
     "servicos/motion-para-redes-sociais/index.html": {
-      "bytes": 8493,
-      "sha256": "70e0514d7608d9ae22c3b9e4ba91a267307fc134ad1ef5967651c6f10f96b2e1"
+      "bytes": 8499,
+      "sha256": "b7c70662d05b7d95a811e3697cdd19ce1745f93199a52348cbdd45f6c6611b54"
     },
     "servicos/packshot-animado-de-produto/index.html": {
-      "bytes": 8481,
-      "sha256": "367bedfab226ba473a77a9122cc3004069365460e6091af5a26b1c7da6e3b019"
+      "bytes": 8487,
+      "sha256": "893678c6c258e0a477c81eba265b1782e712e9156b94afa994bc60ca144de2bc"
     },
     "servicos/pacote-com-10-criativos/index.html": {
-      "bytes": 8449,
-      "sha256": "a70378fd2f5028995031ab50393ccbf7928846ceff959a84c042a94c73e2870a"
+      "bytes": 8455,
+      "sha256": "adb2a9542e053eeea1023cb39eca31649f6372b0fdbd49215f5ee2cd3b8752d3"
     },
     "servicos/pacote-com-10-fotos/index.html": {
-      "bytes": 8393,
-      "sha256": "f249797d9fae6e9a0049b1754743250c09696a9b3e5340c3e5ebf03862ae5b16"
+      "bytes": 8399,
+      "sha256": "b36a3bd38bd1031cd7f9b43ad37b47e0ecb6eadb351417ea86f6777efa5d789b"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
-      "bytes": 8505,
-      "sha256": "679fa50eeb93be3ada06f81a89a8b4ff6cec99f632721c821716df79e0105104"
+      "bytes": 8511,
+      "sha256": "9c793ce4e2bbb338bc508e84d1ba77b6c543a020f7d59eb050cd0c5a9f2ebcd5"
     },
     "servicos/pacote-com-8-reels/index.html": {
-      "bytes": 8405,
-      "sha256": "9e2a97522fc1478bef477fb4b2285fb0dad49d5f72471814ff5f98e65bfc279b"
+      "bytes": 8411,
+      "sha256": "7179a277bb650cb8c39047480e5969f0abb58bcbf4e0b8628599ef9eef5b0a70"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
-      "bytes": 8513,
-      "sha256": "e42ad574355e9b20f9a1332efd50ae95e663aa055510ae64109bb2c633a58da3"
+      "bytes": 8519,
+      "sha256": "1175d95db87998f527c338afe3838b758a6d6334d5527affa16d1c5fe41a75a2"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
-      "bytes": 8561,
-      "sha256": "c538e804bccce852ac9be6cd90c50cda9f87345c7e49f1f64c03c1cdd36a8e7e"
+      "bytes": 8567,
+      "sha256": "ceb75e6b1a36afb52f38620e900a90df16c8eec34101376567d560f10937ca1c"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
-      "bytes": 8577,
-      "sha256": "8375b71d96ea2efd7c3b52901b9c731617875ce9cefd36268ed3568940cdd14d"
+      "bytes": 8583,
+      "sha256": "9a7f2d31264e72870d47a834d2e845aaae538897c086bb33d115d2e35c5ef35b"
     },
     "servicos/retoque-avancado/index.html": {
-      "bytes": 8389,
-      "sha256": "ce910f5eed8074cb53a203ad00d24e0d569b2b751d0d85378f187f8a1ad9fabc"
+      "bytes": 8395,
+      "sha256": "88795f6127bceef969cb58be1cfd32cb4b3ae0295f098b87e872b8c080031def"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
-      "bytes": 8513,
-      "sha256": "ec8e33ef7cf3ee6ba7d77922ac8aa17c01ab4b33f1d93f87b05e049bcb7654ae"
+      "bytes": 8519,
+      "sha256": "140eec7aa58f6ff8f964580806035aacd1ed66df7b93ce6551f86e803cda4c78"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
-      "bytes": 8485,
-      "sha256": "051e4937cc497842e46ace6015e1d312fbc01f88105629766e850df5b4becaab"
+      "bytes": 8491,
+      "sha256": "21a0054ee3123f2e1f8594313aa653d785aa7f19b6a3f5c66ec6a459b20a4951"
     },
     "servicos/video-de-produto/index.html": {
-      "bytes": 8457,
-      "sha256": "c02a26c139aa60ac4944dc56579161e32e2f40ee645a2ba2ac4a96fd18de082e"
+      "bytes": 8463,
+      "sha256": "65018c20701ab65f351a57edd9ce53467eef4a2b49972724dea6bbfbf2c16457"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
-      "bytes": 8581,
-      "sha256": "ff348b0510297dcb0bc41be9c71f2a379d040748c8a0fd63eed04633e2d5b6f3"
+      "bytes": 8587,
+      "sha256": "22c0ab8f66b1012a145fdae4bbc9c7a1d998b1811ed2baf1f782b6c920e79cb9"
     },
     "sitemap.xml": {
       "bytes": 11386,
@@ -1855,18 +1947,346 @@
     "skipped": 0
   },
   "stats": {
-    "bytes": 10966890,
-    "files": 241,
-    "largest_file_bytes": 1521857,
+    "bytes": 116047719,
+    "files": 264,
+    "largest_file_bytes": 5564618,
     "route_shells": 123
   },
   "video_assets": {
-    "bytes": 0,
-    "downloaded_bytes": 0,
-    "hosted": 0,
-    "items": [],
-    "mode": "drive-primary-media-v71211",
-    "reused_bytes": 0,
-    "skipped": 0
+    "budget_bytes": 335544320,
+    "bytes": 105000920,
+    "copied": 0,
+    "downloaded_bytes": 2027292276,
+    "failed": 3,
+    "fallbacks": [
+      {
+        "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+        "reason": "derivado web ainda ficou grande (17.0 MiB)"
+      },
+      {
+        "id": "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja",
+        "reason": "derivado web ainda ficou grande (28.5 MiB)"
+      },
+      {
+        "id": "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG",
+        "reason": "derivado web ainda ficou grande (38.6 MiB)"
+      }
+    ],
+    "ffmpeg": {
+      "available": true,
+      "installed": false
+    },
+    "hosted": 23,
+    "items": [
+      {
+        "bytes": 5538807,
+        "duration": 49.1,
+        "id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-27T20:05:56.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr.mp4",
+        "sha256": "d5305e2fb443e18ea9333d4daf476f31a3a89313e3590a8c7ba52731a4726cb0",
+        "source_bytes": 62279984,
+        "target_bytes": 6291456,
+        "video_kbit": 826
+      },
+      {
+        "bytes": 5111256,
+        "cache_hit": true,
+        "id": "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-03T20:17:22.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68.mp4",
+        "sha256": "b7ab234cd3020c0634b69d0c57c8202b0cfd7c76139c2dd22f7b156ee5347b94",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4903001,
+        "cache_hit": true,
+        "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-01T20:40:17.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy.mp4",
+        "sha256": "628acbc5b4b4f8a9d73b310785b129d8a90b319e2c0b9fca02da1170f3e5383c",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 3621086,
+        "cache_hit": true,
+        "id": "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-06T12:41:33.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t.mp4",
+        "sha256": "a5663db0d2f5f3583b99fe8727bb260b948a80dd8b38508489d42140fef64ec8",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5564618,
+        "duration": 68.2,
+        "id": "152WtGgQyDan29DOanoj8oSvsGHpTHnb8",
+        "mime": "video/mp4",
+        "modified_time": "2026-08-12T13:08:37.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/152WtGgQyDan29DOanoj8oSvsGHpTHnb8.mp4",
+        "sha256": "58f4a3b059eea7e623a0fe56035149d748ed02926dfd82a728d42cff5e006e11",
+        "source_bytes": 86559220,
+        "target_bytes": 6291456,
+        "video_kbit": 568
+      },
+      {
+        "bytes": 5530763,
+        "cache_hit": true,
+        "id": "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-19T21:09:09.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ.mp4",
+        "sha256": "fd469b91358af2d3527b15edfe7ca58bd0ba0a91cb51196e3913f85caa68f747",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5062706,
+        "cache_hit": true,
+        "id": "1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT",
+        "mime": "video/mp4",
+        "modified_time": "2026-08-03T12:06:45.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1h9EnvuuQngDjN7JrlJh9Rha0NZYQ5esT.mp4",
+        "sha256": "974b803ddf2b4b9cc4acaaa111898ee7048d8af7966daf1d65344ef61770cd86",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5341878,
+        "cache_hit": true,
+        "id": "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-11T16:45:07.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1Gg2A7a4COva4j5ocytoYgYZCnpn62g72.mp4",
+        "sha256": "c01300459611de4e5c27ce74bb972412d580cdd5851219e64996eca5ab1fb9dd",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4911358,
+        "cache_hit": true,
+        "id": "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-22T20:42:58.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr.mp4",
+        "sha256": "eceda0d44b181869bb63718ac6a64457666c802a811a2ada3f07c12c45c8ccd1",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5184071,
+        "cache_hit": true,
+        "id": "1OO14itSGeowOPQmW96t8d0FlZq5yVxnI",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-24T18:35:11.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1OO14itSGeowOPQmW96t8d0FlZq5yVxnI.mp4",
+        "sha256": "3325e93e7e7791b89e16b1799647811537cbdd548ec5a400540912ef03870f22",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4887820,
+        "cache_hit": true,
+        "id": "1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-12T14:57:02.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1UBT2CH0RLdsW7NdqazwjAyVlgPYb4N6o.mp4",
+        "sha256": "f5632890c56676f582e9c2fe4a775d9c8377948afd0413e4867eabc9d99f44ae",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5031325,
+        "cache_hit": true,
+        "id": "1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-09T20:37:22.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1A0spZWKMTzfieeqVNoZFLjXV7jrRqcPR.mp4",
+        "sha256": "bd909a921d13e0ba3bb3a942d1a0a2a8e4a46e559abdd8f65912ce76282c75dd",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4956712,
+        "cache_hit": true,
+        "id": "1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-13T12:53:00.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1t6mWE0ZgvzMh9fTmrs62cv0lFruv_1UO.mp4",
+        "sha256": "278862fd8555ab389af68b5a12d7f52cda20241165bb5956675335b2d2f65949",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5123334,
+        "cache_hit": true,
+        "id": "12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-20T19:18:34.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/12eDBJ4AEMcQsaANQxqK65kRBd5FFhkQQ.mp4",
+        "sha256": "945a049a79ade9806e6524069b275672faccd02e0a9459f7dccfdf102205fe82",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4921456,
+        "cache_hit": true,
+        "id": "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-06T14:48:21.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5.mp4",
+        "sha256": "e34a07a61189855833092195b67ac64a1fb38f23fbf9df8dc05d3b844812354c",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4976000,
+        "cache_hit": true,
+        "id": "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-14T20:06:49.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H.mp4",
+        "sha256": "d5cf05c19bd3b25e4c8397931e0fd89539415e397632f50e446543340e3f8403",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 5138994,
+        "cache_hit": true,
+        "id": "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM",
+        "mime": "video/mp4",
+        "modified_time": "2026-07-12T18:16:43.865Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM.mp4",
+        "sha256": "3a369d576bc4526af90ae5892380b65044df4ed28afbfe8dead263529f25d011",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 1667100,
+        "cache_hit": true,
+        "id": "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T13:33:08.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz.mp4",
+        "sha256": "01cd29cc241d540822a7f900b331a58ae53b36610030e0dc68ae0adea76ed6d5",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 3855421,
+        "cache_hit": true,
+        "id": "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T16:34:46.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb.mp4",
+        "sha256": "395c1689accec63705d96a09875d5b1210de451d2d37d3e4070ab7da9defc3e8",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 3036352,
+        "cache_hit": true,
+        "id": "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "mime": "video/mp4",
+        "modified_time": "2026-05-15T18:14:18.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg.mp4",
+        "sha256": "3095ee2df5ef8575678f0074f605fb2c133f0d9202e096771dc00f3c7316e06e",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 2424821,
+        "cache_hit": true,
+        "id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-26T12:36:32.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE.mp4",
+        "sha256": "60cddf02118744ed62ea831ff6fda9520fecde29de407a131af67b4b777726a4",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 3249836,
+        "cache_hit": true,
+        "id": "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED",
+        "mime": "video/mp4",
+        "modified_time": "2026-06-09T20:35:07.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED.mp4",
+        "sha256": "5a5e2feb3da5ca29fb54ebd8f3980a94b83babb0a5b7ff30bdcefcb907989828",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      },
+      {
+        "bytes": 4962205,
+        "cache_hit": true,
+        "id": "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8",
+        "mime": "video/mp4",
+        "modified_time": "2026-04-06T21:15:42.000Z",
+        "optimization_profile": "web-h264-720p-abr-v7126",
+        "optimized": true,
+        "path": "assets/media/1beWkRgffY9Brko94NH00Sb_ghoMaGdp8.mp4",
+        "sha256": "6546f5f27ce422039a3a9570cec01609511dc32b801ed5ea5c29755b71e9ee35",
+        "source_bytes": 0,
+        "target_bytes": 6291456
+      }
+    ],
+    "mode": "same-origin-primary-cache-first-v7551",
+    "optimization_profile": "web-h264-720p-abr-v7126",
+    "optimized": 23,
+    "optimized_bytes": 11103425,
+    "preferred_target_bytes": 6291456,
+    "reused": 21,
+    "reused_bytes": 93897495,
+    "skipped": 3
   }
 }

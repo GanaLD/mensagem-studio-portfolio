@@ -151,7 +151,6 @@ function videoSourceCandidates(item = {}) {
     .filter(isStudioFrameVideoPlaybackCandidate);
 }
 
-
 function videoChunkCandidates(item = {}) {
   return uniqueUrls(item.video_chunk_urls || []);
 }
@@ -248,7 +247,6 @@ function warmMediaOrigins(data = {}) {
 
 function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = false, timeoutMs = 14000, metadataReady = true } = {}) {
   const allSources = uniqueUrls(candidates || []);
-  // A transient failure may be retried last; never delete the only stream URL.
   const sources = [
     ...allSources.filter((url) => !mediaUrlRecentlyFailed(url)),
     ...allSources.filter((url) => mediaUrlRecentlyFailed(url)),
@@ -293,9 +291,6 @@ function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = 
   video.addEventListener('error', () => next('browser-error'));
   if (metadataReady) video.addEventListener('loadedmetadata', ready);
   else video.addEventListener('loadedmetadata', () => {
-    // Metadata proves the candidate is a real media stream. Keep the stable
-    // poster visible until a decodable frame exists, but stop treating a slow
-    // first frame as a dead URL.
     clearTimer();
     timer = setTimeout(() => { if (!sourceReady) next('frame-timeout'); }, Math.max(30000, Number(timeoutMs || 45000)));
   });
@@ -316,9 +311,6 @@ function configureInlineVideoPlayer(video, item = {}, { autoplay = false, muted 
   video.poster = item.thumbnail_url || (item.thumbnail_candidates || [])[0] || '';
   video.dataset.mediaId = String(item.id || '');
   video.dataset.mediaTitle = String(item.title || '');
-  // Presentation-only player: suppress the browser's download / remote playback
-  // affordances. This is UI hardening, not DRM; the portfolio never links to a
-  // downloadable video file as a visitor action.
   video.setAttribute('controlsList', 'nodownload noremoteplayback');
   video.setAttribute('disableRemotePlayback', '');
   video.disableRemotePlayback = true;
@@ -357,7 +349,6 @@ function bindDeferredAutoplay(video, target = video, { threshold = 0.18 } = {}) 
   }, { threshold: [0, threshold, .5, .85] });
   player.observe(target);
 }
-
 
 function hexToRgbTuple(value, fallback = '7,7,7') {
   const raw = String(value || '').trim();
@@ -425,7 +416,6 @@ function applyGlobalHeader(builder, navigation, identity) {
   if(currentCustomPage()){ const about=$('#navAbout'),contact=$('#navContact'); if(about)about.href='/#about'; if(contact)contact.href='/#contact'; if(logo)logo.href='/'; }
 }
 
-
 function socialIconSvg(id){
   const paths={instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1" class="fill"/>',behance:'<path d="M3 6h7a4 4 0 0 1 0 8H3V6Zm0 8h8a4 4 0 0 1 0 8H3v-8Zm11-5h7M14 16h8c0-4-1.6-6-4-6s-4 2-4 6c0 3.2 1.7 5 4.5 5 1.8 0 3-.6 3.8-1.8"/>',linkedin:'<path d="M5 9v10M5 5v.1M10 19V9m0 4c1-2.5 7-3.5 7 2v4M17 13v6"/>',youtube:'<path d="M4 7.5c.4-1.4 1.5-2 3.1-2.2C9 5 11 5 12 5s3 .1 4.9.3c1.6.2 2.7.8 3.1 2.2.3 1.2.5 3 .5 4.5s-.2 3.3-.5 4.5c-.4 1.4-1.5 2-3.1 2.2-1.9.2-3.9.3-4.9.3s-3-.1-4.9-.3c-1.6-.2-2.7-.8-3.1-2.2-.3-1.2-.5-3-.5-4.5s.2-3.3.5-4.5Z"/><path d="m10 9 5 3-5 3V9Z" class="fill"/>',whatsapp:'<path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 3 2 4.5 5 5.5.8.3 1.4-.7 1.8-1.2"/> '};
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[id]||'<circle cx="12" cy="12" r="8"/>'}</g></svg>`;
@@ -478,6 +468,21 @@ function applySiteAppearance(builder = {}, identity = {}) {
   return appearance;
 }
 
+function letteringSegments(value=''){
+  const text=String(value||'').trim();
+  if(!text)return ['', ''];
+  const comma=text.indexOf(',');
+  if(comma>0&&comma<text.length-1)return [text.slice(0,comma+1).trim(),text.slice(comma+1).trim()];
+  const words=text.split(/\s+/).filter(Boolean);
+  if(words.length<4)return [text,''];
+  const mid=Math.ceil(words.length/2);
+  return [words.slice(0,mid).join(' '),words.slice(mid).join(' ')];
+}
+function applyLetteringCopy(primary,outline,value,style='split'){
+  const text=String(value||'').trim();
+  if(style==='split'){const [solid,stroke]=letteringSegments(text);if(primary)primary.textContent=solid;if(outline)outline.textContent=stroke;return;}
+  if(primary)primary.textContent=text;if(outline)outline.textContent='';
+}
 
 const FLOATING_POSITIONS=['bottom_left','bottom_right','top_left','top_right'],FLOATING_STYLES=['theme','accent','minimal','custom'],FLOATING_SHAPES=['pill','rounded','square','circle'];
 function floatingControlsFor(builder={},navigation={}){
@@ -488,7 +493,6 @@ function floatingControlsFor(builder={},navigation={}){
 function applyFloatingControlNode(node,name,c){if(!node)return;Object.assign(node.dataset,{floatingControl:name,floatingPosition:c.position,floatingStyle:c.style,floatingShape:c.shape||'pill'});const s=node.style;s.setProperty('--floating-control-size',`${c.size}px`);s.setProperty('--floating-offset-x',`${c.offset_x}px`);s.setProperty('--floating-offset-y',`${c.offset_y}px`);s.setProperty('--floating-stack-offset','0px');if(c.background_color)s.setProperty('--floating-custom-bg',c.background_color);else s.removeProperty('--floating-custom-bg');if(c.foreground_color)s.setProperty('--floating-custom-fg',c.foreground_color);else s.removeProperty('--floating-custom-fg');if(c.border_color)s.setProperty('--floating-custom-border',c.border_color);else s.removeProperty('--floating-custom-border');node.hidden=c.visible===false;}
 function layoutFloatingControls(){const rank={menu:0,whatsapp:1,quote:2},groups={};document.querySelectorAll('.site-floating-control[data-floating-control]').forEach(n=>{if(n.hidden||getComputedStyle(n).display==='none')return;(groups[n.dataset.floatingPosition||'bottom_left']||=[]).push(n)});Object.values(groups).forEach(g=>{let x=0;g.sort((a,b)=>(rank[a.dataset.floatingControl]??9)-(rank[b.dataset.floatingControl]??9)).forEach(n=>{n.style.setProperty('--floating-stack-offset',`${Math.round(x)}px`);x+=n.getBoundingClientRect().width+8})});if(!window.__studioframeFloatingResizeBound){window.__studioframeFloatingResizeBound=1;addEventListener('resize',()=>requestAnimationFrame(layoutFloatingControls),{passive:true})}}
 function applyFloatingControls(builder={},navigation={}){const c=floatingControlsFor(builder,navigation),m=$('#siteFloatingMenuControl'),w=$('#siteFloatingWhatsappControl'),wa=$('#floatingWhatsapp'),q=$('#globalQuoteDock');applyFloatingControlNode(m,'menu',c.menu);document.body.classList.toggle('side-menu-enabled',c.menu.visible!==false);document.body.dataset.menuPanelSide=c.menu.position.endsWith('right')?'right':'left';if($('#siteMenuLabel'))$('#siteMenuLabel').textContent=c.menu.label||'Menu';applyFloatingControlNode(w,'whatsapp',c.whatsapp);if(wa){const f=builder.global?.footer||{},s=builder.services||{},n=String(c.whatsapp.number||f.whatsapp_number||s.whatsapp_number||'').replace(/\D/g,''),msg=String(c.whatsapp.message||f.whatsapp_message||s.whatsapp_message||'').trim();wa.href=n?`https://wa.me/${n}${msg?`?text=${encodeURIComponent(msg)}`:''}`:'#';wa.dataset.displayMode=c.whatsapp.display_mode||'icon';w.hidden=c.whatsapp.visible===false||!n;const label=$('#floatingWhatsappLabel');if(label){label.textContent=c.whatsapp.label||'WhatsApp';label.hidden=c.whatsapp.display_mode!=='label';}wa.setAttribute('aria-label',c.whatsapp.label||'Abrir WhatsApp')}if(q){applyFloatingControlNode(q,'quote',c.quote);q.hidden=!quoteEnabled()||c.quote.visible===false;q.dataset.showIcon=c.quote.show_icon===false?'false':'true';const l=q.querySelector('[data-quote-label]');if(l)l.textContent=c.quote.label||'Orçamento';const icon=q.querySelector('.quote-dock-icon');if(icon)icon.hidden=c.quote.show_icon===false;q.setAttribute('aria-label',c.quote.label||'Orçamento')}requestAnimationFrame(layoutFloatingControls);return c}
-
 
 function renderSiteBuilder() {
   const builder = DATA.site_builder || {};
@@ -564,8 +568,7 @@ function renderSiteBuilder() {
   }
   if ($('#letteringEyebrow')) $('#letteringEyebrow').textContent = lettering.eyebrow || identity.studio_name || 'Mensagem Studio';
   const letteringText = String(lettering.text || identity.hero_line || '');
-  if ($('#letteringText')) $('#letteringText').textContent = letteringText;
-  if ($('#letteringClone')) $('#letteringClone').textContent = letteringText;
+  applyLetteringCopy($('#letteringText'),$('#letteringClone'),letteringText,lettering.style||'split');
 
   if ($('#sideMenuTitle')) $('#sideMenuTitle').textContent = navigation.menu_title || 'Navegação';
   if ($('#sideMenuStudio')) $('#sideMenuStudio').textContent = identity.studio_name || 'Mensagem Studio';
@@ -579,10 +582,9 @@ function renderSiteBuilder() {
   const projectHeadingText=String(projectsHasTitle?(projects.title??''):'Projetos').trim();
   if ($('#projectsEyebrow')) {$('#projectsEyebrow').textContent=projectEyebrowText;$('#projectsEyebrow').hidden=!projectEyebrowText;}
   if ($('#projectsTitle')) {$('#projectsTitle').textContent=projectHeadingText;$('#projectsTitle').hidden=!projectHeadingText;}
-  // V7.12.16: ghost-card guard. Do not leave a styled white/glass block on the
-  // Home when its editorial copy is effectively empty.
-  const introText=String(identity.hero_line||'').trim();
-  const introNode=$('#introBlock');if(introNode){introNode.hidden=!introText;introNode.classList.toggle('is-empty-heading',!introText);}
+  const configuredIntro=publicHomeBlocks().find((block)=>block?.type==='intro');
+  const introText=String(configuredIntro?.title ?? 'Design, vídeo e direção criativa para marcas que precisam se destacar.').trim();
+  const introNode=$('#introBlock');if(introNode){introNode.hidden=configuredIntro?.visible===false||!introText;introNode.classList.toggle('is-empty-heading',!introText);}
   const projectHeading=$('#portfolioHeading');if(projectHeading)projectHeading.hidden=projects.visible===false||projects.header_visible===false||(!projectHeadingText&&!projectEyebrowText);
   const showProjects = projects.visible !== false;
   const filterBarMode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
@@ -607,7 +609,6 @@ function renderSiteBuilder() {
   if (contactInstagram) { contactInstagram.href = identity.instagram_url || '#'; contactInstagram.hidden = !identity.instagram_url; }
 }
 
-
 const CORE_HOME_BLOCK_IDS = {
   hero: 'hero', intro: 'introBlock', lettering: 'lettering', projects: 'projectsBlock', about: 'about', contact: 'contact',
 };
@@ -615,8 +616,8 @@ const CORE_HOME_BLOCK_IDS = {
 function publicHomeBlocks() {
   const defaults = [
     { id:'core-hero', type:'hero', visible:true, core:true, section_size:'viewport', section_width:'full' },
-    { id:'core-intro', type:'intro', visible:true, core:true, section_size:'normal', section_width:'full' },
-    { id:'core-lettering', type:'lettering', visible:true, core:true, section_size:'normal', section_width:'full' },
+    { id:'core-intro', type:'intro', visible:true, core:true, eyebrow:'O QUE FAZEMOS', title:'Design, vídeo e direção criativa para marcas que precisam se destacar.', section_size:'normal', section_width:'full' },
+    { id:'core-lettering', type:'lettering', visible:true, core:true, eyebrow:'MENSAGEM STUDIO', title:'Ideias que ganham forma, ritmo e presença.', section_size:'normal', section_width:'full' },
     { id:'core-projects', type:'projects', visible:true, core:true, section_size:'normal', section_width:'full', grid_columns:'3' },
     { id:'youtube-showcase-main', type:'youtube_showcase', label:'YouTube Showcase', visible:true, youtube_url:'https://www.youtube.com/watch?v=G_2jdXfXxiI', title:'', body:'', primary_cta_label:'Assistir', youtube_cta_label:'Ver no YouTube', channel_url:'', channel_cta_label:'Conheça o canal', show_external_link:true, show_channel_link:false, ratio:'16:9', width:'wide', section_size:'normal', section_width:'wide', section_background:'none' },
     { id:'core-about', type:'about', visible:true, core:true, section_size:'normal', section_width:'full' },
@@ -886,8 +887,9 @@ function createCustomLetteringBlock(block) {
   if (block.eyebrow) { const eyebrow=document.createElement('div'); eyebrow.className='lettering-eyebrow'; eyebrow.textContent=block.eyebrow; section.append(eyebrow); }
   const mask=document.createElement('div'); mask.className='lettering-mask';
   const track=document.createElement('div'); track.className='lettering-track block-lettering-track'; track.dataset.modularLettering='1';
-  const primary=document.createElement('span'); primary.className='lettering-primary'; primary.textContent=text;
-  const outline=document.createElement('span'); outline.className='lettering-outline'; outline.textContent=text; outline.setAttribute('aria-hidden','true');
+  const primary=document.createElement('span'); primary.className='lettering-primary';
+  const outline=document.createElement('span'); outline.className='lettering-outline'; outline.setAttribute('aria-hidden','true');
+  applyLetteringCopy(primary,outline,text,section.dataset.style);
   track.append(primary,outline); mask.append(track); section.append(mask);
   return section;
 }
@@ -907,7 +909,6 @@ function createVideoFeatureBlock(block) {
   section.append(copy,media);
   return section;
 }
-
 
 function publicMediaById(mediaId = '') {
   const id = String(mediaId || '');
@@ -1116,7 +1117,6 @@ function createSpacerBlock(block) {
   const section=document.createElement('section');section.className=`editorial-spacer size-${block.size||'medium'} transition-${block.transition||'atmosphere'}`;section.setAttribute('aria-hidden',block.title?'false':'true');if(block.title){const span=document.createElement('span');span.textContent=block.title;section.append(span)}return section;
 }
 
-
 function applyHomeBlockTypography(node, block = {}) {
   if (!node) return;
   node.classList.add('sf-home-block');
@@ -1163,15 +1163,16 @@ function applyCoreBlockOverrides(node, block, builder) {
   const identity = DATA.identity || {};
   if (block.type === 'intro') {
     const small=node.querySelector('small'); const text=node.querySelector('#heroLine');
-    if (small) small.textContent = explicit('eyebrow', identity.studio_name || 'Mensagem Studio');
-    if (text) text.textContent = explicit('title', identity.hero_line || '');
+    if (small) small.textContent = explicit('eyebrow', 'O QUE FAZEMOS');
+    if (text) text.textContent = explicit('title', 'Design, vídeo e direção criativa para marcas que precisam se destacar.');
   }
   if (block.type === 'lettering') {
     const cfg=builder.lettering||{}; const eyebrow=node.querySelector('#letteringEyebrow'); const primary=node.querySelector('#letteringText'); const clone=node.querySelector('#letteringClone');
     const value=explicit('title', cfg.text || identity.hero_line || '');
-    if (eyebrow) eyebrow.textContent = explicit('eyebrow', cfg.eyebrow || identity.studio_name || 'Mensagem Studio');
-    if (primary) primary.textContent=value; if (clone) clone.textContent=value;
-    node.dataset.style = explicit('style', cfg.style || 'split') === 'inherit' ? (cfg.style || 'split') : explicit('style', cfg.style || 'split');
+    if (eyebrow) eyebrow.textContent = explicit('eyebrow', cfg.eyebrow || identity.studio_name || 'MENSAGEM STUDIO');
+    const resolvedStyle=explicit('style', cfg.style || 'split') === 'inherit' ? (cfg.style || 'split') : explicit('style', cfg.style || 'split');
+    applyLetteringCopy(primary,clone,value,resolvedStyle);
+    node.dataset.style = resolvedStyle;
     node.dataset.direction = explicit('direction', cfg.direction || 'left');
   }
   if (block.type === 'projects') {
@@ -1208,24 +1209,27 @@ function createRelatedProjectsBlock(block={},context={}){
 function createQuoteCtaBlock(block={},context={}){const requestedServiceId=String(block.service_id||context.quoteServiceId||''),serviceRecord=quoteServiceRecord(requestedServiceId),serviceId=serviceRecord?String(serviceRecord.item.id||''):'';if(!quoteEnabled()){const fallbackUrl=serviceWhatsappHref(serviceRecord?.category||null,serviceRecord?.item||null),fallbackLabel=block.button_label||block.quote_action_label||servicesConfig().cta_label||'Solicitar orçamento';return createCtaBlock({...block,button_url:fallbackUrl,button_label:fallbackLabel},{...context,defaultButtonUrl:fallbackUrl,defaultButtonLabel:fallbackLabel});}const section=document.createElement('section');section.className='modular-block quote-cta-block reveal';const copy=document.createElement('div');copy.className='quote-cta-copy';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||'Orçamento';const title=document.createElement('h2');title.textContent=block.title||'Vamos montar seu projeto?';const body=document.createElement('p');body.textContent=block.body||'Adicione serviços ao orçamento e continue navegando pelo site.';copy.append(eyebrow,title);if(body.textContent)copy.append(body);const button=document.createElement('button');button.type='button';button.className='quote-cta-button';if(serviceId)button.dataset.quoteAddService=serviceId;else button.dataset.quoteOpen='';button.textContent=block.quote_action_label||block.button_label||(serviceId?(servicesConfig().quote_item_action_label||'Adicionar ao orçamento'):(servicesConfig().quote_title||'Abrir orçamento'));section.append(copy,button);return section;}
 function createSharedPageBlock(block,context={}){block=normalizeSharedPublicBlock(block);if(block.visible===false||!SHARED_PAGE_RENDERERS.has(block.type))return null;let node=null;if(block.type==='text')node=createTextBlock(block);if(block.type==='process')node=createStructuredContentBlock(block,'process');if(block.type==='accordion')node=createStructuredContentBlock(block,'accordion');if(block.type==='cta')node=createCtaBlock(block,context);if(block.type==='spacer')node=createSpacerBlock(block);if(block.type==='full_media')node=createFullMediaBlock(block,context);if(block.type==='editorial_gallery')node=createEditorialGalleryBlock(block,context);if(block.type==='related_projects')node=createRelatedProjectsBlock(block,context);if(block.type==='quote_cta')node=createQuoteCtaBlock(block,context);if(node)applySharedPageBlockFrame(node,block);return node;}
 
+const PUBLIC_HOME_BLOCK_REGISTRY=Object.freeze({
+  editorial_carousel:(block)=>createEditorialCarouselBlock(block),
+  editorial_blocks:(block)=>createEditorialBlocksBlock(block),
+  home_video:(block)=>createHomeVideoBlock(block),
+  youtube_showcase:(block)=>createYouTubeShowcaseBlock(block),
+  highlights:(block)=>createHighlightsBlock(block),
+  showcase:(block)=>createShowcaseBlock(block),
+  split:(block)=>createSplitBlock(block),
+  horizontal_projects:(block)=>createHorizontalProjectsBlock(block),
+  auto_carousel:(block)=>createAutoCarouselBlock(block),
+  spotlight:(block)=>createSpotlightBlock(block),
+  marquee:(block)=>createMarqueeBlock(block),
+  lettering_custom:(block)=>createCustomLetteringBlock(block),
+  video_feature:(block)=>createVideoFeatureBlock(block),
+  metrics:(block)=>createStructuredContentBlock(block,'metrics'),
+  testimonials:(block)=>createStructuredContentBlock(block,'testimonials'),
+});
 function createCustomHomeBlock(block) {
   if (block.visible === false) return null;
   let node = createSharedPageBlock(block);
-  if (block.type === 'editorial_carousel') node = createEditorialCarouselBlock(block);
-  if (block.type === 'editorial_blocks') node = createEditorialBlocksBlock(block);
-  if (block.type === 'home_video') node = createHomeVideoBlock(block);
-  if (block.type === 'youtube_showcase') node = createYouTubeShowcaseBlock(block);
-  if (block.type === 'highlights') node = createHighlightsBlock(block);
-  if (block.type === 'showcase') node = createShowcaseBlock(block);
-  if (block.type === 'split') node = createSplitBlock(block);
-  if (block.type === 'horizontal_projects') node = createHorizontalProjectsBlock(block);
-  if (block.type === 'auto_carousel') node = createAutoCarouselBlock(block);
-  if (block.type === 'spotlight') node = createSpotlightBlock(block);
-  if (block.type === 'marquee') node = createMarqueeBlock(block);
-  if (block.type === 'lettering_custom') node = createCustomLetteringBlock(block);
-  if (block.type === 'video_feature') node = createVideoFeatureBlock(block);
-  if (block.type === 'metrics') node = createStructuredContentBlock(block,'metrics');
-  if (block.type === 'testimonials') node = createStructuredContentBlock(block,'testimonials');
+  if (!node) { const renderer=PUBLIC_HOME_BLOCK_REGISTRY[block.type]; if(renderer) node=renderer(block); }
   if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance'); applyHomeSectionFrame(node, block); }
   return node;
 }
@@ -1237,8 +1241,6 @@ function placeHomeHorizontalNavigation() {
   const mode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
   filters.toggleAttribute('hidden', projects.visible===false||mode==='menu');
   if(filters.hidden)return;
-  // Stage 2 recovery: the HOME bar has one structural anchor only: the real Hero.
-  // Never anchor it to Projects/Services and never simulate placement with sticky/fixed CSS.
   hero.insertAdjacentElement('afterend',filters);
   filters.dataset.homePlacement='after-hero';
 }
@@ -1295,8 +1297,6 @@ function renderHomeComposition() {
   bindReveal();
   tick();
 }
-
-
 
 function seoRouteRecords(){return Array.isArray(DATA.seo?.routes)?DATA.seo.routes:[];}
 function currentSeoRoute(){const path=requestedRoutePath();return seoRouteRecords().find((row)=>String(row?.path||'').replace(/^\/+|\/+$/g,'')===path)||seoRouteRecords().find((row)=>row?.kind==='home'&&!path)||null;}
@@ -1357,8 +1357,6 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-// V7.12.20 Stage 2 / ADR-005: service-category media is editorially explicit only.
-// No semantic, deterministic, random or Portfolio-derived fallback is permitted.
 function resolvedServiceCategoryMedia(category={}){return servicePublicMedia(category.cover_media_id);}
 function serviceCategoryVisualSettings(category={},node=null){const fit=['cover','contain'].includes(category.cover_fit)?category.cover_fit:'cover',x=Math.max(0,Math.min(100,Number(category.cover_position_x??50))),y=Math.max(0,Math.min(100,Number(category.cover_position_y??50))),overlay=Math.max(0,Math.min(.85,Number(category.overlay_strength??.38))),align=['left','center','right'].includes(category.text_alignment)?category.text_alignment:'left',height=['compact','medium','large'].includes(category.visual_height)?category.visual_height:'large';if(node){node.style.setProperty('--service-cover-fit',fit);node.style.setProperty('--service-cover-x',`${x}%`);node.style.setProperty('--service-cover-y',`${y}%`);node.style.setProperty('--service-cover-overlay',String(overlay));node.dataset.visualHeight=height;node.dataset.textAlign=align;}return {fit,x,y,overlay,align,height,show:category.show_cover!==false};}
 function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const settings=serviceCategoryVisualSettings(category,visual),media=settings.show?resolvedServiceCategoryMedia(category):null;if(!media){visual.classList.add('is-abstract');visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[])]});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:'none',className:'service-category-preview-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])]}));return visual;}
@@ -1394,10 +1392,12 @@ function servicePageBlocks(category,item){
 function serviceBlockFrame(node,block){applySharedPageBlockFrame(node,block);node.classList.add('service-commercial-section','reveal');node.dataset.serviceBlockId=block.id||'';node.dataset.serviceBlockType=block.type||'';return node;}
 function serviceBlockHeading(block,defaults={}){const wrap=document.createElement('div');wrap.className='service-commercial-heading';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||defaults.eyebrow||'';const title=document.createElement('h2');title.textContent=block.title||defaults.title||'';const body=document.createElement('p');body.textContent=block.body||defaults.body||'';if(eyebrow.textContent)wrap.append(eyebrow);if(title.textContent)wrap.append(title);if(body.textContent)wrap.append(body);return wrap;}
 function serviceMediaNode(media,{hero=false}={}){if(!media)return null;if(media.type==='video'){const wrap=document.createElement('div');wrap.className='service-commercial-media-wrap';const poster=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[])],{lazy:!hero,priority:hero?'high':'auto'});poster.classList?.add('service-video-poster');wrap.append(poster);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:hero?'metadata':'none',className:'service-commercial-video',defer:!hero,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});wrap.append(video);if(!hero)bindDeferredAutoplay(video,wrap);return wrap;}return imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:!hero,priority:hero?'high':'auto',upgradeUrls:[media.media_url,...(media.media_candidates||[])]});}
+const PUBLIC_SERVICE_BLOCK_REGISTRY=Object.freeze({service_hero:true,service_benefits:true,service_deliverables:true,service_pricing:true});
 function createServiceCommercialBlock(category,item,block){
   if(!block||block.visible===false)return null;block=normalizeSharedPublicBlock(block);const config=servicesConfig();
   const shared=createSharedPageBlock(block,{defaultTitle:'Pronto para começar?',defaultButtonUrl:serviceWhatsappHref(category,item),defaultButtonLabel:block.button_label||item.cta_label||config.cta_label||'Solicitar orçamento',quoteServiceId:String(item.id||''),mediaResolver:servicePublicMedia,mediaNode:(media)=>serviceMediaNode(media)});
   if(shared){serviceBlockFrame(shared,block);shared.classList.add('service-commercial-shared');return shared;}
+  if(!PUBLIC_SERVICE_BLOCK_REGISTRY[block.type])return null;
   let node=document.createElement('section');serviceBlockFrame(node,block);
   if(block.type==='service_hero'){node.classList.add('service-detail-hero');const visual=document.createElement('div');visual.className='service-detail-visual';serviceCategoryVisualSettings(category,visual);const media=servicePublicMedia(block.media_id||item.cover_media_id||category.cover_media_id),mediaNode=serviceMediaNode(media,{hero:true});if(mediaNode)visual.append(mediaNode);else visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;const copy=document.createElement('div');copy.className='service-detail-copy';const back=document.createElement('a');back.className='service-detail-back';back.href=servicesHref(`#service-${category.id}`);back.textContent='← Voltar para serviços';const eyebrow=document.createElement('small');eyebrow.textContent=block.eyebrow||item.page_eyebrow||category.short_title||category.title||'Serviço';const title=document.createElement('h1');title.textContent=block.title||item.page_title||item.title||'Serviço';const intro=document.createElement('p');intro.textContent=block.body||item.page_intro||item.description||'';const price=document.createElement('strong');price.className='service-detail-price';price.textContent=servicePrice(item);copy.append(back,eyebrow,title,intro,price);const facts=document.createElement('div');facts.className='service-detail-facts';if(item.unit)facts.innerHTML+=`<div><small>UNIDADE</small><strong>${esc(item.unit)}</strong></div>`;if(config.show_deadlines!==false&&item.deadline)facts.innerHTML+=`<div><small>PRAZO</small><strong>${esc(item.deadline)}</strong></div>`;if(config.show_revisions!==false)facts.innerHTML+=`<div><small>REVISÕES</small><strong>${Number(item.revisions||0)}</strong></div>`;copy.append(facts);const actions=document.createElement('div');actions.className='service-detail-actions';let primary;if(quoteEnabled()){primary=document.createElement('button');primary.type='button';primary.dataset.quoteAddService=String(item.id||'');primary.textContent=item.cta_label||config.quote_item_action_label||'Adicionar ao orçamento';}else{primary=document.createElement('a');primary.href=serviceWhatsappHref(category,item);primary.target='_blank';primary.rel='noopener';primary.textContent=item.cta_label||config.cta_label||'Solicitar orçamento';}const catalog=document.createElement('a');catalog.href=servicesHref(`#service-${category.id}`);catalog.textContent='Ver catálogo completo';actions.append(primary,catalog);copy.append(actions);node.append(visual,copy);return node;}
   if(block.type==='service_benefits'||block.type==='service_deliverables'){const source=Array.isArray(block.items)&&block.items.length?block.items:(block.type==='service_benefits'?(item.benefits?.length?item.benefits:item.deliverables||[]):item.deliverables||[]);node.classList.add('service-commercial-list');node.append(serviceBlockHeading(block,{eyebrow:block.type==='service_benefits'?'Benefícios':'Entregáveis',title:block.type==='service_benefits'?'Por que este serviço':'O que está incluído'}));const list=document.createElement('ul');source.filter(Boolean).forEach((value)=>{const li=document.createElement('li');li.textContent=value;list.append(li);});if(list.children.length)node.append(list);return node;}
@@ -1453,7 +1453,6 @@ function renderSideNavigation() {
   });
 }
 
-// V5.19 · Section pages --------------------------------------------------------
 function sectionForId(sectionId) {
   return (DATA.sections || []).find((item) => String(item.id || '') === String(sectionId)) || null;
 }
@@ -1562,8 +1561,6 @@ function sectionFromLocation() {
 }
 
 function updateSectionLocation(id, push = false) {
-  // The canonical HOME URL is the bare domain/path. "Todos" must never force
-  // #projects into the address merely because the default portfolio filter was rendered.
   const next = id === 'all' ? `${location.pathname}${location.search}` : `#section=${encodeURIComponent(id)}`;
   const current = id === 'all' ? `${location.pathname}${location.search}${location.hash}` : location.hash;
   if ((id === 'all' && !location.hash) || (id !== 'all' && location.hash === next)) return;
@@ -1588,9 +1585,6 @@ function canonicalPortfolioCategories() {
   const depthOneRows = Array.isArray(DATA.navigation_nodes)
     ? DATA.navigation_nodes.filter((item) => item && Number(item.depth || 0) === 1 && !item.hidden)
     : [];
-  // The structural source is strictly root Portfolio folders. Union sections
-  // with depth=1 nodes so an incomplete filters payload can never erase a real
-  // root category. Projects/subfolders (depth >= 2) are never eligible here.
   const structural = [...sectionRows, ...depthOneRows];
   const configured = Array.isArray(DATA.filters) ? DATA.filters : [];
   const filterMeta = new Map(configured.filter((item) => String(item?.id || '') !== 'all').map((item, index) => [String(item.id), {...item, _filter_index:index}]));
@@ -1603,8 +1597,6 @@ function canonicalPortfolioCategories() {
     if (!id || id === 'all' || seen.has(id)) return;
     seen.add(id);
     const meta = filterMeta.get(id) || {};
-    // New builds export navigation_visible on sections. Missing means legacy
-    // manifest and remains visible rather than silently losing a real category.
     if (section.navigation_visible === false || meta.navigation_visible === false) return;
     const explicitRank = editorRank.has(id) ? Number(editorRank.get(id)) : 999999;
     const filterRank = Number.isFinite(Number(meta._filter_index)) ? Number(meta._filter_index) : 999999;
@@ -1799,9 +1791,6 @@ function queueImageUpgrade(image, urls = []) {
       probe.onload = async () => {
         try { if (probe.decode) await probe.decode(); } catch (_) {}
         if (!image.isConnected) return;
-        // Never mutate the source of the last-known-good image. Swap only an
-        // image that is already completely loaded, so a failed upgrade cannot
-        // blank a poster that was visible on screen.
         probe.dataset.quality = 'full';
         probe.style.cssText = image.style.cssText;
         image.replaceWith(probe);
@@ -1818,8 +1807,6 @@ function queueImageUpgrade(image, urls = []) {
 
 function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
   const allCandidates = uniqueUrls(urls);
-  // A transient failure must never permanently remove the only usable URL.
-  // Fresh URLs are tried first, recently failed URLs remain as last-resort retry.
   const candidates = [
     ...allCandidates.filter((url) => !mediaUrlRecentlyFailed(url)),
     ...allCandidates.filter((url) => mediaUrlRecentlyFailed(url)),
@@ -1874,15 +1861,11 @@ function poster(project, { eager = false } = {}) {
     ? uniqueUrls([cover.preview_url, ...(cover.preview_candidates || []), cover.media_url, ...(cover.media_candidates || [])])
     : uniqueUrls([...(cover.thumbnail_candidates || [])]);
   const primary = thumbnails.length ? thumbnails : (cover.type === 'image' ? imageUpgrades : []);
-  // Stage 3: show a fast stable poster first, then swap only after a sharper
-  // Drive candidate has fully loaded. This keeps previews responsive without
-  // stretching a tiny thumbnail as the final image.
   return imageWithFallback(cover, primary, {
     lazy: !eager, priority: eager ? 'high' : 'auto', timeoutMs: eager ? 6500 : MEDIA_LOAD_TIMEOUT_MS,
     upgradeUrls: imageUpgrades,
   });
 }
-
 
 function heroAsset(project) {
   return project?.hero_asset && project.hero_asset.type ? { ...project, ...project.hero_asset, title: project.title } : project;
@@ -2126,10 +2109,7 @@ function bindCardVideoPreview(button, video) {
     button.addEventListener('focusout', stop);
     return;
   }
-  // On touch there is no hover. Keep the stable poster visible; opening the
-  // project is the explicit user action that starts the real video player.
 }
-
 
 const COVER_RATIOS = { '4x3':'4 / 3', '16x9':'16 / 9', '21x9':'21 / 9', '1x1':'1 / 1', '4x5':'4 / 5' };
 function applyProjectCoverGeometry(project, media, image) {
@@ -2190,8 +2170,6 @@ function card(project, index) {
 
 function projectMediaUrls(item) {
   const cover = projectCoverRecord(item);
-  // Try full-resolution public media first. Stable hosted/authenticated poster
-  // remains the guaranteed fallback when Drive public delivery is unavailable.
   return uniqueUrls([
     cover.media_url,
     ...(cover.media_candidates || []),
@@ -2203,8 +2181,6 @@ function projectMediaUrls(item) {
 }
 
 function unavailableMedia(item) {
-  // ADR-003: a video failure is always owned by the StudioFrame player. Never
-  // promote external_url/preview_url/webViewLink into a visitor-facing action.
   if (item?.type === 'video') return projectVideoFallback(item);
   const box = document.createElement('div');
   box.className = 'project-media-unavailable';
@@ -2308,9 +2284,6 @@ function projectMediaNode(item) {
   return unavailableMedia(item);
 }
 
-
-
-// V5.18 · Project Case Builder -------------------------------------------------
 const PUBLIC_CASE_CORE = [
   { id:'case-core-header', type:'case_header', visible:true, core:true },
   { id:'case-core-stream', type:'media_stream', visible:true, core:true, captions:true },
@@ -2381,8 +2354,6 @@ function renderLegacyMediaStream(project,items,captions=true,listNode=null){
 }
 
 function applyCaseHeaderPresentation(project, block = {}, headNode = null) {
-  // renderProjectCase temporarily detaches the core head while rebuilding the case.
-  // Accept that detached node explicitly so editorial typography is never lost.
   const head=headNode || $('#projectDetailHead');
   if(!head)return;
   const eyebrow=$('#projectEyebrow');
@@ -2420,13 +2391,20 @@ function applyCaseHeaderPresentation(project, block = {}, headNode = null) {
   set('--case-title-letter-spacing',block.title_letter_spacing||'');
 }
 
+const PUBLIC_CASE_BLOCK_REGISTRY=Object.freeze({
+  media_full:(project,block,items)=>createCaseFullMediaBlock(project,block,items),
+  split:(project,block,items)=>createCaseSplitBlock(project,block,items),
+  duo:(project,block,items)=>createCaseDuoBlock(project,block,items),
+  video:(project,block,items)=>createCaseVideoBlock(project,block,items),
+  text:(_project,block)=>createCaseTextBlock(block),
+  lettering:(_project,block)=>createCaseLetteringBlock(block),
+  next_project:(project,block)=>createNextProjectBlock(project,block),
+});
+
 function renderProjectCase(project,items){
   const root=$('#projectCaseBlocks'); const head=$('#projectDetailHead'); const stream=$('#projectMediaList'); if(!root||!head||!stream)return;
   root.replaceChildren(); head.hidden=false; stream.hidden=false; stream.replaceChildren();
   publicCaseBlocks(project).forEach((block)=>{
-    // Keep the two legacy/core DOM nodes attached even when hidden. Their IDs
-    // are reused on the next project open; detaching a hidden core node would
-    // make subsequent viewer opens unable to find it with querySelector.
     if(block.type==='case_header'){head.hidden=block.visible===false;applyCaseHeaderPresentation(project,block,head);root.append(head);return;}
     if(block.type==='media_stream'){
       stream.hidden=block.visible===false;
@@ -2435,14 +2413,8 @@ function renderProjectCase(project,items){
       root.append(stream);return;
     }
     if(block.visible===false)return;
-    let node=null;
-    if(block.type==='media_full')node=createCaseFullMediaBlock(project,block,items);
-    if(block.type==='split')node=createCaseSplitBlock(project,block,items);
-    if(block.type==='duo')node=createCaseDuoBlock(project,block,items);
-    if(block.type==='video')node=createCaseVideoBlock(project,block,items);
-    if(block.type==='text')node=createCaseTextBlock(block);
-    if(block.type==='lettering')node=createCaseLetteringBlock(block);
-    if(block.type==='next_project')node=createNextProjectBlock(project,block);
+    const renderer=PUBLIC_CASE_BLOCK_REGISTRY[block.type];
+    const node=renderer?renderer(project,block,items):null;
     if(node){node.dataset.caseBlockId=block.id||'';root.append(node);}
   });
 }
@@ -2450,8 +2422,6 @@ function renderProjectCase(project,items){
 function openProjectDetail(project) {
   const gallery = galleryFor(project);
   const items = Array.isArray(gallery.items) && gallery.items.length ? gallery.items : [project];
-  // Gallery-level case data is kept as compatibility fallback; current schema
-  // also embeds it directly on the project card.
   if ((!project.case_builder || !Array.isArray(project.case_builder.blocks)) && gallery.case_builder) project.case_builder = gallery.case_builder;
   const detail = $('#projectDetail');
   const grid = $('#grid');
@@ -2501,9 +2471,6 @@ function closeProjectDetail(scroll = true) {
 }
 
 function galleryFor(project) {
-  // V5.8.2: a project/section is self-contained. Prefer the media embedded
-  // directly in the clicked card. The global map remains only as compatibility
-  // fallback for manifests generated by older versions.
   const embedded = Array.isArray(project.gallery_items)
     ? project.gallery_items.filter((item) => item && item.id)
     : [];
@@ -2535,8 +2502,6 @@ function openMediaAt(project, requestedIndex = null) {
     : (coverIndex >= 0 ? coverIndex : 0);
 
   document.body.classList.add('lightbox-open');
-  // Open the viewer first, then render its contents. This guarantees a visible
-  // stage even for a section containing exactly one media item.
   $('#lightbox').classList.add('open');
   $('#lightbox').setAttribute('aria-hidden', 'false');
   renderGalleryStrip();
@@ -2633,7 +2598,6 @@ function changeGallery(direction) {
 }
 
 function driveFrame(project) {
-  // Defensive Stage 4 guard: Drive iframe is never a video rendering path.
   if (project?.type === 'video') return projectVideoFallback(project);
   const source = project.preview_url || (project.preview_candidates || [])[0] || project.external_url;
   if (!source) return poster(project);
@@ -2682,7 +2646,6 @@ addEventListener('keydown', (event) => {
 });
 $('#menu')?.addEventListener('click', () => { if(currentCustomPage()){location.href='/#projectsBlock';return;} ($('#projectsBlock') || $('#portfolioHeading'))?.scrollIntoView({ behavior: 'auto' }); });
 
-// Compatibility marker for the V5 visual contract: classList.toggle('is-visible' remains represented while V5.14 reveals only once.
 function bindReveal() {
   if (revealObserver) revealObserver.disconnect();
   const nodes = [...document.querySelectorAll('.reveal:not(.is-visible)')];
@@ -2859,7 +2822,6 @@ function bindMotion() {
   tick();
 }
 
-
 $('#siteMenuTrigger')?.addEventListener('click',()=>$('#sideMenu')?.classList.contains('is-open')?closeSideMenu():openSideMenu());
 $('#sideMenuClose')?.addEventListener('click',closeSideMenu);
 $('#sideMenu')?.addEventListener('click',(event)=>{if(event.target.closest('[data-side-menu-close]'))closeSideMenu();});
@@ -2889,7 +2851,6 @@ $('#hero')?.addEventListener('click', (event) => {
   if (event.target.closest('button,a,video,iframe')) return;
   openActiveHeroProject();
 });
-
 
 const EDITOR_PREVIEW_METRICS={patches:0,failed:0,targetedRenders:0,lastRevision:''};
 if(IS_EDITOR_PREVIEW) window.__STUDIOFRAME_PREVIEW_METRICS__=EDITOR_PREVIEW_METRICS;
@@ -2989,8 +2950,6 @@ load().then(() => {
   console.error(error);
 });
 
-// V6.1.2 — posição inicial determinística. Recarregar build/preview não herda
-// uma posição vertical antiga do navegador quando não existe deep-link real.
 addEventListener('pageshow', () => {
   if (!STUDIOFRAME_INITIAL_HASH) {
     requestAnimationFrame(() => scrollTo({ top: 0, left: 0, behavior: 'auto' }));
