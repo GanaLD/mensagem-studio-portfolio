@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "03801270bf2e860bfa92",
-    "saved_at": "2026-08-20T13:58:19.034643+00:00"
+    "revision": "b7eb9801322c007f6980",
+    "saved_at": "2026-08-20T13:58:27.427414+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -213,7 +213,7 @@
             "order": 10,
             "parent_id": "",
             "target": "/",
-            "visible": false
+            "visible": true
           },
           {
             "id": "projects",
