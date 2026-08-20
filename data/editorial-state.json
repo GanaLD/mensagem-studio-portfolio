@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "c55feaef65cccb6a6524",
-    "saved_at": "2026-08-20T13:56:58.216255+00:00"
+    "revision": "3f1d0e1ba4c5051466c8",
+    "saved_at": "2026-08-20T13:57:06.170599+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -405,14 +405,14 @@
           "section_background": "none",
           "section_size": "normal",
           "section_width": "full",
-          "text_align": "left",
+          "text_align": "center",
           "text_transform": "none",
           "title": "",
           "title_color": "text",
           "title_letter_spacing": "auto",
           "title_line_height": "",
           "title_size": "",
-          "title_weight": "400",
+          "title_weight": "300",
           "type": "projects",
           "visible": true
         },
@@ -576,7 +576,7 @@
       "eyebrow": "Porfólio",
       "filters": {
         "all_label": "Todos",
-        "all_visible": true,
+        "all_visible": false,
         "display_mode": "inline",
         "order": [
           "all",
