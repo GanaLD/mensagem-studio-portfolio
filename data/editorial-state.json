@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "7cdb89b6ffb5c46e59ce",
-    "saved_at": "2026-08-20T13:56:42.201314+00:00"
+    "revision": "1191d14019cd5a1fbb3a",
+    "saved_at": "2026-08-20T13:56:50.075950+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -390,7 +390,7 @@
           "card_ratio": "4x3",
           "core": true,
           "desktop_visible": true,
-          "eyebrow": "Portfólio selecionado",
+          "eyebrow": "Porfólio",
           "eyebrow_color": "accent",
           "eyebrow_size": "",
           "font_family": "display",
@@ -573,7 +573,7 @@
       "top_label": "Ir para o topo"
     },
     "projects": {
-      "eyebrow": "Portfólio selecionado",
+      "eyebrow": "Porfólio",
       "filters": {
         "all_label": "Todos",
         "all_visible": true,
