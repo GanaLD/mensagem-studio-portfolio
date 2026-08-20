@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "b3e6f92ec5f36e74bc38",
-    "saved_at": "2026-08-20T13:57:29.558878+00:00"
+    "revision": "03801270bf2e860bfa92",
+    "saved_at": "2026-08-20T13:57:37.702565+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -643,6 +643,54 @@
           "title": ""
         },
         "title": "Banners"
+      },
+      "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+        "blocks": [
+          {
+            "core": true,
+            "eyebrow_size": "",
+            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
+            "label": "Cabeçalho",
+            "section_background": "none",
+            "section_width": "full",
+            "text_align": "left",
+            "title_size": "",
+            "title_weight": "400",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "card_ratio": "4x3",
+            "core": true,
+            "desktop_visible": true,
+            "grid_columns": "3",
+            "grid_gap": "normal",
+            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
+            "label": "Projetos da categoria",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "section_background": "none",
+            "section_size": "normal",
+            "section_width": "full",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Banner mobile"
       }
     },
     "seo": {
