@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "4b2ee77b1e5a7f16832b",
-    "saved_at": "2026-08-20T23:32:54.737185+00:00"
+    "revision": "f03038b611df62faa35c",
+    "saved_at": "2026-08-20T23:33:02.512459+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -396,7 +396,7 @@
           "font_family": "display",
           "grid_columns": "3",
           "grid_gap": "normal",
-          "header_visible": true,
+          "header_visible": false,
           "id": "core-projects",
           "label": "Projetos",
           "mobile_section_size": "inherit",
@@ -412,7 +412,7 @@
           "title_letter_spacing": "auto",
           "title_line_height": "",
           "title_size": "",
-          "title_weight": "400",
+          "title_weight": "500",
           "type": "projects",
           "visible": true
         },
@@ -601,7 +601,7 @@
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF"
         ]
       },
-      "header_visible": true,
+      "header_visible": false,
       "title": "Projetos",
       "visible": true
     },
