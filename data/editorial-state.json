@@ -3,12 +3,49 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "1809dacbf116acbd1aa0",
-    "saved_at": "2026-08-20T23:34:29.663655+00:00"
+    "revision": "b17e1284cc8593eb413d",
+    "saved_at": "2026-08-20T23:35:27.510812+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
-  "folders": {},
+  "folders": {
+    "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
+      "title": "Lateral Banners",
+      "visible": true
+    },
+    "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
+      "title": "Carrossel",
+      "visible": true
+    },
+    "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
+      "title": "Edição de vídeos",
+      "visible": true
+    },
+    "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
+      "title": "Motion",
+      "visible": true
+    },
+    "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
+      "title": "Banners",
+      "visible": true
+    },
+    "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
+      "title": "Lâminas para divulgação",
+      "visible": true
+    },
+    "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
+      "title": "Campanha 007 Completa",
+      "visible": true
+    },
+    "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
+      "title": "DERMACAST",
+      "visible": true
+    },
+    "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+      "title": "Banner mobile",
+      "visible": true
+    }
+  },
   "identity": {
     "accent_color": "#2FD59A",
     "description": "Uma seleção de projetos, campanhas e experiências construídas pela Mensagem Studio.",
@@ -19,7 +56,112 @@
     "site_url": "https://www.mensagemstudio.com.br/",
     "studio_name": "MENSAGEM STUDIO"
   },
-  "project_sections": {},
+  "project_sections": {
+    "1-aM_k157VuMK3WvoKVfPlw3rAvA7rhgh": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CORTES",
+      "visible": true
+    },
+    "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL V HACKER",
+      "visible": true
+    },
+    "17ytoPQgi88br27-K9zt3tYzNd4FP945f": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL IMG",
+      "visible": true
+    },
+    "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL EVO",
+      "visible": true
+    },
+    "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL",
+      "visible": true
+    },
+    "1VJKZFBV5fWEaO_1I66HAjn6yJtCuBntZ": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "EPISODIO COMPLETO",
+      "visible": true
+    },
+    "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "Carrossel Rennova",
+      "visible": true
+    },
+    "1Zgcw2vJGRMAOfu66qef-O4RARrEmnCIt": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "CARROSSEL BACIO",
+      "visible": true
+    }
+  },
   "projects": {},
   "publication": {
     "direct_drive_media": true,
