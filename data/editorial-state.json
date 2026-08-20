@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "1191d14019cd5a1fbb3a",
-    "saved_at": "2026-08-20T13:56:50.075950+00:00"
+    "revision": "c55feaef65cccb6a6524",
+    "saved_at": "2026-08-20T13:56:58.216255+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -407,7 +407,7 @@
           "section_width": "full",
           "text_align": "left",
           "text_transform": "none",
-          "title": "Projetos",
+          "title": "",
           "title_color": "text",
           "title_letter_spacing": "auto",
           "title_line_height": "",
@@ -592,7 +592,7 @@
         ]
       },
       "header_visible": true,
-      "title": "Projetos",
+      "title": "",
       "visible": true
     },
     "section_pages": {
