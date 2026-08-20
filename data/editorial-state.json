@@ -1,10 +1,10 @@
 {
   "_cloud": {
     "app_version": "7.12.20",
-    "device_id": "device-cf930bef5c204485",
+    "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "a9dbec6d822240709275",
-    "saved_at": "2026-08-20T19:47:10.016585+00:00"
+    "revision": "b156c0435440cf635651",
+    "saved_at": "2026-08-20T23:28:49.863736+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -129,7 +129,7 @@
         "background_color": "#25d366",
         "border_color": "#25d366",
         "display_mode": "icon",
-        "foreground_color": "#ffffff",
+        "foreground_color": "#00ff11",
         "label": "WhatsApp",
         "message": "",
         "number": "",
@@ -138,7 +138,7 @@
         "position": "bottom_right",
         "shape": "circle",
         "size": 42,
-        "style": "theme",
+        "style": "custom",
         "visible": true
       }
     },
@@ -147,7 +147,7 @@
         "alignment": "between",
         "background_color": "#070707",
         "copyright": "© Mensagem Studio. Todos os direitos reservados.",
-        "divider": true,
+        "divider": false,
         "font_size": 12,
         "gap": 18,
         "icon_size": 20,
@@ -189,7 +189,7 @@
         "whatsapp_label": "Contrate nossos serviços de design",
         "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
         "whatsapp_number": "5541999999937",
-        "whatsapp_visible": true
+        "whatsapp_visible": false
       },
       "header": {
         "background_color": "#070707",
@@ -213,7 +213,7 @@
             "order": 10,
             "parent_id": "",
             "target": "/",
-            "visible": true
+            "visible": false
           },
           {
             "id": "projects",
@@ -354,7 +354,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "intro",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -390,7 +390,7 @@
           "card_ratio": "4x3",
           "core": true,
           "desktop_visible": true,
-          "eyebrow": "Porfólio",
+          "eyebrow": "Portfólio selecionado",
           "eyebrow_color": "accent",
           "eyebrow_size": "",
           "font_family": "display",
@@ -405,14 +405,14 @@
           "section_background": "none",
           "section_size": "normal",
           "section_width": "full",
-          "text_align": "center",
+          "text_align": "left",
           "text_transform": "none",
-          "title": "",
+          "title": "Projetos",
           "title_color": "text",
           "title_letter_spacing": "auto",
           "title_line_height": "",
           "title_size": "",
-          "title_weight": "300",
+          "title_weight": "400",
           "type": "projects",
           "visible": true
         },
@@ -583,7 +583,7 @@
       "top_label": "Ir para o topo"
     },
     "projects": {
-      "eyebrow": "Porfólio",
+      "eyebrow": "Portfólio selecionado",
       "filters": {
         "all_label": "Todos",
         "all_visible": true,
@@ -602,10 +602,138 @@
         ]
       },
       "header_visible": true,
-      "title": "",
+      "title": "Projetos",
       "visible": true
     },
     "section_pages": {
+      "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Lateral Banners"
+      },
+      "16OQZde74SeyLTozdgUzo7ega_JpaRnXM": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-16OQZde74SeyLTozdgUzo7ega_JpaRnXM-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Carrossel"
+      },
+      "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Edição de vídeos"
+      },
+      "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1FWLlXuHbzj4XhddndYx2jXcloccHB1FF-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Motion"
+      },
       "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw": {
         "blocks": [
           {
@@ -654,35 +782,115 @@
         },
         "title": "Banners"
       },
-      "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+      "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V": {
         "blocks": [
           {
             "core": true,
-            "eyebrow_size": "",
-            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
+            "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-header",
             "label": "Cabeçalho",
-            "section_background": "none",
-            "section_width": "full",
-            "text_align": "left",
-            "title_size": "",
-            "title_weight": "400",
             "type": "section_header",
             "visible": true
           },
           {
-            "card_ratio": "4x3",
             "core": true,
-            "desktop_visible": true,
-            "grid_columns": "3",
-            "grid_gap": "normal",
+            "id": "section-1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Lâminas para divulgação"
+      },
+      "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "Campanha 007 Completa"
+      },
+      "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "slug": "",
+          "title": ""
+        },
+        "title": "DERMACAST"
+      },
+      "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-projects",
             "label": "Projetos da categoria",
-            "mobile_section_size": "inherit",
-            "mobile_section_width": "auto",
-            "mobile_visible": true,
-            "section_background": "none",
-            "section_size": "normal",
-            "section_width": "full",
             "type": "section_projects",
             "visible": true
           }
