@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b66d3822422f393047ff",
-    "saved_at": "2026-08-20T23:30:47.821633+00:00"
+    "revision": "24f36417aa31f3119a39",
+    "saved_at": "2026-08-20T23:30:55.106894+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -35,7 +35,7 @@
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
       "eyebrow": "Mensagem Studio",
       "title": "Ideias com direção, forma e movimento.",
-      "visible": true
+      "visible": false
     },
     "animations": {
       "global": {
