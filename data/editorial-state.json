@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "eee96a12fedf43545ef0",
-    "saved_at": "2026-08-20T13:55:54.895557+00:00"
+    "revision": "7cdb89b6ffb5c46e59ce",
+    "saved_at": "2026-08-20T13:56:05.020513+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -383,7 +383,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "lettering",
-          "visible": true
+          "visible": false
         },
         {
           "body_size": "",
@@ -535,7 +535,7 @@
       "speed": "medium",
       "style": "split",
       "text": "Ideias que ganham forma, ritmo e presença.",
-      "visible": true
+      "visible": false
     },
     "media_delivery": {
       "gateway_required": true,
