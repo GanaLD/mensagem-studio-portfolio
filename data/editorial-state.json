@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "b7eb9801322c007f6980",
-    "saved_at": "2026-08-20T14:06:40.039524+00:00"
+    "revision": "e6971b4cceb403f97104",
+    "saved_at": "2026-08-20T17:04:15.377578+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -29,7 +29,7 @@
     "public_domain": "mensagemstudio.shop",
     "strict_public_validation": true
   },
-  "schema_version": 11,
+  "schema_version": 12,
   "site_builder": {
     "about": {
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
@@ -539,6 +539,7 @@
     },
     "media_delivery": {
       "gateway_required": true,
+      "gateway_state": "provisioning",
       "github_media_storage": false,
       "mode": "private_drive_gateway",
       "motion_preview": true,
