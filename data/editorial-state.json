@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "15414c1947957e1b73da",
-    "saved_at": "2026-08-20T00:20:44.754013+00:00"
+    "revision": "0e1ff3989497055d4c59",
+    "saved_at": "2026-08-20T00:21:30.298435+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -185,7 +185,7 @@
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
-        "visible": false,
+        "visible": true,
         "whatsapp_label": "Contrate nossos serviços de design",
         "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
         "whatsapp_number": "5541999999937",
