@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "afeb1ce89e3d02417afb",
-    "saved_at": "2026-08-20T00:20:30.757367+00:00"
+    "revision": "ba3c4922afd8c5c4065f",
+    "saved_at": "2026-08-20T00:20:37.441182+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -147,7 +147,7 @@
         "alignment": "between",
         "background_color": "#070707",
         "copyright": "© Mensagem Studio. Todos os direitos reservados.",
-        "divider": true,
+        "divider": false,
         "font_size": 12,
         "gap": 18,
         "icon_size": 20,
@@ -185,7 +185,7 @@
         "studio_name": "MENSAGEM STUDIO",
         "tagline": "Direção criativa, design e experiências visuais.",
         "text_color": "#f4f4ef",
-        "visible": true,
+        "visible": false,
         "whatsapp_label": "Contrate nossos serviços de design",
         "whatsapp_message": "Olá! Gostaria de conversar sobre um projeto de design com a Mensagem Studio.",
         "whatsapp_number": "5541999999937",
