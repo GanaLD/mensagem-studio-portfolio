@@ -1,10 +1,11 @@
 {
   "_cloud": {
     "app_version": "7.12.20",
-    "device_id": "device-3e7f29f7077c4942",
+    "device_id": "studioframe-v75-release",
     "format": "studioframe-editorial-v1",
-    "revision": "3464fbe5bfc7e84e5cb0",
-    "saved_at": "2026-08-20T23:45:17.398240+00:00"
+    "release_version": "V7.5",
+    "revision": "9d675f605f7e470bcf89",
+    "saved_at": "2026-08-21T00:46:03.273762+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -202,7 +203,7 @@
     "public_domain": "mensagemstudio.shop",
     "strict_public_validation": true
   },
-  "schema_version": 14,
+  "schema_version": 15,
   "site_builder": {
     "about": {
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
@@ -377,7 +378,12 @@
         "height": 72,
         "hover_color": "#ffffff",
         "item_gap": 22,
+        "logo_alt": "MENSAGEM STUDIO",
+        "logo_height_desktop": 34,
+        "logo_height_mobile": 28,
         "logo_label": "MENSAGEM STUDIO",
+        "logo_media_id": "",
+        "logo_mode": "text",
         "logo_visible": true,
         "menu_items": [
           {
@@ -594,6 +600,20 @@
           "title_weight": "400",
           "type": "lettering",
           "visible": false
+        },
+        {
+          "body": "",
+          "core": true,
+          "eyebrow": "Portfólio",
+          "id": "core-projects-header",
+          "label": "Cabeçalho do portfólio",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "content",
+          "text_align": "left",
+          "title": "Projetos",
+          "type": "projects_header",
+          "visible": true
         },
         {
           "body_size": "",
