@@ -1,8 +1,8 @@
 {
   "schema_version": 16,
   "app_version": "7.12.20",
-  "build_id": "V74-1-PDF-MEDIA-VALIDATION",
-  "editorial_revision": "1809dacbf116acbd1aa0",
+  "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
+  "editorial_revision": "9d675f605f7e470bcf89",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -374,6 +374,11 @@
         "border": true,
         "logo_visible": true,
         "logo_label": "MENSAGEM STUDIO",
+        "logo_mode": "text",
+        "logo_media_id": "",
+        "logo_alt": "MENSAGEM STUDIO",
+        "logo_height_desktop": 34,
+        "logo_height_mobile": 28,
         "font_family": "display",
         "font_size_desktop": 10,
         "font_size_mobile": 12,
@@ -9782,6 +9787,43 @@
           "visible": false
         },
         {
+          "autoplay": true,
+          "body": "",
+          "body_size": "",
+          "controls": false,
+          "core": false,
+          "desktop_visible": true,
+          "eyebrow": "Motion",
+          "eyebrow_color": "accent",
+          "eyebrow_size": "",
+          "font_family": "display",
+          "id": "section-mt25v3ry-q8r7",
+          "label": "Vídeo editorial",
+          "loop": true,
+          "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "muted": true,
+          "ratio": "16:9",
+          "scroll_behavior": "parallax",
+          "section_background": "none",
+          "section_effect": "reveal",
+          "section_size": "normal",
+          "section_width": "full",
+          "text_align": "left",
+          "text_transform": "none",
+          "title": "",
+          "title_color": "text",
+          "title_letter_spacing": "auto",
+          "title_line_height": "",
+          "title_size": "",
+          "title_weight": "400",
+          "type": "home_video",
+          "visible": true,
+          "width": "full"
+        },
+        {
           "body_size": "",
           "core": true,
           "desktop_visible": true,
@@ -9809,6 +9851,20 @@
           "title_weight": "400",
           "type": "lettering",
           "visible": false
+        },
+        {
+          "body": "",
+          "core": true,
+          "eyebrow": "Portfólio",
+          "id": "core-projects-header",
+          "label": "Cabeçalho do portfólio",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "content",
+          "text_align": "left",
+          "title": "Projetos",
+          "type": "projects_header",
+          "visible": true
         },
         {
           "body_size": "",
@@ -16881,7 +16937,34 @@
       "project_title_size": 0,
       "project_description_size": 0,
       "project_entity_case_builder": {},
-      "case_builder": {},
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
       "path": [
         "Banner mobile"
       ],
@@ -30451,7 +30534,34 @@
       "title": "Banner MOBILE Allergan",
       "source": "single-media",
       "cover_media_id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
-      "case_builder": {},
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
       "items": [
         {
           "id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
@@ -35133,8 +35243,8 @@
     "pdfs": 1,
     "unsupported": 2,
     "ignored": 4,
-    "api_calls": 20,
-    "duration_seconds": 7.754
+    "api_calls": 19,
+    "duration_seconds": 8.589
   },
   "publication_ready": true,
   "public_validation": {
