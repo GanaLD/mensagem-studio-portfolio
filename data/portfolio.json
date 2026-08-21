@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-2-URGENT-VIDEO-FULLBLEED",
-  "editorial_revision": "ee95712b7bd9c502e86f",
+  "editorial_revision": "d7a85218fabbd2de301b",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -8341,6 +8341,7 @@
           "section_size": "normal",
           "section_width": "full",
           "text_align": "center",
+          "text_transform": "none",
           "title": "",
           "title_color": "text",
           "title_letter_spacing": "auto",
@@ -8426,6 +8427,23 @@
           "youtube_valid": true
         },
         {
+          "core": false,
+          "desktop_visible": true,
+          "id": "block-mt32plzh-b4yjs",
+          "label": "Espaçador / Transição",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "size": "medium",
+          "title": "",
+          "transition": "atmosphere",
+          "type": "spacer",
+          "visible": true
+        },
+        {
           "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
           "body_size": "",
           "core": true,
@@ -8479,6 +8497,90 @@
           "title_size": "",
           "title_weight": "400",
           "type": "contact",
+          "visible": true
+        },
+        {
+          "body": "",
+          "body_size": "",
+          "channel_cta_label": "Conheça o canal",
+          "channel_url": "",
+          "core": false,
+          "cover_media_id": "",
+          "desktop_visible": true,
+          "display_mode": "full_bleed",
+          "eyebrow_color": "accent",
+          "eyebrow_size": "",
+          "focal_x": 50,
+          "focal_y": 50,
+          "font_family": "display",
+          "height_vh": 78,
+          "id": "block-mt32r6vo-bdwit",
+          "label": "YouTube Showcase",
+          "media_movement": true,
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "primary_cta_label": "Assistir",
+          "ratio": "4:3",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "show_channel_link": false,
+          "show_external_link": true,
+          "text_align": "left",
+          "text_transform": "none",
+          "title": "",
+          "title_color": "text",
+          "title_letter_spacing": "auto",
+          "title_line_height": "",
+          "title_size": "",
+          "title_weight": "400",
+          "type": "youtube_showcase",
+          "video_id": "G_2jdXfXxiI",
+          "visible": true,
+          "width": "full",
+          "youtube_cta_label": "Ver no YouTube",
+          "youtube_url": "https://www.youtube.com/watch?v=G_2jdXfXxiI",
+          "youtube_valid": true
+        },
+        {
+          "autoplay": true,
+          "body": "",
+          "body_size": "",
+          "core": false,
+          "desktop_visible": true,
+          "direction": "left",
+          "external_urls": "",
+          "eyebrow": "Seleção",
+          "eyebrow_color": "accent",
+          "eyebrow_size": "",
+          "font_family": "display",
+          "gap_px": "20",
+          "id": "block-mt32u7t0-hykp8",
+          "items": [],
+          "items_visible_desktop": "3",
+          "items_visible_mobile": "1",
+          "label": "Autoplay Carousel",
+          "loop": true,
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "pause_on_hover": true,
+          "ratio": "16x9",
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "source": "projects",
+          "speed_px": "32",
+          "text_align": "left",
+          "text_transform": "none",
+          "title": "Em movimento",
+          "title_color": "text",
+          "title_letter_spacing": "auto",
+          "title_line_height": "",
+          "title_size": "",
+          "title_weight": "400",
+          "type": "autoplay_carousel",
           "visible": true
         }
       ],
@@ -10248,8 +10350,8 @@
           "resource_key": "",
           "modified_time": "2026-07-06T12:29:30.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
@@ -10258,14 +10360,14 @@
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
@@ -19680,8 +19782,8 @@
         "Campanha 007 Completa"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-      "media_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-      "preview_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
+      "media_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
@@ -19690,14 +19792,14 @@
         "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download"
       ],
       "media_candidates": [
-        "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
         "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+        "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
         "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
         "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
       ],
       "preview_candidates": [
-        "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
         "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+        "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
         "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
         "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
       ],
@@ -19731,8 +19833,8 @@
           "title": "BIOESTIMULADORES",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
@@ -19741,14 +19843,14 @@
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
@@ -19768,8 +19870,8 @@
         "title": "BIOESTIMULADORES",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-        "media_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-        "preview_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
+        "media_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+        "preview_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
         "external_url": "",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
@@ -19778,14 +19880,14 @@
           "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download"
         ],
         "media_candidates": [
-          "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
           "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+          "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
           "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
           "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
         ],
         "preview_candidates": [
-          "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
           "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+          "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
           "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
           "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
         ],
@@ -30208,8 +30310,8 @@
           "title": "BIOESTIMULADORES",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
@@ -30218,14 +30320,14 @@
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/uc?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&export=download",
+            "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w2400",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1600",
             "https://drive.google.com/thumbnail?id=1tVJBX_1JckjczuocAaQDjLy3dfzpxf34&sz=w1000"
           ],
@@ -33647,7 +33749,7 @@
     "unsupported": 2,
     "ignored": 4,
     "api_calls": 20,
-    "duration_seconds": 18.415
+    "duration_seconds": 18.848
   },
   "publication_ready": true,
   "public_validation": {
