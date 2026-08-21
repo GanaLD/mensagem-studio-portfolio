@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "3bebe6758a72e377c225",
-    "saved_at": "2026-08-21T14:57:29.211023+00:00"
+    "revision": "99342da4bd907610111e",
+    "saved_at": "2026-08-21T14:57:36.777057+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -622,6 +622,23 @@
           "type": "home_video",
           "visible": true,
           "width": "full"
+        },
+        {
+          "core": false,
+          "desktop_visible": true,
+          "id": "block-mt32plzh-b4yjs",
+          "label": "Espaçador / Transição",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "size": "medium",
+          "title": "",
+          "transition": "atmosphere",
+          "type": "spacer",
+          "visible": true
         }
       ],
       "youtube_showcase_removed": false
