@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "5a345905c756f7da1f28",
-    "saved_at": "2026-08-21T14:58:23.203756+00:00"
+    "revision": "c523c2ed37b8ec545910",
+    "saved_at": "2026-08-21T14:58:30.146205+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -494,6 +494,23 @@
           "youtube_valid": true
         },
         {
+          "core": false,
+          "desktop_visible": true,
+          "id": "block-mt32plzh-b4yjs",
+          "label": "Espaçador / Transição",
+          "mobile_section_size": "inherit",
+          "mobile_section_width": "auto",
+          "mobile_visible": true,
+          "section_background": "none",
+          "section_size": "normal",
+          "section_width": "full",
+          "size": "medium",
+          "title": "",
+          "transition": "atmosphere",
+          "type": "spacer",
+          "visible": true
+        },
+        {
           "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
           "body_size": "",
           "core": true,
@@ -547,23 +564,6 @@
           "title_size": "",
           "title_weight": "400",
           "type": "contact",
-          "visible": true
-        },
-        {
-          "core": false,
-          "desktop_visible": true,
-          "id": "block-mt32plzh-b4yjs",
-          "label": "Espaçador / Transição",
-          "mobile_section_size": "inherit",
-          "mobile_section_width": "auto",
-          "mobile_visible": true,
-          "section_background": "none",
-          "section_size": "normal",
-          "section_width": "full",
-          "size": "medium",
-          "title": "",
-          "transition": "atmosphere",
-          "type": "spacer",
           "visible": true
         },
         {
