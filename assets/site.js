@@ -1,18 +1,4 @@
 try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
-const STUDIOFRAME_MEDIA_SW_READY = (() => {
-if (!('serviceWorker' in navigator) || !/^https?:$/.test(location.protocol)) return Promise.resolve(false);
-return navigator.serviceWorker.register('/media-sw.js', { scope: '/' })
-.then(() => navigator.serviceWorker.ready)
-.then(() => {
-if (navigator.serviceWorker.controller) return true;
-return new Promise((resolve) => {
-const done = () => resolve(Boolean(navigator.serviceWorker.controller));
-navigator.serviceWorker.addEventListener('controllerchange', done, { once: true });
-setTimeout(done, 5000);
-});
-})
-.catch((error) => { console.warn('Ponte de mídia StudioFrame indisponível:', error); return false; });
-})();
 const STUDIOFRAME_INITIAL_HASH = String(location.hash || '');
 const $ = (s) => document.querySelector(s);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -167,9 +153,7 @@ return /^[A-Za-z0-9_-]{10,}$/.test(direct) ? direct : '';
 function canonicalDriveVideoCandidates(item = {}) {
 const source = uniqueUrls([item.media_url, ...(item.media_candidates || [])]);
 const id = driveFileIdFromCandidate(item, source[0]);
-const bridge = id && /^https?:$/.test(location.protocol) ? [`${location.origin}/__studioframe_drive_media__/${encodeURIComponent(id)}`] : [];
 const canonical = id ? [
-...bridge,
 `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t`,
 `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t&authuser=0`,
 ] : [];
@@ -316,13 +300,7 @@ video.src = activeUrl;
 try { video.load(); } catch (_) {}
 timer = setTimeout(() => { if (!sourceReady) next('timeout'); }, Math.max(4000, Number(timeoutMs || 14000)));
 };
-const ensure = () => {
-if (started) return;
-started = true;
-const begin = () => next('initial');
-if (sources.some((url) => String(url).includes('/__studioframe_drive_media__/'))) Promise.resolve(STUDIOFRAME_MEDIA_SW_READY).finally(begin);
-else begin();
-};
+const ensure = () => { if (started) return; started = true; next('initial'); };
 video.addEventListener('error', () => next(`browser-error-${Number(video.error?.code||0)}`));
 video.addEventListener('loadstart',()=>mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'event',activeUrl,'loadstart',video));
 video.addEventListener('loadedmetadata',()=>mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'event',activeUrl,'loadedmetadata',video));
@@ -2072,32 +2050,56 @@ button.style.removeProperty('--card-pointer-x');
 button.style.removeProperty('--card-pointer-y');
 });
 }
+function drivePreviewUrl(item = {}, autoplay = false) {
+const source = uniqueUrls([item.media_url, ...(item.media_candidates || []), item.preview_url, ...(item.preview_candidates || [])]);
+const id = source.map((url) => driveFileIdFromCandidate({}, url)).find(Boolean) || driveFileIdFromCandidate(item, '');
+return id ? `https://drive.google.com/file/d/${encodeURIComponent(id)}/preview?rm=minimal${autoplay ? '&autoplay=1&mute=1' : ''}` : '';
+}
+function createDrivePreviewFrame(item = {}, { autoplay = false, className = '' } = {}) {
+const url = drivePreviewUrl(item, autoplay);
+if (!url) return null;
+const frame = document.createElement('iframe');
+frame.className = className;
+frame.dataset.previewSrc = url;
+frame.dataset.ready = '0';
+frame.title = `${item.title || 'Projeto'} — vídeo`;
+frame.loading = 'lazy';
+frame.allow = 'autoplay; fullscreen; picture-in-picture';
+frame.setAttribute('allowfullscreen', '');
+frame.referrerPolicy = 'strict-origin-when-cross-origin';
+frame.addEventListener('load', () => { frame.dataset.ready = frame.src === 'about:blank' ? '0' : '1'; });
+return frame;
+}
 function bindCardVideoPreview(button, video) {
 if (!video || visualLayout.card_video_preview === false || reduced) return;
 const mode = visualLayout.card_video_preview_mode || 'hover';
 const finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
+const embedded = video.tagName === 'IFRAME';
 let requested = false;
 const revealWhenReady = () => {
-if (!requested || video.dataset.failed === '1' || video.dataset.ready !== '1') return;
+if (!requested || (!embedded && (video.dataset.failed === '1' || video.dataset.ready !== '1'))) return;
 video.classList.add('is-previewing');
-video.play().catch(() => {});
+if (!embedded) video.play().catch(() => {});
 };
 const start = () => {
-if (video.dataset.failed === '1') return;
+if (!embedded && video.dataset.failed === '1') return;
 requested = true;
-ensureVideoSource(video);
-revealWhenReady();
+if (embedded) { if (!video.src || video.src === 'about:blank') video.src = video.dataset.previewSrc; revealWhenReady(); }
+else { ensureVideoSource(video); revealWhenReady(); }
 };
 const stop = () => {
 requested = false;
 video.classList.remove('is-previewing');
-video.pause();
-try { video.currentTime = 0; } catch (_) {}
+if (embedded) video.src = 'about:blank';
+else { video.pause(); try { video.currentTime = 0; } catch (_) {} }
 };
+if (embedded) video.addEventListener('load', revealWhenReady);
+else {
 video.addEventListener('loadeddata', revealWhenReady);
 video.addEventListener('canplay', revealWhenReady);
 video.addEventListener('playing', revealWhenReady);
 video.addEventListener('error', () => video.classList.remove('is-previewing'));
+}
 if (mode === 'always') {
 const observer = new IntersectionObserver((entries) => {
 entries.forEach((entry) => entry.isIntersecting && entry.intersectionRatio >= .45 ? start() : stop());
@@ -2156,7 +2158,7 @@ mediaInner.append(cardPoster);
 let previewVideo = null;
 const previewSources = videoSourceCandidates(project);
 if (project.type === 'video' && !project.hosted_video_chunked && previewSources.length && visualLayout.card_video_preview !== false) {
-previewVideo = createResilientVideo(project, { autoplay:false, muted:true, loop:true, controls:false, preload:'none', className:'card-preview-video', defer:true, metadataReady:false, timeoutMs:45000 });
+previewVideo = createDrivePreviewFrame(project, { autoplay:true, className:'card-drive-preview' }) || createResilientVideo(project, { autoplay:false, muted:true, loop:true, controls:false, preload:'none', className:'card-preview-video', defer:true, metadataReady:false, timeoutMs:45000 });
 previewVideo.setAttribute('aria-hidden', 'true');
 mediaInner.append(previewVideo);
 }
@@ -2227,6 +2229,12 @@ return image;
 function projectVideo(item) {
 const wrap = document.createElement('div');
 wrap.className = 'project-video-wrap';
+const driveFrame = createDrivePreviewFrame(item, { autoplay:false, className:'project-drive-video' });
+if (driveFrame) {
+driveFrame.src = driveFrame.dataset.previewSrc;
+wrap.append(driveFrame);
+return wrap;
+}
 const sources = videoSourceCandidates(item);
 if (sources.length || videoChunkCandidates(item).length) {
 const video = createResilientVideo(item, { autoplay:false, muted:false, loop:false, controls:true, preload:'metadata', className:'project-inline-video', exhausted:() => {

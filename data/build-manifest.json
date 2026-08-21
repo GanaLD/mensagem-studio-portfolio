@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "039f55c314ef59e04422",
-  "bundle_sha256": "039f55c314ef59e04422b1ea770abd6db1271f030f774ff958bf8ce0ad3833ff",
+  "build_revision": "86b0a57712718b6dc240",
+  "bundle_sha256": "86b0a57712718b6dc240d62862ceeeb66f5eb759ea4054c4d61dd5f8c94ec672",
   "editorial_revision": "9d675f605f7e470bcf89",
   "files": {
     ".nojekyll": {
@@ -17,29 +17,21 @@
       "bytes": 21,
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
-    "assets/media-sw.js": {
-      "bytes": 1999,
-      "sha256": "cf5a6a8dacfd7e4e31710faa9500894b8389c26103727e0628efb0e4dd0d3039"
-    },
     "assets/site.css": {
-      "bytes": 177651,
-      "sha256": "c4e6a142859fbf4837a6a60fdef82cdb9956e3c0537753ba87930dafac16ad61"
+      "bytes": 178067,
+      "sha256": "b00ed1e8fba924fb80977e80ec956b77ec09a549802b7edafde4ed39c110d7eb"
     },
     "assets/site.js": {
-      "bytes": 239968,
-      "sha256": "3fb7b05cb34da211e03f363b4029caf219f65bc48f8bc8f1241f2ff9a45140f3"
+      "bytes": 240710,
+      "sha256": "033281963633abc2327484d75ae185c98e631816fe1b63ed9d1b18ea1518f4c3"
     },
     "data/portfolio.json": {
       "bytes": 1796265,
-      "sha256": "4d591b7548cd25e91d018d287fa737b495a2e39a13b3f7322cc3b16926c79ffc"
+      "sha256": "fb148a64c748836d56ef7f2ffb06f8917a8ff09b5e18bc9e13fd6fadd9b6015d"
     },
     "index.html": {
-      "bytes": 1721315,
-      "sha256": "6a6c54d00977407ab35059b2bf61c5a750da3b5e8536becdc65341c7cc20b96f"
-    },
-    "media-sw.js": {
-      "bytes": 1999,
-      "sha256": "cf5a6a8dacfd7e4e31710faa9500894b8389c26103727e0628efb0e4dd0d3039"
+      "bytes": 1722473,
+      "sha256": "c7944e66a94fc745316c4a79523fc81e120cdf2df94872475b983eae8bf5bc75"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
@@ -554,8 +546,8 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 5000141,
-    "files": 135,
+    "bytes": 4998459,
+    "files": 133,
     "largest_file_bytes": 1796265,
     "route_shells": 124
   },
