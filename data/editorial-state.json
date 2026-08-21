@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "5c7870c371281c9b94cd",
-    "saved_at": "2026-08-21T15:03:26.356313+00:00"
+    "revision": "b4c0f9858e38274fb209",
+    "saved_at": "2026-08-21T15:03:33.413875+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -54,7 +54,7 @@
     },
     "appearance": {
       "accent_color": "#006B5B",
-      "background_animation": "soft",
+      "background_animation": "strong",
       "background_color": "#F3F6FA",
       "background_style": "solid",
       "block_radius": 20,
