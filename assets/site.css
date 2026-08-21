@@ -7,6 +7,7 @@
 .project-media-viewport[data-media-orientation="portrait"] .project-media-inner{display:grid;place-items:center;width:100%;height:100%}
 .project-media-viewport[data-media-orientation="portrait"] :is(.project-video-wrap,.project-video-fallback){width:100%!important;height:100%!important;min-height:0!important;aspect-ratio:9/16!important;margin:0!important}
 .project-media-viewport[data-media-orientation="portrait"] :is(.project-video-wrap,.project-video-fallback) iframe{width:100%!important;height:100%!important;min-height:0!important}
-.stage[data-media-orientation="portrait"] :is(.viewer-media.project-video-fallback,.viewer-media.project-video-wrap){width:min(520px,100%);height:min(76vh,820px);aspect-ratio:9/16;min-height:0}
+.stage-shell>.stage{grid-column:2;grid-row:1}.stage-shell>.gallery-prev{grid-column:1;grid-row:1}.stage-shell>.gallery-next{grid-column:3;grid-row:1}
+.stage[data-media-orientation="portrait"] :is(.viewer-media.project-video-fallback,.viewer-media.project-video-wrap){width:min(520px,38.25dvh,100%);height:auto;max-height:min(68dvh,820px);aspect-ratio:9/16;min-height:0}
 .stage[data-media-orientation="portrait"] :is(.viewer-media.project-video-fallback,.viewer-media.project-video-wrap) iframe{width:100%;height:100%;min-height:0}
 @media(max-width:640px){.case-media-figure[data-media-orientation="portrait"]{width:min(100%,440px,46dvh)}.project-media-viewport[data-media-orientation="portrait"] :is(.project-video-wrap,.project-video-fallback){width:100%!important;height:100%!important}}
