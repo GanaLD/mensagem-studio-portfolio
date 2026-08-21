@@ -154,15 +154,15 @@ return !/accounts\.google\.com|servicelogin/i.test(value);
 }
 }
 function driveFileIdFromCandidate(item = {}, url = '') {
-const direct = String(item.id || item.media_id || '').trim();
-if (/^[A-Za-z0-9_-]{10,}$/.test(direct)) return direct;
 try {
 const parsed = new URL(String(url || ''), location.href);
 const queryId = parsed.searchParams.get('id');
 if (/^[A-Za-z0-9_-]{10,}$/.test(String(queryId || ''))) return String(queryId);
 const match = parsed.pathname.match(/\/d\/([A-Za-z0-9_-]{10,})/);
-return match ? match[1] : '';
-} catch (_) { return ''; }
+if (match) return match[1];
+} catch (_) {}
+const direct = String(item.media_id || item.cover_media_id || item.id || '').trim();
+return /^[A-Za-z0-9_-]{10,}$/.test(direct) ? direct : '';
 }
 function canonicalDriveVideoCandidates(item = {}) {
 const source = uniqueUrls([item.media_url, ...(item.media_candidates || [])]);

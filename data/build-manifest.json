@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "78f94da13e02a1fd078b",
-  "bundle_sha256": "78f94da13e02a1fd078b9aec5427e42d317038ee94367c7fb6be09f8fdf24396",
+  "build_revision": "2e3ee228eaa12b64c534",
+  "bundle_sha256": "2e3ee228eaa12b64c5341bcc2b03f400355a061aafc580e5855d4c042a7cacd9",
   "editorial_revision": "9d675f605f7e470bcf89",
   "files": {
     ".nojekyll": {
@@ -26,16 +26,16 @@
       "sha256": "c4e6a142859fbf4837a6a60fdef82cdb9956e3c0537753ba87930dafac16ad61"
     },
     "assets/site.js": {
-      "bytes": 239957,
-      "sha256": "7e8312d132d573932b9c2cd505c79f9e9f8b7fc444e175d41353030fe5a095f2"
+      "bytes": 239968,
+      "sha256": "3fb7b05cb34da211e03f363b4029caf219f65bc48f8bc8f1241f2ff9a45140f3"
     },
     "data/portfolio.json": {
       "bytes": 1796265,
-      "sha256": "6cb82b440bbc08fe7ff2bff1a8fecbafdd838f8af2df501f337a3f10a1b6ba06"
+      "sha256": "ceea73dcd6c980dbd12149d2e839ef82dea5f8d92281a64374359d1408c91ac0"
     },
     "index.html": {
-      "bytes": 1721304,
-      "sha256": "cd1887d58f1668562bab5f31401939c05e8fc0d6667c56638857ff15c80c6e8a"
+      "bytes": 1721315,
+      "sha256": "b46b68bd6627c65a1c000276cb3cce3d699b9168c253358d17a51143d5f351e0"
     },
     "media-sw.js": {
       "bytes": 2736,
@@ -554,7 +554,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 5001593,
+    "bytes": 5001615,
     "files": 135,
     "largest_file_bytes": 1796265,
     "route_shells": 124
