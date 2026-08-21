@@ -293,6 +293,9 @@ video.dataset.failed = '0';
 activeUrl = sources[sourceIndex++];
 video.dataset.candidateUrl = activeUrl;
 video.dataset.candidateIndex = String(sourceIndex);
+let candidateHost='';try{candidateHost=new URL(activeUrl,location.href).hostname.toLowerCase()}catch(_){}
+if(candidateHost==='drive.google.com'||candidateHost.endsWith('.googleusercontent.com'))video.crossOrigin='anonymous';
+else video.removeAttribute('crossorigin');
 video.src = activeUrl;
 try { video.load(); } catch (_) {}
 timer = setTimeout(() => { if (!sourceReady) next('timeout'); }, Math.max(4000, Number(timeoutMs || 14000)));

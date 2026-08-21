@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "522383b8977d7b667024",
-  "bundle_sha256": "522383b8977d7b6670246dc9c1931907635152bdc61a7da9b1191a418cf3be99",
+  "build_revision": "03993a0401882323ed45",
+  "bundle_sha256": "03993a0401882323ed45ae677d360c1b21854ac24ed6e0626897e8b4c1cf9f5d",
   "editorial_revision": "9d675f605f7e470bcf89",
   "files": {
     ".nojekyll": {
@@ -22,16 +22,16 @@
       "sha256": "c4e6a142859fbf4837a6a60fdef82cdb9956e3c0537753ba87930dafac16ad61"
     },
     "assets/site.js": {
-      "bytes": 238693,
-      "sha256": "9ac629fcb4948d8b196dde9ce16c95f3bf8ad8264dad22073a01e57261b569c3"
+      "bytes": 238961,
+      "sha256": "54c832b923abf7a4653e5abfb366aa5ba17d025276c1462b242c95fe6b87a6f8"
     },
     "data/portfolio.json": {
       "bytes": 1796265,
-      "sha256": "cbc01f8d68d71ea2eb55942a68242cc8feec3da3ff5f3b7ba0f2333b8bd16950"
+      "sha256": "461aab655fbf0852112f74e10d160c9a3696deb13f01547349c0ac9bd97189f3"
     },
     "index.html": {
-      "bytes": 1720040,
-      "sha256": "0265b175a4750d1eef2da599c9ab127d172d8f9e825e265a2c3eee4de938d519"
+      "bytes": 1720308,
+      "sha256": "4bf144b780af647a348a82fa3444569cd4a3b5c7d60c52c687bfcc7bd7032e1e"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
@@ -546,7 +546,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 4993593,
+    "bytes": 4994129,
     "files": 133,
     "largest_file_bytes": 1796265,
     "route_shells": 124
