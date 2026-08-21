@@ -1,4 +1,18 @@
 try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (_) {}
+const STUDIOFRAME_MEDIA_SW_READY = (() => {
+if (!('serviceWorker' in navigator) || !/^https?:$/.test(location.protocol)) return Promise.resolve(false);
+return navigator.serviceWorker.register('/media-sw.js', { scope: '/' })
+.then(() => navigator.serviceWorker.ready)
+.then(() => {
+if (navigator.serviceWorker.controller) return true;
+return new Promise((resolve) => {
+const done = () => resolve(Boolean(navigator.serviceWorker.controller));
+navigator.serviceWorker.addEventListener('controllerchange', done, { once: true });
+setTimeout(done, 5000);
+});
+})
+.catch((error) => { console.warn('Ponte de mídia StudioFrame indisponível:', error); return false; });
+})();
 const STUDIOFRAME_INITIAL_HASH = String(location.hash || '');
 const $ = (s) => document.querySelector(s);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -153,7 +167,9 @@ return match ? match[1] : '';
 function canonicalDriveVideoCandidates(item = {}) {
 const source = uniqueUrls([item.media_url, ...(item.media_candidates || [])]);
 const id = driveFileIdFromCandidate(item, source[0]);
+const bridge = id && /^https?:$/.test(location.protocol) ? [`${location.origin}/__studioframe_drive_media__/${encodeURIComponent(id)}`] : [];
 const canonical = id ? [
+...bridge,
 `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t`,
 `https://drive.usercontent.google.com/download?id=${encodeURIComponent(id)}&export=download&confirm=t&authuser=0`,
 ] : [];
@@ -300,7 +316,13 @@ video.src = activeUrl;
 try { video.load(); } catch (_) {}
 timer = setTimeout(() => { if (!sourceReady) next('timeout'); }, Math.max(4000, Number(timeoutMs || 14000)));
 };
-const ensure = () => { if (started) return; started = true; next('initial'); };
+const ensure = () => {
+if (started) return;
+started = true;
+const begin = () => next('initial');
+if (sources.some((url) => String(url).includes('/__studioframe_drive_media__/'))) Promise.resolve(STUDIOFRAME_MEDIA_SW_READY).finally(begin);
+else begin();
+};
 video.addEventListener('error', () => next(`browser-error-${Number(video.error?.code||0)}`));
 video.addEventListener('loadstart',()=>mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'event',activeUrl,'loadstart',video));
 video.addEventListener('loadedmetadata',()=>mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'event',activeUrl,'loadedmetadata',video));
