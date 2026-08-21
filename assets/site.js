@@ -2566,7 +2566,8 @@ function caseItemById(items, id, type='all') {
 function caseMediaViewport(project, item, items, {caption=true, className=''}={}) {
   if (!item) return null;
   const figure=document.createElement('figure'); figure.className=`case-media-figure ${className}`.trim();
-  const viewport=document.createElement('div'); viewport.className=`project-media-viewport case-media-viewport type-${item.type||'media'}`;viewport.dataset.mediaOrientation=mediaOrientation(item);
+  const orientation=mediaOrientation(item);figure.dataset.mediaOrientation=orientation;
+  const viewport=document.createElement('div'); viewport.className=`project-media-viewport case-media-viewport type-${item.type||'media'}`;viewport.dataset.mediaOrientation=orientation;
   const inner=document.createElement('div'); inner.className='project-media-inner';
   if (item.type==='image' && visualLayout.card_parallax!==false) inner.dataset.parallax='detail';
   inner.append(projectMediaNode(item)); viewport.append(inner);
