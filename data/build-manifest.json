@@ -1,17 +1,17 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-2-URGENT-VIDEO-FULLBLEED",
-  "build_revision": "90e664f3ddea1dfec0ee",
-  "bundle_sha256": "90e664f3ddea1dfec0ee9a6252aa5b15768a53f746d60676825e6d39248ceb02",
-  "editorial_revision": "d7a85218fabbd2de301b",
+  "build_revision": "02fe8151d3a5049a0225",
+  "bundle_sha256": "02fe8151d3a5049a02255c8003dd3a1b40f68f35367d269f7a7f7a070c103cad",
+  "editorial_revision": "9b3d11e76f931b6ce1a1",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 1706407,
-      "sha256": "459f13abef84f5821795013164cc135373e27ec21494a4b3a9f9467093c95630"
+      "bytes": 1706448,
+      "sha256": "df5f7f1f38ba168736bd70cba19661efde0600f1ca53e1afb1d549af94722b99"
     },
     "CNAME": {
       "bytes": 21,
@@ -26,12 +26,12 @@
       "sha256": "fb8a86bd873435ea32b6bf9abf4b40be30616e590313fea0705000068ccd543e"
     },
     "data/portfolio.json": {
-      "bytes": 1736317,
-      "sha256": "ae6a9c57f19788bd1ed407335539e8941f61e527527d2772046b6b1a4d783e57"
+      "bytes": 1736358,
+      "sha256": "cdbb656b7eb9d6f32a5cbcab7f283e4276273ddceb6e826af25fc61ebf6fd56b"
     },
     "index.html": {
-      "bytes": 1706692,
-      "sha256": "35a02a9500df7ebbfd8075fcc9c31ddb784c5c7e177918980424c7f93b00dd43"
+      "bytes": 1706733,
+      "sha256": "2f9c537a67b143c68b412c22d8e4d2800cb19463fc5cdc8c53a4bed2e19439a1"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8413,
@@ -546,9 +546,9 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 6636813,
+    "bytes": 6636936,
     "files": 133,
-    "largest_file_bytes": 1736317,
+    "largest_file_bytes": 1736358,
     "route_shells": 124
   },
   "video_assets": {

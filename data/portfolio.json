@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-2-URGENT-VIDEO-FULLBLEED",
-  "editorial_revision": "d7a85218fabbd2de301b",
+  "editorial_revision": "9b3d11e76f931b6ce1a1",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -70,10 +70,10 @@
       "brand_letter_spacing": 0.16,
       "brand_text_transform": "uppercase",
       "brand_color": "#F4F7FB",
-      "background_style": "solid",
-      "background_animation": "soft",
-      "block_style": "cards",
-      "block_radius": 18,
+      "background_style": "glow",
+      "background_animation": "strong",
+      "block_style": "glass",
+      "block_radius": 20,
       "block_spacing": "airy",
       "shadow_style": "soft"
     },
@@ -15312,8 +15312,8 @@
           "resource_key": "",
           "modified_time": "2026-05-15T18:14:18.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -15321,13 +15321,13 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "hero_autoplay": true,
@@ -28495,8 +28495,8 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-      "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-      "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+      "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -28504,13 +28504,13 @@
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
-        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
       ],
       "hero_autoplay": true,
@@ -28543,8 +28543,8 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -28552,13 +28552,13 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
@@ -28577,8 +28577,8 @@
         "title": "post4",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-        "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-        "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "preview_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
         "external_url": "",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -28586,13 +28586,13 @@
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
-          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
         ],
         "mime": "video/mp4",
@@ -33578,8 +33578,8 @@
           "title": "post4",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "media_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -33587,13 +33587,13 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
             "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
