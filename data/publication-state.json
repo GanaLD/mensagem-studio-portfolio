@@ -2,17 +2,17 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "442d756f67492c8dddc597b699980a985b436d27e6213af1f10da7d2f0bca837",
-    "commit": "1650f99a0febb05a69a293680abb322908b8450b",
-    "editorial_revision": "40532bb64803cc085ba2",
-    "manifest_sha256": "81c091ce1b21fbf56b29308b02fd3c2e83721989e81946d6af4f335af1c7d8ae",
-    "published_at": "2026-08-21T12:52:04.998133+00:00",
+    "bundle_sha256": "97fb8fa24c8cd93421d49f9aa3713e67f6a2724bcb6db0e08e11083ae5f6897a",
+    "commit": "15143a8cf38143c3ef7da693b6bf0caca54b4447",
+    "editorial_revision": "ee95712b7bd9c502e86f",
+    "manifest_sha256": "0d996a948c3a2b612927b8e058bf50df0634ac0b0d606780301ef65229eef001",
+    "published_at": "2026-08-21T14:24:13.408132+00:00",
     "reused_bytes": 11568,
     "reused_files": 4,
     "site_url": "https://mensagemstudio.shop/",
     "stages": [
       {
-        "bundle_sha256": "442d756f67492c8dddc597b699980a985b436d27e6213af1f10da7d2f0bca837",
+        "bundle_sha256": "97fb8fa24c8cd93421d49f9aa3713e67f6a2724bcb6db0e08e11083ae5f6897a",
         "key": "build",
         "label": "Build local",
         "message": "134 arquivos · 6.3 MB · 124 rotas leves prontas para deploy.",
@@ -25,7 +25,7 @@
         "status": "ok"
       },
       {
-        "commit_sha": "1650f99a0febb05a69a293680abb322908b8450b",
+        "commit_sha": "15143a8cf38143c3ef7da693b6bf0caca54b4447",
         "key": "commit",
         "label": "Commit público",
         "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=4 · enviados=130.",
@@ -34,7 +34,7 @@
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 6630662,
+        "uploaded_bytes": 6640871,
         "uploaded_files": 130
       },
       {
@@ -53,8 +53,8 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 6630662,
+    "uploaded_bytes": 6640871,
     "uploaded_files": 130
   },
-  "updated_at": "2026-08-21T12:52:05.011962+00:00"
+  "updated_at": "2026-08-21T14:24:13.437043+00:00"
 }
