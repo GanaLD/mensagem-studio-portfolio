@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d107f266f099ff724abf",
-    "saved_at": "2026-08-21T21:41:06.682324+00:00"
+    "revision": "84b652e7e14a8074bb82",
+    "saved_at": "2026-08-21T21:41:13.953740+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -139,7 +139,7 @@
         "shape": "circle",
         "size": 42,
         "style": "theme",
-        "visible": true
+        "visible": false
       }
     },
     "global": {
@@ -712,7 +712,7 @@
       "floating_whatsapp_label": "WhatsApp",
       "floating_whatsapp_message": "",
       "floating_whatsapp_number": "",
-      "floating_whatsapp_visible": true,
+      "floating_whatsapp_visible": false,
       "menu_label": "Menu",
       "menu_panel_width": 520,
       "menu_text_size": 48,
