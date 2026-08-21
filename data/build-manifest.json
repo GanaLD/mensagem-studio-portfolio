@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-4-PORTRAIT-VIEWER-SALES",
-  "build_revision": "96ed66cc1ed94e97f894",
-  "bundle_sha256": "96ed66cc1ed94e97f89454f11869f623450879d48a545d9a832b415b2f266f4a",
+  "build_revision": "2fcd59c2859f024a406d",
+  "bundle_sha256": "2fcd59c2859f024a406d57931a63d487b1987ea54b3f6fe71bd9e0a1f7d6e870",
   "editorial_revision": "57ccf0cedeb8850586bf",
   "files": {
     ".nojekyll": {
@@ -14,8 +14,8 @@
       "sha256": "291a65303145f8d943de02598935a36107dc50a2806d8bfdee3abd3e7a56e6c5"
     },
     "assets/site.css": {
-      "bytes": 190569,
-      "sha256": "95dea8297719250642a449ddc2032cfe3d9b09d44cc94937fec5781bc4065110"
+      "bytes": 190745,
+      "sha256": "aecbb304d54451b640da7ba207e2daf6115edc865a467c3c293fbcfe4a467e74"
     },
     "assets/site.js": {
       "bytes": 260554,
@@ -546,7 +546,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 7111736,
+    "bytes": 7111912,
     "files": 133,
     "largest_file_bytes": 1842485,
     "route_shells": 124
