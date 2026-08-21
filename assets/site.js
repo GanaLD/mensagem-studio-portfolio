@@ -186,7 +186,6 @@ function videoSourceCandidates(item = {}) {
   return uniqueUrls([...canonical, ...original]).filter(isStudioFrameVideoPlaybackCandidate);
 }
 
-
 function videoChunkCandidates(item = {}) {
   return uniqueUrls(item.video_chunk_urls || []);
 }
@@ -285,7 +284,6 @@ function warmMediaOrigins(data = {}) {
 
 function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = false, timeoutMs = 14000, metadataReady = true } = {}) {
   const allSources = uniqueUrls(candidates || []);
-  // A transient failure may be retried last; never delete the only stream URL.
   const sources = [
     ...allSources.filter((url) => !mediaUrlRecentlyFailed(url)),
     ...allSources.filter((url) => mediaUrlRecentlyFailed(url)),
@@ -341,9 +339,6 @@ function bindVideoSourceFallback(video, candidates, exhausted = null, { defer = 
   video.addEventListener('loadedmetadata', () => mediaDiagnostic({id:video.dataset.mediaId||'',title:video.dataset.mediaTitle||''},'loadedmetadata',video.currentSrc||activeUrl,'loadedmetadata',video));
   if (metadataReady) video.addEventListener('loadedmetadata', ready);
   else video.addEventListener('loadedmetadata', () => {
-    // Metadata proves the candidate is a real media stream. Keep the stable
-    // poster visible until a decodable frame exists, but stop treating a slow
-    // first frame as a dead URL.
     clearTimer();
     timer = setTimeout(() => { if (!sourceReady) next('frame-timeout'); }, Math.max(30000, Number(timeoutMs || 45000)));
   });
@@ -364,9 +359,6 @@ function configureInlineVideoPlayer(video, item = {}, { autoplay = false, muted 
   video.poster = item.thumbnail_url || (item.thumbnail_candidates || [])[0] || '';
   video.dataset.mediaId = String(item.id || '');
   video.dataset.mediaTitle = String(item.title || '');
-  // Presentation-only player: suppress the browser's download / remote playback
-  // affordances. This is UI hardening, not DRM; the portfolio never links to a
-  // downloadable video file as a visitor action.
   video.setAttribute('controlsList', 'nodownload noremoteplayback');
   video.setAttribute('disableRemotePlayback', '');
   video.disableRemotePlayback = true;
@@ -454,7 +446,6 @@ function bindDeferredAutoplay(video, target = video, { threshold = 0.18 } = {}) 
   player.observe(target);
 }
 
-
 function hexToRgbTuple(value, fallback = '7,7,7') {
   const raw = String(value || '').trim();
   const match = raw.match(/^#([0-9a-f]{6})$/i);
@@ -538,7 +529,6 @@ function applyGlobalHeader(builder, navigation, identity) {
   if(currentCustomPage()){ const about=$('#navAbout'),contact=$('#navContact'); if(about)about.href='/#about'; if(contact)contact.href='/#contact'; if(logo)logo.href='/'; }
 }
 
-
 function socialIconSvg(id){
   const paths={instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1" class="fill"/>',behance:'<path d="M3 6h7a4 4 0 0 1 0 8H3V6Zm0 8h8a4 4 0 0 1 0 8H3v-8Zm11-5h7M14 16h8c0-4-1.6-6-4-6s-4 2-4 6c0 3.2 1.7 5 4.5 5 1.8 0 3-.6 3.8-1.8"/>',linkedin:'<path d="M5 9v10M5 5v.1M10 19V9m0 4c1-2.5 7-3.5 7 2v4M17 13v6"/>',youtube:'<path d="M4 7.5c.4-1.4 1.5-2 3.1-2.2C9 5 11 5 12 5s3 .1 4.9.3c1.6.2 2.7.8 3.1 2.2.3 1.2.5 3 .5 4.5s-.2 3.3-.5 4.5c-.4 1.4-1.5 2-3.1 2.2-1.9.2-3.9.3-4.9.3s-3-.1-4.9-.3c-1.6-.2-2.7-.8-3.1-2.2-.3-1.2-.5-3-.5-4.5s.2-3.3.5-4.5Z"/><path d="m10 9 5 3-5 3V9Z" class="fill"/>',whatsapp:'<path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 3 2 4.5 5 5.5.8.3 1.4-.7 1.8-1.2"/> '};
   return `<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[id]||'<circle cx="12" cy="12" r="8"/>'}</g></svg>`;
@@ -591,7 +581,6 @@ function applySiteAppearance(builder = {}, identity = {}) {
   return appearance;
 }
 
-
 function letteringSegments(value=''){
   const text=String(value||'').trim();
   if(!text)return ['', ''];
@@ -637,7 +626,6 @@ function layoutFloatingControls(){
   if(!window.__studioframeFloatingLayoutBound){window.__studioframeFloatingLayoutBound=1;let raf=0;const schedule=()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;layoutFloatingControls();});};addEventListener('resize',schedule,{passive:true});addEventListener('scroll',schedule,{passive:true});addEventListener('hashchange',schedule);addEventListener('popstate',schedule);new MutationObserver(schedule).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden','class']});}
 }
 function applyFloatingControls(builder={},navigation={}){const c=floatingControlsFor(builder,navigation),m=$('#siteFloatingMenuControl'),w=$('#siteFloatingWhatsappControl'),wa=$('#floatingWhatsapp'),q=$('#globalQuoteDock');applyFloatingControlNode(m,'menu',c.menu);document.body.classList.toggle('side-menu-enabled',c.menu.visible!==false);document.body.dataset.menuPanelSide=c.menu.position.endsWith('right')?'right':'left';if($('#siteMenuLabel'))$('#siteMenuLabel').textContent=c.menu.label||'Menu';applyFloatingControlNode(w,'whatsapp',c.whatsapp);if(wa){const f=builder.global?.footer||{},s=builder.services||{},n=String(c.whatsapp.number||f.whatsapp_number||s.whatsapp_number||'').replace(/\D/g,''),msg=String(c.whatsapp.message||f.whatsapp_message||s.whatsapp_message||'').trim();wa.href=n?`https://wa.me/${n}${msg?`?text=${encodeURIComponent(msg)}`:''}`:'#';wa.dataset.displayMode=c.whatsapp.display_mode||'icon';w.hidden=c.whatsapp.visible===false||!n;const label=$('#floatingWhatsappLabel');if(label){label.textContent=c.whatsapp.label||'WhatsApp';label.hidden=c.whatsapp.display_mode!=='label';}wa.setAttribute('aria-label',c.whatsapp.label||'Abrir WhatsApp')}if(q){applyFloatingControlNode(q,'quote',c.quote);q.hidden=!quoteEnabled()||c.quote.visible===false;q.dataset.showIcon=c.quote.show_icon===false?'false':'true';const l=q.querySelector('[data-quote-label]');if(l)l.textContent=c.quote.label||'Orçamento';const icon=q.querySelector('.quote-dock-icon');if(icon)icon.hidden=c.quote.show_icon===false;q.setAttribute('aria-label',c.quote.label||'Orçamento')}requestAnimationFrame(layoutFloatingControls);return c}
-
 
 function renderSiteBuilder() {
   const builder = DATA.site_builder || {};
@@ -727,8 +715,6 @@ function renderSiteBuilder() {
   const projectHeadingText=String(projectsHasTitle?(projects.title??''):'Projetos').trim();
   if ($('#projectsEyebrow')) {$('#projectsEyebrow').textContent=projectEyebrowText;$('#projectsEyebrow').hidden=!projectEyebrowText;}
   if ($('#projectsTitle')) {$('#projectsTitle').textContent=projectHeadingText;$('#projectsTitle').hidden=!projectHeadingText;}
-  // V7.12.16: ghost-card guard. Do not leave a styled white/glass block on the
-  // Home when its editorial copy is effectively empty.
   const configuredIntro=publicHomeBlocks().find((block)=>block?.type==='intro');
   const introText=String(configuredIntro?.title ?? 'Design, vídeo e direção criativa para marcas que precisam se destacar.').trim();
   const introNode=$('#introBlock');if(introNode){introNode.hidden=configuredIntro?.visible===false||!introText;introNode.classList.toggle('is-empty-heading',!introText);}
@@ -755,7 +741,6 @@ function renderSiteBuilder() {
   if (contactSite) { contactSite.href = identity.site_url || '#'; contactSite.hidden = !identity.site_url; }
   if (contactInstagram) { contactInstagram.href = identity.instagram_url || '#'; contactInstagram.hidden = !identity.instagram_url; }
 }
-
 
 const CORE_HOME_BLOCK_IDS = {
   hero: 'hero', intro: 'introBlock', lettering: 'lettering', projects_header:'portfolioHeading', projects: 'projectsBlock', about: 'about', contact: 'contact',
@@ -1058,7 +1043,6 @@ function createVideoFeatureBlock(block) {
   return section;
 }
 
-
 function publicMediaById(mediaId = '') {
   const id = String(mediaId || '');
   if (!id) return null;
@@ -1281,7 +1265,6 @@ function createSpacerBlock(block) {
   const section=document.createElement('section');section.className=`editorial-spacer size-${block.size||'medium'} transition-${block.transition||'atmosphere'}`;section.setAttribute('aria-hidden',block.title?'false':'true');if(block.title){const span=document.createElement('span');span.textContent=block.title;section.append(span)}return section;
 }
 
-
 function applyHomeBlockTypography(node, block = {}) {
   if (!node) return;
   node.classList.add('sf-home-block');
@@ -1451,8 +1434,6 @@ function placeHomeHorizontalNavigation() {
   const mode=['menu','inline'].includes(projects.filters?.display_mode)?projects.filters.display_mode:'inline';
   filters.toggleAttribute('hidden', projects.visible===false||mode==='menu');
   if(filters.hidden)return;
-  // Stage 2 recovery: the HOME bar has one structural anchor only: the real Hero.
-  // Never anchor it to Projects/Services and never simulate placement with sticky/fixed CSS.
   hero.insertAdjacentElement('afterend',filters);
   filters.dataset.homePlacement='after-hero';
 }
@@ -1514,8 +1495,6 @@ function renderHomeComposition() {
   tick();
 }
 
-
-
 function seoRouteRecords(){return Array.isArray(DATA.seo?.routes)?DATA.seo.routes:[];}
 function currentSeoRoute(){const path=requestedRoutePath();return seoRouteRecords().find((row)=>String(row?.path||'').replace(/^\/+|\/+$/g,'')===path)||seoRouteRecords().find((row)=>row?.kind==='home'&&!path)||null;}
 function applyRuntimeSeo(){
@@ -1575,8 +1554,6 @@ function servicePublicMedia(mediaId){
   const visit=(value)=>{if(found||!value)return;if(Array.isArray(value)){value.forEach(visit);return;}if(typeof value!=='object')return;if(String(value.id||'')===target&&['image','video'].includes(String(value.type||''))){found=value;return;}Object.values(value).forEach(visit);};
   visit(DATA.hero_assets||{});visit(DATA.projects||[]);visit(DATA.galleries||{});return found;
 }
-// V7.12.20 Stage 2 / ADR-005: service-category media is editorially explicit only.
-// No semantic, deterministic, random or Portfolio-derived fallback is permitted.
 function resolvedServiceCategoryMedia(category={}){return servicePublicMedia(category.cover_media_id);}
 function serviceCategoryVisualSettings(category={},node=null){const fit=['cover','contain'].includes(category.cover_fit)?category.cover_fit:'cover',x=Math.max(0,Math.min(100,Number(category.cover_position_x??50))),y=Math.max(0,Math.min(100,Number(category.cover_position_y??50))),overlay=Math.max(0,Math.min(.85,Number(category.overlay_strength??.38))),align=['left','center','right'].includes(category.text_alignment)?category.text_alignment:'left',height=['compact','medium','large'].includes(category.visual_height)?category.visual_height:'large';if(node){node.style.setProperty('--service-cover-fit',fit);node.style.setProperty('--service-cover-x',`${x}%`);node.style.setProperty('--service-cover-y',`${y}%`);node.style.setProperty('--service-cover-overlay',String(overlay));node.dataset.visualHeight=height;node.dataset.textAlign=align;}return {fit,x,y,overlay,align,height,show:category.show_cover!==false};}
 function serviceCategoryVisual(category){const visual=document.createElement('div');visual.className='service-category-visual';visual.style.setProperty('--service-accent',category.accent||'var(--accent)');const settings=serviceCategoryVisualSettings(category,visual),media=settings.show?resolvedServiceCategoryMedia(category):null;if(!media){visual.classList.add('is-abstract');visual.innerHTML=`<span>${esc(category.number||'')}</span><i></i>`;return visual;}if(media.type==='video'){const posterNode=imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[])]});posterNode.classList?.add('service-video-poster');visual.append(posterNode);const video=createResilientVideo(media,{autoplay:true,muted:true,loop:true,controls:false,preload:'none',className:'service-category-preview-video',defer:true,metadataReady:false,timeoutMs:45000,exhausted:()=>{video.remove();}});visual.append(video);bindDeferredAutoplay(video,visual);}else visual.append(imageWithFallback(media,[media.thumbnail_url,...(media.thumbnail_candidates||[]),media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])],{lazy:true,upgradeUrls:[media.preview_url,...(media.preview_candidates||[]),media.media_url,...(media.media_candidates||[])]}));return visual;}
@@ -1673,7 +1650,6 @@ function renderSideNavigation() {
   });
 }
 
-// V5.19 · Section pages --------------------------------------------------------
 function sectionForId(sectionId) {
   return (DATA.sections || []).find((item) => String(item.id || '') === String(sectionId)) || null;
 }
@@ -1782,8 +1758,6 @@ function sectionFromLocation() {
 }
 
 function updateSectionLocation(id, push = false) {
-  // The canonical HOME URL is the bare domain/path. "Todos" must never force
-  // #projects into the address merely because the default portfolio filter was rendered.
   const next = id === 'all' ? `${location.pathname}${location.search}` : `#section=${encodeURIComponent(id)}`;
   const current = id === 'all' ? `${location.pathname}${location.search}${location.hash}` : location.hash;
   if ((id === 'all' && !location.hash) || (id !== 'all' && location.hash === next)) return;
@@ -1808,9 +1782,6 @@ function canonicalPortfolioCategories() {
   const depthOneRows = Array.isArray(DATA.navigation_nodes)
     ? DATA.navigation_nodes.filter((item) => item && Number(item.depth || 0) === 1 && !item.hidden)
     : [];
-  // The structural source is strictly root Portfolio folders. Union sections
-  // with depth=1 nodes so an incomplete filters payload can never erase a real
-  // root category. Projects/subfolders (depth >= 2) are never eligible here.
   const structural = [...sectionRows, ...depthOneRows];
   const configured = Array.isArray(DATA.filters) ? DATA.filters : [];
   const filterMeta = new Map(configured.filter((item) => String(item?.id || '') !== 'all').map((item, index) => [String(item.id), {...item, _filter_index:index}]));
@@ -1823,8 +1794,6 @@ function canonicalPortfolioCategories() {
     if (!id || id === 'all' || seen.has(id)) return;
     seen.add(id);
     const meta = filterMeta.get(id) || {};
-    // New builds export navigation_visible on sections. Missing means legacy
-    // manifest and remains visible rather than silently losing a real category.
     if (section.navigation_visible === false || meta.navigation_visible === false) return;
     const explicitRank = editorRank.has(id) ? Number(editorRank.get(id)) : 999999;
     const filterRank = Number.isFinite(Number(meta._filter_index)) ? Number(meta._filter_index) : 999999;
@@ -2020,9 +1989,6 @@ function queueImageUpgrade(image, urls = []) {
       probe.onload = async () => {
         try { if (probe.decode) await probe.decode(); } catch (_) {}
         if (!image.isConnected) return;
-        // Never mutate the source of the last-known-good image. Swap only an
-        // image that is already completely loaded, so a failed upgrade cannot
-        // blank a poster that was visible on screen.
         probe.dataset.quality = 'full';
         probe.style.cssText = image.style.cssText;
         image.replaceWith(probe);
@@ -2039,8 +2005,6 @@ function queueImageUpgrade(image, urls = []) {
 
 function imageWithFallback(project, urls, { lazy = true, priority = 'auto', timeoutMs = MEDIA_LOAD_TIMEOUT_MS, upgradeUrls = [] } = {}) {
   const allCandidates = uniqueUrls(urls);
-  // A transient failure must never permanently remove the only usable URL.
-  // Fresh URLs are tried first, recently failed URLs remain as last-resort retry.
   const candidates = [
     ...allCandidates.filter((url) => !mediaUrlRecentlyFailed(url)),
     ...allCandidates.filter((url) => mediaUrlRecentlyFailed(url)),
@@ -2095,15 +2059,11 @@ function poster(project, { eager = false } = {}) {
     ? uniqueUrls([cover.preview_url, ...(cover.preview_candidates || []), cover.media_url, ...(cover.media_candidates || [])])
     : uniqueUrls([...(cover.thumbnail_candidates || [])]);
   const primary = thumbnails.length ? thumbnails : (cover.type === 'image' ? imageUpgrades : []);
-  // Stage 3: show a fast stable poster first, then swap only after a sharper
-  // Drive candidate has fully loaded. This keeps previews responsive without
-  // stretching a tiny thumbnail as the final image.
   return imageWithFallback(cover, primary, {
     lazy: !eager, priority: eager ? 'high' : 'auto', timeoutMs: eager ? 6500 : MEDIA_LOAD_TIMEOUT_MS,
     upgradeUrls: imageUpgrades,
   });
 }
-
 
 function heroAsset(project) {
   return project?.hero_asset && project.hero_asset.type ? { ...project, ...project.hero_asset, title: project.title } : project;
@@ -2318,8 +2278,6 @@ function bindCardVideoPreview(button, video, item = {}) {
   };
   const start = () => {
     requested = true;
-    // Drive public byte endpoints fail in Chromium for valid MP4s. Mount the
-    // single sandboxed preview immediately so hover/focus produces motion.
     if (mountCardDrivePreview(button,item)) return;
     if (video.dataset.failed === '1') { mountCardDrivePreview(button,item); return; }
     ensureVideoSource(video);
@@ -2356,7 +2314,6 @@ function bindCardVideoPreview(button, video, item = {}) {
   }, { threshold:[0,.62,.85] });
   observer.observe(button);
 }
-
 
 const COVER_RATIOS = { '4x3':'4 / 3', '16x9':'16 / 9', '21x9':'21 / 9', '1x1':'1 / 1', '4x5':'4 / 5' };
 function applyProjectCoverGeometry(project, media, image) {
@@ -2417,8 +2374,6 @@ function card(project, index) {
 
 function projectMediaUrls(item) {
   const cover = projectCoverRecord(item);
-  // Try full-resolution public media first. Stable hosted/authenticated poster
-  // remains the guaranteed fallback when Drive public delivery is unavailable.
   return uniqueUrls([
     cover.media_url,
     ...(cover.media_candidates || []),
@@ -2430,8 +2385,6 @@ function projectMediaUrls(item) {
 }
 
 function unavailableMedia(item) {
-  // ADR-003: a video failure is always owned by the StudioFrame player. Never
-  // promote external_url/preview_url/webViewLink into a visitor-facing action.
   if (item?.type === 'video') return projectVideoFallback(item);
   const box = document.createElement('div');
   box.className = 'project-media-unavailable';
@@ -2554,9 +2507,6 @@ function projectMediaNode(item) {
   return unavailableMedia(item);
 }
 
-
-
-// V5.18 · Project Case Builder -------------------------------------------------
 const PUBLIC_CASE_CORE = [
   { id:'case-core-header', type:'case_header', visible:true, core:true },
   { id:'case-core-stream', type:'media_stream', visible:true, core:true, captions:true },
@@ -2627,8 +2577,6 @@ function renderLegacyMediaStream(project,items,captions=true,listNode=null){
 }
 
 function applyCaseHeaderPresentation(project, block = {}, headNode = null) {
-  // renderProjectCase temporarily detaches the core head while rebuilding the case.
-  // Accept that detached node explicitly so editorial typography is never lost.
   const head=headNode || $('#projectDetailHead');
   if(!head)return;
   const eyebrow=$('#projectEyebrow');
@@ -2680,9 +2628,6 @@ function renderProjectCase(project,items){
   const root=$('#projectCaseBlocks'); const head=$('#projectDetailHead'); const stream=$('#projectMediaList'); if(!root||!head||!stream)return;
   root.replaceChildren(); head.hidden=false; stream.hidden=false; stream.replaceChildren();
   publicCaseBlocks(project).forEach((block)=>{
-    // Keep the two legacy/core DOM nodes attached even when hidden. Their IDs
-    // are reused on the next project open; detaching a hidden core node would
-    // make subsequent viewer opens unable to find it with querySelector.
     if(block.type==='case_header'){head.hidden=block.visible===false;applyCaseHeaderPresentation(project,block,head);root.append(head);return;}
     if(block.type==='media_stream'){
       stream.hidden=block.visible===false;
@@ -2700,8 +2645,6 @@ function renderProjectCase(project,items){
 function openProjectDetail(project) {
   const gallery = galleryFor(project);
   const items = Array.isArray(gallery.items) && gallery.items.length ? gallery.items : [project];
-  // Gallery-level case data is kept as compatibility fallback; current schema
-  // also embeds it directly on the project card.
   if ((!project.case_builder || !Array.isArray(project.case_builder.blocks)) && gallery.case_builder) project.case_builder = gallery.case_builder;
   const detail = $('#projectDetail');
   const grid = $('#grid');
@@ -2751,9 +2694,6 @@ function closeProjectDetail(scroll = true) {
 }
 
 function galleryFor(project) {
-  // V5.8.2: a project/section is self-contained. Prefer the media embedded
-  // directly in the clicked card. The global map remains only as compatibility
-  // fallback for manifests generated by older versions.
   const embedded = Array.isArray(project.gallery_items)
     ? project.gallery_items.filter((item) => item && item.id)
     : [];
@@ -2785,8 +2725,6 @@ function openMediaAt(project, requestedIndex = null) {
     : (coverIndex >= 0 ? coverIndex : 0);
 
   document.body.classList.add('lightbox-open');
-  // Open the viewer first, then render its contents. This guarantees a visible
-  // stage even for a section containing exactly one media item.
   $('#lightbox').classList.add('open');
   $('#lightbox').setAttribute('aria-hidden', 'false');
   renderGalleryStrip();
@@ -2883,7 +2821,6 @@ function changeGallery(direction) {
 }
 
 function driveFrame(project) {
-  // Defensive Stage 4 guard: Drive iframe is never a video rendering path.
   if (project?.type === 'video') return projectVideoFallback(project);
   const source = project.preview_url || (project.preview_candidates || [])[0] || project.external_url;
   if (!source) return poster(project);
@@ -2932,7 +2869,6 @@ addEventListener('keydown', (event) => {
 });
 $('#menu')?.addEventListener('click', () => { if(currentCustomPage()){location.href='/#projectsBlock';return;} ($('#projectsBlock') || $('#portfolioHeading'))?.scrollIntoView({ behavior: 'auto' }); });
 
-// Compatibility marker for the V5 visual contract: classList.toggle('is-visible' remains represented while V5.14 reveals only once.
 function bindReveal() {
   if (revealObserver) revealObserver.disconnect();
   const nodes = [...document.querySelectorAll('.reveal:not(.is-visible)')];
@@ -3109,7 +3045,6 @@ function bindMotion() {
   tick();
 }
 
-
 $('#siteMenuTrigger')?.addEventListener('click',()=>$('#sideMenu')?.classList.contains('is-open')?closeSideMenu():openSideMenu());
 $('#sideMenuClose')?.addEventListener('click',closeSideMenu);
 $('#sideMenu')?.addEventListener('click',(event)=>{if(event.target.closest('[data-side-menu-close]'))closeSideMenu();});
@@ -3139,7 +3074,6 @@ $('#hero')?.addEventListener('click', (event) => {
   if (event.target.closest('button,a,video,iframe')) return;
   openActiveHeroProject();
 });
-
 
 const EDITOR_PREVIEW_METRICS={patches:0,failed:0,targetedRenders:0,lastRevision:''};
 if(IS_EDITOR_PREVIEW) window.__STUDIOFRAME_PREVIEW_METRICS__=EDITOR_PREVIEW_METRICS;
@@ -3239,8 +3173,6 @@ load().then(() => {
   console.error(error);
 });
 
-// V6.1.2 — posição inicial determinística. Recarregar build/preview não herda
-// uma posição vertical antiga do navegador quando não existe deep-link real.
 addEventListener('pageshow', () => {
   if (!STUDIOFRAME_INITIAL_HASH) {
     requestAnimationFrame(() => scrollTo({ top: 0, left: 0, behavior: 'auto' }));
