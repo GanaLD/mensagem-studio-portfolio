@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "ebeabadde8a057f8a03a",
-    "saved_at": "2026-08-22T22:34:14.355627+00:00"
+    "revision": "8b1883455edd56c385fc",
+    "saved_at": "2026-08-22T22:34:22.063298+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -412,6 +412,19 @@
       "title_size": 0,
       "visible": true
     },
+    "1_DuKohL_ARGrbwMQnIAASWzaJut15eyY": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "VÍDEOS PARA REJUVITAL",
+      "visible": true
+    },
     "1beTARHOWQPaa7KuGPUu5hbGlNZXJy2m4": {
       "case_builder": {
         "blocks": [
@@ -469,6 +482,32 @@
       },
       "title": "DIVULGAÇÃO DE PRODUTO",
       "title_size": 0,
+      "visible": true
+    },
+    "1dXJeaBVN-ELVq8p_Qlq5vrC7SeFvKsob": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "DIVULGAÇÃO PARA WORKSHOP",
+      "visible": true
+    },
+    "1hXPbGzYgXCkYclSHlJ0IkZTYyn-BAfoB": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "VÍDEOS PARA ALLERGAN",
       "visible": true
     }
   },
