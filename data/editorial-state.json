@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "69ef97fba138668ddcf2",
-    "saved_at": "2026-08-22T22:32:05.677042+00:00"
+    "revision": "be01e8758fca44228609",
+    "saved_at": "2026-08-22T22:32:13.295718+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -164,7 +164,7 @@
   },
   "projects": {
     "1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9": {
-      "order": 4
+      "order": 5
     },
     "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM": {
       "order": 10
@@ -287,7 +287,7 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
-      "order": 0,
+      "order": 3,
       "title": "BANNER DA CAMPANHA",
       "title_size": 0,
       "visible": true
@@ -308,7 +308,7 @@
       "order": 2
     },
     "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V": {
-      "order": 3
+      "order": 4
     },
     "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4": {
       "order": 6
@@ -407,7 +407,7 @@
       "order": 5
     },
     "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t": {
-      "order": 5
+      "order": 0
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
