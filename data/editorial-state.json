@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "e010a9a1fc54ccfae359",
-    "saved_at": "2026-08-22T17:00:35.780593+00:00"
+    "revision": "2d4ba284162428bc72f5",
+    "saved_at": "2026-08-22T17:00:43.730928+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1234,7 +1234,7 @@
     },
     "section_navigator": {
       "active_style": "accent",
-      "animation": "slide",
+      "animation": "fade",
       "desktop_only": false,
       "enabled": true,
       "eyebrow": "SEÇÕES",
