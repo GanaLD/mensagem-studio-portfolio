@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "8b1883455edd56c385fc",
+  "editorial_revision": "3399186aab7a763d7ab3",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -450,7 +450,7 @@
             "id": "about",
             "label": "Sobre",
             "target": "/#about",
-            "visible": true,
+            "visible": false,
             "order": 40,
             "parent_id": ""
           },
@@ -458,7 +458,7 @@
             "id": "contact",
             "label": "Contato",
             "target": "/#contact",
-            "visible": true,
+            "visible": false,
             "order": 50,
             "parent_id": ""
           }
@@ -17140,13 +17140,13 @@
       "show_top_link": false,
       "top_label": "Ir para o topo",
       "show_services_link": true,
-      "show_contact_link": true,
+      "show_contact_link": false,
       "show_home_sections": false,
       "show_drive_sections": false,
       "menu_panel_width": 520,
       "menu_text_size": 48,
-      "about_visible": true,
-      "contact_visible": true,
+      "about_visible": false,
+      "contact_visible": false,
       "projects_visible": true
     },
     "floating_controls": {
@@ -18874,7 +18874,7 @@
           "id": "about",
           "label": "Sobre",
           "target": "/#about",
-          "visible": true,
+          "visible": false,
           "order": 40,
           "parent_id": "",
           "surfaces": [
@@ -18887,7 +18887,7 @@
           "id": "contact",
           "label": "Contato",
           "target": "/#contact",
-          "visible": true,
+          "visible": false,
           "order": 50,
           "parent_id": "",
           "surfaces": [
