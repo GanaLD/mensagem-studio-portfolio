@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "e7182eb2838a17c8b6b3",
-  "bundle_sha256": "e7182eb2838a17c8b6b30374f2c1ea9ca23f2e387bfbe77af369a62b3f6dd57f",
-  "editorial_revision": "38152caa9190979a0ef6",
+  "build_revision": "85b734087c904ebb9ace",
+  "bundle_sha256": "85b734087c904ebb9ace63d7f19208109c8ce659f3d55b1377be018503a5f97a",
+  "editorial_revision": "e038363d6fe06c9d7ab7",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -30,20 +30,20 @@
       "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
     },
     "assets/site.css": {
-      "bytes": 200411,
-      "sha256": "94264e2fe3ac98b6bc7988f9efc7092d0e3d1646ae32cb3380c6e54e1343790a"
+      "bytes": 203331,
+      "sha256": "71fb8ab5ab563f9e4a203e762233fa06086fe93ea94cc093b30cdd3f8c0e0301"
     },
     "assets/site.js": {
-      "bytes": 265549,
-      "sha256": "f9f7bf8861d1f371bdce1c6bd23529bcb8e55bd5bd5835dfbb1df21cea06c04a"
+      "bytes": 278385,
+      "sha256": "0808c7e3dafb5f16e27c17cb32ecb7ed561f1cb5a7edd140857c156309ae9f1e"
     },
     "data/portfolio.json": {
-      "bytes": 1823082,
-      "sha256": "da0e27b9e959b050b6cf79dde9b2b03ff23f521d6cd2b14daf24f94fde24f21a"
+      "bytes": 1823168,
+      "sha256": "8f54f8f0e76611ef9a83ef5b8ea78b327b507bfc196b5081432187b6a132f6c0"
     },
     "index.html": {
-      "bytes": 1785041,
-      "sha256": "75d19dee9b37ae23acd6503f633c369336e3fa810356c82bccc3d5e1d96f1f69"
+      "bytes": 1800691,
+      "sha256": "f4d3208ccb3af2a079be6eb46dd98ced530d02a491b4d3f2998d370b2a68c3c9"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
@@ -566,7 +566,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 11802277,
+    "bytes": 11833769,
     "files": 138,
     "largest_file_bytes": 4251708,
     "route_shells": 126
