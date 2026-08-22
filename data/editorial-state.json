@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "3399186aab7a763d7ab3",
-    "saved_at": "2026-08-22T22:49:39.116355+00:00"
+    "revision": "4a0f7b509ec5c8d8ad0e",
+    "saved_at": "2026-08-22T23:39:00.154304+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1544,7 +1544,13 @@
   "site_builder": {
     "about": {
       "body": "Criamos identidades, campanhas, experiências digitais e conteúdo visual com intenção, clareza e presença.",
+      "combine_contact": false,
+      "education": [],
       "eyebrow": "Mensagem Studio",
+      "headline": "",
+      "linkedin_url": "",
+      "location": "",
+      "specialties": [],
       "title": "Ideias com direção, forma e movimento.",
       "visible": true
     },
@@ -1615,9 +1621,14 @@
     },
     "contact": {
       "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
+      "cta_label": "Vamos trabalhar juntos",
+      "email": "",
       "eyebrow": "Contato",
+      "instagram_url": "",
+      "linkedin_url": "",
       "title": "Vamos criar algo juntos?",
-      "visible": true
+      "visible": true,
+      "whatsapp": ""
     },
     "custom_pages": {},
     "editor_appearance": {
