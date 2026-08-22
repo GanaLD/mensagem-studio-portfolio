@@ -359,7 +359,8 @@ function createResilientVideo(item = {}, options = {}) {
 const { exhausted = null, defer = false, timeoutMs = 45000, metadataReady = false, className = '', ...playerOptions } = options || {};
 const video = configureInlineVideoPlayer(document.createElement('video'), item, playerOptions);
 if (className) video.className = className;
-video.dataset.mediaContract = 'v75-external-native-drive-embed-primary';
+video.dataset.mediaContract = 'v71211';
+bindVideoOrientation(video, item);
 bindPublishedVideoSource(video, item, exhausted, { defer, timeoutMs, metadataReady });
 return video;
 }
@@ -2400,11 +2401,54 @@ image.addEventListener('error', next);
 next();
 return image;
 }
-function mediaOrientation(item={}){const configured=String(item.viewer_orientation||item.orientation||'auto').toLowerCase();if(['portrait','landscape','square'].includes(configured))return configured;const width=Number(item.width||0),height=Number(item.height||0);if(width>0&&height>0){if(height>width*1.12)return'portrait';if(width>height*1.12)return'landscape';return'square';}return'landscape';}
+function mediaGeometry(item = {}, video = null) {
+const configured = String(item.viewer_orientation || item.orientation || 'auto').toLowerCase();
+const metadata = item.metadata || item.media_metadata || item.dimensions || {};
+const width = Number(video?.videoWidth || item.width || item.video_width || item.media_width || metadata.width || 0);
+const height = Number(video?.videoHeight || item.height || item.video_height || item.media_height || metadata.height || 0);
+let orientation = ['portrait', 'landscape', 'square'].includes(configured) ? configured : 'landscape';
+if (width > 0 && height > 0 && configured === 'auto') {
+if (height > width * 1.08) orientation = 'portrait';
+else if (width > height * 1.08) orientation = 'landscape';
+else orientation = 'square';
+}
+const fallback = orientation === 'portrait' ? [9, 16] : orientation === 'square' ? [1, 1] : [16, 9];
+const resolvedWidth = width > 0 ? width : fallback[0];
+const resolvedHeight = height > 0 ? height : fallback[1];
+return { orientation, width: resolvedWidth, height: resolvedHeight, ratio: resolvedWidth / resolvedHeight };
+}
+function mediaOrientation(item = {}, video = null) {
+return mediaGeometry(item, video).orientation;
+}
+function applyMediaGeometry(target, item = {}, video = null) {
+if (!target) return mediaGeometry(item, video);
+const geometry = mediaGeometry(item, video);
+target.dataset.mediaOrientation = geometry.orientation;
+target.classList.remove('is-portrait', 'is-landscape', 'is-square');
+target.classList.add(`is-${geometry.orientation}`);
+target.style.setProperty('--media-aspect-ratio', `${geometry.width} / ${geometry.height}`);
+target.style.setProperty('--media-project-max-width', `${Math.max(32, Math.min(100, 88 * geometry.ratio)).toFixed(2)}vh`);
+target.style.setProperty('--media-viewer-max-width', `${Math.max(28, Math.min(100, 72 * geometry.ratio)).toFixed(2)}vh`);
+return geometry;
+}
+function bindVideoOrientation(video, item = {}) {
+if (!video || video.dataset.orientationBound === '1') return video;
+video.dataset.orientationBound = '1';
+const sync = () => {
+applyMediaGeometry(video, item, video);
+applyMediaGeometry(video.closest('.project-video-wrap'), item, video);
+applyMediaGeometry(video.closest('.project-media-viewport'), item, video);
+applyMediaGeometry(video.closest('.stage'), item, video);
+};
+video.addEventListener('loadedmetadata', sync);
+if (video.readyState >= 1) sync();
+else applyMediaGeometry(video, item);
+return video;
+}
 function projectVideo(item) {
 const wrap = document.createElement('div');
 wrap.className = 'project-video-wrap';
-wrap.dataset.mediaOrientation=mediaOrientation(item);
+applyMediaGeometry(wrap, item);
 const directFrame = DATA.media_delivery?.drive_embed_fallback !== false
 ? createDriveEmbedFrame(item,{autoplay:false,className:'project-drive-embed',loading:'eager'})
 : null;
@@ -2429,7 +2473,7 @@ return wrap;
 function projectVideoFallback(item, { autoplay = false } = {}) {
 const fallback = document.createElement('div');
 fallback.className = 'project-video-fallback';
-fallback.dataset.mediaOrientation=mediaOrientation(item);
+applyMediaGeometry(fallback, item);
 const embedAllowed = DATA.media_delivery?.drive_embed_fallback !== false;
 const frame = embedAllowed ? createDriveEmbedFrame(item,{autoplay,className:'project-drive-embed',loading:'eager'}) : null;
 if (frame) {
@@ -2704,7 +2748,7 @@ function renderGalleryItem() {
 const project = activeGallery[activeGalleryIndex];
 if (!project) return;
 const stage = $('#stage');
-stage.dataset.mediaOrientation=mediaOrientation(project);
+applyMediaGeometry(stage, project);
 stage.replaceChildren();
 const loading = viewerLoading(); stage.append(loading);
 $('#lightboxTitle').textContent = project.title || activeGalleryTitle || 'Projeto';
