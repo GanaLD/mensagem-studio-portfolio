@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "61170ead8f5eebe8d9b4",
-    "saved_at": "2026-08-22T22:32:53.557590+00:00"
+    "revision": "f60117f643facaafb18f",
+    "saved_at": "2026-08-22T22:33:01.527452+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -103,6 +103,7 @@
       "description_size": 0,
       "featured": false,
       "hero": false,
+      "order": 1,
       "seo": {
         "canonical": "",
         "description": "",
@@ -172,6 +173,65 @@
       "title": "CARROSSEL IMG",
       "visible": true
     },
+    "1A3jEnJbgw17TBus5WQAf4EvijHF9YsJn": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "hero": false,
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      },
+      "title": "VÍDEOS EM WORKSHOP",
+      "title_size": 0,
+      "visible": true
+    },
     "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
       "order": 1,
       "seo": {
@@ -201,6 +261,52 @@
       "visible": true
     },
     "1VJKZFBV5fWEaO_1I66HAjn6yJtCuBntZ": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "hero": false,
+      "order": 0,
       "seo": {
         "canonical": "",
         "description": "",
@@ -211,6 +317,7 @@
         "title": ""
       },
       "title": "EPISODIO COMPLETO",
+      "title_size": 0,
       "visible": true
     },
     "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
@@ -371,6 +478,16 @@
     "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN": {
       "order": 9
     },
+    "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "WORKSHOP",
+      "visible": true
+    },
     "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l": {
       "case_builder": {
         "blocks": [
@@ -433,6 +550,16 @@
       "grid_visible": true,
       "hero": false,
       "title": "CARD 1",
+      "visible": true
+    },
+    "1D0MFKiql4UsBbUBAs7I1y4-vexgRADja": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "EPISÓDIO DE PODCAST 3",
       "visible": true
     },
     "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi": {
@@ -498,6 +625,26 @@
     "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5": {
       "order": 10
     },
+    "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "WORKSHOP GALDERMA",
+      "visible": true
+    },
+    "1HIzkdjZPhFzezss7PLEy5nkBfWGyHDrr": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "WORKSHOP MERZ",
+      "visible": true
+    },
     "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {
       "case_builder": {
         "blocks": [
@@ -552,6 +699,16 @@
       "title_size": 0,
       "visible": true
     },
+    "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "EPISÓDIO DE PODCAST 1",
+      "visible": true
+    },
     "1IwJJVWU3wk_pa2I8wZ5_urqydZllHA77": {
       "collection_id": "",
       "description": "",
@@ -588,6 +745,36 @@
       "grid_visible": true,
       "hero": false,
       "title": "CORTE DE PODCAST 2",
+      "visible": true
+    },
+    "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "WORKSHOP  EVO",
+      "visible": true
+    },
+    "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "EPISÓDIO DE PODCAST 2",
+      "visible": true
+    },
+    "1SwihpINV0BXJiUu_Mgw4fXqRwl-2wiVX": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "WORKSHOP CIMED",
       "visible": true
     },
     "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {
