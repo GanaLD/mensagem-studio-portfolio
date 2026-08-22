@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "4a0f7b509ec5c8d8ad0e",
-    "saved_at": "2026-08-22T23:39:00.154304+00:00"
+    "revision": "423105f92fdaa8f714c9",
+    "saved_at": "2026-08-22T23:39:08.174299+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1791,7 +1791,7 @@
             "order": 40,
             "parent_id": "",
             "target": "/#about",
-            "visible": false
+            "visible": true
           },
           {
             "id": "contact",
@@ -1799,7 +1799,7 @@
             "order": 50,
             "parent_id": "",
             "target": "/#contact",
-            "visible": false
+            "visible": true
           }
         ],
         "menu_schema_version": 1,
@@ -2634,9 +2634,9 @@
     },
     "navigation": {
       "about_label": "Sobre",
-      "about_visible": false,
+      "about_visible": true,
       "contact_label": "Contato",
-      "contact_visible": false,
+      "contact_visible": true,
       "floating_button_size": 42,
       "floating_gap": 8,
       "floating_position": "left",
@@ -2650,7 +2650,7 @@
       "menu_title": "Navegação",
       "projects_label": "Projetos",
       "projects_visible": true,
-      "show_contact_link": false,
+      "show_contact_link": true,
       "show_drive_sections": false,
       "show_home_sections": false,
       "show_services_link": true,
