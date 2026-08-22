@@ -516,9 +516,17 @@ const whatsapp=$('#footerWhatsapp'); const number=String(footer.whatsapp_number|
 const socials=$('#footerSocials'); if(socials){socials.replaceChildren();(Array.isArray(footer.socials)?footer.socials:[]).filter((item)=>item.visible!==false&&item.url).sort((a,b)=>Number(a.order||0)-Number(b.order||0)).forEach((item)=>{const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label',item.label||item.id);a.title=item.label||item.id;a.innerHTML=socialIconSvg(item.id);socials.append(a);});}
 node.dataset.align=footer.alignment||'between';node.dataset.divider=footer.divider===false?'off':'on';document.documentElement.style.setProperty('--footer-bg',footer.background_color||'#070707');document.documentElement.style.setProperty('--footer-text',footer.text_color||'#f4f4ef');document.documentElement.style.setProperty('--footer-muted',footer.muted_color||'#8e918f');document.documentElement.style.setProperty('--footer-font-size',`${Math.max(9,Number(footer.font_size||12))}px`);document.documentElement.style.setProperty('--footer-icon-size',`${Math.max(14,Number(footer.icon_size||20))}px`);document.documentElement.style.setProperty('--footer-gap',`${Math.max(4,Number(footer.gap||18))}px`);
 }
+const PUBLIC_SITE_THEME_PRESETS = {
+apple:{typography_preset:'studio',border_style:'soft',container_width:'wide',section_spacing:'generous',button_style:'pill',cta_style:'solid',grid_language:'balanced',image_treatment:'soft',overlay_style:'soft',motion_preset:'subtle',reveal_preset:'lift',parallax_preset:'subtle',navigation_treatment:'floating',background_texture:'off',section_navigator:'dots',hero_treatment:'cover'},
+dark:{typography_preset:'studio',border_style:'soft',container_width:'wide',section_spacing:'normal',button_style:'pill',cta_style:'solid',grid_language:'balanced',image_treatment:'clean',overlay_style:'gradient',motion_preset:'balanced',reveal_preset:'lift',parallax_preset:'subtle',navigation_treatment:'floating',background_texture:'grain',section_navigator:'off',hero_treatment:'cover'},
+light:{typography_preset:'humanist',border_style:'hairline',container_width:'wide',section_spacing:'generous',button_style:'rounded',cta_style:'solid',grid_language:'balanced',image_treatment:'framed',overlay_style:'soft',motion_preset:'subtle',reveal_preset:'fade',parallax_preset:'off',navigation_treatment:'bar',background_texture:'grid',section_navigator:'dots',hero_treatment:'split'},
+contrast:{typography_preset:'grotesk',border_style:'strong',container_width:'full',section_spacing:'cinematic',button_style:'square',cta_style:'split',grid_language:'mosaic',image_treatment:'high-contrast',overlay_style:'ink',motion_preset:'expressive',reveal_preset:'clip',parallax_preset:'medium',navigation_treatment:'minimal',background_texture:'off',section_navigator:'rail',hero_treatment:'lettering'},
+renaissance:{typography_preset:'editorial-condensed',border_style:'hairline',container_width:'editorial',section_spacing:'cinematic',button_style:'editorial',cta_style:'outline',grid_language:'editorial-asymmetric',image_treatment:'full-bleed',overlay_style:'ink',motion_preset:'cinematic',reveal_preset:'clip',parallax_preset:'medium',navigation_treatment:'editorial',background_texture:'paper',section_navigator:'chapters',hero_treatment:'editorial'},
+};
 function applySiteAppearance(builder = {}, identity = {}) {
-const appearance = builder.appearance || {};
-const mode = ['apple','dark','light','contrast','renaissance','custom'].includes(appearance.color_mode) ? appearance.color_mode : 'dark';
+const rawAppearance = builder.appearance || {};
+const mode = ['apple','dark','light','contrast','renaissance','custom'].includes(rawAppearance.color_mode) ? rawAppearance.color_mode : 'dark';
+const appearance = {...(PUBLIC_SITE_THEME_PRESETS[mode]||PUBLIC_SITE_THEME_PRESETS.dark),...rawAppearance,color_mode:mode};
 const defaults = mode === 'apple'
 ? {bg:'#F5F5F7',surface:'#FFFFFF',text:'#1D1D1F',muted:'#6E6E73',accent:'#0071E3'}
 : mode === 'light'
@@ -528,7 +536,12 @@ const defaults = mode === 'apple'
 : mode === 'renaissance'
 ? {bg:'#F7F7EE',surface:'#ECEBDD',text:'#292919',muted:'#6C6B5B',accent:'#B8E600'}
 : {bg:'#07090D',surface:'#111722',text:'#F4F7FB',muted:'#AAB5C4',accent:identity.accent_color||'#2FD59A'});
-const values = {bg:appearance.background_color||defaults.bg,surface:appearance.surface_color||defaults.surface,text:appearance.text_color||defaults.text,muted:appearance.muted_color||defaults.muted,accent:appearance.accent_color||defaults.accent};
+const legacyDarkPalette = mode === 'renaissance'
+&& String(appearance.background_color||'').toUpperCase() === '#070707'
+&& String(appearance.text_color||'').toUpperCase() === '#F4F4EF';
+const values = legacyDarkPalette
+? {...defaults}
+: {bg:appearance.background_color||defaults.bg,surface:appearance.surface_color||defaults.surface,text:appearance.text_color||defaults.text,muted:appearance.muted_color||defaults.muted,accent:appearance.accent_color||defaults.accent};
 document.documentElement.style.setProperty('--bg',values.bg);
 document.documentElement.style.setProperty('--surface',values.surface);
 document.documentElement.style.setProperty('--text',values.text);
@@ -536,6 +549,12 @@ document.documentElement.style.setProperty('--muted',values.muted);
 document.documentElement.style.setProperty('--accent',values.accent);
 document.documentElement.style.setProperty('--line',`color-mix(in srgb, ${values.text} 19%, transparent)`);
 document.documentElement.style.setProperty('--site-block-radius',`${Math.max(0,Math.min(40,Number(appearance.block_radius??14)))}px`);
+const containerWidths={narrow:'1080px',standard:'1280px',wide:'1520px',editorial:'1680px',full:'100%'};
+const sectionSpaces={compact:'clamp(46px,6vh,78px)',normal:'clamp(64px,9vh,118px)',generous:'clamp(82px,12vh,158px)',cinematic:'clamp(104px,16vh,220px)'};
+const borderWeights={none:'0px',soft:'1px',hairline:'1px',strong:'2px'};
+document.documentElement.style.setProperty('--site-container-max',containerWidths[appearance.container_width]||containerWidths.wide);
+document.documentElement.style.setProperty('--site-section-space',sectionSpaces[appearance.section_spacing]||sectionSpaces.normal);
+document.documentElement.style.setProperty('--site-border-weight',borderWeights[appearance.border_style]||'1px');
 const brandFont = appearance.brand_font_family === 'body' ? 'var(--body)' : (appearance.brand_font_family === 'system' ? 'Arial, sans-serif' : 'var(--display)');
 document.documentElement.style.setProperty('--site-brand-font-family',brandFont);
 document.documentElement.style.setProperty('--site-brand-font-desktop',`${Math.max(8,Math.min(48,Number(appearance.brand_font_size_desktop??12)))}px`);
@@ -554,6 +573,22 @@ document.body.dataset.backgroundStyle=appearance.background_style||'aurora';
 document.body.dataset.blockStyle=appearance.block_style||'glass';
 document.body.dataset.blockSpacing=appearance.block_spacing||'normal';
 document.body.dataset.shadowStyle=appearance.shadow_style||'soft';
+document.body.dataset.themeTypography=appearance.typography_preset||'studio';
+document.body.dataset.themeBorders=appearance.border_style||'soft';
+document.body.dataset.themeContainer=appearance.container_width||'wide';
+document.body.dataset.themeSectionSpacing=appearance.section_spacing||'normal';
+document.body.dataset.themeButtons=appearance.button_style||'pill';
+document.body.dataset.themeCtas=appearance.cta_style||'solid';
+document.body.dataset.themeGrid=appearance.grid_language||'balanced';
+document.body.dataset.themeImages=appearance.image_treatment||'clean';
+document.body.dataset.themeOverlay=appearance.overlay_style||'gradient';
+document.body.dataset.themeMotion=appearance.motion_preset||'balanced';
+document.body.dataset.themeReveal=appearance.reveal_preset||'lift';
+document.body.dataset.themeParallax=appearance.parallax_preset||'subtle';
+document.body.dataset.themeNavigation=appearance.navigation_treatment||'floating';
+document.body.dataset.themeTexture=appearance.background_texture||'off';
+document.body.dataset.themeSectionNavigator=appearance.section_navigator||'off';
+document.body.dataset.themeHero=appearance.hero_treatment||'cover';
 const themeMeta=document.querySelector('meta[name="theme-color"]');if(themeMeta)themeMeta.content=values.bg;
 return appearance;
 }
@@ -629,9 +664,9 @@ const requestedPerformance=['auto','light','balanced','cinematic'].includes(visu
 const connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
 const constrainedDevice=Boolean(connection?.saveData)||Number(navigator.deviceMemory||8)<=4||Number(navigator.hardwareConcurrency||8)<=4||matchMedia('(max-width: 800px)').matches||reduced;
 document.body.dataset.performanceProfile=requestedPerformance==='auto'?(constrainedDevice?'light':'balanced'):requestedPerformance;
-const motionPreset = visualLayout.motion_enabled === false ? 'off' : (visualLayout.motion_preset || 'cinematic');
+const motionPreset = visualLayout.motion_enabled === false ? 'off' : (appearance.motion_preset || visualLayout.motion_preset || 'cinematic');
 document.body.dataset.motion = motionPreset;
-document.body.dataset.reveal = visualLayout.reveal_style || 'cinematic';
+document.body.dataset.reveal = appearance.reveal_preset || visualLayout.reveal_style || 'cinematic';
 document.body.dataset.projectViewer = visualLayout.project_viewer || 'fullscreen';
 document.body.dataset.cardInteraction = visualLayout.card_interaction || 'responsive';
 document.body.dataset.cardVideoPreview = visualLayout.card_video_preview === false ? 'off' : (visualLayout.card_video_preview_mode || 'hover');
@@ -645,7 +680,7 @@ document.documentElement.style.setProperty('--text-delay', `${Math.max(0, Number
 document.documentElement.style.setProperty('--text-easing', textAnimation.easing || 'ease-out');
 document.documentElement.style.setProperty('--text-offset', `${Math.max(0, Number(textAnimation.offset ?? 40))}px`);
 document.body.classList.toggle('hero-expand-enabled', visualLayout.hero_expand !== false);
-document.body.classList.toggle('card-parallax-enabled', visualLayout.card_parallax !== false);
+document.body.classList.toggle('card-parallax-enabled', appearance.parallax_preset !== 'off' && visualLayout.card_parallax !== false);
 const heroNode = $('#hero');
 if (heroNode) {
 heroNode.dataset.height = hero.height || 'fullscreen';
