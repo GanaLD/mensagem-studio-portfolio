@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "be070e1b6833e6d65f7c",
-    "saved_at": "2026-08-22T22:31:18.360803+00:00"
+    "revision": "75ed4d6093aeaf249aa9",
+    "saved_at": "2026-08-22T22:31:25.837036+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -167,7 +167,7 @@
       "order": 9
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
-      "order": 2
+      "order": 1
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
       "order": 6
@@ -245,7 +245,7 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
-      "order": 1,
+      "order": 2,
       "title": "Banner MOBILE Allergan",
       "title_size": 0,
       "visible": true
