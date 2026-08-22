@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f470134f62b334b7882e",
-    "saved_at": "2026-08-22T22:33:26.600591+00:00"
+    "revision": "d5366ac13acdad1310d9",
+    "saved_at": "2026-08-22T22:33:35.096221+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -719,7 +719,7 @@
       "order": 10
     },
     "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED": {
-      "order": 3
+      "order": 5
     },
     "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72": {
       "collection_id": "",
@@ -1107,7 +1107,7 @@
       "visible": true
     },
     "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM": {
-      "order": 4
+      "order": 3
     },
     "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE": {
       "order": 1
@@ -1170,7 +1170,7 @@
       "visible": true
     },
     "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg": {
-      "order": 5
+      "order": 4
     },
     "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb": {
       "order": 5
