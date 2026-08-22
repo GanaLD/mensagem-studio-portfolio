@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "0fcb4da3ce25a5d4ed0d",
-    "saved_at": "2026-08-22T17:01:20.738346+00:00"
+    "revision": "9fda4b3a5f9cdd7c1a68",
+    "saved_at": "2026-08-22T17:01:39.057643+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -288,7 +288,7 @@
       "source": "youtube",
       "start_mode": "manual",
       "video_audio_behavior": "pause",
-      "youtube_url": ""
+      "youtube_url": "https://www.youtube.com/watch?v=2upuBiEiXDk"
     },
     "contact": {
       "body": "Entre em contato para conversar sobre projetos, campanhas e novas ideias.",
