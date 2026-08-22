@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f60117f643facaafb18f",
-    "saved_at": "2026-08-22T22:33:01.527452+00:00"
+    "revision": "f484672e305ab63cfbf3",
+    "saved_at": "2026-08-22T22:33:09.954228+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -393,6 +393,45 @@
       "title": "CARROSSEL BACIO",
       "title_size": 0,
       "visible": true
+    },
+    "1beTARHOWQPaa7KuGPUu5hbGlNZXJy2m4": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "slug": "",
+        "title": ""
+      }
     }
   },
   "projects": {
@@ -562,6 +601,60 @@
       "title": "EPISÓDIO DE PODCAST 3",
       "visible": true
     },
+    "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 1,
+      "title": "BANNER BELOTERO",
+      "title_size": 0,
+      "visible": true
+    },
     "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi": {
       "case_builder": {
         "blocks": [
@@ -699,6 +792,9 @@
       "title_size": 0,
       "visible": true
     },
+    "1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU": {
+      "order": 3
+    },
     "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej": {
       "collection_id": "",
       "description": "",
@@ -777,6 +873,9 @@
       "title": "WORKSHOP CIMED",
       "visible": true
     },
+    "1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx": {
+      "order": 0
+    },
     "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {
       "order": 7
     },
@@ -849,11 +948,67 @@
     "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e": {
       "order": 11
     },
+    "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "MOTION FUNDO DE TELA",
+      "title_size": 0,
+      "visible": true
+    },
     "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX": {
       "order": 9
     },
     "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu": {
       "order": 6
+    },
+    "1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6": {
+      "order": 2
     },
     "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll": {
       "order": 4
