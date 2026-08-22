@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d5366ac13acdad1310d9",
-    "saved_at": "2026-08-22T22:33:35.096221+00:00"
+    "revision": "031e87e88248caf18e8f",
+    "saved_at": "2026-08-22T22:33:43.176600+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -160,6 +160,23 @@
           }
         ]
       },
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "hero": false,
       "order": 0,
       "seo": {
         "canonical": "",
@@ -171,6 +188,7 @@
         "title": ""
       },
       "title": "CARROSSEL IMG",
+      "title_size": 0,
       "visible": true
     },
     "1A3jEnJbgw17TBus5WQAf4EvijHF9YsJn": {
@@ -601,6 +619,16 @@
       "title": "EPISÓDIO DE PODCAST 3",
       "visible": true
     },
+    "1DLvz2P5PMID5-6dURXNG4zyxiUHq3Z8-": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL_04",
+      "visible": true
+    },
     "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF": {
       "case_builder": {
         "blocks": [
@@ -821,6 +849,16 @@
     "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {
       "order": 2
     },
+    "1Juew5t2t6NJcJNYmElT25XKXT4_KMmYB": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL_01",
+      "visible": true
+    },
     "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz": {
       "order": 0
     },
@@ -890,6 +928,16 @@
     },
     "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {
       "order": 6
+    },
+    "1WwYWn6bvAapHen7qf-zx67pH3WwJsWit": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL COMPLETO",
+      "visible": true
     },
     "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy": {
       "order": 13
@@ -1017,6 +1065,26 @@
     "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu": {
       "order": 6
     },
+    "1eFAmWW9uSeYeV00aXkRYyXMS9pegtfEp": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL_02",
+      "visible": true
+    },
+    "1e_7kMARrShboEE3saoc9nBR91rgKprw8": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL_03",
+      "visible": true
+    },
     "1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6": {
       "order": 2
     },
@@ -1037,10 +1105,71 @@
       "order": 5
     },
     "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t": {
-      "order": 0
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": true,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 0,
+      "title": "VÍDEO DE DIVULGAÇÃO",
+      "title_size": 0,
+      "visible": true
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
+    },
+    "1o7iHxVoRH3o10KacjgUVKZEuvxiyncUK": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL_05",
+      "visible": true
     },
     "1p-Rf9xyLa4h2OJ7A8zOClV66Yj9NwlA9": {
       "collection_id": "",
