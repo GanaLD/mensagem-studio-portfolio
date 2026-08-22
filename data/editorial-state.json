@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "a8dff21cacee3ae18ac3",
-    "saved_at": "2026-08-22T22:31:34.220829+00:00"
+    "revision": "42007c79c94c1b8ad24c",
+    "saved_at": "2026-08-22T22:31:41.621836+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -167,7 +167,7 @@
       "order": 9
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
-      "order": 1
+      "order": 0
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
       "order": 6
@@ -221,7 +221,7 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
-      "order": 0,
+      "order": 1,
       "title": "BANNER BACIO",
       "title_size": 0,
       "visible": true
@@ -402,7 +402,30 @@
           }
         ]
       },
-      "order": 0
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 0,
+      "title": "BANNER BACIO",
+      "title_size": 0,
+      "visible": true
     },
     "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb": {
       "order": 5
