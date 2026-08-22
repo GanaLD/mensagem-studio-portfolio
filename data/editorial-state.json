@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "42007c79c94c1b8ad24c",
-    "saved_at": "2026-08-22T22:31:41.621836+00:00"
+    "revision": "97cda47cdf2fc413be3e",
+    "saved_at": "2026-08-22T22:31:49.116664+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -164,13 +164,13 @@
   },
   "projects": {
     "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM": {
-      "order": 9
+      "order": 10
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
       "order": 0
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
-      "order": 6
+      "order": 7
     },
     "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l": {
       "case_builder": {
@@ -227,13 +227,13 @@
       "visible": true
     },
     "1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71": {
-      "order": 7
+      "order": 8
     },
     "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke": {
-      "order": 11
+      "order": 12
     },
     "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {
-      "order": 12
+      "order": 4
     },
     "1OUnEO8phxcBAXl2l7Th7Ls53pkO6_Bum": {
       "order": 7
@@ -242,7 +242,7 @@
       "order": 4
     },
     "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {
-      "order": 5
+      "order": 6
     },
     "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb": {
       "order": 14
@@ -302,10 +302,10 @@
       "visible": true
     },
     "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e": {
-      "order": 10
+      "order": 11
     },
     "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX": {
-      "order": 8
+      "order": 9
     },
     "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu": {
       "order": 6
@@ -314,7 +314,7 @@
       "order": 3
     },
     "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt": {
-      "order": 4
+      "order": 5
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
