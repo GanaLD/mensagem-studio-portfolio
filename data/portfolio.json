@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "67cc335229f7f613fa36",
+  "editorial_revision": "308042523b8fb54888a2",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -55,12 +55,12 @@
       "radius": 12
     },
     "appearance": {
-      "color_mode": "light",
-      "background_color": "#F3F6FA",
-      "surface_color": "#FFFFFF",
-      "text_color": "#172033",
-      "muted_color": "#58697D",
-      "accent_color": "#006B5B",
+      "color_mode": "renaissance",
+      "background_color": "#F7F7EE",
+      "surface_color": "#ECEBDD",
+      "text_color": "#292919",
+      "muted_color": "#6C6B5B",
+      "accent_color": "#B8E600",
       "brand_title_visible": true,
       "brand_title": "MENSAGEM STUDIO",
       "brand_font_family": "display",
@@ -70,12 +70,12 @@
       "brand_letter_spacing": 0.16,
       "brand_text_transform": "uppercase",
       "brand_color": "#F4F7FB",
-      "background_style": "glow",
+      "background_style": "luminous",
       "background_animation": "medium",
-      "block_style": "glass",
-      "block_radius": 20,
+      "block_style": "flat",
+      "block_radius": 0,
       "block_spacing": "airy",
-      "shadow_style": "soft"
+      "shadow_style": "off"
     },
     "site_tree": {
       "version": 5,
@@ -10115,9 +10115,9 @@
         "label": "WhatsApp",
         "style": "theme",
         "shape": "circle",
-        "background_color": "#25D366",
-        "foreground_color": "#FFFFFF",
-        "border_color": "#25D366",
+        "background_color": "#25d366",
+        "foreground_color": "#ffffff",
+        "border_color": "#25d366",
         "display_mode": "icon",
         "number": "",
         "message": ""
@@ -35842,8 +35842,8 @@
     "pdfs": 1,
     "unsupported": 2,
     "ignored": 4,
-    "api_calls": 19,
-    "duration_seconds": 8.436
+    "api_calls": 20,
+    "duration_seconds": 8.206
   },
   "publication_ready": true,
   "public_validation": {
