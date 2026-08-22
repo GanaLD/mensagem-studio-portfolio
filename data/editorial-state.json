@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "2c8ce30ea594f71bad64",
-    "saved_at": "2026-08-22T22:32:37.910506+00:00"
+    "revision": "c97d0ffd2e50adb7b20f",
+    "saved_at": "2026-08-22T22:32:45.588157+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -149,6 +149,51 @@
       "visible": true
     },
     "1Zgcw2vJGRMAOfu66qef-O4RARrEmnCIt": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "hero": false,
       "seo": {
         "canonical": "",
         "description": "",
@@ -159,6 +204,7 @@
         "title": ""
       },
       "title": "CARROSSEL BACIO",
+      "title_size": 0,
       "visible": true
     }
   },
@@ -289,6 +335,16 @@
       "title_size": 0,
       "visible": true
     },
+    "1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARD 1",
+      "visible": true
+    },
     "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi": {
       "case_builder": {
         "blocks": [
@@ -385,7 +441,7 @@
       "commercial": {
         "cta_label": "Quero algo assim",
         "display_mode": "full",
-        "enabled": false,
+        "enabled": true,
         "intro": "",
         "position": "after_media",
         "related_service_ids": []
@@ -404,6 +460,16 @@
       "order": 0,
       "title": "BANNER SHAPE LIDO",
       "title_size": 0,
+      "visible": true
+    },
+    "1IwJJVWU3wk_pa2I8wZ5_urqydZllHA77": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARD 3",
       "visible": true
     },
     "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {
@@ -505,6 +571,16 @@
     "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll": {
       "order": 4
     },
+    "1j3cs5Hh1q0C_2pSC_g8EBh2pIQjTlBws": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARD 2",
+      "visible": true
+    },
     "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt": {
       "order": 5
     },
@@ -513,6 +589,16 @@
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
+    },
+    "1p-Rf9xyLa4h2OJ7A8zOClV66Yj9NwlA9": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARD 4",
+      "visible": true
     },
     "1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z": {
       "case_builder": {
@@ -630,6 +716,16 @@
     },
     "1w55qe59iktNa4i5WdoknGNuFdtumThpB": {
       "order": 3
+    },
+    "1zHbzd6zfn4dLTBfgrcET9N407_FVPZMR": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CARROSSEL COMPLETO",
+      "visible": true
     },
     "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O": {
       "order": 3
