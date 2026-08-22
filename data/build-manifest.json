@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "85b734087c904ebb9ace",
-  "bundle_sha256": "85b734087c904ebb9ace63d7f19208109c8ce659f3d55b1377be018503a5f97a",
+  "build_revision": "83e4078a38f46a51fe42",
+  "bundle_sha256": "83e4078a38f46a51fe429c0ad0d35a407a10c07074170a3906faca8e2d6d80c2",
   "editorial_revision": "e038363d6fe06c9d7ab7",
   "files": {
     ".nojekyll": {
@@ -39,11 +39,11 @@
     },
     "data/portfolio.json": {
       "bytes": 1823168,
-      "sha256": "8f54f8f0e76611ef9a83ef5b8ea78b327b507bfc196b5081432187b6a132f6c0"
+      "sha256": "97e58144a422b05a257f154e4de3671d759b7d825912c193b4e3b94373d57793"
     },
     "index.html": {
       "bytes": 1800691,
-      "sha256": "f4d3208ccb3af2a079be6eb46dd98ced530d02a491b4d3f2998d370b2a68c3c9"
+      "sha256": "e748e62eb57fd59d70c972ec0a0e2b49620b72afc15be79c8b1a4679821b9267"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
