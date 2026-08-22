@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "e1473328aa7dc2d5bfa0",
-  "bundle_sha256": "e1473328aa7dc2d5bfa06d72ddc48e0ba407d653cc5d35306cc1bb4f18fb9b7c",
-  "editorial_revision": "b55574b415568b6fc6b4",
+  "build_revision": "31627b7d6d23d471caae",
+  "bundle_sha256": "31627b7d6d23d471caaee62d709485207fc01c31ddcf11bbee8b063c72e3b6fe",
+  "editorial_revision": "b56ea01aef7929591b33",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -18,220 +18,200 @@
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
     "assets/hero/corte-03.mp4": {
-      "bytes": 4455826,
-      "sha256": "973987b83b8036d7763b55192e2fb9dee85067bbed06566616cdd8b5dbceee78"
+      "bytes": 4251708,
+      "sha256": "8a7146d41444dde391434821e4dd919baf124aa95e9ea3ffbd8b4b726d5f5cc3"
     },
     "assets/hero/dermacast-laila.mp4": {
-      "bytes": 2599878,
-      "sha256": "955f0cf426e60854add23ccc4e66b0e025320005a3d5e37367aa726d2caa244c"
+      "bytes": 2396816,
+      "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
       "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
     },
     "assets/site.css": {
-      "bytes": 224006,
-      "sha256": "f93245d3316105b3051a3d361f7bd83c5b4fc9db48516d39f018c0cd41087015"
+      "bytes": 244931,
+      "sha256": "c33557cf4d570fa1dbcf3b16b5332af3215680e0b198b7ad051d5669ce49204c"
     },
     "assets/site.js": {
-      "bytes": 296242,
-      "sha256": "23608e1201585efd6f89d2c5f338ebcd6163b1f5f9e19c562a431bb023f3d942"
+      "bytes": 326787,
+      "sha256": "1c53917fcdfb535faca54fcb5d734ddb179b220d739fd3c54ca6168634e9a705"
     },
     "data/portfolio.json": {
-      "bytes": 2225122,
-      "sha256": "ebcce4ff5ab09f563608c357fb9268a97a876d9a2783201b6e871e7112b94d1d"
+      "bytes": 2135721,
+      "sha256": "a59287bf03189577fdcd89aee06953ddd20c9c31ea6cfcba481e696df97c93b6"
     },
     "index.html": {
-      "bytes": 2085837,
-      "sha256": "af1a32ecee79e29e2d0c822dd7dca6c8c85f33c52e5fedc988aa5e38ee8d7fd1"
+      "bytes": 2064340,
+      "sha256": "327d9d1df195604d8b9f0c543955374674ae8c457089f11911b8463ae6d3a9e2"
+    },
+    "projetos/banner-mobile/banner-bacio/index.html": {
+      "bytes": 8311,
+      "sha256": "4274afc7a341942d948da439b174e5c9bb0f257695f691ac8459142af83140b9"
+    },
+    "projetos/banner-mobile/banner-da-evo/index.html": {
+      "bytes": 8319,
+      "sha256": "c921296aa7c2f8a559e70baed8b29a227d46ec181cd15b448d5c6f9a8cc2844c"
+    },
+    "projetos/banner-mobile/banner-galderma/index.html": {
+      "bytes": 8335,
+      "sha256": "c3676965a3c056fa08f96226a3dae6f2b91ec7290dfe6c23c1e0c5df4037ed59"
+    },
+    "projetos/banner-mobile/banner-hydro/index.html": {
+      "bytes": 8311,
+      "sha256": "999a201d41224378d2db1e6ed3057def9e6e0e38316bf4e9a563622eea7ac8b3"
+    },
+    "projetos/banner-mobile/banner-lancamento-bellarine/index.html": {
+      "bytes": 8435,
+      "sha256": "9f4801dfb33742430b5e47016ee3b7bb223131ae48314f4caabefeacead70b45"
+    },
+    "projetos/banner-mobile/banner-lancamento-rennova/index.html": {
+      "bytes": 8419,
+      "sha256": "6615924de866d4427c80d7f1e960bb670d6bc41c018ff3671e206b8c6bb42c45"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
       "sha256": "566575e85c44a96c37c0b3b0543cbf07f52a70ced18a416657f3dbebb72386da"
     },
+    "projetos/banner-mobile/banner-rennova-diamond/index.html": {
+      "bytes": 8391,
+      "sha256": "34cb03f9c5448570d13056fcc0b128948966d32a6d5b83d484dd3fb22e35d6ed"
+    },
     "projetos/banner-mobile/index.html": {
       "bytes": 8277,
       "sha256": "a382b082c5feacf2806ab6a1f0a1cb3d235f4c131233e6b71c1271498cb5e878"
     },
-    "projetos/banner-mobile/mobile-2/index.html": {
-      "bytes": 8271,
-      "sha256": "8590b2dd5e86945cc6f99607f12e510fa04379c3a4f1cf9a7c3c2c65794f33bb"
-    },
-    "projetos/banner-mobile/mobile-bacio/index.html": {
+    "projetos/banners/banner-allergan/index.html": {
       "bytes": 8311,
-      "sha256": "7f14037248daaab2f65e2cd367ccd657d937574b018f5e17cfc049d062ca67ef"
+      "sha256": "54f3728a81027504c36a0bbc04abec40ae21d32ddb939468f184f00146c2362e"
     },
-    "projetos/banner-mobile/mobile-banner/index.html": {
+    "projetos/banners/banner-bacio/index.html": {
+      "bytes": 8287,
+      "sha256": "1e979fd2b44f38433e97f76b9abeb34ce76434f8e9ee8d62740fab53d42d7c33"
+    },
+    "projetos/banners/banner-bellarine/index.html": {
       "bytes": 8319,
-      "sha256": "3923785e3d94b4a03b86e3926cd13e403c444025918edd642e28fdc521bb4f51"
+      "sha256": "d5d851576ec1c592c8416fe5374d3a872f6e96e0d9aff65ec3e062a2c0f5515d"
     },
-    "projetos/banner-mobile/mobile-bellarine-26-05-27/index.html": {
-      "bytes": 8415,
-      "sha256": "0c5e519b07d64eb8fa742d1a4393eeee93f8f388b428504c23bb7f95ba3f79a2"
+    "projetos/banners/banner-central-rejuvital-2/index.html": {
+      "bytes": 8391,
+      "sha256": "d52364fc6fc4fcfcfea708e4ea10372085cfc82ca2c4c18dcbc8e4d5a1718db3"
     },
-    "projetos/banner-mobile/mobile-evo/index.html": {
-      "bytes": 8295,
-      "sha256": "ff9fed0d8eeb208fe693badf15a5a3f4ec18b143f7c399115553f56d941b0cc7"
+    "projetos/banners/banner-central-rejuvital/index.html": {
+      "bytes": 8383,
+      "sha256": "d3588a7ea56c4a0de2c7b3d1eea7bc76da640d86384ebe1d24bc25bbf2155ed6"
     },
-    "projetos/banner-mobile/mobile-galderma/index.html": {
-      "bytes": 8335,
-      "sha256": "29ecc8acc68d54fc54993d5966cf3d7ac619d34bc0ce5dff3137769d1518551b"
+    "projetos/banners/banner-evo/index.html": {
+      "bytes": 8271,
+      "sha256": "b6b9c7a54c1d7fa6124a6f93306625b28baf1981ac4b4727c2a4c34561abd7b4"
     },
-    "projetos/banner-mobile/mobile/index.html": {
-      "bytes": 8263,
-      "sha256": "18bf51cef57d82404bc7d0bed3de96471c80893d0960729ee8738a2210d96b31"
+    "projetos/banners/banner-lancamento/index.html": {
+      "bytes": 8331,
+      "sha256": "e440dfa243f1e3bd42e699a6b933c77da4c96fb5e97b5c308ad3a9149be4658e"
     },
-    "projetos/banners/26-06-16-webbanner-rennova/index.html": {
-      "bytes": 8399,
-      "sha256": "56fcfc9cad1b3a8471b44a56791100ea1291a50397a0ae969b303fdaf5434412"
+    "projetos/banners/banner-rejuvital/index.html": {
+      "bytes": 8319,
+      "sha256": "96372ab0ca799e6cbc94e5244205f424c37c80b27c1c4cf39f4d610e0adfbdf4"
     },
-    "projetos/banners/banner-allergan-topo/index.html": {
+    "projetos/banners/banner-rennova-club/index.html": {
+      "bytes": 8343,
+      "sha256": "d4f3795226b07688fb0c59570dc96ac4d9748194eaecd1028751b606f7c6c401"
+    },
+    "projetos/banners/banner-rennova-diamond/index.html": {
+      "bytes": 8367,
+      "sha256": "ff25d2d956e7a3d972be1766ddb6535eb9332e30cce3e655ac1cb0fc0e6ee804"
+    },
+    "projetos/banners/banner-rennova-elleva/index.html": {
+      "bytes": 8359,
+      "sha256": "fb57a0b5e94e22dcd4d7b42ec0d6d57c5b7a45b4792415136e00310b04a27ac5"
+    },
+    "projetos/banners/banner-rennova-hydro/index.html": {
       "bytes": 8351,
-      "sha256": "269d7f76d438b5d27d0c5da57d49e9faf2c38f5ae94e66853f37a541b662f6dc"
+      "sha256": "2a97c770b766fdbbe7e16863e6d698de2c09eb18c958249007263180b4b31330"
     },
-    "projetos/banners/banner-centro-rejuv-400x1170/index.html": {
-      "bytes": 8415,
-      "sha256": "61b2ea00d1dbe29a2f67c4b8c16f5d69ce813305e9d40c2eea2d0ffbab81f6ee"
-    },
-    "projetos/banners/banner-centro-rejuvital/index.html": {
-      "bytes": 8375,
-      "sha256": "51a60f91b773c2dcb538ddf040b22d848e45465db4c552cd704e9d2a90497317"
-    },
-    "projetos/banners/banner-elleva-17-06/index.html": {
-      "bytes": 8343,
-      "sha256": "b3615e7fafceb23da5c5ad5d2c25448b8914df4716f47f1b786cf86626b2de02"
-    },
-    "projetos/banners/banner-para-aprovar/index.html": {
-      "bytes": 8343,
-      "sha256": "b8f2e928dada2dae3662bfac66ae2987ba3e5b7bf6f383ebb767a3a2294c0095"
-    },
-    "projetos/banners/banner-rennova/index.html": {
-      "bytes": 8303,
-      "sha256": "3b6acc03b917fa13e7865c9a5a74b79c132904655e3091818534329556c80109"
+    "projetos/banners/banner-shape-lido/index.html": {
+      "bytes": 8327,
+      "sha256": "be862ba1e00bb38ac7de50ca2008e6373b08273d235768dd13e4d88b11adef9f"
     },
     "projetos/banners/banner-v-hacker/index.html": {
       "bytes": 8311,
-      "sha256": "3f3a42cf94f30b73df667c921ada94250c7ee314693504aeabc24e5978df7f18"
+      "sha256": "792b65a72426a130aba39c399d28d3ec6b015d69fdd07a62910e000a059fabdf"
     },
     "projetos/banners/banner-verve/index.html": {
       "bytes": 8287,
-      "sha256": "6f8dbb787a06dda7eec68c86cd01899f7fa137266b97cc796db5548da4cfc931"
+      "sha256": "9884eb4ad2996f40d40a084bde2071d0f2a5b654ff9672a5c06f640203a6174b"
     },
     "projetos/banners/index.html": {
       "bytes": 8205,
-      "sha256": "f787043e1ab0bf3e246068a44bcb1b9c7cc3e0acd4313c701b9cc64825bf890b"
+      "sha256": "e4ad3cdac32ac03bff80aabac14f2fa4ba768b009abf39d3d33dae149482c762"
     },
-    "projetos/banners/media-1eqhabmp8ryv0-brcewmvkpnjhblgvd71/index.html": {
-      "bytes": 8351,
-      "sha256": "9bc2751edf23343754886f8c4806d29cc26d9d4e35e14658eb5b124767d2e253"
+    "projetos/campanha-007-completa/banner-da-campanha/index.html": {
+      "bytes": 8391,
+      "sha256": "13e6ac90db95da3d4ba7cdd47d1caa192e7cc3d9fcffa09e81dcc99c738beea4"
     },
-    "projetos/banners/modelo-banner/index.html": {
-      "bytes": 8295,
-      "sha256": "18298ed1dc9596f94c1f754f29092e4b23382e2883a2f3b0ab5f25e28d652cc2"
-    },
-    "projetos/banners/site-bellarine-26-05-27/index.html": {
+    "projetos/campanha-007-completa/card-de-storys-2/index.html": {
       "bytes": 8375,
-      "sha256": "7b40a60bab2f7f681fcaee191533783f31bbf1d12de0e3357cc99f3907f57f2c"
+      "sha256": "c9fb71c3b54a6d1f5a21d6f13b6b1baa670b04446d15bfa6269aa3ddf26e24c6"
     },
-    "projetos/banners/web-banner-evo/index.html": {
-      "bytes": 8303,
-      "sha256": "ca799124c5ca38215a8b74935cfee075243699050a55ab2af3e6b35c547360ca"
-    },
-    "projetos/banners/web-banner-lancamento-diamondx/index.html": {
-      "bytes": 8431,
-      "sha256": "84f6f3ca8a861ee37f54baebb26d7245f819d6a18703dff58241d1b2d74f0ba3"
-    },
-    "projetos/banners/web-banner/index.html": {
-      "bytes": 8271,
-      "sha256": "77ce9a29021b0e16caf3267e8378205d76c402290c4fbc1c11699c763a74e7af"
-    },
-    "projetos/banners/webbanner-rennova-shape-lido/index.html": {
-      "bytes": 8415,
-      "sha256": "386f7ac935d2d8834996f90f43322bcdf490dfa3a0eb13ae4cfd094b4c61f120"
-    },
-    "projetos/campanha-007-completa/07-07-dia-d/index.html": {
-      "bytes": 8335,
-      "sha256": "4d2e6320f97e8816666b1debdde910797e2460ae80456084fb5477e41a58b224"
-    },
-    "projetos/campanha-007-completa/banner-7-7/index.html": {
-      "bytes": 8327,
-      "sha256": "ce8e82d27317097dac0f5f845abeae008ea6ba178dce5942383c7e21404b6d23"
-    },
-    "projetos/campanha-007-completa/bioestimuladores/index.html": {
+    "projetos/campanha-007-completa/card-de-storys-3/index.html": {
       "bytes": 8375,
-      "sha256": "507814cff92de37c680d0ce8b2b293aaa916332f6842ee18c44079a6d4afb08f"
+      "sha256": "ef17691642f3fb70706815b7a74fbd290f2956acd7c2a0a8ba7e1f6039ea7597"
     },
-    "projetos/campanha-007-completa/bioregeneradores/index.html": {
+    "projetos/campanha-007-completa/card-de-storys-4/index.html": {
       "bytes": 8375,
-      "sha256": "2a4a3ad7c910ef12bd383e081284a286b8c80f753aedee3d9cd74be13a783847"
+      "sha256": "ec0255489a129a0f4e9d8b7b48204c0e2a31597728eb036af3fa52572e7f6e6a"
     },
-    "projetos/campanha-007-completa/descartaveis/index.html": {
-      "bytes": 8347,
-      "sha256": "124c2aa796522d546e463d6a1dcadff8ebff20198a0158f0c56d6303d516eb8b"
+    "projetos/campanha-007-completa/card-de-storys/index.html": {
+      "bytes": 8359,
+      "sha256": "ff6a3f85698a2fca09d85310a9f9a04e1d171847679f9162b66e2ca2688d8892"
     },
-    "projetos/campanha-007-completa/e-hoje-0707/index.html": {
-      "bytes": 8339,
-      "sha256": "47dc090ff3b64b1c41355bcf19aee612932f15ed38ed784a766a26296069bfe5"
-    },
-    "projetos/campanha-007-completa/estatico-patrocinado/index.html": {
-      "bytes": 8411,
-      "sha256": "bd6ce1208e9ed218373dbcb5ff9b73387a7eeec3f626b7a762dd47bffe574cb7"
-    },
-    "projetos/campanha-007-completa/fios-de-pdo/index.html": {
-      "bytes": 8335,
-      "sha256": "1e49e581b044b8934c2d0f18742a5e436d6d338273e97578ecb730f457a938a5"
+    "projetos/campanha-007-completa/card-para-feed/index.html": {
+      "bytes": 8359,
+      "sha256": "735c0daa7d7e1e6508dfbe60b12ba839b2c6166c4d04cd868d2e8f86a18c54ca"
     },
     "projetos/campanha-007-completa/index.html": {
       "bytes": 8373,
-      "sha256": "704b382e7d4c5bf25661079280d9bf0dfbc79206c97538a586235e984ad46392"
+      "sha256": "fe6701b9a5b2201be3277369ccbe4b88d58cf2f4233cc591fd8f4b6be28c9a44"
     },
-    "projetos/campanha-007-completa/laminas-dia-d-7-7/index.html": {
-      "bytes": 8391,
-      "sha256": "4a1b4fc2e4d5c2dc35c9d7bf03dbfc13e281b072f3731dbc76d303633f22969f"
+    "projetos/campanha-007-completa/lamina-de-produtos-e-valores/index.html": {
+      "bytes": 8475,
+      "sha256": "064cd0589148952ce56a98a8c52d9aaf7c590201dcafff8ea1c3641c7ec470af"
     },
-    "projetos/campanha-007-completa/logo-07-07/index.html": {
-      "bytes": 8327,
-      "sha256": "1cb26364563746ed64438c14463806f9626e8183543c8d8a187e7ae27d40b101"
+    "projetos/campanha-007-completa/lamina-precos-e-produtos-2/index.html": {
+      "bytes": 8455,
+      "sha256": "cefe003950f3c134bf90f92ebc8b876227cb7c6456442722e1e88f93f7e17136"
+    },
+    "projetos/campanha-007-completa/lamina-precos-e-produtos-3/index.html": {
+      "bytes": 8463,
+      "sha256": "3951758a7f948faeaa47ca29c4b84a6135fc661cfa520d29722fb7b5fa68b2a5"
+    },
+    "projetos/campanha-007-completa/lamina-precos-e-produtos/index.html": {
+      "bytes": 8447,
+      "sha256": "eb06d4abc9fb66264174cec594575a58e7567b4f9d9b54093a84a8257c05ac6e"
+    },
+    "projetos/campanha-007-completa/logo-para-campanha/index.html": {
+      "bytes": 8395,
+      "sha256": "685b685aa52c18fc7fc5a927dcc3482feab28897f5946929d1d94c6ab1a27ae8"
     },
     "projetos/campanha-007-completa/mobile/index.html": {
       "bytes": 8295,
       "sha256": "bc2737c0d910ce76eb2ff71ddc6127cac243b63d99e52eafe55d3a1e22d6f46a"
     },
-    "projetos/campanha-007-completa/prancheta-1/index.html": {
-      "bytes": 8335,
-      "sha256": "d30e9990082a0046c71a79dd3cc8b7d1bfcb72fa850206164ec702a9e39e2fe0"
+    "projetos/campanha-007-completa/motion-com-spoiler-da-campanha/index.html": {
+      "bytes": 8491,
+      "sha256": "a13b45975befea7503b2f3725d9f37d757a3d75d879b46eaf355e009a6ae80a9"
     },
-    "projetos/campanha-007-completa/prancheta-2/index.html": {
-      "bytes": 8335,
-      "sha256": "77dddc7953feb7a9ef415fa8667506293415d607e449b570e97ddc0c07ad9092"
+    "projetos/campanha-007-completa/storys-de-divulgacao/index.html": {
+      "bytes": 8415,
+      "sha256": "f0174273621c652cbf648393e8b6a2099e03ec26b909d5e7f953285e32f80036"
     },
-    "projetos/campanha-007-completa/prancheta-3/index.html": {
-      "bytes": 8335,
-      "sha256": "6b289ddc8a90b77b68c415c65abd5e9314cdbda3e371576cb062b124534d63ca"
-    },
-    "projetos/campanha-007-completa/prancheta-4/index.html": {
-      "bytes": 8335,
-      "sha256": "aba8b1ba32bfe2c5d426e79175467557be527d6f8b0be69904325dbdcff8895c"
-    },
-    "projetos/campanha-007-completa/preenchedores/index.html": {
-      "bytes": 8351,
-      "sha256": "96a2cc5859338090a6f8af8a4d706a59c0c7f4e48aaed377ade249d57a609c38"
-    },
-    "projetos/campanha-007-completa/skinboosters/index.html": {
-      "bytes": 8343,
-      "sha256": "9c1c4a2dc424f4adea80bb3aa552200c311ef730dd494cec7c8d7932e792ca95"
-    },
-    "projetos/campanha-007-completa/spoiler-07-07/index.html": {
-      "bytes": 8351,
-      "sha256": "0ed48fbcd2ec8dfc2d474cd2cff4d32ff2521f539dc19468f5e5f9e8d4da4289"
-    },
-    "projetos/campanha-007-completa/toxinas/index.html": {
-      "bytes": 8303,
-      "sha256": "419ee5204bd2efdaee4d6d2dbf1f3cf256d3cc7ffedd1f2905bddb0ab08c6e3f"
+    "projetos/campanha-007-completa/video-de-divulgacao/index.html": {
+      "bytes": 8411,
+      "sha256": "f4ebcf459d6e62ffaa856ded42b0eeb84847f236b6fd1aae02fd3b8be73458ca"
     },
     "projetos/carrossel/carrossel-bacio/index.html": {
       "bytes": 8319,
-      "sha256": "6254a399b698db7647061f9b605716f6f9ac4b52142b214c190b6b916b71a5d7"
+      "sha256": "37dba720c114cdc37af0b8faeefd8dd5d32267dd8ed3c6098dfb8a0124a15984"
     },
     "projetos/carrossel/carrossel-evo/index.html": {
       "bytes": 8303,
@@ -247,7 +227,7 @@
     },
     "projetos/carrossel/carrossel-v-hacker/index.html": {
       "bytes": 8343,
-      "sha256": "18fa1e120babf389eceedafedb1d2ad10194b192447664a7a09a95b91793d525"
+      "sha256": "b33800b20224ec9ba45ad1a51fabf3452f8a3014507683791e69afb2c71abfb0"
     },
     "projetos/carrossel/carrossel/index.html": {
       "bytes": 8271,
@@ -255,7 +235,7 @@
     },
     "projetos/carrossel/index.html": {
       "bytes": 8229,
-      "sha256": "19fdc9700f8bcb09053a521c9040b5fe676cc15ceaf98bba59b14deed59902c8"
+      "sha256": "125cbc0e0041bbc5580e61ab55d87aa334984df2af9b5c4bd6ed3e681687c6d9"
     },
     "projetos/dermacast/cortes/index.html": {
       "bytes": 8247,
@@ -269,137 +249,85 @@
       "bytes": 8229,
       "sha256": "605e592f22cbb7561c5678e0b6369b19e375537944fb6c7de66af23dfd51dd6a"
     },
-    "projetos/edicao-de-videos/allergan-anja-4/index.html": {
-      "bytes": 8347,
-      "sha256": "3610bb6bc4e7929a3e67ce89a4276d8820fa4266eb9cde9de138760a71f7c56f"
-    },
-    "projetos/edicao-de-videos/cimed/index.html": {
-      "bytes": 8267,
-      "sha256": "4f48d58326f2f9822d3215e42a25b926d9e46dfaba7497aeabbf79690f394d67"
-    },
-    "projetos/edicao-de-videos/final-galderma-workshop/index.html": {
-      "bytes": 8411,
-      "sha256": "4616b6c4ec5a7cae401c7d90ca068ffaccdce0529522bfc5ae38e58ef62c85ac"
-    },
-    "projetos/edicao-de-videos/final-video-merz/index.html": {
-      "bytes": 8355,
-      "sha256": "6a053539ce25d2c489541692ff9c4d316a1914bd3989bf2f6d88a3b3743552ef"
-    },
     "projetos/edicao-de-videos/index.html": {
       "bytes": 8337,
-      "sha256": "174636ff24c7de91a0dfa21e90a6d2c40142be810526a5a04aabd2fe00c444d9"
+      "sha256": "3d645750e9cee1bc4b27454b03b7f886e21769eb6639cee13c250c9ddf15489c"
     },
-    "projetos/edicao-de-videos/pilula-rejuvital-2/index.html": {
-      "bytes": 8371,
-      "sha256": "e3ec08a53d0e3a3d5245db4ee8d5052bd3e38fdba07206a384930d2fa53d2a98"
-    },
-    "projetos/edicao-de-videos/projeto-01/index.html": {
-      "bytes": 8307,
-      "sha256": "dfafd0a0c397f9f253eabeee1a2f604e3d949d8d96c8fdf903d461161b4f4f6a"
-    },
-    "projetos/edicao-de-videos/projeto-02-allergan/index.html": {
-      "bytes": 8379,
-      "sha256": "7c7d7fbf7ac922bf3528f3473cfea957830088b318620a004238a24dae09c47a"
-    },
-    "projetos/edicao-de-videos/rejuvital-amanda-1/index.html": {
-      "bytes": 8371,
-      "sha256": "0adcf9725588012dd3a4573135696320df321f5f3ab75e7856058856f8cbfeef"
-    },
-    "projetos/edicao-de-videos/rejuvital-amanda-2/index.html": {
-      "bytes": 8371,
-      "sha256": "18039a35f388dab66ad1b13350d63d495b6674f80529c9fdf459dabbb65a893c"
-    },
-    "projetos/edicao-de-videos/workshop-evo-final/index.html": {
+    "projetos/edicao-de-videos/videos-em-workshop/index.html": {
       "bytes": 8375,
-      "sha256": "a62f4b96491230a38b44a50e34999c755b135733545f311da32a9869ea451d49"
+      "sha256": "2b97043f4b2fa688e0661629f3439370dc74bdfb26bfbe05a70d6ff5ea4dfafa"
     },
-    "projetos/edicao-de-videos/workshop/index.html": {
-      "bytes": 8291,
-      "sha256": "8c52f9c8a314f5acb26702db37fa4288cb2426e05fa6a435b958b5fb5d305c7f"
+    "projetos/edicao-de-videos/videos-para-allergan/index.html": {
+      "bytes": 8391,
+      "sha256": "28ba8a3272f8c655654dd66862e6aae0b34a9db1da6de9b7ae69038e1b824bcc"
+    },
+    "projetos/edicao-de-videos/videos-para-rejuvital/index.html": {
+      "bytes": 8399,
+      "sha256": "dfb6d2a2249fd368a5a44b445743af52a18b21e5c4f97d613d04f0544101a4b1"
+    },
+    "projetos/laminas-para-divulgacao/divulgacao-de-produto/index.html": {
+      "bytes": 8431,
+      "sha256": "1d3dbbf206314254874a3e1abbd34ebcb2d62a90e21fc46f2d401c39f75c11ec"
+    },
+    "projetos/laminas-para-divulgacao/divulgacao-para-workshop/index.html": {
+      "bytes": 8455,
+      "sha256": "89d6bf75fb7cf7f22d8d03020179c797355632e03ac6af22b7a9a94c3150fd00"
     },
     "projetos/laminas-para-divulgacao/index.html": {
       "bytes": 8421,
-      "sha256": "8a012401b1c45712782b5dbfeb38b3d9bdbeab8f05d01f95cec40f373b61622e"
+      "sha256": "5ece06d98229d2682ea1d66d145e1f2a52cf0e2106d8597e0db5001afba9eb66"
     },
-    "projetos/laminas-para-divulgacao/lamina-2/index.html": {
-      "bytes": 8315,
-      "sha256": "cacb7bc5453006f774f81989b2a393f630ad29b9ef0342554d90f878e5100ee7"
+    "projetos/lateral-banners/banner-belotero/index.html": {
+      "bytes": 8343,
+      "sha256": "51eab241ca5d742519ad483e69e039a55661ccb4157abd17d0a88bb105a95c02"
     },
-    "projetos/laminas-para-divulgacao/lamina-3/index.html": {
-      "bytes": 8315,
-      "sha256": "c48520c469ceb7ab3c075fc47404925ed33b337134d75295a6c5c58e023d8c15"
+    "projetos/lateral-banners/banner-diamond/index.html": {
+      "bytes": 8335,
+      "sha256": "310827d8befdbb475806d371aa34a4709dc3b71da17aba8349b8dfe5e7ea30e8"
     },
-    "projetos/laminas-para-divulgacao/lamina-de-divulgacao-galderma-tarde/index.html": {
-      "bytes": 8535,
-      "sha256": "f1aab71257447b9658277b3c985107bd41157dd78c047fe9371d8839c4e7b221"
-    },
-    "projetos/laminas-para-divulgacao/lamina-de-divulgacao/index.html": {
-      "bytes": 8415,
-      "sha256": "158df796f9cb4aa38668ea7a4b8305b807344d5c309e1147c8a17a6467a0743f"
-    },
-    "projetos/laminas-para-divulgacao/lamina-hands-on-experience/index.html": {
-      "bytes": 8467,
-      "sha256": "6a9c840f75f156070c3118c50703364310c005a204eab4ca14738eb336c64a6e"
-    },
-    "projetos/laminas-para-divulgacao/lamina/index.html": {
+    "projetos/lateral-banners/banner-lift/index.html": {
       "bytes": 8311,
-      "sha256": "f174a67d8d15f1eb858b8cdbb6aecd313d0a32b5b98116ed706b920fc4094dbd"
+      "sha256": "281bfd3044818bcdc125a0dcd44cec0c6f1d2fe362dbd981cc9c9c0f2226acf5"
     },
-    "projetos/laminas-para-divulgacao/post-6/index.html": {
-      "bytes": 8303,
-      "sha256": "ce205f6c123da88592f66906aa932bd1097c37aa2e91b05b8ce0c4412b85dcc8"
-    },
-    "projetos/lateral-banners/230x610-banner-lateral-rennova/index.html": {
-      "bytes": 8463,
-      "sha256": "d98b7369e2d6badb1a18183c18a4b2d71db22e264753e6aae065fbe27da3a500"
-    },
-    "projetos/lateral-banners/460x1220-banner-lateral/index.html": {
-      "bytes": 8407,
-      "sha256": "82d765fb6db328fefcb652ae9232ca911a8f1521fe17d035b2f7b8cdaf1f6b27"
-    },
-    "projetos/lateral-banners/banner-0-80x2-0-1/index.html": {
-      "bytes": 8367,
-      "sha256": "d461654e4b8d7c1870ec302f4597415ae3f023a134c51ff18a76e901e33769cf"
-    },
-    "projetos/lateral-banners/banner-0-80x2-0-2/index.html": {
-      "bytes": 8367,
-      "sha256": "2f090b7266696288a4f307d0da5f4e274887ae71612a061c8b3a15bfa4f99700"
+    "projetos/lateral-banners/banner-restylane/index.html": {
+      "bytes": 8351,
+      "sha256": "8e06b84ddf48340afcf49468ed43d7a5aa2f83d9c6376da63c7d69f2557f6078"
     },
     "projetos/lateral-banners/index.html": {
       "bytes": 8301,
-      "sha256": "3be7577281baafec8a968c93dd861dd808f739500b6cfb9a1f6fc0b013b3dd30"
-    },
-    "projetos/motion/copia-de-sculpt-dermalink/index.html": {
-      "bytes": 8391,
-      "sha256": "460597b2f7f8073b3f1363f48693bc40a7968cb1b2794ec77368d500e7ed999e"
-    },
-    "projetos/motion/final-reels/index.html": {
-      "bytes": 8275,
-      "sha256": "e131bd21799522e7b6687f4e5640be6a9aad08b185838bc2a710e6521943a3ae"
+      "sha256": "30751747a95ca9d9a737cda17de21538a9084c0046b463959105628a3cac2cb8"
     },
     "projetos/motion/index.html": {
       "bytes": 8193,
-      "sha256": "563b1be9e9f975c4220374c629cddf0f143119ecae70f8fa9666ae4d7d14f694"
+      "sha256": "00fefb2340c251e58ef029ca091fc5e1b8e3f76fa7282909705727e217971eb2"
     },
-    "projetos/motion/post3/index.html": {
-      "bytes": 8227,
-      "sha256": "e7fe5deba201f7e3e9fbe8db88ba38af1e90017ac86559c1e306cf204a0717c3"
+    "projetos/motion/motion-fundo-de-tela/index.html": {
+      "bytes": 8347,
+      "sha256": "06c47f4c5525e7ce311485f168368a2e9d5696b6fae28fd4828f62f1f517c098"
     },
-    "projetos/motion/post4/index.html": {
-      "bytes": 8227,
-      "sha256": "6fcb61828d066a65cb9cb9d05055d2165c6e43b316be3b2c7c26d68267a420b7"
+    "projetos/motion/motion-para-podcast/index.html": {
+      "bytes": 8339,
+      "sha256": "33f95dabb976520d820a04f97ef84c67388520e43a72e5521475914308ed37d8"
     },
-    "projetos/motion/story-ai-1/index.html": {
-      "bytes": 8267,
-      "sha256": "579e1cf0f9c4783d441faaa60e4163a4e128a1132ab3ea0a84fcd38d618d019d"
+    "projetos/motion/produto-com-ia/index.html": {
+      "bytes": 8299,
+      "sha256": "99e2c8553c48c5588b381bd4f594a4507990846acab3e414e3e48d9845615cd9"
     },
-    "projetos/motion/story/index.html": {
-      "bytes": 8227,
-      "sha256": "4a1c0067547ff485bcb6873bfa7cdf487998105fde50d9e538ea4334e5de757b"
+    "projetos/motion/reels-rejuvital/index.html": {
+      "bytes": 8307,
+      "sha256": "8ced9255fbee104a7bf33e3061a2c9aef1299b101246fa070a477cc79a5b084e"
     },
-    "projetos/motion/vd-speaker-13-joao-pithon-sinclair/index.html": {
-      "bytes": 8463,
-      "sha256": "a6d44b6dd272f765f1ab670f46f66d0e3d4ec3154bcd3db011ffc85f3304b89a"
+    "projetos/motion/rejuvital-pdrn/index.html": {
+      "bytes": 8299,
+      "sha256": "d91b16bde787b6bcedf6fd33f92ec7e6111a80b0f1df9556faecc03608cfa914"
+    },
+    "projetos/motion/sculpt-galderma/index.html": {
+      "bytes": 8307,
+      "sha256": "74284eee01890b8d0977213e6793b7be2bf660275b1d2aa6ac802185be35d1b1"
+    },
+    "projetos/motion/story-rejuvital/index.html": {
+      "bytes": 8307,
+      "sha256": "4d095fb89847a758a04e58e21372ee77ad1f14548ab143cb252c1eaea563dffb"
     },
     "robots.txt": {
       "bytes": 75,
@@ -554,8 +482,8 @@
       "sha256": "bb66cfd5e90599b2009bd6a9923edffdb1c141bbd61fe5f4a4aff7b1056c7405"
     },
     "sitemap.xml": {
-      "bytes": 11662,
-      "sha256": "43d3b659b29705bfa93cc4ade6eeb430696498c3388b998fce35d6758ef2462d"
+      "bytes": 9999,
+      "sha256": "938cb28e3aa0f4eb8a86fbc262ab847fbdf7340185f219882ea6e9f3b7861e09"
     }
   },
   "format": "studioframe-public-build-v2",
@@ -566,10 +494,10 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 12966581,
-    "files": 138,
-    "largest_file_bytes": 4455826,
-    "route_shells": 126
+    "bytes": 12348956,
+    "files": 120,
+    "largest_file_bytes": 4251708,
+    "route_shells": 108
   },
   "video_assets": {
     "bytes": 0,
