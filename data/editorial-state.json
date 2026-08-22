@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "c6df714ba48fb6792274",
-    "saved_at": "2026-08-22T16:56:37.651355+00:00"
+    "revision": "6d2d9c906ffff87c3e1e",
+    "saved_at": "2026-08-22T16:57:36.513580+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1003,7 +1003,7 @@
           "body": "",
           "body_size": "",
           "channel_cta_label": "Conheça o canal",
-          "channel_url": "",
+          "channel_url": "https://www.youtube.com/shorts/YDvUbNIxNb8?feature=share",
           "core": false,
           "cover_media_id": "",
           "desktop_visible": true,
