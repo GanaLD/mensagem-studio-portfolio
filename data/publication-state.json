@@ -2,20 +2,20 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "31627b7d6d23d471caaee62d709485207fc01c31ddcf11bbee8b063c72e3b6fe",
-    "commit": "e86b77e813dbf3567b9d7e4a20b2613c0071b433",
-    "editorial_revision": "b56ea01aef7929591b33",
-    "manifest_sha256": "a59287bf03189577fdcd89aee06953ddd20c9c31ea6cfcba481e696df97c93b6",
-    "published_at": "2026-08-22T22:32:00.232111+00:00",
-    "reused_bytes": 409073,
-    "reused_files": 52,
+    "bundle_sha256": "e1f81739c55695a93fe002d7eb1036d2f0502593ee7db850abd730bea38a740c",
+    "commit": "2c9a470de7cf05d90ecd9974f1c87178183941a3",
+    "editorial_revision": "8b1883455edd56c385fc",
+    "manifest_sha256": "dd20ebff2fcd4b573415fa2c8b9c44668bca00b58d024df819c445b324dfe151",
+    "published_at": "2026-08-22T22:36:10.538615+00:00",
+    "reused_bytes": 7755450,
+    "reused_files": 72,
     "site_url": "https://mensagemstudio.shop/",
     "stages": [
       {
-        "bundle_sha256": "31627b7d6d23d471caaee62d709485207fc01c31ddcf11bbee8b063c72e3b6fe",
+        "bundle_sha256": "e1f81739c55695a93fe002d7eb1036d2f0502593ee7db850abd730bea38a740c",
         "key": "build",
         "label": "Build local",
-        "message": "121 arquivos · 11.8 MB · 108 rotas leves prontas para deploy.",
+        "message": "121 arquivos · 11.9 MB · 108 rotas leves prontas para deploy.",
         "status": "ok"
       },
       {
@@ -25,17 +25,17 @@
         "status": "ok"
       },
       {
-        "commit_sha": "e86b77e813dbf3567b9d7e4a20b2613c0071b433",
+        "commit_sha": "2c9a470de7cf05d90ecd9974f1c87178183941a3",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=52 · enviados=69.",
-        "reused_bytes": 409073,
-        "reused_files": 52,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=72 · enviados=49.",
+        "reused_bytes": 7755450,
+        "reused_files": 72,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 11960941,
-        "uploaded_files": 69
+        "uploaded_bytes": 4673682,
+        "uploaded_files": 49
       },
       {
         "key": "pages",
@@ -53,8 +53,8 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 11960941,
-    "uploaded_files": 69
+    "uploaded_bytes": 4673682,
+    "uploaded_files": 49
   },
-  "updated_at": "2026-08-22T22:32:00.248543+00:00"
+  "updated_at": "2026-08-22T22:36:10.554237+00:00"
 }
