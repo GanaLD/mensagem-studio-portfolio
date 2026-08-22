@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "4c826c8046f6c5bfce29",
-    "saved_at": "2026-08-22T22:26:07.980352+00:00"
+    "revision": "2f31a0e655dcc4b31f2f",
+    "saved_at": "2026-08-22T22:26:16.332973+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1082,7 +1082,16 @@
           "force_motion": true,
           "gap_px": "20",
           "id": "block-mt32u7t0-hykp8",
-          "items": [],
+          "items": [
+            {
+              "action_label": "",
+              "description": "",
+              "id": "section-item-mt4y6foh",
+              "media_id": "",
+              "project_id": "",
+              "title": ""
+            }
+          ],
           "items_visible_desktop": "3",
           "items_visible_mobile": "1",
           "label": "Autoplay Carousel",
