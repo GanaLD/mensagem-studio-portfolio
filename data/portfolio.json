@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "308042523b8fb54888a2",
+  "editorial_revision": "089ef776c1442dfcf896",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -70,8 +70,8 @@
       "brand_letter_spacing": 0.16,
       "brand_text_transform": "uppercase",
       "brand_color": "#F4F7FB",
-      "background_style": "luminous",
-      "background_animation": "medium",
+      "background_style": "solid",
+      "background_animation": "soft",
       "block_style": "flat",
       "block_radius": 0,
       "block_spacing": "airy",
@@ -35842,8 +35842,8 @@
     "pdfs": 1,
     "unsupported": 2,
     "ignored": 4,
-    "api_calls": 20,
-    "duration_seconds": 8.206
+    "api_calls": 19,
+    "duration_seconds": 8.429
   },
   "publication_ready": true,
   "public_validation": {

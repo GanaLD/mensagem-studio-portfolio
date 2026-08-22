@@ -584,19 +584,25 @@ function layoutFloatingControls(){
 const rank={menu:0,whatsapp:1,quote:2},groups={};
 const visible=(node)=>node&&!node.hidden&&getComputedStyle(node).display!=='none'&&node.getBoundingClientRect().height>0;
 const controls=[...document.querySelectorAll('.site-floating-control[data-floating-control]')].filter(visible);
-const obstacles=['#header','.filters','.services-jump-nav','[data-context-bar]','.project-back'].map($).filter(visible);
-const topBars=obstacles.map((node)=>node.getBoundingClientRect()).filter((rect)=>rect.top<Math.min(innerHeight*.42,260));
-const safeTop=Math.max(12,...topBars.map((rect)=>Math.min(innerHeight-80,rect.bottom+12)));
-const safeBottom=Math.max(12,Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--safe-area-bottom'))||12);
+const obstacleSelector='#header,.filters,.services-jump-nav,[data-context-bar],[data-floating-obstacle],.section-navigator,.project-back,.hero-open,.hero-sound-toggle,.quote-cta-button';
+const obstacles=[...document.querySelectorAll(obstacleSelector)].filter((node)=>visible(node)&&!controls.some((control)=>control===node||control.contains(node)));
+const viewport=window.visualViewport,viewportTop=Math.max(0,Math.round(viewport?.offsetTop||0)),viewportBottom=Math.min(innerHeight,Math.round((viewport?.offsetTop||0)+(viewport?.height||innerHeight)));
+const topBars=obstacles.map((node)=>node.getBoundingClientRect()).filter((rect)=>rect.top<=viewportTop+12&&rect.bottom>viewportTop&&rect.bottom<Math.min(viewportBottom-80,viewportTop+280));
+const safeTop=Math.max(viewportTop+12,...topBars.map((rect)=>rect.bottom+12));
+const safeBottom=Math.max(12,innerHeight-viewportBottom+12);
 document.documentElement.style.setProperty('--floating-safe-top-px',`${Math.round(safeTop)}px`);
 document.documentElement.style.setProperty('--floating-safe-bottom-px',`${Math.round(safeBottom)}px`);
 controls.forEach((node)=>{node.style.setProperty('--floating-safe-shift-y','0px');(groups[node.dataset.floatingPosition||'bottom_left']||=[]).push(node);});
 Object.values(groups).forEach((group)=>{let x=0;group.sort((a,b)=>(rank[a.dataset.floatingControl]??9)-(rank[b.dataset.floatingControl]??9)).forEach((node)=>{node.style.setProperty('--floating-stack-offset',`${Math.round(x)}px`);x+=node.getBoundingClientRect().width+8;});});
 controls.forEach((node)=>{
 const rect=node.getBoundingClientRect(),topPosition=(node.dataset.floatingPosition||'').startsWith('top');
-let shift=topPosition&&rect.top<safeTop?safeTop-rect.top:(!topPosition&&rect.bottom>innerHeight-safeBottom?innerHeight-safeBottom-rect.bottom:0);
-const shifted={left:rect.left,right:rect.right,top:rect.top+shift,bottom:rect.bottom+shift};
-obstacles.forEach((obstacle)=>{if(obstacle.contains(node))return;const other=obstacle.getBoundingClientRect();const overlaps=shifted.left<other.right+8&&shifted.right>other.left-8&&shifted.top<other.bottom+8&&shifted.bottom>other.top-8;if(overlaps)shift+=topPosition?other.bottom+12-shifted.top:other.top-12-shifted.bottom;});
+let shift=topPosition&&rect.top<safeTop?safeTop-rect.top:(!topPosition&&rect.bottom>viewportBottom-12?viewportBottom-12-rect.bottom:0);
+const current=()=>({left:rect.left,right:rect.right,top:rect.top+shift,bottom:rect.bottom+shift});
+const ordered=[...obstacles].sort((a,b)=>topPosition?a.getBoundingClientRect().top-b.getBoundingClientRect().top:b.getBoundingClientRect().bottom-a.getBoundingClientRect().bottom);
+ordered.forEach((obstacle)=>{const shifted=current(),other=obstacle.getBoundingClientRect(),overlaps=shifted.left<other.right+10&&shifted.right>other.left-10&&shifted.top<other.bottom+10&&shifted.bottom>other.top-10;if(!overlaps)return;const candidate=topPosition?other.bottom+12-shifted.top:other.top-12-shifted.bottom;if((topPosition&&candidate>0)||(!topPosition&&candidate<0))shift+=candidate;});
+const clamped=current();
+if(clamped.top<viewportTop+8)shift+=viewportTop+8-clamped.top;
+if(clamped.bottom>viewportBottom-8)shift+=viewportBottom-8-clamped.bottom;
 node.style.setProperty('--floating-safe-shift-y',`${Math.round(shift)}px`);
 });
 if(!window.__studioframeFloatingLayoutBound){window.__studioframeFloatingLayoutBound=1;let raf=0;const schedule=()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;layoutFloatingControls();});};addEventListener('resize',schedule,{passive:true});addEventListener('scroll',schedule,{passive:true});addEventListener('hashchange',schedule);addEventListener('popstate',schedule);new MutationObserver(schedule).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden','class']});}
