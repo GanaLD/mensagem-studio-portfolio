@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "fbbdd6ff5458adb3b26d",
-    "saved_at": "2026-08-22T16:57:51.369065+00:00"
+    "revision": "f8ae998fec529df911d7",
+    "saved_at": "2026-08-22T16:57:58.959834+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -836,7 +836,7 @@
           "section_texture_position": "center",
           "section_texture_scale": 100,
           "section_width": "full",
-          "show_channel_link": false,
+          "show_channel_link": true,
           "show_external_link": true,
           "text_align": "left",
           "text_transform": "none",
@@ -849,7 +849,7 @@
           "type": "youtube_showcase",
           "video_id": "G_2jdXfXxiI",
           "visible": true,
-          "width": "wide",
+          "width": "full",
           "youtube_cta_label": "Ver no YouTube",
           "youtube_url": "https://www.youtube.com/watch?v=G_2jdXfXxiI",
           "youtube_valid": true
