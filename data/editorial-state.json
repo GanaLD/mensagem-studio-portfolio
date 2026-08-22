@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "91afd762126dc65af543",
-    "saved_at": "2026-08-22T00:07:51.189727+00:00"
+    "revision": "308042523b8fb54888a2",
+    "saved_at": "2026-08-22T00:07:57.490942+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -314,10 +314,10 @@
         "visible": true
       },
       "whatsapp": {
-        "background_color": "#25D366",
-        "border_color": "#25D366",
+        "background_color": "#25d366",
+        "border_color": "#25d366",
         "display_mode": "icon",
-        "foreground_color": "#FFFFFF",
+        "foreground_color": "#ffffff",
         "label": "WhatsApp",
         "message": "",
         "number": "",
