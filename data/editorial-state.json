@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "956f2f8828e6dd26a89a",
-    "saved_at": "2026-08-22T22:32:29.536645+00:00"
+    "revision": "2c8ce30ea594f71bad64",
+    "saved_at": "2026-08-22T22:32:37.910506+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -205,7 +205,7 @@
       "commercial": {
         "cta_label": "Quero algo assim",
         "display_mode": "full",
-        "enabled": false,
+        "enabled": true,
         "intro": "",
         "position": "after_media",
         "related_service_ids": []
@@ -353,7 +353,58 @@
       "order": 10
     },
     "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {
-      "order": 0
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 0,
+      "title": "BANNER SHAPE LIDO",
+      "title_size": 0,
+      "visible": true
     },
     "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {
       "order": 2
