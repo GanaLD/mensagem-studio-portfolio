@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "a5aac806f63264d8b9b5",
-    "saved_at": "2026-08-22T22:21:41.645201+00:00"
+    "revision": "167d25c864ba3c2cc8e9",
+    "saved_at": "2026-08-22T22:21:48.716092+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -283,7 +283,7 @@
       "ambient_enabled": true,
       "control_position": "bottom_right",
       "control_visible": true,
-      "initial_volume": 10,
+      "initial_volume": 5,
       "loop": true,
       "source": "youtube",
       "start_mode": "manual",
