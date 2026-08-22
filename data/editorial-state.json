@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "8a3c9d6eeb9f2076abfd",
-    "saved_at": "2026-08-22T16:58:52.506483+00:00"
+    "revision": "399e961f8a30246938c5",
+    "saved_at": "2026-08-22T16:59:00.775486+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -260,7 +260,7 @@
       "brand_title": "MENSAGEM STUDIO",
       "brand_title_visible": true,
       "button_style": "editorial",
-      "color_mode": "renaissance",
+      "color_mode": "custom",
       "container_width": "editorial",
       "cta_style": "outline",
       "grid_language": "editorial-asymmetric",
