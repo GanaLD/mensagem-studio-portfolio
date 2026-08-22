@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "97398cceddea484ea937",
-  "bundle_sha256": "97398cceddea484ea9371ba209162fc09bb0540d095e75ceaabcab1b79dc1c3d",
+  "build_revision": "caaf94e832e75686f342",
+  "bundle_sha256": "caaf94e832e75686f3424dfacbdeaba73caaaf7878d6e74274e6edc912d61b39",
   "editorial_revision": "c6df714ba48fb6792274",
   "files": {
     ".nojekyll": {
@@ -18,32 +18,32 @@
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
     "assets/hero/corte-03.mp4": {
-      "bytes": 4251708,
-      "sha256": "8a7146d41444dde391434821e4dd919baf124aa95e9ea3ffbd8b4b726d5f5cc3"
+      "bytes": 4455826,
+      "sha256": "973987b83b8036d7763b55192e2fb9dee85067bbed06566616cdd8b5dbceee78"
     },
     "assets/hero/dermacast-laila.mp4": {
-      "bytes": 2396816,
-      "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
+      "bytes": 2599878,
+      "sha256": "955f0cf426e60854add23ccc4e66b0e025320005a3d5e37367aa726d2caa244c"
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
-      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
+      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
     },
     "assets/site.css": {
-      "bytes": 220457,
-      "sha256": "1d8ab9a094ee760762b1271afcdfed2617053aea9a67dd29d266796717c494dc"
+      "bytes": 224006,
+      "sha256": "f93245d3316105b3051a3d361f7bd83c5b4fc9db48516d39f018c0cd41087015"
     },
     "assets/site.js": {
-      "bytes": 291982,
-      "sha256": "f18bd1f1edeaea53c5036cdfdbea133e0c493e0731d71d24feb151f0c043b0b1"
+      "bytes": 295252,
+      "sha256": "e4249714fee2921ba23a4e5acd2f16abea1f846599f62a3f9ebc8f11ef710ab0"
     },
     "data/portfolio.json": {
       "bytes": 2224956,
-      "sha256": "761295fbc0ea12dfc45f93647b59318fe1a44f1e17a9bfba9269c41f1c0b9e88"
+      "sha256": "1ce9fa69a54ec8722945ace5831931b5f214d36e13f14e56b1ff8c096f7d209f"
     },
     "index.html": {
-      "bytes": 2077862,
-      "sha256": "9250d98b6bbab00806307c922501cee8438018aedbb1ee489d7be31e1ef7b99f"
+      "bytes": 2084681,
+      "sha256": "80b2b63f4d02b1c8f58753985e0877b252e10cae545f79169b7beb1b11096eed"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
       "bytes": 8391,
@@ -566,9 +566,9 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 12543451,
+    "bytes": 12964269,
     "files": 138,
-    "largest_file_bytes": 4251708,
+    "largest_file_bytes": 4455826,
     "route_shells": 126
   },
   "video_assets": {

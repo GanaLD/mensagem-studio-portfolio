@@ -17,6 +17,7 @@ let activeGalleryIndex = 0;
 let activeGalleryTitle = '';
 let visualLayout = {};
 let projectScrollY = 0;
+let projectDetailPortalAnchor = null;
 function esc(value = '') {
 const node = document.createElement('div');
 node.textContent = value;
@@ -2037,7 +2038,8 @@ const badge = button.querySelector('.type');
 if (badge) {
 const childCount = Number(node.child_folder_count || 0);
 const mediaCount = Number(node.gallery_count || 0);
-badge.textContent = Number(node.depth || 0) === 1 ? 'Seção' : (childCount ? `${childCount} subpastas` : `${mediaCount} ${mediaCount === 1 ? 'mídia' : 'mídias'}`);
+if (Number(node.depth || 0) === 1) badge.remove();
+else badge.textContent = childCount ? `${childCount} subpastas` : `${mediaCount} ${mediaCount === 1 ? 'mídia' : 'mídias'}`;
 }
 const copy = button.querySelector('.copy p');
 if (copy && !node.description) copy.textContent = (node.path || []).join(' / ');
@@ -2283,6 +2285,7 @@ const HERO_LOCAL_CLIPS = Object.freeze({
 '1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej':'/assets/hero/dermacast-laila.mp4',
 '1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr':'/assets/hero/corte-03.mp4',
 });
+const HERO_LOCAL_AUDIO_CLIPS = new Set(['1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej','1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr']);
 function updateHeroSoundControl() {
 const button=$('#heroSoundToggle');if(!button)return;
 const activeAsset=heroProjects[heroIndex]?heroAssetForViewport(heroProjects[heroIndex]):null;
@@ -2295,13 +2298,14 @@ const label=button.querySelector('span');if(label)label.textContent=heroSoundEna
 requestAnimationFrame(positionHeroSoundControl);
 }
 async function setHeroSoundEnabled(next,{resumeAmbient=true}={}) {
-const slide=document.querySelector('.hero-slide.is-active'),video=slide?.querySelector('video');
+const slide=document.querySelector('.hero-slide.is-active');let video=slide?.querySelector('video');
 if(!slide||!video){heroSoundEnabled=false;updateHeroSoundControl();return false;}
 ensureVideoSource(video);
 if(!next){video.muted=true;video.defaultMuted=true;video.setAttribute('muted','');heroSoundEnabled=false;if(resumeAmbient)siteAudioHandleMediaStop(video);updateHeroSoundControl();return true;}
 if(SITE_AUDIO.playing){SITE_AUDIO.resumeAfterMedia=SITE_AUDIO.userWantsPlaying;SITE_AUDIO.policyPause=true;pauseAmbientAudio(false);}
+video=await promoteHeroVideoToAudioSource(slide,video);
 video.defaultMuted=false;video.removeAttribute('muted');video.muted=false;video.volume=1;
-try{await video.play();heroSoundEnabled=video.muted===false;if(heroSoundEnabled)siteAudioHandleMediaStart(video);}
+try{if(video.paused)await video.play();heroSoundEnabled=video.muted===false;if(heroSoundEnabled)siteAudioHandleMediaStart(video);}
 catch(_error){heroSoundEnabled=false;video.muted=true;video.defaultMuted=true;video.setAttribute('muted','');}
 updateHeroSoundControl();return heroSoundEnabled;
 }
@@ -2324,12 +2328,30 @@ if(!window.__studioframeHeroSoundLayoutBound){window.__studioframeHeroSoundLayou
 button.dataset.soundAllowed=heroConfig.sound_control_visible===false?'false':'true';
 updateHeroSoundControl();return button;
 }
-function heroAssetForViewport(project) {
+function heroFullAssetForViewport(project) {
 const asset = HERO_MOBILE_QUERY.matches && project?._hero_mobile_asset ? project._hero_mobile_asset : project?.hero_asset;
-const resolved=asset && asset.type ? { ...project, ...asset, title: project.title } : heroAsset(project);
+return asset && asset.type ? { ...project, ...asset, title: project.title } : heroAsset(project);
+}
+function heroAssetForViewport(project) {
+const resolved=heroFullAssetForViewport(project);
 const localClip=resolved?.type==='video'?HERO_LOCAL_CLIPS[String(resolved.id||'')]:'';
 if(!localClip)return resolved;
 return {...resolved,media_url:localClip,media_candidates:[localClip,...(resolved.media_candidates||[]).filter((url)=>url!==localClip)],preview_url:localClip,preview_candidates:[localClip,...(resolved.preview_candidates||[]).filter((url)=>url!==localClip)]};
+}
+async function promoteHeroVideoToAudioSource(slide,currentVideo) {
+const fullAsset=heroFullAssetForViewport(heroProjects[heroIndex]);
+const localClip=fullAsset?.type==='video'?HERO_LOCAL_CLIPS[String(fullAsset.id||'')]:'';
+const source=String(currentVideo?.currentSrc||currentVideo?.src||'');
+if(localClip&&HERO_LOCAL_AUDIO_CLIPS.has(String(fullAsset?.id||''))){slide.dataset.audioPromotion='local-audio-ready';return currentVideo;}
+if(!fullAsset||fullAsset.type!=='video'||!localClip||!source.endsWith(localClip)){slide.dataset.audioPromotion='not-required';return currentVideo;}
+slide.dataset.audioPromotion='loading-full-source';
+const playbackTime=Number(currentVideo.currentTime||0);let restored=false;
+const restore=()=>{if(restored)return;restored=true;slide.dataset.audioPromotion='full-source-failed';currentVideo.muted=true;currentVideo.defaultMuted=true;currentVideo.setAttribute('muted','');if(!currentVideo.isConnected)slide.replaceChildren(currentVideo);currentVideo.play().catch(()=>{});};
+const replacement=createResilientVideo(fullAsset,{autoplay:true,muted:false,loop:true,controls:false,preload:'auto',className:'hero-native-video',timeoutMs:45000,metadataReady:false,exhausted:restore});
+replacement.defaultMuted=false;replacement.muted=false;replacement.removeAttribute('muted');replacement.volume=1;replacement.setAttribute('aria-label',fullAsset.title?`Vídeo do banner: ${fullAsset.title}`:'Vídeo do banner');
+replacement.addEventListener('loadedmetadata',()=>{try{if(playbackTime>0&&Number.isFinite(replacement.duration))replacement.currentTime=Math.min(playbackTime,Math.max(0,replacement.duration-.2));}catch(_error){}},{once:true});
+currentVideo.pause();slide.replaceChildren(replacement);
+try{await replacement.play();slide.dataset.audioPromotion='full-source-playing';return replacement;}catch(_error){replacement.remove();restore();return currentVideo;}
 }
 function ensureHeroMedia(slide, project) {
 const variant = HERO_MOBILE_QUERY.matches && project?._hero_mobile_asset ? 'mobile' : 'web';
@@ -2747,7 +2769,10 @@ configured.forEach((block,index)=>{
 let id=String(block.id||'').trim() || `case-public-${index}`; if(seen.has(id)) id=`${id}-${index}`; seen.add(id); output.push({...block,id});
 });
 PUBLIC_CASE_CORE.forEach((block)=>{if(!output.some((item)=>item.id===block.id)) output.push({...block});});
-return output;
+const header=output.find((item)=>item.id==='case-core-header'||item.type==='case_header');
+const stream=output.find((item)=>item.id==='case-core-stream'||item.type==='media_stream');
+const rest=output.filter((item)=>item!==header&&item!==stream&&item.type!=='case_header'&&item.type!=='media_stream');
+return [{...(header||PUBLIC_CASE_CORE[0]),visible:true},{...(stream||PUBLIC_CASE_CORE[1]),visible:true},...rest];
 }
 function caseItemById(items, id, type='all') {
 const list=items||[];
@@ -2863,6 +2888,17 @@ const node=renderer?renderer(project,block,items):null;
 if(node){node.dataset.caseBlockId=block.id||'';root.append(node);}
 });
 }
+function mountProjectDetailPortal(detail) {
+if (!detail || detail.parentElement === document.body) return;
+projectDetailPortalAnchor = document.createComment('studioframe-project-detail-anchor');
+detail.parentNode.insertBefore(projectDetailPortalAnchor, detail);
+document.body.append(detail);
+}
+function restoreProjectDetailPortal(detail) {
+if (!detail || !projectDetailPortalAnchor?.parentNode) return;
+projectDetailPortalAnchor.parentNode.replaceChild(detail, projectDetailPortalAnchor);
+projectDetailPortalAnchor = null;
+}
 function openProjectDetail(project) {
 const gallery = galleryFor(project);
 const items = Array.isArray(gallery.items) && gallery.items.length ? gallery.items : [project];
@@ -2873,6 +2909,8 @@ const empty = $('#empty');
 const fullscreen = (visualLayout.project_viewer || 'fullscreen') === 'fullscreen';
 detail.dataset.projectId = String(project.project_id || project.id || project.gallery_id || '');
 projectScrollY = scrollY;
+if (fullscreen) mountProjectDetailPortal(detail);
+else restoreProjectDetailPortal(detail);
 detail.classList.toggle('is-fullscreen', fullscreen);
 document.body.classList.toggle('project-viewer-open', fullscreen);
 if (!fullscreen) { grid.hidden = true; empty.hidden = true; $('#sectionPage')?.toggleAttribute('hidden', true); }
@@ -2907,6 +2945,7 @@ const fullscreen = detail.classList.contains('is-fullscreen');
 detail.hidden = true;
 delete detail.dataset.projectId;
 detail.classList.remove('is-fullscreen');
+restoreProjectDetailPortal(detail);
 document.body.classList.remove('project-viewer-open');
 $('#projectMediaList')?.replaceChildren();
 if (active !== 'all' && sectionPageConfig(active)?.enabled !== false) { renderSectionPage(active); } else { grid.hidden = false; }
