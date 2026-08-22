@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f484672e305ab63cfbf3",
-    "saved_at": "2026-08-22T22:33:09.954228+00:00"
+    "revision": "57170665e52ebc151651",
+    "saved_at": "2026-08-22T22:33:19.082842+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -718,6 +718,9 @@
     "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5": {
       "order": 10
     },
+    "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED": {
+      "order": 1
+    },
     "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72": {
       "collection_id": "",
       "description": "",
@@ -818,6 +821,9 @@
     "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {
       "order": 2
     },
+    "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz": {
+      "order": 0
+    },
     "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V": {
       "order": 3
     },
@@ -852,6 +858,9 @@
       "hero": false,
       "title": "WORKSHOP  EVO",
       "visible": true
+    },
+    "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb": {
+      "order": 3
     },
     "1SNFdLJk9C8zPGkJCkZC8YpmVwKlDxZuG": {
       "collection_id": "",
@@ -997,6 +1006,7 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
+      "order": 4,
       "title": "MOTION FUNDO DE TELA",
       "title_size": 0,
       "visible": true
@@ -1096,6 +1106,12 @@
       "title_size": 0,
       "visible": true
     },
+    "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM": {
+      "order": 5
+    },
+    "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE": {
+      "order": 2
+    },
     "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34": {
       "order": 8
     },
@@ -1152,6 +1168,9 @@
       "title": "BANNER BACIO",
       "title_size": 0,
       "visible": true
+    },
+    "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg": {
+      "order": 6
     },
     "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb": {
       "order": 5
