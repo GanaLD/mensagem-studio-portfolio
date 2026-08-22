@@ -2825,6 +2825,19 @@ function renderLegacyMediaStream(project,items,captions=true,listNode=null){
 const list=listNode || $('#projectMediaList'); if(!list)return; list.replaceChildren();
 items.forEach((item,index)=>{const figure=caseMediaViewport(project,item,items,{caption:captions,className:'project-media-item reveal'});if(!figure)return;figure.style.setProperty('--reveal-delay',`${Math.min(index,5)*45}ms`);list.append(figure);});
 }
+function projectDetailDescription(project = {}, gallery = {}) {
+const explicit = [project.description, gallery.description, project.gallery_description, project.section_description]
+.map((value) => String(value || '').trim())
+.find(Boolean);
+if (explicit) return explicit;
+const collection = String(project.section_title || project.category || project.path?.[0] || gallery.section_title || '').trim();
+const title = String(gallery.title || project.gallery_title || project.title || '').trim();
+if (collection && title && collection.toLocaleLowerCase('pt-BR') !== title.toLocaleLowerCase('pt-BR')) {
+return `${title} integra a coleção ${collection}, com direção e apresentação da Mensagem Studio.`;
+}
+if (collection || title) return `Uma seleção de trabalhos de ${collection || title}, apresentada pela Mensagem Studio.`;
+return 'Projeto selecionado do portfólio da Mensagem Studio.';
+}
 function applyCaseHeaderPresentation(project, block = {}, headNode = null) {
 const head=headNode || $('#projectDetailHead');
 if(!head)return;
@@ -2834,11 +2847,11 @@ const description=$('#projectDetailDescription');
 const introMedia=$('#projectDetailIntroMedia');
 const fallbackEyebrow=project.section_title || project.category || 'Projeto';
 const fallbackTitle=project.gallery_title || project.title || 'Projeto';
-const fallbackDescription=project.description || '';
+const fallbackDescription=projectDetailDescription(project);
 if(eyebrow) eyebrow.textContent=Object.prototype.hasOwnProperty.call(block,'eyebrow') ? (block.eyebrow||'') : fallbackEyebrow;
 if(title) title.textContent=Object.prototype.hasOwnProperty.call(block,'title') ? (block.title||fallbackTitle) : fallbackTitle;
 if(description){
-const value=Object.prototype.hasOwnProperty.call(block,'body') ? (block.body||'') : fallbackDescription;
+const value=Object.prototype.hasOwnProperty.call(block,'body') ? (String(block.body||'').trim()||fallbackDescription) : fallbackDescription;
 description.textContent=value;
 description.hidden=!value;
 }
@@ -2917,8 +2930,9 @@ if (!fullscreen) { grid.hidden = true; empty.hidden = true; $('#sectionPage')?.t
 detail.hidden = false;
 $('#projectEyebrow').textContent = project.section_title || project.category || 'Projeto';
 $('#projectDetailTitle').textContent = gallery.title || project.title || 'Projeto';
-$('#projectDetailDescription').textContent = project.description || '';
-$('#projectDetailDescription').hidden = !project.description;
+const resolvedDescription = projectDetailDescription(project, gallery);
+$('#projectDetailDescription').textContent = resolvedDescription;
+$('#projectDetailDescription').hidden = false;
 $('#projectDetailCount').textContent = `${items.length} ${items.length === 1 ? 'mídia' : 'mídias'}`;
 const introMedia = $('#projectDetailIntroMedia');
 if (introMedia) {
