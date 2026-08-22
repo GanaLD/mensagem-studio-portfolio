@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "167d25c864ba3c2cc8e9",
-    "saved_at": "2026-08-22T22:21:56.213486+00:00"
+    "revision": "4e6b945cce42edda14d3",
+    "saved_at": "2026-08-22T22:22:20.890968+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -386,7 +386,7 @@
             "id": "linkedin",
             "label": "LinkedIn",
             "order": 30,
-            "url": "",
+            "url": "https://www.linkedin.com/in/gabriel-slompo-136531286/",
             "visible": false
           },
           {
