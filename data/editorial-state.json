@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "37119771a74fa4318822",
-    "saved_at": "2026-08-22T22:31:57.499727+00:00"
+    "revision": "69ef97fba138668ddcf2",
+    "saved_at": "2026-08-22T22:32:05.677042+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -170,7 +170,7 @@
       "order": 10
     },
     "1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0": {
-      "order": 10
+      "order": 11
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
       "order": 0
@@ -182,7 +182,7 @@
       "order": 14
     },
     "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN": {
-      "order": 8
+      "order": 9
     },
     "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l": {
       "case_builder": {
@@ -299,7 +299,7 @@
       "order": 12
     },
     "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5": {
-      "order": 9
+      "order": 10
     },
     "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {
       "order": 0
@@ -311,7 +311,7 @@
       "order": 3
     },
     "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4": {
-      "order": 5
+      "order": 6
     },
     "1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65": {
       "order": 1
@@ -323,16 +323,16 @@
       "order": 4
     },
     "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {
-      "order": 6
+      "order": 7
     },
     "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {
       "order": 6
     },
     "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy": {
-      "order": 12
+      "order": 13
     },
     "1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B": {
-      "order": 11
+      "order": 12
     },
     "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb": {
       "order": 14
@@ -407,7 +407,7 @@
       "order": 5
     },
     "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t": {
-      "order": 13
+      "order": 5
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
@@ -467,7 +467,7 @@
       "visible": true
     },
     "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34": {
-      "order": 7
+      "order": 8
     },
     "1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo": {
       "case_builder": {
