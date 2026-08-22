@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b55574b415568b6fc6b4",
-    "saved_at": "2026-08-22T17:06:55.636871+00:00"
+    "revision": "8abb83a088666f873f86",
+    "saved_at": "2026-08-22T18:23:31.765082+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18724,6 +18724,14 @@
           "tab": "diagnostics"
         },
         {
+          "id": "global-audio",
+          "kind": "component",
+          "label": "Áudio / Música ambiente",
+          "order": 30,
+          "parent_id": "global",
+          "tab": "audio"
+        },
+        {
           "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "kind": "category-page",
@@ -18806,7 +18814,7 @@
         }
       ],
       "root_id": "site",
-      "version": 5
+      "version": 6
     }
   },
   "workspace": {
