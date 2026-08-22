@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "c97d0ffd2e50adb7b20f",
-    "saved_at": "2026-08-22T22:32:45.588157+00:00"
+    "revision": "61170ead8f5eebe8d9b4",
+    "saved_at": "2026-08-22T22:32:53.557590+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -58,6 +58,51 @@
   },
   "project_sections": {
     "1-aM_k157VuMK3WvoKVfPlw3rAvA7rhgh": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "hero": false,
       "seo": {
         "canonical": "",
         "description": "",
@@ -68,9 +113,11 @@
         "title": ""
       },
       "title": "CORTES",
+      "title_size": 0,
       "visible": true
     },
     "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_": {
+      "order": 5,
       "seo": {
         "canonical": "",
         "description": "",
@@ -84,6 +131,35 @@
       "visible": true
     },
     "17ytoPQgi88br27-K9zt3tYzNd4FP945f": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "order": 0,
       "seo": {
         "canonical": "",
         "description": "",
@@ -97,6 +173,7 @@
       "visible": true
     },
     "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
+      "order": 1,
       "seo": {
         "canonical": "",
         "description": "",
@@ -110,6 +187,7 @@
       "visible": true
     },
     "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9": {
+      "order": 3,
       "seo": {
         "canonical": "",
         "description": "",
@@ -136,6 +214,7 @@
       "visible": true
     },
     "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8": {
+      "order": 2,
       "seo": {
         "canonical": "",
         "description": "",
@@ -194,6 +273,7 @@
       "description_size": 0,
       "featured": false,
       "hero": false,
+      "order": 4,
       "seo": {
         "canonical": "",
         "description": "",
@@ -274,6 +354,16 @@
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
       "order": 7
+    },
+    "152WtGgQyDan29DOanoj8oSvsGHpTHnb8": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CORTE DE PODCAST 1",
+      "visible": true
     },
     "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68": {
       "order": 14
@@ -489,6 +579,16 @@
     },
     "1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u": {
       "order": 4
+    },
+    "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CORTE DE PODCAST 2",
+      "visible": true
     },
     "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {
       "order": 7
@@ -729,6 +829,16 @@
     },
     "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O": {
       "order": 3
+    },
+    "1zr2sa8U0-02hWpaXwxpv-QACLmEXUWMZ": {
+      "collection_id": "",
+      "description": "",
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "title": "CORTE DE PODCAST 3",
+      "visible": true
     }
   },
   "publication": {
