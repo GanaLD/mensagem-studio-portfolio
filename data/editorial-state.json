@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "6a8923445ade71e599e4",
-    "saved_at": "2026-08-22T22:32:21.279685+00:00"
+    "revision": "956f2f8828e6dd26a89a",
+    "saved_at": "2026-08-22T22:32:29.536645+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -173,7 +173,58 @@
       "order": 11
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
-      "order": 0
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 0,
+      "title": "BANNER DA EVO",
+      "title_size": 0,
+      "visible": true
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
       "order": 7
@@ -271,7 +322,7 @@
       "commercial": {
         "cta_label": "Quero algo assim",
         "display_mode": "full",
-        "enabled": false,
+        "enabled": true,
         "intro": "",
         "position": "after_media",
         "related_service_ids": []
