@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "8abb83a088666f873f86",
-    "saved_at": "2026-08-22T18:59:28.296112+00:00"
+    "revision": "f6e1476c026db93b011e",
+    "saved_at": "2026-08-22T22:18:26.374823+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18462,6 +18462,31 @@
       "intro": "Design, audiovisual e direção criativa para marcas, produtos, campanhas e experiências digitais.",
       "layout_style": "editorial",
       "menu_label": "Serviços",
+      "offer_notification": {
+        "accent_color": "",
+        "background_color": "",
+        "cta_label": "Solicitar orçamento",
+        "cta_target": "quote",
+        "delay_seconds": 8,
+        "dismissible": true,
+        "enabled": false,
+        "frequency": "once_per_session",
+        "frequency_value": 24,
+        "message": "Podemos criar algo semelhante para sua marca.",
+        "pages": [
+          "home",
+          "project",
+          "services",
+          "service",
+          "category",
+          "custom"
+        ],
+        "position": "bottom_right",
+        "related_service_id": "",
+        "text_color": "",
+        "title": "Gostou deste projeto?",
+        "use_theme_colors": true
+      },
       "price_note": "Valores iniciais. O orçamento final considera escopo, prazo, volume e complexidade.",
       "process_body": "Escolha as soluções, descreva o projeto e receba uma proposta com escopo, prazo e investimento.",
       "process_steps": [
@@ -18750,11 +18775,20 @@
           "tab": "categorypages"
         },
         {
+          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "kind": "category-page",
+          "label": "Lateral Banners",
+          "order": 120,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
           "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "kind": "category-page",
           "label": "Campanha 007 Completa",
-          "order": 120,
+          "order": 130,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -18763,7 +18797,7 @@
           "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
           "kind": "category-page",
           "label": "Carrossel",
-          "order": 130,
+          "order": 140,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -18772,7 +18806,7 @@
           "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "kind": "category-page",
           "label": "DERMACAST",
-          "order": 140,
+          "order": 150,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -18781,15 +18815,6 @@
           "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "category-page",
           "label": "Edição de vídeos",
-          "order": 150,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
           "order": 160,
           "parent_id": "page-categories",
           "tab": "categorypages"
@@ -18814,7 +18839,7 @@
         }
       ],
       "root_id": "site",
-      "version": 6
+      "version": 5
     }
   },
   "workspace": {
