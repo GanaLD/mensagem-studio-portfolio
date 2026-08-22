@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "97cda47cdf2fc413be3e",
-    "saved_at": "2026-08-22T22:31:49.116664+00:00"
+    "revision": "37119771a74fa4318822",
+    "saved_at": "2026-08-22T22:31:57.499727+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -163,7 +163,13 @@
     }
   },
   "projects": {
+    "1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9": {
+      "order": 4
+    },
     "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM": {
+      "order": 10
+    },
+    "1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0": {
       "order": 10
     },
     "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {
@@ -171,6 +177,12 @@
     },
     "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {
       "order": 7
+    },
+    "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68": {
+      "order": 14
+    },
+    "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN": {
+      "order": 8
     },
     "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l": {
       "case_builder": {
@@ -226,14 +238,83 @@
       "title_size": 0,
       "visible": true
     },
+    "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi": {
+      "case_builder": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "case-core-header",
+            "label": "Apresentação do projeto",
+            "type": "case_header",
+            "visible": true
+          },
+          {
+            "captions": true,
+            "core": true,
+            "id": "case-core-stream",
+            "label": "Sequência de mídias",
+            "type": "media_stream",
+            "visible": true
+          },
+          {
+            "core": true,
+            "cta": "Próximo projeto",
+            "id": "case-core-next",
+            "label": "Próximo projeto",
+            "scope": "category",
+            "type": "next_project",
+            "visible": true
+          }
+        ]
+      },
+      "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
+      "cover_bg": "#111111",
+      "cover_fit": "cover",
+      "cover_position_x": 50,
+      "cover_position_y": 50,
+      "cover_ratio": "inherit",
+      "description": "",
+      "description_size": 0,
+      "featured": false,
+      "gallery_group": "",
+      "grid_visible": true,
+      "hero": false,
+      "order": 0,
+      "title": "BANNER DA CAMPANHA",
+      "title_size": 0,
+      "visible": true
+    },
     "1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71": {
       "order": 8
     },
     "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke": {
       "order": 12
     },
+    "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5": {
+      "order": 9
+    },
     "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {
-      "order": 4
+      "order": 0
+    },
+    "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {
+      "order": 2
+    },
+    "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V": {
+      "order": 3
+    },
+    "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4": {
+      "order": 5
+    },
+    "1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65": {
+      "order": 1
     },
     "1OUnEO8phxcBAXl2l7Th7Ls53pkO6_Bum": {
       "order": 7
@@ -241,8 +322,17 @@
     "1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u": {
       "order": 4
     },
+    "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {
+      "order": 6
+    },
     "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {
       "order": 6
+    },
+    "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy": {
+      "order": 12
+    },
+    "1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B": {
+      "order": 11
     },
     "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb": {
       "order": 14
@@ -311,10 +401,13 @@
       "order": 6
     },
     "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll": {
-      "order": 3
+      "order": 4
     },
     "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt": {
       "order": 5
+    },
+    "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t": {
+      "order": 13
     },
     "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {
       "order": 13
@@ -368,10 +461,13 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
-      "order": 1,
+      "order": 2,
       "title": "BANNER ALLERGAN",
       "title_size": 0,
       "visible": true
+    },
+    "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34": {
+      "order": 7
     },
     "1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo": {
       "case_builder": {
@@ -422,7 +518,7 @@
       "gallery_group": "",
       "grid_visible": true,
       "hero": false,
-      "order": 0,
+      "order": 1,
       "title": "BANNER BACIO",
       "title_size": 0,
       "visible": true
@@ -431,7 +527,7 @@
       "order": 5
     },
     "1w55qe59iktNa4i5WdoknGNuFdtumThpB": {
-      "order": 2
+      "order": 3
     },
     "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O": {
       "order": 3
