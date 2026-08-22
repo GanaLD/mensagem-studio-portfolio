@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f8ae998fec529df911d7",
-    "saved_at": "2026-08-22T16:57:58.959834+00:00"
+    "revision": "ad0ea888a3e6819b1a44",
+    "saved_at": "2026-08-22T16:58:07.330637+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -840,7 +840,7 @@
           "show_external_link": true,
           "text_align": "left",
           "text_transform": "none",
-          "title": "",
+          "title": "Processo C",
           "title_color": "text",
           "title_letter_spacing": "auto",
           "title_line_height": "",
