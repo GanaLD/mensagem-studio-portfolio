@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "84c1a3ce972e3eb15706",
-    "saved_at": "2026-08-23T19:38:57.087228+00:00"
+    "revision": "5cc7336012cc20a484ed",
+    "saved_at": "2026-08-23T19:39:04.965295+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -182,6 +182,20 @@
             "visible": true
           },
           {
+            "columns": "3",
+            "core": true,
+            "eyebrow": "CONTINUE EXPLORANDO",
+            "id": "case-core-related",
+            "items": [],
+            "label": "Projetos semelhantes",
+            "max_items": 3,
+            "mode": "auto_category",
+            "show_category": true,
+            "title": "Projetos semelhantes",
+            "type": "related_projects",
+            "visible": true
+          },
+          {
             "core": true,
             "cta": "Próximo projeto",
             "id": "case-core-next",
@@ -193,11 +207,20 @@
         ]
       },
       "collection_id": "",
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
       "cover_bg": "#111111",
       "cover_fit": "cover",
       "cover_position_x": 50,
       "cover_position_y": 50,
       "cover_ratio": "inherit",
+      "cover_zoom": 1,
       "description": "",
       "description_size": 0,
       "featured": false,
