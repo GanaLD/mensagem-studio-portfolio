@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "58e25986270ff97f619b",
-    "saved_at": "2026-08-23T22:22:03.022012+00:00"
+    "revision": "7ceeb9b4e0229d8409fe",
+    "saved_at": "2026-08-23T22:22:22.637524+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -19118,7 +19118,7 @@
     },
     "theme": {
       "custom_theme_metadata": {},
-      "theme_id": "oryzo-ai",
+      "theme_id": "black-maca",
       "theme_overrides": {},
       "theme_version": 1
     }
