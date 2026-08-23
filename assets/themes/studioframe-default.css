@@ -1,0 +1,12 @@
+/* V7.8.1 — StudioFrame Default theme scope. Semantic aliases only; no visual redesign. */
+[data-sf-theme="studioframe-default"]{
+  --sf-bg:var(--bg);
+  --sf-surface:var(--surface);
+  --sf-text:var(--text);
+  --sf-muted:var(--muted);
+  --sf-primary:var(--accent);
+  --sf-accent:var(--accent);
+  --sf-border:var(--line);
+  --sf-radius:var(--site-block-radius);
+  color-scheme:normal;
+}

@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "4c64146e6c513646c2b4",
-  "bundle_sha256": "4c64146e6c513646c2b4e53daec669c6c407e2ab62891d34db0bc42b9ec8badc",
-  "editorial_revision": "83da8ce6d38c666e3a61",
+  "build_revision": "6d6db866cc1614e3bb97",
+  "bundle_sha256": "6d6db866cc1614e3bb9704a9461371cfebc334350baf7f034a9aaea0a4bac060",
+  "editorial_revision": "2af8f0303952ba0a450d",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -14,8 +14,8 @@
       "sha256": "9ab46625b8336d11e384b7ec75e0539101ac8b3b270fb6ba6509f96ee2c7dd05"
     },
     "CNAME": {
-      "bytes": 20,
-      "sha256": "63ff43c76fa55c46c5756fc32b7d673164e5350e8375841f4168e42df552b4c4"
+      "bytes": 21,
+      "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
     "assets/hero/corte-03.mp4": {
       "bytes": 4251708,
@@ -26,24 +26,52 @@
       "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
     },
     "assets/hero/manifest.json": {
-      "bytes": 338,
-      "sha256": "b02c23b9f5edf0db4e55d498bef24841908d98a8a2585b70c72769e920079c7a"
+      "bytes": 352,
+      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
+    },
+    "assets/motion/adapters/css-native.js": {
+      "bytes": 2688,
+      "sha256": "b20cd97f5ad7ebad8fc6bf63ee4707a485d185d0063f50e163e128a32f10335c"
+    },
+    "assets/motion/adapters/gsap.js": {
+      "bytes": 3938,
+      "sha256": "dd9195463e2767eaa7c232ff53e314921d0520e0f6433c10ff7bc266e2321f66"
+    },
+    "assets/motion/adapters/motion.js": {
+      "bytes": 2455,
+      "sha256": "d9fbc35da038ec44ba7bdf656d854504fe0708b653466fd77a8689e4cd7f9d13"
+    },
+    "assets/motion/adapters/three.js": {
+      "bytes": 2319,
+      "sha256": "8b20adbf9e5b00b9323674bd2a70ffe4ffab6481b8a4066c3b6607124757a1ba"
+    },
+    "assets/motion/motion-runtime.js": {
+      "bytes": 5535,
+      "sha256": "9819230afff93328419b1608803a805b974000b9dbefadad9693c7d9f4fcfb41"
     },
     "assets/site.css": {
-      "bytes": 261813,
-      "sha256": "49c3e1cf566415135fc84959ad03cbeec014ffbaaeef18126060279e499a45ad"
+      "bytes": 267273,
+      "sha256": "f8a5b611a2e67d3b38df35c42da65571e120df35fd7430dbd5fed40c633ded1d"
     },
     "assets/site.js": {
-      "bytes": 343221,
-      "sha256": "833475eed9f807d3c8240ada5ff19b305d02f4d878a17b9824f95d49c7a72767"
+      "bytes": 346880,
+      "sha256": "9c0badd8c756572aa53aea099e1ef97f5cd44ae1bfc0cda7a0a9659117ac2f7b"
+    },
+    "assets/themes/studioframe-default.css": {
+      "bytes": 387,
+      "sha256": "3fc1817fa8bdb803073ea2485e0ff37b32b83a281e62caf6a602878580514b29"
+    },
+    "assets/themes/theme-runtime.js": {
+      "bytes": 1317,
+      "sha256": "2a00d2ac33f47b86d293c5b5ec57b92d4fa466ecf07ac39ccc3f874fc7727e23"
     },
     "data/portfolio.json": {
-      "bytes": 2088957,
-      "sha256": "b5852b6e50d358330fcafbd1e98a070c1d26d40a0914d9398f70d103ea492c52"
+      "bytes": 2141768,
+      "sha256": "72ead74fed4e699ae89aa9a6b881341a198a0319a7aed99048bd306a91fa6a1e"
     },
     "index.html": {
-      "bytes": 2096523,
-      "sha256": "e49fb0660930483f06aade50f6b08916feaabb674ffa8c70a3b510a5b0ac2d4e"
+      "bytes": 2111406,
+      "sha256": "bf449589d90bf78a8d82180a5b3fabff1f07f9abf1440352a455cf66ef6d45fd"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -330,8 +358,8 @@
       "sha256": "e51c779b8c9893791ad138ef4c9906d03aae4560e3b868a30d2afce534e1712e"
     },
     "robots.txt": {
-      "bytes": 72,
-      "sha256": "868105aa4dfa9d77a94ff7b35fab1a8a13dcb644b181551cd2999a12a429a3c2"
+      "bytes": 75,
+      "sha256": "bff445912f08f4f49395bf74bc43762253d148329c4d344e113115c8be6e422b"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 8773,
@@ -482,22 +510,147 @@
       "sha256": "34e2d01c8200b4fc49e8378f0e5f51b593fe5ba4c55721c27138d54e55e22e0b"
     },
     "sitemap.xml": {
-      "bytes": 9887,
-      "sha256": "12b3a022f3d153dddade0b6dd0cc4792765b54fb6b28ca6962c14032d337defb"
+      "bytes": 9999,
+      "sha256": "938cb28e3aa0f4eb8a86fbc262ab847fbdf7340185f219882ea6e9f3b7861e09"
     }
   },
   "format": "studioframe-public-build-v2",
+  "motion_runtime": {
+    "category_counts": {
+      "background": 8,
+      "button": 10,
+      "hero": 10,
+      "section": 10,
+      "text": 8
+    },
+    "contract_version": "7.7",
+    "enabled": false,
+    "engines": [],
+    "fallback_rule": "motion failure never gates content/navigation/player/save/build/publish",
+    "progressive_enhancement": true,
+    "registry": {
+      "presets": {}
+    },
+    "registry_size": 46,
+    "runtime_dependencies": [],
+    "state_authority": false,
+    "system": {
+      "contract_version": "7.7",
+      "enabled": false,
+      "engine_policy": "auto",
+      "intensity": "normal",
+      "personality": "premium",
+      "reduced_motion": "system",
+      "tokens": {
+        "ease": [
+          0.4,
+          0.0,
+          0.2,
+          1.0
+        ],
+        "quick": 0.18,
+        "slow": 0.6,
+        "stagger": 0.06,
+        "standard": 0.36
+      }
+    },
+    "used_presets": []
+  },
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
+  "runtime_dependencies": [],
   "stats": {
-    "bytes": 12394048,
-    "files": 120,
+    "bytes": 12489630,
+    "files": 127,
     "largest_file_bytes": 4251708,
     "route_shells": 108
+  },
+  "theme_runtime": {
+    "active_theme": {
+      "builtin": true,
+      "fallback": "studioframe-default",
+      "id": "studioframe-default",
+      "immutable_base": true,
+      "name": "StudioFrame Default",
+      "stylesheet": "assets/themes/studioframe-default.css",
+      "version": 1
+    },
+    "authoring_bridge": {
+      "controls_preserved": true,
+      "editable_in_v781": true,
+      "full_override_editor_stage": "v7.8.3",
+      "mode": "semantic-token-adapter",
+      "source": "site_builder.appearance",
+      "theme_browser_stage": "v7.8.2+"
+    },
+    "content_authority": false,
+    "custom_theme_metadata": {},
+    "editor_ui_isolated": true,
+    "project_overrides": {},
+    "registry_version": "7.8.1",
+    "runtime_version": "7.8.1",
+    "theme_count": 1,
+    "token_contract": {
+      "fallback_policy": "studioframe-default",
+      "schema": "theme-token-schema-v1",
+      "unknown_tokens_preserved": true
+    },
+    "tokens": {
+      "backgrounds": {
+        "style": "glow",
+        "texture": "grid"
+      },
+      "borders": {
+        "style": "hairline"
+      },
+      "buttons": {
+        "cta_style": "solid",
+        "style": "rounded"
+      },
+      "cards": {
+        "grid_language": "balanced"
+      },
+      "colors": {
+        "accent": "#006B5B",
+        "background": "#F3F6FA",
+        "border": "currentColor",
+        "foreground": "#172033",
+        "muted": "#58697D",
+        "primary": "#006B5B",
+        "secondary": "#58697D",
+        "surface": "#FFFFFF"
+      },
+      "components": {},
+      "motion": {
+        "parallax": "off",
+        "preset": "subtle",
+        "reveal": "fade"
+      },
+      "radius": {
+        "block": 20
+      },
+      "shadows": {
+        "style": "soft"
+      },
+      "spacing": {
+        "blocks": "airy",
+        "container": "wide",
+        "section": "generous"
+      },
+      "surfaces": {
+        "style": "glass"
+      },
+      "typography": {
+        "display": "display",
+        "preset": "humanist",
+        "tracking": 0.16,
+        "weight": "500"
+      }
+    }
   },
   "video_assets": {
     "bytes": 0,

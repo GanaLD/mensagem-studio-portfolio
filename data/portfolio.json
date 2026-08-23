@@ -1,8 +1,8 @@
 {
-  "schema_version": 16,
+  "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "83da8ce6d38c666e3a61",
+  "editorial_revision": "2af8f0303952ba0a450d",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -16,6 +16,12 @@
     "public_url": "https://mensagemstudio.shop/"
   },
   "site_builder": {
+    "theme": {
+      "theme_id": "studioframe-default",
+      "theme_version": 1,
+      "theme_overrides": {},
+      "custom_theme_metadata": {}
+    },
     "media_delivery": {
       "mode": "drive_public_bytes",
       "public_base_url": "",
@@ -17084,9 +17090,9 @@
         "label": "WhatsApp",
         "style": "theme",
         "shape": "circle",
-        "background_color": "#25d366",
-        "foreground_color": "#ffffff",
-        "border_color": "#25d366",
+        "background_color": "#25D366",
+        "foreground_color": "#FFFFFF",
+        "border_color": "#25D366",
         "display_mode": "icon",
         "number": "",
         "message": ""
@@ -17294,6 +17300,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17344,6 +17359,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17396,6 +17420,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17449,6 +17482,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17504,6 +17546,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17563,6 +17614,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "primary_cta_label": "Assistir",
           "ratio": "16:9",
           "section_background": "none",
@@ -17618,6 +17678,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17665,6 +17734,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17717,6 +17795,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17776,6 +17863,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "primary_cta_label": "Assistir",
           "ratio": "4:3",
           "section_background": "none",
@@ -17846,6 +17942,15 @@
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
+          "motion_delay": 0,
+          "motion_duration": 0.36,
+          "motion_ease": "premium",
+          "motion_enabled": false,
+          "motion_engine": "auto",
+          "motion_intensity": "normal",
+          "motion_preset": "inherit",
+          "motion_stagger": 0.06,
+          "motion_trigger": "viewport",
           "pause_on_hover": true,
           "ratio": "16x9",
           "section_background": "none",
@@ -17896,11 +18001,23 @@
         "blocks": [
           {
             "core": true,
+            "desktop_visible": true,
             "eyebrow_size": "",
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "motion_delay": 0,
+            "motion_duration": 0.36,
+            "motion_enabled": false,
+            "motion_engine": "auto",
+            "motion_intensity": "normal",
+            "motion_preset": "inherit",
+            "motion_stagger": 0.06,
+            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090D",
+            "section_background_color": "#07090d",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -17916,6 +18033,7 @@
             "section_padding_top": 0,
             "section_parallax": "off",
             "section_reveal": true,
+            "section_size": "normal",
             "section_sticky_behavior": "none",
             "section_texture_attachment": "scroll",
             "section_texture_blend_mode": "soft-light",
@@ -17942,8 +18060,16 @@
             "mobile_section_size": "inherit",
             "mobile_section_width": "auto",
             "mobile_visible": true,
+            "motion_delay": 0,
+            "motion_duration": 0.36,
+            "motion_enabled": false,
+            "motion_engine": "auto",
+            "motion_intensity": "normal",
+            "motion_preset": "inherit",
+            "motion_stagger": 0.06,
+            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090D",
+            "section_background_color": "#07090d",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18748,6 +18874,130 @@
           "kind": "route"
         }
       ]
+    }
+  },
+  "motion_runtime": {
+    "contract_version": "7.7",
+    "enabled": false,
+    "system": {
+      "enabled": false,
+      "personality": "premium",
+      "intensity": "normal",
+      "engine_policy": "auto",
+      "reduced_motion": "system",
+      "tokens": {
+        "quick": 0.18,
+        "standard": 0.36,
+        "slow": 0.6,
+        "ease": [
+          0.4,
+          0.0,
+          0.2,
+          1.0
+        ],
+        "stagger": 0.06
+      },
+      "contract_version": "7.7"
+    },
+    "used_presets": [],
+    "engines": [],
+    "runtime_dependencies": [],
+    "registry": {
+      "presets": {}
+    },
+    "registry_size": 46,
+    "category_counts": {
+      "hero": 10,
+      "button": 10,
+      "section": 10,
+      "text": 8,
+      "background": 8
+    },
+    "state_authority": false,
+    "progressive_enhancement": true,
+    "fallback_rule": "motion failure never gates content/navigation/player/save/build/publish"
+  },
+  "theme_runtime": {
+    "runtime_version": "7.8.1",
+    "registry_version": "7.8.1",
+    "active_theme": {
+      "id": "studioframe-default",
+      "name": "StudioFrame Default",
+      "version": 1,
+      "builtin": true,
+      "immutable_base": true,
+      "stylesheet": "assets/themes/studioframe-default.css",
+      "fallback": "studioframe-default"
+    },
+    "project_overrides": {},
+    "custom_theme_metadata": {},
+    "tokens": {
+      "colors": {
+        "primary": "#006B5B",
+        "secondary": "#58697D",
+        "accent": "#006B5B",
+        "background": "#F3F6FA",
+        "surface": "#FFFFFF",
+        "foreground": "#172033",
+        "muted": "#58697D",
+        "border": "currentColor"
+      },
+      "typography": {
+        "preset": "humanist",
+        "display": "display",
+        "weight": "500",
+        "tracking": 0.16
+      },
+      "spacing": {
+        "container": "wide",
+        "section": "generous",
+        "blocks": "airy"
+      },
+      "radius": {
+        "block": 20
+      },
+      "borders": {
+        "style": "hairline"
+      },
+      "shadows": {
+        "style": "soft"
+      },
+      "surfaces": {
+        "style": "glass"
+      },
+      "backgrounds": {
+        "style": "glow",
+        "texture": "grid"
+      },
+      "buttons": {
+        "style": "rounded",
+        "cta_style": "solid"
+      },
+      "cards": {
+        "grid_language": "balanced"
+      },
+      "motion": {
+        "preset": "subtle",
+        "reveal": "fade",
+        "parallax": "off"
+      },
+      "components": {}
+    },
+    "editor_ui_isolated": true,
+    "content_authority": false,
+    "theme_count": 1,
+    "authoring_bridge": {
+      "source": "site_builder.appearance",
+      "mode": "semantic-token-adapter",
+      "editable_in_v781": true,
+      "controls_preserved": true,
+      "theme_browser_stage": "v7.8.2+",
+      "full_override_editor_stage": "v7.8.3"
+    },
+    "token_contract": {
+      "schema": "theme-token-schema-v1",
+      "fallback_policy": "studioframe-default",
+      "unknown_tokens_preserved": true
     }
   },
   "hero_assets": {
@@ -26012,6 +26262,20 @@
             "visible": true
           },
           {
+            "columns": "3",
+            "core": true,
+            "eyebrow": "CONTINUE EXPLORANDO",
+            "id": "case-core-related",
+            "items": [],
+            "label": "Projetos semelhantes",
+            "max_items": 3,
+            "mode": "auto_category",
+            "show_category": true,
+            "title": "Projetos semelhantes",
+            "type": "related_projects",
+            "visible": true
+          },
+          {
             "core": true,
             "cta": "Próximo projeto",
             "id": "case-core-next",
@@ -26022,7 +26286,14 @@
           }
         ]
       },
-      "commercial": {},
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
       "path": [
         "Banner mobile"
       ],
@@ -37519,6 +37790,20 @@
             "visible": true
           },
           {
+            "columns": "3",
+            "core": true,
+            "eyebrow": "CONTINUE EXPLORANDO",
+            "id": "case-core-related",
+            "items": [],
+            "label": "Projetos semelhantes",
+            "max_items": 3,
+            "mode": "auto_category",
+            "show_category": true,
+            "title": "Projetos semelhantes",
+            "type": "related_projects",
+            "visible": true
+          },
+          {
             "core": true,
             "cta": "Próximo projeto",
             "id": "case-core-next",
@@ -37529,7 +37814,14 @@
           }
         ]
       },
-      "commercial": {},
+      "commercial": {
+        "cta_label": "Quero algo assim",
+        "display_mode": "full",
+        "enabled": false,
+        "intro": "",
+        "position": "after_media",
+        "related_service_ids": []
+      },
       "items": [
         {
           "id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
@@ -41913,7 +42205,7 @@
     "unsupported": 1,
     "ignored": 4,
     "api_calls": 25,
-    "duration_seconds": 11.115
+    "duration_seconds": 9.232
   },
   "publication_ready": true,
   "public_validation": {
