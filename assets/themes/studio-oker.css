@@ -1,0 +1,98 @@
+/* StudioFrame V7.8.2 — Studio Oker adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="studio-oker"] {
+  /* Colors */
+  --color-pure-black: #000000;
+  --color-soft-black: #101010;
+  --color-bone-white: #ffffff;
+  --color-fog-gray: #a0a0a0;
+  --color-graphite: #484848;
+  --color-scarlet-signal: #e4002b;
+  --color-rose-brand-spectrum: #e85a5a;
+  --gradient-rose-brand-spectrum: linear-gradient(90deg, #f5a5a5 0%, #e85a5a 25%, #d42020 50%, #7a0a0a 70%, #2a0606 85%, #000000 100%);
+
+  /* Typography — Font Families */
+  --font-nextbook: 'NextBook', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-circular-std: 'Circular Std', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-body-sm: 16px;
+  --leading-body-sm: 1.25;
+  --tracking-body-sm: -0.16px;
+  --text-subheading: 24px;
+  --leading-subheading: 1.13;
+  --tracking-subheading: -0.24px;
+  --text-heading-sm: 32px;
+  --leading-heading-sm: 1;
+  --tracking-heading-sm: -0.64px;
+  --text-display: 80px;
+  --leading-display: 1;
+  --tracking-display: -1.6px;
+
+  /* Typography — Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-48: 48px;
+  --spacing-120: 120px;
+  --spacing-240: 240px;
+
+  /* Layout */
+  --section-gap: 120px;
+  --card-padding: 16px;
+  --element-gap: 16px;
+
+  /* Named Radii */
+  --radius-tags: 0px;
+  --radius-cards: 0px;
+  --radius-images: 0px;
+  --radius-buttons: 0px;
+
+  /* Surfaces */
+  --surface-canvas-black: #000000;
+  --surface-soft-black: #101010;
+  --surface-graphite-line: #484848;
+}
+
+body[data-sf-theme="studio-oker"]{
+  --sf-bg:#000000;--sf-surface:#101010;--sf-text:#ffffff;--sf-muted:#a0a0a0;--sf-primary:#e4002b;--sf-accent:#e4002b;--sf-border:#484848;--sf-radius:2px;
+  --bg:#000000;--surface:#101010;--text:#ffffff;--muted:#a0a0a0;--accent:#e4002b;--line:color-mix(in srgb,#484848 68%,transparent);
+  --display:'NextBook',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'NextBook',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:2px;--accent-contrast:#ffffff;color-scheme:dark;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="studio-oker"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="studio-oker"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="studio-oker"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="studio-oker"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="studio-oker"] .media,body[data-sf-theme="studio-oker"] .project-media-viewport,body[data-sf-theme="studio-oker"] .project-video-wrap,body[data-sf-theme="studio-oker"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="studio-oker"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="studio-oker"] .contact-actions a,body[data-sf-theme="studio-oker"] .quote-dock,body[data-sf-theme="studio-oker"] .menu{border-color:var(--line)}
+body[data-sf-theme="studio-oker"] .content-section,body[data-sf-theme="studio-oker"] .portfolio-heading,body[data-sf-theme="studio-oker"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="studio-oker"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="studio-oker"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="studio-oker"] .copy p,body[data-sf-theme="studio-oker"] .project-detail-head p,body[data-sf-theme="studio-oker"] .project-back{color:var(--muted)}
+body[data-sf-theme="studio-oker"] .copy em,body[data-sf-theme="studio-oker"] .project-eyebrow,body[data-sf-theme="studio-oker"] .portfolio-heading small,body[data-sf-theme="studio-oker"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="studio-oker"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="studio-oker"]{
+  --theme-button-radius:var(--sf-radius);
+  --theme-card-bg:transparent;
+  --theme-card-border:transparent;
+  --theme-card-copy-pad:0;
+}
+body[data-sf-theme="studio-oker"] .logo,body[data-sf-theme="studio-oker"] .copy h3,body[data-sf-theme="studio-oker"] .portfolio-heading h2,body[data-sf-theme="studio-oker"] .project-detail-head h2,body[data-sf-theme="studio-oker"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="studio-oker"] .menu,body[data-sf-theme="studio-oker"] .filter,body[data-sf-theme="studio-oker"] .quote-dock,body[data-sf-theme="studio-oker"] .contact-actions a,body[data-sf-theme="studio-oker"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="studio-oker"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="studio-oker"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="studio-oker"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="studio-oker"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="studio-oker"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="studio-oker"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="studio-oker"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="studio-oker"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="studio-oker"] .type,body[data-sf-theme="studio-oker"] .filter,body[data-sf-theme="studio-oker"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="studio-oker"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}

@@ -1,0 +1,133 @@
+/* StudioFrame V7.8.2 — Branding adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="branding"] {
+  /* Colors */
+  --color-void-canvas: #080808;
+  --color-absolute-black: #000000;
+  --color-charcoal-plate: #171617;
+  --color-smoke-plate: #262525;
+  --color-graphite-lift: #393939;
+  --color-bone-white: #fcfcfc;
+  --color-linen: #f3efef;
+  --color-ash: #d4d2d2;
+  --color-pebble: #b5b2b2;
+  --color-iron: #525252;
+  --color-arterial-red: #fe1e34;
+  --color-crimson-pure: #ff0000;
+
+  /* Typography — Font Families */
+  --font-kmr-waldenburg: 'Kmr Waldenburg', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-editorialnew: 'Editorialnew', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-dirtyline-36-daysoftype-2022: 'Dirtyline 36 Daysoftype 2022', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-system-ui: 'system-ui', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 10px;
+  --leading-caption: 1.2;
+  --tracking-caption: 0.8px;
+  --text-body: 14px;
+  --leading-body: 1.5;
+  --tracking-body: -0.24px;
+  --text-subheading: 24px;
+  --leading-subheading: 1.1;
+  --tracking-subheading: -0.91px;
+  --text-heading-sm: 32px;
+  --leading-heading-sm: 1.05;
+  --tracking-heading-sm: -1.6px;
+  --text-heading: 42px;
+  --leading-heading: 1.05;
+  --tracking-heading: -2px;
+  --text-heading-lg: 64px;
+  --leading-heading-lg: 1;
+  --tracking-heading-lg: -4.8px;
+  --text-display: 80px;
+  --leading-display: 0.9;
+  --tracking-display: -6px;
+  --text-display-xl: 160px;
+  --leading-display-xl: 0.9;
+  --tracking-display-xl: -12.8px;
+
+  /* Typography — Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-80: 80px;
+  --spacing-112: 112px;
+  --spacing-128: 128px;
+  --spacing-184: 184px;
+
+  /* Layout */
+  --section-gap: 48-64px;
+  --card-padding: 12-24px;
+  --element-gap: 24px;
+
+  /* Border Radius */
+  --radius-sm: 3px;
+  --radius-lg: 8px;
+  --radius-xl: 14.4px;
+
+  /* Named Radii */
+  --radius-nav: 3px;
+  --radius-cards: 8px;
+  --radius-buttons: 8px;
+  --radius-largecards: 14.4px;
+
+  /* Shadows */
+  --shadow-sm: rgba(255, 255, 255, 0.2) 0px 2px 5px 0px inset;
+
+  /* Surfaces */
+  --surface-void: #080808;
+  --surface-absolute: #000000;
+  --surface-charcoal: #171617;
+  --surface-smoke: #262525;
+  --surface-graphite: #393939;
+  --surface-linen: #f3efef;
+}
+
+body[data-sf-theme="branding"]{
+  --sf-bg:#080808;--sf-surface:#171617;--sf-text:#fcfcfc;--sf-muted:#d4d2d2;--sf-primary:#fe1e34;--sf-accent:#fe1e34;--sf-border:#525252;--sf-radius:8px;
+  --bg:#080808;--surface:#171617;--text:#fcfcfc;--muted:#d4d2d2;--accent:#fe1e34;--line:color-mix(in srgb,#525252 68%,transparent);
+  --display:'Editorialnew',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'Kmr Waldenburg',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:8px;--accent-contrast:#ffffff;color-scheme:dark;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="branding"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="branding"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="branding"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="branding"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="branding"] .media,body[data-sf-theme="branding"] .project-media-viewport,body[data-sf-theme="branding"] .project-video-wrap,body[data-sf-theme="branding"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="branding"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="branding"] .contact-actions a,body[data-sf-theme="branding"] .quote-dock,body[data-sf-theme="branding"] .menu{border-color:var(--line)}
+body[data-sf-theme="branding"] .content-section,body[data-sf-theme="branding"] .portfolio-heading,body[data-sf-theme="branding"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="branding"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="branding"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="branding"] .copy p,body[data-sf-theme="branding"] .project-detail-head p,body[data-sf-theme="branding"] .project-back{color:var(--muted)}
+body[data-sf-theme="branding"] .copy em,body[data-sf-theme="branding"] .project-eyebrow,body[data-sf-theme="branding"] .portfolio-heading small,body[data-sf-theme="branding"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="branding"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="branding"]{
+  --theme-button-radius:var(--sf-radius);
+  --theme-card-bg:transparent;
+  --theme-card-border:transparent;
+  --theme-card-copy-pad:0;
+}
+body[data-sf-theme="branding"] .logo,body[data-sf-theme="branding"] .copy h3,body[data-sf-theme="branding"] .portfolio-heading h2,body[data-sf-theme="branding"] .project-detail-head h2,body[data-sf-theme="branding"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="branding"] .menu,body[data-sf-theme="branding"] .filter,body[data-sf-theme="branding"] .quote-dock,body[data-sf-theme="branding"] .contact-actions a,body[data-sf-theme="branding"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="branding"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="branding"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="branding"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="branding"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="branding"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="branding"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="branding"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="branding"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="branding"] .type,body[data-sf-theme="branding"] .filter,body[data-sf-theme="branding"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="branding"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}

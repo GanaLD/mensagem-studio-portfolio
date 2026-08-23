@@ -2,7 +2,7 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "2af8f0303952ba0a450d",
+  "editorial_revision": "58e25986270ff97f619b",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -17,7 +17,7 @@
   },
   "site_builder": {
     "theme": {
-      "theme_id": "studioframe-default",
+      "theme_id": "oryzo-ai",
       "theme_version": 1,
       "theme_overrides": {},
       "custom_theme_metadata": {}
@@ -18118,11 +18118,23 @@
         "blocks": [
           {
             "core": true,
+            "desktop_visible": true,
             "eyebrow_size": "",
             "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-header",
             "label": "Cabeçalho",
+            "mobile_section_size": "inherit",
+            "mobile_section_width": "auto",
+            "mobile_visible": true,
+            "motion_delay": 0,
+            "motion_duration": 0.36,
+            "motion_enabled": false,
+            "motion_engine": "auto",
+            "motion_intensity": "normal",
+            "motion_preset": "inherit",
+            "motion_stagger": 0.06,
+            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090D",
+            "section_background_color": "#07090d",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18138,6 +18150,7 @@
             "section_padding_top": 0,
             "section_parallax": "off",
             "section_reveal": true,
+            "section_size": "normal",
             "section_sticky_behavior": "none",
             "section_texture_attachment": "scroll",
             "section_texture_blend_mode": "soft-light",
@@ -18164,8 +18177,16 @@
             "mobile_section_size": "inherit",
             "mobile_section_width": "auto",
             "mobile_visible": true,
+            "motion_delay": 0,
+            "motion_duration": 0.36,
+            "motion_enabled": false,
+            "motion_engine": "auto",
+            "motion_intensity": "normal",
+            "motion_preset": "inherit",
+            "motion_stagger": 0.06,
+            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090D",
+            "section_background_color": "#07090d",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18918,82 +18939,308 @@
     "fallback_rule": "motion failure never gates content/navigation/player/save/build/publish"
   },
   "theme_runtime": {
-    "runtime_version": "7.8.1",
-    "registry_version": "7.8.1",
+    "runtime_version": "7.8.2",
+    "registry_version": "7.8.2",
     "active_theme": {
-      "id": "studioframe-default",
-      "name": "StudioFrame Default",
+      "id": "oryzo-ai",
+      "name": "Oryzo AI",
       "version": 1,
-      "builtin": true,
+      "builtin": false,
       "immutable_base": true,
-      "stylesheet": "assets/themes/studioframe-default.css",
-      "fallback": "studioframe-default"
+      "stylesheet": "assets/themes/oryzo-ai.css",
+      "fallback": "studioframe-default",
+      "preview": {
+        "colors": {
+          "background": "#100904",
+          "surface": "#382416",
+          "text": "#ffedd7",
+          "muted": "#6c5f51",
+          "accent": "#dc5000"
+        },
+        "mode": "dark",
+        "display_font": "halyard-display-variable",
+        "body_font": "Arial"
+      }
     },
     "project_overrides": {},
     "custom_theme_metadata": {},
     "tokens": {
       "colors": {
-        "primary": "#006B5B",
-        "secondary": "#58697D",
-        "accent": "#006B5B",
-        "background": "#F3F6FA",
-        "surface": "#FFFFFF",
-        "foreground": "#172033",
-        "muted": "#58697D",
-        "border": "currentColor"
+        "primary": "#dc5000",
+        "secondary": "#6c5f51",
+        "accent": "#dc5000",
+        "background": "#100904",
+        "surface": "#382416",
+        "foreground": "#ffedd7",
+        "muted": "#6c5f51",
+        "border": "#40372e"
       },
       "typography": {
-        "preset": "humanist",
-        "display": "display",
-        "weight": "500",
-        "tracking": 0.16
-      },
-      "spacing": {
-        "container": "wide",
-        "section": "generous",
-        "blocks": "airy"
+        "display": "halyard-display-variable",
+        "body": "Arial",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       },
       "radius": {
-        "block": 20
-      },
-      "borders": {
-        "style": "hairline"
-      },
-      "shadows": {
-        "style": "soft"
+        "block": 12
       },
       "surfaces": {
-        "style": "glass"
+        "style": "solid"
       },
       "backgrounds": {
-        "style": "glow",
-        "texture": "grid"
+        "style": "solid"
       },
       "buttons": {
-        "style": "rounded",
-        "cta_style": "solid"
+        "style": "pill"
       },
       "cards": {
-        "grid_language": "balanced"
+        "style": "themed"
       },
       "motion": {
-        "preset": "subtle",
-        "reveal": "fade",
-        "parallax": "off"
+        "preset": "balanced"
       },
       "components": {}
     },
     "editor_ui_isolated": true,
     "content_authority": false,
-    "theme_count": 1,
-    "authoring_bridge": {
-      "source": "site_builder.appearance",
-      "mode": "semantic-token-adapter",
-      "editable_in_v781": true,
-      "controls_preserved": true,
-      "theme_browser_stage": "v7.8.2+",
-      "full_override_editor_stage": "v7.8.3"
-    },
+    "theme_count": 13,
+    "available_themes": [
+      {
+        "id": "studioframe-default",
+        "name": "StudioFrame Default",
+        "version": 1,
+        "preview": {
+          "background": "appearance.background_color",
+          "surface": "appearance.surface_color",
+          "text": "appearance.text_color",
+          "accent": "appearance.accent_color",
+          "colors": {
+            "background": "#07090D",
+            "surface": "#111722",
+            "text": "#F4F7FB",
+            "muted": "#AAB5C4",
+            "accent": "#2FD59A"
+          }
+        },
+        "description": "Visual autoritativo herdado da V7.7, agora formalizado como tema base com tokens semânticos, preview e authoring bridge para os controles de aparência existentes."
+      },
+      {
+        "id": "discord",
+        "name": "Discord",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#0e0f2d",
+            "surface": "#23272a",
+            "text": "#ffffff",
+            "muted": "#babcd9",
+            "accent": "#5865f2"
+          },
+          "mode": "dark",
+          "display_font": "ABC Ginto Nord Discord",
+          "body_font": "GG Sans"
+        },
+        "description": "Game world behind a chat bubble — cosmic blue, Blurple actions and immersive dark stages."
+      },
+      {
+        "id": "structured",
+        "name": "Structured",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#c4c3b6",
+            "surface": "#e7e5e4",
+            "text": "#000000",
+            "muted": "#595855",
+            "accent": "#000000"
+          },
+          "mode": "light",
+          "display_font": "Davinci",
+          "body_font": "Helvetica Now"
+        },
+        "description": "Renaissance gallery on putty paper — editorial serif scale, warm neutrals and hairline structure."
+      },
+      {
+        "id": "oryzo-ai",
+        "name": "Oryzo AI",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#100904",
+            "surface": "#382416",
+            "text": "#ffedd7",
+            "muted": "#6c5f51",
+            "accent": "#dc5000"
+          },
+          "mode": "dark",
+          "display_font": "halyard-display-variable",
+          "body_font": "Arial"
+        },
+        "description": "Darkroom product editorial — warm walnut canvas, cream type and rationed ember accents."
+      },
+      {
+        "id": "mercury",
+        "name": "Mercury",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#171721",
+            "surface": "#1e1e2a",
+            "text": "#ededf3",
+            "muted": "#c3c3cc",
+            "accent": "#5266eb"
+          },
+          "mode": "dark",
+          "display_font": "arcadiaDisplay",
+          "body_font": "arcadia"
+        },
+        "description": "Premium financial dark interface — onyx canvas, graphite cards and precise cobalt actions."
+      },
+      {
+        "id": "mekaverse",
+        "name": "Mekaverse",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#000000",
+            "surface": "#444345",
+            "text": "#ffffff",
+            "muted": "#b8bab9",
+            "accent": "#ffffff"
+          },
+          "mode": "dark",
+          "display_font": "Roobert",
+          "body_font": "GT America Mono Regular"
+        },
+        "description": "Monochrome digital collectible gallery — black void, stark white type and technical mono details."
+      },
+      {
+        "id": "maca",
+        "name": "Maça",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#f5f5f7",
+            "surface": "#ffffff",
+            "text": "#1d1d1f",
+            "muted": "#707070",
+            "accent": "#0071e3"
+          },
+          "mode": "light",
+          "display_font": "SF Pro Display",
+          "body_font": "SF Pro Text"
+        },
+        "description": "White room with a single blue switch — restrained product-first light design and generous spacing."
+      },
+      {
+        "id": "black-maca",
+        "name": "Black Maça",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#000000",
+            "surface": "#1d1d1f",
+            "text": "#f5f5f7",
+            "muted": "#86868b",
+            "accent": "#0071e3"
+          },
+          "mode": "dark",
+          "display_font": "SF Pro Display",
+          "body_font": "SF Pro Text"
+        },
+        "description": "Black theater with luminous hardware — cinematic scale, monochrome surfaces and precise blue actions."
+      },
+      {
+        "id": "dope-segurity",
+        "name": "Dope Segurity",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#090909",
+            "surface": "#423738",
+            "text": "#f7f9fa",
+            "muted": "#828384",
+            "accent": "#af50ff"
+          },
+          "mode": "dark",
+          "display_font": "GrandSlang",
+          "body_font": "Whyte Inktrap"
+        },
+        "description": "Midnight terminal with violet beacons — near-black luxury, inktrap utility and signal-violet emphasis."
+      },
+      {
+        "id": "workplace-neura",
+        "name": "Workplace Neura",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#000000",
+            "surface": "#000000",
+            "text": "#ffffff",
+            "muted": "#9a9a9a",
+            "accent": "#8052ff"
+          },
+          "mode": "dark",
+          "display_font": "PPNeueMontreal",
+          "body_font": "PPNeueMontreal"
+        },
+        "description": "Constellation on black velvet — weightless oversized type, electric iris actions and sparse surfaces."
+      },
+      {
+        "id": "neuralink",
+        "name": "Neuralink",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#000000",
+            "surface": "#000000",
+            "text": "#ffffff",
+            "muted": "#bababa",
+            "accent": "#6452d8"
+          },
+          "mode": "dark",
+          "display_font": "UntitledSans",
+          "body_font": "UntitledSans"
+        },
+        "description": "Engineered monochrome restraint — black and paper geometry with a neurological violet spectrum accent."
+      },
+      {
+        "id": "studio-oker",
+        "name": "Studio Oker",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#000000",
+            "surface": "#101010",
+            "text": "#ffffff",
+            "muted": "#a0a0a0",
+            "accent": "#e4002b"
+          },
+          "mode": "dark",
+          "display_font": "NextBook",
+          "body_font": "NextBook"
+        },
+        "description": "Darkened gallery with scarlet punctuation — portfolio silence, white type and one red signal."
+      },
+      {
+        "id": "branding",
+        "name": "Branding",
+        "version": 1,
+        "preview": {
+          "colors": {
+            "background": "#080808",
+            "surface": "#171617",
+            "text": "#fcfcfc",
+            "muted": "#d4d2d2",
+            "accent": "#fe1e34"
+          },
+          "mode": "dark",
+          "display_font": "Editorialnew",
+          "body_font": "Kmr Waldenburg"
+        },
+        "description": "Black gallery wall with blood-red punctuation — oversized editorial type and sparse chrome."
+      }
+    ],
+    "font_policy": "theme font names are advisory; system fallback is mandatory unless licensed font assets are supplied",
     "token_contract": {
       "schema": "theme-token-schema-v1",
       "fallback_policy": "studioframe-default",
@@ -42205,7 +42452,7 @@
     "unsupported": 1,
     "ignored": 4,
     "api_calls": 25,
-    "duration_seconds": 9.232
+    "duration_seconds": 9.469
   },
   "publication_ready": true,
   "public_validation": {

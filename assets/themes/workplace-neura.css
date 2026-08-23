@@ -1,0 +1,121 @@
+/* StudioFrame V7.8.2 — Workplace Neura adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="workplace-neura"] {
+  /* Colors */
+  --color-void: #000000;
+  --color-bone-white: #ffffff;
+  --color-ash-gray: #9a9a9a;
+  --color-silver-mist: #bdbdbd;
+  --color-electric-iris: #8052ff;
+  --color-saffron-spark: #ffb829;
+  --color-deep-verdant: #15846e;
+
+  /* Typography — Font Families */
+  --font-ppneuemontreal: 'PPNeueMontreal', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.5;
+  --text-nav-label: 14px;
+  --leading-nav-label: 1.2;
+  --tracking-nav-label: 0.35px;
+  --text-body: 18px;
+  --leading-body: 1.5;
+  --text-heading-2xs: 24px;
+  --leading-heading-2xs: 1.25;
+  --tracking-heading-2xs: -0.48px;
+  --text-heading-xs: 27px;
+  --leading-heading-xs: 1;
+  --text-subheading: 36px;
+  --leading-subheading: 1.2;
+  --text-heading-sm: 42px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -1.68px;
+  --text-heading: 48px;
+  --leading-heading: 1.1;
+  --tracking-heading: -1.68px;
+  --text-heading-lg: 78px;
+  --leading-heading-lg: 1.1;
+  --tracking-heading-lg: -3.12px;
+  --text-display: 113px;
+  --leading-display: 1.1;
+  --tracking-display: -4.52px;
+
+  /* Typography — Weights */
+  --font-weight-extralight: 200;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-unit: 6px;
+  --spacing-6: 6px;
+  --spacing-12: 12px;
+  --spacing-18: 18px;
+  --spacing-24: 24px;
+  --spacing-30: 30px;
+  --spacing-36: 36px;
+  --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-120: 120px;
+
+  /* Layout */
+  --page-max-width: 1280px;
+  --section-gap: 60-120px;
+  --card-padding: 24-38px;
+  --element-gap: 6-18px;
+
+  /* Border Radius */
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Named Radii */
+  --radius-nav: 24px;
+  --radius-tags: 9999px;
+  --radius-cards: 24px;
+  --radius-buttons: 24px;
+
+  /* Surfaces */
+  --surface-void-canvas: #000000;
+  --surface-deep-verdant-tint: #15846;
+  --surface-electric-iris: #8052ff;
+}
+
+body[data-sf-theme="workplace-neura"]{
+  --sf-bg:#000000;--sf-surface:#000000;--sf-text:#ffffff;--sf-muted:#9a9a9a;--sf-primary:#8052ff;--sf-accent:#8052ff;--sf-border:#9a9a9a;--sf-radius:24px;
+  --bg:#000000;--surface:#000000;--text:#ffffff;--muted:#9a9a9a;--accent:#8052ff;--line:color-mix(in srgb,#9a9a9a 68%,transparent);
+  --display:'PPNeueMontreal',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'PPNeueMontreal',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:24px;--accent-contrast:#ffffff;color-scheme:dark;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="workplace-neura"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="workplace-neura"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="workplace-neura"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="workplace-neura"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="workplace-neura"] .media,body[data-sf-theme="workplace-neura"] .project-media-viewport,body[data-sf-theme="workplace-neura"] .project-video-wrap,body[data-sf-theme="workplace-neura"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="workplace-neura"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="workplace-neura"] .contact-actions a,body[data-sf-theme="workplace-neura"] .quote-dock,body[data-sf-theme="workplace-neura"] .menu{border-color:var(--line)}
+body[data-sf-theme="workplace-neura"] .content-section,body[data-sf-theme="workplace-neura"] .portfolio-heading,body[data-sf-theme="workplace-neura"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="workplace-neura"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="workplace-neura"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="workplace-neura"] .copy p,body[data-sf-theme="workplace-neura"] .project-detail-head p,body[data-sf-theme="workplace-neura"] .project-back{color:var(--muted)}
+body[data-sf-theme="workplace-neura"] .copy em,body[data-sf-theme="workplace-neura"] .project-eyebrow,body[data-sf-theme="workplace-neura"] .portfolio-heading small,body[data-sf-theme="workplace-neura"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="workplace-neura"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="workplace-neura"]{
+  --theme-button-radius:999px;
+  --theme-card-bg:transparent;
+  --theme-card-border:transparent;
+  --theme-card-copy-pad:0;
+}
+body[data-sf-theme="workplace-neura"] .logo,body[data-sf-theme="workplace-neura"] .copy h3,body[data-sf-theme="workplace-neura"] .portfolio-heading h2,body[data-sf-theme="workplace-neura"] .project-detail-head h2,body[data-sf-theme="workplace-neura"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="workplace-neura"] .menu,body[data-sf-theme="workplace-neura"] .filter,body[data-sf-theme="workplace-neura"] .quote-dock,body[data-sf-theme="workplace-neura"] .contact-actions a,body[data-sf-theme="workplace-neura"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="workplace-neura"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="workplace-neura"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="workplace-neura"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="workplace-neura"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="workplace-neura"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="workplace-neura"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="workplace-neura"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="workplace-neura"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="workplace-neura"] .type,body[data-sf-theme="workplace-neura"] .filter,body[data-sf-theme="workplace-neura"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="workplace-neura"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}

@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "6d6db866cc1614e3bb97",
-  "bundle_sha256": "6d6db866cc1614e3bb9704a9461371cfebc334350baf7f034a9aaea0a4bac060",
-  "editorial_revision": "2af8f0303952ba0a450d",
+  "build_revision": "869eb8b513a2010037df",
+  "bundle_sha256": "869eb8b513a2010037df83ffd5f36480a234791d76e42b6bf9e7b212e5445680",
+  "editorial_revision": "58e25986270ff97f619b",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -54,24 +54,72 @@
       "sha256": "f8a5b611a2e67d3b38df35c42da65571e120df35fd7430dbd5fed40c633ded1d"
     },
     "assets/site.js": {
-      "bytes": 346880,
-      "sha256": "9c0badd8c756572aa53aea099e1ef97f5cd44ae1bfc0cda7a0a9659117ac2f7b"
+      "bytes": 347680,
+      "sha256": "bab6fac1bf906bb4f6e2d7fe29c7561f42a0adc99d8471c6742e91a1a33cfabb"
+    },
+    "assets/themes/black-maca.css": {
+      "bytes": 7718,
+      "sha256": "56e5007f56768c249b52fac44bf0111632860d423732299b57e2c55e903a555c"
+    },
+    "assets/themes/branding.css": {
+      "bytes": 7573,
+      "sha256": "d353bd7091cf6ae1c164ba777393712a76aaecb2c27d06f5c52ab2c053f11fe0"
+    },
+    "assets/themes/discord.css": {
+      "bytes": 7581,
+      "sha256": "1bd6ad21a0276001555828846a7ee982f356f0aee1f4b08cc596ccb705471b7d"
+    },
+    "assets/themes/dope-segurity.css": {
+      "bytes": 8087,
+      "sha256": "205a83ee9efcde5235934dd494b142005963849c53e4f89ea4ddd287d5ebd19f"
+    },
+    "assets/themes/maca.css": {
+      "bytes": 7028,
+      "sha256": "5b0d9ad6b4eb8e531e92f3c21d19209f8bc4e163c15bb37824e6a09f9d400ef1"
+    },
+    "assets/themes/mekaverse.css": {
+      "bytes": 6262,
+      "sha256": "f5f687d69bf6020ead637f0da8b72e9205aeca7e1e702843e193a82ce3d25eb7"
+    },
+    "assets/themes/mercury.css": {
+      "bytes": 7140,
+      "sha256": "fbda3f43cc152f64551da6a0f744954d7478c2d90aeefaf74ede4c01fd7d2c56"
+    },
+    "assets/themes/neuralink.css": {
+      "bytes": 7104,
+      "sha256": "2787c4978fe6b465be87f026b29ea1b8471b4f7b1ff998f9c14c45e661e9248a"
+    },
+    "assets/themes/oryzo-ai.css": {
+      "bytes": 6669,
+      "sha256": "5cd9df7fba90daa012c776fdc2d815308729bb620e8754aabfacf7de09819eb9"
+    },
+    "assets/themes/structured.css": {
+      "bytes": 6870,
+      "sha256": "7ecf903aa6e152df9f87863d0d6396a2be780cbda81f3d1e017ba997eb702b37"
+    },
+    "assets/themes/studio-oker.css": {
+      "bytes": 6694,
+      "sha256": "aaf60fe4809f102d3d0f6c3b871a568b0d6a27e834f8026f64e8820ccf5e7d8d"
     },
     "assets/themes/studioframe-default.css": {
       "bytes": 387,
       "sha256": "3fc1817fa8bdb803073ea2485e0ff37b32b83a281e62caf6a602878580514b29"
     },
     "assets/themes/theme-runtime.js": {
-      "bytes": 1317,
-      "sha256": "2a00d2ac33f47b86d293c5b5ec57b92d4fa466ecf07ac39ccc3f874fc7727e23"
+      "bytes": 2412,
+      "sha256": "85c619c20de4bd1274461b6f095c31a10b70e4bca8fada927d1ebb5c69941a59"
+    },
+    "assets/themes/workplace-neura.css": {
+      "bytes": 7288,
+      "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2141768,
-      "sha256": "72ead74fed4e699ae89aa9a6b881341a198a0319a7aed99048bd306a91fa6a1e"
+      "bytes": 2150166,
+      "sha256": "7566d82e14c2a2ac9c87696ff39d68f9f30a2878ab48654f6111b1dddcb8ffb9"
     },
     "index.html": {
-      "bytes": 2111406,
-      "sha256": "bf449589d90bf78a8d82180a5b3fabff1f07f9abf1440352a455cf66ef6d45fd"
+      "bytes": 2117488,
+      "sha256": "c696fd88ba0f4051c0e34a0738a7e1a87bd8ac9e29c676ca4dc333b986b15587"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -564,36 +612,278 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 12489630,
-    "files": 127,
+    "bytes": 12592019,
+    "files": 139,
     "largest_file_bytes": 4251708,
     "route_shells": 108
   },
   "theme_runtime": {
     "active_theme": {
-      "builtin": true,
+      "builtin": false,
       "fallback": "studioframe-default",
-      "id": "studioframe-default",
+      "id": "oryzo-ai",
       "immutable_base": true,
-      "name": "StudioFrame Default",
-      "stylesheet": "assets/themes/studioframe-default.css",
+      "name": "Oryzo AI",
+      "preview": {
+        "body_font": "Arial",
+        "colors": {
+          "accent": "#dc5000",
+          "background": "#100904",
+          "muted": "#6c5f51",
+          "surface": "#382416",
+          "text": "#ffedd7"
+        },
+        "display_font": "halyard-display-variable",
+        "mode": "dark"
+      },
+      "stylesheet": "assets/themes/oryzo-ai.css",
       "version": 1
     },
-    "authoring_bridge": {
-      "controls_preserved": true,
-      "editable_in_v781": true,
-      "full_override_editor_stage": "v7.8.3",
-      "mode": "semantic-token-adapter",
-      "source": "site_builder.appearance",
-      "theme_browser_stage": "v7.8.2+"
-    },
+    "available_themes": [
+      {
+        "description": "Visual autoritativo herdado da V7.7, agora formalizado como tema base com tokens semânticos, preview e authoring bridge para os controles de aparência existentes.",
+        "id": "studioframe-default",
+        "name": "StudioFrame Default",
+        "preview": {
+          "accent": "appearance.accent_color",
+          "background": "appearance.background_color",
+          "colors": {
+            "accent": "#2FD59A",
+            "background": "#07090D",
+            "muted": "#AAB5C4",
+            "surface": "#111722",
+            "text": "#F4F7FB"
+          },
+          "surface": "appearance.surface_color",
+          "text": "appearance.text_color"
+        },
+        "version": 1
+      },
+      {
+        "description": "Game world behind a chat bubble — cosmic blue, Blurple actions and immersive dark stages.",
+        "id": "discord",
+        "name": "Discord",
+        "preview": {
+          "body_font": "GG Sans",
+          "colors": {
+            "accent": "#5865f2",
+            "background": "#0e0f2d",
+            "muted": "#babcd9",
+            "surface": "#23272a",
+            "text": "#ffffff"
+          },
+          "display_font": "ABC Ginto Nord Discord",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Renaissance gallery on putty paper — editorial serif scale, warm neutrals and hairline structure.",
+        "id": "structured",
+        "name": "Structured",
+        "preview": {
+          "body_font": "Helvetica Now",
+          "colors": {
+            "accent": "#000000",
+            "background": "#c4c3b6",
+            "muted": "#595855",
+            "surface": "#e7e5e4",
+            "text": "#000000"
+          },
+          "display_font": "Davinci",
+          "mode": "light"
+        },
+        "version": 1
+      },
+      {
+        "description": "Darkroom product editorial — warm walnut canvas, cream type and rationed ember accents.",
+        "id": "oryzo-ai",
+        "name": "Oryzo AI",
+        "preview": {
+          "body_font": "Arial",
+          "colors": {
+            "accent": "#dc5000",
+            "background": "#100904",
+            "muted": "#6c5f51",
+            "surface": "#382416",
+            "text": "#ffedd7"
+          },
+          "display_font": "halyard-display-variable",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Premium financial dark interface — onyx canvas, graphite cards and precise cobalt actions.",
+        "id": "mercury",
+        "name": "Mercury",
+        "preview": {
+          "body_font": "arcadia",
+          "colors": {
+            "accent": "#5266eb",
+            "background": "#171721",
+            "muted": "#c3c3cc",
+            "surface": "#1e1e2a",
+            "text": "#ededf3"
+          },
+          "display_font": "arcadiaDisplay",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Monochrome digital collectible gallery — black void, stark white type and technical mono details.",
+        "id": "mekaverse",
+        "name": "Mekaverse",
+        "preview": {
+          "body_font": "GT America Mono Regular",
+          "colors": {
+            "accent": "#ffffff",
+            "background": "#000000",
+            "muted": "#b8bab9",
+            "surface": "#444345",
+            "text": "#ffffff"
+          },
+          "display_font": "Roobert",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "White room with a single blue switch — restrained product-first light design and generous spacing.",
+        "id": "maca",
+        "name": "Maça",
+        "preview": {
+          "body_font": "SF Pro Text",
+          "colors": {
+            "accent": "#0071e3",
+            "background": "#f5f5f7",
+            "muted": "#707070",
+            "surface": "#ffffff",
+            "text": "#1d1d1f"
+          },
+          "display_font": "SF Pro Display",
+          "mode": "light"
+        },
+        "version": 1
+      },
+      {
+        "description": "Black theater with luminous hardware — cinematic scale, monochrome surfaces and precise blue actions.",
+        "id": "black-maca",
+        "name": "Black Maça",
+        "preview": {
+          "body_font": "SF Pro Text",
+          "colors": {
+            "accent": "#0071e3",
+            "background": "#000000",
+            "muted": "#86868b",
+            "surface": "#1d1d1f",
+            "text": "#f5f5f7"
+          },
+          "display_font": "SF Pro Display",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Midnight terminal with violet beacons — near-black luxury, inktrap utility and signal-violet emphasis.",
+        "id": "dope-segurity",
+        "name": "Dope Segurity",
+        "preview": {
+          "body_font": "Whyte Inktrap",
+          "colors": {
+            "accent": "#af50ff",
+            "background": "#090909",
+            "muted": "#828384",
+            "surface": "#423738",
+            "text": "#f7f9fa"
+          },
+          "display_font": "GrandSlang",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Constellation on black velvet — weightless oversized type, electric iris actions and sparse surfaces.",
+        "id": "workplace-neura",
+        "name": "Workplace Neura",
+        "preview": {
+          "body_font": "PPNeueMontreal",
+          "colors": {
+            "accent": "#8052ff",
+            "background": "#000000",
+            "muted": "#9a9a9a",
+            "surface": "#000000",
+            "text": "#ffffff"
+          },
+          "display_font": "PPNeueMontreal",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Engineered monochrome restraint — black and paper geometry with a neurological violet spectrum accent.",
+        "id": "neuralink",
+        "name": "Neuralink",
+        "preview": {
+          "body_font": "UntitledSans",
+          "colors": {
+            "accent": "#6452d8",
+            "background": "#000000",
+            "muted": "#bababa",
+            "surface": "#000000",
+            "text": "#ffffff"
+          },
+          "display_font": "UntitledSans",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Darkened gallery with scarlet punctuation — portfolio silence, white type and one red signal.",
+        "id": "studio-oker",
+        "name": "Studio Oker",
+        "preview": {
+          "body_font": "NextBook",
+          "colors": {
+            "accent": "#e4002b",
+            "background": "#000000",
+            "muted": "#a0a0a0",
+            "surface": "#101010",
+            "text": "#ffffff"
+          },
+          "display_font": "NextBook",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Black gallery wall with blood-red punctuation — oversized editorial type and sparse chrome.",
+        "id": "branding",
+        "name": "Branding",
+        "preview": {
+          "body_font": "Kmr Waldenburg",
+          "colors": {
+            "accent": "#fe1e34",
+            "background": "#080808",
+            "muted": "#d4d2d2",
+            "surface": "#171617",
+            "text": "#fcfcfc"
+          },
+          "display_font": "Editorialnew",
+          "mode": "dark"
+        },
+        "version": 1
+      }
+    ],
     "content_authority": false,
     "custom_theme_metadata": {},
     "editor_ui_isolated": true,
+    "font_policy": "theme font names are advisory; system fallback is mandatory unless licensed font assets are supplied",
     "project_overrides": {},
-    "registry_version": "7.8.1",
-    "runtime_version": "7.8.1",
-    "theme_count": 1,
+    "registry_version": "7.8.2",
+    "runtime_version": "7.8.2",
+    "theme_count": 13,
     "token_contract": {
       "fallback_policy": "studioframe-default",
       "schema": "theme-token-schema-v1",
@@ -601,54 +891,38 @@
     },
     "tokens": {
       "backgrounds": {
-        "style": "glow",
-        "texture": "grid"
-      },
-      "borders": {
-        "style": "hairline"
+        "style": "solid"
       },
       "buttons": {
-        "cta_style": "solid",
-        "style": "rounded"
+        "style": "pill"
       },
       "cards": {
-        "grid_language": "balanced"
+        "style": "themed"
       },
       "colors": {
-        "accent": "#006B5B",
-        "background": "#F3F6FA",
-        "border": "currentColor",
-        "foreground": "#172033",
-        "muted": "#58697D",
-        "primary": "#006B5B",
-        "secondary": "#58697D",
-        "surface": "#FFFFFF"
+        "accent": "#dc5000",
+        "background": "#100904",
+        "border": "#40372e",
+        "foreground": "#ffedd7",
+        "muted": "#6c5f51",
+        "primary": "#dc5000",
+        "secondary": "#6c5f51",
+        "surface": "#382416"
       },
       "components": {},
       "motion": {
-        "parallax": "off",
-        "preset": "subtle",
-        "reveal": "fade"
+        "preset": "balanced"
       },
       "radius": {
-        "block": 20
-      },
-      "shadows": {
-        "style": "soft"
-      },
-      "spacing": {
-        "blocks": "airy",
-        "container": "wide",
-        "section": "generous"
+        "block": 12
       },
       "surfaces": {
-        "style": "glass"
+        "style": "solid"
       },
       "typography": {
-        "display": "display",
-        "preset": "humanist",
-        "tracking": 0.16,
-        "weight": "500"
+        "body": "Arial",
+        "display": "halyard-display-variable",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
     }
   },

@@ -677,16 +677,21 @@ function applyThemeRuntimeFoundation(builder={}) {
 const runtime=DATA.theme_runtime||{};
 const active=runtime.active_theme||{};
 const themeId=String(active.id||builder.theme?.theme_id||'studioframe-default');
-document.body.dataset.sfTheme=themeId==='studioframe-default'?themeId:'studioframe-default';
+document.body.dataset.sfTheme=themeId;
 document.body.dataset.sfThemeVersion=String(active.version||builder.theme?.theme_version||1);
-document.documentElement.dataset.sfThemeRuntime='7.8.1';
+document.documentElement.dataset.sfThemeRuntime='7.8.2';
 const tokens=runtime.tokens||{},colors=tokens.colors||{};
 const root=document.documentElement;
-if(colors.background)root.style.setProperty('--sf-bg',colors.background);
-if(colors.surface)root.style.setProperty('--sf-surface',colors.surface);
-if(colors.foreground)root.style.setProperty('--sf-text',colors.foreground);
-if(colors.muted)root.style.setProperty('--sf-muted',colors.muted);
-if(colors.primary||colors.accent)root.style.setProperty('--sf-primary',colors.primary||colors.accent);
+if(colors.background){root.style.setProperty('--sf-bg',colors.background);root.style.setProperty('--bg',colors.background);}
+if(colors.surface){root.style.setProperty('--sf-surface',colors.surface);root.style.setProperty('--surface',colors.surface);}
+if(colors.foreground){root.style.setProperty('--sf-text',colors.foreground);root.style.setProperty('--text',colors.foreground);}
+if(colors.muted){root.style.setProperty('--sf-muted',colors.muted);root.style.setProperty('--muted',colors.muted);}
+if(colors.primary||colors.accent){root.style.setProperty('--sf-primary',colors.primary||colors.accent);root.style.setProperty('--accent',colors.accent||colors.primary);}
+if(colors.border)root.style.setProperty('--line',colors.border);
+const typography=tokens.typography||{},radius=tokens.radius||{};
+if(typography.display)root.style.setProperty('--display',`'${typography.display}',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif`);
+if(typography.body)root.style.setProperty('--body',`'${typography.body}',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif`);
+if(radius.block!==undefined)root.style.setProperty('--site-block-radius',`${Number(radius.block)||0}px`);
 const scriptId='studioframe-theme-runtime-script';
 if(!document.getElementById(scriptId)){
 const script=document.createElement('script');script.id=scriptId;script.src=`${publicAssetBase()}themes/theme-runtime.js`;script.async=true;
@@ -703,9 +708,9 @@ const projects = builder.projects || {};
 const about = builder.about || {};
 const contact = builder.contact || {};
 const identity = DATA.identity || {};
-applyThemeRuntimeFoundation(builder);
 applyGlobalHeader(builder, navigation, identity);
 const appearance = applySiteAppearance(builder, identity);
+applyThemeRuntimeFoundation(builder);
 applyGlobalFooter(builder, identity);
 const animations = builder.animations || {};
 const globalAnimation = animations.global || {};

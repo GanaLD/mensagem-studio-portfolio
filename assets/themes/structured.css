@@ -1,0 +1,114 @@
+/* StudioFrame V7.8.2 — Structured adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="structured"] {
+  /* Colors */
+  --color-putty: #c4c3b6;
+  --color-ink: #000000;
+  --color-bone: #e7e5e4;
+  --color-chalk: #ebebeb;
+  --color-vellum: #dfdcd5;
+  --color-graphite: #595855;
+  --color-ash: #808080;
+  --color-paper: #ffffff;
+
+  /* Typography — Font Families */
+  --font-davinci: 'Davinci', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-helvetica-now: 'Helvetica Now', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-body-sm: 15px;
+  --leading-body-sm: 1.5;
+  --text-subheading: 22px;
+  --leading-subheading: 1.33;
+  --tracking-subheading: -0.11px;
+  --text-heading-sm: 26px;
+  --leading-heading-sm: 1.33;
+  --tracking-heading-sm: -0.13px;
+  --text-heading: 43px;
+  --leading-heading: 1.1;
+  --tracking-heading: -0.215px;
+  --text-heading-lg: 52px;
+  --leading-heading-lg: 1;
+  --tracking-heading-lg: -0.47px;
+  --text-display: 374px;
+  --leading-display: 0.84;
+  --tracking-display: -3.37px;
+
+  /* Typography — Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-52: 52px;
+  --spacing-60: 60px;
+  --spacing-96: 96px;
+  --spacing-168: 168px;
+
+  /* Layout */
+  --section-gap: 80px;
+  --card-padding: 24px;
+  --element-gap: 6px;
+
+  /* Border Radius */
+  --radius-sm: 2px;
+  --radius-lg: 9px;
+  --radius-3xl: 28.8px;
+
+  /* Named Radii */
+  --radius-cards: 9px;
+  --radius-links: 2px;
+  --radius-buttons: 28.8px;
+
+  /* Surfaces */
+  --surface-putty-canvas: #c4c3b6;
+  --surface-bone-card: #e7e5e4;
+  --surface-chalk-footer: #ebebeb;
+  --surface-ink-room: #000000;
+}
+
+body[data-sf-theme="structured"]{
+  --sf-bg:#c4c3b6;--sf-surface:#e7e5e4;--sf-text:#000000;--sf-muted:#595855;--sf-primary:#000000;--sf-accent:#000000;--sf-border:#dfdcd5;--sf-radius:9px;
+  --bg:#c4c3b6;--surface:#e7e5e4;--text:#000000;--muted:#595855;--accent:#000000;--line:color-mix(in srgb,#dfdcd5 68%,transparent);
+  --display:'Davinci',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'Helvetica Now',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:9px;--accent-contrast:#000000;color-scheme:light;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="structured"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="structured"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="structured"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="structured"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="structured"] .media,body[data-sf-theme="structured"] .project-media-viewport,body[data-sf-theme="structured"] .project-video-wrap,body[data-sf-theme="structured"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="structured"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="structured"] .contact-actions a,body[data-sf-theme="structured"] .quote-dock,body[data-sf-theme="structured"] .menu{border-color:var(--line)}
+body[data-sf-theme="structured"] .content-section,body[data-sf-theme="structured"] .portfolio-heading,body[data-sf-theme="structured"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="structured"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="structured"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="structured"] .copy p,body[data-sf-theme="structured"] .project-detail-head p,body[data-sf-theme="structured"] .project-back{color:var(--muted)}
+body[data-sf-theme="structured"] .copy em,body[data-sf-theme="structured"] .project-eyebrow,body[data-sf-theme="structured"] .portfolio-heading small,body[data-sf-theme="structured"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="structured"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="structured"]{
+  --theme-button-radius:var(--sf-radius);
+  --theme-card-bg:var(--surface);
+  --theme-card-border:var(--line);
+  --theme-card-copy-pad:14px;
+}
+body[data-sf-theme="structured"] .logo,body[data-sf-theme="structured"] .copy h3,body[data-sf-theme="structured"] .portfolio-heading h2,body[data-sf-theme="structured"] .project-detail-head h2,body[data-sf-theme="structured"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="structured"] .menu,body[data-sf-theme="structured"] .filter,body[data-sf-theme="structured"] .quote-dock,body[data-sf-theme="structured"] .contact-actions a,body[data-sf-theme="structured"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="structured"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="structured"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="structured"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="structured"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="structured"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="structured"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="structured"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="structured"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="structured"] .type,body[data-sf-theme="structured"] .filter,body[data-sf-theme="structured"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="structured"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}

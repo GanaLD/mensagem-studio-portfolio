@@ -1,0 +1,131 @@
+/* StudioFrame V7.8.2 — Maça adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="maca"] {
+  /* Colors */
+  --color-apple-blue: #0071e3;
+  --color-link-blue: #0066cc;
+  --color-signal-blue: #2997ff;
+  --color-carbon: #1d1d1f;
+  --color-frost: #f5f5f7;
+  --color-ice: #f4f8fb;
+  --color-smoke: #333333;
+  --color-graphite: #474747;
+  --color-ash: #707070;
+  --color-mist: #858585;
+  --color-onyx: #000000;
+  --color-pebble: #e2e2e5;
+
+  /* Typography — Font Families */
+  --font-sf-pro-display: 'SF Pro Display', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sf-pro-text: 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.33;
+  --tracking-caption: -0.264px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.29;
+  --tracking-body-sm: -0.224px;
+  --text-body: 17px;
+  --leading-body: 1.47;
+  --tracking-body: -0.272px;
+  --text-subheading: 21px;
+  --leading-subheading: 1.24;
+  --tracking-subheading: -0.105px;
+  --text-heading-sm: 28px;
+  --leading-heading-sm: 1.18;
+  --tracking-heading-sm: 0.196px;
+  --text-heading: 40px;
+  --leading-heading: 1.14;
+  --tracking-heading: 0.44px;
+  --text-heading-lg: 44px;
+  --leading-heading-lg: 1.18;
+  --tracking-heading-lg: -0.44px;
+  --text-display: 56px;
+  --leading-display: 1.07;
+  --tracking-display: 0.616px;
+
+  /* Typography — Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+
+  /* Layout */
+  --page-max-width: 1440px;
+  --section-gap: 64px;
+  --card-padding: 24px;
+  --element-gap: 12px;
+
+  /* Border Radius */
+  --radius-lg: 8px;
+  --radius-lg-2: 11px;
+  --radius-full: 980px;
+  --radius-full-2: 999px;
+
+  /* Named Radii */
+  --radius-tags: 980px;
+  --radius-cards: 8px;
+  --radius-images: 8px;
+  --radius-inputs: 8px;
+  --radius-buttons: 980px;
+
+  /* Shadows */
+  --shadow-xl: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+
+  /* Surfaces */
+  --surface-canvas: #f5f5f7;
+  --surface-elevated-wash: #f4f8fb;
+  --surface-pebble: #e2e2e5;
+}
+
+body[data-sf-theme="maca"]{
+  --sf-bg:#f5f5f7;--sf-surface:#ffffff;--sf-text:#1d1d1f;--sf-muted:#707070;--sf-primary:#0071e3;--sf-accent:#0071e3;--sf-border:#e2e2e5;--sf-radius:18px;
+  --bg:#f5f5f7;--surface:#ffffff;--text:#1d1d1f;--muted:#707070;--accent:#0071e3;--line:color-mix(in srgb,#e2e2e5 68%,transparent);
+  --display:'SF Pro Display',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'SF Pro Text',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:18px;--accent-contrast:#000000;color-scheme:light;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="maca"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="maca"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="maca"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="maca"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="maca"] .media,body[data-sf-theme="maca"] .project-media-viewport,body[data-sf-theme="maca"] .project-video-wrap,body[data-sf-theme="maca"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="maca"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="maca"] .contact-actions a,body[data-sf-theme="maca"] .quote-dock,body[data-sf-theme="maca"] .menu{border-color:var(--line)}
+body[data-sf-theme="maca"] .content-section,body[data-sf-theme="maca"] .portfolio-heading,body[data-sf-theme="maca"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="maca"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="maca"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="maca"] .copy p,body[data-sf-theme="maca"] .project-detail-head p,body[data-sf-theme="maca"] .project-back{color:var(--muted)}
+body[data-sf-theme="maca"] .copy em,body[data-sf-theme="maca"] .project-eyebrow,body[data-sf-theme="maca"] .portfolio-heading small,body[data-sf-theme="maca"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="maca"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="maca"]{
+  --theme-button-radius:999px;
+  --theme-card-bg:var(--surface);
+  --theme-card-border:var(--line);
+  --theme-card-copy-pad:14px;
+}
+body[data-sf-theme="maca"] .logo,body[data-sf-theme="maca"] .copy h3,body[data-sf-theme="maca"] .portfolio-heading h2,body[data-sf-theme="maca"] .project-detail-head h2,body[data-sf-theme="maca"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="maca"] .menu,body[data-sf-theme="maca"] .filter,body[data-sf-theme="maca"] .quote-dock,body[data-sf-theme="maca"] .contact-actions a,body[data-sf-theme="maca"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="maca"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="maca"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="maca"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="maca"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="maca"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="maca"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="maca"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="maca"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="maca"] .type,body[data-sf-theme="maca"] .filter,body[data-sf-theme="maca"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="maca"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}

@@ -1,0 +1,126 @@
+/* StudioFrame V7.8.2 — Neuralink adapter. Source variables are scoped; editor UI is outside this selector. */
+body[data-sf-theme="neuralink"] {
+  /* Colors */
+  --color-obsidian: #000000;
+  --color-paper: #ffffff;
+  --color-ash: #f5f5f5;
+  --color-fog: #bababa;
+  --color-synapse-gradient: #6452d8;
+  --gradient-synapse-gradient: linear-gradient(90deg, #e486ab, #7f80b3 20%, #435a93 50%, #6452d8 95%);
+
+  /* Typography — Font Families */
+  --font-untitledsans: 'UntitledSans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.5;
+  --tracking-caption: -0.18px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.5;
+  --tracking-body-sm: -0.21px;
+  --text-body: 16px;
+  --leading-body: 1.5;
+  --tracking-body: -0.32px;
+  --text-body-lg: 18px;
+  --leading-body-lg: 1.5;
+  --tracking-body-lg: -0.67px;
+  --text-subheading: 24px;
+  --leading-subheading: 1.2;
+  --tracking-subheading: -1.2px;
+  --text-heading-sm: 32px;
+  --leading-heading-sm: 1.15;
+  --tracking-heading-sm: -1.92px;
+  --text-heading: 44px;
+  --leading-heading: 1.15;
+  --tracking-heading: -2.64px;
+  --text-display: 48px;
+  --leading-display: 1;
+  --tracking-display: -7.92px;
+
+  /* Typography — Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-5: 5px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-18: 18px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-30: 30px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-46: 46px;
+  --spacing-50: 50px;
+  --spacing-60: 60px;
+  --spacing-240: 240px;
+
+  /* Layout */
+  --page-max-width: 1200px;
+  --section-gap: 80px;
+  --card-padding: 32px;
+  --element-gap: 12px;
+
+  /* Border Radius */
+  --radius-2xl: 16px;
+  --radius-2xl-2: 20px;
+  --radius-full: 60px;
+  --radius-full-2: 80px;
+
+  /* Named Radii */
+  --radius-cards: 20px;
+  --radius-buttons: 80px;
+  --radius-nav-buttons: 16px;
+  --radius-body-elements: 60px;
+
+  /* Surfaces */
+  --surface-obsidian-canvas: #000000;
+  --surface-paper-surface: #ffffff;
+  --surface-ash-band: #f5f5f5;
+}
+
+body[data-sf-theme="neuralink"]{
+  --sf-bg:#000000;--sf-surface:#000000;--sf-text:#ffffff;--sf-muted:#bababa;--sf-primary:#6452d8;--sf-accent:#6452d8;--sf-border:#bababa;--sf-radius:0px;
+  --bg:#000000;--surface:#000000;--text:#ffffff;--muted:#bababa;--accent:#6452d8;--line:color-mix(in srgb,#bababa 68%,transparent);
+  --display:'UntitledSans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --body:'UntitledSans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --site-block-radius:0px;--accent-contrast:#ffffff;color-scheme:dark;background:var(--bg);color:var(--text);
+}
+body[data-sf-theme="neuralink"] header#header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);border-color:var(--line)}
+body[data-sf-theme="neuralink"] .filters{background:color-mix(in srgb,var(--bg) 92%,transparent);border-color:var(--line)}
+body[data-sf-theme="neuralink"] .filter{background:var(--surface);border-color:var(--line);color:var(--text)}
+body[data-sf-theme="neuralink"] .filter.is-active{background:var(--accent);border-color:var(--accent);color:var(--accent-contrast)}
+body[data-sf-theme="neuralink"] .media,body[data-sf-theme="neuralink"] .project-media-viewport,body[data-sf-theme="neuralink"] .project-video-wrap,body[data-sf-theme="neuralink"] .project-media-unavailable{background:var(--surface);border-radius:var(--sf-radius)}
+body[data-sf-theme="neuralink"] .card .media{border-radius:var(--sf-radius)}
+body[data-sf-theme="neuralink"] .contact-actions a,body[data-sf-theme="neuralink"] .quote-dock,body[data-sf-theme="neuralink"] .menu{border-color:var(--line)}
+body[data-sf-theme="neuralink"] .content-section,body[data-sf-theme="neuralink"] .portfolio-heading,body[data-sf-theme="neuralink"] .project-detail-head{border-color:var(--line)}
+body[data-sf-theme="neuralink"] .project-detail.is-fullscreen{background:var(--bg)}
+body[data-sf-theme="neuralink"] .project-detail.is-fullscreen .project-back{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+body[data-sf-theme="neuralink"] .copy p,body[data-sf-theme="neuralink"] .project-detail-head p,body[data-sf-theme="neuralink"] .project-back{color:var(--muted)}
+body[data-sf-theme="neuralink"] .copy em,body[data-sf-theme="neuralink"] .project-eyebrow,body[data-sf-theme="neuralink"] .portfolio-heading small,body[data-sf-theme="neuralink"] .content-eyebrow{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme="neuralink"] *{scroll-behavior:auto}}
+/* V7.8.2 visual identity bridge */
+body[data-sf-theme="neuralink"]{
+  --theme-button-radius:var(--sf-radius);
+  --theme-card-bg:transparent;
+  --theme-card-border:transparent;
+  --theme-card-copy-pad:0;
+}
+body[data-sf-theme="neuralink"] .logo,body[data-sf-theme="neuralink"] .copy h3,body[data-sf-theme="neuralink"] .portfolio-heading h2,body[data-sf-theme="neuralink"] .project-detail-head h2,body[data-sf-theme="neuralink"] .content-section h2{font-family:var(--display)}
+body[data-sf-theme="neuralink"] .menu,body[data-sf-theme="neuralink"] .filter,body[data-sf-theme="neuralink"] .quote-dock,body[data-sf-theme="neuralink"] .contact-actions a,body[data-sf-theme="neuralink"] .project-back{border-radius:var(--theme-button-radius)}
+body[data-sf-theme="neuralink"] .menu{background:color-mix(in srgb,var(--surface) 90%,transparent);color:var(--text)}
+body[data-sf-theme="neuralink"] .card{background:var(--theme-card-bg);border:1px solid var(--theme-card-border);border-radius:var(--sf-radius);overflow:hidden}
+body[data-sf-theme="neuralink"] .card .media{border-radius:calc(var(--sf-radius) * .72)}
+body[data-sf-theme="neuralink"] .card .copy{padding:13px var(--theme-card-copy-pad) 24px}
+body[data-sf-theme="neuralink"] .hero h1{font-family:var(--display);font-size:clamp(48px,8vw,var(--text-display,112px));letter-spacing:var(--tracking-display,-.05em);line-height:var(--leading-display,.9)}
+body[data-sf-theme="neuralink"] .intro p{font-family:var(--display);font-size:clamp(28px,4vw,var(--text-heading,64px));line-height:var(--leading-heading,1.05);letter-spacing:var(--tracking-heading,-.035em)}
+body[data-sf-theme="neuralink"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-heading-sm,34px));line-height:var(--leading-heading-sm,1.05);letter-spacing:var(--tracking-heading-sm,-.025em)}
+body[data-sf-theme="neuralink"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
+body[data-sf-theme="neuralink"] .type,body[data-sf-theme="neuralink"] .filter,body[data-sf-theme="neuralink"] .menu{font-family:var(--body)}
+@media(max-width:700px){body[data-sf-theme="neuralink"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}
