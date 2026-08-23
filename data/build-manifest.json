@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "95c4634cfe53d4d6f762",
-  "bundle_sha256": "95c4634cfe53d4d6f7621002eda551af6491b8e470e241b26f806bed12e9a3a3",
+  "build_revision": "1ea4b8c35f31dbd59a82",
+  "bundle_sha256": "1ea4b8c35f31dbd59a821df757a43031db9747d48235ed939a885df7ad94933d",
   "editorial_revision": "cb9b9c8d3cfa09aca506",
   "files": {
     ".nojekyll": {
@@ -14,8 +14,8 @@
       "sha256": "5949830081663b78885832bc5b72bf0ee7614c9f96dc7e164f93f44bc02fa6a4"
     },
     "CNAME": {
-      "bytes": 21,
-      "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
+      "bytes": 20,
+      "sha256": "63ff43c76fa55c46c5756fc32b7d673164e5350e8375841f4168e42df552b4c4"
     },
     "assets/hero/corte-03.mp4": {
       "bytes": 4251708,
@@ -26,8 +26,8 @@
       "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
     },
     "assets/hero/manifest.json": {
-      "bytes": 352,
-      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
+      "bytes": 338,
+      "sha256": "9b5c177effc1cc7e91d9adc87bfd84c0917ce4e7fd819effe32b3795282ddf71"
     },
     "assets/site.css": {
       "bytes": 261813,
@@ -38,12 +38,12 @@
       "sha256": "833475eed9f807d3c8240ada5ff19b305d02f4d878a17b9824f95d49c7a72767"
     },
     "data/portfolio.json": {
-      "bytes": 2182309,
-      "sha256": "bd8c1c0723793c7583fe81a1f1a7c7b98d4df8ed63f7e44620d12cc02444c24f"
+      "bytes": 2136929,
+      "sha256": "2b91569820aef0aff1c74cc774c9e5af26f02748576f8ae4fa8e5c4a04c01c0d"
     },
     "index.html": {
-      "bytes": 2123808,
-      "sha256": "bda8ace4f765d2e840efee486d3ebe2485ff258249aa2803cc5c6c9c04549cef"
+      "bytes": 2123809,
+      "sha256": "dc9266e8b3e7e7738c3e0c6d0405df3f78caca418e0b2aac7084970a7398849f"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -330,8 +330,8 @@
       "sha256": "e51c779b8c9893791ad138ef4c9906d03aae4560e3b868a30d2afce534e1712e"
     },
     "robots.txt": {
-      "bytes": 75,
-      "sha256": "bff445912f08f4f49395bf74bc43762253d148329c4d344e113115c8be6e422b"
+      "bytes": 72,
+      "sha256": "868105aa4dfa9d77a94ff7b35fab1a8a13dcb644b181551cd2999a12a429a3c2"
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 8773,
@@ -482,8 +482,8 @@
       "sha256": "f7bc4e8b1d110672da353b1b1e6e27d03f5543ea118d6d839dc132a0f4d2b22a"
     },
     "sitemap.xml": {
-      "bytes": 9999,
-      "sha256": "6d085c8bc5635c8e0c599feed6f323f056c034b4675a2cf6c19bbe56d4563537"
+      "bytes": 9887,
+      "sha256": "0e60cc3dabfd2ad423c73cb71a5c794d7295003dc4947791b16d7969b81d8d00"
     }
   },
   "format": "studioframe-public-build-v2",
@@ -494,7 +494,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 12514815,
+    "bytes": 12469306,
     "files": 120,
     "largest_file_bytes": 4251708,
     "route_shells": 108
