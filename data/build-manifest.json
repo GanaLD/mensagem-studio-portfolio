@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "87d81e9c5add168564b5",
-  "bundle_sha256": "87d81e9c5add168564b5b7a2cde869947163eb6c86dcb06376d4f85d9e19de9d",
+  "build_revision": "1927009242dd1782ebc6",
+  "bundle_sha256": "1927009242dd1782ebc6db491e30db3423019884052c6aeef1400e13364f2308",
   "editorial_revision": "f2d9cde8a5155c37178e",
   "files": {
     ".nojekyll": {
@@ -30,20 +30,20 @@
       "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
     },
     "assets/site.css": {
-      "bytes": 247438,
-      "sha256": "7ccfc3ff86db96c753287c109f8d8ee64c14c369655a4304f61acdae3c598b87"
+      "bytes": 259407,
+      "sha256": "f29399e8a3121b619571cbd4cd76fc5f79cbd568b102ed63b778deceacb04b3a"
     },
     "assets/site.js": {
-      "bytes": 336474,
-      "sha256": "9fc7e575c3090196ed7edc31a75c021b6e07224a1cbe2601ab6712df9bf65d2b"
+      "bytes": 340469,
+      "sha256": "4718ca76719cac9dd11c4f709044dc2d6ce7d3709e4002128f7098b49c64b3af"
     },
     "data/portfolio.json": {
-      "bytes": 2178445,
-      "sha256": "3b679f92467ed8f38e5e9c11b3bf499895b481d64b1eddb98f744343618b43db"
+      "bytes": 2182166,
+      "sha256": "24c945d21119aeb4145662103e0cb50b9f7f9b1df485d98fb8e41b7509ff7261"
     },
     "index.html": {
-      "bytes": 2099977,
-      "sha256": "b2122f99ab0e56b0f70752c2c8340a4f263e1c1d379085735a8e1a4c1c16f2b6"
+      "bytes": 2118546,
+      "sha256": "30ee30623ef3839b2ef9e24267e5c4b0fd4765b331f5d60437673bce7320b60b"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -494,7 +494,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 12465998,
+    "bytes": 12504252,
     "files": 120,
     "largest_file_bytes": 4251708,
     "route_shells": 108
