@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f2d9cde8a5155c37178e",
-    "saved_at": "2026-08-23T14:07:53.439306+00:00"
+    "revision": "cb9b9c8d3cfa09aca506",
+    "saved_at": "2026-08-23T14:08:00.887934+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -2367,6 +2367,7 @@
           "mobile_section_width": "auto",
           "mobile_visible": true,
           "navigation_position": "left",
+          "quote_cta_label": "Ver orçamento",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -2394,6 +2395,8 @@
           "section_texture_position": "center",
           "section_texture_scale": 100,
           "section_width": "full",
+          "services_cta_label": "Ver serviços",
+          "services_cta_url": "/servicos/",
           "text_align": "left",
           "text_transform": "none",
           "title_color": "text",
