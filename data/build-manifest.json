@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "1927009242dd1782ebc6",
-  "bundle_sha256": "1927009242dd1782ebc6db491e30db3423019884052c6aeef1400e13364f2308",
-  "editorial_revision": "f2d9cde8a5155c37178e",
+  "build_revision": "95c4634cfe53d4d6f762",
+  "bundle_sha256": "95c4634cfe53d4d6f7621002eda551af6491b8e470e241b26f806bed12e9a3a3",
+  "editorial_revision": "cb9b9c8d3cfa09aca506",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -27,23 +27,23 @@
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
-      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
+      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
     },
     "assets/site.css": {
-      "bytes": 259407,
-      "sha256": "f29399e8a3121b619571cbd4cd76fc5f79cbd568b102ed63b778deceacb04b3a"
+      "bytes": 261813,
+      "sha256": "49c3e1cf566415135fc84959ad03cbeec014ffbaaeef18126060279e499a45ad"
     },
     "assets/site.js": {
-      "bytes": 340469,
-      "sha256": "4718ca76719cac9dd11c4f709044dc2d6ce7d3709e4002128f7098b49c64b3af"
+      "bytes": 343221,
+      "sha256": "833475eed9f807d3c8240ada5ff19b305d02f4d878a17b9824f95d49c7a72767"
     },
     "data/portfolio.json": {
-      "bytes": 2182166,
-      "sha256": "24c945d21119aeb4145662103e0cb50b9f7f9b1df485d98fb8e41b7509ff7261"
+      "bytes": 2182309,
+      "sha256": "bd8c1c0723793c7583fe81a1f1a7c7b98d4df8ed63f7e44620d12cc02444c24f"
     },
     "index.html": {
-      "bytes": 2118546,
-      "sha256": "30ee30623ef3839b2ef9e24267e5c4b0fd4765b331f5d60437673bce7320b60b"
+      "bytes": 2123808,
+      "sha256": "bda8ace4f765d2e840efee486d3ebe2485ff258249aa2803cc5c6c9c04549cef"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -494,7 +494,7 @@
     "mode": "drive-public-readonly-no-github-media"
   },
   "stats": {
-    "bytes": 12504252,
+    "bytes": 12514815,
     "files": 120,
     "largest_file_bytes": 4251708,
     "route_shells": 108

@@ -2,7 +2,7 @@
   "schema_version": 16,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "f2d9cde8a5155c37178e",
+  "editorial_revision": "cb9b9c8d3cfa09aca506",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -17829,6 +17829,7 @@
           "mobile_section_width": "auto",
           "mobile_visible": true,
           "navigation_position": "left",
+          "quote_cta_label": "Ver orçamento",
           "section_background": "none",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
@@ -17856,6 +17857,8 @@
           "section_texture_position": "center",
           "section_texture_scale": 100,
           "section_width": "full",
+          "services_cta_label": "Ver serviços",
+          "services_cta_url": "/servicos/",
           "text_align": "left",
           "text_transform": "none",
           "title_color": "text",
@@ -43547,7 +43550,7 @@
     "unsupported": 1,
     "ignored": 4,
     "api_calls": 25,
-    "duration_seconds": 9.716
+    "duration_seconds": 9.806
   },
   "publication_ready": true,
   "public_validation": {
