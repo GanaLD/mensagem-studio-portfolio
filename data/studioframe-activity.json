@@ -2,20 +2,6 @@
   "events": [
     {
       "app_version": "7.12.20",
-      "at": "2026-08-22T17:07:50.969408+00:00",
-      "details": {
-        "commit": "a0d7487a58d4c7bb5aaba0709e96340964496409",
-        "site_url": "https://mensagemstudio.shop/",
-        "state_commit": "a1eb4ac4d01e428df875f1c2d3763e7cb3216530"
-      },
-      "device_id": "device-3e7f29f7077c4942",
-      "id": "45d74908fb3937a3ec5f",
-      "kind": "publication",
-      "revision": "b55574b415568b6fc6b4",
-      "status": "ok"
-    },
-    {
-      "app_version": "7.12.20",
       "at": "2026-08-22T18:23:36.218332+00:00",
       "details": {
         "commit": "cfc92db0248a6e1f4228d2b02f8cfd1d34303110"
@@ -3025,8 +3011,22 @@
       "kind": "editorial-sync",
       "revision": "1355d762e87fb0f614ef",
       "status": "ok"
+    },
+    {
+      "app_version": "7.12.20",
+      "at": "2026-08-24T15:55:28.680257+00:00",
+      "details": {
+        "commit": "2fe6bb090e2a0def91237a5c4983e45a33316364",
+        "site_url": "https://mensagemstudio.shop/",
+        "state_commit": "c57a855416a708b56e1e5718a8dc7bfd9de158ed"
+      },
+      "device_id": "device-cf930bef5c204485",
+      "id": "9d7147ab499f72a99530",
+      "kind": "publication",
+      "revision": "1355d762e87fb0f614ef",
+      "status": "ok"
     }
   ],
   "format": "studioframe-activity-v1",
-  "updated_at": "2026-08-24T15:01:54.508527+00:00"
+  "updated_at": "2026-08-24T15:55:29.418050+00:00"
 }
