@@ -1,10 +1,10 @@
 {
   "_cloud": {
     "app_version": "7.12.20",
-    "device_id": "device-cd0e0f4a1ca648f5",
+    "device_id": "device-fa32c4b3b29645c1",
     "format": "studioframe-editorial-v1",
-    "revision": "0fe39e8657c32f42ed58",
-    "saved_at": "2026-08-24T00:18:59.867429+00:00"
+    "revision": "81f4c458d64a8a4c124f",
+    "saved_at": "2026-08-24T01:04:04.323130+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18807,9 +18807,21 @@
       "version": 5
     },
     "theme": {
-      "custom_theme_metadata": {},
+      "custom_theme_metadata": {
+        "override_snapshots": {
+          "mercury": {
+            "colors": {
+              "accent": "#FF00AA"
+            }
+          }
+        }
+      },
       "theme_id": "mercury",
-      "theme_overrides": {},
+      "theme_overrides": {
+        "colors": {
+          "accent": "#FF00AA"
+        }
+      },
       "theme_version": 1
     }
   },
