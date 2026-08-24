@@ -2,7 +2,7 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "1355d762e87fb0f614ef",
+  "editorial_revision": "4ae0e3b6d736d3f5a59c",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -353,11 +353,20 @@
           "tab": "categorypages"
         },
         {
+          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "kind": "category-page",
+          "label": "Lateral Banners",
+          "order": 120,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
           "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "kind": "category-page",
           "label": "Campanha 007 Completa",
-          "order": 120,
+          "order": 130,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -366,7 +375,7 @@
           "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
           "kind": "category-page",
           "label": "Carrossel",
-          "order": 130,
+          "order": 140,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -375,7 +384,7 @@
           "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "kind": "category-page",
           "label": "DERMACAST",
-          "order": 140,
+          "order": 150,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -384,15 +393,6 @@
           "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "category-page",
           "label": "Edição de vídeos",
-          "order": 150,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
           "order": 160,
           "parent_id": "page-categories",
           "tab": "categorypages"

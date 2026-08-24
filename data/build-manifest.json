@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "115b1f8e4a5c9da7abc7",
-  "bundle_sha256": "115b1f8e4a5c9da7abc73679ec95a6eb9613265baf5434694cbf2e91c3360ee4",
-  "editorial_revision": "1355d762e87fb0f614ef",
+  "build_revision": "24de4cb2e5d4fa15edad",
+  "bundle_sha256": "24de4cb2e5d4fa15edad94e8d2d00d8e82c7be3bd6a78656bfa982c83e6251fa",
+  "editorial_revision": "4ae0e3b6d736d3f5a59c",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -31,7 +31,7 @@
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
-      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
+      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
     },
     "assets/motion/adapters/css-native.js": {
       "bytes": 2688,
@@ -54,12 +54,12 @@
       "sha256": "9819230afff93328419b1608803a805b974000b9dbefadad9693c7d9f4fcfb41"
     },
     "assets/site.css": {
-      "bytes": 276818,
-      "sha256": "733a7fabaa87301ab0e73f0cd29404e4e03bc8df0932fa71974cb7dc6180a083"
+      "bytes": 286517,
+      "sha256": "e1811a5815ce1f588b07cfded3dc5a10cdf81c399fc09422589e32eb0836a976"
     },
     "assets/site.js": {
-      "bytes": 361124,
-      "sha256": "7fbf3dcccbe795039715a9c91ea0c0de893651cffa6f25552f7a2b7c47d21dd8"
+      "bytes": 375253,
+      "sha256": "d0afcb3bfc685db04909e8fcd226ef5fcaa56d6571cb885690041b697c6a0928"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -123,11 +123,11 @@
     },
     "data/portfolio.json": {
       "bytes": 2148146,
-      "sha256": "3764d9676387c0f49591727dbe8e25bd08f8b494917a2f87c4e94118f8513d00"
+      "sha256": "0af709b676d69bba9532fee409aa5d92687939938805bbd9ab289af973e181cf"
     },
     "index.html": {
       "bytes": 1501407,
-      "sha256": "d03401d678db35719403d5e24778b2fd3d4321e50fdba7acfc9b0fb1f31c74ec"
+      "sha256": "6ac82763a1b08f70dc2f39b7422c4e26b64eea06d40edbea7882e19a3c4216dc"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -620,7 +620,7 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 12024615,
+    "bytes": 12048443,
     "files": 141,
     "largest_file_bytes": 4251708,
     "route_shells": 108
