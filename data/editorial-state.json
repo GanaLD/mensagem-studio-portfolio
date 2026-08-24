@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "ba48bd441581012e5214",
-    "saved_at": "2026-08-24T02:23:40.898108+00:00"
+    "revision": "77f12f93f4ca2162fc5d",
+    "saved_at": "2026-08-24T02:23:48.611257+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18996,12 +18996,8 @@
           }
         }
       },
-      "theme_id": "mercury",
-      "theme_overrides": {
-        "colors": {
-          "accent": "#FF00AA"
-        }
-      },
+      "theme_id": "black-maca",
+      "theme_overrides": {},
       "theme_version": 1
     }
   },
