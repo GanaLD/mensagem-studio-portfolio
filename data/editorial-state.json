@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "be1f98f9a0b6de930a7c",
-    "saved_at": "2026-08-24T15:00:02.743631+00:00"
+    "revision": "cc66be85008f1c9370ee",
+    "saved_at": "2026-08-24T15:00:13.543717+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -19001,7 +19001,7 @@
           "structured": {}
         }
       },
-      "theme_id": "discord",
+      "theme_id": "studio-oker",
       "theme_overrides": {},
       "theme_version": 1
     }
