@@ -2,17 +2,17 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "115b1f8e4a5c9da7abc73679ec95a6eb9613265baf5434694cbf2e91c3360ee4",
-    "commit": "2fe6bb090e2a0def91237a5c4983e45a33316364",
-    "editorial_revision": "1355d762e87fb0f614ef",
-    "manifest_sha256": "3764d9676387c0f49591727dbe8e25bd08f8b494917a2f87c4e94118f8513d00",
-    "published_at": "2026-08-24T15:55:26.280408+00:00",
-    "reused_bytes": 7991101,
+    "bundle_sha256": "24de4cb2e5d4fa15edad94e8d2d00d8e82c7be3bd6a78656bfa982c83e6251fa",
+    "commit": "3dd1ff888e7473bbeebbaabb1dcdc4adb706c4c5",
+    "editorial_revision": "4ae0e3b6d736d3f5a59c",
+    "manifest_sha256": "0af709b676d69bba9532fee409aa5d92687939938805bbd9ab289af973e181cf",
+    "published_at": "2026-08-24T17:01:56.611178+00:00",
+    "reused_bytes": 7736768,
     "reused_files": 136,
     "site_url": "https://mensagemstudio.shop/",
     "stages": [
       {
-        "bundle_sha256": "115b1f8e4a5c9da7abc73679ec95a6eb9613265baf5434694cbf2e91c3360ee4",
+        "bundle_sha256": "24de4cb2e5d4fa15edad94e8d2d00d8e82c7be3bd6a78656bfa982c83e6251fa",
         "key": "build",
         "label": "Build local",
         "message": "142 arquivos · 11.5 MB · 108 rotas leves prontas para deploy.",
@@ -25,16 +25,16 @@
         "status": "ok"
       },
       {
-        "commit_sha": "2fe6bb090e2a0def91237a5c4983e45a33316364",
+        "commit_sha": "3dd1ff888e7473bbeebbaabb1dcdc4adb706c4c5",
         "key": "commit",
         "label": "Commit público",
         "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=136 · enviados=6.",
-        "reused_bytes": 7991101,
+        "reused_bytes": 7736768,
         "reused_files": 136,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 4069161,
+        "uploaded_bytes": 4347322,
         "uploaded_files": 6
       },
       {
@@ -53,8 +53,8 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 4069161,
+    "uploaded_bytes": 4347322,
     "uploaded_files": 6
   },
-  "updated_at": "2026-08-24T15:55:26.327832+00:00"
+  "updated_at": "2026-08-24T17:01:56.627104+00:00"
 }
