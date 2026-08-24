@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "fde427b01dffc9eeb1d6",
-    "saved_at": "2026-08-24T23:47:19.391600+00:00"
+    "revision": "d6661d0b7ab95155bef9",
+    "saved_at": "2026-08-24T23:47:37.486631+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1547,6 +1547,31 @@
               "x": 0,
               "y": 0,
               "z_index": 3
+            },
+            {
+              "blend_mode": "screen",
+              "blur": 0,
+              "color": "#2fd59a",
+              "depth": 0.54,
+              "desktop_visible": true,
+              "focal_x": 50,
+              "focal_y": 50,
+              "gradient_angle": 90,
+              "gradient_end": "#ffffff",
+              "gradient_start": "#2fd59a",
+              "id": "slice-layer-mt7vyvf8",
+              "label": "LAYER 04",
+              "media_id": "",
+              "media_type": "transparent",
+              "mobile_visible": false,
+              "opacity": 0.5,
+              "role": "custom",
+              "rotation": 0,
+              "scale": 1,
+              "tablet_visible": true,
+              "x": 0,
+              "y": 0,
+              "z_index": 4
             }
           ],
           "mobile_height_vh": 78,
