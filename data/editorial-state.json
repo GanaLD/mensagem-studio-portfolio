@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "d2217d92a50c609ecd55",
-    "saved_at": "2026-08-24T23:50:29.311370+00:00"
+    "revision": "0b94a93bfe9ed1e4d89a",
+    "saved_at": "2026-08-24T23:50:38.076861+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -251,7 +251,7 @@
           "institution": "EBAC",
           "order": 30,
           "period": "",
-          "visible": true
+          "visible": false
         },
         {
           "course": "Cinema",
@@ -261,7 +261,7 @@
           "institution": "",
           "order": 40,
           "period": "Em andamento",
-          "visible": true
+          "visible": false
         }
       ],
       "eyebrow": "Mensagem Studio",
