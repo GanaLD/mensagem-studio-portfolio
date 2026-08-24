@@ -2955,7 +2955,7 @@ const header={...(takeFirst('case_header','case-core-header')||PUBLIC_CASE_CORE[
 const related=takeFirst('related_projects','case-core-related')||{...PUBLIC_CASE_CORE[2]};
 const stream=takeFirst('media_stream','case-core-stream')||{...PUBLIC_CASE_CORE[1]};
 const next=takeFirst('next_project','case-core-next')||{...PUBLIC_CASE_CORE[3]};
-return [header,related,stream,...output,next];
+return [header,...output,stream,related,next];
 }
 function caseItemById(items, id, type='all') {
 const list=items||[];
@@ -3084,19 +3084,18 @@ root.replaceChildren(); head.hidden=false; stream.hidden=false; stream.replaceCh
 const commercialConfig=normalizedProjectCommercial(project),commercial=createProjectCommercialBlock(project);let commercialInserted=false;
 const insertCommercial=(position)=>{if(!commercial||commercialInserted||commercialConfig.position!==position)return;root.append(commercial);commercialInserted=true;};
 publicCaseBlocks(project).forEach((block)=>{
-if(block.type==='case_header'){head.hidden=false;applyCaseHeaderPresentation(project,block,head);root.append(head);return;}
+if(block.type==='case_header'){head.hidden=false;applyCaseHeaderPresentation(project,block,head);root.append(head);insertCommercial('after_header');return;}
 if(block.type==='media_stream'){
 stream.hidden=block.visible===false;
 if(block.visible===false) stream.replaceChildren();
 else renderLegacyMediaStream(project,items,block.captions!==false,stream);
 root.append(stream);insertCommercial('after_media');return;
 }
-if(block.visible===false){if(block.type==='related_projects')insertCommercial('after_header');return;}
+if(block.visible===false)return;
 if(block.type==='next_project')insertCommercial('before_next');
 const renderer=PUBLIC_CASE_BLOCK_REGISTRY[block.type];
 const node=renderer?renderer(project,block,items):null;
 if(node){node.dataset.caseBlockId=block.id||'';root.append(node);}
-if(block.type==='related_projects')insertCommercial('after_header');
 });
 if(commercial&&!commercialInserted)root.append(commercial);
 }

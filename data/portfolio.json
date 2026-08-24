@@ -2,7 +2,7 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "e8fcee70407b3d0f003c",
+  "editorial_revision": "1355d762e87fb0f614ef",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -17,13 +17,14 @@
   },
   "site_builder": {
     "theme": {
-      "theme_id": "discord",
+      "theme_id": "black-maca",
       "theme_version": 1,
       "theme_overrides": {},
       "custom_theme_metadata": {
         "override_snapshots": {
           "black-maca": {},
           "discord": {},
+          "maca": {},
           "mekaverse": {},
           "mercury": {
             "colors": {
@@ -31,7 +32,8 @@
             }
           },
           "oryzo-ai": {},
-          "structured": {}
+          "structured": {},
+          "studio-oker": {}
         }
       }
     },
@@ -351,20 +353,11 @@
           "tab": "categorypages"
         },
         {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
-          "order": 120,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
           "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
           "kind": "category-page",
           "label": "Campanha 007 Completa",
-          "order": 130,
+          "order": 120,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -373,7 +366,7 @@
           "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
           "kind": "category-page",
           "label": "Carrossel",
-          "order": 140,
+          "order": 130,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -382,7 +375,7 @@
           "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "kind": "category-page",
           "label": "DERMACAST",
-          "order": 150,
+          "order": 140,
           "parent_id": "page-categories",
           "tab": "categorypages"
         },
@@ -391,6 +384,15 @@
           "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "category-page",
           "label": "Edição de vídeos",
+          "order": 150,
+          "parent_id": "page-categories",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "kind": "category-page",
+          "label": "Lateral Banners",
           "order": 160,
           "parent_id": "page-categories",
           "tab": "categorypages"
@@ -18913,24 +18915,24 @@
     "runtime_version": "7.8.3",
     "registry_version": "7.8.2",
     "active_theme": {
-      "id": "discord",
-      "name": "Discord",
+      "id": "black-maca",
+      "name": "Black Maça",
       "version": 1,
       "builtin": false,
       "immutable_base": true,
-      "stylesheet": "assets/themes/discord.css",
+      "stylesheet": "assets/themes/black-maca.css",
       "fallback": "studioframe-default",
       "preview": {
         "colors": {
-          "background": "#0e0f2d",
-          "surface": "#23272a",
-          "text": "#ffffff",
-          "muted": "#babcd9",
-          "accent": "#5865f2"
+          "background": "#000000",
+          "surface": "#1d1d1f",
+          "text": "#f5f5f7",
+          "muted": "#86868b",
+          "accent": "#0071e3"
         },
         "mode": "dark",
-        "display_font": "ABC Ginto Nord Discord",
-        "body_font": "GG Sans"
+        "display_font": "SF Pro Display",
+        "body_font": "SF Pro Text"
       }
     },
     "project_overrides": {},
@@ -18938,6 +18940,7 @@
       "override_snapshots": {
         "black-maca": {},
         "discord": {},
+        "maca": {},
         "mekaverse": {},
         "mercury": {
           "colors": {
@@ -18945,41 +18948,34 @@
           }
         },
         "oryzo-ai": {},
-        "structured": {}
+        "structured": {},
+        "studio-oker": {}
       }
     },
     "tokens": {
       "colors": {
-        "primary": "#5865f2",
-        "secondary": "#babcd9",
-        "accent": "#5865f2",
-        "background": "#0e0f2d",
-        "surface": "#23272a",
-        "foreground": "#ffffff",
-        "muted": "#babcd9",
-        "border": "#50555f"
+        "primary": "#0071e3",
+        "secondary": "#86868b",
+        "accent": "#0071e3",
+        "background": "#000000",
+        "surface": "#1d1d1f",
+        "foreground": "#f5f5f7",
+        "muted": "#86868b",
+        "border": "#333336"
       },
       "typography": {
-        "display": "ABC Ginto Nord Discord",
-        "body": "GG Sans",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
-        "heading": "ABC Ginto Nord Discord",
-        "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace",
-        "heading_size_px": 48,
-        "line_height_display": 0.96,
-        "line_height_heading": 1.08,
-        "line_height_body": 1.55
+        "display": "SF Pro Display",
+        "body": "SF Pro Text",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       },
       "radius": {
-        "block": 16
+        "block": 28
       },
       "surfaces": {
-        "style": "solid",
-        "opacity": 100
+        "style": "solid"
       },
       "backgrounds": {
-        "style": "solid",
-        "intensity": 50
+        "style": "solid"
       },
       "buttons": {
         "style": "pill"
@@ -18990,14 +18986,7 @@
       "motion": {
         "preset": "balanced"
       },
-      "components": {},
-      "spacing": {
-        "grid_gap_px": 16
-      },
-      "borders": {
-        "style": "theme",
-        "width": 1
-      }
+      "components": {}
     },
     "editor_ui_isolated": true,
     "content_authority": false,
@@ -19250,12 +19239,6 @@
       "state_path": "settings.site_builder.theme.theme_overrides",
       "base_immutable": true,
       "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
-      "saved_variants_path": "custom_theme_metadata.saved_variants",
-      "reset_levels": [
-        "property",
-        "section",
-        "theme"
-      ],
       "content_authority": false
     }
   },
@@ -42422,7 +42405,7 @@
     "unsupported": 1,
     "ignored": 4,
     "api_calls": 25,
-    "duration_seconds": 9.481
+    "duration_seconds": 85.888
   },
   "publication_ready": true,
   "public_validation": {

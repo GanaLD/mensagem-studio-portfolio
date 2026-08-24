@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "b3b9cf1d5f61c2766f44",
-  "bundle_sha256": "b3b9cf1d5f61c2766f4417157979d7d5b2df10236118518527b0ef17fe1e31ac",
-  "editorial_revision": "e8fcee70407b3d0f003c",
+  "build_revision": "115b1f8e4a5c9da7abc7",
+  "bundle_sha256": "115b1f8e4a5c9da7abc73679ec95a6eb9613265baf5434694cbf2e91c3360ee4",
+  "editorial_revision": "1355d762e87fb0f614ef",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -58,8 +58,8 @@
       "sha256": "733a7fabaa87301ab0e73f0cd29404e4e03bc8df0932fa71974cb7dc6180a083"
     },
     "assets/site.js": {
-      "bytes": 361230,
-      "sha256": "22eabbd33f0e77195c5604dc741b6238ff6a7f056efada2bbe70d0e76e4162c5"
+      "bytes": 361124,
+      "sha256": "7fbf3dcccbe795039715a9c91ea0c0de893651cffa6f25552f7a2b7c47d21dd8"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -110,24 +110,24 @@
       "sha256": "3fc1817fa8bdb803073ea2485e0ff37b32b83a281e62caf6a602878580514b29"
     },
     "assets/themes/theme-overrides-v7.8.3.css": {
-      "bytes": 8038,
-      "sha256": "929c9ea3df7117c82abc92c871c64a7c1e63f191b50c586ed7ca026234464edd"
+      "bytes": 6139,
+      "sha256": "d9e0c66e5cf4d556f8197af92e87142e1f63f6f662d552771b2f92734fe8b6be"
     },
     "assets/themes/theme-runtime.js": {
-      "bytes": 18510,
-      "sha256": "59b1307cb8583ee2c3b6f00111eaceca63cb2e564d7695ea2a56d5dc77aab21b"
+      "bytes": 16698,
+      "sha256": "baa9e4f0e7564bf48a4d937d5e6015bb9769ebd3e66a9664c3b882a23012160a"
     },
     "assets/themes/workplace-neura.css": {
       "bytes": 7288,
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2148681,
-      "sha256": "f67e76cc1bb1cc5e9355debed8e76a375b37309c26f6a999f34f2f77571c8bd6"
+      "bytes": 2148146,
+      "sha256": "3764d9676387c0f49591727dbe8e25bd08f8b494917a2f87c4e94118f8513d00"
     },
     "index.html": {
-      "bytes": 2139711,
-      "sha256": "9443b8931524bb4b2645b62b870190f438bc10f415559c9e7367537ba399484a"
+      "bytes": 1501407,
+      "sha256": "d03401d678db35719403d5e24778b2fd3d4321e50fdba7acfc9b0fb1f31c74ec"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -620,7 +620,7 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 12667271,
+    "bytes": 12024615,
     "files": 141,
     "largest_file_bytes": 4251708,
     "route_shells": 108
@@ -629,34 +629,28 @@
     "active_theme": {
       "builtin": false,
       "fallback": "studioframe-default",
-      "id": "discord",
+      "id": "black-maca",
       "immutable_base": true,
-      "name": "Discord",
+      "name": "Black Maça",
       "preview": {
-        "body_font": "GG Sans",
+        "body_font": "SF Pro Text",
         "colors": {
-          "accent": "#5865f2",
-          "background": "#0e0f2d",
-          "muted": "#babcd9",
-          "surface": "#23272a",
-          "text": "#ffffff"
+          "accent": "#0071e3",
+          "background": "#000000",
+          "muted": "#86868b",
+          "surface": "#1d1d1f",
+          "text": "#f5f5f7"
         },
-        "display_font": "ABC Ginto Nord Discord",
+        "display_font": "SF Pro Display",
         "mode": "dark"
       },
-      "stylesheet": "assets/themes/discord.css",
+      "stylesheet": "assets/themes/black-maca.css",
       "version": 1
     },
     "authoring_contract": {
       "base_immutable": true,
       "content_authority": false,
       "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
-      "reset_levels": [
-        "property",
-        "section",
-        "theme"
-      ],
-      "saved_variants_path": "custom_theme_metadata.saved_variants",
       "state_path": "settings.site_builder.theme.theme_overrides",
       "version": "7.8.3"
     },
@@ -902,6 +896,7 @@
       "override_snapshots": {
         "black-maca": {},
         "discord": {},
+        "maca": {},
         "mekaverse": {},
         "mercury": {
           "colors": {
@@ -909,7 +904,8 @@
           }
         },
         "oryzo-ai": {},
-        "structured": {}
+        "structured": {},
+        "studio-oker": {}
       }
     },
     "editor_ui_isolated": true,
@@ -925,12 +921,7 @@
     },
     "tokens": {
       "backgrounds": {
-        "intensity": 50,
         "style": "solid"
-      },
-      "borders": {
-        "style": "theme",
-        "width": 1
       },
       "buttons": {
         "style": "pill"
@@ -939,39 +930,29 @@
         "style": "themed"
       },
       "colors": {
-        "accent": "#5865f2",
-        "background": "#0e0f2d",
-        "border": "#50555f",
-        "foreground": "#ffffff",
-        "muted": "#babcd9",
-        "primary": "#5865f2",
-        "secondary": "#babcd9",
-        "surface": "#23272a"
+        "accent": "#0071e3",
+        "background": "#000000",
+        "border": "#333336",
+        "foreground": "#f5f5f7",
+        "muted": "#86868b",
+        "primary": "#0071e3",
+        "secondary": "#86868b",
+        "surface": "#1d1d1f"
       },
       "components": {},
       "motion": {
         "preset": "balanced"
       },
       "radius": {
-        "block": 16
-      },
-      "spacing": {
-        "grid_gap_px": 16
+        "block": 28
       },
       "surfaces": {
-        "opacity": 100,
         "style": "solid"
       },
       "typography": {
-        "body": "GG Sans",
-        "display": "ABC Ginto Nord Discord",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
-        "heading": "ABC Ginto Nord Discord",
-        "heading_size_px": 48,
-        "line_height_body": 1.55,
-        "line_height_display": 0.96,
-        "line_height_heading": 1.08,
-        "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace"
+        "body": "SF Pro Text",
+        "display": "SF Pro Display",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
     }
   },
