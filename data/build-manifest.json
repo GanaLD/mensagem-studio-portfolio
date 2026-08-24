@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "869eb8b513a2010037df",
-  "bundle_sha256": "869eb8b513a2010037df83ffd5f36480a234791d76e42b6bf9e7b212e5445680",
-  "editorial_revision": "58e25986270ff97f619b",
+  "build_revision": "b3b9cf1d5f61c2766f44",
+  "bundle_sha256": "b3b9cf1d5f61c2766f4417157979d7d5b2df10236118518527b0ef17fe1e31ac",
+  "editorial_revision": "e8fcee70407b3d0f003c",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -17,6 +17,10 @@
       "bytes": 21,
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
+    "assets/components/advanced-components.js": {
+      "bytes": 7283,
+      "sha256": "cde143bd96600ddc5041c0bc2891fb4df77cbc521d8696a16c07962eca27cab6"
+    },
     "assets/hero/corte-03.mp4": {
       "bytes": 4251708,
       "sha256": "8a7146d41444dde391434821e4dd919baf124aa95e9ea3ffbd8b4b726d5f5cc3"
@@ -27,7 +31,7 @@
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
-      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
+      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
     },
     "assets/motion/adapters/css-native.js": {
       "bytes": 2688,
@@ -50,12 +54,12 @@
       "sha256": "9819230afff93328419b1608803a805b974000b9dbefadad9693c7d9f4fcfb41"
     },
     "assets/site.css": {
-      "bytes": 267273,
-      "sha256": "f8a5b611a2e67d3b38df35c42da65571e120df35fd7430dbd5fed40c633ded1d"
+      "bytes": 276818,
+      "sha256": "733a7fabaa87301ab0e73f0cd29404e4e03bc8df0932fa71974cb7dc6180a083"
     },
     "assets/site.js": {
-      "bytes": 347680,
-      "sha256": "bab6fac1bf906bb4f6e2d7fe29c7561f42a0adc99d8471c6742e91a1a33cfabb"
+      "bytes": 361230,
+      "sha256": "22eabbd33f0e77195c5604dc741b6238ff6a7f056efada2bbe70d0e76e4162c5"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -105,21 +109,25 @@
       "bytes": 387,
       "sha256": "3fc1817fa8bdb803073ea2485e0ff37b32b83a281e62caf6a602878580514b29"
     },
+    "assets/themes/theme-overrides-v7.8.3.css": {
+      "bytes": 8038,
+      "sha256": "929c9ea3df7117c82abc92c871c64a7c1e63f191b50c586ed7ca026234464edd"
+    },
     "assets/themes/theme-runtime.js": {
-      "bytes": 2412,
-      "sha256": "85c619c20de4bd1274461b6f095c31a10b70e4bca8fada927d1ebb5c69941a59"
+      "bytes": 18510,
+      "sha256": "59b1307cb8583ee2c3b6f00111eaceca63cb2e564d7695ea2a56d5dc77aab21b"
     },
     "assets/themes/workplace-neura.css": {
       "bytes": 7288,
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2150166,
-      "sha256": "7566d82e14c2a2ac9c87696ff39d68f9f30a2878ab48654f6111b1dddcb8ffb9"
+      "bytes": 2148681,
+      "sha256": "f67e76cc1bb1cc5e9355debed8e76a375b37309c26f6a999f34f2f77571c8bd6"
     },
     "index.html": {
-      "bytes": 2117488,
-      "sha256": "c696fd88ba0f4051c0e34a0738a7e1a87bd8ac9e29c676ca4dc333b986b15587"
+      "bytes": 2139711,
+      "sha256": "9443b8931524bb4b2645b62b870190f438bc10f415559c9e7367537ba399484a"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -612,8 +620,8 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 12592019,
-    "files": 139,
+    "bytes": 12667271,
+    "files": 141,
     "largest_file_bytes": 4251708,
     "route_shells": 108
   },
@@ -621,23 +629,36 @@
     "active_theme": {
       "builtin": false,
       "fallback": "studioframe-default",
-      "id": "oryzo-ai",
+      "id": "discord",
       "immutable_base": true,
-      "name": "Oryzo AI",
+      "name": "Discord",
       "preview": {
-        "body_font": "Arial",
+        "body_font": "GG Sans",
         "colors": {
-          "accent": "#dc5000",
-          "background": "#100904",
-          "muted": "#6c5f51",
-          "surface": "#382416",
-          "text": "#ffedd7"
+          "accent": "#5865f2",
+          "background": "#0e0f2d",
+          "muted": "#babcd9",
+          "surface": "#23272a",
+          "text": "#ffffff"
         },
-        "display_font": "halyard-display-variable",
+        "display_font": "ABC Ginto Nord Discord",
         "mode": "dark"
       },
-      "stylesheet": "assets/themes/oryzo-ai.css",
+      "stylesheet": "assets/themes/discord.css",
       "version": 1
+    },
+    "authoring_contract": {
+      "base_immutable": true,
+      "content_authority": false,
+      "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
+      "reset_levels": [
+        "property",
+        "section",
+        "theme"
+      ],
+      "saved_variants_path": "custom_theme_metadata.saved_variants",
+      "state_path": "settings.site_builder.theme.theme_overrides",
+      "version": "7.8.3"
     },
     "available_themes": [
       {
@@ -877,12 +898,25 @@
       }
     ],
     "content_authority": false,
-    "custom_theme_metadata": {},
+    "custom_theme_metadata": {
+      "override_snapshots": {
+        "black-maca": {},
+        "discord": {},
+        "mekaverse": {},
+        "mercury": {
+          "colors": {
+            "accent": "#FF00AA"
+          }
+        },
+        "oryzo-ai": {},
+        "structured": {}
+      }
+    },
     "editor_ui_isolated": true,
     "font_policy": "theme font names are advisory; system fallback is mandatory unless licensed font assets are supplied",
     "project_overrides": {},
     "registry_version": "7.8.2",
-    "runtime_version": "7.8.2",
+    "runtime_version": "7.8.3",
     "theme_count": 13,
     "token_contract": {
       "fallback_policy": "studioframe-default",
@@ -891,7 +925,12 @@
     },
     "tokens": {
       "backgrounds": {
+        "intensity": 50,
         "style": "solid"
+      },
+      "borders": {
+        "style": "theme",
+        "width": 1
       },
       "buttons": {
         "style": "pill"
@@ -900,29 +939,39 @@
         "style": "themed"
       },
       "colors": {
-        "accent": "#dc5000",
-        "background": "#100904",
-        "border": "#40372e",
-        "foreground": "#ffedd7",
-        "muted": "#6c5f51",
-        "primary": "#dc5000",
-        "secondary": "#6c5f51",
-        "surface": "#382416"
+        "accent": "#5865f2",
+        "background": "#0e0f2d",
+        "border": "#50555f",
+        "foreground": "#ffffff",
+        "muted": "#babcd9",
+        "primary": "#5865f2",
+        "secondary": "#babcd9",
+        "surface": "#23272a"
       },
       "components": {},
       "motion": {
         "preset": "balanced"
       },
       "radius": {
-        "block": 12
+        "block": 16
+      },
+      "spacing": {
+        "grid_gap_px": 16
       },
       "surfaces": {
+        "opacity": 100,
         "style": "solid"
       },
       "typography": {
-        "body": "Arial",
-        "display": "halyard-display-variable",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
+        "body": "GG Sans",
+        "display": "ABC Ginto Nord Discord",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "heading": "ABC Ginto Nord Discord",
+        "heading_size_px": 48,
+        "line_height_body": 1.55,
+        "line_height_display": 0.96,
+        "line_height_heading": 1.08,
+        "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace"
       }
     }
   },

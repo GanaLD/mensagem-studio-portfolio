@@ -2,7 +2,7 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "editorial_revision": "58e25986270ff97f619b",
+  "editorial_revision": "e8fcee70407b3d0f003c",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -17,10 +17,23 @@
   },
   "site_builder": {
     "theme": {
-      "theme_id": "oryzo-ai",
+      "theme_id": "discord",
       "theme_version": 1,
       "theme_overrides": {},
-      "custom_theme_metadata": {}
+      "custom_theme_metadata": {
+        "override_snapshots": {
+          "black-maca": {},
+          "discord": {},
+          "mekaverse": {},
+          "mercury": {
+            "colors": {
+              "accent": "#FF00AA"
+            }
+          },
+          "oryzo-ai": {},
+          "structured": {}
+        }
+      }
     },
     "media_delivery": {
       "mode": "drive_public_bytes",
@@ -18001,23 +18014,11 @@
         "blocks": [
           {
             "core": true,
-            "desktop_visible": true,
             "eyebrow_size": "",
             "id": "section-1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD-header",
             "label": "Cabeçalho",
-            "mobile_section_size": "inherit",
-            "mobile_section_width": "auto",
-            "mobile_visible": true,
-            "motion_delay": 0,
-            "motion_duration": 0.36,
-            "motion_enabled": false,
-            "motion_engine": "auto",
-            "motion_intensity": "normal",
-            "motion_preset": "inherit",
-            "motion_stagger": 0.06,
-            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090d",
+            "section_background_color": "#07090D",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18033,7 +18034,6 @@
             "section_padding_top": 0,
             "section_parallax": "off",
             "section_reveal": true,
-            "section_size": "normal",
             "section_sticky_behavior": "none",
             "section_texture_attachment": "scroll",
             "section_texture_blend_mode": "soft-light",
@@ -18060,16 +18060,8 @@
             "mobile_section_size": "inherit",
             "mobile_section_width": "auto",
             "mobile_visible": true,
-            "motion_delay": 0,
-            "motion_duration": 0.36,
-            "motion_enabled": false,
-            "motion_engine": "auto",
-            "motion_intensity": "normal",
-            "motion_preset": "inherit",
-            "motion_stagger": 0.06,
-            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090d",
+            "section_background_color": "#07090D",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18118,23 +18110,11 @@
         "blocks": [
           {
             "core": true,
-            "desktop_visible": true,
             "eyebrow_size": "",
             "id": "section-1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw-header",
             "label": "Cabeçalho",
-            "mobile_section_size": "inherit",
-            "mobile_section_width": "auto",
-            "mobile_visible": true,
-            "motion_delay": 0,
-            "motion_duration": 0.36,
-            "motion_enabled": false,
-            "motion_engine": "auto",
-            "motion_intensity": "normal",
-            "motion_preset": "inherit",
-            "motion_stagger": 0.06,
-            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090d",
+            "section_background_color": "#07090D",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18150,7 +18130,6 @@
             "section_padding_top": 0,
             "section_parallax": "off",
             "section_reveal": true,
-            "section_size": "normal",
             "section_sticky_behavior": "none",
             "section_texture_attachment": "scroll",
             "section_texture_blend_mode": "soft-light",
@@ -18177,16 +18156,8 @@
             "mobile_section_size": "inherit",
             "mobile_section_width": "auto",
             "mobile_visible": true,
-            "motion_delay": 0,
-            "motion_duration": 0.36,
-            "motion_enabled": false,
-            "motion_engine": "auto",
-            "motion_intensity": "normal",
-            "motion_preset": "inherit",
-            "motion_stagger": 0.06,
-            "motion_trigger": "viewport",
             "section_background": "none",
-            "section_background_color": "#07090d",
+            "section_background_color": "#07090D",
             "section_background_gradient": "editorial",
             "section_background_media_id": "",
             "section_background_type": "theme",
@@ -18939,55 +18910,76 @@
     "fallback_rule": "motion failure never gates content/navigation/player/save/build/publish"
   },
   "theme_runtime": {
-    "runtime_version": "7.8.2",
+    "runtime_version": "7.8.3",
     "registry_version": "7.8.2",
     "active_theme": {
-      "id": "oryzo-ai",
-      "name": "Oryzo AI",
+      "id": "discord",
+      "name": "Discord",
       "version": 1,
       "builtin": false,
       "immutable_base": true,
-      "stylesheet": "assets/themes/oryzo-ai.css",
+      "stylesheet": "assets/themes/discord.css",
       "fallback": "studioframe-default",
       "preview": {
         "colors": {
-          "background": "#100904",
-          "surface": "#382416",
-          "text": "#ffedd7",
-          "muted": "#6c5f51",
-          "accent": "#dc5000"
+          "background": "#0e0f2d",
+          "surface": "#23272a",
+          "text": "#ffffff",
+          "muted": "#babcd9",
+          "accent": "#5865f2"
         },
         "mode": "dark",
-        "display_font": "halyard-display-variable",
-        "body_font": "Arial"
+        "display_font": "ABC Ginto Nord Discord",
+        "body_font": "GG Sans"
       }
     },
     "project_overrides": {},
-    "custom_theme_metadata": {},
+    "custom_theme_metadata": {
+      "override_snapshots": {
+        "black-maca": {},
+        "discord": {},
+        "mekaverse": {},
+        "mercury": {
+          "colors": {
+            "accent": "#FF00AA"
+          }
+        },
+        "oryzo-ai": {},
+        "structured": {}
+      }
+    },
     "tokens": {
       "colors": {
-        "primary": "#dc5000",
-        "secondary": "#6c5f51",
-        "accent": "#dc5000",
-        "background": "#100904",
-        "surface": "#382416",
-        "foreground": "#ffedd7",
-        "muted": "#6c5f51",
-        "border": "#40372e"
+        "primary": "#5865f2",
+        "secondary": "#babcd9",
+        "accent": "#5865f2",
+        "background": "#0e0f2d",
+        "surface": "#23272a",
+        "foreground": "#ffffff",
+        "muted": "#babcd9",
+        "border": "#50555f"
       },
       "typography": {
-        "display": "halyard-display-variable",
-        "body": "Arial",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
+        "display": "ABC Ginto Nord Discord",
+        "body": "GG Sans",
+        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "heading": "ABC Ginto Nord Discord",
+        "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace",
+        "heading_size_px": 48,
+        "line_height_display": 0.96,
+        "line_height_heading": 1.08,
+        "line_height_body": 1.55
       },
       "radius": {
-        "block": 12
+        "block": 16
       },
       "surfaces": {
-        "style": "solid"
+        "style": "solid",
+        "opacity": 100
       },
       "backgrounds": {
-        "style": "solid"
+        "style": "solid",
+        "intensity": 50
       },
       "buttons": {
         "style": "pill"
@@ -18998,7 +18990,14 @@
       "motion": {
         "preset": "balanced"
       },
-      "components": {}
+      "components": {},
+      "spacing": {
+        "grid_gap_px": 16
+      },
+      "borders": {
+        "style": "theme",
+        "width": 1
+      }
     },
     "editor_ui_isolated": true,
     "content_authority": false,
@@ -19245,6 +19244,19 @@
       "schema": "theme-token-schema-v1",
       "fallback_policy": "studioframe-default",
       "unknown_tokens_preserved": true
+    },
+    "authoring_contract": {
+      "version": "7.8.3",
+      "state_path": "settings.site_builder.theme.theme_overrides",
+      "base_immutable": true,
+      "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
+      "saved_variants_path": "custom_theme_metadata.saved_variants",
+      "reset_levels": [
+        "property",
+        "section",
+        "theme"
+      ],
+      "content_authority": false
     }
   },
   "hero_assets": {
@@ -26509,20 +26521,6 @@
             "visible": true
           },
           {
-            "columns": "3",
-            "core": true,
-            "eyebrow": "CONTINUE EXPLORANDO",
-            "id": "case-core-related",
-            "items": [],
-            "label": "Projetos semelhantes",
-            "max_items": 3,
-            "mode": "auto_category",
-            "show_category": true,
-            "title": "Projetos semelhantes",
-            "type": "related_projects",
-            "visible": true
-          },
-          {
             "core": true,
             "cta": "Próximo projeto",
             "id": "case-core-next",
@@ -26533,14 +26531,7 @@
           }
         ]
       },
-      "commercial": {
-        "cta_label": "Quero algo assim",
-        "display_mode": "full",
-        "enabled": false,
-        "intro": "",
-        "position": "after_media",
-        "related_service_ids": []
-      },
+      "commercial": {},
       "path": [
         "Banner mobile"
       ],
@@ -38037,20 +38028,6 @@
             "visible": true
           },
           {
-            "columns": "3",
-            "core": true,
-            "eyebrow": "CONTINUE EXPLORANDO",
-            "id": "case-core-related",
-            "items": [],
-            "label": "Projetos semelhantes",
-            "max_items": 3,
-            "mode": "auto_category",
-            "show_category": true,
-            "title": "Projetos semelhantes",
-            "type": "related_projects",
-            "visible": true
-          },
-          {
             "core": true,
             "cta": "Próximo projeto",
             "id": "case-core-next",
@@ -38061,14 +38038,7 @@
           }
         ]
       },
-      "commercial": {
-        "cta_label": "Quero algo assim",
-        "display_mode": "full",
-        "enabled": false,
-        "intro": "",
-        "position": "after_media",
-        "related_service_ids": []
-      },
+      "commercial": {},
       "items": [
         {
           "id": "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R",
@@ -42452,7 +42422,7 @@
     "unsupported": 1,
     "ignored": 4,
     "api_calls": 25,
-    "duration_seconds": 9.469
+    "duration_seconds": 9.481
   },
   "publication_ready": true,
   "public_validation": {
