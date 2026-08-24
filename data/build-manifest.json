@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "2f74c96d84a8af380ca7",
-  "bundle_sha256": "2f74c96d84a8af380ca78988eaf612ed56be27770dfbc1b2cd3bc82a2eb18881",
-  "editorial_revision": "de8c12f40e9913b8f842",
+  "build_revision": "0a39e3e4153d95065c20",
+  "bundle_sha256": "0a39e3e4153d95065c2029f85d281a7fb6758233bf26ba62adcf873c926baa2e",
+  "editorial_revision": "776462bd2cc6e78ced72",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -11,7 +11,7 @@
     },
     "404.html": {
       "bytes": 8107,
-      "sha256": "9ab46625b8336d11e384b7ec75e0539101ac8b3b270fb6ba6509f96ee2c7dd05"
+      "sha256": "5949830081663b78885832bc5b72bf0ee7614c9f96dc7e164f93f44bc02fa6a4"
     },
     "CNAME": {
       "bytes": 21,
@@ -21,17 +21,13 @@
       "bytes": 7283,
       "sha256": "cde143bd96600ddc5041c0bc2891fb4df77cbc521d8696a16c07962eca27cab6"
     },
-    "assets/hero/corte-03.mp4": {
-      "bytes": 4251708,
-      "sha256": "8a7146d41444dde391434821e4dd919baf124aa95e9ea3ffbd8b4b726d5f5cc3"
-    },
     "assets/hero/dermacast-laila.mp4": {
       "bytes": 2396816,
       "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
     },
     "assets/hero/manifest.json": {
-      "bytes": 352,
-      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
+      "bytes": 182,
+      "sha256": "d9a77c1706a5794543c66e441276ed3e498b4321ef1a9d5fa2965122f89038f0"
     },
     "assets/motion/adapters/css-native.js": {
       "bytes": 2688,
@@ -162,12 +158,12 @@
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2159697,
-      "sha256": "4a70a481a33d9bbb58e6dfd241f10b3711bce5438a35186808027a7a308c9df3"
+      "bytes": 2182089,
+      "sha256": "71bc70fcab64b72fb0d95c1d4eb66e60ceed776660fc28b6bed006c6d71365b0"
     },
     "index.html": {
-      "bytes": 1508421,
-      "sha256": "fa20afa247a813adbfbeccb1df58e94c8ec8ec5d18c22412316edb2ff51910b3"
+      "bytes": 1522604,
+      "sha256": "b1c372fa94d11fc5f8715cbaf09fa78c890c5e8db53d4a05a8e68b383cb331ea"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -459,151 +455,151 @@
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 8773,
-      "sha256": "47d5ede933ff96f76c6e9da6103c42f329ca3e52e3a86985e9492a7dc12d92ab"
+      "sha256": "e2aa7e4ba268b6bf727ba3bf4ec16b3861ee3b2db04212e1effdca3418f7c7ff"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
       "bytes": 8913,
-      "sha256": "2e52650743e36d9ae914df3d8d947e4361a8802848f7dcd7d144ac440bf166c0"
+      "sha256": "b31c235ccdee88be2a8f088ea4db754634b28b0cd7fae5c54882b2ad5bc6fc3a"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
       "bytes": 8821,
-      "sha256": "0cd27ff50a04679c9192a61b9cb4b03dda9a48b01e814c3c6f547a9aa1fc86df"
+      "sha256": "6c56c51f5adb8fbf7c6ee02952f6f04bc9ed060890ac23f316478588a36b01e7"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
       "bytes": 8937,
-      "sha256": "93f6f1803511d8d00fd7ce422455431001d090769da5cac49cbb3c1fca6808ca"
+      "sha256": "8120e51db8aadd4db0c72dbcde80cb24f5dff39d9a6215a5fe1b036887003225"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
       "bytes": 8797,
-      "sha256": "5f1edf5393830c9c197b9a184e73fdd6738617083615200794d9855a7e17338c"
+      "sha256": "7063203e2256c31f1a0d32b8a232f48892fe0d401504e407a69de1e7cf3b9d44"
     },
     "servicos/composicao-complexa/index.html": {
       "bytes": 8789,
-      "sha256": "f6b9562963730d78fa74cf9ae65b09100bac6d61398f4990a0ff30798197b6ce"
+      "sha256": "e50cdf84965bee34eee1aaea190a8ddfb2a2a777c1fbae8ce156f2f3664c1e55"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
       "bytes": 8813,
-      "sha256": "2ab97591ef0f7501eff1e353f4c8ad050246fefe6e5b354976dce408f22ad506"
+      "sha256": "ad301c294f3b8982a6cb227499e79500c265ea994ec09e0be71f377ceb47e4f5"
     },
     "servicos/composicao-publicitaria/index.html": {
       "bytes": 8817,
-      "sha256": "69f989cbb59f23ce57a1e3a4a542c97be50b00682cba6b94b9e6be24507a4b31"
+      "sha256": "08398c6ff38dd8add70e58c1bdfd604306eb9232c4124a443f1f1313a1ff876d"
     },
     "servicos/correcao-basica/index.html": {
       "bytes": 8685,
-      "sha256": "f77d53c5d841f05a22e7d8b9478e18b73a7a57df6a467e3b2887063ca5b186a7"
+      "sha256": "34151d9525d0e05631b9f2a031eca8e33b789387158ca4b6f64de7d97ffecc05"
     },
     "servicos/criacao-de-personagem/index.html": {
       "bytes": 8833,
-      "sha256": "285f20df5c3a44f9c76bec19b1250cc7f9ccb9fa38f21074209a8748eb594540"
+      "sha256": "2b6249bc39883206366d8c5a6e3173d47b22b3e7d9a2e3f59f6f10823442c1fc"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
       "bytes": 8901,
-      "sha256": "35333de5c74f1c897c8860dbfb74a492d0426ed3ad03145ec9aed98e15ee3b73"
+      "sha256": "ae47d18448416465d1247238f111489fe0b935aba2b6109b4857f44ab66b2dee"
     },
     "servicos/direcao-de-arte/index.html": {
       "bytes": 8765,
-      "sha256": "46ae2efa665befa6b5e65f2008d745cd5e894397389f312a725284b07f458cb2"
+      "sha256": "f0c38540a74428b3d9675f98a72d596487a60ae313e2723c1d4dd4232ffb2e53"
     },
     "servicos/ilustracao-individual/index.html": {
       "bytes": 8765,
-      "sha256": "7eae562fda3a9130e347db6912e06642af2f28032b52374e333915c149fa8bbd"
+      "sha256": "e030f0c0026dff81ea698d9940f97ef27aac8d4a573f61b1de2efaffd00d07d7"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
       "bytes": 8813,
-      "sha256": "81cfd9f6ede3ef201706d772842429c52a6aba3eaf376f2b31f7f3c396e5fc7f"
+      "sha256": "faf0a5054943a180d700d95442479207a674d7f646fa276a87162b7111c33b80"
     },
     "servicos/index.html": {
       "bytes": 8706,
-      "sha256": "8f516579cabfd6efcd491eaa3ffb5b1668d3a4bf3e9049748f66714866c5fa35"
+      "sha256": "ddb9b736e59355fa736e8116e28b2c841b076bfde271bc210eb51e9fe28ed396"
     },
     "servicos/key-visual-de-campanha/index.html": {
       "bytes": 8809,
-      "sha256": "3a6c18904550a9d50f740e67892f98d326657eec0341166a279efb218991953f"
+      "sha256": "ecac4207161d820d899060e72471c09e2840b47145630b2973167035312a0d4c"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
       "bytes": 8841,
-      "sha256": "b355b0497fe2e131023b9b2200424f641996ddf80bd74a07d79180cd1fda0e3b"
+      "sha256": "dfb31e74dce85e414bcaa5afe18d25abff85ce8bb392d64a811af4b2154a5684"
     },
     "servicos/manual-completo/index.html": {
       "bytes": 8793,
-      "sha256": "9bdc8e18766b91614c81821e066e6406f1761aafa271fc76317e51d4cb3aa812"
+      "sha256": "961bcd14405c428cbd08f0366566c0b95dd40b48cb9cf524fb78404cff475939"
     },
     "servicos/manual-essencial/index.html": {
       "bytes": 8757,
-      "sha256": "23e51a7adc3cdb0ff993a10594dadd983a17f6ed81bedf798fbf77a46005685b"
+      "sha256": "f4f4840ac3bdaf248d06aff6fbd0b57ee4334386802914f3348b4301233bb7ba"
     },
     "servicos/meia-diaria-de-producao/index.html": {
       "bytes": 8837,
-      "sha256": "81296f9b098285b4a8a1465438a1f9d70e010e7e8110e4f26273c249fb24f011"
+      "sha256": "c55325dcd05bde0e93dc6dc9b09a38ff3e04aaacca0259859b806d63e67c486a"
     },
     "servicos/montagem-simples/index.html": {
       "bytes": 8705,
-      "sha256": "464cbe73c859b8a3424555308904ecb574368cd9404b4bb4489b9271d02c529e"
+      "sha256": "36d64a13f60eec07cdbe1893acfdb2e42729767742f43e3886626f7af8f382b1"
     },
     "servicos/motion-para-redes-sociais/index.html": {
       "bytes": 8809,
-      "sha256": "60e1af84b988423a325a63ebf5db92e9fa30aab59ef4c5f668885578f8f49c77"
+      "sha256": "56805801e783cf9e9eac4687a096c293d9e048c5e840abe70f1c1b26095de3de"
     },
     "servicos/packshot-animado-de-produto/index.html": {
       "bytes": 8797,
-      "sha256": "0df3c55e041b796a7dd9b7bebf0c7a436be38eef191a08e78a3a82b3d276acce"
+      "sha256": "b00dc89f1b693cf715f62a8f4e6c3eb3e50a90c99446b380cf031c195e528fdf"
     },
     "servicos/pacote-com-10-criativos/index.html": {
       "bytes": 8765,
-      "sha256": "0f23954a06e0dd5bdfbd7173d46761c749b3437ee131934ed477fa2a39862e26"
+      "sha256": "6a690811c959950c566489ed00c981fe297329d3c559a19d5589537068cc85c9"
     },
     "servicos/pacote-com-10-fotos/index.html": {
       "bytes": 8709,
-      "sha256": "4632880e798af36558d412dd1cf8747530b5818795eedfb3a04a0ec6a0cb18d4"
+      "sha256": "a11b38be3cfc8ea4c239ac25e1e6ff788655a2c91639698551569b93e1cb352a"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
       "bytes": 8821,
-      "sha256": "bc72902f2c2584fac44701f5da82d16fbe13c7c2d0426f9fb7268e288a75cf06"
+      "sha256": "3306a5a11c1fa40e4bf73e657d40ecc1ab92d49b6bccf670154bb9ac8994f332"
     },
     "servicos/pacote-com-8-reels/index.html": {
       "bytes": 8721,
-      "sha256": "074ef98e752b22a1751211009df79c823ff7d13f5edbe4275e70c42399ea511c"
+      "sha256": "54b1477fe1f37a5944e6046fb18c89b8143bb3db6ab271c70514060b7809d123"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
       "bytes": 8829,
-      "sha256": "fa167135fc2531691941d2e13a930e57c112d64d261181cbebdee400eb060a52"
+      "sha256": "cbf285d3b05b2dd5b16e4e27d78d9c96f44d9fb7efbeb07589ac149a3a02811c"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
       "bytes": 8877,
-      "sha256": "024e13eab6fcd9b79e86bd1da1d6679b069b399f71fea6886fd63286b232578b"
+      "sha256": "12d899d51ec764b5c33b4a875592ed64c32d00a38eab2c8ee141d6f28c65a6f7"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
       "bytes": 8893,
-      "sha256": "093ef5053c38372e11b21768aa07a5ed6e44e316949c88c6b3fc2bb50ef5ba8a"
+      "sha256": "0076207c00b83ec59f193f8000cb20a432d1daf93bf179f153247bab343b8c80"
     },
     "servicos/retoque-avancado/index.html": {
       "bytes": 8705,
-      "sha256": "c71ea1dfcf19f326d34619243d265e9cde9cc0db5c11492291de27d0c477d21f"
+      "sha256": "c152ba3123cd62e476e434fe2892cd7519b2eba0932238b912aa93fde9aa8592"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
       "bytes": 8829,
-      "sha256": "3c3acb8b07038c6b5e796b1a989a4eaf4ef4cc8f3609a191a6048681be0f2c19"
+      "sha256": "6bdb897e93b9ed9c9b8b6caa4c842db1a9ea85b007a496480819921a87e91acb"
     },
     "servicos/site-html-editor-studioframe/index.html": {
       "bytes": 9445,
-      "sha256": "635a0ae8198e1474548299ffe299371515b03ce2b14dc9fcdb8e531bc6540b43"
+      "sha256": "61e1bfbcf2aa2fe60fa95ac6c2c530d87f3e21ee658c7d29876085c191dcc9ba"
     },
     "servicos/site-studioframe-manutencao-mensal/index.html": {
       "bytes": 9225,
-      "sha256": "8d1e66e3011960c3c0a38e0a22f2b6cbc0063841c75a0e9d54f87c2df1f8a37f"
+      "sha256": "937c292b1e34dbae1d22b694fff511e477ebd1097de65bb26884322066909529"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
       "bytes": 8801,
-      "sha256": "71c6277c3ad7a0f5dbc9278702d6310f777982205befeea8fef44c53c66642a7"
+      "sha256": "70c494e623f3c45b49cc987a7aa37badc5cb7ab3e7ce3561fe6c414278035585"
     },
     "servicos/video-de-produto/index.html": {
       "bytes": 8773,
-      "sha256": "dd6814f24f5ac869b639d3eddf05ee820a64095bd6bd758056e493fb0c9ff3fc"
+      "sha256": "2b041847ea468bbbf584d6c2460ac4089ec63edcce13fc2dea82a39a741eef44"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
       "bytes": 8897,
-      "sha256": "34e2d01c8200b4fc49e8378f0e5f51b593fe5ba4c55721c27138d54e55e22e0b"
+      "sha256": "f7bc4e8b1d110672da353b1b1e6e27d03f5543ea118d6d839dc132a0f4d2b22a"
     },
     "sitemap.xml": {
       "bytes": 9999,
@@ -640,9 +636,9 @@
       "tokens": {
         "ease": [
           0.4,
-          0,
+          0.0,
           0.2,
-          1
+          1.0
         ],
         "quick": 0.18,
         "slow": 0.6,
@@ -660,38 +656,38 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 13140758,
-    "files": 151,
-    "largest_file_bytes": 4251708,
+    "bytes": 8925455,
+    "files": 150,
+    "largest_file_bytes": 2396816,
     "route_shells": 108
   },
   "theme_runtime": {
     "active_theme": {
       "builtin": false,
       "fallback": "studioframe-default",
-      "id": "black-maca",
+      "id": "discord",
       "immutable_base": true,
-      "name": "Black Maça",
+      "name": "Discord",
       "preview": {
-        "body_font": "SF Pro Text",
+        "body_font": "GG Sans",
         "colors": {
-          "accent": "#0071e3",
-          "background": "#000000",
-          "muted": "#86868b",
-          "surface": "#1d1d1f",
-          "text": "#f5f5f7"
+          "accent": "#5865f2",
+          "background": "#0e0f2d",
+          "muted": "#babcd9",
+          "surface": "#23272a",
+          "text": "#ffffff"
         },
-        "display_font": "SF Pro Display",
+        "display_font": "ABC Ginto Nord Discord",
         "mode": "dark"
       },
-      "stylesheet": "assets/themes/black-maca.css",
+      "stylesheet": "assets/themes/discord.css",
       "version": 1
     },
     "active_variant": {
       "exclusive": true,
-      "id": "black-maca--base",
+      "id": "discord--base",
       "key": "base",
-      "theme_id": "black-maca"
+      "theme_id": "discord"
     },
     "authoring_contract": {
       "base_immutable": true,
@@ -942,16 +938,16 @@
     "available_variants": [
       {
         "exclusive": true,
-        "id": "black-maca--base",
+        "id": "discord--base",
         "key": "base",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {}
       },
       {
         "exclusive": true,
-        "id": "black-maca--soft",
+        "id": "discord--soft",
         "key": "soft",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {
           "radius": {
             "block": 20,
@@ -970,9 +966,9 @@
       },
       {
         "exclusive": true,
-        "id": "black-maca--editorial",
+        "id": "discord--editorial",
         "key": "editorial",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {
           "buttons": {
             "style": "editorial"
@@ -998,9 +994,9 @@
       },
       {
         "exclusive": true,
-        "id": "black-maca--sharp",
+        "id": "discord--sharp",
         "key": "sharp",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {
           "buttons": {
             "style": "square"
@@ -1025,9 +1021,9 @@
       },
       {
         "exclusive": true,
-        "id": "black-maca--glass",
+        "id": "discord--glass",
         "key": "glass",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {
           "cards": {
             "style": "glass"
@@ -1049,9 +1045,9 @@
       },
       {
         "exclusive": true,
-        "id": "black-maca--cinematic",
+        "id": "discord--cinematic",
         "key": "cinematic",
-        "theme_id": "black-maca",
+        "theme_id": "discord",
         "tokens": {
           "backgrounds": {
             "intensity": 78,
@@ -1078,7 +1074,6 @@
       "override_snapshots": {
         "black-maca": {},
         "discord": {},
-        "maca": {},
         "mekaverse": {},
         "mercury": {
           "colors": {
@@ -1086,8 +1081,7 @@
           }
         },
         "oryzo-ai": {},
-        "structured": {},
-        "studio-oker": {}
+        "structured": {}
       }
     },
     "editor_ui_isolated": true,
@@ -1112,28 +1106,28 @@
         "style": "themed"
       },
       "colors": {
-        "accent": "#0071e3",
-        "background": "#000000",
-        "border": "#333336",
-        "foreground": "#f5f5f7",
-        "muted": "#86868b",
-        "primary": "#0071e3",
-        "secondary": "#86868b",
-        "surface": "#1d1d1f"
+        "accent": "#5865f2",
+        "background": "#0e0f2d",
+        "border": "#50555f",
+        "foreground": "#ffffff",
+        "muted": "#babcd9",
+        "primary": "#5865f2",
+        "secondary": "#babcd9",
+        "surface": "#23272a"
       },
       "components": {},
       "motion": {
         "preset": "balanced"
       },
       "radius": {
-        "block": 28
+        "block": 16
       },
       "surfaces": {
         "style": "solid"
       },
       "typography": {
-        "body": "SF Pro Text",
-        "display": "SF Pro Display",
+        "body": "GG Sans",
+        "display": "ABC Ginto Nord Discord",
         "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
     },
