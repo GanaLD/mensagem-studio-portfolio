@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-cf930bef5c204485",
     "format": "studioframe-editorial-v1",
-    "revision": "cc66be85008f1c9370ee",
-    "saved_at": "2026-08-24T15:00:13.543717+00:00"
+    "revision": "1355d762e87fb0f614ef",
+    "saved_at": "2026-08-24T15:00:22.826431+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18991,6 +18991,7 @@
         "override_snapshots": {
           "black-maca": {},
           "discord": {},
+          "maca": {},
           "mekaverse": {},
           "mercury": {
             "colors": {
@@ -18998,10 +18999,11 @@
             }
           },
           "oryzo-ai": {},
-          "structured": {}
+          "structured": {},
+          "studio-oker": {}
         }
       },
-      "theme_id": "studio-oker",
+      "theme_id": "black-maca",
       "theme_overrides": {},
       "theme_version": 1
     }
