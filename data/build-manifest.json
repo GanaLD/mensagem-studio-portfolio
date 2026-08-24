@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "24de4cb2e5d4fa15edad",
-  "bundle_sha256": "24de4cb2e5d4fa15edad94e8d2d00d8e82c7be3bd6a78656bfa982c83e6251fa",
-  "editorial_revision": "4ae0e3b6d736d3f5a59c",
+  "build_revision": "2f74c96d84a8af380ca7",
+  "bundle_sha256": "2f74c96d84a8af380ca78988eaf612ed56be27770dfbc1b2cd3bc82a2eb18881",
+  "editorial_revision": "de8c12f40e9913b8f842",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -31,35 +31,75 @@
     },
     "assets/hero/manifest.json": {
       "bytes": 352,
-      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
+      "sha256": "66059ad7557e210b713100cb92a41eda55059a8610b434d482ebb082dd7b60e1"
     },
     "assets/motion/adapters/css-native.js": {
       "bytes": 2688,
       "sha256": "b20cd97f5ad7ebad8fc6bf63ee4707a485d185d0063f50e163e128a32f10335c"
     },
     "assets/motion/adapters/gsap.js": {
-      "bytes": 3938,
-      "sha256": "dd9195463e2767eaa7c232ff53e314921d0520e0f6433c10ff7bc266e2321f66"
+      "bytes": 7687,
+      "sha256": "5c24b61bbc9cc0913240c4404a347e1255d76623e8be08f4be4dfd68c59cb830"
     },
     "assets/motion/adapters/motion.js": {
-      "bytes": 2455,
-      "sha256": "d9fbc35da038ec44ba7bdf656d854504fe0708b653466fd77a8689e4cd7f9d13"
+      "bytes": 4476,
+      "sha256": "2028370a827475472f5c452e505af93c99ab56230e099c3082af650f952a839b"
     },
     "assets/motion/adapters/three.js": {
-      "bytes": 2319,
-      "sha256": "8b20adbf9e5b00b9323674bd2a70ffe4ffab6481b8a4066c3b6607124757a1ba"
+      "bytes": 4241,
+      "sha256": "c13ff0d0202ebf500b078618e12efc639f9507011c0db12360be12e37f5d5f32"
     },
     "assets/motion/motion-runtime.js": {
-      "bytes": 5535,
-      "sha256": "9819230afff93328419b1608803a805b974000b9dbefadad9693c7d9f4fcfb41"
+      "bytes": 6781,
+      "sha256": "b413e5478ed7306021fc4a2638b1387d72c6128e5331d8d388f488a4998e1cc4"
+    },
+    "assets/motion/vendor/THIRD_PARTY_NOTICES.md": {
+      "bytes": 830,
+      "sha256": "5a50c43a08634d20f2e15a33340e1aa9d734fe3852c7559d40f732a5c6735df0"
+    },
+    "assets/motion/vendor/gsap/Flip.min.js": {
+      "bytes": 25534,
+      "sha256": "cbe3ca726350f8d230da38a14ce2384e7772e05a45cee6144dd7fe6dde868c2f"
+    },
+    "assets/motion/vendor/gsap/ScrollTrigger.min.js": {
+      "bytes": 44575,
+      "sha256": "b0b14d67b55b0c43c756ac0b106cfcb09d0879945f6ead64451065b0672916a2"
+    },
+    "assets/motion/vendor/gsap/SplitText.min.js": {
+      "bytes": 7732,
+      "sha256": "419f7027a5f086a12cb7988736d8fdd3a6ed2200229661de25b6628ca7ced344"
+    },
+    "assets/motion/vendor/gsap/gsap.min.js": {
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "assets/motion/vendor/licenses/MOTION-LICENSE.md": {
+      "bytes": 1100,
+      "sha256": "1bf0dc3f7727723e5a032ed12164a47cf92c05204cb1a3485f123c24e2833ed1"
+    },
+    "assets/motion/vendor/licenses/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    "assets/motion/vendor/motion/motion.js": {
+      "bytes": 139606,
+      "sha256": "d8b344a48578cb8616dad0110658017a1434cdb99873adc96d0efe64abc07e8c"
+    },
+    "assets/motion/vendor/three/three.core.min.js": {
+      "bytes": 385390,
+      "sha256": "0e9dd2793e01d0d9eb4f2ab00b4ffcdd4488275ebebee5c31fa8d347bc29f0bf"
+    },
+    "assets/motion/vendor/three/three.module.min.js": {
+      "bytes": 365552,
+      "sha256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6"
     },
     "assets/site.css": {
-      "bytes": 286517,
-      "sha256": "e1811a5815ce1f588b07cfded3dc5a10cdf81c399fc09422589e32eb0836a976"
+      "bytes": 296270,
+      "sha256": "a294cb5f3447e70044a07664fa88961e98bea7cb67f0bdff437c45c4aa55f7a9"
     },
     "assets/site.js": {
-      "bytes": 375253,
-      "sha256": "d0afcb3bfc685db04909e8fcd226ef5fcaa56d6571cb885690041b697c6a0928"
+      "bytes": 384405,
+      "sha256": "67aa029290bf50d531ebc5a83244e22bbc1eb723c2bbc4ad9bc730136843c76c"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -114,20 +154,20 @@
       "sha256": "d9e0c66e5cf4d556f8197af92e87142e1f63f6f662d552771b2f92734fe8b6be"
     },
     "assets/themes/theme-runtime.js": {
-      "bytes": 16698,
-      "sha256": "baa9e4f0e7564bf48a4d937d5e6015bb9769ebd3e66a9664c3b882a23012160a"
+      "bytes": 18278,
+      "sha256": "f8a9aa234b44ea0281669067924cbeed1431d5ee0152e7a9c5716df6646dfcde"
     },
     "assets/themes/workplace-neura.css": {
       "bytes": 7288,
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2148146,
-      "sha256": "0af709b676d69bba9532fee409aa5d92687939938805bbd9ab289af973e181cf"
+      "bytes": 2159697,
+      "sha256": "4a70a481a33d9bbb58e6dfd241f10b3711bce5438a35186808027a7a308c9df3"
     },
     "index.html": {
-      "bytes": 1501407,
-      "sha256": "6ac82763a1b08f70dc2f39b7422c4e26b64eea06d40edbea7882e19a3c4216dc"
+      "bytes": 1508421,
+      "sha256": "fa20afa247a813adbfbeccb1df58e94c8ec8ec5d18c22412316edb2ff51910b3"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -600,9 +640,9 @@
       "tokens": {
         "ease": [
           0.4,
-          0.0,
+          0,
           0.2,
-          1.0
+          1
         ],
         "quick": 0.18,
         "slow": 0.6,
@@ -620,8 +660,8 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 12048443,
-    "files": 141,
+    "bytes": 13140758,
+    "files": 151,
     "largest_file_bytes": 4251708,
     "route_shells": 108
   },
@@ -647,12 +687,20 @@
       "stylesheet": "assets/themes/black-maca.css",
       "version": 1
     },
+    "active_variant": {
+      "exclusive": true,
+      "id": "black-maca--base",
+      "key": "base",
+      "theme_id": "black-maca"
+    },
     "authoring_contract": {
       "base_immutable": true,
       "content_authority": false,
+      "exclusive_variants": true,
       "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
-      "state_path": "settings.site_builder.theme.theme_overrides",
-      "version": "7.8.3"
+      "state_path": "settings.site_builder.theme",
+      "variant_path": "settings.site_builder.theme.theme_variant_id",
+      "version": "7.8.7"
     },
     "available_themes": [
       {
@@ -891,6 +939,140 @@
         "version": 1
       }
     ],
+    "available_variants": [
+      {
+        "exclusive": true,
+        "id": "black-maca--base",
+        "key": "base",
+        "theme_id": "black-maca",
+        "tokens": {}
+      },
+      {
+        "exclusive": true,
+        "id": "black-maca--soft",
+        "key": "soft",
+        "theme_id": "black-maca",
+        "tokens": {
+          "radius": {
+            "block": 20,
+            "button": 999,
+            "card": 20
+          },
+          "shadows": {
+            "strength": 20,
+            "style": "soft"
+          },
+          "surfaces": {
+            "opacity": 96,
+            "style": "soft"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "black-maca--editorial",
+        "key": "editorial",
+        "theme_id": "black-maca",
+        "tokens": {
+          "buttons": {
+            "style": "editorial"
+          },
+          "cards": {
+            "style": "flat"
+          },
+          "radius": {
+            "block": 2,
+            "button": 2,
+            "card": 2
+          },
+          "spacing": {
+            "card_padding_px": 28,
+            "element_gap_px": 18,
+            "section_px": 104
+          },
+          "typography": {
+            "heading_weight": 500,
+            "letter_spacing_em": -0.02
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "black-maca--sharp",
+        "key": "sharp",
+        "theme_id": "black-maca",
+        "tokens": {
+          "buttons": {
+            "style": "square"
+          },
+          "cards": {
+            "style": "outlined"
+          },
+          "radius": {
+            "block": 0,
+            "button": 2,
+            "card": 0
+          },
+          "shadows": {
+            "strength": 0,
+            "style": "none"
+          },
+          "surfaces": {
+            "opacity": 100,
+            "style": "solid"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "black-maca--glass",
+        "key": "glass",
+        "theme_id": "black-maca",
+        "tokens": {
+          "cards": {
+            "style": "glass"
+          },
+          "radius": {
+            "block": 22,
+            "button": 999,
+            "card": 22
+          },
+          "shadows": {
+            "strength": 28,
+            "style": "soft"
+          },
+          "surfaces": {
+            "opacity": 72,
+            "style": "glass"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "black-maca--cinematic",
+        "key": "cinematic",
+        "theme_id": "black-maca",
+        "tokens": {
+          "backgrounds": {
+            "intensity": 78,
+            "style": "luminous"
+          },
+          "motion": {
+            "preset": "cinematic"
+          },
+          "shadows": {
+            "strength": 42,
+            "style": "deep"
+          },
+          "spacing": {
+            "card_padding_px": 32,
+            "element_gap_px": 20,
+            "section_px": 128
+          }
+        }
+      }
+    ],
+    "component_motion_variation_count": 598,
     "content_authority": false,
     "custom_theme_metadata": {
       "override_snapshots": {
@@ -912,7 +1094,7 @@
     "font_policy": "theme font names are advisory; system fallback is mandatory unless licensed font assets are supplied",
     "project_overrides": {},
     "registry_version": "7.8.2",
-    "runtime_version": "7.8.3",
+    "runtime_version": "7.8.7",
     "theme_count": 13,
     "token_contract": {
       "fallback_policy": "studioframe-default",
@@ -954,7 +1136,9 @@
         "display": "SF Pro Display",
         "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
-    }
+    },
+    "variant_count": 78,
+    "variant_tokens": {}
   },
   "video_assets": {
     "bytes": 0,

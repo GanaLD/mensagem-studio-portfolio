@@ -1,17 +1,21 @@
 let modulePromise; const active=new WeakMap();
-async function loadMotion(){ if(!modulePromise)modulePromise=import('https://cdn.jsdelivr.net/npm/motion@12.43.0/+esm'); return modulePromise; }
+function script(src){return new Promise((resolve,reject)=>{const existing=document.querySelector(`script[data-sf-motion-src="${src}"]`);if(existing){if(existing.dataset.loaded==='true')resolve();else{existing.addEventListener('load',resolve,{once:true});existing.addEventListener('error',reject,{once:true});}return;}const node=document.createElement('script');node.src=src;node.async=true;node.dataset.sfMotionSrc=src;node.onload=()=>{node.dataset.loaded='true';resolve();};node.onerror=reject;document.head.append(node);});}
+async function loadMotion(){if(!modulePromise)modulePromise=(async()=>{if(!window.Motion)await script(new URL('../vendor/motion/motion.js',import.meta.url).href);if(!window.Motion)throw new Error('Motion runtime local unavailable');return window.Motion;})();return modulePromise;}
 export async function mount(el, options={}){
   destroy(el); const mod=await loadMotion(); const animate=mod.animate||mod.default?.animate; if(typeof animate!=='function')throw new Error('Motion runtime unavailable');
   el.dataset.sfMotionResolvedEngine='motion';
   const factor=options.intensityFactor||1, duration=Math.max(.05,Number(options.duration||.36)),preset=options.preset||'button-scale'; let controls; const cleanup=[];
   if(options.reduced){el.style.opacity='1';controls={cancel(){}};}
+  else if(preset==='text-morph') controls=animate(el,{opacity:[0,1],filter:['blur(12px)','blur(0px)'],letterSpacing:['.09em','0em'],transform:[`translateY(${12*factor}px)`,'translateY(0px)']},{duration,delay:Number(options.delay||0),easing:'ease-out'});
   else if(options.trigger==='interaction'||preset.startsWith('button-')){
-    const reset=()=>{controls?.cancel?.();controls=animate(el,{scale:1,x:0,y:0},{duration:duration*.65,easing:'ease-out'});};
-    const enter=()=>{controls?.cancel?.();controls=animate(el,{scale:preset.includes('morph')?1.045:1.025},{duration:duration*.55,easing:'ease-out'});};
-    const move=(event)=>{if(!preset.includes('magnetic')||matchMedia('(hover:none),(pointer:coarse)').matches)return;const r=el.getBoundingClientRect(),x=(event.clientX-(r.left+r.width/2))*.14*factor,y=(event.clientY-(r.top+r.height/2))*.14*factor;controls?.cancel?.();controls=animate(el,{x,y,scale:1.025},{duration:.18,easing:'ease-out'});};
-    el.addEventListener('pointerenter',enter);el.addEventListener('pointermove',move);el.addEventListener('pointerleave',reset);el.addEventListener('focusin',enter);el.addEventListener('focusout',reset);
-    cleanup.push(()=>{el.removeEventListener('pointerenter',enter);el.removeEventListener('pointermove',move);el.removeEventListener('pointerleave',reset);el.removeEventListener('focusin',enter);el.removeEventListener('focusout',reset);el.style.transform='';});
-    controls={cancel(){cleanup.forEach(fn=>fn());}};
+    let loadingTimer=0;
+    const arrow=el.querySelector('[data-motion-arrow],.button-arrow,.cta-arrow,svg');
+    const reset=()=>{controls?.cancel?.();controls=animate(el,{scale:1,x:0,y:0,borderRadius:getComputedStyle(el).borderRadius},{duration:duration*.65,easing:'ease-out'});if(arrow)animate(arrow,{x:0,rotate:0},{duration:duration*.6,easing:'ease-out'});};
+    const enter=()=>{controls?.cancel?.();const target=preset==='button-morph'?{scale:1.045,borderRadius:'999px'}:{scale:preset==='button-scale'?1.06:1.025};controls=animate(el,target,{duration:duration*.55,easing:'ease-out'});if(preset==='button-arrow-follow'&&arrow)animate(arrow,{x:8*factor,rotate:-4*factor},{duration:duration*.55,easing:'ease-out'});};
+    const move=(event)=>{if(preset!=='button-magnetic'||matchMedia('(hover:none),(pointer:coarse)').matches)return;const r=el.getBoundingClientRect(),x=(event.clientX-(r.left+r.width/2))*.14*factor,y=(event.clientY-(r.top+r.height/2))*.14*factor;controls?.cancel?.();controls=animate(el,{x,y,scale:1.025},{duration:.18,easing:'ease-out'});};
+    const activate=()=>{if(preset!=='button-loading-success')return;clearTimeout(loadingTimer);el.dataset.sfMotionPhase='loading';controls?.cancel?.();controls=animate(el,{scale:[1,.94,1],rotate:[0,-1.4,0]},{duration:Math.max(.2,duration),easing:'ease-in-out'});loadingTimer=setTimeout(()=>{el.dataset.sfMotionPhase='success';animate(el,{scale:[1,1.035,1]},{duration:Math.max(.24,duration),easing:'ease-out'});loadingTimer=setTimeout(()=>delete el.dataset.sfMotionPhase,850);},Math.max(180,duration*700));};
+    el.addEventListener('pointerenter',enter);el.addEventListener('pointermove',move);el.addEventListener('pointerleave',reset);el.addEventListener('focusin',enter);el.addEventListener('focusout',reset);el.addEventListener('pointerdown',activate);
+    cleanup.push(()=>{clearTimeout(loadingTimer);el.removeEventListener('pointerenter',enter);el.removeEventListener('pointermove',move);el.removeEventListener('pointerleave',reset);el.removeEventListener('focusin',enter);el.removeEventListener('focusout',reset);el.removeEventListener('pointerdown',activate);delete el.dataset.sfMotionPhase;el.style.transform='';el.style.borderRadius='';if(arrow)arrow.style.transform='';});
   }else controls=animate(el,{opacity:[0,1],transform:[`translateY(${20*factor}px)`,'translateY(0px)']},{duration,delay:Number(options.delay||0),easing:'ease-out'});
   const resource={cancel(){try{controls?.cancel?.();}catch(_){}cleanup.forEach(fn=>{try{fn();}catch(_){}});}};active.set(el,resource);return {engine:'motion',pause:()=>controls.pause?.(),resume:()=>controls.play?.(),destroy:()=>destroy(el)};
 }
