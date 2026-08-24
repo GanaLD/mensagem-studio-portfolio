@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "77f12f93f4ca2162fc5d",
-    "saved_at": "2026-08-24T02:23:48.611257+00:00"
+    "revision": "7d74ce25dc6559656264",
+    "saved_at": "2026-08-24T02:23:56.634041+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -18989,6 +18989,7 @@
     "theme": {
       "custom_theme_metadata": {
         "override_snapshots": {
+          "black-maca": {},
           "mercury": {
             "colors": {
               "accent": "#FF00AA"
@@ -18996,7 +18997,7 @@
           }
         }
       },
-      "theme_id": "black-maca",
+      "theme_id": "oryzo-ai",
       "theme_overrides": {},
       "theme_version": 1
     }
