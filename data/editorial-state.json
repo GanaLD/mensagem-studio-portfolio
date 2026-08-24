@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "0312cbdc38fbeb041abc",
-    "saved_at": "2026-08-24T23:52:49.116090+00:00"
+    "revision": "df6d93c12f3ae199e781",
+    "saved_at": "2026-08-24T23:52:57.035108+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1462,7 +1462,7 @@
           "section_background_media_id": "",
           "section_background_type": "theme",
           "section_content_alignment": "left",
-          "section_layout_preset": "default",
+          "section_layout_preset": "full_bleed",
           "section_min_height": 0,
           "section_motion_preset": "inherit",
           "section_navigation_label": "Canvas Fractal Grid · TXT",
