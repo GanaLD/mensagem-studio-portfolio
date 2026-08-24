@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "153b43121e8366fa14cb",
-    "saved_at": "2026-08-24T23:45:39.513473+00:00"
+    "revision": "9b45d8071a5d6f01776d",
+    "saved_at": "2026-08-24T23:45:56.653908+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -559,22 +559,36 @@
       "scroll_label": "Role para explorar",
       "slides": [
         {
+          "action_type": "project",
+          "action_url": "",
+          "cta_label": "Explorar projeto",
           "duration": 8,
+          "focus_x": 50,
+          "focus_y": 50,
           "id": "hero-slide-msyiyucx-evx8",
           "intensity": 60,
           "media_id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
           "mobile_media_id": "",
+          "project_id": "",
           "transition_in": "fade",
-          "transition_out": "crossfade"
+          "transition_out": "crossfade",
+          "zoom": 1
         },
         {
+          "action_type": "project",
+          "action_url": "",
+          "cta_label": "Explorar projeto",
           "duration": 8,
+          "focus_x": 50,
+          "focus_y": 50,
           "id": "hero-slide-msyiz33w-flow",
           "intensity": 60,
           "media_id": "1PBHrpBqzc1FLXhZ9Hox1NRO9SIPYkndr",
           "mobile_media_id": "",
+          "project_id": "",
           "transition_in": "fade",
-          "transition_out": "crossfade"
+          "transition_out": "crossfade",
+          "zoom": 1
         }
       ],
       "sound_control_visible": true,
