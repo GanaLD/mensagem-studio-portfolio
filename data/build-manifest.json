@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "530be2060c7719d6cb1b",
-  "bundle_sha256": "530be2060c7719d6cb1b9efb7c15b658f9cb1ab3e731ce9985503ca19e3a9823",
-  "editorial_revision": "f68bf20185d929e2b102",
+  "build_revision": "ab893665bce82d3073ec",
+  "bundle_sha256": "ab893665bce82d3073ecd86797cb060238012e9bdf79c392c8149c019a5badff",
+  "editorial_revision": "51368ce5c81f9ef96d88",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -158,12 +158,12 @@
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2200348,
-      "sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094"
+      "bytes": 2200357,
+      "sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd"
     },
     "index.html": {
-      "bytes": 1534949,
-      "sha256": "4352c6a63710f22750fa76ed4f439543ce8dd0d534a7ff8ce21e0dcaf60a691f"
+      "bytes": 1534958,
+      "sha256": "36473175f3547a2ecfa91ea0220b3a111f6336c630e2fa0f1d8d4182ea449f7e"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -682,19 +682,19 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 2200348,
-  "portfolio_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
+  "portfolio_bytes": 2200357,
+  "portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "f68bf20185d929e2b102",
+  "revision": "51368ce5c81f9ef96d88",
   "runtime_dependencies": [],
-  "source_revision": "f68bf20185d929e2b102",
+  "source_revision": "51368ce5c81f9ef96d88",
   "stats": {
-    "bytes": 8992234,
+    "bytes": 8992252,
     "files": 150,
     "largest_file_bytes": 2396816,
     "route_shells": 108
