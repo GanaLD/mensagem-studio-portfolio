@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b10952787c6caaba4156",
-    "saved_at": "2026-08-25T01:24:27.874958+00:00"
+    "revision": "0d71827f1ca4ffc89946",
+    "saved_at": "2026-08-25T01:24:35.826331+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -786,7 +786,7 @@
           "motion_stagger": 0.06,
           "motion_theme_variant_id": "inherit",
           "motion_trigger": "viewport",
-          "section_background": "none",
+          "section_background": "accent-soft",
           "section_background_color": "#07090d",
           "section_background_gradient": "editorial",
           "section_background_media_id": "",
