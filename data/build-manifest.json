@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "ab893665bce82d3073ec",
-  "bundle_sha256": "ab893665bce82d3073ecd86797cb060238012e9bdf79c392c8149c019a5badff",
-  "editorial_revision": "51368ce5c81f9ef96d88",
+  "build_revision": "6f8f41bc0c4a7e8dd91d",
+  "bundle_sha256": "6f8f41bc0c4a7e8dd91d38fbd80fb2abbcfed74576335081491bfe9bce0a75a2",
+  "editorial_revision": "1faecbbabe0a225b1a13",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -11,7 +11,7 @@
     },
     "404.html": {
       "bytes": 8107,
-      "sha256": "5949830081663b78885832bc5b72bf0ee7614c9f96dc7e164f93f44bc02fa6a4"
+      "sha256": "9ab46625b8336d11e384b7ec75e0539101ac8b3b270fb6ba6509f96ee2c7dd05"
     },
     "CNAME": {
       "bytes": 21,
@@ -21,13 +21,17 @@
       "bytes": 7283,
       "sha256": "cde143bd96600ddc5041c0bc2891fb4df77cbc521d8696a16c07962eca27cab6"
     },
+    "assets/hero/corte-03.mp4": {
+      "bytes": 4251708,
+      "sha256": "8a7146d41444dde391434821e4dd919baf124aa95e9ea3ffbd8b4b726d5f5cc3"
+    },
     "assets/hero/dermacast-laila.mp4": {
       "bytes": 2396816,
       "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
     },
     "assets/hero/manifest.json": {
-      "bytes": 182,
-      "sha256": "d9a77c1706a5794543c66e441276ed3e498b4321ef1a9d5fa2965122f89038f0"
+      "bytes": 352,
+      "sha256": "2bbadd92f786839335362841cb8f4f3e96b5d056f65fcf41e429315921508eda"
     },
     "assets/motion/adapters/css-native.js": {
       "bytes": 2688,
@@ -90,12 +94,12 @@
       "sha256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6"
     },
     "assets/site.css": {
-      "bytes": 302042,
-      "sha256": "33bd9c7b6326a60f3df734cdb991939b92a5f8c075cde835adfee3ce30e07739"
+      "bytes": 309941,
+      "sha256": "9b49bd8948aa255d9a50548eb2924e764af6d2e2281ee633d0f705f5043369de"
     },
     "assets/site.js": {
-      "bytes": 414295,
-      "sha256": "3de60a223c341f868fdf6ab59f096f0d1b04ce7200aeb147e23e05829103ddc7"
+      "bytes": 422746,
+      "sha256": "2c31d19174f1dc9e509e7c35024dc9d59a960069a754efc0e6fe54b364a13da3"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -158,12 +162,12 @@
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2200357,
-      "sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd"
+      "bytes": 2180987,
+      "sha256": "0eb675267fd1915dadb4b5758f9884fa9ce71c0b35bd11bf340a409a1378bcc9"
     },
     "index.html": {
-      "bytes": 1534958,
-      "sha256": "36473175f3547a2ecfa91ea0220b3a111f6336c630e2fa0f1d8d4182ea449f7e"
+      "bytes": 1522696,
+      "sha256": "c2c79b4502f94975ac53e038f07f9a2ad694d22c3cb9a6a0339b74d52a49321d"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -455,151 +459,151 @@
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 8773,
-      "sha256": "e2aa7e4ba268b6bf727ba3bf4ec16b3861ee3b2db04212e1effdca3418f7c7ff"
+      "sha256": "47d5ede933ff96f76c6e9da6103c42f329ca3e52e3a86985e9492a7dc12d92ab"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
       "bytes": 8913,
-      "sha256": "b31c235ccdee88be2a8f088ea4db754634b28b0cd7fae5c54882b2ad5bc6fc3a"
+      "sha256": "2e52650743e36d9ae914df3d8d947e4361a8802848f7dcd7d144ac440bf166c0"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
       "bytes": 8821,
-      "sha256": "6c56c51f5adb8fbf7c6ee02952f6f04bc9ed060890ac23f316478588a36b01e7"
+      "sha256": "0cd27ff50a04679c9192a61b9cb4b03dda9a48b01e814c3c6f547a9aa1fc86df"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
       "bytes": 8937,
-      "sha256": "8120e51db8aadd4db0c72dbcde80cb24f5dff39d9a6215a5fe1b036887003225"
+      "sha256": "93f6f1803511d8d00fd7ce422455431001d090769da5cac49cbb3c1fca6808ca"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
       "bytes": 8797,
-      "sha256": "7063203e2256c31f1a0d32b8a232f48892fe0d401504e407a69de1e7cf3b9d44"
+      "sha256": "5f1edf5393830c9c197b9a184e73fdd6738617083615200794d9855a7e17338c"
     },
     "servicos/composicao-complexa/index.html": {
       "bytes": 8789,
-      "sha256": "e50cdf84965bee34eee1aaea190a8ddfb2a2a777c1fbae8ce156f2f3664c1e55"
+      "sha256": "f6b9562963730d78fa74cf9ae65b09100bac6d61398f4990a0ff30798197b6ce"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
       "bytes": 8813,
-      "sha256": "ad301c294f3b8982a6cb227499e79500c265ea994ec09e0be71f377ceb47e4f5"
+      "sha256": "2ab97591ef0f7501eff1e353f4c8ad050246fefe6e5b354976dce408f22ad506"
     },
     "servicos/composicao-publicitaria/index.html": {
       "bytes": 8817,
-      "sha256": "08398c6ff38dd8add70e58c1bdfd604306eb9232c4124a443f1f1313a1ff876d"
+      "sha256": "69f989cbb59f23ce57a1e3a4a542c97be50b00682cba6b94b9e6be24507a4b31"
     },
     "servicos/correcao-basica/index.html": {
       "bytes": 8685,
-      "sha256": "34151d9525d0e05631b9f2a031eca8e33b789387158ca4b6f64de7d97ffecc05"
+      "sha256": "f77d53c5d841f05a22e7d8b9478e18b73a7a57df6a467e3b2887063ca5b186a7"
     },
     "servicos/criacao-de-personagem/index.html": {
       "bytes": 8833,
-      "sha256": "2b6249bc39883206366d8c5a6e3173d47b22b3e7d9a2e3f59f6f10823442c1fc"
+      "sha256": "285f20df5c3a44f9c76bec19b1250cc7f9ccb9fa38f21074209a8748eb594540"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
       "bytes": 8901,
-      "sha256": "ae47d18448416465d1247238f111489fe0b935aba2b6109b4857f44ab66b2dee"
+      "sha256": "35333de5c74f1c897c8860dbfb74a492d0426ed3ad03145ec9aed98e15ee3b73"
     },
     "servicos/direcao-de-arte/index.html": {
       "bytes": 8765,
-      "sha256": "f0c38540a74428b3d9675f98a72d596487a60ae313e2723c1d4dd4232ffb2e53"
+      "sha256": "46ae2efa665befa6b5e65f2008d745cd5e894397389f312a725284b07f458cb2"
     },
     "servicos/ilustracao-individual/index.html": {
       "bytes": 8765,
-      "sha256": "e030f0c0026dff81ea698d9940f97ef27aac8d4a573f61b1de2efaffd00d07d7"
+      "sha256": "7eae562fda3a9130e347db6912e06642af2f28032b52374e333915c149fa8bbd"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
       "bytes": 8813,
-      "sha256": "faf0a5054943a180d700d95442479207a674d7f646fa276a87162b7111c33b80"
+      "sha256": "81cfd9f6ede3ef201706d772842429c52a6aba3eaf376f2b31f7f3c396e5fc7f"
     },
     "servicos/index.html": {
       "bytes": 8706,
-      "sha256": "ddb9b736e59355fa736e8116e28b2c841b076bfde271bc210eb51e9fe28ed396"
+      "sha256": "8f516579cabfd6efcd491eaa3ffb5b1668d3a4bf3e9049748f66714866c5fa35"
     },
     "servicos/key-visual-de-campanha/index.html": {
       "bytes": 8809,
-      "sha256": "ecac4207161d820d899060e72471c09e2840b47145630b2973167035312a0d4c"
+      "sha256": "3a6c18904550a9d50f740e67892f98d326657eec0341166a279efb218991953f"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
       "bytes": 8841,
-      "sha256": "dfb31e74dce85e414bcaa5afe18d25abff85ce8bb392d64a811af4b2154a5684"
+      "sha256": "b355b0497fe2e131023b9b2200424f641996ddf80bd74a07d79180cd1fda0e3b"
     },
     "servicos/manual-completo/index.html": {
       "bytes": 8793,
-      "sha256": "961bcd14405c428cbd08f0366566c0b95dd40b48cb9cf524fb78404cff475939"
+      "sha256": "9bdc8e18766b91614c81821e066e6406f1761aafa271fc76317e51d4cb3aa812"
     },
     "servicos/manual-essencial/index.html": {
       "bytes": 8757,
-      "sha256": "f4f4840ac3bdaf248d06aff6fbd0b57ee4334386802914f3348b4301233bb7ba"
+      "sha256": "23e51a7adc3cdb0ff993a10594dadd983a17f6ed81bedf798fbf77a46005685b"
     },
     "servicos/meia-diaria-de-producao/index.html": {
       "bytes": 8837,
-      "sha256": "c55325dcd05bde0e93dc6dc9b09a38ff3e04aaacca0259859b806d63e67c486a"
+      "sha256": "81296f9b098285b4a8a1465438a1f9d70e010e7e8110e4f26273c249fb24f011"
     },
     "servicos/montagem-simples/index.html": {
       "bytes": 8705,
-      "sha256": "36d64a13f60eec07cdbe1893acfdb2e42729767742f43e3886626f7af8f382b1"
+      "sha256": "464cbe73c859b8a3424555308904ecb574368cd9404b4bb4489b9271d02c529e"
     },
     "servicos/motion-para-redes-sociais/index.html": {
       "bytes": 8809,
-      "sha256": "56805801e783cf9e9eac4687a096c293d9e048c5e840abe70f1c1b26095de3de"
+      "sha256": "60e1af84b988423a325a63ebf5db92e9fa30aab59ef4c5f668885578f8f49c77"
     },
     "servicos/packshot-animado-de-produto/index.html": {
       "bytes": 8797,
-      "sha256": "b00dc89f1b693cf715f62a8f4e6c3eb3e50a90c99446b380cf031c195e528fdf"
+      "sha256": "0df3c55e041b796a7dd9b7bebf0c7a436be38eef191a08e78a3a82b3d276acce"
     },
     "servicos/pacote-com-10-criativos/index.html": {
       "bytes": 8765,
-      "sha256": "6a690811c959950c566489ed00c981fe297329d3c559a19d5589537068cc85c9"
+      "sha256": "0f23954a06e0dd5bdfbd7173d46761c749b3437ee131934ed477fa2a39862e26"
     },
     "servicos/pacote-com-10-fotos/index.html": {
       "bytes": 8709,
-      "sha256": "a11b38be3cfc8ea4c239ac25e1e6ff788655a2c91639698551569b93e1cb352a"
+      "sha256": "4632880e798af36558d412dd1cf8747530b5818795eedfb3a04a0ec6a0cb18d4"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
       "bytes": 8821,
-      "sha256": "3306a5a11c1fa40e4bf73e657d40ecc1ab92d49b6bccf670154bb9ac8994f332"
+      "sha256": "bc72902f2c2584fac44701f5da82d16fbe13c7c2d0426f9fb7268e288a75cf06"
     },
     "servicos/pacote-com-8-reels/index.html": {
       "bytes": 8721,
-      "sha256": "54b1477fe1f37a5944e6046fb18c89b8143bb3db6ab271c70514060b7809d123"
+      "sha256": "074ef98e752b22a1751211009df79c823ff7d13f5edbe4275e70c42399ea511c"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
       "bytes": 8829,
-      "sha256": "cbf285d3b05b2dd5b16e4e27d78d9c96f44d9fb7efbeb07589ac149a3a02811c"
+      "sha256": "fa167135fc2531691941d2e13a930e57c112d64d261181cbebdee400eb060a52"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
       "bytes": 8877,
-      "sha256": "12d899d51ec764b5c33b4a875592ed64c32d00a38eab2c8ee141d6f28c65a6f7"
+      "sha256": "024e13eab6fcd9b79e86bd1da1d6679b069b399f71fea6886fd63286b232578b"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
       "bytes": 8893,
-      "sha256": "0076207c00b83ec59f193f8000cb20a432d1daf93bf179f153247bab343b8c80"
+      "sha256": "093ef5053c38372e11b21768aa07a5ed6e44e316949c88c6b3fc2bb50ef5ba8a"
     },
     "servicos/retoque-avancado/index.html": {
       "bytes": 8705,
-      "sha256": "c152ba3123cd62e476e434fe2892cd7519b2eba0932238b912aa93fde9aa8592"
+      "sha256": "c71ea1dfcf19f326d34619243d265e9cde9cc0db5c11492291de27d0c477d21f"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
       "bytes": 8829,
-      "sha256": "6bdb897e93b9ed9c9b8b6caa4c842db1a9ea85b007a496480819921a87e91acb"
+      "sha256": "3c3acb8b07038c6b5e796b1a989a4eaf4ef4cc8f3609a191a6048681be0f2c19"
     },
     "servicos/site-html-editor-studioframe/index.html": {
       "bytes": 9445,
-      "sha256": "61e1bfbcf2aa2fe60fa95ac6c2c530d87f3e21ee658c7d29876085c191dcc9ba"
+      "sha256": "635a0ae8198e1474548299ffe299371515b03ce2b14dc9fcdb8e531bc6540b43"
     },
     "servicos/site-studioframe-manutencao-mensal/index.html": {
       "bytes": 9225,
-      "sha256": "937c292b1e34dbae1d22b694fff511e477ebd1097de65bb26884322066909529"
+      "sha256": "8d1e66e3011960c3c0a38e0a22f2b6cbc0063841c75a0e9d54f87c2df1f8a37f"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
       "bytes": 8801,
-      "sha256": "70c494e623f3c45b49cc987a7aa37badc5cb7ab3e7ce3561fe6c414278035585"
+      "sha256": "71c6277c3ad7a0f5dbc9278702d6310f777982205befeea8fef44c53c66642a7"
     },
     "servicos/video-de-produto/index.html": {
       "bytes": 8773,
-      "sha256": "2b041847ea468bbbf584d6c2460ac4089ec63edcce13fc2dea82a39a741eef44"
+      "sha256": "dd6814f24f5ac869b639d3eddf05ee820a64095bd6bd758056e493fb0c9ff3fc"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
       "bytes": 8897,
-      "sha256": "f7bc4e8b1d110672da353b1b1e6e27d03f5543ea118d6d839dc132a0f4d2b22a"
+      "sha256": "34e2d01c8200b4fc49e8378f0e5f51b593fe5ba4c55721c27138d54e55e22e0b"
     },
     "sitemap.xml": {
       "bytes": 9999,
@@ -611,35 +615,27 @@
     "core-hero",
     "core-intro",
     "core-lettering",
-    "block-mt7w7u6g-rltgl",
     "core-projects-header",
     "core-projects",
-    "block-mt7vxqnd-yp24f",
     "youtube-showcase-main",
-    "block-mt7w4nzd-iqxso",
-    "block-mt7w65mq-gj3mf",
-    "block-mt7w1mxs-fz7yt",
-    "block-mt7w6ubb-x0xc9",
-    "block-mt7w5bn1-p6bcf",
+    "block-mt32plzh-b4yjs",
+    "core-about",
     "core-contact",
-    "core-about"
+    "block-mt32r6vo-bdwit",
+    "block-mt32u7t0-hykp8"
   ],
   "home_block_types": [
     "hero",
     "intro",
     "lettering",
-    "text_motion",
     "projects_header",
     "projects",
-    "sliced_hero",
     "youtube_showcase",
-    "dynamic_island",
-    "carousel_3d",
-    "quote_cta",
-    "logo_carousel",
-    "canvas_fractal_grid",
+    "spacer",
+    "about",
     "contact",
-    "about"
+    "youtube_showcase",
+    "autoplay_carousel"
   ],
   "motion_runtime": {
     "category_counts": {
@@ -682,50 +678,50 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 2200357,
-  "portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
+  "portfolio_bytes": 2180987,
+  "portfolio_sha256": "0eb675267fd1915dadb4b5758f9884fa9ce71c0b35bd11bf340a409a1378bcc9",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "51368ce5c81f9ef96d88",
+  "revision": "1faecbbabe0a225b1a13",
   "runtime_dependencies": [],
-  "source_revision": "51368ce5c81f9ef96d88",
+  "source_revision": "1faecbbabe0a225b1a13",
   "stats": {
-    "bytes": 8992252,
-    "files": 150,
-    "largest_file_bytes": 2396816,
+    "bytes": 13228848,
+    "files": 151,
+    "largest_file_bytes": 4251708,
     "route_shells": 108
   },
   "theme_runtime": {
     "active_theme": {
       "builtin": false,
       "fallback": "studioframe-default",
-      "id": "discord",
+      "id": "oryzo-ai",
       "immutable_base": true,
-      "name": "Discord",
+      "name": "Oryzo AI",
       "preview": {
-        "body_font": "GG Sans",
+        "body_font": "Arial",
         "colors": {
-          "accent": "#5865f2",
-          "background": "#0e0f2d",
-          "muted": "#babcd9",
-          "surface": "#23272a",
-          "text": "#ffffff"
+          "accent": "#dc5000",
+          "background": "#100904",
+          "muted": "#6c5f51",
+          "surface": "#382416",
+          "text": "#ffedd7"
         },
-        "display_font": "ABC Ginto Nord Discord",
+        "display_font": "halyard-display-variable",
         "mode": "dark"
       },
-      "stylesheet": "assets/themes/discord.css",
+      "stylesheet": "assets/themes/oryzo-ai.css",
       "version": 1
     },
     "active_variant": {
       "exclusive": true,
-      "id": "discord--base",
+      "id": "oryzo-ai--base",
       "key": "base",
-      "theme_id": "discord"
+      "theme_id": "oryzo-ai"
     },
     "authoring_contract": {
       "base_immutable": true,
@@ -976,16 +972,16 @@
     "available_variants": [
       {
         "exclusive": true,
-        "id": "discord--base",
+        "id": "oryzo-ai--base",
         "key": "base",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {}
       },
       {
         "exclusive": true,
-        "id": "discord--soft",
+        "id": "oryzo-ai--soft",
         "key": "soft",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "radius": {
             "block": 20,
@@ -1004,9 +1000,9 @@
       },
       {
         "exclusive": true,
-        "id": "discord--editorial",
+        "id": "oryzo-ai--editorial",
         "key": "editorial",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "buttons": {
             "style": "editorial"
@@ -1032,9 +1028,9 @@
       },
       {
         "exclusive": true,
-        "id": "discord--sharp",
+        "id": "oryzo-ai--sharp",
         "key": "sharp",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "buttons": {
             "style": "square"
@@ -1059,9 +1055,9 @@
       },
       {
         "exclusive": true,
-        "id": "discord--glass",
+        "id": "oryzo-ai--glass",
         "key": "glass",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "cards": {
             "style": "glass"
@@ -1083,9 +1079,9 @@
       },
       {
         "exclusive": true,
-        "id": "discord--cinematic",
+        "id": "oryzo-ai--cinematic",
         "key": "cinematic",
-        "theme_id": "discord",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "backgrounds": {
             "intensity": 78,
@@ -1110,16 +1106,24 @@
     "content_authority": false,
     "custom_theme_metadata": {
       "override_snapshots": {
-        "black-maca": {},
+        "black-maca": {
+          "theme_overrides": {},
+          "theme_variant_id": "black-maca--base"
+        },
         "discord": {},
+        "maca": {},
         "mekaverse": {},
         "mercury": {
           "colors": {
             "accent": "#FF00AA"
           }
         },
-        "oryzo-ai": {},
-        "structured": {}
+        "oryzo-ai": {
+          "theme_overrides": {},
+          "theme_variant_id": "oryzo-ai--base"
+        },
+        "structured": {},
+        "studio-oker": {}
       }
     },
     "editor_ui_isolated": true,
@@ -1144,28 +1148,28 @@
         "style": "themed"
       },
       "colors": {
-        "accent": "#5865f2",
-        "background": "#0e0f2d",
-        "border": "#50555f",
-        "foreground": "#ffffff",
-        "muted": "#babcd9",
-        "primary": "#5865f2",
-        "secondary": "#babcd9",
-        "surface": "#23272a"
+        "accent": "#dc5000",
+        "background": "#100904",
+        "border": "#40372e",
+        "foreground": "#ffedd7",
+        "muted": "#6c5f51",
+        "primary": "#dc5000",
+        "secondary": "#6c5f51",
+        "surface": "#382416"
       },
       "components": {},
       "motion": {
         "preset": "balanced"
       },
       "radius": {
-        "block": 16
+        "block": 12
       },
       "surfaces": {
         "style": "solid"
       },
       "typography": {
-        "body": "GG Sans",
-        "display": "ABC Ginto Nord Discord",
+        "body": "Arial",
+        "display": "halyard-display-variable",
         "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
     },
