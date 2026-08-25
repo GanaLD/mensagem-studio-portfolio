@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "0d71827f1ca4ffc89946",
-    "saved_at": "2026-08-25T01:24:43.878673+00:00"
+    "revision": "af406764ebe35fbea4b9",
+    "saved_at": "2026-08-25T01:24:52.537374+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -794,7 +794,7 @@
           "section_content_alignment": "left",
           "section_global_canvas_blur": 0,
           "section_global_canvas_depth": 0,
-          "section_global_canvas_keyframe_enabled": false,
+          "section_global_canvas_keyframe_enabled": true,
           "section_global_canvas_mask": "full",
           "section_global_canvas_mask_feather": 0,
           "section_global_canvas_mask_radius": 24,
