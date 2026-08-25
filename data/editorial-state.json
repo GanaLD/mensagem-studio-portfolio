@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "af406764ebe35fbea4b9",
-    "saved_at": "2026-08-25T01:25:12.237070+00:00"
+    "revision": "a9c69d1dde31cdd96acc",
+    "saved_at": "2026-08-25T01:25:20.059779+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1224,7 +1224,7 @@
           "eyebrow_size": "",
           "font_family": "display",
           "grid_columns": "3",
-          "grid_gap": "normal",
+          "grid_gap": "wide",
           "header_visible": true,
           "id": "core-projects",
           "label": "Projetos",
