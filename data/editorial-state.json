@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-eeef177a492b4616",
     "format": "studioframe-editorial-v1",
-    "revision": "860ba9498c3673f75b61",
-    "saved_at": "2026-08-25T23:00:03.682545+00:00"
+    "revision": "99b90680dfaca52c901f",
+    "saved_at": "2026-08-25T23:00:15.758791+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1805,7 +1805,7 @@
           "height_vh": 50,
           "id": "block-mt99opqn-13te1",
           "label": "Mid-page Cinematic Hero",
-          "media_id": "",
+          "media_id": "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O",
           "mobile_section_size": "inherit",
           "mobile_section_width": "auto",
           "mobile_visible": true,
