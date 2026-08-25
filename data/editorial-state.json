@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f68bf20185d929e2b102",
-    "saved_at": "2026-08-25T01:24:19.165768+00:00"
+    "revision": "b10952787c6caaba4156",
+    "saved_at": "2026-08-25T01:24:27.874958+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -805,7 +805,7 @@
           "section_global_canvas_transition": "fade",
           "section_global_canvas_x": 0,
           "section_global_canvas_y": 0,
-          "section_layout_preset": "default",
+          "section_layout_preset": "full_bleed",
           "section_min_height": 0,
           "section_motion_preset": "inherit",
           "section_navigation_label": "Hero",
