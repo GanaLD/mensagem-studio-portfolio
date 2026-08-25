@@ -12,7 +12,7 @@ const active=new WeakMap();
 export async function mount(el, options={}){
   destroy(el); const loaded=await loadGsap(options.requires||[]),gsap=loaded.gsap,ScrollTrigger=loaded.ScrollTrigger;el.dataset.sfMotionResolvedEngine='gsap';
   const preset=options.preset||'section-reveal',factor=options.intensityFactor||1,distance=26*factor,duration=Math.max(.05,Number(options.duration||.6)),delay=Number(options.delay||0),stagger=Number(options.stagger||.06),children=[...el.children].filter(node=>node.tagName!=='CANVAS');let animation,split;
-  const scroll=(extra={})=>ScrollTrigger?{trigger:el,start:'top 90%',end:'bottom 20%',once:true,...extra}:undefined;
+  const scroll=(extra={})=>ScrollTrigger?{trigger:el,start:'top 90%',end:'bottom 20%',once:true,...((options.trigger==='scroll'&&Number(options.scrub||0)>0)?{scrub:Number(options.scrub),once:false}:{}),...extra}:undefined;
   if(options.reduced){gsap.set([el,...children],{clearProps:'transform,filter,opacity,clipPath'});animation={kill(){},pause(){},resume(){}};}
   else if(loaded.SplitText&&preset.startsWith('text-')){
     split=new loaded.SplitText(el,{type:preset==='text-lines'?'lines':preset==='text-words'?'words':'chars'});const parts=split.lines?.length?split.lines:split.words?.length?split.words:split.chars||[];
@@ -45,7 +45,7 @@ export async function mount(el, options={}){
   } else if(preset==='section-cta-cinematic'){
     animation=gsap.timeline({delay,scrollTrigger:scroll()}).fromTo(el,{clipPath:'inset(0 50% 0 50%)',opacity:.35},{clipPath:'inset(0 0% 0 0%)',opacity:1,duration:duration*1.3,ease:'power3.inOut'}).fromTo(children,{opacity:0,y:distance*.5},{opacity:1,y:0,duration:duration*.7,stagger},'-=.55');
   } else {
-    animation=gsap.fromTo(el,{opacity:0,y:distance,scale:.98},{opacity:1,y:0,scale:1,duration,delay,ease:'power3.out',scrollTrigger:scroll()});
+    const direction=String(options.direction||'auto'),fromVector=direction==='left'?{x:-distance,y:0}:direction==='right'?{x:distance,y:0}:direction==='down'?{x:0,y:-distance}:{x:0,y:distance};animation=gsap.fromTo(el,{opacity:0,...fromVector,scale:.98},{opacity:1,x:0,y:0,scale:1,duration,delay,ease:options.ease==='linear'?'none':'power3.out',scrollTrigger:scroll()});
   }
   const resource={animation,split,kill(){try{animation?.scrollTrigger?.kill?.();animation?.kill?.();split?.revert?.();gsap.set(el,{clearProps:'transform,filter,opacity,clipPath'});}catch(_){}}};active.set(el,resource);return {engine:'gsap',pause:()=>animation?.pause?.(),resume:()=>animation?.resume?.(),destroy:()=>destroy(el)};
 }
