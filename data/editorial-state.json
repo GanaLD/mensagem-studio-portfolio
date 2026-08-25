@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "3ff733f7e447e898eb93",
-    "saved_at": "2026-08-24T23:59:59.274550+00:00"
+    "revision": "80b839f03f1052b4059c",
+    "saved_at": "2026-08-25T00:00:07.412474+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -2125,6 +2125,26 @@
       "public_access_policy": "anyone-reader-only",
       "public_base_url": "",
       "zero_drive_ui": true
+    },
+    "motion_engine": {
+      "contract_version": "7.7",
+      "enabled": false,
+      "engine_policy": "auto",
+      "intensity": "normal",
+      "personality": "premium",
+      "reduced_motion": "system",
+      "tokens": {
+        "ease": [
+          0.4,
+          0,
+          0.2,
+          1
+        ],
+        "quick": 0.18,
+        "slow": 0.6,
+        "stagger": 0.06,
+        "standard": 0.36
+      }
     },
     "navigation": {
       "about_label": "Sobre",
