@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-eeef177a492b4616",
     "format": "studioframe-editorial-v1",
-    "revision": "99b90680dfaca52c901f",
-    "saved_at": "2026-08-25T23:00:15.758791+00:00"
+    "revision": "0cf2cfd8db6daecfe0ef",
+    "saved_at": "2026-08-25T23:00:27.455586+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1827,7 +1827,7 @@
           "section_background_media_id": "",
           "section_background_type": "theme",
           "section_content_alignment": "left",
-          "section_layout_preset": "default",
+          "section_layout_preset": "stacked_editorial",
           "section_min_height": 0,
           "section_motion_preset": "inherit",
           "section_navigation_label": "Mid-page Cinematic Hero",
