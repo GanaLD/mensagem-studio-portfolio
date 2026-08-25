@@ -2,9 +2,9 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "530be2060c7719d6cb1b9efb7c15b658f9cb1ab3e731ce9985503ca19e3a9823",
-    "commit": "e2d3018eae456717aca01f655f86bba9e4b9dd97",
-    "editorial_revision": "f68bf20185d929e2b102",
+    "bundle_sha256": "ab893665bce82d3073ecd86797cb060238012e9bdf79c392c8149c019a5badff",
+    "commit": "4008cf197c07e74c6623f434b1e3b6df5e139749",
+    "editorial_revision": "51368ce5c81f9ef96d88",
     "expected_block_ids": [
       "core-hero",
       "block-mt7w7u6g-rltgl",
@@ -33,15 +33,15 @@
       "contact",
       "about"
     ],
-    "github_portfolio_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
-    "github_revision": "f68bf20185d929e2b102",
-    "manifest_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
-    "portfolio_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
-    "published_at": "2026-08-25T01:22:56.335215+00:00",
+    "github_portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
+    "github_revision": "51368ce5c81f9ef96d88",
+    "manifest_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
+    "portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
+    "published_at": "2026-08-25T01:47:17.428234+00:00",
     "removed_files": 0,
     "removed_paths": [],
-    "reused_bytes": 4525619,
-    "reused_files": 144,
+    "reused_bytes": 5256937,
+    "reused_files": 148,
     "reused_paths": [
       ".nojekyll",
       "404.html",
@@ -50,8 +50,10 @@
       "assets/hero/dermacast-laila.mp4",
       "assets/hero/manifest.json",
       "assets/motion/adapters/css-native.js",
+      "assets/motion/adapters/gsap.js",
       "assets/motion/adapters/motion.js",
       "assets/motion/adapters/three.js",
+      "assets/motion/motion-runtime.js",
       "assets/motion/vendor/THIRD_PARTY_NOTICES.md",
       "assets/motion/vendor/gsap/Flip.min.js",
       "assets/motion/vendor/gsap/ScrollTrigger.min.js",
@@ -62,6 +64,8 @@
       "assets/motion/vendor/motion/motion.js",
       "assets/motion/vendor/three/three.core.min.js",
       "assets/motion/vendor/three/three.module.min.js",
+      "assets/site.css",
+      "assets/site.js",
       "assets/themes/black-maca.css",
       "assets/themes/branding.css",
       "assets/themes/discord.css",
@@ -88,19 +92,15 @@
       "projetos/banner-mobile/index.html",
       "projetos/banners/banner-allergan/index.html",
       "projetos/banners/banner-bacio/index.html",
-      "projetos/banners/banner-bellarine/index.html",
-      "projetos/banners/banner-central-rejuvital-2/index.html",
-      "projetos/banners/banner-central-rejuvital/index.html",
-      "projetos/banners/banner-evo/index.html",
-      "projetos/banners/banner-lancamento/index.html"
+      "projetos/banners/banner-bellarine/index.html"
     ],
-    "revision": "f68bf20185d929e2b102",
+    "revision": "51368ce5c81f9ef96d88",
     "site_url": "https://mensagemstudio.shop/",
-    "source_revision": "f68bf20185d929e2b102",
+    "source_revision": "51368ce5c81f9ef96d88",
     "stages": [
       {
-        "bundle_sha256": "530be2060c7719d6cb1b9efb7c15b658f9cb1ab3e731ce9985503ca19e3a9823",
-        "editorial_revision": "f68bf20185d929e2b102",
+        "bundle_sha256": "ab893665bce82d3073ecd86797cb060238012e9bdf79c392c8149c019a5badff",
+        "editorial_revision": "51368ce5c81f9ef96d88",
         "expected_block_ids": [
           "core-hero",
           "block-mt7w7u6g-rltgl",
@@ -131,8 +131,8 @@
         ],
         "key": "build",
         "label": "Build local",
-        "message": "151 arquivos · 8.6 MB · 108 rotas · revision=f68bf20185d929e2b102.",
-        "portfolio_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
+        "message": "151 arquivos · 8.6 MB · 108 rotas · revision=51368ce5c81f9ef96d88.",
+        "portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
         "status": "ok"
       },
       {
@@ -142,40 +142,40 @@
         "status": "ok"
       },
       {
-        "commit_sha": "e2d3018eae456717aca01f655f86bba9e4b9dd97",
+        "commit_sha": "4008cf197c07e74c6623f434b1e3b6df5e139749",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=144 · enviados=7.",
-        "reused_bytes": 4525619,
-        "reused_files": 144,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=148 · enviados=3.",
+        "reused_bytes": 5256937,
+        "reused_files": 148,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 4508096,
-        "uploaded_files": 7
+        "uploaded_bytes": 3776796,
+        "uploaded_files": 3
       },
       {
         "build_manifest": {
           "branch": "main",
           "bytes": 41481,
-          "commit_sha": "e2d3018eae456717aca01f655f86bba9e4b9dd97",
-          "git_blob_sha": "6f48cd7137bbcb6e6c8abec39140d64c5dd2b574",
+          "commit_sha": "4008cf197c07e74c6623f434b1e3b6df5e139749",
+          "git_blob_sha": "c79a680e0a202d627df6f2498922628757dc232c",
           "path": "data/build-manifest.json",
-          "sha256": "2ab95019dca108aa007b3113627007ffe33d2c7155b038ebe5dea5cbe6cab955"
+          "sha256": "456ab7a24123c948c8f22ff27149200993f7cd0532bb3918873f828894820ebf"
         },
-        "editorial_revision": "f68bf20185d929e2b102",
+        "editorial_revision": "51368ce5c81f9ef96d88",
         "key": "github-readback",
         "label": "GitHub main read-back",
-        "message": "portfolio.json confirmado byte a byte · revision=f68bf20185d929e2b102.",
+        "message": "portfolio.json confirmado byte a byte · revision=51368ce5c81f9ef96d88.",
         "portfolio": {
           "branch": "main",
-          "bytes": 2200348,
-          "commit_sha": "e2d3018eae456717aca01f655f86bba9e4b9dd97",
-          "git_blob_sha": "7f61342ce0278611effd42c9d51b4421ed5dbf4b",
+          "bytes": 2200357,
+          "commit_sha": "4008cf197c07e74c6623f434b1e3b6df5e139749",
+          "git_blob_sha": "535ebbad3830d7b590814b70def5ba13921fd373",
           "path": "data/portfolio.json",
-          "sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094"
+          "sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd"
         },
-        "portfolio_sha256": "eca1771ce85bc716439d49aa1bb5d80e315e40c2139277ac9ce20839f8eaf094",
+        "portfolio_sha256": "6512f0cddb86d1d2f19ab24f88cc63703b5158ba2180ec96d4090aaede5e2dcd",
         "removed_paths": [],
         "reused_paths": [
           ".nojekyll",
@@ -185,8 +185,10 @@
           "assets/hero/dermacast-laila.mp4",
           "assets/hero/manifest.json",
           "assets/motion/adapters/css-native.js",
+          "assets/motion/adapters/gsap.js",
           "assets/motion/adapters/motion.js",
           "assets/motion/adapters/three.js",
+          "assets/motion/motion-runtime.js",
           "assets/motion/vendor/THIRD_PARTY_NOTICES.md",
           "assets/motion/vendor/gsap/Flip.min.js",
           "assets/motion/vendor/gsap/ScrollTrigger.min.js",
@@ -197,6 +199,8 @@
           "assets/motion/vendor/motion/motion.js",
           "assets/motion/vendor/three/three.core.min.js",
           "assets/motion/vendor/three/three.module.min.js",
+          "assets/site.css",
+          "assets/site.js",
           "assets/themes/black-maca.css",
           "assets/themes/branding.css",
           "assets/themes/discord.css",
@@ -223,18 +227,10 @@
           "projetos/banner-mobile/index.html",
           "projetos/banners/banner-allergan/index.html",
           "projetos/banners/banner-bacio/index.html",
-          "projetos/banners/banner-bellarine/index.html",
-          "projetos/banners/banner-central-rejuvital-2/index.html",
-          "projetos/banners/banner-central-rejuvital/index.html",
-          "projetos/banners/banner-evo/index.html",
-          "projetos/banners/banner-lancamento/index.html"
+          "projetos/banners/banner-bellarine/index.html"
         ],
         "status": "ok",
         "uploaded_paths": [
-          "assets/motion/adapters/gsap.js",
-          "assets/motion/motion-runtime.js",
-          "assets/site.css",
-          "assets/site.js",
           "data/build-manifest.json",
           "data/portfolio.json",
           "index.html"
@@ -256,17 +252,13 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 4508096,
-    "uploaded_files": 7,
+    "uploaded_bytes": 3776796,
+    "uploaded_files": 3,
     "uploaded_paths": [
-      "assets/motion/adapters/gsap.js",
-      "assets/motion/motion-runtime.js",
-      "assets/site.css",
-      "assets/site.js",
       "data/build-manifest.json",
       "data/portfolio.json",
       "index.html"
     ]
   },
-  "updated_at": "2026-08-25T01:22:56.341519+00:00"
+  "updated_at": "2026-08-25T01:47:17.433697+00:00"
 }
