@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "0a39e3e4153d95065c20",
-  "bundle_sha256": "0a39e3e4153d95065c2029f85d281a7fb6758233bf26ba62adcf873c926baa2e",
-  "editorial_revision": "776462bd2cc6e78ced72",
+  "build_revision": "49b3a5f103b0c501db02",
+  "bundle_sha256": "49b3a5f103b0c501db021a990a757dce19b47f8cfb57b32f7d86997fb1a27fed",
+  "editorial_revision": "80b839f03f1052b4059c",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -158,12 +158,12 @@
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2182089,
-      "sha256": "71bc70fcab64b72fb0d95c1d4eb66e60ceed776660fc28b6bed006c6d71365b0"
+      "bytes": 2191744,
+      "sha256": "470dc3970c20248d273330a7be4dd3982039b91a0215954372ef37b045a55fdf"
     },
     "index.html": {
-      "bytes": 1522604,
-      "sha256": "b1c372fa94d11fc5f8715cbaf09fa78c890c5e8db53d4a05a8e68b383cb331ea"
+      "bytes": 1528746,
+      "sha256": "cc51a30d008962612e4c622e207a6d92270ed30c26f0c95ae9b804b5684141e4"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -636,9 +636,9 @@
       "tokens": {
         "ease": [
           0.4,
-          0.0,
+          0,
           0.2,
-          1.0
+          1
         ],
         "quick": 0.18,
         "slow": 0.6,
@@ -656,7 +656,7 @@
   },
   "runtime_dependencies": [],
   "stats": {
-    "bytes": 8925455,
+    "bytes": 8941252,
     "files": 150,
     "largest_file_bytes": 2396816,
     "route_shells": 108
