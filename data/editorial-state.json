@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f68bf20185d929e2b102",
-    "saved_at": "2026-08-25T01:24:01.352049+00:00"
+    "revision": "8963baba73d4796d2eb3",
+    "saved_at": "2026-08-25T01:24:10.258657+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -923,7 +923,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "intro",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -19939,7 +19939,7 @@
           "order": 20,
           "parent_id": "home-blocks",
           "tab": "home",
-          "visible": false
+          "visible": true
         },
         {
           "block_id": "core-lettering",
