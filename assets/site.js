@@ -17,6 +17,38 @@ let activeGalleryIndex = 0;
 let activeGalleryTitle = '';
 let visualLayout = {};
 let projectScrollY = 0;
+const SF_RUNTIME_DIAGNOSTICS = window.__STUDIOFRAME_RUNTIME_DIAGNOSTICS__ = window.__STUDIOFRAME_RUNTIME_DIAGNOSTICS__ || {
+manifest_url:'', manifest_fetch_status:'not-started', loaded_revision:'', block_count:0,
+rendered_block_count:0, unknown_block_count:0, failed_block_count:0, blocks:[], errors:[]
+};
+function sfSourceRevision(){return String(DATA?.source_revision||DATA?.editorial_revision||DATA?.revision||'');}
+function sfResetBlockDiagnostics(blocks=[]){SF_RUNTIME_DIAGNOSTICS.block_count=blocks.filter((block)=>block&&block.visible!==false).length;SF_RUNTIME_DIAGNOSTICS.rendered_block_count=0;SF_RUNTIME_DIAGNOSTICS.unknown_block_count=0;SF_RUNTIME_DIAGNOSTICS.failed_block_count=0;SF_RUNTIME_DIAGNOSTICS.blocks=[];SF_RUNTIME_DIAGNOSTICS.errors=[];}
+function sfRecordBlock(block,status,detail=''){const record={id:String(block?.id||''),type:String(block?.type||''),status:String(status||''),detail:String(detail||'').slice(0,280)};SF_RUNTIME_DIAGNOSTICS.blocks.push(record);if(status==='rendered')SF_RUNTIME_DIAGNOSTICS.rendered_block_count+=1;if(status==='unknown')SF_RUNTIME_DIAGNOSTICS.unknown_block_count+=1;if(status==='failed'){SF_RUNTIME_DIAGNOSTICS.failed_block_count+=1;SF_RUNTIME_DIAGNOSTICS.errors.push(record);}return record;}
+function sfMarkBlockNode(node,block,renderer=''){if(!node)return node;node.dataset.sfBlockType=String(block?.type||'');node.dataset.sfBlockId=String(block?.id||'');node.dataset.sfRenderer=String(renderer||'');node.dataset.sfRevision=sfSourceRevision();return node;}
+function sfBlockFallback(block,status,error){const node=document.createElement('section');node.className='modular-block sf-runtime-block-fallback';sfMarkBlockNode(node,block,status==='unknown'?'unknown':'error-boundary');node.dataset.sfRenderStatus=status;const dev=IS_EDITOR_PREVIEW||location.protocol==='file:'||Boolean(window.__STUDIOFRAME_DEV_MODE__);if(dev){node.innerHTML=`<div class="sf-adv-inner"><strong>${status==='unknown'?'UNKNOWN BLOCK TYPE':'BLOCK RENDER ERROR'}: ${esc(block?.type||'unknown')}</strong><small>${esc(String(error?.message||error||'').slice(0,180))}</small></div>`;}else{node.hidden=true;node.setAttribute('aria-hidden','true');}return node;}
+window.StudioFrameRuntimeDiagnostics=Object.freeze({snapshot:()=>JSON.parse(JSON.stringify(SF_RUNTIME_DIAGNOSTICS))});
+function sfEmitPublicationQaProof(){
+try{
+const params=new URLSearchParams(location.search||'');
+const nonce=String(params.get('sf_publication_qa')||'').trim();
+if(!nonce)return null;
+const expectedRevision=String(params.get('sf_expected_revision')||'').trim();
+const revision=sfSourceRevision();
+const blocks=((((DATA||{}).site_builder||{}).home||{}).blocks||[]).filter((block)=>block&&block.visible!==false&&block.id);
+const expectedBlockIds=blocks.map((block)=>String(block.id));
+const renderedNodes=[...document.querySelectorAll('[data-sf-block-id]')];
+const renderedBlockIds=[...new Set(renderedNodes.filter((node)=>!['unknown','failed'].includes(String(node.dataset.sfRenderStatus||''))).map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
+const failedBlockIds=[...new Set(renderedNodes.filter((node)=>String(node.dataset.sfRenderStatus||'')==='failed').map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
+const unknownBlockIds=[...new Set(renderedNodes.filter((node)=>String(node.dataset.sfRenderStatus||'')==='unknown').map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
+const renderedSet=new Set(renderedBlockIds);const missingBlockIds=expectedBlockIds.filter((id)=>!renderedSet.has(id));
+const proof={type:'STUDIOFRAME_PUBLICATION_DOM_PROOF',nonce,revision,expected_revision:expectedRevision,manifest_url:String(SF_RUNTIME_DIAGNOSTICS.manifest_url||''),manifest_fetch_status:String(SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status||''),expected_block_ids:expectedBlockIds,rendered_block_ids:renderedBlockIds,missing_block_ids:missingBlockIds,failed_block_ids:failedBlockIds,unknown_block_ids:unknownBlockIds,rendered_block_count:renderedBlockIds.length,dom_ok:Boolean((!expectedRevision||revision===expectedRevision)&&!missingBlockIds.length&&!failedBlockIds.length&&!unknownBlockIds.length),ok:Boolean((!expectedRevision||revision===expectedRevision)&&!missingBlockIds.length&&!failedBlockIds.length&&!unknownBlockIds.length)};
+document.documentElement.dataset.sfPublicationQa=proof.ok?'pass':'fail';
+document.documentElement.dataset.sfPublicationQaRevision=revision;
+try{if(window.opener&&window.opener!==window)window.opener.postMessage(proof,'*');}catch(_){}
+try{if(window.parent&&window.parent!==window)window.parent.postMessage(proof,'*');}catch(_){}
+return proof;
+}catch(error){console.error('[StudioFrame][PUBLICATION_PARITY] DOM proof error',error);return null;}
+}
 function esc(value = '') {
 const node = document.createElement('div');
 node.textContent = value;
@@ -25,16 +57,22 @@ return node.innerHTML;
 async function load() {
 if (window.__PB_PREVIEW_DATA__) {
 DATA = window.__PB_PREVIEW_DATA__;
+SF_RUNTIME_DIAGNOSTICS.manifest_url='editor-preview://manifest';
+SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status='preview';
 } else if (location.protocol === 'http:' || location.protocol === 'https:') {
 try {
 const liveUrl = `${publicAssetBase()}data/portfolio.json?sf_live=${Date.now()}`;
-const response = await fetch(liveUrl, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache' } });
+SF_RUNTIME_DIAGNOSTICS.manifest_url=liveUrl;SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status='loading';
+const response = await fetch(liveUrl, { cache: 'no-store', headers: { 'Cache-Control': 'no-cache, no-store, max-age=0', 'Pragma':'no-cache' } });
 if (!response.ok) throw new Error(`portfolio.json HTTP ${response.status}`);
 DATA = await response.json();
+SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status='ok';
 } catch (error) {
+SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status=`failed:${String(error?.message||error).slice(0,160)}`;
 if (!window.__PB_PUBLIC_DATA__) throw error;
 console.warn('Manifesto online indisponível; usando snapshot inline como fallback:', error);
 DATA = window.__PB_PUBLIC_DATA__;
+SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status='inline-fallback';
 }
 } else if (window.__PB_PUBLIC_DATA__) {
 DATA = window.__PB_PUBLIC_DATA__;
@@ -43,6 +81,8 @@ const response = await fetch(`${publicAssetBase()}data/portfolio.json`, { cache:
 if (!response.ok) throw new Error(`portfolio.json HTTP ${response.status}`);
 DATA = await response.json();
 }
+SF_RUNTIME_DIAGNOSTICS.loaded_revision=sfSourceRevision();
+document.documentElement.dataset.sfRevision=SF_RUNTIME_DIAGNOSTICS.loaded_revision;
 hydrateHostedAssetUrls(DATA);
 warmMediaOrigins(DATA);
 const identity = DATA.identity || {};
@@ -97,6 +137,7 @@ renderSideNavigation();
 setupSectionNavigator((DATA.site_builder || {}).section_navigator || {});
 bindMotion();
 await initializeStudioFrameMotionV77();
+setTimeout(sfEmitPublicationQaProof,350);
 }
 function publicAssetBase() {
 const configured = String(window.__PB_ASSET_BASE__ || '');
@@ -1846,10 +1887,22 @@ renaissance_chapter:(block)=>createRenaissanceChapterBlock(block),
 });
 function createCustomHomeBlock(block) {
 if (block.visible === false) return null;
+try {
+let rendererName='shared-page';
 let node = createSharedPageBlock(block);
-if (!node) { const renderer=PUBLIC_HOME_BLOCK_REGISTRY[block.type]; if(renderer) node=renderer(block); }
-if (node) { node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance','reveal'); applyHomeSectionFrame(node, block); requestAnimationFrame(()=>ensureStudioFrameAdvancedComponents()); }
+if (!node) {
+const renderer=PUBLIC_HOME_BLOCK_REGISTRY[block.type];
+rendererName='public-home-registry';
+if(renderer) node=renderer(block);
+else {sfRecordBlock(block,'unknown','renderer-not-registered');console.error('[StudioFrame][PUBLICATION_PARITY] UNKNOWN BLOCK TYPE:',block.type,block.id||'');return sfBlockFallback(block,'unknown','renderer-not-registered');}
+}
+if (node) {
+sfMarkBlockNode(node,block,rendererName);node.dataset.homeBlockId = block.id || ''; node.dataset.homeBlockLabel = block.label || block.title || block.type || 'Seção'; node.classList.add('home-modular-instance','reveal'); applyHomeSectionFrame(node, block); requestAnimationFrame(()=>ensureStudioFrameAdvancedComponents());sfRecordBlock(block,'rendered',rendererName);
+}
 return node;
+} catch (error) {
+sfRecordBlock(block,'failed',error?.message||error);console.error('[StudioFrame][PUBLICATION_PARITY] BLOCK RENDER ERROR',block?.type,block?.id,error);return sfBlockFallback(block,'failed',error);
+}
 }
 function normalizeSectionNavigator(raw={}){return {...raw,enabled:raw.enabled===true,position:['left','right'].includes(raw.position)?raw.position:'right',mode:['overlay','sticky','inline'].includes(raw.mode)?raw.mode:'overlay',eyebrow:String(raw.eyebrow||'SEÇÕES'),show_eyebrow:raw.show_eyebrow!==false,inactive_opacity:Math.max(.1,Math.min(.9,Number(raw.inactive_opacity??.34))),active_style:['accent','underline','solid'].includes(raw.active_style)?raw.active_style:'accent',animation:['slide','fade','none'].includes(raw.animation)?raw.animation:'slide',desktop_only:raw.desktop_only===true,mobile_mode:['select','pills','hidden'].includes(raw.mobile_mode)?raw.mobile_mode:'select'};}
 function sectionNavigatorTargets(){
@@ -1908,6 +1961,7 @@ const bodyNode=heading.querySelector('#projectsDescription');if(bodyNode){bodyNo
 function renderHomeComposition() {
 const main = $('#top');
 if (!main) return;
+const compositionBlocks=publicHomeBlocks();sfResetBlockDiagnostics(compositionBlocks);
 main.querySelectorAll('.home-modular-instance').forEach((node) => node.remove());
 Object.values(CORE_HOME_BLOCK_IDS).forEach((id)=>{const node=document.getElementById(id);if(node)node.hidden=true;});
 const builder = DATA.site_builder || {};
@@ -1915,16 +1969,15 @@ const projectsCfg = builder.projects || {};
 const aboutCfg = builder.about || {};
 const contactCfg = builder.contact || {};
 const letteringCfg = builder.lettering || {};
-publicHomeBlocks().forEach((block) => {
+compositionBlocks.forEach((block) => {
 const coreId = CORE_HOME_BLOCK_IDS[block.type];
 if (coreId) {
 const node = document.getElementById(coreId);
 if (!node) return;
 main.append(node);
-node.dataset.homeBlockId=block.id||'';node.dataset.homeBlockLabel=block.label||block.title||block.type||'Seção';
-applyHomeSectionFrame(node, block);
-applyCoreBlockOverrides(node, block, builder);
-node.hidden = !coreHomeBlockHasVisibleContent(node, block);
+sfMarkBlockNode(node,block,'core-home');node.dataset.homeBlockId=block.id||'';node.dataset.homeBlockLabel=block.label||block.title||block.type||'Seção';
+try{applyHomeSectionFrame(node, block);applyCoreBlockOverrides(node, block, builder);node.hidden = !coreHomeBlockHasVisibleContent(node, block);sfRecordBlock(block,'rendered','core-home');}
+catch(error){sfRecordBlock(block,'failed',error?.message||error);console.error('[StudioFrame][PUBLICATION_PARITY] CORE BLOCK RENDER ERROR',block?.type,block?.id,error);node.hidden=true;main.append(sfBlockFallback(block,'failed',error));}
 return;
 }
 const custom = createCustomHomeBlock(block);

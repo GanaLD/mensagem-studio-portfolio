@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "49b3a5f103b0c501db02",
-  "bundle_sha256": "49b3a5f103b0c501db021a990a757dce19b47f8cfb57b32f7d86997fb1a27fed",
-  "editorial_revision": "80b839f03f1052b4059c",
+  "build_revision": "a408cc52406d3eec6064",
+  "bundle_sha256": "a408cc52406d3eec6064b5dd728e25105438ee5de941734f99ec7360a9317db7",
+  "editorial_revision": "f09c43c043dddc39c94e",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -94,8 +94,8 @@
       "sha256": "a294cb5f3447e70044a07664fa88961e98bea7cb67f0bdff437c45c4aa55f7a9"
     },
     "assets/site.js": {
-      "bytes": 384405,
-      "sha256": "67aa029290bf50d531ebc5a83244e22bbc1eb723c2bbc4ad9bc730136843c76c"
+      "bytes": 390816,
+      "sha256": "aa53b8a15d3f12afc1550ad486dab1c82b869704a32739ccb0d0e6d492c76466"
     },
     "assets/themes/black-maca.css": {
       "bytes": 7718,
@@ -158,12 +158,12 @@
       "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
     },
     "data/portfolio.json": {
-      "bytes": 2191744,
-      "sha256": "470dc3970c20248d273330a7be4dd3982039b91a0215954372ef37b045a55fdf"
+      "bytes": 2188352,
+      "sha256": "39e296e12b82c8e20f863a18f9ff1e8b153d2ed4e7d26b35853523b361e52cb3"
     },
     "index.html": {
-      "bytes": 1528746,
-      "sha256": "cc51a30d008962612e4c622e207a6d92270ed30c26f0c95ae9b804b5684141e4"
+      "bytes": 1526515,
+      "sha256": "2a5e634f4ed50025287c6ff86fc3dc9e8628d96562bfa1694b59fd3d22a0e801"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 8554,
@@ -607,6 +607,40 @@
     }
   },
   "format": "studioframe-public-build-v2",
+  "home_block_ids": [
+    "core-hero",
+    "core-intro",
+    "core-lettering",
+    "block-mt7w7u6g-rltgl",
+    "core-projects-header",
+    "core-projects",
+    "block-mt7vxqnd-yp24f",
+    "youtube-showcase-main",
+    "block-mt7w4nzd-iqxso",
+    "block-mt7w65mq-gj3mf",
+    "block-mt7w1mxs-fz7yt",
+    "block-mt7w6ubb-x0xc9",
+    "block-mt7w5bn1-p6bcf",
+    "core-contact",
+    "core-about"
+  ],
+  "home_block_types": [
+    "hero",
+    "intro",
+    "lettering",
+    "text_motion",
+    "projects_header",
+    "projects",
+    "sliced_hero",
+    "youtube_showcase",
+    "dynamic_island",
+    "carousel_3d",
+    "quote_cta",
+    "logo_carousel",
+    "canvas_fractal_grid",
+    "contact",
+    "about"
+  ],
   "motion_runtime": {
     "category_counts": {
       "background": 8,
@@ -648,15 +682,19 @@
     },
     "used_presets": []
   },
+  "portfolio_bytes": 2188352,
+  "portfolio_sha256": "39e296e12b82c8e20f863a18f9ff1e8b153d2ed4e7d26b35853523b361e52cb3",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
+  "revision": "f09c43c043dddc39c94e",
   "runtime_dependencies": [],
+  "source_revision": "f09c43c043dddc39c94e",
   "stats": {
-    "bytes": 8941252,
+    "bytes": 8942040,
     "files": 150,
     "largest_file_bytes": 2396816,
     "route_shells": 108
