@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "6c4b86a21a604e6bc122",
-    "saved_at": "2026-08-28T00:15:35.016144+00:00"
+    "revision": "8aa85bbcbf47ac23fb6f",
+    "saved_at": "2026-08-28T00:46:35.358635+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -20384,7 +20384,14 @@
         "id": "custom-1",
         "modules": {},
         "name": "Meu tema",
-        "overrides": {}
+        "overrides": {
+          "accent": "#caff36",
+          "background": "#07070b",
+          "body_font": "Inter",
+          "display_font": "Inter Tight",
+          "foreground": "#f5f6fb",
+          "radius": 18
+        }
       },
       "full_theme_id": "native-signal",
       "site_background": {
