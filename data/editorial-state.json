@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "7576d18648aa7316e2ee",
-    "saved_at": "2026-08-28T23:56:15.520723+00:00"
+    "revision": "c1299d3cb002a7393e07",
+    "saved_at": "2026-08-28T23:56:21.671142+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1399,19 +1399,87 @@
       "background_stack": [
         {
           "blend_mode": "normal",
+          "blur": 0,
+          "clip_path": "",
+          "color": "#000000",
+          "depth": 0,
+          "depth_role": "middle",
+          "desktop_visible": true,
+          "entry_animation": "none",
+          "exit_animation": "none",
+          "gradient_angle": 145,
+          "gradient_end": "#183B48",
+          "gradient_start": "#071018",
+          "gyro_response": 0,
           "id": "global-media",
+          "label": "Media Canvas",
           "locked": true,
+          "loop": true,
+          "mask_radius": 24,
+          "mask_size": 100,
+          "mask_type": "none",
+          "mask_x": 50,
+          "mask_y": 50,
+          "media_id": "",
+          "media_type": "image",
+          "mobile_visible": true,
+          "motion_mode": "static",
+          "mouse_response": 0,
           "opacity": 1,
+          "rotation": 0,
+          "scale": 1,
+          "scroll_speed": 0,
+          "section_visibility": "",
+          "source": "media",
+          "tablet_visible": true,
           "type": "media_canvas",
-          "visible": true
+          "url": "",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+          "z_index": 0
         },
         {
           "blend_mode": "normal",
+          "blur": 0,
+          "clip_path": "",
+          "color": "#000000",
+          "depth": 0,
+          "depth_role": "middle",
+          "desktop_visible": true,
+          "entry_animation": "none",
+          "exit_animation": "none",
+          "gradient_angle": 145,
+          "gradient_end": "#183B48",
+          "gradient_start": "#071018",
+          "gyro_response": 0,
           "id": "global-overlay",
+          "label": "Overlay",
           "locked": false,
+          "loop": true,
+          "mask_radius": 24,
+          "mask_size": 100,
+          "mask_type": "none",
+          "mask_x": 50,
+          "mask_y": 50,
+          "media_id": "",
+          "media_type": "image",
+          "mobile_visible": true,
+          "motion_mode": "static",
+          "mouse_response": 0,
           "opacity": 0,
+          "rotation": 0,
+          "scale": 1,
+          "scroll_speed": 0,
+          "section_visibility": "",
+          "source": "media",
+          "tablet_visible": true,
           "type": "overlay",
-          "visible": true
+          "url": "",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+          "z_index": 1
         }
       ],
       "blur": 0,
@@ -1422,7 +1490,9 @@
       "fit": "cover",
       "focal_x": 50,
       "focal_y": 50,
+      "gyro_strength": 0.25,
       "mask": {
+        "clip": "",
         "feather": 0,
         "radius": 24,
         "rotation": 0,
@@ -1435,6 +1505,7 @@
       "media_id": "",
       "media_type": "image",
       "motion_mode": "static",
+      "mouse_strength": 0.35,
       "opacity": 1,
       "parallax_strength": 0.25,
       "position_x": 0,
@@ -1444,6 +1515,12 @@
       "scale": 1,
       "scope": "home",
       "source": "media",
+      "story": {
+        "enabled": false,
+        "mode": "scroll",
+        "scenes": [],
+        "version": 1
+      },
       "url": ""
     },
     "hero": {
@@ -3131,6 +3208,42 @@
       "profile": "auto",
       "weak_device_fallback": true
     },
+    "phaser_scene": {
+      "autostart": true,
+      "background": "#0b1020",
+      "breakpoints": {
+        "desktop": "same",
+        "mobile": "same",
+        "tablet": "same"
+      },
+      "controls": {
+        "gyro": false,
+        "keyboard": true,
+        "pointer": true,
+        "touch": true
+      },
+      "enabled": false,
+      "fallback": {
+        "body": "Esta experiência usa uma versão compatível com seu dispositivo.",
+        "poster_url": "",
+        "title": "Experiência interativa"
+      },
+      "gravity_y": 0,
+      "height": 640,
+      "initial_score": 0,
+      "objects": [],
+      "pause_outside_viewport": true,
+      "physics": "arcade",
+      "pixel_art": false,
+      "placement": "section",
+      "renderer": "auto",
+      "score_enabled": true,
+      "section_block_id": "",
+      "target_score": 10,
+      "template": "collector",
+      "transparent": false,
+      "version": 1
+    },
     "projects": {
       "eyebrow": "Porfólio",
       "filters": {
@@ -3151,7 +3264,7 @@
           "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF"
         ]
       },
-      "header_visible": true,
+      "header_visible": false,
       "title": "",
       "visible": true
     },
@@ -28426,6 +28539,42 @@
       "theme_overrides": {},
       "theme_variant_id": "structured--base",
       "theme_version": 1
+    },
+    "three_d_scene": {
+      "drive_file_id": "",
+      "enabled": false,
+      "engine": "three_scene",
+      "fallback_url": "",
+      "geometry": "torus_knot",
+      "interaction": {
+        "auto_rotate": false,
+        "gyro": false,
+        "pointer_events": false,
+        "pointer_mode": "tilt",
+        "pointer_strength": 0.35,
+        "scroll_mode": "rotate",
+        "scroll_strength": 0.45
+      },
+      "opacity": 1,
+      "performance": {
+        "desktop_enabled": true,
+        "max_pixel_ratio": 1.5,
+        "mobile_enabled": true,
+        "reduced_motion_fallback": true,
+        "tablet_enabled": true,
+        "transparent": true
+      },
+      "placement": "global_background",
+      "rotation_x": 0,
+      "rotation_y": 0,
+      "rotation_z": 0,
+      "scale": 1,
+      "section_block_id": "",
+      "source": "safe_url",
+      "url": "",
+      "version": 1,
+      "x": 0,
+      "y": 0
     },
     "v9": {
       "animated_hero": {
