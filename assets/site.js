@@ -36,12 +36,21 @@ const expectedRevision=String(params.get('sf_expected_revision')||'').trim();
 const revision=sfSourceRevision();
 const blocks=((((DATA||{}).site_builder||{}).home||{}).blocks||[]).filter((block)=>block&&block.visible!==false&&block.id);
 const expectedBlockIds=blocks.map((block)=>String(block.id));
+const expectedSourcePorts=blocks.filter((block)=>block.theme_source_port_id).map((block)=>({block_id:String(block.id),port_id:String(block.theme_source_port_id||''),theme_id:String(block.theme_source_theme_id||''),port_status:String(block.theme_port_status||''),fidelity_status:String(block.theme_fidelity_status||''),ab_status:String(block.theme_ab_status||'')}));
 const renderedNodes=[...document.querySelectorAll('[data-sf-block-id]')];
 const renderedBlockIds=[...new Set(renderedNodes.filter((node)=>!['unknown','failed'].includes(String(node.dataset.sfRenderStatus||''))).map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
 const failedBlockIds=[...new Set(renderedNodes.filter((node)=>String(node.dataset.sfRenderStatus||'')==='failed').map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
 const unknownBlockIds=[...new Set(renderedNodes.filter((node)=>String(node.dataset.sfRenderStatus||'')==='unknown').map((node)=>String(node.dataset.sfBlockId||'')).filter(Boolean))];
+const renderedSourcePorts=renderedNodes.filter((node)=>String(node.dataset.themeSourcePortId||'')).map((node)=>({block_id:String(node.dataset.sfBlockId||''),port_id:String(node.dataset.themeSourcePortId||''),theme_id:String(node.dataset.themeSourceTheme||''),port_status:String(node.dataset.themePortStatus||''),fidelity_status:String(node.dataset.themeFidelityStatus||''),ab_status:String(node.dataset.themeAbStatus||'')}));
 const renderedSet=new Set(renderedBlockIds);const missingBlockIds=expectedBlockIds.filter((id)=>!renderedSet.has(id));
-const proof={type:'STUDIOFRAME_PUBLICATION_DOM_PROOF',nonce,revision,expected_revision:expectedRevision,manifest_url:String(SF_RUNTIME_DIAGNOSTICS.manifest_url||''),manifest_fetch_status:String(SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status||''),expected_block_ids:expectedBlockIds,rendered_block_ids:renderedBlockIds,missing_block_ids:missingBlockIds,failed_block_ids:failedBlockIds,unknown_block_ids:unknownBlockIds,rendered_block_count:renderedBlockIds.length,dom_ok:Boolean((!expectedRevision||revision===expectedRevision)&&!missingBlockIds.length&&!failedBlockIds.length&&!unknownBlockIds.length),ok:Boolean((!expectedRevision||revision===expectedRevision)&&!missingBlockIds.length&&!failedBlockIds.length&&!unknownBlockIds.length)};
+const renderedSourceByBlock=new Map(renderedSourcePorts.map((row)=>[row.block_id,row]));
+const expectedSourceBlocks=new Set(expectedSourcePorts.map((row)=>row.block_id));
+const missingSourcePortIds=[];const sourcePortMismatches=[];
+expectedSourcePorts.forEach((expected)=>{const actual=renderedSourceByBlock.get(expected.block_id);if(!actual){missingSourcePortIds.push(expected.port_id);return;}const fields=['port_id','theme_id','port_status','fidelity_status','ab_status'];const diff=fields.filter((key)=>String(actual[key]||'')!==String(expected[key]||''));if(diff.length)sourcePortMismatches.push({block_id:expected.block_id,expected,actual,fields:diff});});
+const unexpectedSourcePorts=renderedSourcePorts.filter((row)=>row.block_id&&!expectedSourceBlocks.has(row.block_id));
+const sourcePortsOk=!missingSourcePortIds.length&&!sourcePortMismatches.length&&!unexpectedSourcePorts.length;
+const domOk=Boolean((!expectedRevision||revision===expectedRevision)&&!missingBlockIds.length&&!failedBlockIds.length&&!unknownBlockIds.length&&sourcePortsOk);
+const proof={type:'STUDIOFRAME_PUBLICATION_DOM_PROOF',nonce,revision,expected_revision:expectedRevision,manifest_url:String(SF_RUNTIME_DIAGNOSTICS.manifest_url||''),manifest_fetch_status:String(SF_RUNTIME_DIAGNOSTICS.manifest_fetch_status||''),expected_block_ids:expectedBlockIds,rendered_block_ids:renderedBlockIds,missing_block_ids:missingBlockIds,failed_block_ids:failedBlockIds,unknown_block_ids:unknownBlockIds,expected_source_ports:expectedSourcePorts,rendered_source_ports:renderedSourcePorts,missing_source_port_ids:missingSourcePortIds,source_port_mismatches:sourcePortMismatches,unexpected_source_ports:unexpectedSourcePorts,rendered_block_count:renderedBlockIds.length,dom_ok:domOk,ok:domOk};
 document.documentElement.dataset.sfPublicationQa=proof.ok?'pass':'fail';
 document.documentElement.dataset.sfPublicationQaRevision=revision;
 try{if(window.opener&&window.opener!==window)window.opener.postMessage(proof,'*');}catch(_){}
@@ -3701,8 +3710,9 @@ const heroMedia = $('#heroMedia');
 const heroEffect = heroNode?.dataset.effect || 'cinematic';
 if (heroMedia) {
 const translateFactor = heroEffect === 'zoom' ? 0 : (heroEffect === 'parallax' ? .085 : .055);
-const zoomFactor = heroEffect === 'parallax' ? .012 : (heroEffect === 'zoom' ? .055 : .025);
-heroMedia.style.transform = `translate3d(0,${heroLocalY * translateFactor * m}px,0) scale(${1 + heroProgress * zoomFactor * m})`;
+const zoomFactor = heroEffect === 'zoom' ? .055 : 0;
+const zoomTransform = zoomFactor > 0 ? ` scale(${1 + heroProgress * zoomFactor * m})` : '';
+heroMedia.style.transform = `translate3d(0,${heroLocalY * translateFactor * m}px,0)${zoomTransform}`;
 }
 } else if (!viewerOpen) {
 $('#heroTitle').style.transform = '';
