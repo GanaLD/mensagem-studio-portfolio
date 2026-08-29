@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "c1299d3cb002a7393e07",
-    "saved_at": "2026-08-28T23:57:13.309512+00:00"
+    "revision": "bf52941edcf45ec37e5a",
+    "saved_at": "2026-08-29T10:16:07.023928+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -20640,8 +20640,7 @@
           "kind": "group",
           "label": "CONTEÚDO",
           "order": 20,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "content-projects",
@@ -20664,8 +20663,7 @@
           "kind": "group",
           "label": "SITE E PÁGINAS",
           "order": 30,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "pages-manager",
@@ -20704,8 +20702,7 @@
           "kind": "group",
           "label": "Home",
           "order": 10,
-          "parent_id": "pages",
-          "tab": ""
+          "parent_id": "pages"
         },
         {
           "id": "home-structure",
@@ -20744,8 +20741,7 @@
           "kind": "group",
           "label": "Páginas de coleção",
           "order": 20,
-          "parent_id": "pages",
-          "tab": ""
+          "parent_id": "pages"
         },
         {
           "id": "categories-pages",
@@ -20760,8 +20756,7 @@
           "kind": "group",
           "label": "APARÊNCIA",
           "order": 40,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "appearance-editor",
@@ -20792,8 +20787,7 @@
           "kind": "group",
           "label": "COMPONENTES GLOBAIS",
           "order": 50,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "global-header",
@@ -20824,8 +20818,7 @@
           "kind": "group",
           "label": "PUBLICAÇÃO",
           "order": 60,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "publication-main",
@@ -20845,11 +20838,12 @@
         },
         {
           "id": "v9-functional-tree",
-          "kind": "group",
+          "kind": "virtual-root",
           "label": "V9.1 · ÁRVORE FUNCIONAL",
           "order": 1,
           "parent_id": "site",
-          "tab": ""
+          "tab": "",
+          "ui_virtual": true
         },
         {
           "id": "v9-overview",
@@ -21007,14 +21001,16 @@
           "tab": ""
         },
         {
+          "contextual_alias": true,
           "id": "v9-projects-collections",
           "kind": "section-editor",
           "label": "Coleções / Drive",
           "order": 30,
-          "parent_id": "v9-projects",
-          "tab": "categories"
+          "parent_id": "v9-media-player",
+          "tab": "projects"
         },
         {
+          "contextual_alias": true,
           "id": "v9-projects-seo",
           "kind": "section-editor",
           "label": "SEO / rotas publicadas",
@@ -21111,72 +21107,84 @@
           "id": "v9-blocks",
           "kind": "section-editor",
           "label": "06 · Blocos / Block Browser",
+          "legacy_label": "06 · Blocos / Block Browser",
           "order": 10,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-builders",
           "tab": "home"
         },
         {
           "id": "v9-sections",
           "kind": "section-editor",
           "label": "07 · Seções / carrosséis",
+          "legacy_label": "07 · Seções / carrosséis",
           "order": 20,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-builders",
           "tab": "sections"
         },
         {
           "id": "v9-components",
           "kind": "section-editor",
           "label": "08 · Componentes / biblioteca",
+          "legacy_label": "08 · Componentes / biblioteca",
           "order": 30,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-builders",
           "tab": "home"
         },
         {
+          "contextual_alias": true,
           "id": "v9-header-footer",
-          "kind": "group",
+          "kind": "section-editor",
           "label": "09 · HEADER / MENU / FOOTER",
+          "legacy_label": "09 · HEADER / MENU / FOOTER",
           "order": 40,
           "parent_id": "v9-authoring",
-          "tab": ""
+          "tab": "sections"
         },
         {
+          "alias_of": "v9-site-header",
           "id": "v9-header-footer-header",
           "kind": "component",
           "label": "Header / Menu",
           "order": 10,
-          "parent_id": "v9-header-footer",
-          "tab": "header"
+          "parent_id": "v9-site-routes",
+          "tab": "header",
+          "ui_hidden": true
         },
         {
+          "alias_of": "v9-site-footer",
           "id": "v9-header-footer-footer",
           "kind": "component",
           "label": "Footer / Contato / Sociais",
           "order": 20,
-          "parent_id": "v9-header-footer",
-          "tab": "footer"
+          "parent_id": "v9-site-routes",
+          "tab": "footer",
+          "ui_hidden": true
         },
         {
           "id": "v9-layout-grid",
           "kind": "section-editor",
           "label": "10 · Layout / Grid",
+          "legacy_label": "10 · Layout / Grid",
           "order": 50,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-design-system",
           "tab": "homegrid"
         },
         {
           "id": "v9-themes",
-          "kind": "component",
+          "kind": "group",
           "label": "11 · Temas",
+          "legacy_label": "11 · Temas",
           "order": 60,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-functional-tree",
           "tab": "siteappearance"
         },
         {
           "id": "v9-design-system",
           "kind": "group",
           "label": "12 · DESIGN SYSTEM",
+          "legacy_label": "12 · DESIGN SYSTEM",
           "order": 70,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-functional-tree",
           "tab": ""
         },
         {
@@ -21192,39 +21200,43 @@
           "kind": "component",
           "label": "Aparência do site final",
           "order": 20,
-          "parent_id": "v9-design-system",
+          "parent_id": "v9-themes",
           "tab": "siteappearance"
         },
         {
           "id": "v9-motion",
-          "kind": "component",
+          "kind": "group",
           "label": "13 · Animações / Motion",
+          "legacy_label": "13 · Animações / Motion",
           "order": 80,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-functional-tree",
           "tab": "design"
         },
         {
           "id": "v9-interactions",
           "kind": "component",
           "label": "14 · Interações",
+          "legacy_label": "14 · Interações",
           "order": 90,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-motion",
           "tab": "design"
         },
         {
           "id": "v9-media-player",
-          "kind": "section-editor",
+          "kind": "group",
           "label": "15 · Mídia / Player",
+          "legacy_label": "15 · Mídia / Player",
           "order": 100,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-functional-tree",
           "tab": "projects"
         },
         {
           "id": "v9-buttons-actions",
           "kind": "group",
           "label": "16 · BOTÕES / AÇÕES",
+          "legacy_label": "16 · BOTÕES / AÇÕES",
           "order": 110,
-          "parent_id": "v9-authoring",
+          "parent_id": "v9-design-system",
           "phase_label": "FASE 15",
           "tab": ""
         },
@@ -21252,10 +21264,11 @@
           "kind": "editor-anchor",
           "label": "Menu / WhatsApp flutuantes",
           "order": 30,
-          "parent_id": "v9-buttons-actions",
+          "parent_id": "v9-site-routes",
           "tab": "header"
         },
         {
+          "contextual_alias": true,
           "editor_anchor": "servicesQuoteEnabled",
           "id": "v9-actions-services",
           "kind": "editor-anchor",
@@ -21285,8 +21298,9 @@
           "id": "v9-background",
           "kind": "group",
           "label": "17 · FUNDO ANIMADO / BACKGROUND STORY",
+          "legacy_label": "17 · FUNDO ANIMADO / BACKGROUND STORY",
           "order": 10,
-          "parent_id": "v9-builders",
+          "parent_id": "v9-functional-tree",
           "tab": ""
         },
         {
@@ -21329,8 +21343,9 @@
           "id": "v9-hero",
           "kind": "group",
           "label": "18 · HERO / BANNER ANIMADO",
+          "legacy_label": "18 · HERO / BANNER ANIMADO",
           "order": 20,
-          "parent_id": "v9-builders",
+          "parent_id": "v9-functional-tree",
           "tab": ""
         },
         {
@@ -21392,8 +21407,9 @@
           "id": "v9-3d",
           "kind": "editor-anchor",
           "label": "19 · 3D / Spline / WebGL",
+          "legacy_label": "19 · 3D / Spline / WebGL",
           "order": 30,
-          "parent_id": "v9-builders",
+          "parent_id": "v9-motion",
           "tab": "home"
         },
         {
@@ -21401,16 +21417,18 @@
           "id": "v9-phaser",
           "kind": "editor-anchor",
           "label": "19B · Phaser 4 / Interactive Scenes",
+          "legacy_label": "19B · Phaser 4 / Interactive Scenes",
           "order": 35,
-          "parent_id": "v9-builders",
+          "parent_id": "v9-motion",
           "tab": "home"
         },
         {
           "id": "v9-responsive",
           "kind": "group",
           "label": "20 · RESPONSIVIDADE",
+          "legacy_label": "20 · RESPONSIVIDADE",
           "order": 40,
-          "parent_id": "v9-builders",
+          "parent_id": "v9-functional-tree",
           "phase_label": "FASE 15",
           "tab": ""
         },
@@ -21470,18 +21488,20 @@
         },
         {
           "id": "v9-discovery-data",
-          "kind": "group",
+          "kind": "section-editor",
           "label": "SEO E DADOS",
           "order": 80,
-          "parent_id": "v9-functional-tree",
-          "tab": ""
+          "parent_id": "v9-seo",
+          "tab": "seo",
+          "ui_hidden": true
         },
         {
           "id": "v9-seo",
           "kind": "section-editor",
           "label": "21 · SEO / DISCOVERY",
+          "legacy_label": "21 · SEO / DISCOVERY",
           "order": 10,
-          "parent_id": "v9-discovery-data",
+          "parent_id": "v9-functional-tree",
           "phase_label": "FASE 13",
           "tab": "seo"
         },
@@ -21489,8 +21509,9 @@
           "id": "v9-data-drive",
           "kind": "group",
           "label": "22 · DADOS / DRIVE",
+          "legacy_label": "22 · DADOS / DRIVE",
           "order": 20,
-          "parent_id": "v9-discovery-data",
+          "parent_id": "v9-media-player",
           "phase_label": "FASE 14",
           "tab": ""
         },
@@ -21534,8 +21555,9 @@
           "id": "v9-briefing",
           "kind": "group",
           "label": "23 · Briefing Engine",
+          "legacy_label": "23 · Briefing Engine",
           "order": 30,
-          "parent_id": "v9-discovery-data",
+          "parent_id": "v9-functional-tree",
           "phase_label": "FASE 12",
           "tab": ""
         },
@@ -21593,12 +21615,14 @@
           "tab": ""
         },
         {
+          "contextual_alias": true,
           "editor_anchor": "previewDock",
           "id": "v9-preview",
           "kind": "editor-anchor",
           "label": "24 · Prévia",
+          "legacy_label": "24 · Prévia",
           "order": 10,
-          "parent_id": "v9-operations",
+          "parent_id": "v9-responsive",
           "phase_label": "FASE 4 + FINAL",
           "tab": "workspace"
         },
@@ -21607,6 +21631,7 @@
           "id": "v9-save",
           "kind": "editor-anchor",
           "label": "25 · Salvar / Persistência",
+          "legacy_label": "25 · Salvar / Persistência",
           "order": 20,
           "parent_id": "v9-operations",
           "phase_label": "OWNER CANÔNICO",
@@ -21616,6 +21641,7 @@
           "id": "v9-build",
           "kind": "panel",
           "label": "26 · Gerar site / Build",
+          "legacy_label": "26 · Gerar site / Build",
           "order": 30,
           "parent_id": "v9-operations",
           "tab": "publication"
@@ -21624,6 +21650,7 @@
           "id": "v9-publish",
           "kind": "panel",
           "label": "27 · Publicar",
+          "legacy_label": "27 · Publicar",
           "order": 40,
           "parent_id": "v9-operations",
           "tab": "publication"
@@ -21632,6 +21659,7 @@
           "id": "v9-history",
           "kind": "panel",
           "label": "28 · Histórico",
+          "legacy_label": "28 · Histórico",
           "order": 50,
           "parent_id": "v9-operations",
           "tab": "diagnostics"
@@ -21640,6 +21668,7 @@
           "id": "v9-diagnostics",
           "kind": "panel",
           "label": "29 · Diagnóstico / Recuperação",
+          "legacy_label": "29 · Diagnóstico / Recuperação",
           "order": 60,
           "parent_id": "v9-operations",
           "tab": "diagnostics"
@@ -21648,6 +21677,7 @@
           "id": "v9-advanced",
           "kind": "group",
           "label": "30 · ENGINE / ADVANCED",
+          "legacy_label": "30 · ENGINE / ADVANCED",
           "order": 70,
           "parent_id": "v9-operations",
           "phase_label": "FASE 15",
@@ -21659,7 +21689,7 @@
           "kind": "editor-anchor",
           "label": "Motion Lab / runtime",
           "order": 10,
-          "parent_id": "v9-advanced",
+          "parent_id": "v9-motion",
           "tab": "design"
         },
         {
@@ -21668,7 +21698,7 @@
           "kind": "editor-anchor",
           "label": "Theme Runtime / overrides",
           "order": 20,
-          "parent_id": "v9-advanced",
+          "parent_id": "v9-themes",
           "tab": "siteappearance"
         },
         {
@@ -21694,39 +21724,23 @@
           "id": "v9-final-integration",
           "kind": "editor-anchor",
           "label": "31 · INTEGRAÇÃO FINAL / RELEASE",
+          "legacy_label": "31 · INTEGRAÇÃO FINAL / RELEASE",
           "order": 100,
-          "parent_id": "v9-functional-tree",
+          "parent_id": "v9-overview",
           "phase_label": "FASE 15",
-          "tab": "workspace"
+          "tab": "workspace",
+          "ui_hidden": true
         },
         {
           "editor_anchor": "v9CustomThemeBuilder",
           "id": "v9-custom-theme-builder",
           "kind": "editor-anchor",
           "label": "32 · CUSTOM THEME BUILDER",
+          "legacy_label": "32 · CUSTOM THEME BUILDER",
           "order": 105,
-          "parent_id": "v9-functional-tree",
+          "parent_id": "v9-themes",
           "phase_label": "FASE 15B",
           "tab": "siteappearance"
-        },
-        {
-          "id": "home-blocks",
-          "kind": "group",
-          "label": "Blocos da Home",
-          "order": 40,
-          "parent_id": "page-home",
-          "tab": ""
-        },
-        {
-          "block_id": "core-hero",
-          "block_type": "hero",
-          "id": "home-block:core-hero",
-          "kind": "home-block",
-          "label": "Hero",
-          "order": 10,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
         },
         {
           "block_id": "core-hero",
@@ -21742,33 +21756,11 @@
         {
           "block_id": "core-intro",
           "block_type": "intro",
-          "id": "home-block:core-intro",
-          "kind": "home-block",
-          "label": "Introdução",
-          "order": 20,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": false
-        },
-        {
-          "block_id": "core-intro",
-          "block_type": "intro",
           "id": "v9-home-block:core-intro",
           "kind": "home-block",
           "label": "Introdução",
           "order": 20,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": false
-        },
-        {
-          "block_id": "core-lettering",
-          "block_type": "lettering",
-          "id": "home-block:core-lettering",
-          "kind": "home-block",
-          "label": "Lettering",
-          "order": 30,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": false
         },
@@ -21786,17 +21778,6 @@
         {
           "block_id": "block-mt7w7u6g-rltgl",
           "block_type": "text_motion",
-          "id": "home-block:block-mt7w7u6g-rltgl",
-          "kind": "home-block",
-          "label": "Text Motion · TXT",
-          "order": 40,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w7u6g-rltgl",
-          "block_type": "text_motion",
           "id": "v9-home-block:block-mt7w7u6g-rltgl",
           "kind": "home-block",
           "label": "Text Motion · TXT",
@@ -21804,17 +21785,6 @@
           "parent_id": "v9-home-blocks",
           "tab": "home",
           "visible": true
-        },
-        {
-          "block_id": "core-projects-header",
-          "block_type": "projects_header",
-          "id": "home-block:core-projects-header",
-          "kind": "home-block",
-          "label": "Cabeçalho do portfólio",
-          "order": 50,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": false
         },
         {
           "block_id": "core-projects-header",
@@ -21830,33 +21800,11 @@
         {
           "block_id": "core-projects",
           "block_type": "projects",
-          "id": "home-block:core-projects",
-          "kind": "home-block",
-          "label": "Projetos",
-          "order": 60,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-projects",
-          "block_type": "projects",
           "id": "v9-home-block:core-projects",
           "kind": "home-block",
           "label": "Projetos",
           "order": 60,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7vxqnd-yp24f",
-          "block_type": "sliced_hero",
-          "id": "home-block:block-mt7vxqnd-yp24f",
-          "kind": "home-block",
-          "label": "Sliced Hero Builder",
-          "order": 70,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": true
         },
@@ -21874,33 +21822,11 @@
         {
           "block_id": "youtube-showcase-main",
           "block_type": "youtube_showcase",
-          "id": "home-block:youtube-showcase-main",
-          "kind": "home-block",
-          "label": "YouTube Showcase",
-          "order": 80,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "youtube-showcase-main",
-          "block_type": "youtube_showcase",
           "id": "v9-home-block:youtube-showcase-main",
           "kind": "home-block",
           "label": "YouTube Showcase",
           "order": 80,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w4nzd-iqxso",
-          "block_type": "dynamic_island",
-          "id": "home-block:block-mt7w4nzd-iqxso",
-          "kind": "home-block",
-          "label": "Dynamic Island · TXT",
-          "order": 90,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": true
         },
@@ -21918,33 +21844,11 @@
         {
           "block_id": "block-mt7w65mq-gj3mf",
           "block_type": "carousel_3d",
-          "id": "home-block:block-mt7w65mq-gj3mf",
-          "kind": "home-block",
-          "label": "3D Carousel · TXT",
-          "order": 100,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w65mq-gj3mf",
-          "block_type": "carousel_3d",
           "id": "v9-home-block:block-mt7w65mq-gj3mf",
           "kind": "home-block",
           "label": "3D Carousel · TXT",
           "order": 100,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w1mxs-fz7yt",
-          "block_type": "quote_cta",
-          "id": "home-block:block-mt7w1mxs-fz7yt",
-          "kind": "home-block",
-          "label": "Orçamento integrado",
-          "order": 110,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": true
         },
@@ -21962,33 +21866,11 @@
         {
           "block_id": "block-mt7w6ubb-x0xc9",
           "block_type": "logo_carousel",
-          "id": "home-block:block-mt7w6ubb-x0xc9",
-          "kind": "home-block",
-          "label": "Logo Carousel · TXT",
-          "order": 120,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w6ubb-x0xc9",
-          "block_type": "logo_carousel",
           "id": "v9-home-block:block-mt7w6ubb-x0xc9",
           "kind": "home-block",
           "label": "Logo Carousel · TXT",
           "order": 120,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w5bn1-p6bcf",
-          "block_type": "canvas_fractal_grid",
-          "id": "home-block:block-mt7w5bn1-p6bcf",
-          "kind": "home-block",
-          "label": "Canvas Fractal Grid · TXT",
-          "order": 130,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": true
         },
@@ -22006,33 +21888,11 @@
         {
           "block_id": "core-contact",
           "block_type": "contact",
-          "id": "home-block:core-contact",
-          "kind": "home-block",
-          "label": "Contato",
-          "order": 140,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-contact",
-          "block_type": "contact",
           "id": "v9-home-block:core-contact",
           "kind": "home-block",
           "label": "Contato",
           "order": 140,
           "parent_id": "v9-home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-about",
-          "block_type": "about",
-          "id": "home-block:core-about",
-          "kind": "home-block",
-          "label": "Sobre",
-          "order": 150,
-          "parent_id": "home-blocks",
           "tab": "home",
           "visible": true
         },
@@ -22049,29 +21909,11 @@
         },
         {
           "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "kind": "category-page",
-          "label": "Banner mobile",
-          "order": 100,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "id": "v9-category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
           "kind": "category-page",
           "label": "Banner mobile",
           "order": 100,
           "parent_id": "v9-pages-collections",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "id": "category-page:1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "kind": "category-page",
-          "label": "Banners",
-          "order": 110,
-          "parent_id": "page-categories",
           "tab": "categorypages"
         },
         {
@@ -22085,29 +21927,11 @@
         },
         {
           "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
-          "order": 120,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
           "id": "v9-category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
           "kind": "category-page",
           "label": "Lateral Banners",
           "order": 120,
           "parent_id": "v9-pages-collections",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "kind": "category-page",
-          "label": "Campanha 007 Completa",
-          "order": 130,
-          "parent_id": "page-categories",
           "tab": "categorypages"
         },
         {
@@ -22121,29 +21945,11 @@
         },
         {
           "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "kind": "category-page",
-          "label": "Carrossel",
-          "order": 140,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
           "id": "v9-category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
           "kind": "category-page",
           "label": "Carrossel",
           "order": 140,
           "parent_id": "v9-pages-collections",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "kind": "category-page",
-          "label": "DERMACAST",
-          "order": 150,
-          "parent_id": "page-categories",
           "tab": "categorypages"
         },
         {
@@ -22157,29 +21963,11 @@
         },
         {
           "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "kind": "category-page",
-          "label": "Edição de vídeos",
-          "order": 160,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "id": "v9-category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "category-page",
           "label": "Edição de vídeos",
           "order": 160,
           "parent_id": "v9-pages-collections",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "id": "category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "kind": "category-page",
-          "label": "Lâminas para divulgação",
-          "order": 170,
-          "parent_id": "page-categories",
           "tab": "categorypages"
         },
         {
@@ -22193,29 +21981,11 @@
         },
         {
           "category_id": "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
-          "id": "category-page:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
-          "kind": "category-page",
-          "label": "MANUAL DA MARCA",
-          "order": 180,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
           "id": "v9-category-page:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
           "kind": "category-page",
           "label": "MANUAL DA MARCA",
           "order": 180,
           "parent_id": "v9-pages-collections",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "id": "category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "kind": "category-page",
-          "label": "Motion",
-          "order": 190,
-          "parent_id": "page-categories",
           "tab": "categorypages"
         },
         {
@@ -28468,7 +28238,7 @@
         }
       ],
       "root_id": "site",
-      "version": 11
+      "version": 12
     },
     "special_routes": {
       "about": {
