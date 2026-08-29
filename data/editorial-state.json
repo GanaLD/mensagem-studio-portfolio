@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "9351c7b4b5917b2835e6",
-    "saved_at": "2026-08-29T13:39:12.533473+00:00"
+    "revision": "fd562d8701bd55d0b2a0",
+    "saved_at": "2026-08-29T13:39:46.825573+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -274,6 +274,18 @@
       "title_size": 0,
       "visible": true
     },
+    "1FGjllpSgDzPfJrLC_fUeAUOhIkqbjbAb": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
     "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO": {
       "seo": {
         "canonical": "",
@@ -343,9 +355,88 @@
       },
       "title": "CARROSSEL BACIO",
       "visible": true
+    },
+    "1_DuKohL_ARGrbwMQnIAASWzaJut15eyY": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
+    "1beTARHOWQPaa7KuGPUu5hbGlNZXJy2m4": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
+    "1dXJeaBVN-ELVq8p_Qlq5vrC7SeFvKsob": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
+    "1hXPbGzYgXCkYclSHlJ0IkZTYyn-BAfoB": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
+    "1t0MBqjWJRIkFd6w8cnu78n6avbil1EhA": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
+    },
+    "1zJI3cyVuXmlWJ83xPH4BQvUdSKYWrpdo": {
+      "seo": {
+        "canonical": "",
+        "description": "",
+        "follow": true,
+        "image_media_id": "",
+        "index": true,
+        "schema_type": "",
+        "slug": "",
+        "title": ""
+      }
     }
   },
   "projects": {
+    "1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9": {},
+    "1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM": {},
+    "1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0": {},
+    "11nGPVaeNIpB2vtubtneucmcf1rlilH2P": {},
+    "128fOGCip0vtquE_3u4TsyMRrkpy_CiPO": {},
+    "167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68": {},
+    "19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN": {},
     "1B-zoNHhJk-vn5sqZ1Uj24behqycBH50H": {
       "collection_id": "",
       "description": "",
@@ -356,6 +447,13 @@
       "title": "WORKSHOP",
       "visible": true
     },
+    "1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l": {},
+    "1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF": {},
+    "1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi": {},
+    "1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71": {},
+    "1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke": {},
+    "1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5": {},
+    "1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED": {},
     "1Gg2A7a4COva4j5ocytoYgYZCnpn62g72": {
       "collection_id": "",
       "description": "",
@@ -376,6 +474,15 @@
       "title": "WORKSHOP MERZ",
       "visible": true
     },
+    "1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG": {},
+    "1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU": {},
+    "1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk": {},
+    "1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz": {},
+    "1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V": {},
+    "1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4": {},
+    "1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65": {},
+    "1OUnEO8phxcBAXl2l7Th7Ls53pkO6_Bum": {},
+    "1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u": {},
     "1PqigSqYCJE8RDiCtcMuSsrHHO2ywTXW5": {
       "collection_id": "",
       "description": "",
@@ -386,6 +493,7 @@
       "title": "WORKSHOP  EVO",
       "visible": true
     },
+    "1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb": {},
     "1SwihpINV0BXJiUu_Mgw4fXqRwl-2wiVX": {
       "collection_id": "",
       "description": "",
@@ -396,6 +504,12 @@
       "title": "WORKSHOP CIMED",
       "visible": true
     },
+    "1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx": {},
+    "1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc": {},
+    "1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7": {},
+    "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy": {},
+    "1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B": {},
+    "1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb": {},
     "1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R": {
       "case_builder": {
         "blocks": [
@@ -563,7 +677,26 @@
       "title": "Banner MOBILE Allergan",
       "title_size": 0,
       "visible": true
-    }
+    },
+    "1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e": {},
+    "1beWkRgffY9Brko94NH00Sb_ghoMaGdp8": {},
+    "1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX": {},
+    "1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu": {},
+    "1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6": {},
+    "1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll": {},
+    "1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt": {},
+    "1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t": {},
+    "1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ": {},
+    "1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z": {},
+    "1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM": {},
+    "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE": {},
+    "1tVJBX_1JckjczuocAaQDjLy3dfzpxf34": {},
+    "1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo": {},
+    "1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg": {},
+    "1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb": {},
+    "1w55qe59iktNa4i5WdoknGNuFdtumThpB": {},
+    "1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O": {},
+    "1zvhvW4D9wGen9FyUyWOQ7gIi6ZFSeold": {}
   },
   "publication": {
     "direct_drive_media": true,
