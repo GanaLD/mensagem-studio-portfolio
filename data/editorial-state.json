@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "bf52941edcf45ec37e5a",
-    "saved_at": "2026-08-29T10:18:21.004801+00:00"
+    "revision": "40f6dafee796a0162fcc",
+    "saved_at": "2026-08-29T10:18:25.375945+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -470,7 +470,7 @@
     "briefing": {
       "autosave": true,
       "delivery": {
-        "admin_email": "",
+        "admin_email": "gabriel.jesuseamor@gmail.com",
         "alert_recipient": "",
         "api_base_url": "",
         "max_attempts": 5,
@@ -493,6 +493,8 @@
       "intro": "Você pode salvar, voltar e continuar depois. Antes do envio final, todas as respostas serão revisadas.",
       "menu_label": "Briefing",
       "pdf": {
+        "document_title": "Briefing de Projeto",
+        "footer": "Mensagem Studio",
         "include_signature": true,
         "include_upload_index": true,
         "studio_name": "Mensagem Studio",
