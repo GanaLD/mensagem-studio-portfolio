@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "ffa0219e3f1ef7995a3b",
-    "saved_at": "2026-08-29T13:37:34.403221+00:00"
+    "revision": "36eac85d7d75d1bfcefd",
+    "saved_at": "2026-08-29T13:38:02.949600+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -39444,13 +39444,13 @@
       "fallback_url": "",
       "geometry": "torus_knot",
       "interaction": {
-        "auto_rotate": true,
+        "auto_rotate": false,
         "gyro": false,
         "pointer_events": true,
         "pointer_mode": "orbit",
         "pointer_strength": 0.6,
-        "scroll_mode": "translate_y",
-        "scroll_strength": 0.8
+        "scroll_mode": "dolly",
+        "scroll_strength": 0.55
       },
       "opacity": 1,
       "performance": {
@@ -39461,7 +39461,7 @@
         "tablet_enabled": true,
         "transparent": true
       },
-      "placement": "global_background",
+      "placement": "hero",
       "rotation_x": 0,
       "rotation_y": 0,
       "rotation_z": 0,
