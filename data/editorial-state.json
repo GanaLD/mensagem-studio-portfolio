@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "da10868a140d462da06d",
-    "saved_at": "2026-08-29T13:31:08.829420+00:00"
+    "revision": "b17eb97cf7523643bc88",
+    "saved_at": "2026-08-29T13:31:23.294530+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1532,7 +1532,26 @@
       "story": {
         "enabled": false,
         "mode": "scroll",
-        "scenes": [],
+        "scenes": [
+          {
+            "desktop_visible": true,
+            "duration_seconds": 2.4,
+            "enabled": true,
+            "end_percent": 25,
+            "enter": "fade",
+            "exit": "fade",
+            "id": "background-story-mtef5hht",
+            "label": "Cena 01",
+            "mobile_visible": true,
+            "phrase": "Nova frase",
+            "position": "center-left",
+            "start_percent": 0,
+            "start_seconds": 0,
+            "subtitle": "",
+            "sync_layer_id": "",
+            "tablet_visible": true
+          }
+        ],
         "version": 1
       },
       "url": ""
