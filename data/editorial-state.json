@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "40f6dafee796a0162fcc",
-    "saved_at": "2026-08-29T10:18:49.577763+00:00"
+    "revision": "82d8bfb3980df5a23690",
+    "saved_at": "2026-08-29T10:33:21.480667+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -64,7 +64,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -78,7 +77,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -92,7 +90,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -106,7 +103,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -120,7 +116,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -134,7 +129,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -148,7 +142,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -162,7 +155,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -3358,7 +3350,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3439,7 +3430,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3520,7 +3510,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3601,7 +3590,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3698,7 +3686,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3779,7 +3766,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3860,7 +3846,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -3941,7 +3926,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -4038,7 +4022,6 @@
           "follow": true,
           "image_media_id": "",
           "index": true,
-          "schema_type": "",
           "slug": "",
           "title": ""
         },
@@ -4053,7 +4036,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
@@ -4540,7 +4522,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -4993,7 +4974,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -5446,7 +5426,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -5921,7 +5900,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -6375,7 +6353,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -6829,7 +6806,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -7283,7 +7259,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -7757,7 +7732,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -8210,7 +8184,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -8663,7 +8636,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -9116,7 +9088,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -9590,7 +9561,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -10043,7 +10013,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -10496,7 +10465,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -10949,7 +10917,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -11423,7 +11390,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -11876,7 +11842,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -12329,7 +12294,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -12803,7 +12767,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -13256,7 +13219,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -13709,7 +13671,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -14185,7 +14146,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -14641,7 +14601,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -15115,7 +15074,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -15568,7 +15526,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -16021,7 +15978,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -16495,7 +16451,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -16948,7 +16903,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -17401,7 +17355,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -17854,7 +17807,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -18328,7 +18280,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -18781,7 +18732,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -19234,7 +19184,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -19687,7 +19636,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -20119,7 +20067,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -20530,7 +20477,6 @@
                 "follow": true,
                 "image_media_id": "",
                 "index": true,
-                "schema_type": "",
                 "slug": "",
                 "title": ""
               },
@@ -20612,7 +20558,6 @@
         "follow": true,
         "image_media_id": "",
         "index": true,
-        "schema_type": "",
         "slug": "",
         "title": ""
       },
