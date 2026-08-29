@@ -1,41 +1,37 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "9eea665f19e20790aa9a",
-  "bundle_sha256": "9eea665f19e20790aa9a45365a7fbe8b58d131631e165b4f7998e1a47449ac21",
-  "editorial_revision": "6c4b86a21a604e6bc122",
+  "build_revision": "71f4be81135cdb597444",
+  "bundle_sha256": "71f4be81135cdb5974446cac1c033c27b6b343ad5089f938f9dc557fd892dc1d",
+  "editorial_revision": "e0e94246b535ea75d6f5",
   "files": {
     ".nojekyll": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "404.html": {
-      "bytes": 8538,
-      "sha256": "47773f602eaf15b9a632743f6af748f4ff179535a1a554144901f8a267a73506"
+      "bytes": 8811,
+      "sha256": "9dc51d1fa7129009920bc99aed43734bcfce8b0d99a238c93eb7fe26a32fc807"
+    },
+    "404/index.html": {
+      "bytes": 9326,
+      "sha256": "97e41a83f41661e22af528b04dc5f4f0fd95f083728e876d6970590fb739a354"
     },
     "CNAME": {
       "bytes": 21,
       "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
     },
+    "arquivo/index.html": {
+      "bytes": 9193,
+      "sha256": "344596d415739d674155fc08ba46d8d0a1a98fdf6b3e26be1b1fe8b2c8e33415"
+    },
+    "assets/3d/oryzo-controller.glb.gz": {
+      "bytes": 7163903,
+      "sha256": "bd8aa3d064c7c006833cfb7813a8ed8a20e372b54c2f6e01493d417b35537a10"
+    },
     "assets/components/advanced-components.js": {
       "bytes": 7283,
       "sha256": "cde143bd96600ddc5041c0bc2891fb4df77cbc521d8696a16c07962eca27cab6"
-    },
-    "assets/components/v9-art/neon-architecture.webp": {
-      "bytes": 99910,
-      "sha256": "e937df18c53c952c74e15f0ee17d4785fd7151a1fe883435f065c924e991cedc"
-    },
-    "assets/components/v9-art/orbital-engine.webp": {
-      "bytes": 132316,
-      "sha256": "d8767b846942bdf2c5e5dc94d13c4bbd2fc2fbe95d0e5faa2de4aec7b8f99026"
-    },
-    "assets/components/v9-public.css": {
-      "bytes": 11125,
-      "sha256": "eea79ca780ff57f6955e843971bcb7cb72a0a4b0e273aeeac63936a172f07b22"
-    },
-    "assets/components/v9-public.js": {
-      "bytes": 13743,
-      "sha256": "d7a139a5b68ea25b4261f6e850b91c9801508155375b73477d1e19b65f2b191b"
     },
     "assets/hero/dermacast-laila.mp4": {
       "bytes": 2396816,
@@ -106,540 +102,572 @@
       "sha256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6"
     },
     "assets/site.css": {
-      "bytes": 309774,
-      "sha256": "987b7b692604dae8930515a574379f7483043bd1fba2e57e6926809843d33202"
+      "bytes": 340097,
+      "sha256": "6a97043b6f5697c790c1623b91883c95f9443028f85cbec9f4917eaf04cbc290"
     },
     "assets/site.js": {
-      "bytes": 424581,
-      "sha256": "1ebcd89295277ab8e34f01e7bd0e7cb393b2bd81aac7301b1f718bef59b3aa32"
+      "bytes": 509284,
+      "sha256": "006e41f1f437234c2a2d0197ef9b4cd31db98bcadca717efa04a61e7d60cc78b"
     },
     "assets/themes/black-maca.css": {
-      "bytes": 7718,
-      "sha256": "56e5007f56768c249b52fac44bf0111632860d423732299b57e2c55e903a555c"
+      "bytes": 8370,
+      "sha256": "2026d9412921b855a8569917ef5b4c49bac8f5c7cfda8efc5f1ffcaac7bfdcfd"
     },
     "assets/themes/branding.css": {
-      "bytes": 7573,
-      "sha256": "d353bd7091cf6ae1c164ba777393712a76aaecb2c27d06f5c52ab2c053f11fe0"
+      "bytes": 8525,
+      "sha256": "ba5f81014f37d56666aaaecc6a144f2ea2f1b8cc50a9f8f01f2ead5889c7be4a"
     },
     "assets/themes/discord.css": {
-      "bytes": 7581,
-      "sha256": "1bd6ad21a0276001555828846a7ee982f356f0aee1f4b08cc596ccb705471b7d"
+      "bytes": 8209,
+      "sha256": "318920825486aa9c80f692004c5dad0153e5ec3040e9e54779c5be2b51a34713"
     },
     "assets/themes/dope-segurity.css": {
-      "bytes": 8087,
-      "sha256": "205a83ee9efcde5235934dd494b142005963849c53e4f89ea4ddd287d5ebd19f"
+      "bytes": 9015,
+      "sha256": "2c1f237a4444bc87aad917020016b9b29dd6b789703805c833bea3e9c9cd5e59"
     },
     "assets/themes/maca.css": {
-      "bytes": 7028,
-      "sha256": "5b0d9ad6b4eb8e531e92f3c21d19209f8bc4e163c15bb37824e6a09f9d400ef1"
+      "bytes": 7729,
+      "sha256": "7ea071b263f9c13b6bedf3293c813adf77cdd3f2699bcae6fbfd15e95c212399"
     },
     "assets/themes/mekaverse.css": {
-      "bytes": 6262,
-      "sha256": "f5f687d69bf6020ead637f0da8b72e9205aeca7e1e702843e193a82ce3d25eb7"
+      "bytes": 7022,
+      "sha256": "d1dd1fbc62afa17754359cceb24a2d96b6da83c8736f5952f5d022af5954b68d"
     },
     "assets/themes/mercury.css": {
-      "bytes": 7140,
-      "sha256": "fbda3f43cc152f64551da6a0f744954d7478c2d90aeefaf74ede4c01fd7d2c56"
+      "bytes": 7737,
+      "sha256": "679ddd402bfb37536c3837b23c03d275c096d7f66fea093ec85a6ca30166aa85"
     },
     "assets/themes/neuralink.css": {
-      "bytes": 7104,
-      "sha256": "2787c4978fe6b465be87f026b29ea1b8471b4f7b1ff998f9c14c45e661e9248a"
+      "bytes": 7807,
+      "sha256": "9916f2d33bbadeecff871e8b429d1ac058d256f55c47fe11b8a65e617a5aaeb8"
     },
     "assets/themes/oryzo-ai.css": {
-      "bytes": 6669,
-      "sha256": "5cd9df7fba90daa012c776fdc2d815308729bb620e8754aabfacf7de09819eb9"
+      "bytes": 8073,
+      "sha256": "47028e240678aea0209d962a176bb507e4cd8a2dae98f4854ed9797a72ca90ba"
     },
     "assets/themes/structured.css": {
-      "bytes": 6870,
-      "sha256": "7ecf903aa6e152df9f87863d0d6396a2be780cbda81f3d1e017ba997eb702b37"
+      "bytes": 7842,
+      "sha256": "04a7771776cf1fa5f5a2d8da20c1667c29aa9b4ee7041f9e0a662fd0bd28f70c"
     },
     "assets/themes/studio-oker.css": {
-      "bytes": 6694,
-      "sha256": "aaf60fe4809f102d3d0f6c3b871a568b0d6a27e834f8026f64e8820ccf5e7d8d"
+      "bytes": 7399,
+      "sha256": "fc4583a4dfa0de2ca14816cac0607c2a3cdf3e4351c0456dd3110c875d0591ec"
     },
     "assets/themes/studioframe-default.css": {
-      "bytes": 387,
-      "sha256": "3fc1817fa8bdb803073ea2485e0ff37b32b83a281e62caf6a602878580514b29"
+      "bytes": 844,
+      "sha256": "18281038ca62d438f680695cf4b183f25b2c2fab3719d7d2e750a0583fe36e60"
+    },
+    "assets/themes/theme-modules-v9.1.1.css": {
+      "bytes": 16011,
+      "sha256": "a94785663ef3413682189f4c7bcad37688af6a021a5dee538f12b4eb25120b9d"
     },
     "assets/themes/theme-overrides-v7.8.3.css": {
       "bytes": 6139,
       "sha256": "d9e0c66e5cf4d556f8197af92e87142e1f63f6f662d552771b2f92734fe8b6be"
     },
     "assets/themes/theme-runtime.js": {
-      "bytes": 18278,
-      "sha256": "f8a9aa234b44ea0281669067924cbeed1431d5ee0152e7a9c5716df6646dfcde"
+      "bytes": 19795,
+      "sha256": "a66b6e936008d839387e18475f9c6f7588252fb5193a7c631d3fdf0d033fed9c"
     },
     "assets/themes/workplace-neura.css": {
-      "bytes": 7288,
-      "sha256": "be25bb0a895640117da3412cd2a946dab2a5ab72be8b04c6df49eae686f9091a"
+      "bytes": 8078,
+      "sha256": "710dc660110bb265673110b57eb0f0b482a0d70ba8d90900c547cdb9f9af2a09"
+    },
+    "briefing/index.html": {
+      "bytes": 9135,
+      "sha256": "95bff220158e3b5fef0b2c5b22ff661257243dc56bb90a46cea6cec215c11f5f"
+    },
+    "busca/index.html": {
+      "bytes": 9216,
+      "sha256": "faab0673b1b92ab54c0a724f361c33d5d2a1759b92aecd1c2638d5313acbe00d"
+    },
+    "clientes/index.html": {
+      "bytes": 9301,
+      "sha256": "175939ea9eaf7be16e8bb9e0d3d45b0fc3da9dadded6fd996071c16ec514eacd"
+    },
+    "contato/index.html": {
+      "bytes": 9230,
+      "sha256": "4be64e78e32ad97195a1d97505cb4ed63bcd5d88faea15c8fe8087863fb4f8dc"
     },
     "data/portfolio.json": {
-      "bytes": 3428457,
-      "sha256": "7bcb1c5dba680df515743ba29e6ea21a53549efd06cbad34bfb8280db46cb30d"
+      "bytes": 4509590,
+      "sha256": "eaf7fef98f012fb1f21bcb5bc6e2e0d5986e613d53c3eaf34d7d740445049643"
+    },
+    "data/seo-report.json": {
+      "bytes": 48119,
+      "sha256": "410e0e6ac216fd078c051cebdf4c007de0930e2ad384c9a653210048d1af2fcc"
     },
     "index.html": {
-      "bytes": 2486070,
-      "sha256": "b46006bb9391a4db38773b62867aa38adc6a09d1c1434159af6cc8dc969a2e56"
+      "bytes": 3165931,
+      "sha256": "ffed070f86dc05e67f7463d0cb93214ec45579e49be8153238a9f4829135051a"
+    },
+    "orcamento/index.html": {
+      "bytes": 9199,
+      "sha256": "2535fd780a6bebf19ff8b86c05443e6c6a421f301a65318a52f6957ed5c902c6"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
-      "bytes": 8985,
-      "sha256": "d63abaab960228e04a4bed02b39991151c3c6291f575252c1914298e6efff4a8"
+      "bytes": 9799,
+      "sha256": "bdbfddb59bd8a69d6898b054176d46e29fe573d416928fcaf81d3ec0bbd0dfef"
     },
     "projetos/banner-mobile/banner-da-evo/index.html": {
-      "bytes": 8993,
-      "sha256": "7a3ffc3f8010b5ff0b463bfab9f6c7a9b6ced79079af2fb422297ae123edbee6"
+      "bytes": 9814,
+      "sha256": "7e83253e100b798aab42111f188e3f3aa825ecbe012d18cc7af83a05cfe3947d"
     },
     "projetos/banner-mobile/banner-galderma/index.html": {
-      "bytes": 9009,
-      "sha256": "f13b6c3105b5c346c3724cd1559ef666dc34298c58f896af5eadbb4718460ff5"
+      "bytes": 9844,
+      "sha256": "4648ee039406e8e6443fed169b8f48d99f0dfba77a105c9b288fdaf5faf1c368"
     },
     "projetos/banner-mobile/banner-hydro/index.html": {
-      "bytes": 8985,
-      "sha256": "9f08de1a222752749663d3f093ba2f7be020b28eeafb7ce251e67fa13f933d65"
+      "bytes": 9799,
+      "sha256": "f980034305fd5327e4a5ba2d42b1822287bd31bd2a55dd5c5bad4f098f248753"
     },
     "projetos/banner-mobile/banner-lancamento-bellarine/index.html": {
-      "bytes": 9109,
-      "sha256": "092e9fec40727a77eb0ae25b378b4c3f39b8f22362aad65be8b5e7b66566a024"
+      "bytes": 10031,
+      "sha256": "f1711d1fa82db487f95919cba057b13344eabba2a5b14efef4ce979c1399c9ba"
     },
     "projetos/banner-mobile/banner-lancamento-rennova/index.html": {
-      "bytes": 9093,
-      "sha256": "083629a0b66e0be9dc005e9f86078061f22d849692c29ca59b05ba452904006f"
+      "bytes": 10001,
+      "sha256": "3ba8cc65004d3ac8b63834b0e6cd68f9eba2cf196265b6cb2e97260cc90c3672"
     },
     "projetos/banner-mobile/banner-mobile-allergan/index.html": {
-      "bytes": 9065,
-      "sha256": "3394bf2bd23df4a634cd7c1e3984ce978e95fd74622006e6e4a7108f7adc9466"
+      "bytes": 9949,
+      "sha256": "c52203cfd87224f0ac685c3043d6f3e051a2b373de42ff91d8cedfd8359c3ec9"
     },
     "projetos/banner-mobile/banner-rennova-diamond/index.html": {
-      "bytes": 9065,
-      "sha256": "d739bf07e608dec5ee4360ec4afe0a1887b5358edd9351f0eddd212b26a315de"
+      "bytes": 9949,
+      "sha256": "24e30437f0a5a71043148f6c1def5bcb0807c94f40d4e3b0e20666a2d11263ca"
     },
     "projetos/banner-mobile/index.html": {
-      "bytes": 8951,
-      "sha256": "3ee803cebc817c462af02de5e19820c1fc49684b3c0263cb82767dcb0634fa3e"
+      "bytes": 9532,
+      "sha256": "963ad2c92551780a3aa39fd9768302f281eb205d3564518c05aaaecf17046702"
     },
     "projetos/banners/banner-allergan/index.html": {
-      "bytes": 8985,
-      "sha256": "4a796ea1b4e836b767610b915217886a493bb1432b261cada5f1041b27293cec"
+      "bytes": 9784,
+      "sha256": "e240fe229ebe27aa8ef30009d6c70a9dd71ab030e75c45c64a57efc8551903f7"
     },
     "projetos/banners/banner-bacio/index.html": {
-      "bytes": 8961,
-      "sha256": "24c58d803ad64fa7938f95c7d6013d207ea3a58cac813cee1bca137419909119"
+      "bytes": 9739,
+      "sha256": "9642ea20f16793709da1f2dec8aa7781cd707d633af0f3ac0f3f913ad76417b4"
     },
     "projetos/banners/banner-bellarine/index.html": {
-      "bytes": 8993,
-      "sha256": "30ffeb78bb4bff09d27f3dd8c502ff2c94e866bf20a5d5faf9ccf2e31532a16b"
+      "bytes": 9799,
+      "sha256": "efb565255ce4bd4b53fbc13374969b7ab7954ef3e65cf6bca16e9a9801aa075f"
     },
     "projetos/banners/banner-central-rejuvital-2/index.html": {
-      "bytes": 9065,
-      "sha256": "5384848239d8e183bf363835daddc872b04616c43f6ec35c61a486cc67f3980c"
+      "bytes": 9935,
+      "sha256": "c1c747b61e7853b6eac261570de47e1986bf63b1d784e884c6aeb21c4b6d2306"
     },
     "projetos/banners/banner-central-rejuvital/index.html": {
-      "bytes": 9057,
-      "sha256": "48c51c97e7596d62f2346ddd4591546691ddb781c8f1d9ab98e55391c420235d"
+      "bytes": 9919,
+      "sha256": "3f9caa0e64197c819d0432655d4c2f5466ddadbf9c2476624831eecf5c8a35af"
     },
     "projetos/banners/banner-evo/index.html": {
-      "bytes": 8945,
-      "sha256": "e94067830be894ccbb29f1584bfad08afa89c6b9496d0d0dae3103d0db84ecf8"
+      "bytes": 9709,
+      "sha256": "ae289590214248a5cd3b4fb9e83641bff7a251202400de315474ad74730cbaf8"
     },
     "projetos/banners/banner-lancamento/index.html": {
-      "bytes": 9005,
-      "sha256": "97eee94c13cb8c6f3d4a5976ec3198415a5c710b54b878f8b17a9bbb91ee77fb"
+      "bytes": 9821,
+      "sha256": "786adaf3177a3c2a963ce91e4676b9e021c4c7f16815c8fc71c3021f1be2c93d"
     },
     "projetos/banners/banner-rejuvital/index.html": {
-      "bytes": 8993,
-      "sha256": "c0d9b32f480f709b19cf8cb47866d5d2ff9454cf90d210ee57c0fb776dbee42e"
+      "bytes": 9799,
+      "sha256": "757825c5eaf348180d3622c3d1692e7e27420cd6b77f6126e301c5b3d26c5158"
     },
     "projetos/banners/banner-rennova-club/index.html": {
-      "bytes": 9017,
-      "sha256": "fdc27d49516f0ba16c839affc8f9383ac1989db87ca3e41ab969ad5b3f8d97c8"
+      "bytes": 9844,
+      "sha256": "b05bd6c9f4f8943f8ca98bd8308caeec2902f20ed690d9e83f9cb5ed9e5e28a1"
     },
     "projetos/banners/banner-rennova-diamond/index.html": {
-      "bytes": 9041,
-      "sha256": "bd4865f077e6e4139e04e9a66d70e65446c251daa9168114a22e93d427808651"
+      "bytes": 9889,
+      "sha256": "3859106c7f9115b2aeb7a839b8e30e7d408fac9d460726e4fa17f8a1db82f28f"
     },
     "projetos/banners/banner-rennova-elleva/index.html": {
-      "bytes": 9033,
-      "sha256": "0de2f8688d6f51afc233669b4bd6306a1849954d5bb57599aa88a9d753a256cb"
+      "bytes": 9874,
+      "sha256": "833343cf103abfdf5fa8b081a5ec3710ac0e81703734b638c0e55d3b831431ab"
     },
     "projetos/banners/banner-rennova-hydro/index.html": {
-      "bytes": 9025,
-      "sha256": "727edc9beba4d1106b48a9fac6ce555d289d30995583bb7a8ed6b2b9f3ede745"
+      "bytes": 9859,
+      "sha256": "cdb337aca50a94a5e945708ec6b784d69efa89e8b5e3ef9056ba3d67dbcd26a5"
     },
     "projetos/banners/banner-shape-lido/index.html": {
-      "bytes": 9001,
-      "sha256": "37d8649ebc763546ca4b134dca9107db7401272d28b4b5dc75f799319b11a266"
+      "bytes": 9814,
+      "sha256": "0ead93684bdc4b21874e4c40dc02e02e4d368a73f9f1d4aac3c9c4d5adae41b4"
     },
     "projetos/banners/banner-v-hacker/index.html": {
-      "bytes": 8985,
-      "sha256": "10e1cf556681e8cd5a8dc114e0e293994810fb16d4fb802ffa6560d78f15d541"
+      "bytes": 9784,
+      "sha256": "d6db5903f67c16eadb7630663ac407cd66ed6852886752f828f13ad9f75f1696"
     },
     "projetos/banners/banner-verve/index.html": {
-      "bytes": 8961,
-      "sha256": "e69fd8a494f4c864f83f905db53c59ac3348f2e9d162b37790530f7b4cc81ef3"
+      "bytes": 9739,
+      "sha256": "ef4122c7bb9b8b9f271e19752b980280b9e15337258e956fd66b5d89e141ba85"
     },
     "projetos/banners/index.html": {
-      "bytes": 8879,
-      "sha256": "c8a19430b06a9fb42e94b02d797da5dbe723775696f31f7703b7ca77f712a013"
+      "bytes": 9418,
+      "sha256": "673a597ddbe839c7b386cb3216379b1687693ac0f6bf3ff6eaca5cc5ff489682"
     },
     "projetos/campanha-007-completa/banner-da-campanha/index.html": {
-      "bytes": 9065,
-      "sha256": "f9745e3eeee5489dd1c413001b21edb7e789021b02737260ceec7ebde93b4320"
+      "bytes": 9969,
+      "sha256": "863085ebddf19fb45a168b8c0d8a5a6337f33d16ff8b640b0fba2a2bbccd56f8"
     },
     "projetos/campanha-007-completa/card-de-storys-2/index.html": {
-      "bytes": 9049,
-      "sha256": "8079c82e29b584c9c2de7a6000d0a5ebf7b084cd3f87e7f0b8f3ceedb2b1aa54"
+      "bytes": 9939,
+      "sha256": "96500121fe19473bccc766da2b427cf789274d6d2c28c4e2d638a5597a07d8f9"
     },
     "projetos/campanha-007-completa/card-de-storys-3/index.html": {
-      "bytes": 9049,
-      "sha256": "7269670d5ee5afeb86832293fcc371b9d401e50ef514728ba0369184571d7b61"
+      "bytes": 9939,
+      "sha256": "c602974523964103db7c7aa2711b5640736a0f2198b6046d13e7d733cad3b6a2"
     },
     "projetos/campanha-007-completa/card-de-storys-4/index.html": {
-      "bytes": 9049,
-      "sha256": "9814dc23e433d1fc23fef5eca271a57b56b47c38069419ada02f44281357e4fd"
+      "bytes": 9939,
+      "sha256": "aaaa442eaf4888dd0ef8c950bf440cfbf75c7414b3c091be9a405164dca0a203"
     },
     "projetos/campanha-007-completa/card-de-storys/index.html": {
-      "bytes": 9033,
-      "sha256": "9b86493ff9096ca6364ebc706c7d2e2425ce859f9f16974938f38b350292fb21"
+      "bytes": 9909,
+      "sha256": "cfa7f2ca47f974398a12aa084bc349f51fe0b8ea6d635ba1a667c84b5b0de896"
     },
     "projetos/campanha-007-completa/card-para-feed/index.html": {
-      "bytes": 9033,
-      "sha256": "d710868e883c929522598da73e3d1cdc300f4fc1b00e7e7510d05f28cfbbc806"
+      "bytes": 9909,
+      "sha256": "3499265c9fca0876f216f73afbf7dcc253cf6f22d340886f2408432630d664c2"
     },
     "projetos/campanha-007-completa/index.html": {
-      "bytes": 9047,
-      "sha256": "74efd6cc85a6659fd4087c55f7dc64a85f254df6269cc9dcc19415b04b8ce0fe"
+      "bytes": 9684,
+      "sha256": "83c6eb552dcf1bc6dd229537eea7379b0f78ff36130eff3370fb263e99dfd79c"
     },
     "projetos/campanha-007-completa/lamina-de-produtos-e-valores/index.html": {
-      "bytes": 9149,
-      "sha256": "3815e53fa40ca6cce2862d7bb32273d15d9d59f5f4f0d5811abbfa561556c48e"
+      "bytes": 10126,
+      "sha256": "41c0c4ab8a1b7b650011191bdcb07d3490658078910888789d1f43b67f9a84ef"
     },
     "projetos/campanha-007-completa/lamina-precos-e-produtos-2/index.html": {
-      "bytes": 9129,
-      "sha256": "e25b87831058ffd42cecc07bc12ae502cb45c07b40d376c425dccb5d526decd7"
+      "bytes": 10089,
+      "sha256": "4b3d6878c5c1d43bb7111cc41b13a12a8882d1e4087aa6d2c739a2ea27938a2e"
     },
     "projetos/campanha-007-completa/lamina-precos-e-produtos-3/index.html": {
-      "bytes": 9137,
-      "sha256": "2974b7567578cb5d4b5bbb5b68f29ed585a2dea0991c3e1b7991888656d6a997"
+      "bytes": 10103,
+      "sha256": "17b3fd952c2c5de7efe4d71f6c8911ab2e91471a6b547610e6882c76e532489f"
     },
     "projetos/campanha-007-completa/lamina-precos-e-produtos/index.html": {
-      "bytes": 9121,
-      "sha256": "8cca9d317c0a0620deca138d4ceea4730007e10edadb5d81cf6ccb4163a6e520"
+      "bytes": 10073,
+      "sha256": "ac1a6a1c4fbaf91be838ae7d8ad6c61f4e8a61136590215fc7b87065f7b76cce"
     },
     "projetos/campanha-007-completa/logo-para-campanha/index.html": {
-      "bytes": 9069,
-      "sha256": "e0ebbe6b3b0c4861c85534e9e0c5f1ed81bd60644644ae119de835b3bbf27241"
+      "bytes": 9976,
+      "sha256": "4b809d4ce6af32d3514794615141eaa22c1f0d5e4d890c209d783320880bbc8d"
     },
     "projetos/campanha-007-completa/mobile/index.html": {
-      "bytes": 8969,
-      "sha256": "46d932c021e81b26acb38772c68be861ee08d593269c183e9be15480d1a6f98c"
+      "bytes": 9789,
+      "sha256": "6ffc96d5b447d4211fafaea0fe1b97b1418e16b8f4b9f6ac33bd4d85839bf20a"
     },
     "projetos/campanha-007-completa/motion-com-spoiler-da-campanha/index.html": {
-      "bytes": 9165,
-      "sha256": "9aa2a91b34b3a83226387a4e07da9b055f498077f8df3efff53b93c6e86ccd55"
+      "bytes": 10156,
+      "sha256": "4f862163b9ec2e3224476ef317c97817136755ed18b3a50e811ad7178e434e4b"
     },
     "projetos/campanha-007-completa/storys-de-divulgacao/index.html": {
-      "bytes": 9089,
-      "sha256": "720ee8244b5e9c346b95f88acacab56ea14268d6ad6a4db7ecd7f668f2e19e1e"
+      "bytes": 10013,
+      "sha256": "d9b75dfa6fa3e5e3e9ad425680a01da36bd35617a850441599c94c252dd72017"
     },
     "projetos/campanha-007-completa/video-de-divulgacao/index.html": {
-      "bytes": 9085,
-      "sha256": "fc931421cbacc2ddf93500b28cd0a37d8bf3a651744f3e9a5513908642ec7022"
+      "bytes": 10005,
+      "sha256": "3b8f6e13a5d96e92e147468182d3d931a2c6a0d37408369b2268ebc7dfa4cdba"
     },
     "projetos/carrossel/carrossel-bacio/index.html": {
-      "bytes": 8993,
-      "sha256": "03060cf1d1e99684a78b150848bbf3cf7b05bb156b82ebfbfa826444794c1e0c"
+      "bytes": 9804,
+      "sha256": "d556610f414592d96bbcad04d14d38d1711d563f9422f41a8ff15e7f41f3248f"
     },
     "projetos/carrossel/carrossel-evo/index.html": {
-      "bytes": 8977,
-      "sha256": "4ad5d3ad97bef10dec886dbe90053069c228d1136e25b379568a1a460efe3a99"
+      "bytes": 9774,
+      "sha256": "615d415443f04c1a83fce914d1a27db82766bddfd3c2142e7e27a9f2ca9a8c32"
     },
     "projetos/carrossel/carrossel-img/index.html": {
-      "bytes": 8977,
-      "sha256": "ff2491f53b251fb5def51be6ff590422a96a2a4d23610f4b96261f31f3370425"
+      "bytes": 9774,
+      "sha256": "7b29057ac652010e2f2e579e9361b7ec299e631d6e722b4a9c897f9fb99d208d"
     },
     "projetos/carrossel/carrossel-rennova/index.html": {
-      "bytes": 9009,
-      "sha256": "bc077f5c25a9939bb73446f425c32fc1e9708307e48bf31f186002caee9e397a"
+      "bytes": 9834,
+      "sha256": "50bbf6f0218072004c33d334aed4b6abce94250b2ba082b74edeb357b412c64a"
     },
     "projetos/carrossel/carrossel-v-hacker/index.html": {
-      "bytes": 9017,
-      "sha256": "8951beb318ffdea0b2e1f382eb3fa92383b240d44a468f86ddb3e2a13e1feaa3"
+      "bytes": 9849,
+      "sha256": "ecc48b02faa88af886212921ff336e5e42e2fcfd33f4bb48c049858dcb3b6ccb"
     },
     "projetos/carrossel/carrossel/index.html": {
-      "bytes": 8945,
-      "sha256": "51e431f7ffdd94285a43b1e536b45f0188bc3352c2ec90d16ab3d8ad03af2cc3"
+      "bytes": 9714,
+      "sha256": "0a6cb781ccb8ec42cbcae484ca88c4f6ff8484eafaf74b394aeca7dee9efee77"
     },
     "projetos/carrossel/index.html": {
-      "bytes": 8903,
-      "sha256": "ebafc370402865f5660e993b94f9eddaa88c19cca2b5424ea7ae2a5429b5ddf1"
+      "bytes": 9456,
+      "sha256": "41d09a09bd86692e6e43f92bd5b2f3693ab5ee1e5e9da2cfbe38bd2f67af9579"
     },
     "projetos/dermacast/cortes/index.html": {
-      "bytes": 8921,
-      "sha256": "a4427cd536704a45a2ee8b8c155eb6ae9b2301c796c6a6a634c22c5e30d67b5a"
+      "bytes": 9669,
+      "sha256": "db6bdd6ebb3cd7fc45aebd5892564104fd6cd7be1493f3aed63418458cfef961"
     },
     "projetos/dermacast/episodio-completo/index.html": {
-      "bytes": 9009,
-      "sha256": "599e901e43ffac2e2cf0d457402801f54f8d350fac12005028403ea26f0ada69"
+      "bytes": 9834,
+      "sha256": "d25faf1d399139116069fb0f256063cceb18b6a2373b0bfb7d336a2960c85838"
     },
     "projetos/dermacast/index.html": {
-      "bytes": 8903,
-      "sha256": "54cada2b70e0c31f535775ddd4fba92879f8387d2ab7a0a93d3222e12d9baba3"
+      "bytes": 9456,
+      "sha256": "57237427cdd1c9440926a8ec4d499ea11cec2d852bd5de640760f813858be639"
     },
     "projetos/edicao-de-videos/index.html": {
-      "bytes": 9011,
-      "sha256": "e92ea409384946bfac2eb3bbbaeffb49520dfc6f7d5cb256d1925c78f2fb4d0e"
+      "bytes": 9622,
+      "sha256": "824e5322fe8c1243ae9901e12be93d3dda238aaa7e51f14ddecb4a2cb6caf385"
     },
     "projetos/edicao-de-videos/videos-em-workshop/index.html": {
-      "bytes": 9049,
-      "sha256": "7d9c3b52ff3848c448f28406337d3c7b694ec3cba24c8ad7c1ef8312c98a601a"
+      "bytes": 9929,
+      "sha256": "4c7beea8c6fafa1c4ee26ab7156c2f4cd3b65cd7c4d45fb0480e8a2fa3384d8f"
     },
     "projetos/edicao-de-videos/videos-para-allergan/index.html": {
-      "bytes": 9065,
-      "sha256": "de09953db824a60634c535db41cc4c7af017d85a408b6930e377300826c0e302"
+      "bytes": 9959,
+      "sha256": "ae10d591aad5964f20d55e0739e3ef4b634e0aabc6c3981cf906d6c043a379ce"
     },
     "projetos/edicao-de-videos/videos-para-rejuvital/index.html": {
-      "bytes": 9073,
-      "sha256": "6f24490ba2453812ea05e8e813b7e0f214b483d9d10e523422a2d9dcae1354dd"
+      "bytes": 9974,
+      "sha256": "6ec073f0bb754abffaa27f976e80ad8f2c707fc801d4a71508df216484e7457c"
     },
     "projetos/laminas-para-divulgacao/divulgacao-de-produto/index.html": {
-      "bytes": 9105,
-      "sha256": "9755f56f93f36a8905c134e3db116dff3755fed5e4dd8e37d819a42000e1f937"
+      "bytes": 10051,
+      "sha256": "f80457765195bf7a9992920f6c24c0249d3bf6e069adb8398da5a8743461b462"
     },
     "projetos/laminas-para-divulgacao/divulgacao-para-workshop/index.html": {
-      "bytes": 9129,
-      "sha256": "107e2915c87b9d22e692ac5940193693868557342d2a5dd39417f148042788a9"
+      "bytes": 10096,
+      "sha256": "5dfd67072b5be6cce2055d0d1b151b66a3bf9f3bc4441d4f9bacbffbce86f1af"
     },
     "projetos/laminas-para-divulgacao/index.html": {
-      "bytes": 9095,
-      "sha256": "bd9f17651f20effe8a28a5021bfb84f05cff0556f974324ddcb25bea28ad8c26"
+      "bytes": 9755,
+      "sha256": "82f157711e8cd242327e16425fe1a21898c573422efcdb79bdb19ef9751fb826"
     },
     "projetos/lateral-banners/banner-belotero/index.html": {
-      "bytes": 9017,
-      "sha256": "afccd4a4af237fd413240654fd9136762be9d1df283716379655c58f3f8c7c9f"
+      "bytes": 9864,
+      "sha256": "12078b5f7c09e631ae69a2e2288612229d1e2cdfbab8754f3b25eea34e460151"
     },
     "projetos/lateral-banners/banner-diamond/index.html": {
-      "bytes": 9009,
-      "sha256": "7956dcbe8f6f1e0a059e49cde1f7f6c8370e5dc5e480c4d4319f134a45e47bda"
+      "bytes": 9849,
+      "sha256": "083a15e47ed255bfe5fa6d49543833dec10bf0efb3ede77da5cbf42f1b6e78cf"
     },
     "projetos/lateral-banners/banner-lift/index.html": {
-      "bytes": 8985,
-      "sha256": "1fac8327915c8d9f7da6856cd0796dd340cafa5f905e404ecb5e4c21b922fdef"
+      "bytes": 9804,
+      "sha256": "058e7881921afc1df29346a2918c7f3f448c8040b1fe99157d308688d8864c4d"
     },
     "projetos/lateral-banners/banner-restylane/index.html": {
-      "bytes": 9025,
-      "sha256": "77a09503075c6f6ac0ce71a47ea71db543914ee32bfeddb35dcc8a443c1f86e6"
+      "bytes": 9879,
+      "sha256": "6ca6d9f66b7c208d68abb9e2eb9d475f60ede5e8dc9f759377ae8a2594f04136"
     },
     "projetos/lateral-banners/index.html": {
-      "bytes": 8975,
-      "sha256": "5e3385c3d96c3947ade1b060ff20fea72f68d860d0da26f874ad680cebf011a5"
+      "bytes": 9570,
+      "sha256": "45781e506135bad50d9fe2fc10eeac13ff029cdad7964cdb126b894fa9a02976"
     },
     "projetos/manual-da-marca/index.html": {
-      "bytes": 8975,
-      "sha256": "4ddc998a408aafb137ec55e48d1032e336b8face996252693e62f86888fefdf5"
+      "bytes": 9570,
+      "sha256": "db49a79f4582b9ac77f563c57063ffb09f32693207eef08731cf7639ca71c3dc"
     },
     "projetos/manual-da-marca/ref-resumido/index.html": {
-      "bytes": 9005,
-      "sha256": "bc4ba225c34b9b4ddd6265a706e6f81bf6102f41cc92147318dc0d680f4202f7"
+      "bytes": 9840,
+      "sha256": "9075da79f17cee19c9014ca4a6233483bf9004d1d449e5fe99fcfc3dc2486ccc"
     },
     "projetos/manual-da-marca/ref/index.html": {
-      "bytes": 8925,
-      "sha256": "16938e02f03d8d64fa2943ad194e57454cfeb9d0af7b043b80e7da8f9ba100d2"
+      "bytes": 9691,
+      "sha256": "a43b82a21924a331cd1b17fc3d240301c07c3a08e3fd4ee3c5b9a891633b1906"
     },
     "projetos/manual-da-marca/visual-branding-pasta/index.html": {
-      "bytes": 9065,
-      "sha256": "a578a09e10ff223a8523f67f2ebfd1be4e82b6f514955992c85f9e5375377b2b"
+      "bytes": 9954,
+      "sha256": "1f84ada6898c8689c22cf29e74a69f5f96682f5b68f1a1709989503931cb8275"
     },
     "projetos/manual-da-marca/visual-branding/index.html": {
-      "bytes": 9017,
-      "sha256": "821c194f6900f331a2556c37948a0bc95aca202258e34368fde5c78ceaefa5d9"
+      "bytes": 9864,
+      "sha256": "0b362d1d3ba077b3863bd6ca414985f6aac279169f5ba8c8ca1be2c91e1b57b9"
     },
     "projetos/motion/index.html": {
-      "bytes": 8867,
-      "sha256": "7079f382cd1e905267e966f4b817ee8070a0aa6f8a2c5365980e9e20444e6210"
+      "bytes": 9399,
+      "sha256": "10e641c1fe6d3bb0589d5c67bd264570bd755859c33ce96561533826cacb9880"
     },
     "projetos/motion/motion-fundo-de-tela/index.html": {
-      "bytes": 9021,
-      "sha256": "bef20def2d5675a2a6163a6ba6c2de53e78436bde8f41f216d8ed9c762c70a8c"
+      "bytes": 9849,
+      "sha256": "c48fa18ee6a21f64983d082ff53301c85257b5825be15e032e019770227da566"
     },
     "projetos/motion/motion-para-podcast/index.html": {
-      "bytes": 9013,
-      "sha256": "8228e8cf1028b17cffef44523f672ae597c96387a27c50e59beacecdf0267205"
+      "bytes": 9834,
+      "sha256": "1d999a300d26267cf25eeb51dbe8a573b553b569f8127c61a7c3c91be10b6492"
     },
     "projetos/motion/produto-com-ia/index.html": {
-      "bytes": 8973,
-      "sha256": "cd1adeb792a76d58078da00e624ac9f340747af5e4805cca54e09cb61688e550"
+      "bytes": 9759,
+      "sha256": "2a810b68f61a4dc2c5f2d7560a86d44ec6862cf5b65c474f91f17a0766db0d1b"
     },
     "projetos/motion/reels-rejuvital/index.html": {
-      "bytes": 8981,
-      "sha256": "b9ae7f0be2d33aca897cd0dd0b01904130973c0322db97e12ab2c9f1e9f92657"
+      "bytes": 9774,
+      "sha256": "ca8b8eef3da488603061c6bef33346863a9a036522f04f1b375928a2c75f651d"
     },
     "projetos/motion/rejuvital-pdrn/index.html": {
-      "bytes": 8973,
-      "sha256": "46b69dfae9f50bb03a1c45243d4cc14551ea2895f88c1f043631a8e9b539c9d9"
+      "bytes": 9759,
+      "sha256": "76c2fcc9b0c8876430bb83529f41631c287e53d90efec6d61d74cf3a593edcab"
     },
     "projetos/motion/sculpt-galderma/index.html": {
-      "bytes": 8981,
-      "sha256": "2cca0c553c9f63a31ae01633b89346c20a8eb8cec1e0842c8eb03569f65576ef"
+      "bytes": 9774,
+      "sha256": "0c663d0691f4ff0c88bce85123bdf21e1eac11c00218a86ef0aad75535b92b99"
     },
     "projetos/motion/story-rejuvital/index.html": {
-      "bytes": 8981,
-      "sha256": "cec601dbca2191ed857753f290c58be2c7239ba0280330cb6818e010cd55d570"
+      "bytes": 9774,
+      "sha256": "24973e7cd1130005b487a5bf1f70f26799e2b38947f1586640bfb55dc9457ed0"
     },
     "robots.txt": {
       "bytes": 75,
       "sha256": "bff445912f08f4f49395bf74bc43762253d148329c4d344e113115c8be6e422b"
     },
     "servicos/animacao-de-logotipo/index.html": {
-      "bytes": 9204,
-      "sha256": "4e93dcc965ee285054ab68a5cedbf98fffdd1b57c1daa4a326d94735f471fa3d"
+      "bytes": 9792,
+      "sha256": "2f12e923d662ea0c548d31a30a1b93449b9b15bf02da91db8cef0c0e7b22745e"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
-      "bytes": 9344,
-      "sha256": "5f295733552007a6776dc9c5e111a8f8afe3b2bb1b662fcb07aea0ebce44370f"
+      "bytes": 9996,
+      "sha256": "570b67e953e5d973693387b7307ab3ab082f96df171e7bbe5410b2d53fab90c7"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
-      "bytes": 9252,
-      "sha256": "4eb839c5405eee33cc49066e7fdef6a58e805a2b160e33a12711ea8418004cf7"
+      "bytes": 9889,
+      "sha256": "aa1a63590c2d9418ca1a04392bd57c832f783ace2f59570c3772aa4e6663e937"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
-      "bytes": 9368,
-      "sha256": "a2f8790c99bf92a16b3970e8f7163d01ee215dd1d9145b30fdc3abf4587c835a"
+      "bytes": 10050,
+      "sha256": "7d6464f3dabf60fc475d3b76f9891a62e5a7ba5291318f977c6f7eb06ebe59da"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
-      "bytes": 9228,
-      "sha256": "fe802adb4384c10c49d119e032885e0d007702669dea33565f6996982a320b21"
+      "bytes": 9865,
+      "sha256": "301271eaac78e8ce358f0f0ebd209f33ed5c7627917838e84f3aa64be6ab596e"
     },
     "servicos/composicao-complexa/index.html": {
-      "bytes": 9220,
-      "sha256": "5d9d136a568370450f7030b281be1b5ca1df30d9e55414b4595940191c7dad1a"
+      "bytes": 9801,
+      "sha256": "c7b8d367fd0be2c81ee82d9af223d92a604a1f588cb4f1d8b624b1807acd7274"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
-      "bytes": 9244,
-      "sha256": "3080f630deea9eae3bfc4546de271bf3bbe03c26b1854b20c8e0b0bd7be49f1b"
+      "bytes": 9867,
+      "sha256": "25bdb04650b21b53ca2688ad456c950c72e78821d88ebbb4a681d8a673914527"
     },
     "servicos/composicao-publicitaria/index.html": {
-      "bytes": 9248,
-      "sha256": "271d6bf8b17f208e0122e192889cb626b4a5f193efeab2e34fe2d9e0533ea055"
+      "bytes": 9860,
+      "sha256": "b11b436f9a3c920c802e3b4c159e993e8105a6eec346313f10b0e0577b758040"
     },
     "servicos/correcao-basica/index.html": {
-      "bytes": 9116,
-      "sha256": "6dc991216643b5c8c23bcb63956e060f7ef45a93ba839606dcec5baea34561f9"
+      "bytes": 9672,
+      "sha256": "c2c51984f1b1204910d3c46ada687485633f972def803a6e1c8088062e3770bb"
     },
     "servicos/criacao-de-personagem/index.html": {
-      "bytes": 9264,
-      "sha256": "3c34d1f8b6b22cb89dce3b4cad29d26ad60f8d6e5344f9d716379348cb3ad85a"
+      "bytes": 9859,
+      "sha256": "1eb92451eead21d72ff0474dad914d20ee7dea686a9a5c518c900c66164befdc"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
-      "bytes": 9332,
-      "sha256": "458ae9fe6951df9608b66822e2c9cde58da1cdc91faacde11ddfe4ea0b1388d4"
+      "bytes": 9993,
+      "sha256": "989d92d46c1dfd62c83de002318ad1ee6fb765d1ed795d4d52eac6ffa1c868e5"
     },
     "servicos/direcao-de-arte/index.html": {
-      "bytes": 9196,
-      "sha256": "38549fee450c72609fbe86b451dd21954dd1e56f1f7d716b85dbe88f511ebf9e"
+      "bytes": 9749,
+      "sha256": "2fbe11a03d25d39808e88003eee7aeb247ebfb41c3dc9fb4f1f0a1ebfc8a3eb9"
     },
     "servicos/ilustracao-individual/index.html": {
-      "bytes": 9196,
-      "sha256": "e9d8ad2d16fe2d2bdc85d96d691ee155140dd66fc8c5a625f42c162ae14a9c25"
+      "bytes": 9791,
+      "sha256": "ab635b9940a3e0db3e8acb51239b88f96c2fcddb29311a3dca928cab26ca9c99"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
-      "bytes": 9244,
-      "sha256": "819adcb67f64c7f2b19cd82740886bf0b2a302c0514c917e6d2adede5ba89c2c"
+      "bytes": 9861,
+      "sha256": "54336fb61f475367a8bd4d7675d9534caf3fc7651de8d9ba56b1e979bf80c822"
     },
     "servicos/index.html": {
-      "bytes": 9137,
-      "sha256": "9cb187aeeba82ab286ad364b290794eba1f1b8521bb9fed704575db16d5556fa"
+      "bytes": 9593,
+      "sha256": "6f510d745ea82cae646366b3aa3051d435d984952112cf95e15df0457b527f83"
     },
     "servicos/key-visual-de-campanha/index.html": {
-      "bytes": 9240,
-      "sha256": "911ebf768cafef4ed05a6eab3b9fbdc384b8f461cd64842a597b4bb77fd9d55e"
+      "bytes": 9836,
+      "sha256": "97c79f09abb4469b246ee5ff59fb0a4c59c6eece428498a30ea117fc5130d7b4"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
-      "bytes": 9272,
-      "sha256": "c75eede8436c4948c3c221dfc027d1ad9145185e88756f97584a4cf4ffb29ddf"
+      "bytes": 9903,
+      "sha256": "9b925358368a658f5d1a5a95819d7caaa41165ee6c7091216703a428166408e5"
     },
     "servicos/manual-completo/index.html": {
-      "bytes": 9224,
-      "sha256": "5752660ae0833fbcb7a94be63fe46c76410c87419d1323c4ed14fcf9ca9a4404"
+      "bytes": 9771,
+      "sha256": "e8e036de4e4024409bde8332eab86b84df6d9bcc4a8ce5373e2fc46ff028dde6"
     },
     "servicos/manual-essencial/index.html": {
-      "bytes": 9188,
-      "sha256": "b9f03a091cd307f1e82ea3aa4d6b780eae9fcdc6a28fcb97c5b36f385011b830"
+      "bytes": 9742,
+      "sha256": "d972ba688f0036dcfec354d866905aec252c9c697afa8a21264a3187dd60deb5"
     },
     "servicos/meia-diaria-de-producao/index.html": {
-      "bytes": 9268,
-      "sha256": "4254512da63cbc2613630952e3fa3cdbf00fbc29c17ababc8d44de3265189a8d"
+      "bytes": 9880,
+      "sha256": "6a348bec28fbd69e9c66a2cedf66fdb34f7123f6a96c5e0b5eff156cd73e4a45"
     },
     "servicos/montagem-simples/index.html": {
-      "bytes": 9136,
-      "sha256": "ef25f666c7fa743176c6efd76def0d9ada284eaf9375426a91cc23b871310b1e"
+      "bytes": 9690,
+      "sha256": "f11554fc4c26fc665b1f48f9745366ca468a1b2edd35201504489fbd71cd9899"
     },
     "servicos/motion-para-redes-sociais/index.html": {
-      "bytes": 9240,
-      "sha256": "b1f9ee3255d22ff7cc3f13d629dc98617115cc9beeee4a951fc8dd84ea26ec92"
+      "bytes": 9857,
+      "sha256": "a3fe3700014afbdb7563e8aebbc2b1f15a7abffd642c6000b443824b4e41c6a8"
     },
     "servicos/packshot-animado-de-produto/index.html": {
-      "bytes": 9228,
-      "sha256": "b04c19c63022168eec1e2d806ec672a224a0a37ad4dcb3f826c49c309932bb11"
+      "bytes": 9859,
+      "sha256": "0b68cd699de1d0dcf987b4577d8a8b1dc89df3447dc9bd67da6c929e5972efe7"
     },
     "servicos/pacote-com-10-criativos/index.html": {
-      "bytes": 9196,
-      "sha256": "c5e08069dce34ecc0a26d1999dbaae44d7d65fd1a61241fed24bf7b6d950c214"
+      "bytes": 9799,
+      "sha256": "3928d7ea198da70f9c9030dea402277087bf43814e6c08a6eb0818849c3847c2"
     },
     "servicos/pacote-com-10-fotos/index.html": {
-      "bytes": 9140,
-      "sha256": "2176f34e4ea37e596d2835515beab9980f9f2cfc7d7610d2a4d44bd18ed07f99"
+      "bytes": 9715,
+      "sha256": "62bf2f2c8ea86b847baa0e14fd4797dafe43b23d8922c4d6aadb41d2824bdf7b"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
-      "bytes": 9252,
-      "sha256": "d4158954274496667d07f65a54d49a18dee8252faa1386a27579db0806f3039f"
+      "bytes": 9918,
+      "sha256": "525524df4ad048d1942630d7368cc99a6decbe2aa153aa842b917746a93c0a7c"
     },
     "servicos/pacote-com-8-reels/index.html": {
-      "bytes": 9152,
-      "sha256": "c227409ddd3ec41ee2540e5451b5a8fdea8534cf80b217cade124b37f19ed429"
+      "bytes": 9720,
+      "sha256": "824cb6543ddbb23d6ee5b6205384a027d351158858beb352ac7db67e43c256c9"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
-      "bytes": 9260,
-      "sha256": "ef1126c7fad528439193cad46b3ab80c675aff949d062e676875110d84956d53"
+      "bytes": 9877,
+      "sha256": "915f82b5268f7df84697a52090a0a837ed00671cc27dec94409db8e318fba78e"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
-      "bytes": 9308,
-      "sha256": "cad643e2cd2604113c812293c3470ea2568a355af7c66325ab8637bccb3f1dc3"
+      "bytes": 9966,
+      "sha256": "308a522b295ff92bca1a8109bac62f70ee32bae34fa4c085f7fe572512e78b67"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
-      "bytes": 9324,
-      "sha256": "3075a125f60d16974662d8d53922dc41daec37dda34662d8d17e33e4ca30484b"
+      "bytes": 10007,
+      "sha256": "671825089114a961ad3d87251ab3f3bcd308ed9fb33e532844dc968eec31d77f"
     },
     "servicos/retoque-avancado/index.html": {
-      "bytes": 9136,
-      "sha256": "756c95544bcd8c7dc1ef63906658e259d1d05f7e23542c8411aa2968712f1c16"
+      "bytes": 9693,
+      "sha256": "1989e4a68b65063d506eb0bc2ee88cd7ae198084adc237b15a6d258712c75006"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
-      "bytes": 9260,
-      "sha256": "aadbeb1e5cf835680e22f7f5f4c166bc09ed81d57f01f51bd10c267b8c886ae3"
+      "bytes": 9887,
+      "sha256": "39e4f1f27f9ae418ca958358f47cbeeebf7dc2ee8cf5cb5327afd7fa5eae104f"
     },
     "servicos/site-html-editor-studioframe/index.html": {
-      "bytes": 9876,
-      "sha256": "209dec8b501bb875a37f533a464e29fbf9ddc35efacf6075a24974d41313222d"
+      "bytes": 10520,
+      "sha256": "2f6817c0ecd653ff9b51995b2b689fa16bbf3193b46d520976c4a4e23ec96aae"
     },
     "servicos/site-studioframe-manutencao-mensal/index.html": {
-      "bytes": 9656,
-      "sha256": "fe61511e9df72cb85c4d81734c9cdc5147cccbb9ddd9829cf5d40a35abb933f3"
+      "bytes": 10348,
+      "sha256": "431239a3fee35726fa2735ff632c9e64657887299369456d234ac34ffee3cc3e"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
-      "bytes": 9232,
-      "sha256": "9a461da27d6a3bb2ab7998bef10fd08a3b1aa3183d7e7aa4572c4e33479b36bf"
+      "bytes": 9873,
+      "sha256": "2035e907e1c7f5e01b85d87463d44b034f15ba45d8c5f6f1c618b0a3513108d4"
     },
     "servicos/video-de-produto/index.html": {
-      "bytes": 9204,
-      "sha256": "f57e7e5c98f355f307b7c2be411ac827a520456b61a8e9b147e5411dd823a351"
+      "bytes": 9761,
+      "sha256": "bef21c3ae00b5253e1fce245886410c50bd973bde6072e4340182578d605a64e"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
-      "bytes": 9328,
-      "sha256": "1b7963ed0e19ac7e881a8c606b399546d5777b5c6303ebd61cb5b799b294e0d7"
+      "bytes": 10025,
+      "sha256": "9492870d8e9f8080332aeab40de4ffe4d0ee15bf8ea6807282132117a2ca63dc"
     },
     "sitemap.xml": {
-      "bytes": 10449,
-      "sha256": "0879171709d89b511466b82605450b98430d98b96de2febed7849332b7ead4ae"
+      "bytes": 10820,
+      "sha256": "e7a45bfdd3898531c49668ce5f79679475e394d9aa8fce07f3034fc666d2cc40"
+    },
+    "sobre/index.html": {
+      "bytes": 9150,
+      "sha256": "a033654b6570fd77bcdd46f8343cc3021f5caf1093d959cdf5306fc5562e349c"
     }
   },
   "format": "studioframe-public-build-v2",
@@ -718,50 +746,50 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 3428457,
-  "portfolio_sha256": "7bcb1c5dba680df515743ba29e6ea21a53549efd06cbad34bfb8280db46cb30d",
+  "portfolio_bytes": 4509590,
+  "portfolio_sha256": "eaf7fef98f012fb1f21bcb5bc6e2e0d5986e613d53c3eaf34d7d740445049643",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "6c4b86a21a604e6bc122",
+  "revision": "e0e94246b535ea75d6f5",
   "runtime_dependencies": [],
-  "source_revision": "6c4b86a21a604e6bc122",
+  "source_revision": "e0e94246b535ea75d6f5",
   "stats": {
-    "bytes": 11538992,
-    "files": 159,
-    "largest_file_bytes": 3428457,
-    "route_shells": 113
+    "bytes": 20556694,
+    "files": 166,
+    "largest_file_bytes": 7163903,
+    "route_shells": 121
   },
   "theme_runtime": {
     "active_theme": {
       "builtin": false,
       "fallback": "studioframe-default",
-      "id": "structured",
+      "id": "oryzo-ai",
       "immutable_base": true,
-      "name": "Structured",
+      "name": "Oryzo AI",
       "preview": {
-        "body_font": "Helvetica Now",
+        "body_font": "Arial",
         "colors": {
-          "accent": "#000000",
-          "background": "#c4c3b6",
-          "muted": "#595855",
-          "surface": "#e7e5e4",
-          "text": "#000000"
+          "accent": "#dc5000",
+          "background": "#100904",
+          "muted": "#6c5f51",
+          "surface": "#382416",
+          "text": "#ffedd7"
         },
-        "display_font": "Davinci",
-        "mode": "light"
+        "display_font": "halyard-display-variable",
+        "mode": "dark"
       },
-      "stylesheet": "assets/themes/structured.css",
+      "stylesheet": "assets/themes/oryzo-ai.css",
       "version": 1
     },
     "active_variant": {
       "exclusive": true,
-      "id": "structured--base",
+      "id": "oryzo-ai--base",
       "key": "base",
-      "theme_id": "structured"
+      "theme_id": "oryzo-ai"
     },
     "authoring_contract": {
       "base_immutable": true,
@@ -1012,16 +1040,16 @@
     "available_variants": [
       {
         "exclusive": true,
-        "id": "structured--base",
+        "id": "oryzo-ai--base",
         "key": "base",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {}
       },
       {
         "exclusive": true,
-        "id": "structured--soft",
+        "id": "oryzo-ai--soft",
         "key": "soft",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "radius": {
             "block": 20,
@@ -1040,9 +1068,9 @@
       },
       {
         "exclusive": true,
-        "id": "structured--editorial",
+        "id": "oryzo-ai--editorial",
         "key": "editorial",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "buttons": {
             "style": "editorial"
@@ -1068,9 +1096,9 @@
       },
       {
         "exclusive": true,
-        "id": "structured--sharp",
+        "id": "oryzo-ai--sharp",
         "key": "sharp",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "buttons": {
             "style": "square"
@@ -1095,9 +1123,9 @@
       },
       {
         "exclusive": true,
-        "id": "structured--glass",
+        "id": "oryzo-ai--glass",
         "key": "glass",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "cards": {
             "style": "glass"
@@ -1119,9 +1147,9 @@
       },
       {
         "exclusive": true,
-        "id": "structured--cinematic",
+        "id": "oryzo-ai--cinematic",
         "key": "cinematic",
-        "theme_id": "structured",
+        "theme_id": "oryzo-ai",
         "tokens": {
           "backgrounds": {
             "intensity": 78,
@@ -1157,7 +1185,10 @@
             "accent": "#FF00AA"
           }
         },
-        "oryzo-ai": {},
+        "oryzo-ai": {
+          "theme_overrides": {},
+          "theme_variant_id": "oryzo-ai--base"
+        },
         "structured": {
           "theme_overrides": {},
           "theme_variant_id": "structured--base"
@@ -1180,34 +1211,34 @@
         "style": "solid"
       },
       "buttons": {
-        "style": "rounded"
+        "style": "pill"
       },
       "cards": {
         "style": "themed"
       },
       "colors": {
-        "accent": "#000000",
-        "background": "#c4c3b6",
-        "border": "#dfdcd5",
-        "foreground": "#000000",
-        "muted": "#595855",
-        "primary": "#000000",
-        "secondary": "#595855",
-        "surface": "#e7e5e4"
+        "accent": "#dc5000",
+        "background": "#100904",
+        "border": "#40372e",
+        "foreground": "#ffedd7",
+        "muted": "#6c5f51",
+        "primary": "#dc5000",
+        "secondary": "#6c5f51",
+        "surface": "#382416"
       },
       "components": {},
       "motion": {
         "preset": "balanced"
       },
       "radius": {
-        "block": 9
+        "block": 12
       },
       "surfaces": {
         "style": "solid"
       },
       "typography": {
-        "body": "Helvetica Now",
-        "display": "Davinci",
+        "body": "Arial",
+        "display": "halyard-display-variable",
         "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
       }
     },

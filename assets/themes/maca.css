@@ -129,3 +129,6 @@ body[data-sf-theme="maca"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-headin
 body[data-sf-theme="maca"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
 body[data-sf-theme="maca"] .type,body[data-sf-theme="maca"] .filter,body[data-sf-theme="maca"] .menu{font-family:var(--body)}
 @media(max-width:700px){body[data-sf-theme="maca"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}
+
+/* V9.1.1-D full-theme structure */
+body[data-sf-theme="maca"] header#header{background:rgba(255,255,255,.82)!important;backdrop-filter:saturate(180%) blur(20px)}body[data-sf-theme="maca"] .hero{min-height:86vh;display:grid;align-items:center;text-align:center;padding-block:120px}body[data-sf-theme="maca"] .hero h1{max-width:13ch;margin-inline:auto}body[data-sf-theme="maca"] .content-section{padding-block:clamp(96px,12vw,190px)}body[data-sf-theme="maca"] .grid{gap:28px}body[data-sf-theme="maca"] .card{border:0!important;border-radius:28px!important;background:#fff!important;box-shadow:0 2px 18px rgba(0,0,0,.04)}body[data-sf-theme="maca"] footer{background:#f5f5f7;border-top:1px solid #0001}

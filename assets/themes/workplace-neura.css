@@ -119,3 +119,6 @@ body[data-sf-theme="workplace-neura"] .copy h3{font-size:clamp(20px,2.1vw,var(--
 body[data-sf-theme="workplace-neura"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
 body[data-sf-theme="workplace-neura"] .type,body[data-sf-theme="workplace-neura"] .filter,body[data-sf-theme="workplace-neura"] .menu{font-family:var(--body)}
 @media(max-width:700px){body[data-sf-theme="workplace-neura"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}
+
+/* V9.1.1-D full-theme structure */
+body[data-sf-theme="workplace-neura"]{background:radial-gradient(circle at 50% 20%,rgba(128,82,255,.14),transparent 28%),#000}body[data-sf-theme="workplace-neura"] header#header{background:transparent!important;border:0}body[data-sf-theme="workplace-neura"] .hero{min-height:100svh;display:grid;place-items:center;text-align:center}body[data-sf-theme="workplace-neura"] .hero h1{font-size:clamp(64px,11vw,150px)!important;max-width:9ch}body[data-sf-theme="workplace-neura"] .content-section{padding-block:clamp(120px,16vw,240px)}body[data-sf-theme="workplace-neura"] .card{border-color:#fff1!important;background:transparent!important;border-radius:28px!important}body[data-sf-theme="workplace-neura"] footer{background:#000;border-top:1px solid #fff1}

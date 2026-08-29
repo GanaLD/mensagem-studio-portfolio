@@ -10,3 +10,8 @@
   --sf-radius:var(--site-block-radius);
   color-scheme:normal;
 }
+
+/* V9.1.1-D full-theme structure */
+body[data-sf-theme="studioframe-default"]{--theme-section-space:clamp(72px,8vw,128px)}
+body[data-sf-theme="studioframe-default"] .hero,body[data-sf-theme="studioframe-default"] .content-section{padding-block:var(--theme-section-space)}
+body[data-sf-theme="studioframe-default"] .card{transition:transform .28s ease,border-color .28s ease}body[data-sf-theme="studioframe-default"] .card:hover{transform:translateY(-3px)}

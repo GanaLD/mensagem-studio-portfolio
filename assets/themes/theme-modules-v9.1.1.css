@@ -1,0 +1,152 @@
+/* StudioFrame V9.1.1-D — Custom Theme structural module adapter.
+   State owner remains settings.site_builder.theme.custom_theme_metadata.composer.
+   This file contains presentation adapters only; it owns no state. */
+
+/* SHELL / BACKGROUND */
+body[data-sf-theme-shell="studioframe-default"]{background:var(--bg)}
+body[data-sf-theme-shell="discord"]{background:radial-gradient(circle at 72% 8%,rgba(88,101,242,.24),transparent 28%),radial-gradient(circle at 15% 42%,rgba(51,66,195,.18),transparent 30%),var(--bg)}
+body[data-sf-theme-shell="structured"]{background:linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.08)),var(--bg)}
+body[data-sf-theme-shell="oryzo-ai"]{background:#100904;color:#ffedd7}
+body[data-sf-theme-shell="mercury"]{background:var(--bg)}
+body[data-sf-theme-shell="mekaverse"]{background:#000}
+body[data-sf-theme-shell="maca"]{background:#f5f5f7}
+body[data-sf-theme-shell="black-maca"]{background:#000}
+body[data-sf-theme-shell="dope-segurity"]{background-color:var(--bg);background-image:linear-gradient(rgba(175,80,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(175,80,255,.035) 1px,transparent 1px);background-size:42px 42px}
+body[data-sf-theme-shell="workplace-neura"]{background:radial-gradient(circle at 50% 20%,rgba(128,82,255,.14),transparent 28%),#000}
+body[data-sf-theme-shell="neuralink"]{background:#000}
+body[data-sf-theme-shell="studio-oker"]{background:#000}
+body[data-sf-theme-shell="branding"]{background:#080808}
+body[data-sf-theme-background="discord"]{background-image:radial-gradient(circle at 72% 8%,rgba(88,101,242,.24),transparent 28%),radial-gradient(circle at 15% 42%,rgba(51,66,195,.18),transparent 30%)}
+body[data-sf-theme-background="oryzo-ai"]{background-color:#100904;background-image:none}
+body[data-sf-theme-background="dope-segurity"]{background-image:linear-gradient(rgba(175,80,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(175,80,255,.035) 1px,transparent 1px);background-size:42px 42px}
+body[data-sf-theme-background="workplace-neura"]{background-image:radial-gradient(circle at 50% 20%,rgba(128,82,255,.14),transparent 28%)}
+
+/* HEADER */
+body[data-sf-theme-header="studioframe-default"] header#header{background:color-mix(in srgb,var(--surface) 88%,transparent)}
+body[data-sf-theme-header="discord"] header#header{border-radius:0 0 22px 22px;background:color-mix(in srgb,var(--surface) 88%,transparent)!important}
+body[data-sf-theme-header="structured"] header#header{border-bottom:1px solid currentColor;background:transparent!important;backdrop-filter:none}
+body[data-sf-theme-header="oryzo-ai"] header#header{background:transparent!important;border-bottom:1px dashed color-mix(in srgb,#ffedd7 18%,transparent);backdrop-filter:none}
+body[data-sf-theme-header="mercury"] header#header{background:rgba(23,23,33,.88)!important}
+body[data-sf-theme-header="mekaverse"] header#header{background:#000!important;border-bottom:1px solid #fff2}
+body[data-sf-theme-header="maca"] header#header{background:rgba(255,255,255,.82)!important;backdrop-filter:saturate(180%) blur(20px)}
+body[data-sf-theme-header="black-maca"] header#header{background:rgba(0,0,0,.78)!important;backdrop-filter:blur(20px)}
+body[data-sf-theme-header="dope-segurity"] header#header{border-bottom:1px solid #af50ff44;background:#090909e8!important}
+body[data-sf-theme-header="workplace-neura"] header#header{background:transparent!important;border:0}
+body[data-sf-theme-header="neuralink"] header#header{background:#000!important;border-bottom:1px solid #fff3}
+body[data-sf-theme-header="studio-oker"] header#header{background:#000!important;border:0}
+body[data-sf-theme-header="branding"] header#header{background:#080808!important;border-bottom:1px solid #fe1e3440}
+
+/* NAVIGATION */
+body[data-sf-theme-navigation="structured"] .menu,body[data-sf-theme-navigation="structured"] .filter{border-radius:0;border-width:1px;background:transparent}
+body[data-sf-theme-navigation="oryzo-ai"] .menu,body[data-sf-theme-navigation="oryzo-ai"] .filter{background:transparent!important;border-radius:0!important;border-style:dashed}
+body[data-sf-theme-navigation="mekaverse"] .menu,body[data-sf-theme-navigation="mekaverse"] .filter{text-transform:uppercase;letter-spacing:.12em}
+body[data-sf-theme-navigation="dope-segurity"] .menu,body[data-sf-theme-navigation="dope-segurity"] .filter{text-transform:uppercase;letter-spacing:.08em;border-color:#af50ff55}
+body[data-sf-theme-navigation="maca"] .menu,body[data-sf-theme-navigation="maca"] .filter{border-radius:999px}
+body[data-sf-theme-navigation="discord"] .menu,body[data-sf-theme-navigation="discord"] .filter{border-radius:14px}
+
+/* HERO */
+body[data-sf-theme-hero="studioframe-default"] .hero{padding-block:clamp(72px,8vw,128px)}
+body[data-sf-theme-hero="discord"] .hero{min-height:88vh;display:grid;align-items:end;padding-bottom:clamp(60px,9vw,120px)}
+body[data-sf-theme-hero="structured"] .hero{min-height:92vh;display:flex;align-items:flex-end;border-bottom:1px solid currentColor}
+body[data-sf-theme-hero="oryzo-ai"] .hero{min-height:100svh;display:grid;align-items:center;padding-block:clamp(110px,14vw,220px);border-bottom:1px dashed color-mix(in srgb,#ffedd7 20%,transparent)}body[data-sf-theme-hero="oryzo-ai"] .hero h1{max-width:10ch;text-transform:uppercase;line-height:.9}
+body[data-sf-theme-hero="mercury"] .hero{min-height:78vh;padding-block:clamp(96px,10vw,150px)}
+body[data-sf-theme-hero="mekaverse"] .hero{min-height:100svh;display:flex;align-items:flex-end;padding-bottom:7vw}body[data-sf-theme-hero="mekaverse"] .hero h1{text-transform:uppercase;max-width:12ch}
+body[data-sf-theme-hero="maca"] .hero{min-height:86vh;display:grid;align-items:center;text-align:center;padding-block:120px}body[data-sf-theme-hero="maca"] .hero h1{max-width:13ch;margin-inline:auto}
+body[data-sf-theme-hero="black-maca"] .hero{min-height:100svh;display:grid;align-items:end;padding-bottom:10vw}
+body[data-sf-theme-hero="dope-segurity"] .hero{min-height:88vh;padding-block:120px}
+body[data-sf-theme-hero="workplace-neura"] .hero{min-height:100svh;display:grid;place-items:center;text-align:center}body[data-sf-theme-hero="workplace-neura"] .hero h1{font-size:clamp(64px,11vw,150px)!important;max-width:9ch}
+body[data-sf-theme-hero="neuralink"] .hero{min-height:88vh;padding-block:clamp(100px,12vw,190px)}
+body[data-sf-theme-hero="studio-oker"] .hero{min-height:72vh;display:flex;align-items:flex-end;padding-bottom:7vw}
+body[data-sf-theme-hero="branding"] .hero{min-height:96vh;display:flex;align-items:flex-end;padding-bottom:8vw}body[data-sf-theme-hero="branding"] .hero h1{font-size:clamp(70px,13vw,190px)!important;line-height:.82!important;text-transform:uppercase}
+
+/* GRID */
+body[data-sf-theme-grid="studioframe-default"] .grid{gap:var(--element-gap,18px)}
+body[data-sf-theme-grid="discord"] .grid{gap:18px}
+body[data-sf-theme-grid="structured"] .grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}body[data-sf-theme-grid="structured"] .grid>.card{grid-column:span 5}body[data-sf-theme-grid="structured"] .grid>.card:nth-child(3n+2){grid-column:span 7}
+body[data-sf-theme-grid="oryzo-ai"] .grid{gap:1px;background:color-mix(in srgb,#ffedd7 14%,transparent)}
+body[data-sf-theme-grid="mercury"] .grid{gap:12px}
+body[data-sf-theme-grid="mekaverse"] .grid{gap:2px}
+body[data-sf-theme-grid="maca"] .grid{gap:28px}
+body[data-sf-theme-grid="black-maca"] .grid{gap:32px}
+body[data-sf-theme-grid="dope-segurity"] .grid{gap:10px}
+body[data-sf-theme-grid="neuralink"] .grid{gap:1px;background:#fff2}
+body[data-sf-theme-grid="studio-oker"] .grid{gap:34px 18px}
+body[data-sf-theme-grid="branding"] .grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}body[data-sf-theme-grid="branding"] .grid>.card{grid-column:span 7}body[data-sf-theme-grid="branding"] .grid>.card:nth-child(even){grid-column:6/-1}
+
+/* CARDS / SURFACE / IMAGE */
+body[data-sf-theme-cards="discord"] .card{border-radius:24px!important;box-shadow:0 22px 70px rgba(0,0,0,.28)}
+body[data-sf-theme-cards="structured"] .card{border-radius:0!important;border-color:#0003}
+body[data-sf-theme-cards="oryzo-ai"] .card{border:0!important;border-radius:0!important;background:#100904!important}body[data-sf-theme-cards="oryzo-ai"] .card .media{border-radius:0!important}body[data-sf-theme-cards="oryzo-ai"] .card .copy{padding:20px 10px 48px}
+body[data-sf-theme-cards="mercury"] .card{border-radius:16px!important;background:linear-gradient(145deg,#242432,#191923)!important;box-shadow:inset 0 1px rgba(255,255,255,.04)}
+body[data-sf-theme-cards="mekaverse"] .card{border-radius:0!important;border-color:#fff2!important;background:#000!important}
+body[data-sf-theme-cards="maca"] .card{border:0!important;border-radius:28px!important;background:#fff!important;box-shadow:0 2px 18px rgba(0,0,0,.04)}
+body[data-sf-theme-cards="black-maca"] .card{border:0!important;background:#000!important}body[data-sf-theme-cards="black-maca"] .card .media{border-radius:22px!important;background:#1d1d1f}
+body[data-sf-theme-cards="dope-segurity"] .card{border-radius:6px!important;border-color:#af50ff33!important;background:#101010!important}
+body[data-sf-theme-cards="workplace-neura"] .card{border-color:#fff1!important;background:transparent!important;border-radius:28px!important}
+body[data-sf-theme-cards="neuralink"] .card{border-radius:0!important;border:0!important;background:#000!important}
+body[data-sf-theme-cards="studio-oker"] .card{border:0!important;border-radius:0!important;background:#000!important}body[data-sf-theme-cards="studio-oker"] .card:hover .copy h3{color:#e4002b}
+body[data-sf-theme-cards="branding"] .card{border:0!important;border-radius:0!important;background:#080808!important}
+body[data-sf-theme-surface="oryzo-ai"] .card{box-shadow:none!important}
+body[data-sf-theme-surface="structured"] .card{box-shadow:none!important}
+body[data-sf-theme-image-treatment="oryzo-ai"] .card .media,body[data-sf-theme-image-treatment="studio-oker"] .card .media{border-radius:0!important}
+body[data-sf-theme-image-treatment="maca"] .card .media{border-radius:22px!important}
+
+/* BUTTONS */
+body[data-sf-theme-buttons="discord"] button,body[data-sf-theme-buttons="discord"] .cta,body[data-sf-theme-buttons="discord"] .filter{border-radius:14px}
+body[data-sf-theme-buttons="structured"] button,body[data-sf-theme-buttons="structured"] .cta{border-radius:0}
+body[data-sf-theme-buttons="oryzo-ai"] button,body[data-sf-theme-buttons="oryzo-ai"] .cta{border-radius:22.5px;text-transform:uppercase;box-shadow:none}
+body[data-sf-theme-buttons="mercury"] button,body[data-sf-theme-buttons="mercury"] .cta{border-radius:10px}
+body[data-sf-theme-buttons="mekaverse"] button,body[data-sf-theme-buttons="mekaverse"] .cta{border-radius:0;text-transform:uppercase;letter-spacing:.08em}
+body[data-sf-theme-buttons="maca"] button,body[data-sf-theme-buttons="maca"] .cta{border-radius:999px}
+body[data-sf-theme-buttons="black-maca"] button,body[data-sf-theme-buttons="black-maca"] .cta{border-radius:999px}
+body[data-sf-theme-buttons="dope-segurity"] button,body[data-sf-theme-buttons="dope-segurity"] .cta{border-radius:5px;border-color:#af50ff55}
+body[data-sf-theme-buttons="workplace-neura"] button,body[data-sf-theme-buttons="workplace-neura"] .cta{border-radius:999px}
+body[data-sf-theme-buttons="neuralink"] button,body[data-sf-theme-buttons="neuralink"] .cta{border-radius:0}
+body[data-sf-theme-buttons="studio-oker"] button,body[data-sf-theme-buttons="studio-oker"] .cta{border-radius:0}
+body[data-sf-theme-buttons="branding"] button,body[data-sf-theme-buttons="branding"] .cta{border-radius:0}
+
+/* TYPOGRAPHY */
+body[data-sf-theme-typography="structured"] h1,body[data-sf-theme-typography="structured"] h2,body[data-sf-theme-typography="structured"] h3{font-family:Georgia,'Times New Roman',serif;font-weight:500}
+body[data-sf-theme-typography="oryzo-ai"] h1,body[data-sf-theme-typography="oryzo-ai"] h2,body[data-sf-theme-typography="oryzo-ai"] h3{text-transform:uppercase;line-height:.9}
+body[data-sf-theme-typography="mekaverse"] .type,body[data-sf-theme-typography="mekaverse"] .copy em{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.12em}
+body[data-sf-theme-typography="dope-segurity"] .type,body[data-sf-theme-typography="dope-segurity"] .filter{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase}
+body[data-sf-theme-typography="branding"] h1,body[data-sf-theme-typography="branding"] h2{text-transform:uppercase;letter-spacing:-.055em}
+
+/* SPACING */
+body[data-sf-theme-spacing="studioframe-default"] .content-section{padding-block:clamp(72px,8vw,128px)}
+body[data-sf-theme-spacing="structured"] .content-section{padding-block:clamp(90px,12vw,180px)}
+body[data-sf-theme-spacing="oryzo-ai"] .content-section{min-height:min(100svh,980px);display:grid;align-content:center;padding-block:clamp(100px,13vw,210px);border-top:1px dashed color-mix(in srgb,#ffedd7 18%,transparent)}
+body[data-sf-theme-spacing="mercury"] .content-section{padding-block:clamp(72px,8vw,116px)}
+body[data-sf-theme-spacing="maca"] .content-section{padding-block:clamp(96px,12vw,190px)}
+body[data-sf-theme-spacing="black-maca"] .content-section{padding-block:clamp(100px,14vw,220px)}
+body[data-sf-theme-spacing="workplace-neura"] .content-section{padding-block:clamp(120px,16vw,240px)}
+body[data-sf-theme-spacing="neuralink"] .content-section{padding-block:clamp(88px,10vw,150px)}
+body[data-sf-theme-spacing="studio-oker"] .content-section{padding-block:clamp(90px,11vw,170px)}
+body[data-sf-theme-spacing="branding"] .content-section{padding-block:clamp(110px,15vw,230px)}
+
+/* FOOTER */
+body[data-sf-theme-footer="discord"] footer{background:#0b0d26}
+body[data-sf-theme-footer="structured"] footer{border-top:1px solid #000;background:#ebebeb;color:#000}
+body[data-sf-theme-footer="oryzo-ai"] footer{background:#100904;border-top:1px dashed color-mix(in srgb,#ffedd7 18%,transparent)}
+body[data-sf-theme-footer="mercury"] footer{background:#111119;border-top:1px solid #5266eb33}
+body[data-sf-theme-footer="mekaverse"] footer{background:#000;border-top:1px solid #fff}
+body[data-sf-theme-footer="maca"] footer{background:#f5f5f7;border-top:1px solid #0001}
+body[data-sf-theme-footer="black-maca"] footer{background:#000;border-top:1px solid #fff2}
+body[data-sf-theme-footer="dope-segurity"] footer{border-top:1px solid #af50ff55;background:#050505}
+body[data-sf-theme-footer="workplace-neura"] footer{background:#000;border-top:1px solid #fff1}
+body[data-sf-theme-footer="neuralink"] footer{border-top:1px solid #6452d855;background:#000}
+body[data-sf-theme-footer="studio-oker"] footer{background:#e4002b;color:#fff;border:0}
+body[data-sf-theme-footer="branding"] footer{background:#fe1e34;color:#080808;border:0}
+
+/* MOTION — visual language only; Motion Engine remains the canonical runtime. */
+body[data-sf-theme-motion="discord"] .card{transition:transform .18s ease,filter .18s ease}body[data-sf-theme-motion="discord"] .card:hover{transform:translateY(-5px) scale(1.01)}
+body[data-sf-theme-motion="structured"] .card{transition:clip-path .5s ease,opacity .5s ease}
+body[data-sf-theme-motion="maca"] .card,body[data-sf-theme-motion="black-maca"] .card{transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .5s ease}
+body[data-sf-theme-motion="studio-oker"] .card{transition:opacity .3s ease}body[data-sf-theme-motion="studio-oker"] .grid:hover .card:not(:hover){opacity:.56}
+body[data-sf-theme-motion="branding"] h1,body[data-sf-theme-motion="branding"] h2{transition:letter-spacing .45s ease}body[data-sf-theme-motion="branding"] h1:hover{letter-spacing:-.035em}
+
+@media(max-width:780px){
+ body[data-sf-theme-grid="structured"] .grid>.card,body[data-sf-theme-grid="branding"] .grid>.card{grid-column:1/-1!important}
+ body[data-sf-theme-hero="branding"] .hero h1{font-size:clamp(54px,18vw,110px)!important}
+}
+@media(prefers-reduced-motion:reduce){body[data-sf-theme-motion] *{transition-duration:.01ms!important;animation-duration:.01ms!important}}

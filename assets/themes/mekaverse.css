@@ -93,3 +93,6 @@ body[data-sf-theme="mekaverse"] .copy h3{font-size:clamp(20px,2.1vw,var(--text-h
 body[data-sf-theme="mekaverse"] .project-detail-head h2{font-size:clamp(34px,5.4vw,var(--text-display,82px));line-height:var(--leading-display,.94);letter-spacing:var(--tracking-display,-.045em)}
 body[data-sf-theme="mekaverse"] .type,body[data-sf-theme="mekaverse"] .filter,body[data-sf-theme="mekaverse"] .menu{font-family:var(--body)}
 @media(max-width:700px){body[data-sf-theme="mekaverse"] .hero h1{font-size:clamp(42px,14vw,var(--text-display,76px))}}
+
+/* V9.1.1-D full-theme structure */
+body[data-sf-theme="mekaverse"] header#header{background:#000!important;border-bottom:1px solid #fff2}body[data-sf-theme="mekaverse"] .hero{min-height:100svh;display:flex;align-items:flex-end;padding-bottom:7vw}body[data-sf-theme="mekaverse"] .hero h1{text-transform:uppercase;max-width:12ch}body[data-sf-theme="mekaverse"] .grid{gap:2px}body[data-sf-theme="mekaverse"] .card{border-radius:0!important;border-color:#fff2!important;background:#000!important}body[data-sf-theme="mekaverse"] .copy em,body[data-sf-theme="mekaverse"] .type{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.12em}body[data-sf-theme="mekaverse"] footer{background:#000;border-top:1px solid #fff}

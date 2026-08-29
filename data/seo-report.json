@@ -1,0 +1,1594 @@
+{
+  "version": 2,
+  "owner": "site_builder.seo",
+  "base_url": "https://mensagemstudio.shop",
+  "summary": {
+    "routes": 122,
+    "indexable": 120,
+    "noindex": 2,
+    "warnings": 1,
+    "info": 99,
+    "with_social_image": 122,
+    "with_breadcrumbs": 121
+  },
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/carrossel-com-ate-5-paginas",
+      "length": 69
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/pacote-com-10-criativos",
+      "length": 68
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/pacote-com-8-reels",
+      "length": 66
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/packshot-animado-de-produto",
+      "length": 69
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/correcao-basica",
+      "length": 62
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/retoque-avancado",
+      "length": 66
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/pacote-com-10-fotos",
+      "length": 64
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/montagem-simples",
+      "length": 67
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/pacote-com-10-imagens-de-produto",
+      "length": 66
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/ilustracao-individual",
+      "length": 67
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "servicos/storyboard-com-ate-8-quadros",
+      "length": 67
+    },
+    {
+      "level": "warning",
+      "code": "long-description",
+      "path": "servicos/site-html-editor-studioframe",
+      "length": 219
+    },
+    {
+      "level": "info",
+      "code": "short-title",
+      "path": "briefing",
+      "length": 8
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "briefing",
+      "length": 39
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile",
+      "length": 45
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners",
+      "length": 39
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa",
+      "length": 53
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel",
+      "length": 41
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/dermacast",
+      "length": 41
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/edicao-de-videos",
+      "length": 48
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/lateral-banners",
+      "length": 47
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/laminas-para-divulgacao",
+      "length": 55
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion",
+      "length": 38
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/manual-da-marca",
+      "length": 47
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-mobile-allergan",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-bacio",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-da-evo",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-galderma",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-hydro",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-lancamento-bellarine",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-lancamento-rennova",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banner-mobile/banner-rennova-diamond",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-allergan",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-bacio",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-bellarine",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-central-rejuvital",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-central-rejuvital-2",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-evo",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-lancamento",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-rejuvital",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-rennova-club",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-rennova-diamond",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-rennova-elleva",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-rennova-hydro",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-shape-lido",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-v-hacker",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/banners/banner-verve",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/banner-da-campanha",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/card-de-storys",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/card-de-storys-2",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/card-de-storys-3",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/card-de-storys-4",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/card-para-feed",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/logo-para-campanha",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/lamina-de-produtos-e-valores",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos-2",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos-3",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/mobile",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/motion-com-spoiler-da-campanha",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/storys-de-divulgacao",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/campanha-007-completa/video-de-divulgacao",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel-bacio",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel-img",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel-evo",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel-rennova",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/carrossel/carrossel-v-hacker",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/dermacast/cortes",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/dermacast/episodio-completo",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/edicao-de-videos/videos-em-workshop",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/edicao-de-videos/videos-para-allergan",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/edicao-de-videos/videos-para-rejuvital",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/lateral-banners/banner-belotero",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/lateral-banners/banner-diamond",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/lateral-banners/banner-lift",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/lateral-banners/banner-restylane",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/laminas-para-divulgacao/divulgacao-de-produto",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/laminas-para-divulgacao/divulgacao-para-workshop",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/motion-fundo-de-tela",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/motion-para-podcast",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/produto-com-ia",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/reels-rejuvital",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/rejuvital-pdrn",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/sculpt-galderma",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/motion/story-rejuvital",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/manual-da-marca/ref-resumido",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-title",
+      "path": "projetos/manual-da-marca/ref",
+      "length": 22
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/manual-da-marca/ref",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/manual-da-marca/visual-branding",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "projetos/manual-da-marca/visual-branding-pasta",
+      "length": 37
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "clientes",
+      "length": 52
+    },
+    {
+      "level": "info",
+      "code": "short-title",
+      "path": "sobre",
+      "length": 23
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "sobre",
+      "length": 26
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "contato",
+      "length": 39
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "orcamento",
+      "length": 22
+    },
+    {
+      "level": "info",
+      "code": "short-title",
+      "path": "busca",
+      "length": 23
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "busca",
+      "length": 43
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "arquivo",
+      "length": 29
+    },
+    {
+      "level": "info",
+      "code": "short-description",
+      "path": "404",
+      "length": 41
+    }
+  ],
+  "routes": [
+    {
+      "path": "",
+      "kind": "home",
+      "canonical": "https://mensagemstudio.shop/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "WebPage"
+    },
+    {
+      "path": "servicos",
+      "kind": "services",
+      "canonical": "https://mensagemstudio.shop/servicos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "servicos/arte-avulsa-para-post-ou-story",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/arte-avulsa-para-post-ou-story/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/carrossel-com-ate-5-paginas",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/carrossel-com-ate-5-paginas/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/pacote-com-10-criativos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-criativos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/reel-basico-de-ate-90-segundos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/reel-basico-de-ate-90-segundos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/reel-com-motion-legendas-e-efeitos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/reel-com-motion-legendas-e-efeitos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/pacote-com-8-reels",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-8-reels/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/video-institucional-de-1-a-3-minutos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/video-institucional-de-1-a-3-minutos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/captacao-essencial-de-ate-2-horas",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/captacao-essencial-de-ate-2-horas/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/meia-diaria-de-producao",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/meia-diaria-de-producao/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/diaria-de-producao-audiovisual",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/diaria-de-producao-audiovisual/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/video-de-produto",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/video-de-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/animacao-de-logotipo",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/animacao-de-logotipo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/motion-para-redes-sociais",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/motion-para-redes-sociais/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/composicao-e-vfx-por-cena",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-e-vfx-por-cena/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/packshot-animado-de-produto",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/packshot-animado-de-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/correcao-basica",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/correcao-basica/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/retoque-avancado",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/retoque-avancado/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/pacote-com-10-fotos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-fotos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/montagem-simples",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/montagem-simples/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/composicao-publicitaria",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-publicitaria/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/composicao-complexa",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-complexa/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/manual-essencial",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/manual-essencial/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/manual-completo",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/manual-completo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/key-visual-de-campanha",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/key-visual-de-campanha/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/pacote-visual-de-campanha",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-visual-de-campanha/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/direcao-de-arte",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/direcao-de-arte/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/imagem-tratada-de-produto",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/imagem-tratada-de-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/pacote-com-10-imagens-de-produto",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-imagens-de-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/kit-visual-para-marketplace",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/kit-visual-para-marketplace/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/banner-para-loja-ou-colecao",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/banner-para-loja-ou-colecao/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/ilustracao-individual",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/ilustracao-individual/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/criacao-de-personagem",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/criacao-de-personagem/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/roteiro-curto-publicitario",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/roteiro-curto-publicitario/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/storyboard-com-ate-8-quadros",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/storyboard-com-ate-8-quadros/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/site-html-editor-studioframe",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/site-html-editor-studioframe/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/site-studioframe-manutencao-mensal",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/site-studioframe-manutencao-mensal/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "briefing",
+      "kind": "briefing",
+      "canonical": "https://mensagemstudio.shop/briefing/",
+      "index": false,
+      "robots": "noindex,follow",
+      "schema_type": "WebPage"
+    },
+    {
+      "path": "projetos/banner-mobile",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/banners",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/campanha-007-completa",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/carrossel",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/dermacast",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/edicao-de-videos",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/lateral-banners",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/laminas-para-divulgacao",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/motion",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/manual-da-marca",
+      "kind": "category",
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-mobile-allergan",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-mobile-allergan/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-bacio",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-bacio/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-da-evo",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-da-evo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-galderma",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-galderma/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-hydro",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-hydro/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-lancamento-bellarine",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-lancamento-bellarine/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-lancamento-rennova",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-lancamento-rennova/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banner-mobile/banner-rennova-diamond",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-rennova-diamond/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-allergan",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-allergan/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-bacio",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-bacio/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-bellarine",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-bellarine/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-central-rejuvital",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-central-rejuvital/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-central-rejuvital-2",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-central-rejuvital-2/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-evo",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-evo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-lancamento",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-lancamento/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-rejuvital",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rejuvital/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-rennova-club",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-club/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-rennova-diamond",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-diamond/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-rennova-elleva",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-elleva/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-rennova-hydro",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-hydro/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-shape-lido",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-shape-lido/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-v-hacker",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-v-hacker/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/banners/banner-verve",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-verve/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/banner-da-campanha",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/banner-da-campanha/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/card-de-storys",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/card-de-storys-2",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-2/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/card-de-storys-3",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-3/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/card-de-storys-4",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-4/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/card-para-feed",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-para-feed/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/logo-para-campanha",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/logo-para-campanha/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/lamina-de-produtos-e-valores",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-de-produtos-e-valores/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos-2",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos-2/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/lamina-precos-e-produtos-3",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos-3/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/mobile",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/mobile/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/motion-com-spoiler-da-campanha",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/motion-com-spoiler-da-campanha/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/storys-de-divulgacao",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/storys-de-divulgacao/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/campanha-007-completa/video-de-divulgacao",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/video-de-divulgacao/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel-bacio",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-bacio/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel-img",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-img/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel-evo",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-evo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel-rennova",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-rennova/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/carrossel/carrossel-v-hacker",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-v-hacker/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/dermacast/cortes",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/cortes/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/dermacast/episodio-completo",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/episodio-completo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/edicao-de-videos/videos-em-workshop",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-em-workshop/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/edicao-de-videos/videos-para-allergan",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-para-allergan/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/edicao-de-videos/videos-para-rejuvital",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-para-rejuvital/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/lateral-banners/banner-belotero",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-belotero/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/lateral-banners/banner-diamond",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-diamond/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/lateral-banners/banner-lift",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-lift/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/lateral-banners/banner-restylane",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-restylane/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/laminas-para-divulgacao/divulgacao-de-produto",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/divulgacao-de-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/laminas-para-divulgacao/divulgacao-para-workshop",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/divulgacao-para-workshop/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/motion-fundo-de-tela",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/motion-fundo-de-tela/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/motion-para-podcast",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/motion-para-podcast/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/produto-com-ia",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/produto-com-ia/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/reels-rejuvital",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/reels-rejuvital/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/rejuvital-pdrn",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/rejuvital-pdrn/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/sculpt-galderma",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/sculpt-galderma/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/motion/story-rejuvital",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/motion/story-rejuvital/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/manual-da-marca/ref-resumido",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/ref-resumido/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/manual-da-marca/ref",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/ref/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/manual-da-marca/visual-branding",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/visual-branding/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "projetos/manual-da-marca/visual-branding-pasta",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/visual-branding-pasta/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "clientes",
+      "kind": "clients",
+      "canonical": "https://mensagemstudio.shop/clientes/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "WebPage"
+    },
+    {
+      "path": "sobre",
+      "kind": "about",
+      "canonical": "https://mensagemstudio.shop/sobre/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "AboutPage"
+    },
+    {
+      "path": "contato",
+      "kind": "contact",
+      "canonical": "https://mensagemstudio.shop/contato/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "ContactPage"
+    },
+    {
+      "path": "orcamento",
+      "kind": "quote",
+      "canonical": "https://mensagemstudio.shop/orcamento/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "WebPage"
+    },
+    {
+      "path": "busca",
+      "kind": "search",
+      "canonical": "https://mensagemstudio.shop/busca/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "WebPage"
+    },
+    {
+      "path": "arquivo",
+      "kind": "archive",
+      "canonical": "https://mensagemstudio.shop/arquivo/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CollectionPage"
+    },
+    {
+      "path": "404",
+      "kind": "not_found",
+      "canonical": "https://mensagemstudio.shop/404/",
+      "index": false,
+      "robots": "noindex,nofollow",
+      "schema_type": "WebPage"
+    }
+  ]
+}
