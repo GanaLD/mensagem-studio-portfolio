@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "5bc5d8d20e1e256ddd13",
-    "saved_at": "2026-08-29T10:47:23.430199+00:00"
+    "revision": "e4afbf5e1a19582f627b",
+    "saved_at": "2026-08-29T10:51:08.939301+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1434,6 +1434,12 @@
           "section_visibility": "",
           "source": "media",
           "tablet_visible": true,
+          "tile_columns": 12,
+          "tile_depth": 0.8,
+          "tile_gap": 8,
+          "tile_pointer_strength": 1,
+          "tile_radius": 8,
+          "tile_rows": 7,
           "type": "media_canvas",
           "url": "",
           "visible": true,
@@ -1476,6 +1482,12 @@
           "section_visibility": "",
           "source": "media",
           "tablet_visible": true,
+          "tile_columns": 12,
+          "tile_depth": 0.8,
+          "tile_gap": 8,
+          "tile_pointer_strength": 1,
+          "tile_radius": 8,
+          "tile_rows": 7,
           "type": "overlay",
           "url": "",
           "visible": true,
@@ -1494,6 +1506,7 @@
       "focal_y": 50,
       "gyro_strength": 0.25,
       "mask": {
+        "clip": "",
         "feather": 0,
         "radius": 24,
         "rotation": 0,
@@ -1525,6 +1538,23 @@
       "url": ""
     },
     "hero": {
+      "advanced": {
+        "axis": "vertical",
+        "clip_preset": "inset",
+        "depth": 0.7,
+        "duration": 1.4,
+        "enabled": false,
+        "gap": 4,
+        "mode": "standard",
+        "pointer_strength": 0.4,
+        "scroll_strength": 0.35,
+        "slice_count": 7,
+        "sync_background": {
+          "enabled": false,
+          "mode": "slide",
+          "offset": 0
+        }
+      },
       "cta_label": "Explorar projeto",
       "effect": "cinematic",
       "fit": "cover",
@@ -1567,6 +1597,12 @@
       ],
       "sound_control_visible": true,
       "start_muted": true,
+      "story": {
+        "enabled": false,
+        "mode": "slides",
+        "scenes": [],
+        "version": 1
+      },
       "subtitle": "",
       "text_position": "bottom-left",
       "title": ""
@@ -28312,6 +28348,7 @@
       "theme_version": 1
     },
     "three_d_scene": {
+      "asset_id": "",
       "drive_file_id": "",
       "enabled": false,
       "engine": "three_scene",
