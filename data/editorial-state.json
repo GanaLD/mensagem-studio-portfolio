@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "affbf160a4023b36c017",
-    "saved_at": "2026-08-29T10:51:30.490901+00:00"
+    "revision": "455b231049ee38b1d97d",
+    "saved_at": "2026-08-29T10:51:36.365201+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3479,6 +3479,39 @@
           "title": ""
         },
         "title": "Carrossel"
+      },
+      "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF": {
+        "blocks": [
+          {
+            "core": true,
+            "id": "section-1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF-header",
+            "label": "Cabeçalho",
+            "type": "section_header",
+            "visible": true
+          },
+          {
+            "core": true,
+            "id": "section-1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF-projects",
+            "label": "Projetos da categoria",
+            "type": "section_projects",
+            "visible": true
+          }
+        ],
+        "body": "",
+        "enabled": true,
+        "eyebrow": "Categoria",
+        "header_visible": true,
+        "seo": {
+          "canonical": "",
+          "description": "",
+          "follow": true,
+          "image_media_id": "",
+          "index": true,
+          "schema_type": "",
+          "slug": "",
+          "title": ""
+        },
+        "title": "MANUAL DA MARCA"
       },
       "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ": {
         "blocks": [
