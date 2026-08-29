@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "87effa2abc9a96789277",
-    "saved_at": "2026-08-29T13:30:40.934460+00:00"
+    "revision": "da10868a140d462da06d",
+    "saved_at": "2026-08-29T13:31:00.330634+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -39413,26 +39413,26 @@
       "theme_version": 1
     },
     "three_d_scene": {
-      "asset_id": "",
+      "asset_id": "oryzo-controller",
       "drive_file_id": "",
-      "enabled": false,
-      "engine": "three_scene",
+      "enabled": true,
+      "engine": "glb",
       "fallback_url": "",
       "geometry": "torus_knot",
       "interaction": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "gyro": false,
-        "pointer_events": false,
-        "pointer_mode": "tilt",
-        "pointer_strength": 0.35,
-        "scroll_mode": "rotate",
-        "scroll_strength": 0.45
+        "pointer_events": true,
+        "pointer_mode": "orbit",
+        "pointer_strength": 0.6,
+        "scroll_mode": "translate_y",
+        "scroll_strength": 0.8
       },
       "opacity": 1,
       "performance": {
         "desktop_enabled": true,
         "max_pixel_ratio": 1.5,
-        "mobile_enabled": true,
+        "mobile_enabled": false,
         "reduced_motion_fallback": true,
         "tablet_enabled": true,
         "transparent": true
@@ -39443,7 +39443,7 @@
       "rotation_z": 0,
       "scale": 1,
       "section_block_id": "",
-      "source": "safe_url",
+      "source": "bundled_asset",
       "url": "",
       "version": 1,
       "x": 0,
