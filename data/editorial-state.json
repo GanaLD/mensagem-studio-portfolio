@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "a3020d96d9f69ef4520b",
-    "saved_at": "2026-08-29T10:33:30.087327+00:00"
+    "revision": "82d8bfb3980df5a23690",
+    "saved_at": "2026-08-29T10:33:29.703851+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -20587,8 +20587,7 @@
           "kind": "group",
           "label": "CONTEÚDO",
           "order": 20,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "content-projects",
@@ -20611,8 +20610,7 @@
           "kind": "group",
           "label": "SITE E PÁGINAS",
           "order": 30,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "pages-manager",
@@ -20651,8 +20649,7 @@
           "kind": "group",
           "label": "Home",
           "order": 10,
-          "parent_id": "pages",
-          "tab": ""
+          "parent_id": "pages"
         },
         {
           "id": "home-structure",
@@ -20691,8 +20688,7 @@
           "kind": "group",
           "label": "Páginas de coleção",
           "order": 20,
-          "parent_id": "pages",
-          "tab": ""
+          "parent_id": "pages"
         },
         {
           "id": "categories-pages",
@@ -20707,8 +20703,7 @@
           "kind": "group",
           "label": "APARÊNCIA",
           "order": 40,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "appearance-editor",
@@ -20739,8 +20734,7 @@
           "kind": "group",
           "label": "COMPONENTES GLOBAIS",
           "order": 50,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "global-header",
@@ -20771,8 +20765,7 @@
           "kind": "group",
           "label": "PUBLICAÇÃO",
           "order": 60,
-          "parent_id": "site",
-          "tab": ""
+          "parent_id": "site"
         },
         {
           "id": "publication-main",
@@ -20789,14 +20782,6 @@
           "order": 20,
           "parent_id": "publication-group",
           "tab": "diagnostics"
-        },
-        {
-          "id": "home-blocks",
-          "kind": "group",
-          "label": "Blocos da Home",
-          "order": 40,
-          "parent_id": "page-home",
-          "tab": ""
         },
         {
           "id": "v9-functional-tree",
@@ -21703,6 +21688,261 @@
           "parent_id": "v9-themes",
           "phase_label": "FASE 15B",
           "tab": "siteappearance"
+        },
+        {
+          "block_id": "core-hero",
+          "block_type": "hero",
+          "id": "v9-home-block:core-hero",
+          "kind": "home-block",
+          "label": "Hero",
+          "order": 10,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "core-intro",
+          "block_type": "intro",
+          "id": "v9-home-block:core-intro",
+          "kind": "home-block",
+          "label": "Introdução",
+          "order": 20,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": false
+        },
+        {
+          "block_id": "core-lettering",
+          "block_type": "lettering",
+          "id": "v9-home-block:core-lettering",
+          "kind": "home-block",
+          "label": "Lettering",
+          "order": 30,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": false
+        },
+        {
+          "block_id": "block-mt7w7u6g-rltgl",
+          "block_type": "text_motion",
+          "id": "v9-home-block:block-mt7w7u6g-rltgl",
+          "kind": "home-block",
+          "label": "Text Motion · TXT",
+          "order": 40,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "core-projects-header",
+          "block_type": "projects_header",
+          "id": "v9-home-block:core-projects-header",
+          "kind": "home-block",
+          "label": "Cabeçalho do portfólio",
+          "order": 50,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": false
+        },
+        {
+          "block_id": "core-projects",
+          "block_type": "projects",
+          "id": "v9-home-block:core-projects",
+          "kind": "home-block",
+          "label": "Projetos",
+          "order": 60,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7vxqnd-yp24f",
+          "block_type": "sliced_hero",
+          "id": "v9-home-block:block-mt7vxqnd-yp24f",
+          "kind": "home-block",
+          "label": "Sliced Hero Builder",
+          "order": 70,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "youtube-showcase-main",
+          "block_type": "youtube_showcase",
+          "id": "v9-home-block:youtube-showcase-main",
+          "kind": "home-block",
+          "label": "YouTube Showcase",
+          "order": 80,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7w4nzd-iqxso",
+          "block_type": "dynamic_island",
+          "id": "v9-home-block:block-mt7w4nzd-iqxso",
+          "kind": "home-block",
+          "label": "Dynamic Island · TXT",
+          "order": 90,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7w65mq-gj3mf",
+          "block_type": "carousel_3d",
+          "id": "v9-home-block:block-mt7w65mq-gj3mf",
+          "kind": "home-block",
+          "label": "3D Carousel · TXT",
+          "order": 100,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7w1mxs-fz7yt",
+          "block_type": "quote_cta",
+          "id": "v9-home-block:block-mt7w1mxs-fz7yt",
+          "kind": "home-block",
+          "label": "Orçamento integrado",
+          "order": 110,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7w6ubb-x0xc9",
+          "block_type": "logo_carousel",
+          "id": "v9-home-block:block-mt7w6ubb-x0xc9",
+          "kind": "home-block",
+          "label": "Logo Carousel · TXT",
+          "order": 120,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "block-mt7w5bn1-p6bcf",
+          "block_type": "canvas_fractal_grid",
+          "id": "v9-home-block:block-mt7w5bn1-p6bcf",
+          "kind": "home-block",
+          "label": "Canvas Fractal Grid · TXT",
+          "order": 130,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "core-contact",
+          "block_type": "contact",
+          "id": "v9-home-block:core-contact",
+          "kind": "home-block",
+          "label": "Contato",
+          "order": 140,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "block_id": "core-about",
+          "block_type": "about",
+          "id": "v9-home-block:core-about",
+          "kind": "home-block",
+          "label": "Sobre",
+          "order": 150,
+          "parent_id": "v9-home-blocks",
+          "tab": "home",
+          "visible": true
+        },
+        {
+          "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+          "id": "v9-category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
+          "kind": "category-page",
+          "label": "Banner mobile",
+          "order": 100,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
+          "id": "v9-category-page:1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
+          "kind": "category-page",
+          "label": "Banners",
+          "order": 110,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "id": "v9-category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
+          "kind": "category-page",
+          "label": "Lateral Banners",
+          "order": 120,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
+          "id": "v9-category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
+          "kind": "category-page",
+          "label": "Campanha 007 Completa",
+          "order": 130,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
+          "id": "v9-category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
+          "kind": "category-page",
+          "label": "Carrossel",
+          "order": 140,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
+          "id": "v9-category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
+          "kind": "category-page",
+          "label": "DERMACAST",
+          "order": 150,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
+          "id": "v9-category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
+          "kind": "category-page",
+          "label": "Edição de vídeos",
+          "order": 160,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
+          "id": "v9-category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
+          "kind": "category-page",
+          "label": "Lâminas para divulgação",
+          "order": 170,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
+          "id": "v9-category-page:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
+          "kind": "category-page",
+          "label": "MANUAL DA MARCA",
+          "order": 180,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
+          "category_id": "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
+          "id": "v9-category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
+          "kind": "category-page",
+          "label": "Motion",
+          "order": 190,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
         },
         {
           "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
@@ -27942,265 +28182,10 @@
           "parent_id": "v9-service-item:web-platforms:studioframe-site-managed",
           "service_target": "builder",
           "tab": "services"
-        },
-        {
-          "block_id": "core-hero",
-          "block_type": "hero",
-          "id": "home-block:core-hero",
-          "kind": "home-block",
-          "label": "Hero",
-          "order": 10,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-intro",
-          "block_type": "intro",
-          "id": "home-block:core-intro",
-          "kind": "home-block",
-          "label": "Introdução",
-          "order": 20,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": false
-        },
-        {
-          "block_id": "core-lettering",
-          "block_type": "lettering",
-          "id": "home-block:core-lettering",
-          "kind": "home-block",
-          "label": "Lettering",
-          "order": 30,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": false
-        },
-        {
-          "block_id": "block-mt7w7u6g-rltgl",
-          "block_type": "text_motion",
-          "id": "home-block:block-mt7w7u6g-rltgl",
-          "kind": "home-block",
-          "label": "Text Motion · TXT",
-          "order": 40,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-projects-header",
-          "block_type": "projects_header",
-          "id": "home-block:core-projects-header",
-          "kind": "home-block",
-          "label": "Cabeçalho do portfólio",
-          "order": 50,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": false
-        },
-        {
-          "block_id": "core-projects",
-          "block_type": "projects",
-          "id": "home-block:core-projects",
-          "kind": "home-block",
-          "label": "Projetos",
-          "order": 60,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7vxqnd-yp24f",
-          "block_type": "sliced_hero",
-          "id": "home-block:block-mt7vxqnd-yp24f",
-          "kind": "home-block",
-          "label": "Sliced Hero Builder",
-          "order": 70,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "youtube-showcase-main",
-          "block_type": "youtube_showcase",
-          "id": "home-block:youtube-showcase-main",
-          "kind": "home-block",
-          "label": "YouTube Showcase",
-          "order": 80,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w4nzd-iqxso",
-          "block_type": "dynamic_island",
-          "id": "home-block:block-mt7w4nzd-iqxso",
-          "kind": "home-block",
-          "label": "Dynamic Island · TXT",
-          "order": 90,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w65mq-gj3mf",
-          "block_type": "carousel_3d",
-          "id": "home-block:block-mt7w65mq-gj3mf",
-          "kind": "home-block",
-          "label": "3D Carousel · TXT",
-          "order": 100,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w1mxs-fz7yt",
-          "block_type": "quote_cta",
-          "id": "home-block:block-mt7w1mxs-fz7yt",
-          "kind": "home-block",
-          "label": "Orçamento integrado",
-          "order": 110,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w6ubb-x0xc9",
-          "block_type": "logo_carousel",
-          "id": "home-block:block-mt7w6ubb-x0xc9",
-          "kind": "home-block",
-          "label": "Logo Carousel · TXT",
-          "order": 120,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "block-mt7w5bn1-p6bcf",
-          "block_type": "canvas_fractal_grid",
-          "id": "home-block:block-mt7w5bn1-p6bcf",
-          "kind": "home-block",
-          "label": "Canvas Fractal Grid · TXT",
-          "order": 130,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-contact",
-          "block_type": "contact",
-          "id": "home-block:core-contact",
-          "kind": "home-block",
-          "label": "Contato",
-          "order": 140,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "block_id": "core-about",
-          "block_type": "about",
-          "id": "home-block:core-about",
-          "kind": "home-block",
-          "label": "Sobre",
-          "order": 150,
-          "parent_id": "home-blocks",
-          "tab": "home",
-          "visible": true
-        },
-        {
-          "category_id": "1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "id": "category-page:1pBYHRapM-7izUJ7lq2Dd7CKcqcHzqwiD",
-          "kind": "category-page",
-          "label": "Banner mobile",
-          "order": 100,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "id": "category-page:1VVZTQCuxPBlrcUn7BnbV8bjt2pik9bnw",
-          "kind": "category-page",
-          "label": "Banners",
-          "order": 110,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "id": "category-page:14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
-          "kind": "category-page",
-          "label": "Lateral Banners",
-          "order": 120,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "id": "category-page:1hD-J15wvmKlbgI_M7Nl1nvACsccgAct9",
-          "kind": "category-page",
-          "label": "Campanha 007 Completa",
-          "order": 130,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "id": "category-page:16OQZde74SeyLTozdgUzo7ega_JpaRnXM",
-          "kind": "category-page",
-          "label": "Carrossel",
-          "order": 140,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "id": "category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
-          "kind": "category-page",
-          "label": "DERMACAST",
-          "order": 150,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "id": "category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
-          "kind": "category-page",
-          "label": "Edição de vídeos",
-          "order": 160,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "id": "category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
-          "kind": "category-page",
-          "label": "Lâminas para divulgação",
-          "order": 170,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
-          "id": "category-page:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
-          "kind": "category-page",
-          "label": "MANUAL DA MARCA",
-          "order": 180,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
-        },
-        {
-          "category_id": "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "id": "category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "kind": "category-page",
-          "label": "Motion",
-          "order": 190,
-          "parent_id": "page-categories",
-          "tab": "categorypages"
         }
       ],
       "root_id": "site",
-      "version": 5
+      "version": 12
     },
     "special_routes": {
       "about": {
