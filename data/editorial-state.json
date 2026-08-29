@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "fd562d8701bd55d0b2a0",
-    "saved_at": "2026-08-29T13:39:55.969222+00:00"
+    "revision": "e0e94246b535ea75d6f5",
+    "saved_at": "2026-08-29T13:42:55.359256+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -39790,16 +39790,19 @@
               "accent": "#FF00AA"
             }
           },
-          "oryzo-ai": {},
+          "oryzo-ai": {
+            "theme_overrides": {},
+            "theme_variant_id": "oryzo-ai--base"
+          },
           "structured": {
             "theme_overrides": {},
             "theme_variant_id": "structured--base"
           }
         }
       },
-      "theme_id": "structured",
+      "theme_id": "oryzo-ai",
       "theme_overrides": {},
-      "theme_variant_id": "structured--base",
+      "theme_variant_id": "oryzo-ai--base",
       "theme_version": 1
     },
     "three_d_scene": {
