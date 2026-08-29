@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b17eb97cf7523643bc88",
-    "saved_at": "2026-08-29T13:32:04.266037+00:00"
+    "revision": "ffa0219e3f1ef7995a3b",
+    "saved_at": "2026-08-29T13:32:37.263862+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1351,7 +1351,7 @@
             "parent_id": "",
             "target": "/",
             "target_valid": true,
-            "visible": false
+            "visible": true
           },
           {
             "id": "projects",
@@ -39365,18 +39365,21 @@
       "about": {
         "description": "Conheça a Mensagem Studio.",
         "enabled": true,
+        "index": true,
         "slug": "sobre",
         "title": "Sobre"
       },
       "archive": {
         "description": "Arquivo completo de projetos.",
         "enabled": true,
+        "index": true,
         "slug": "arquivo",
         "title": "Arquivo"
       },
       "contact": {
         "description": "Entre em contato com a Mensagem Studio.",
         "enabled": true,
+        "index": true,
         "slug": "contato",
         "title": "Contato"
       },
@@ -39390,12 +39393,14 @@
       "quote": {
         "description": "Solicite um orçamento.",
         "enabled": true,
+        "index": true,
         "slug": "orcamento",
         "title": "Orçamento"
       },
       "search": {
         "description": "Busque projetos, serviços, clientes e tags.",
         "enabled": true,
+        "index": true,
         "slug": "busca",
         "title": "Busca"
       }
