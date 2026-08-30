@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "5270392a12ed7f6db5fb",
-    "saved_at": "2026-08-29T21:59:30.345746+00:00"
+    "revision": "98abc7b878070cf574dd",
+    "saved_at": "2026-08-30T18:11:58.148685+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1945,6 +1945,21 @@
       "fit": "cover",
       "format": "cinema21",
       "frame_bg": "#090909",
+      "gsap": {
+        "delay": 0,
+        "direction": "auto",
+        "duration": 0.8,
+        "ease": "premium",
+        "enabled": false,
+        "engine": "gsap",
+        "intensity": 1.0,
+        "media_ids": [],
+        "preset": "hero-cinematic",
+        "scrub": 0.65,
+        "stagger": 0.08,
+        "trigger": "scroll",
+        "version": 1
+      },
       "height": "fullscreen",
       "kicker": "Portfólio · Direção criativa",
       "media_id": "",
@@ -32539,6 +32554,15 @@
           "kind": "hero-anchor",
           "label": "Hero Story / scroll / timeline",
           "order": 20,
+          "parent_id": "v9-hero",
+          "tab": "hero"
+        },
+        {
+          "hero_anchor": "heroGsapEditor",
+          "id": "v9-hero-gsap",
+          "kind": "hero-anchor",
+          "label": "GSAP Hero / mídia / ajustes",
+          "order": 25,
           "parent_id": "v9-hero",
           "tab": "hero"
         },
