@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "71f4be81135cdb597444",
-  "bundle_sha256": "71f4be81135cdb5974446cac1c033c27b6b343ad5089f938f9dc557fd892dc1d",
-  "editorial_revision": "e0e94246b535ea75d6f5",
+  "build_revision": "2a1f87553b74748f1cac",
+  "bundle_sha256": "2a1f87553b74748f1cac57bb78f5e27a812120226b6142870840218d772f2116",
+  "editorial_revision": "31d69668567c02ce4a19",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -102,12 +102,12 @@
       "sha256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6"
     },
     "assets/site.css": {
-      "bytes": 340097,
-      "sha256": "6a97043b6f5697c790c1623b91883c95f9443028f85cbec9f4917eaf04cbc290"
+      "bytes": 343210,
+      "sha256": "98d60920ad524f7e2a7328736e36df6ef6286061ab776bd07394c9415e121cf2"
     },
     "assets/site.js": {
-      "bytes": 509284,
-      "sha256": "006e41f1f437234c2a2d0197ef9b4cd31db98bcadca717efa04a61e7d60cc78b"
+      "bytes": 527720,
+      "sha256": "624db6c1577a87fa086185f4082b348b99bd5656f910b5274e7e32298f24777d"
     },
     "assets/themes/black-maca.css": {
       "bytes": 8370,
@@ -190,16 +190,16 @@
       "sha256": "4be64e78e32ad97195a1d97505cb4ed63bcd5d88faea15c8fe8087863fb4f8dc"
     },
     "data/portfolio.json": {
-      "bytes": 4509590,
-      "sha256": "eaf7fef98f012fb1f21bcb5bc6e2e0d5986e613d53c3eaf34d7d740445049643"
+      "bytes": 4519928,
+      "sha256": "e620f058505a93fdf7c13e945b7463e7758576f82d009c902ab348ee7d006ff1"
     },
     "data/seo-report.json": {
       "bytes": 48119,
       "sha256": "410e0e6ac216fd078c051cebdf4c007de0930e2ad384c9a653210048d1af2fcc"
     },
     "index.html": {
-      "bytes": 3165931,
-      "sha256": "ffed070f86dc05e67f7463d0cb93214ec45579e49be8153238a9f4829135051a"
+      "bytes": 3172601,
+      "sha256": "6fbbeb06ed12d3dc9d77444d39ab7d2137e71a32ae3d6194ea6689c25c660196"
     },
     "orcamento/index.html": {
       "bytes": 9199,
@@ -746,19 +746,19 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 4509590,
-  "portfolio_sha256": "eaf7fef98f012fb1f21bcb5bc6e2e0d5986e613d53c3eaf34d7d740445049643",
+  "portfolio_bytes": 4519928,
+  "portfolio_sha256": "e620f058505a93fdf7c13e945b7463e7758576f82d009c902ab348ee7d006ff1",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "e0e94246b535ea75d6f5",
+  "revision": "31d69668567c02ce4a19",
   "runtime_dependencies": [],
-  "source_revision": "e0e94246b535ea75d6f5",
+  "source_revision": "31d69668567c02ce4a19",
   "stats": {
-    "bytes": 20556694,
+    "bytes": 20595251,
     "files": 166,
     "largest_file_bytes": 7163903,
     "route_shells": 121
