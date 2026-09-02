@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "926e1de3a744aee73d73",
-    "saved_at": "2026-09-02T00:27:44.173990+00:00"
+    "revision": "62ec4ec2eeb9ecb2fede",
+    "saved_at": "2026-09-02T00:27:54.382144+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -40150,6 +40150,30 @@
     },
     "theme": {
       "custom_theme_metadata": {
+        "composer": {
+          "custom_id": "custom-mtjcx90v",
+          "enabled": true,
+          "module_sources": {
+            "background": "oryzo-ai",
+            "buttons": "oryzo-ai",
+            "cards": "oryzo-ai",
+            "components": "oryzo-ai",
+            "footer": "oryzo-ai",
+            "grid": "oryzo-ai",
+            "header": "oryzo-ai",
+            "hero": "oryzo-ai",
+            "image-treatment": "oryzo-ai",
+            "motion": "oryzo-ai",
+            "navigation": "oryzo-ai",
+            "shell": "oryzo-ai",
+            "spacing": "oryzo-ai",
+            "surface": "oryzo-ai",
+            "typography": "oryzo-ai"
+          },
+          "name": "Oryzo AI Custom",
+          "saved_modules": {},
+          "updated_at": ""
+        },
         "override_snapshots": {
           "black-maca": {},
           "discord": {
