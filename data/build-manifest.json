@@ -1,8 +1,8 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "fb26cc7a7b2cfc5f0c3c",
-  "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
+  "build_revision": "73eca5be61d40886a7c3",
+  "bundle_sha256": "73eca5be61d40886a7c37402af1bb7129cec86b964e8506340a59e42077922ad",
   "editorial_revision": "291befe7d1de1c6f9645",
   "files": {
     ".nojekyll": {
@@ -191,7 +191,7 @@
     },
     "data/portfolio.json": {
       "bytes": 4524989,
-      "sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244"
+      "sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02"
     },
     "data/seo-report.json": {
       "bytes": 48119,
@@ -199,7 +199,7 @@
     },
     "index.html": {
       "bytes": 3175900,
-      "sha256": "ddbadcfbff292e1d62486b32d1c4fb21fdb433c50c88b8207f693c9a3e85166c"
+      "sha256": "8dff1f4c566109cf3d6f675718c0eb745903a28f1585f429471ec9a56048d6dd"
     },
     "orcamento/index.html": {
       "bytes": 9199,
@@ -747,7 +747,7 @@
     "used_presets": []
   },
   "portfolio_bytes": 4524989,
-  "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+  "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
