@@ -2,9 +2,9 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "revision": "31d69668567c02ce4a19",
-  "source_revision": "31d69668567c02ce4a19",
-  "editorial_revision": "31d69668567c02ce4a19",
+  "revision": "62ec4ec2eeb9ecb2fede",
+  "source_revision": "62ec4ec2eeb9ecb2fede",
+  "editorial_revision": "62ec4ec2eeb9ecb2fede",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -751,6 +751,30 @@
       "theme_version": 1,
       "theme_overrides": {},
       "custom_theme_metadata": {
+        "composer": {
+          "custom_id": "custom-mtjcx90v",
+          "enabled": true,
+          "module_sources": {
+            "background": "oryzo-ai",
+            "buttons": "oryzo-ai",
+            "cards": "oryzo-ai",
+            "components": "oryzo-ai",
+            "footer": "oryzo-ai",
+            "grid": "oryzo-ai",
+            "header": "oryzo-ai",
+            "hero": "oryzo-ai",
+            "image-treatment": "oryzo-ai",
+            "motion": "oryzo-ai",
+            "navigation": "oryzo-ai",
+            "shell": "oryzo-ai",
+            "spacing": "oryzo-ai",
+            "surface": "oryzo-ai",
+            "typography": "oryzo-ai"
+          },
+          "name": "Oryzo AI Custom",
+          "saved_modules": {},
+          "updated_at": ""
+        },
         "override_snapshots": {
           "black-maca": {},
           "discord": {
@@ -853,7 +877,7 @@
       "hero_treatment": "split"
     },
     "site_tree": {
-      "version": 15,
+      "version": 16,
       "root_id": "site",
       "nodes": [
         {
@@ -1200,6 +1224,15 @@
           "order": 40,
           "parent_id": "v9-site-menu",
           "tab": "header"
+        },
+        {
+          "editor_anchor": "siteSectionNavigatorEnabled",
+          "id": "v9-navigation",
+          "kind": "editor-anchor",
+          "label": "Navegação de seções / scroll",
+          "order": 50,
+          "parent_id": "v9-site-menu",
+          "tab": "siteappearance"
         },
         {
           "id": "v9-site-footer",
@@ -1652,6 +1685,15 @@
           "tab": "siteappearance"
         },
         {
+          "editor_anchor": "themeExperienceMaca",
+          "id": "v9-theme-experience-maca",
+          "kind": "editor-anchor",
+          "label": "Maçã / product scroll / carrossel",
+          "order": 20,
+          "parent_id": "v9-theme-experiences",
+          "tab": "siteappearance"
+        },
+        {
           "editor_anchor": "v9CustomThemeBuilder",
           "id": "v9-custom-theme-builder",
           "kind": "editor-anchor",
@@ -1848,7 +1890,7 @@
           "tab": "projects"
         },
         {
-          "editor_anchor": "mmMediaList",
+          "editor_anchor": "mediaManagerInspector",
           "id": "v9-player",
           "kind": "editor-anchor",
           "label": "StudioFrame Player / enquadramento",
@@ -36634,29 +36676,29 @@
       "sound_control_visible": true,
       "gsap_scroll": {
         "version": 1,
-        "enabled": false,
+        "enabled": true,
         "mode": "video_scrub",
-        "media_id": "",
+        "media_id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
         "mobile_media_id": "",
         "asset_id": "hero-spacecraft-user",
         "pin": true,
         "start": "top top",
-        "end_percent": 180,
-        "scrub": 0.7,
-        "smoothing": 0.18,
+        "end_percent": 260,
+        "scrub": 0.72,
+        "smoothing": 0.2,
         "speed": 1,
         "rotation_x_from": 8,
-        "rotation_x_to": -6,
-        "rotation_y_from": -48,
-        "rotation_y_to": 54,
-        "rotation_z_from": -4,
-        "rotation_z_to": 5,
-        "scale_from": 0.82,
-        "scale_to": 1.08,
-        "position_x_from": -10,
-        "position_x_to": 10,
-        "position_y_from": 8,
-        "position_y_to": -8,
+        "rotation_x_to": -8,
+        "rotation_y_from": -42,
+        "rotation_y_to": 48,
+        "rotation_z_from": -3,
+        "rotation_z_to": 4,
+        "scale_from": 0.8,
+        "scale_to": 1.1,
+        "position_x_from": -8,
+        "position_x_to": 8,
+        "position_y_from": 7,
+        "position_y_to": -7,
         "poster_url": "",
         "mobile_fallback": "poster",
         "reduced_motion": "poster",
@@ -39296,6 +39338,54 @@
           "x": 0,
           "y": 0,
           "z_index": 1
+        },
+        {
+          "blend_mode": "screen",
+          "blur": 0,
+          "clip_path": "",
+          "color": "#100904",
+          "depth": 0.35,
+          "depth_role": "middle",
+          "desktop_visible": true,
+          "entry_animation": "fade",
+          "exit_animation": "none",
+          "gradient_angle": 145,
+          "gradient_end": "#dc5000",
+          "gradient_start": "#382416",
+          "gyro_response": 0.08,
+          "id": "theme-experience-oryzo-reactive-tiles",
+          "label": "ORYZO · Warm Interactive Field",
+          "locked": false,
+          "loop": true,
+          "mask_radius": 24,
+          "mask_size": 100,
+          "mask_type": "none",
+          "mask_x": 50,
+          "mask_y": 50,
+          "media_id": "",
+          "media_type": "image",
+          "mobile_visible": true,
+          "motion_mode": "scroll_mouse",
+          "mouse_response": 0.28,
+          "opacity": 0.34,
+          "rotation": 0,
+          "scale": 1,
+          "scroll_speed": 0.12,
+          "section_visibility": "",
+          "source": "media",
+          "tablet_visible": true,
+          "tile_columns": 12,
+          "tile_depth": 0.85,
+          "tile_gap": 8,
+          "tile_pointer_strength": 1.1,
+          "tile_radius": 7,
+          "tile_rows": 7,
+          "type": "reactive_tiles",
+          "url": "",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+          "z_index": 4
         }
       ],
       "blur": 0,
@@ -39320,10 +39410,10 @@
       },
       "media_id": "",
       "media_type": "image",
-      "motion_mode": "static",
-      "mouse_strength": 0.35,
+      "motion_mode": "scroll_mouse",
+      "mouse_strength": 0.42,
       "opacity": 1,
-      "parallax_strength": 0.25,
+      "parallax_strength": 0.34,
       "position_x": 0,
       "position_y": 0,
       "rotation": 0,
@@ -39422,24 +39512,24 @@
       "fallback_url": "",
       "geometry": "torus_knot",
       "interaction": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "gyro": false,
         "pointer_events": true,
         "pointer_mode": "orbit",
-        "pointer_strength": 0.6,
-        "scroll_mode": "dolly",
-        "scroll_strength": 0.55
+        "pointer_strength": 0.72,
+        "scroll_mode": "translate_y",
+        "scroll_strength": 0.88
       },
       "opacity": 1,
       "performance": {
         "desktop_enabled": true,
         "max_pixel_ratio": 1.5,
-        "mobile_enabled": false,
+        "mobile_enabled": true,
         "reduced_motion_fallback": true,
         "tablet_enabled": true,
         "transparent": true
       },
-      "placement": "hero",
+      "placement": "global_background",
       "rotation_x": 0,
       "rotation_y": 0,
       "rotation_z": 0,
@@ -40099,6 +40189,30 @@
     "component_motion_variation_count": 598,
     "project_overrides": {},
     "custom_theme_metadata": {
+      "composer": {
+        "custom_id": "custom-mtjcx90v",
+        "enabled": true,
+        "module_sources": {
+          "background": "oryzo-ai",
+          "buttons": "oryzo-ai",
+          "cards": "oryzo-ai",
+          "components": "oryzo-ai",
+          "footer": "oryzo-ai",
+          "grid": "oryzo-ai",
+          "header": "oryzo-ai",
+          "hero": "oryzo-ai",
+          "image-treatment": "oryzo-ai",
+          "motion": "oryzo-ai",
+          "navigation": "oryzo-ai",
+          "shell": "oryzo-ai",
+          "spacing": "oryzo-ai",
+          "surface": "oryzo-ai",
+          "typography": "oryzo-ai"
+        },
+        "name": "Oryzo AI Custom",
+        "saved_modules": {},
+        "updated_at": ""
+      },
       "override_snapshots": {
         "black-maca": {},
         "discord": {
@@ -40414,6 +40528,39 @@
     }
   },
   "hero_assets": {
+    "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy": {
+      "id": "1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+      "title": "MOTION COM SPOILER DA CAMPANHÃ",
+      "description": "",
+      "type": "video",
+      "mime": "video/mp4",
+      "width": 1080,
+      "height": 1920,
+      "resource_key": "",
+      "modified_time": "2026-08-22T18:48:01.044Z",
+      "thumbnail_url": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
+      "media_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+      "preview_url": "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+      "external_url": "",
+      "thumbnail_candidates": [
+        "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
+        "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1600",
+        "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w1000"
+      ],
+      "media_candidates": [
+        "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+        "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+        "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
+      ],
+      "preview_candidates": [
+        "https://drive.google.com/uc?export=view&id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy",
+        "https://drive.google.com/uc?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download",
+        "https://drive.usercontent.google.com/download?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&export=download&authuser=0&confirm=t"
+      ],
+      "hero_autoplay": true,
+      "playback_mode": "drive-native-range",
+      "autoplay_grid": true
+    },
     "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej": {
       "id": "1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej",
       "title": "EPISÓDIO DE PODCAST 1",
@@ -42445,8 +42592,8 @@
           "resource_key": "",
           "modified_time": "2026-08-22T18:50:37.839Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -42455,14 +42602,14 @@
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
@@ -43000,8 +43147,8 @@
           "resource_key": "",
           "modified_time": "2026-07-30T15:11:11.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
@@ -43010,14 +43157,14 @@
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
@@ -43148,8 +43295,8 @@
           "resource_key": "",
           "modified_time": "2026-08-05T14:22:28.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
@@ -43158,14 +43305,14 @@
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
@@ -43625,8 +43772,8 @@
       "type": "image",
       "mime": "image/png",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+      "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -43635,14 +43782,14 @@
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
       ],
       "media_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
       "preview_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
@@ -43681,8 +43828,8 @@
           "resource_key": "",
           "modified_time": "2026-08-22T18:50:37.839Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -43691,14 +43838,14 @@
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
@@ -43862,8 +44009,8 @@
       "type": "image",
       "mime": "image/png",
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+      "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -43872,14 +44019,14 @@
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
       ],
       "media_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
       "preview_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
@@ -44266,8 +44413,8 @@
           "resource_key": "",
           "modified_time": "2026-07-30T15:11:11.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
@@ -44276,14 +44423,14 @@
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
@@ -45051,8 +45198,8 @@
           "resource_key": "",
           "modified_time": "2026-08-05T14:22:28.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
@@ -45061,14 +45208,14 @@
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
@@ -48797,8 +48944,8 @@
           "resource_key": "",
           "modified_time": "2026-04-20T20:13:57.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
@@ -48807,14 +48954,14 @@
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
@@ -49165,8 +49312,8 @@
           "resource_key": "",
           "modified_time": "2024-06-12T17:11:01.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
@@ -49175,14 +49322,14 @@
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
@@ -49350,8 +49497,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:24:56.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -49360,14 +49507,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -49535,8 +49682,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:31:48.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -49545,14 +49692,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -49905,8 +50052,8 @@
           "resource_key": "",
           "modified_time": "2026-07-15T19:00:02.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
@@ -49915,14 +50062,14 @@
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
@@ -49942,8 +50089,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T19:22:05.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -49952,14 +50099,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -52299,8 +52446,8 @@
           "resource_key": "",
           "modified_time": "2024-06-12T17:11:01.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
@@ -52309,14 +52456,14 @@
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
@@ -52447,8 +52594,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:24:56.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -52457,14 +52604,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -52595,8 +52742,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:31:48.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -52605,14 +52752,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -52891,8 +53038,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T19:22:05.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -52901,14 +53048,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -53946,8 +54093,8 @@
           "resource_key": "",
           "modified_time": "2024-06-12T17:11:01.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
@@ -53956,14 +54103,14 @@
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
@@ -54020,8 +54167,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:24:56.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -54030,14 +54177,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -54094,8 +54241,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:31:48.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -54104,14 +54251,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -54279,8 +54426,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T19:22:05.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -54289,14 +54436,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -54777,8 +54924,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:24:56.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -54787,14 +54934,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -54814,8 +54961,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T18:31:48.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -54824,14 +54971,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -54925,8 +55072,8 @@
           "resource_key": "",
           "modified_time": "2024-02-06T19:22:05.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -54935,14 +55082,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -60472,8 +60619,8 @@
           "resource_key": "",
           "modified_time": "2026-04-20T20:13:57.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
@@ -60482,14 +60629,14 @@
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
@@ -60694,8 +60841,8 @@
           "resource_key": "",
           "modified_time": "2026-07-15T19:00:02.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
@@ -60704,14 +60851,14 @@
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
@@ -61154,8 +61301,8 @@
           "resource_key": "",
           "modified_time": "2026-04-20T20:13:57.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
@@ -61164,14 +61311,14 @@
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
@@ -61376,8 +61523,8 @@
           "resource_key": "",
           "modified_time": "2026-07-15T19:00:02.000Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
@@ -61386,14 +61533,14 @@
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
@@ -61754,8 +61901,8 @@
           "resource_key": "",
           "modified_time": "2026-08-22T18:58:12.808Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
@@ -61763,13 +61910,13 @@
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "hero_autoplay": true,
@@ -61890,8 +62037,8 @@
           "resource_key": "",
           "modified_time": "2026-08-22T18:58:03.937Z",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -61899,14 +62046,14 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "hero_autoplay": true,
           "playback_mode": "drive-native-range",
@@ -68294,8 +68441,8 @@
         "CARROSSEL BACIO"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-      "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+      "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+      "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -68304,14 +68451,14 @@
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
       ],
       "media_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
       "preview_candidates": [
-        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
         "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
       ],
@@ -68346,8 +68493,8 @@
           "title": "CARD 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -68356,14 +68503,14 @@
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
@@ -68527,8 +68674,8 @@
         "title": "CARD 1",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-        "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-        "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+        "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+        "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
         "external_url": "",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -68537,14 +68684,14 @@
           "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
         ],
         "media_candidates": [
-          "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
           "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
           "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
           "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
         ],
         "preview_candidates": [
-          "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
           "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
           "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
           "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
         ],
@@ -69072,8 +69219,8 @@
           "title": "CARROSSEL_02",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
@@ -69082,14 +69229,14 @@
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
@@ -70071,8 +70218,8 @@
           "title": "CARROSSEL-V-HACKER_04",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
@@ -70081,14 +70228,14 @@
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
@@ -73160,8 +73307,8 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
-      "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
-      "preview_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+      "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+      "preview_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
@@ -73169,13 +73316,13 @@
         "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1000"
       ],
       "media_candidates": [
-        "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
         "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
         "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
-        "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
         "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
         "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
       ],
       "hero_autoplay": true,
@@ -73209,8 +73356,8 @@
           "title": "PRODUTO COM IA",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
@@ -73218,13 +73365,13 @@
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
@@ -73243,8 +73390,8 @@
         "title": "PRODUTO COM IA",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
-        "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
-        "preview_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+        "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+        "preview_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
         "external_url": "",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
@@ -73252,13 +73399,13 @@
           "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1000"
         ],
         "media_candidates": [
-          "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
           "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+          "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
           "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
-          "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
           "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+          "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
           "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
         ],
         "mime": "video/mp4",
@@ -73776,8 +73923,8 @@
         "Motion"
       ],
       "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-      "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
-      "preview_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
+      "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+      "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
       "external_url": "",
       "thumbnail_candidates": [
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -73785,14 +73932,14 @@
         "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
       ],
       "media_candidates": [
-        "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
         "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
       ],
       "preview_candidates": [
-        "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
         "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+        "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+        "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
       ],
       "hero_autoplay": true,
       "playback_mode": "drive-native-range",
@@ -73825,8 +73972,8 @@
           "title": "STORY REJUVITAL",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -73834,14 +73981,14 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -73859,8 +74006,8 @@
         "title": "STORY REJUVITAL",
         "description": "",
         "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-        "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
-        "preview_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
+        "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+        "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
         "external_url": "",
         "thumbnail_candidates": [
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -73868,14 +74015,14 @@
           "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
         ],
         "media_candidates": [
-          "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
           "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
         ],
         "preview_candidates": [
-          "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
           "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+          "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+          "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
         ],
         "mime": "video/mp4",
         "type": "video",
@@ -74325,8 +74472,8 @@
           "title": "20240611_163758",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
@@ -74335,14 +74482,14 @@
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
@@ -74721,8 +74868,8 @@
           "title": "businessmen-shaking-hands-during-meeting",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -74731,14 +74878,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -74757,8 +74904,8 @@
           "title": "businessmen-shaking-hands-during-meeting_2",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -74767,14 +74914,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -74865,8 +75012,8 @@
           "title": "caixa_isopor",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -74875,14 +75022,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -77057,8 +77204,8 @@
           "title": "CAPA",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
@@ -77067,14 +77214,14 @@
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
@@ -77273,8 +77420,8 @@
           "title": "IMG_6002",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
@@ -77283,14 +77430,14 @@
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
@@ -79687,8 +79834,8 @@
           "title": "CARD 1",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
@@ -79697,14 +79844,14 @@
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/uc?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&export=download",
+            "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1CRaZaw1j0SfzjmAAhcDLrT2yiVLb9YJe&sz=w1000"
           ],
@@ -80177,8 +80324,8 @@
           "title": "CARROSSEL_02",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
@@ -80187,14 +80334,14 @@
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/uc?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&export=download",
+            "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w2400",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1600",
             "https://drive.google.com/thumbnail?id=1463zXCAJF3HdPGB7WhU4bqO8TrzKnXrf&sz=w1000"
           ],
@@ -80822,8 +80969,8 @@
           "title": "CARROSSEL-V-HACKER_04",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
@@ -80832,14 +80979,14 @@
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/uc?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&export=download",
+            "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w2400",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1600",
             "https://drive.google.com/thumbnail?id=1jevlGrP2LxmHxcwdR3Lh8K7VDxwlt-2Z&sz=w1000"
           ],
@@ -82168,8 +82315,8 @@
           "title": "20240611_163758",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
@@ -82178,14 +82325,14 @@
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/uc?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&export=download",
+            "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w2400",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1600",
             "https://drive.google.com/thumbnail?id=1sGsgOeupH1yHNuVDhLKirn-VlRVA_LPK&sz=w1000"
           ],
@@ -82564,8 +82711,8 @@
           "title": "businessmen-shaking-hands-during-meeting",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
@@ -82574,14 +82721,14 @@
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/uc?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&export=download",
+            "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w2400",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1600",
             "https://drive.google.com/thumbnail?id=1rUvTFWZAe4kBTxm4ySmtDgSRJq6Df3Cv&sz=w1000"
           ],
@@ -82600,8 +82747,8 @@
           "title": "businessmen-shaking-hands-during-meeting_2",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
@@ -82610,14 +82757,14 @@
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/uc?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&export=download",
+            "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w2400",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1600",
             "https://drive.google.com/thumbnail?id=1K8MUXcon6Ikemqr6Sic7gcnzK_zbDj1v&sz=w1000"
           ],
@@ -82708,8 +82855,8 @@
           "title": "caixa_isopor",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
@@ -82718,14 +82865,14 @@
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/uc?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&export=download",
+            "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w2400",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1600",
             "https://drive.google.com/thumbnail?id=1-14caqjkNYlHUewvaCyMHBf-qHRWiMxx&sz=w1000"
           ],
@@ -84668,8 +84815,8 @@
           "title": "CAPA",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
@@ -84678,14 +84825,14 @@
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/uc?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&export=download",
+            "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w2400",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1600",
             "https://drive.google.com/thumbnail?id=1pDNBX0l2XDucRXCCzWhm_2xSZC9jC3h5&sz=w1000"
           ],
@@ -84884,8 +85031,8 @@
           "title": "IMG_6002",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "media_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
-          "preview_url": "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
+          "media_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+          "preview_url": "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
@@ -84894,14 +85041,14 @@
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download"
           ],
           "media_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
           "preview_candidates": [
-            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/uc?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&export=download",
+            "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w2400",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1600",
             "https://drive.google.com/thumbnail?id=1P063yS3mMRRJch7gO5Zwb1aDaLQ1XkAe&sz=w1000"
           ],
@@ -85235,8 +85382,8 @@
           "title": "PRODUTO COM IA",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
-          "media_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
-          "preview_url": "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
+          "media_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w2400",
@@ -85244,13 +85391,13 @@
             "https://drive.google.com/thumbnail?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.google.com/uc?export=view&id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
+            "https://drive.google.com/uc?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download",
             "https://drive.usercontent.google.com/download?id=1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
@@ -85411,8 +85558,8 @@
           "title": "STORY REJUVITAL",
           "description": "",
           "thumbnail_url": "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
-          "media_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
-          "preview_url": "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
+          "media_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
+          "preview_url": "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
           "external_url": "",
           "thumbnail_candidates": [
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w2400",
@@ -85420,14 +85567,14 @@
             "https://drive.google.com/thumbnail?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&sz=w1000"
           ],
           "media_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "preview_candidates": [
-            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t",
             "https://drive.google.com/uc?export=view&id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg",
-            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download"
+            "https://drive.google.com/uc?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download",
+            "https://drive.usercontent.google.com/download?id=1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg&export=download&authuser=0&confirm=t"
           ],
           "mime": "video/mp4",
           "type": "video",
@@ -85453,7 +85600,7 @@
     "unsupported": 38,
     "ignored": 15,
     "api_calls": 46,
-    "duration_seconds": 19.994
+    "duration_seconds": 19.356
   },
   "publication_ready": true,
   "public_validation": {
@@ -85538,7 +85685,7 @@
       "description": "Uma seleção de projetos, campanhas e experiências construídas pela Mensagem Studio.",
       "path": "",
       "canonical": "https://mensagemstudio.shop/",
-      "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+      "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
       "image_media_id": "",
       "schema_type": "WebPage",
       "index": true,
@@ -85569,7 +85716,7 @@
         "description": "Uma seleção de projetos, campanhas e experiências construídas pela Mensagem Studio.",
         "path": "",
         "canonical": "https://mensagemstudio.shop/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": true,
@@ -85599,7 +85746,7 @@
         "description": "Design, audiovisual e direção criativa para marcas, produtos, campanhas e experiências digitais.",
         "path": "servicos",
         "canonical": "https://mensagemstudio.shop/servicos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "CollectionPage",
         "index": true,
@@ -85637,7 +85784,7 @@
         "description": "Uma peça estática em formato principal, com adaptação simples quando prevista no briefing.",
         "path": "servicos/arte-avulsa-para-post-ou-story",
         "canonical": "https://mensagemstudio.shop/servicos/arte-avulsa-para-post-ou-story/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85680,7 +85827,7 @@
         "description": "Narrativa visual sequencial com capa, desenvolvimento e encerramento.",
         "path": "servicos/carrossel-com-ate-5-paginas",
         "canonical": "https://mensagemstudio.shop/servicos/carrossel-com-ate-5-paginas/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85723,7 +85870,7 @@
         "description": "Conjunto visual para calendário de conteúdo, campanha ou lançamento.",
         "path": "servicos/pacote-com-10-criativos",
         "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-criativos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85766,7 +85913,7 @@
         "description": "Cortes, ritmo, trilha fornecida ou licenciada pelo cliente e acabamento para redes.",
         "path": "servicos/reel-basico-de-ate-90-segundos",
         "canonical": "https://mensagemstudio.shop/servicos/reel-basico-de-ate-90-segundos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85809,7 +85956,7 @@
         "description": "Edição dinâmica com elementos gráficos, legendagem e recursos de retenção.",
         "path": "servicos/reel-com-motion-legendas-e-efeitos",
         "canonical": "https://mensagemstudio.shop/servicos/reel-com-motion-legendas-e-efeitos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85852,7 +85999,7 @@
         "description": "Pacote recorrente para calendário de conteúdo e presença contínua.",
         "path": "servicos/pacote-com-8-reels",
         "canonical": "https://mensagemstudio.shop/servicos/pacote-com-8-reels/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85895,7 +86042,7 @@
         "description": "Montagem narrativa para apresentação de marca, produto, evento ou serviço.",
         "path": "servicos/video-institucional-de-1-a-3-minutos",
         "canonical": "https://mensagemstudio.shop/servicos/video-institucional-de-1-a-3-minutos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85938,7 +86085,7 @@
         "description": "Captação compacta em uma locação, adequada a entrevistas, conteúdos e demonstrações.",
         "path": "servicos/captacao-essencial-de-ate-2-horas",
         "canonical": "https://mensagemstudio.shop/servicos/captacao-essencial-de-ate-2-horas/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -85981,7 +86128,7 @@
         "description": "Produção audiovisual de até 4 horas para conteúdo de marca, workshops ou produtos.",
         "path": "servicos/meia-diaria-de-producao",
         "canonical": "https://mensagemstudio.shop/servicos/meia-diaria-de-producao/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86024,7 +86171,7 @@
         "description": "Captação estruturada para projetos com maior volume de cenas e necessidades técnicas.",
         "path": "servicos/diaria-de-producao-audiovisual",
         "canonical": "https://mensagemstudio.shop/servicos/diaria-de-producao-audiovisual/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86067,7 +86214,7 @@
         "description": "Captação dirigida para demonstrar atributos, uso, textura e diferenciais do produto.",
         "path": "servicos/video-de-produto",
         "canonical": "https://mensagemstudio.shop/servicos/video-de-produto/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86110,7 +86257,7 @@
         "description": "Abertura ou assinatura animada com movimento alinhado à identidade da marca.",
         "path": "servicos/animacao-de-logotipo",
         "canonical": "https://mensagemstudio.shop/servicos/animacao-de-logotipo/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86153,7 +86300,7 @@
         "description": "Peça curta com tipografia, grafismos, produtos ou informações em movimento.",
         "path": "servicos/motion-para-redes-sociais",
         "canonical": "https://mensagemstudio.shop/servicos/motion-para-redes-sociais/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86196,7 +86343,7 @@
         "description": "Tracking, recorte, integração de elementos, limpeza ou composição visual.",
         "path": "servicos/composicao-e-vfx-por-cena",
         "canonical": "https://mensagemstudio.shop/servicos/composicao-e-vfx-por-cena/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86239,7 +86386,7 @@
         "description": "Apresentação final do produto com luz, textos, grafismos e movimento.",
         "path": "servicos/packshot-animado-de-produto",
         "canonical": "https://mensagemstudio.shop/servicos/packshot-animado-de-produto/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86282,7 +86429,7 @@
         "description": "Ajustes de exposição, contraste, cor, enquadramento e nitidez.",
         "path": "servicos/correcao-basica",
         "canonical": "https://mensagemstudio.shop/servicos/correcao-basica/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86325,7 +86472,7 @@
         "description": "Tratamento detalhado de pele, produto, superfícies e imperfeições.",
         "path": "servicos/retoque-avancado",
         "canonical": "https://mensagemstudio.shop/servicos/retoque-avancado/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86368,7 +86515,7 @@
         "description": "Tratamento padronizado para ensaio, produto, evento ou catálogo.",
         "path": "servicos/pacote-com-10-fotos",
         "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-fotos/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86411,7 +86558,7 @@
         "description": "Recortes e combinação direta de elementos com ajuste visual básico.",
         "path": "servicos/montagem-simples",
         "canonical": "https://mensagemstudio.shop/servicos/montagem-simples/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86454,7 +86601,7 @@
         "description": "Peça com direção visual, integração de elementos e acabamento para campanha.",
         "path": "servicos/composicao-publicitaria",
         "canonical": "https://mensagemstudio.shop/servicos/composicao-publicitaria/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86497,7 +86644,7 @@
         "description": "Construção visual com múltiplas fontes, cenários e alto nível de detalhamento.",
         "path": "servicos/composicao-complexa",
         "canonical": "https://mensagemstudio.shop/servicos/composicao-complexa/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86540,7 +86687,7 @@
         "description": "Organização dos fundamentos da identidade e das regras principais de aplicação.",
         "path": "servicos/manual-essencial",
         "canonical": "https://mensagemstudio.shop/servicos/manual-essencial/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86583,7 +86730,7 @@
         "description": "Sistema de identidade ampliado com linguagem gráfica, aplicações e documentação completa.",
         "path": "servicos/manual-completo",
         "canonical": "https://mensagemstudio.shop/servicos/manual-completo/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86626,7 +86773,7 @@
         "description": "Imagem central que organiza conceito, atmosfera, tipografia e direção da campanha.",
         "path": "servicos/key-visual-de-campanha",
         "canonical": "https://mensagemstudio.shop/servicos/key-visual-de-campanha/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86669,7 +86816,7 @@
         "description": "Key visual e desdobramentos principais para redes, banners e comunicação digital.",
         "path": "servicos/pacote-visual-de-campanha",
         "canonical": "https://mensagemstudio.shop/servicos/pacote-visual-de-campanha/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86712,7 +86859,7 @@
         "description": "Definição da linguagem visual e acompanhamento criativo de uma entrega ou campanha.",
         "path": "servicos/direcao-de-arte",
         "canonical": "https://mensagemstudio.shop/servicos/direcao-de-arte/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86755,7 +86902,7 @@
         "description": "Recorte, limpeza, correção e preparação comercial de uma imagem de produto.",
         "path": "servicos/imagem-tratada-de-produto",
         "canonical": "https://mensagemstudio.shop/servicos/imagem-tratada-de-produto/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86798,7 +86945,7 @@
         "description": "Tratamento padronizado para catálogo, loja virtual ou marketplace.",
         "path": "servicos/pacote-com-10-imagens-de-produto",
         "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-imagens-de-produto/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86841,7 +86988,7 @@
         "description": "Imagem principal, destaques, benefícios e peças complementares para um anúncio.",
         "path": "servicos/kit-visual-para-marketplace",
         "canonical": "https://mensagemstudio.shop/servicos/kit-visual-para-marketplace/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86884,7 +87031,7 @@
         "description": "Peça comercial para vitrine, lançamento, categoria ou ação promocional.",
         "path": "servicos/banner-para-loja-ou-colecao",
         "canonical": "https://mensagemstudio.shop/servicos/banner-para-loja-ou-colecao/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86927,7 +87074,7 @@
         "description": "Ilustração para conteúdo, campanha, apresentação ou peça editorial.",
         "path": "servicos/ilustracao-individual",
         "canonical": "https://mensagemstudio.shop/servicos/ilustracao-individual/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -86970,7 +87117,7 @@
         "description": "Desenvolvimento visual de personagem com linguagem, silhueta e características próprias.",
         "path": "servicos/criacao-de-personagem",
         "canonical": "https://mensagemstudio.shop/servicos/criacao-de-personagem/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -87013,7 +87160,7 @@
         "description": "Estrutura narrativa para vídeo curto, campanha, anúncio ou conteúdo de marca.",
         "path": "servicos/roteiro-curto-publicitario",
         "canonical": "https://mensagemstudio.shop/servicos/roteiro-curto-publicitario/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -87056,7 +87203,7 @@
         "description": "Planejamento visual de cenas, enquadramentos, ações e continuidade.",
         "path": "servicos/storyboard-com-ate-8-quadros",
         "canonical": "https://mensagemstudio.shop/servicos/storyboard-com-ate-8-quadros/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -87099,7 +87246,7 @@
         "description": "Criação de site premium em HTML com publicação no GitHub, editor visual StudioFrame e biblioteca de mídia organizada no Google Drive. Inclui implantação completa e 60 dias de garantia técnica, sem manutenção recorrente.",
         "path": "servicos/site-html-editor-studioframe",
         "canonical": "https://mensagemstudio.shop/servicos/site-html-editor-studioframe/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -87142,7 +87289,7 @@
         "description": "Implantação premium completa com acompanhamento contínuo para atualizações técnicas, pequenos ajustes editoriais, monitoramento e suporte de publicação.",
         "path": "servicos/site-studioframe-manutencao-mensal",
         "canonical": "https://mensagemstudio.shop/servicos/site-studioframe-manutencao-mensal/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "Service",
         "index": true,
@@ -87185,7 +87332,7 @@
         "description": "Briefing de projeto da Mensagem Studio.",
         "path": "briefing",
         "canonical": "https://mensagemstudio.shop/briefing/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": false,
@@ -90745,7 +90892,7 @@
         "description": "Projetos e relações selecionadas da Mensagem Studio.",
         "path": "clientes",
         "canonical": "https://mensagemstudio.shop/clientes/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": true,
@@ -90783,7 +90930,7 @@
         "description": "Conheça a Mensagem Studio.",
         "path": "sobre",
         "canonical": "https://mensagemstudio.shop/sobre/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "AboutPage",
         "index": true,
@@ -90821,7 +90968,7 @@
         "description": "Entre em contato com a Mensagem Studio.",
         "path": "contato",
         "canonical": "https://mensagemstudio.shop/contato/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "ContactPage",
         "index": true,
@@ -90859,7 +91006,7 @@
         "description": "Solicite um orçamento.",
         "path": "orcamento",
         "canonical": "https://mensagemstudio.shop/orcamento/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": true,
@@ -90897,7 +91044,7 @@
         "description": "Busque projetos, serviços, clientes e tags.",
         "path": "busca",
         "canonical": "https://mensagemstudio.shop/busca/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": true,
@@ -90935,7 +91082,7 @@
         "description": "Arquivo completo de projetos.",
         "path": "arquivo",
         "canonical": "https://mensagemstudio.shop/arquivo/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "CollectionPage",
         "index": true,
@@ -90973,7 +91120,7 @@
         "description": "O endereço solicitado não foi encontrado.",
         "path": "404",
         "canonical": "https://mensagemstudio.shop/404/",
-        "image": "https://drive.google.com/thumbnail?id=1IhoKnfLR9pOTQn-GtIupUCUEttX3y8ej&sz=w2400",
+        "image": "https://drive.google.com/thumbnail?id=1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy&sz=w2400",
         "image_media_id": "",
         "schema_type": "WebPage",
         "index": false,
