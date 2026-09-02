@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "165d8510feed7f927336",
-  "bundle_sha256": "165d8510feed7f927336cab5a9a15af5286f9bc286da8a0ca037c274f1da5bd5",
-  "editorial_revision": "62ec4ec2eeb9ecb2fede",
+  "build_revision": "fb26cc7a7b2cfc5f0c3c",
+  "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
+  "editorial_revision": "291befe7d1de1c6f9645",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -190,16 +190,16 @@
       "sha256": "f28a517bfb1ac25d00b575c3b2c1f4337649b7b02fc3c290b192bf653b183b26"
     },
     "data/portfolio.json": {
-      "bytes": 4524997,
-      "sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb"
+      "bytes": 4524989,
+      "sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244"
     },
     "data/seo-report.json": {
       "bytes": 48119,
       "sha256": "410e0e6ac216fd078c051cebdf4c007de0930e2ad384c9a653210048d1af2fcc"
     },
     "index.html": {
-      "bytes": 3175908,
-      "sha256": "41f687068d38277220d8e51600e6a928d5080d17425c5a6a2bdb86f80e5827a9"
+      "bytes": 3175900,
+      "sha256": "ddbadcfbff292e1d62486b32d1c4fb21fdb433c50c88b8207f693c9a3e85166c"
     },
     "orcamento/index.html": {
       "bytes": 9199,
@@ -746,19 +746,19 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 4524997,
-  "portfolio_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
+  "portfolio_bytes": 4524989,
+  "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "62ec4ec2eeb9ecb2fede",
+  "revision": "291befe7d1de1c6f9645",
   "runtime_dependencies": [],
-  "source_revision": "62ec4ec2eeb9ecb2fede",
+  "source_revision": "291befe7d1de1c6f9645",
   "stats": {
-    "bytes": 20603627,
+    "bytes": 20603611,
     "files": 166,
     "largest_file_bytes": 7163903,
     "route_shells": 121

@@ -2,9 +2,9 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "revision": "62ec4ec2eeb9ecb2fede",
-  "source_revision": "62ec4ec2eeb9ecb2fede",
-  "editorial_revision": "62ec4ec2eeb9ecb2fede",
+  "revision": "291befe7d1de1c6f9645",
+  "source_revision": "291befe7d1de1c6f9645",
+  "editorial_revision": "291befe7d1de1c6f9645",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -39410,10 +39410,10 @@
       },
       "media_id": "",
       "media_type": "image",
-      "motion_mode": "scroll_mouse",
+      "motion_mode": "static",
       "mouse_strength": 0.42,
       "opacity": 1,
-      "parallax_strength": 0.34,
+      "parallax_strength": 0.35,
       "position_x": 0,
       "position_y": 0,
       "rotation": 0,
@@ -39516,9 +39516,9 @@
         "gyro": false,
         "pointer_events": true,
         "pointer_mode": "orbit",
-        "pointer_strength": 0.72,
+        "pointer_strength": 0.7,
         "scroll_mode": "translate_y",
-        "scroll_strength": 0.88
+        "scroll_strength": 0.9
       },
       "opacity": 1,
       "performance": {
