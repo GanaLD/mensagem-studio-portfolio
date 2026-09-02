@@ -2,8 +2,8 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
-    "commit": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
+    "bundle_sha256": "73eca5be61d40886a7c37402af1bb7129cec86b964e8506340a59e42077922ad",
+    "commit": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
     "editorial_revision": "291befe7d1de1c6f9645",
     "expected_block_ids": [
       "core-hero",
@@ -33,11 +33,11 @@
       "contact",
       "about"
     ],
-    "github_portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+    "github_portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
     "github_revision": "291befe7d1de1c6f9645",
-    "manifest_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
-    "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
-    "published_at": "2026-09-02T00:36:53.257099+00:00",
+    "manifest_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
+    "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
+    "published_at": "2026-09-02T01:47:31.863210+00:00",
     "removed_files": 0,
     "removed_paths": [],
     "reused_bytes": 12902722,
@@ -99,7 +99,7 @@
     "source_revision": "291befe7d1de1c6f9645",
     "stages": [
       {
-        "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
+        "bundle_sha256": "73eca5be61d40886a7c37402af1bb7129cec86b964e8506340a59e42077922ad",
         "editorial_revision": "291befe7d1de1c6f9645",
         "expected_block_ids": [
           "core-hero",
@@ -132,7 +132,7 @@
         "key": "build",
         "label": "Build local",
         "message": "167 arquivos · 19.7 MB · 121 rotas · revision=291befe7d1de1c6f9645.",
-        "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+        "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
         "status": "ok"
       },
       {
@@ -142,7 +142,7 @@
         "status": "ok"
       },
       {
-        "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
+        "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
         "key": "commit",
         "label": "Commit público",
         "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=164 · enviados=3.",
@@ -158,10 +158,10 @@
         "build_manifest": {
           "branch": "main",
           "bytes": 45006,
-          "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
-          "git_blob_sha": "52786a537b71408d285b686b746d6a9c944383e4",
+          "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
+          "git_blob_sha": "85eaa9e8e0a88be00a1a9953ce8ed39dc0c0dbb6",
           "path": "data/build-manifest.json",
-          "sha256": "994412de392335de4f28b5f051f607c469426542f45a08fee09741198280cffd"
+          "sha256": "3221405189dd67f65c6c6a5b06552dcb8a410af172351576d5a6520e5706dd9d"
         },
         "editorial_revision": "291befe7d1de1c6f9645",
         "key": "github-readback",
@@ -170,12 +170,12 @@
         "portfolio": {
           "branch": "main",
           "bytes": 4524989,
-          "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
-          "git_blob_sha": "b36893d5cb68d4566e0dc27fb9d559fb5834314e",
+          "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
+          "git_blob_sha": "6d10feba27e9d0c14ce260fc9c03728b09a55bdb",
           "path": "data/portfolio.json",
-          "sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244"
+          "sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02"
         },
-        "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+        "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
         "removed_paths": [],
         "reused_paths": [
           ".nojekyll",
@@ -260,5 +260,5 @@
       "index.html"
     ]
   },
-  "updated_at": "2026-09-02T00:36:53.266408+00:00"
+  "updated_at": "2026-09-02T01:47:31.882486+00:00"
 }
