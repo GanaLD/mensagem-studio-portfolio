@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "62ec4ec2eeb9ecb2fede",
-    "saved_at": "2026-09-02T00:32:45.594456+00:00"
+    "revision": "291befe7d1de1c6f9645",
+    "saved_at": "2026-09-02T00:32:56.209866+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -1932,10 +1932,10 @@
       },
       "media_id": "",
       "media_type": "image",
-      "motion_mode": "scroll_mouse",
+      "motion_mode": "static",
       "mouse_strength": 0.42,
       "opacity": 1,
-      "parallax_strength": 0.34,
+      "parallax_strength": 0.35,
       "position_x": 0,
       "position_y": 0,
       "rotation": 0,
@@ -40213,9 +40213,9 @@
         "gyro": false,
         "pointer_events": true,
         "pointer_mode": "orbit",
-        "pointer_strength": 0.72,
+        "pointer_strength": 0.7,
         "scroll_mode": "translate_y",
-        "scroll_strength": 0.88
+        "scroll_strength": 0.9
       },
       "opacity": 1,
       "performance": {
