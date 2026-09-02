@@ -2,9 +2,9 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "165d8510feed7f927336cab5a9a15af5286f9bc286da8a0ca037c274f1da5bd5",
-    "commit": "09063dc3f31a57785ac028d27583e9b462c1a3e5",
-    "editorial_revision": "62ec4ec2eeb9ecb2fede",
+    "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
+    "commit": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
+    "editorial_revision": "291befe7d1de1c6f9645",
     "expected_block_ids": [
       "core-hero",
       "block-mt7w7u6g-rltgl",
@@ -33,15 +33,15 @@
       "contact",
       "about"
     ],
-    "github_portfolio_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
-    "github_revision": "62ec4ec2eeb9ecb2fede",
-    "manifest_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
-    "portfolio_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
-    "published_at": "2026-09-02T00:33:03.496230+00:00",
+    "github_portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+    "github_revision": "291befe7d1de1c6f9645",
+    "manifest_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+    "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
+    "published_at": "2026-09-02T00:36:53.257099+00:00",
     "removed_files": 0,
     "removed_paths": [],
-    "reused_bytes": 20648633,
-    "reused_files": 167,
+    "reused_bytes": 12902722,
+    "reused_files": 164,
     "reused_paths": [
       ".nojekyll",
       "404.html",
@@ -89,18 +89,18 @@
       "busca/index.html",
       "clientes/index.html",
       "contato/index.html",
-      "data/build-manifest.json",
-      "data/portfolio.json",
       "data/seo-report.json",
-      "index.html"
+      "orcamento/index.html",
+      "projetos/banner-mobile/banner-bacio/index.html",
+      "projetos/banner-mobile/banner-da-evo/index.html"
     ],
-    "revision": "62ec4ec2eeb9ecb2fede",
+    "revision": "291befe7d1de1c6f9645",
     "site_url": "https://mensagemstudio.shop/",
-    "source_revision": "62ec4ec2eeb9ecb2fede",
+    "source_revision": "291befe7d1de1c6f9645",
     "stages": [
       {
-        "bundle_sha256": "165d8510feed7f927336cab5a9a15af5286f9bc286da8a0ca037c274f1da5bd5",
-        "editorial_revision": "62ec4ec2eeb9ecb2fede",
+        "bundle_sha256": "fb26cc7a7b2cfc5f0c3c2fe60bc38d856e04f52b0e204818254e732bb36351fc",
+        "editorial_revision": "291befe7d1de1c6f9645",
         "expected_block_ids": [
           "core-hero",
           "block-mt7w7u6g-rltgl",
@@ -131,8 +131,8 @@
         ],
         "key": "build",
         "label": "Build local",
-        "message": "167 arquivos · 19.7 MB · 121 rotas · revision=62ec4ec2eeb9ecb2fede.",
-        "portfolio_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
+        "message": "167 arquivos · 19.7 MB · 121 rotas · revision=291befe7d1de1c6f9645.",
+        "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
         "status": "ok"
       },
       {
@@ -142,40 +142,40 @@
         "status": "ok"
       },
       {
-        "commit_sha": "09063dc3f31a57785ac028d27583e9b462c1a3e5",
+        "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=167 · enviados=0.",
-        "reused_bytes": 20648633,
-        "reused_files": 167,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=164 · enviados=3.",
+        "reused_bytes": 12902722,
+        "reused_files": 164,
         "status": "ok",
         "transport": "github-rest-incremental",
-        "unchanged": true,
-        "uploaded_bytes": 0,
-        "uploaded_files": 0
+        "unchanged": false,
+        "uploaded_bytes": 7745895,
+        "uploaded_files": 3
       },
       {
         "build_manifest": {
           "branch": "main",
           "bytes": 45006,
-          "commit_sha": "09063dc3f31a57785ac028d27583e9b462c1a3e5",
-          "git_blob_sha": "eccbd8e5705bbadb952a38574be9bb58750d1f29",
+          "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
+          "git_blob_sha": "52786a537b71408d285b686b746d6a9c944383e4",
           "path": "data/build-manifest.json",
-          "sha256": "c641b80ca3b28bd5742d6ca6852395b3023f4ff4963386b7722d1e6cacffd966"
+          "sha256": "994412de392335de4f28b5f051f607c469426542f45a08fee09741198280cffd"
         },
-        "editorial_revision": "62ec4ec2eeb9ecb2fede",
+        "editorial_revision": "291befe7d1de1c6f9645",
         "key": "github-readback",
         "label": "GitHub main read-back",
-        "message": "portfolio.json confirmado byte a byte · revision=62ec4ec2eeb9ecb2fede.",
+        "message": "portfolio.json confirmado byte a byte · revision=291befe7d1de1c6f9645.",
         "portfolio": {
           "branch": "main",
-          "bytes": 4524997,
-          "commit_sha": "09063dc3f31a57785ac028d27583e9b462c1a3e5",
-          "git_blob_sha": "78898a71635b086df413a66c0018c4438a61ecb3",
+          "bytes": 4524989,
+          "commit_sha": "6b345eb7cf6e5fc7872ff6ad5280f31ae3b42b64",
+          "git_blob_sha": "b36893d5cb68d4566e0dc27fb9d559fb5834314e",
           "path": "data/portfolio.json",
-          "sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb"
+          "sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244"
         },
-        "portfolio_sha256": "ee918e67fe744daf46e604ec1366009b467c5f70f2f3fe8b318677ba8c2205fb",
+        "portfolio_sha256": "323936f5749208425e8745b581d7c9195142ebfb064289c8d493f400c5770244",
         "removed_paths": [],
         "reused_paths": [
           ".nojekyll",
@@ -224,13 +224,17 @@
           "busca/index.html",
           "clientes/index.html",
           "contato/index.html",
-          "data/build-manifest.json",
-          "data/portfolio.json",
           "data/seo-report.json",
-          "index.html"
+          "orcamento/index.html",
+          "projetos/banner-mobile/banner-bacio/index.html",
+          "projetos/banner-mobile/banner-da-evo/index.html"
         ],
         "status": "ok",
-        "uploaded_paths": []
+        "uploaded_paths": [
+          "data/build-manifest.json",
+          "data/portfolio.json",
+          "index.html"
+        ]
       },
       {
         "key": "pages",
@@ -248,9 +252,13 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 0,
-    "uploaded_files": 0,
-    "uploaded_paths": []
+    "uploaded_bytes": 7745895,
+    "uploaded_files": 3,
+    "uploaded_paths": [
+      "data/build-manifest.json",
+      "data/portfolio.json",
+      "index.html"
+    ]
   },
-  "updated_at": "2026-09-02T00:33:03.513479+00:00"
+  "updated_at": "2026-09-02T00:36:53.266408+00:00"
 }
