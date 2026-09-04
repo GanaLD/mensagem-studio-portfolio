@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b17e8b7e0a275a3e091f",
-    "saved_at": "2026-09-04T01:26:58.433549+00:00"
+    "revision": "ec2a5a0d6e5eabca9634",
+    "saved_at": "2026-09-04T01:27:13.940865+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -40202,7 +40202,7 @@
       "theme_version": 1
     },
     "three_d_scene": {
-      "asset_id": "oryzo-controller",
+      "asset_id": "oryzo-crystal-cluster",
       "drive_file_id": "",
       "enabled": true,
       "engine": "glb",
@@ -40221,7 +40221,7 @@
       "performance": {
         "desktop_enabled": true,
         "max_pixel_ratio": 1.5,
-        "mobile_enabled": true,
+        "mobile_enabled": false,
         "reduced_motion_fallback": true,
         "tablet_enabled": true,
         "transparent": true
