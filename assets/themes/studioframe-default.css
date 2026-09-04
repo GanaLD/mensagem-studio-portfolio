@@ -1,17 +1,163 @@
-/* V7.8.1 — StudioFrame Default theme scope. Semantic aliases only; no visual redesign. */
+/* EE12-UI-RECOVERY-003 — StudioFrame Default / Native — WEB STARTER 2 CANONICAL visual baseline.
+   ID/owner permanece `studioframe-default`; este arquivo muda somente a
+   apresentação do preset nativo e não cria Theme Engine/state paralelo. */
 [data-sf-theme="studioframe-default"]{
-  --sf-bg:var(--bg);
-  --sf-surface:var(--surface);
-  --sf-text:var(--text);
-  --sf-muted:var(--muted);
-  --sf-primary:var(--accent);
-  --sf-accent:var(--accent);
-  --sf-border:var(--line);
-  --sf-radius:var(--site-block-radius);
-  color-scheme:normal;
+  --sf-bg:var(--bg,#080c0e);
+  --sf-surface:var(--surface,#101719);
+  --sf-text:var(--text,#f2f7f5);
+  --sf-muted:var(--muted,#93a19d);
+  --sf-primary:var(--accent,#72f2a5);
+  --sf-accent:var(--accent,#72f2a5);
+  --sf-border:var(--line,#263236);
+  --sf-native-accent-2:#ff8c42;
+  --sf-native-purple:#b78cff;
+  --sf-radius:var(--site-block-radius,24px);
+  --sf-native-header:72px;
+  --sf-native-content:min(1380px,calc(100vw - 2*clamp(16px,4vw,64px)));
+  color-scheme:dark;
 }
 
 /* V9.1.1-D full-theme structure */
-body[data-sf-theme="studioframe-default"]{--theme-section-space:clamp(72px,8vw,128px)}
-body[data-sf-theme="studioframe-default"] .hero,body[data-sf-theme="studioframe-default"] .content-section{padding-block:var(--theme-section-space)}
-body[data-sf-theme="studioframe-default"] .card{transition:transform .28s ease,border-color .28s ease}body[data-sf-theme="studioframe-default"] .card:hover{transform:translateY(-3px)}
+body[data-sf-theme="studioframe-default"]{
+  --theme-section-space:clamp(88px,10vw,160px);
+  background:
+    radial-gradient(circle at 14% 10%,color-mix(in srgb,var(--sf-primary) 7%,transparent),transparent 34%),
+    radial-gradient(circle at 86% 34%,color-mix(in srgb,var(--sf-native-accent-2) 5%,transparent),transparent 30%),
+    var(--sf-bg);
+  color:var(--sf-text);
+}
+body[data-sf-theme="studioframe-default"] :where(.content-section,.modular-block,.editorial-section,.service-commercial-section){
+  padding-block:var(--theme-section-space);
+}
+
+/* Header / navigation: translucent editor-grade chrome from WEB STARTER 2. */
+body[data-sf-theme="studioframe-default"] header#header{
+  min-height:var(--sf-native-header);
+  padding-inline:clamp(16px,4vw,64px);
+  border-bottom:1px solid color-mix(in srgb,var(--sf-border) 82%,transparent);
+  background:color-mix(in srgb,var(--sf-bg) 72%,transparent);
+  backdrop-filter:blur(20px) saturate(1.12);
+}
+body[data-sf-theme="studioframe-default"] header#header.is-scrolled{
+  background:color-mix(in srgb,var(--sf-bg) 88%,transparent);
+  border-color:var(--sf-border);
+}
+body[data-sf-theme="studioframe-default"] :where(.logo,.topnav a,.menu){
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+body[data-sf-theme="studioframe-default"] .menu,
+body[data-sf-theme="studioframe-default"] :where(.filter,.modular-action,.quote-cta-button,.cta-content>a,.service-commercial-cta>a){
+  border-radius:999px;
+  border:1px solid var(--sf-border);
+  background:color-mix(in srgb,var(--sf-surface) 84%,transparent);
+  transition:transform .24s ease,border-color .24s ease,background .24s ease,box-shadow .24s ease;
+}
+body[data-sf-theme="studioframe-default"] :where(.menu,.filter,.modular-action,.quote-cta-button,.cta-content>a,.service-commercial-cta>a):hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb,var(--sf-primary) 58%,var(--sf-border));
+  box-shadow:0 0 30px color-mix(in srgb,var(--sf-primary) 12%,transparent);
+}
+
+/* Hero: large typography + depth layers + grid/glow vocabulary from the validated V2 demo. */
+body[data-sf-theme="studioframe-default"] .hero{
+  min-height:100svh;
+  isolation:isolate;
+  background:var(--sf-bg);
+}
+body[data-sf-theme="studioframe-default"] .hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.18;
+  background-image:linear-gradient(var(--sf-border) 1px,transparent 1px),linear-gradient(90deg,var(--sf-border) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:radial-gradient(circle at 65% 50%,#000,transparent 74%);
+}
+body[data-sf-theme="studioframe-default"] .hero-media::after{
+  content:"";
+  position:absolute;
+  width:62vw;
+  aspect-ratio:1;
+  right:-12vw;
+  top:14vh;
+  border-radius:50%;
+  pointer-events:none;
+  opacity:.27;
+  filter:blur(42px);
+  background:radial-gradient(circle at 30% 30%,color-mix(in srgb,var(--sf-primary) 82%,transparent),transparent 35%),radial-gradient(circle at 70% 70%,color-mix(in srgb,var(--sf-native-accent-2) 70%,transparent),transparent 42%);
+}
+body[data-sf-theme="studioframe-default"] .hero-shade{
+  background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 38%,rgba(0,0,0,.76)),linear-gradient(90deg,rgba(0,0,0,.52),transparent 62%);
+}
+body[data-sf-theme="studioframe-default"] .hero h1{
+  max-width:9ch;
+  font-size:clamp(62px,9.6vw,148px);
+  line-height:.84;
+  letter-spacing:-.065em;
+  text-wrap:balance;
+}
+body[data-sf-theme="studioframe-default"] .hero-kicker{color:var(--sf-primary);font-weight:800;letter-spacing:.16em}
+body[data-sf-theme="studioframe-default"] .hero-copy{border-color:color-mix(in srgb,var(--sf-text) 22%,transparent)}
+body[data-sf-theme="studioframe-default"] .hero-copy p{color:color-mix(in srgb,var(--sf-text) 70%,transparent)}
+body[data-sf-theme="studioframe-default"] .hero-dot::after{background:linear-gradient(90deg,var(--sf-primary),var(--sf-native-accent-2))}
+
+/* Sections and project grid. */
+body[data-sf-theme="studioframe-default"] :where(.intro,.projects,.content-section,.sf-section-width-wide,.sf-section-width-content){
+  width:var(--sf-native-content);
+  max-width:none;
+  margin-inline:auto;
+}
+body[data-sf-theme="studioframe-default"] .filters{
+  border-color:var(--sf-border);
+  background:color-mix(in srgb,var(--sf-bg) 90%,transparent);
+  backdrop-filter:blur(18px);
+}
+body[data-sf-theme="studioframe-default"] .filter{color:var(--sf-muted)}
+body[data-sf-theme="studioframe-default"] .filter.is-active{background:var(--sf-primary);border-color:var(--sf-primary);color:#07130e}
+body[data-sf-theme="studioframe-default"] .grid{gap:clamp(18px,2vw,28px)}
+body[data-sf-theme="studioframe-default"] .card{
+  padding:16px;
+  border:1px solid var(--sf-border);
+  border-radius:24px;
+  background:color-mix(in srgb,var(--sf-surface) 94%,transparent);
+  transition:transform .35s ease,border-color .35s ease,background .35s ease;
+}
+body[data-sf-theme="studioframe-default"] .card:hover{
+  transform:translateY(-6px);
+  border-color:color-mix(in srgb,var(--sf-primary) 48%,var(--sf-border));
+  background:color-mix(in srgb,var(--sf-surface) 98%,var(--sf-primary) 2%);
+}
+body[data-sf-theme="studioframe-default"] .card .media{border-radius:16px;background:color-mix(in srgb,var(--sf-surface) 78%,#000)}
+body[data-sf-theme="studioframe-default"] .card .copy{padding-inline:2px}
+body[data-sf-theme="studioframe-default"] .card .copy p{color:var(--sf-muted)}
+body[data-sf-theme="studioframe-default"] .card .copy em{color:var(--sf-primary)}
+
+/* Advanced blocks inherit a single visual language instead of looking like unrelated plugins. */
+body[data-sf-theme="studioframe-default"] :where(.showcase-panel,.pdf-stage,.html5-stage,.studio-player,.media-player,.service-commercial-card,.quote-cta-block,.block-section-experience,.block-canvas-fractal-grid,.block-carousel-3d,.block-dynamic-island){
+  border-color:var(--sf-border);
+  border-radius:24px;
+  background:color-mix(in srgb,var(--sf-surface) 92%,transparent);
+}
+body[data-sf-theme="studioframe-default"] :where(.section-experience-eyebrow,.textured-reveal-eyebrow,.marquee-eyebrow,.project-eyebrow){color:var(--sf-primary)}
+body[data-sf-theme="studioframe-default"] :where(.section-experience-stage,.cinematic-hero-media,.full-media-stage){overflow:hidden;border-radius:24px}
+body[data-sf-theme="studioframe-default"] :where(.quote-cta-button,.cta-content>a,.service-commercial-cta>a){background:var(--sf-surface);color:var(--sf-text)}
+
+/* Responsive recomposition, not desktop shrinking. */
+@media(max-width:900px){
+  body[data-sf-theme="studioframe-default"]{--theme-section-space:clamp(70px,11vw,110px)}
+  body[data-sf-theme="studioframe-default"] .hero h1{font-size:clamp(54px,14vw,96px);max-width:9.5ch}
+  body[data-sf-theme="studioframe-default"] :where(.intro,.projects,.content-section,.sf-section-width-wide,.sf-section-width-content){width:min(100% - 32px,1380px)}
+  body[data-sf-theme="studioframe-default"] .card{border-radius:20px;padding:12px}
+}
+@media(max-width:600px){
+  body[data-sf-theme="studioframe-default"] .hero::after{background-size:46px 46px}
+  body[data-sf-theme="studioframe-default"] .hero-media::after{width:110vw;right:-48vw;top:18vh}
+  body[data-sf-theme="studioframe-default"] .hero h1{font-size:clamp(48px,16vw,78px);line-height:.86}
+  body[data-sf-theme="studioframe-default"] .card{padding:10px;border-radius:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-sf-theme="studioframe-default"] :where(.card,.menu,.filter,.modular-action,.quote-cta-button,.cta-content>a,.service-commercial-cta>a){transition:none!important;transform:none!important}
+}

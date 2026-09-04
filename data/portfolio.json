@@ -40285,11 +40285,11 @@
           "text": "appearance.text_color",
           "accent": "appearance.accent_color",
           "colors": {
-            "background": "#07090D",
-            "surface": "#111722",
-            "text": "#F4F7FB",
-            "muted": "#AAB5C4",
-            "accent": "#2FD59A"
+            "background": "#080C0E",
+            "surface": "#101719",
+            "text": "#F2F7F5",
+            "muted": "#93A19D",
+            "accent": "#72F2A5"
           }
         },
         "description": "Visual autoritativo herdado da V7.7, agora formalizado como tema base com tokens semânticos, preview e authoring bridge para os controles de aparência existentes."
@@ -85600,7 +85600,7 @@
     "unsupported": 38,
     "ignored": 15,
     "api_calls": 46,
-    "duration_seconds": 19.431
+    "duration_seconds": 18.143
   },
   "publication_ready": true,
   "public_validation": {
