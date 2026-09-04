@@ -2,8 +2,8 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "73eca5be61d40886a7c37402af1bb7129cec86b964e8506340a59e42077922ad",
-    "commit": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
+    "bundle_sha256": "d5d2d20f5149be67d57d54352cddaa371ca3792b426a5dee37ca38d5e78f68e5",
+    "commit": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
     "editorial_revision": "291befe7d1de1c6f9645",
     "expected_block_ids": [
       "core-hero",
@@ -33,15 +33,15 @@
       "contact",
       "about"
     ],
-    "github_portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
+    "github_portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
     "github_revision": "291befe7d1de1c6f9645",
-    "manifest_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
-    "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
-    "published_at": "2026-09-02T01:47:31.863210+00:00",
+    "manifest_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
+    "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
+    "published_at": "2026-09-04T01:28:04.025783+00:00",
     "removed_files": 0,
     "removed_paths": [],
-    "reused_bytes": 12902722,
-    "reused_files": 164,
+    "reused_bytes": 12011153,
+    "reused_files": 160,
     "reused_paths": [
       ".nojekyll",
       "404.html",
@@ -67,8 +67,6 @@
       "assets/motion/vendor/motion/motion.js",
       "assets/motion/vendor/three/three.core.min.js",
       "assets/motion/vendor/three/three.module.min.js",
-      "assets/site.css",
-      "assets/site.js",
       "assets/themes/black-maca.css",
       "assets/themes/branding.css",
       "assets/themes/discord.css",
@@ -80,10 +78,8 @@
       "assets/themes/oryzo-ai.css",
       "assets/themes/structured.css",
       "assets/themes/studio-oker.css",
-      "assets/themes/studioframe-default.css",
       "assets/themes/theme-modules-v9.1.1.css",
       "assets/themes/theme-overrides-v7.8.3.css",
-      "assets/themes/theme-runtime.js",
       "assets/themes/workplace-neura.css",
       "briefing/index.html",
       "busca/index.html",
@@ -92,14 +88,18 @@
       "data/seo-report.json",
       "orcamento/index.html",
       "projetos/banner-mobile/banner-bacio/index.html",
-      "projetos/banner-mobile/banner-da-evo/index.html"
+      "projetos/banner-mobile/banner-da-evo/index.html",
+      "projetos/banner-mobile/banner-galderma/index.html",
+      "projetos/banner-mobile/banner-hydro/index.html",
+      "projetos/banner-mobile/banner-lancamento-bellarine/index.html",
+      "projetos/banner-mobile/banner-lancamento-rennova/index.html"
     ],
     "revision": "291befe7d1de1c6f9645",
     "site_url": "https://mensagemstudio.shop/",
     "source_revision": "291befe7d1de1c6f9645",
     "stages": [
       {
-        "bundle_sha256": "73eca5be61d40886a7c37402af1bb7129cec86b964e8506340a59e42077922ad",
+        "bundle_sha256": "d5d2d20f5149be67d57d54352cddaa371ca3792b426a5dee37ca38d5e78f68e5",
         "editorial_revision": "291befe7d1de1c6f9645",
         "expected_block_ids": [
           "core-hero",
@@ -132,7 +132,7 @@
         "key": "build",
         "label": "Build local",
         "message": "167 arquivos · 19.7 MB · 121 rotas · revision=291befe7d1de1c6f9645.",
-        "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
+        "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
         "status": "ok"
       },
       {
@@ -142,26 +142,26 @@
         "status": "ok"
       },
       {
-        "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
+        "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=164 · enviados=3.",
-        "reused_bytes": 12902722,
-        "reused_files": 164,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=160 · enviados=7.",
+        "reused_bytes": 12011153,
+        "reused_files": 160,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 7745895,
-        "uploaded_files": 3
+        "uploaded_bytes": 8652613,
+        "uploaded_files": 7
       },
       {
         "build_manifest": {
           "branch": "main",
-          "bytes": 45006,
-          "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
-          "git_blob_sha": "85eaa9e8e0a88be00a1a9953ce8ed39dc0c0dbb6",
+          "bytes": 45007,
+          "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
+          "git_blob_sha": "1bee0e1b6ed38c4b6c84b180d6d6f4fe12489fcf",
           "path": "data/build-manifest.json",
-          "sha256": "3221405189dd67f65c6c6a5b06552dcb8a410af172351576d5a6520e5706dd9d"
+          "sha256": "670659a5641e77a89565ba4323b26780b2cc7e1b14401a5d0054f5a23cdb4413"
         },
         "editorial_revision": "291befe7d1de1c6f9645",
         "key": "github-readback",
@@ -170,12 +170,12 @@
         "portfolio": {
           "branch": "main",
           "bytes": 4524989,
-          "commit_sha": "e5fc88aafd26ed6fcf18778f0873ee5996eb256d",
-          "git_blob_sha": "6d10feba27e9d0c14ce260fc9c03728b09a55bdb",
+          "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
+          "git_blob_sha": "6d196d4dc516229f58cef3dad66b8a384b31aba6",
           "path": "data/portfolio.json",
-          "sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02"
+          "sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7"
         },
-        "portfolio_sha256": "72d09b29bb0127fbab561c5088e5ad3fb4ecaf386fb8f3612d9b0b642115ec02",
+        "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
         "removed_paths": [],
         "reused_paths": [
           ".nojekyll",
@@ -202,8 +202,6 @@
           "assets/motion/vendor/motion/motion.js",
           "assets/motion/vendor/three/three.core.min.js",
           "assets/motion/vendor/three/three.module.min.js",
-          "assets/site.css",
-          "assets/site.js",
           "assets/themes/black-maca.css",
           "assets/themes/branding.css",
           "assets/themes/discord.css",
@@ -215,10 +213,8 @@
           "assets/themes/oryzo-ai.css",
           "assets/themes/structured.css",
           "assets/themes/studio-oker.css",
-          "assets/themes/studioframe-default.css",
           "assets/themes/theme-modules-v9.1.1.css",
           "assets/themes/theme-overrides-v7.8.3.css",
-          "assets/themes/theme-runtime.js",
           "assets/themes/workplace-neura.css",
           "briefing/index.html",
           "busca/index.html",
@@ -227,10 +223,18 @@
           "data/seo-report.json",
           "orcamento/index.html",
           "projetos/banner-mobile/banner-bacio/index.html",
-          "projetos/banner-mobile/banner-da-evo/index.html"
+          "projetos/banner-mobile/banner-da-evo/index.html",
+          "projetos/banner-mobile/banner-galderma/index.html",
+          "projetos/banner-mobile/banner-hydro/index.html",
+          "projetos/banner-mobile/banner-lancamento-bellarine/index.html",
+          "projetos/banner-mobile/banner-lancamento-rennova/index.html"
         ],
         "status": "ok",
         "uploaded_paths": [
+          "assets/site.css",
+          "assets/site.js",
+          "assets/themes/studioframe-default.css",
+          "assets/themes/theme-runtime.js",
           "data/build-manifest.json",
           "data/portfolio.json",
           "index.html"
@@ -252,13 +256,17 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 7745895,
-    "uploaded_files": 3,
+    "uploaded_bytes": 8652613,
+    "uploaded_files": 7,
     "uploaded_paths": [
+      "assets/site.css",
+      "assets/site.js",
+      "assets/themes/studioframe-default.css",
+      "assets/themes/theme-runtime.js",
       "data/build-manifest.json",
       "data/portfolio.json",
       "index.html"
     ]
   },
-  "updated_at": "2026-09-02T01:47:31.882486+00:00"
+  "updated_at": "2026-09-04T01:28:04.047998+00:00"
 }
