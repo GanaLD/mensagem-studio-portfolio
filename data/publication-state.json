@@ -2,9 +2,9 @@
   "format": "studioframe-publication-v1",
   "publication": {
     "branch": "main",
-    "bundle_sha256": "d5d2d20f5149be67d57d54352cddaa371ca3792b426a5dee37ca38d5e78f68e5",
-    "commit": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
-    "editorial_revision": "291befe7d1de1c6f9645",
+    "bundle_sha256": "710db6317a5cf277afa6b058e9c96367c603a8936a38e447ca747e2e587fe83d",
+    "commit": "b6bd9a71f235448bfe860af57ca5b537860c08c7",
+    "editorial_revision": "b7374b43611d01ab62f3",
     "expected_block_ids": [
       "core-hero",
       "block-mt7w7u6g-rltgl",
@@ -33,22 +33,23 @@
       "contact",
       "about"
     ],
-    "github_portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
-    "github_revision": "291befe7d1de1c6f9645",
-    "manifest_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
-    "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
-    "published_at": "2026-09-04T01:28:04.025783+00:00",
-    "removed_files": 0,
-    "removed_paths": [],
-    "reused_bytes": 12011153,
-    "reused_files": 160,
+    "github_portfolio_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
+    "github_revision": "b7374b43611d01ab62f3",
+    "manifest_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
+    "portfolio_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
+    "published_at": "2026-09-04T01:32:07.540645+00:00",
+    "removed_files": 1,
+    "removed_paths": [
+      "assets/3d/oryzo-controller.glb.gz"
+    ],
+    "reused_bytes": 5753967,
+    "reused_files": 163,
     "reused_paths": [
       ".nojekyll",
       "404.html",
       "404/index.html",
       "CNAME",
       "arquivo/index.html",
-      "assets/3d/oryzo-controller.glb.gz",
       "assets/components/advanced-components.js",
       "assets/hero/dermacast-laila.mp4",
       "assets/hero/manifest.json",
@@ -67,6 +68,8 @@
       "assets/motion/vendor/motion/motion.js",
       "assets/motion/vendor/three/three.core.min.js",
       "assets/motion/vendor/three/three.module.min.js",
+      "assets/site.css",
+      "assets/site.js",
       "assets/themes/black-maca.css",
       "assets/themes/branding.css",
       "assets/themes/discord.css",
@@ -78,8 +81,10 @@
       "assets/themes/oryzo-ai.css",
       "assets/themes/structured.css",
       "assets/themes/studio-oker.css",
+      "assets/themes/studioframe-default.css",
       "assets/themes/theme-modules-v9.1.1.css",
       "assets/themes/theme-overrides-v7.8.3.css",
+      "assets/themes/theme-runtime.js",
       "assets/themes/workplace-neura.css",
       "briefing/index.html",
       "busca/index.html",
@@ -89,18 +94,15 @@
       "orcamento/index.html",
       "projetos/banner-mobile/banner-bacio/index.html",
       "projetos/banner-mobile/banner-da-evo/index.html",
-      "projetos/banner-mobile/banner-galderma/index.html",
-      "projetos/banner-mobile/banner-hydro/index.html",
-      "projetos/banner-mobile/banner-lancamento-bellarine/index.html",
-      "projetos/banner-mobile/banner-lancamento-rennova/index.html"
+      "projetos/banner-mobile/banner-galderma/index.html"
     ],
-    "revision": "291befe7d1de1c6f9645",
+    "revision": "b7374b43611d01ab62f3",
     "site_url": "https://mensagemstudio.shop/",
-    "source_revision": "291befe7d1de1c6f9645",
+    "source_revision": "b7374b43611d01ab62f3",
     "stages": [
       {
-        "bundle_sha256": "d5d2d20f5149be67d57d54352cddaa371ca3792b426a5dee37ca38d5e78f68e5",
-        "editorial_revision": "291befe7d1de1c6f9645",
+        "bundle_sha256": "710db6317a5cf277afa6b058e9c96367c603a8936a38e447ca747e2e587fe83d",
+        "editorial_revision": "b7374b43611d01ab62f3",
         "expected_block_ids": [
           "core-hero",
           "block-mt7w7u6g-rltgl",
@@ -131,8 +133,8 @@
         ],
         "key": "build",
         "label": "Build local",
-        "message": "167 arquivos · 19.7 MB · 121 rotas · revision=291befe7d1de1c6f9645.",
-        "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
+        "message": "168 arquivos · 12.9 MB · 121 rotas · revision=b7374b43611d01ab62f3.",
+        "portfolio_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
         "status": "ok"
       },
       {
@@ -142,48 +144,49 @@
         "status": "ok"
       },
       {
-        "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
+        "commit_sha": "b6bd9a71f235448bfe860af57ca5b537860c08c7",
         "key": "commit",
         "label": "Commit público",
-        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=160 · enviados=7.",
-        "reused_bytes": 12011153,
-        "reused_files": 160,
+        "message": "Branch main confirmada · transporte=github-rest-incremental · reutilizados=163 · enviados=5.",
+        "reused_bytes": 5753967,
+        "reused_files": 163,
         "status": "ok",
         "transport": "github-rest-incremental",
         "unchanged": false,
-        "uploaded_bytes": 8652613,
-        "uploaded_files": 7
+        "uploaded_bytes": 7758263,
+        "uploaded_files": 5
       },
       {
         "build_manifest": {
           "branch": "main",
-          "bytes": 45007,
-          "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
-          "git_blob_sha": "1bee0e1b6ed38c4b6c84b180d6d6f4fe12489fcf",
+          "bytes": 45179,
+          "commit_sha": "b6bd9a71f235448bfe860af57ca5b537860c08c7",
+          "git_blob_sha": "09908d942761dcc7b8794b4ca12bc3712b47daa6",
           "path": "data/build-manifest.json",
-          "sha256": "670659a5641e77a89565ba4323b26780b2cc7e1b14401a5d0054f5a23cdb4413"
+          "sha256": "7ead21ace0a05f6ff054693ca23dc263b669e385197fc04024c013980035640d"
         },
-        "editorial_revision": "291befe7d1de1c6f9645",
+        "editorial_revision": "b7374b43611d01ab62f3",
         "key": "github-readback",
         "label": "GitHub main read-back",
-        "message": "portfolio.json confirmado byte a byte · revision=291befe7d1de1c6f9645.",
+        "message": "portfolio.json confirmado byte a byte · revision=b7374b43611d01ab62f3.",
         "portfolio": {
           "branch": "main",
-          "bytes": 4524989,
-          "commit_sha": "ffdfd2bb8b3d1ec0a0cc6dae266912ba33e72d41",
-          "git_blob_sha": "6d196d4dc516229f58cef3dad66b8a384b31aba6",
+          "bytes": 4524996,
+          "commit_sha": "b6bd9a71f235448bfe860af57ca5b537860c08c7",
+          "git_blob_sha": "086c608027f337ce29455ee1c5bb57e6f9be8965",
           "path": "data/portfolio.json",
-          "sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7"
+          "sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4"
         },
-        "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
-        "removed_paths": [],
+        "portfolio_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
+        "removed_paths": [
+          "assets/3d/oryzo-controller.glb.gz"
+        ],
         "reused_paths": [
           ".nojekyll",
           "404.html",
           "404/index.html",
           "CNAME",
           "arquivo/index.html",
-          "assets/3d/oryzo-controller.glb.gz",
           "assets/components/advanced-components.js",
           "assets/hero/dermacast-laila.mp4",
           "assets/hero/manifest.json",
@@ -202,6 +205,8 @@
           "assets/motion/vendor/motion/motion.js",
           "assets/motion/vendor/three/three.core.min.js",
           "assets/motion/vendor/three/three.module.min.js",
+          "assets/site.css",
+          "assets/site.js",
           "assets/themes/black-maca.css",
           "assets/themes/branding.css",
           "assets/themes/discord.css",
@@ -213,8 +218,10 @@
           "assets/themes/oryzo-ai.css",
           "assets/themes/structured.css",
           "assets/themes/studio-oker.css",
+          "assets/themes/studioframe-default.css",
           "assets/themes/theme-modules-v9.1.1.css",
           "assets/themes/theme-overrides-v7.8.3.css",
+          "assets/themes/theme-runtime.js",
           "assets/themes/workplace-neura.css",
           "briefing/index.html",
           "busca/index.html",
@@ -224,17 +231,12 @@
           "orcamento/index.html",
           "projetos/banner-mobile/banner-bacio/index.html",
           "projetos/banner-mobile/banner-da-evo/index.html",
-          "projetos/banner-mobile/banner-galderma/index.html",
-          "projetos/banner-mobile/banner-hydro/index.html",
-          "projetos/banner-mobile/banner-lancamento-bellarine/index.html",
-          "projetos/banner-mobile/banner-lancamento-rennova/index.html"
+          "projetos/banner-mobile/banner-galderma/index.html"
         ],
         "status": "ok",
         "uploaded_paths": [
-          "assets/site.css",
-          "assets/site.js",
-          "assets/themes/studioframe-default.css",
-          "assets/themes/theme-runtime.js",
+          "assets/3d/fallbacks/oryzo-crystal-cluster.png",
+          "assets/3d/oryzo-crystal-cluster.glb.gz",
           "data/build-manifest.json",
           "data/portfolio.json",
           "index.html"
@@ -256,17 +258,15 @@
     ],
     "status": "deployed_unconfirmed",
     "transport": "github-rest-incremental",
-    "uploaded_bytes": 8652613,
-    "uploaded_files": 7,
+    "uploaded_bytes": 7758263,
+    "uploaded_files": 5,
     "uploaded_paths": [
-      "assets/site.css",
-      "assets/site.js",
-      "assets/themes/studioframe-default.css",
-      "assets/themes/theme-runtime.js",
+      "assets/3d/fallbacks/oryzo-crystal-cluster.png",
+      "assets/3d/oryzo-crystal-cluster.glb.gz",
       "data/build-manifest.json",
       "data/portfolio.json",
       "index.html"
     ]
   },
-  "updated_at": "2026-09-04T01:28:04.047998+00:00"
+  "updated_at": "2026-09-04T01:32:07.551564+00:00"
 }
