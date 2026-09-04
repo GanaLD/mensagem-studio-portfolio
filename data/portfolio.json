@@ -2,9 +2,9 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "revision": "291befe7d1de1c6f9645",
-  "source_revision": "291befe7d1de1c6f9645",
-  "editorial_revision": "291befe7d1de1c6f9645",
+  "revision": "b7374b43611d01ab62f3",
+  "source_revision": "b7374b43611d01ab62f3",
+  "editorial_revision": "b7374b43611d01ab62f3",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -39505,7 +39505,7 @@
       "version": 1
     },
     "three_d_scene": {
-      "asset_id": "oryzo-controller",
+      "asset_id": "oryzo-crystal-cluster",
       "drive_file_id": "",
       "enabled": true,
       "engine": "glb",
@@ -39514,17 +39514,17 @@
       "interaction": {
         "auto_rotate": true,
         "gyro": false,
-        "pointer_events": true,
-        "pointer_mode": "orbit",
-        "pointer_strength": 0.7,
-        "scroll_mode": "translate_y",
-        "scroll_strength": 0.9
+        "pointer_events": false,
+        "pointer_mode": "tilt",
+        "pointer_strength": 0.35,
+        "scroll_mode": "rotate",
+        "scroll_strength": 0.4
       },
-      "opacity": 1,
+      "opacity": 0.82,
       "performance": {
         "desktop_enabled": true,
         "max_pixel_ratio": 1.5,
-        "mobile_enabled": true,
+        "mobile_enabled": false,
         "reduced_motion_fallback": true,
         "tablet_enabled": true,
         "transparent": true
@@ -39533,7 +39533,7 @@
       "rotation_x": 0,
       "rotation_y": 0,
       "rotation_z": 0,
-      "scale": 1,
+      "scale": 1.1,
       "section_block_id": "",
       "source": "bundled_asset",
       "url": "",

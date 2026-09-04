@@ -1,9 +1,9 @@
 {
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "d5d2d20f5149be67d57d",
-  "bundle_sha256": "d5d2d20f5149be67d57d54352cddaa371ca3792b426a5dee37ca38d5e78f68e5",
-  "editorial_revision": "291befe7d1de1c6f9645",
+  "build_revision": "710db6317a5cf277afa6",
+  "bundle_sha256": "710db6317a5cf277afa6b058e9c96367c603a8936a38e447ca747e2e587fe83d",
+  "editorial_revision": "b7374b43611d01ab62f3",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -25,9 +25,13 @@
       "bytes": 9193,
       "sha256": "abcb222003eebe2c1c2196507672fb906d835a06a3217bd98df435dbb8cd7cb7"
     },
-    "assets/3d/oryzo-controller.glb.gz": {
-      "bytes": 7163903,
-      "sha256": "bd8aa3d064c7c006833cfb7813a8ed8a20e372b54c2f6e01493d417b35537a10"
+    "assets/3d/fallbacks/oryzo-crystal-cluster.png": {
+      "bytes": 4114,
+      "sha256": "adbabdcd08c7294f5b499d103862e1ce39e9b36e3ed2cd862b240624c3216f9e"
+    },
+    "assets/3d/oryzo-crystal-cluster.glb.gz": {
+      "bytes": 8067,
+      "sha256": "f0f71fda56dcf784510713d41e0f98bb24812151b9a0cccafabbde9b6f6a7bf7"
     },
     "assets/components/advanced-components.js": {
       "bytes": 7283,
@@ -190,16 +194,16 @@
       "sha256": "f28a517bfb1ac25d00b575c3b2c1f4337649b7b02fc3c290b192bf653b183b26"
     },
     "data/portfolio.json": {
-      "bytes": 4524989,
-      "sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7"
+      "bytes": 4524996,
+      "sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4"
     },
     "data/seo-report.json": {
       "bytes": 48119,
       "sha256": "410e0e6ac216fd078c051cebdf4c007de0930e2ad384c9a653210048d1af2fcc"
     },
     "index.html": {
-      "bytes": 3175900,
-      "sha256": "5f0b3bc0c7cddb087e18d7bc99a248636c28c6fce8cec2591b067377d9103865"
+      "bytes": 3175907,
+      "sha256": "caa273015f97c38d00921eb99ceeff9c55b208ff7dd77576754b304309512425"
     },
     "orcamento/index.html": {
       "bytes": 9199,
@@ -746,21 +750,21 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 4524989,
-  "portfolio_sha256": "f8922f315f1049c8bef7187162c2e90afd05a0a8dba8a5fc6423a49d4906e3e7",
+  "portfolio_bytes": 4524996,
+  "portfolio_sha256": "f7b03f38c30d617a2d2abd45b2f5cbdd5dc22d6d68422cbdd66cbadbd6c1ffd4",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "291befe7d1de1c6f9645",
+  "revision": "b7374b43611d01ab62f3",
   "runtime_dependencies": [],
-  "source_revision": "291befe7d1de1c6f9645",
+  "source_revision": "b7374b43611d01ab62f3",
   "stats": {
-    "bytes": 20618759,
-    "files": 166,
-    "largest_file_bytes": 7163903,
+    "bytes": 13467051,
+    "files": 167,
+    "largest_file_bytes": 4524996,
     "route_shells": 121
   },
   "theme_runtime": {
