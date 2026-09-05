@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "bb33bd392b5ee9bb653b",
-    "saved_at": "2026-09-05T21:07:22.988978+00:00"
+    "revision": "0f491a1bb153de165d3d",
+    "saved_at": "2026-09-05T21:07:32.417624+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3791,7 +3791,7 @@
     },
     "immersive": {
       "debug": false,
-      "enabled": false,
+      "enabled": true,
       "fallback": false,
       "glb_asset_id": "studio-orbit-dish",
       "intensity": 1.0,
