@@ -1,0 +1,67 @@
+name: R2.2 Stage9 DNS Diagnostics
+
+on:
+  push:
+    branches:
+      - r22-stage9-candidate-20260904
+    paths:
+      - .github/workflows/r22-stage9-dns-diagnostics.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DNS and HTTPS diagnostics
+        shell: bash
+        run: |
+          set +e
+          DOMAIN="mensagemstudio.shop"
+          WWW="www.mensagemstudio.shop"
+          DEFAULT_HOST="ganald.github.io"
+          EXPECTED_A="185.199.108.153 185.199.109.153 185.199.110.153 185.199.111.153"
+
+          echo "===== TIMESTAMP ====="
+          date -u +%FT%TZ
+
+          echo "===== SYSTEM RESOLVER ====="
+          getent ahosts "$DOMAIN" || true
+          getent ahosts "$WWW" || true
+
+          echo "===== A / AAAA / CNAME / NS / TXT ====="
+          for resolver in 8.8.8.8 1.1.1.1; do
+            echo "--- resolver $resolver ---"
+            echo "A $DOMAIN"; dig +short @$resolver A "$DOMAIN" || true
+            echo "AAAA $DOMAIN"; dig +short @$resolver AAAA "$DOMAIN" || true
+            echo "CNAME $DOMAIN"; dig +short @$resolver CNAME "$DOMAIN" || true
+            echo "NS $DOMAIN"; dig +short @$resolver NS "$DOMAIN" || true
+            echo "TXT $DOMAIN"; dig +short @$resolver TXT "$DOMAIN" || true
+            echo "CNAME $WWW"; dig +short @$resolver CNAME "$WWW" || true
+            echo "A $WWW"; dig +short @$resolver A "$WWW" || true
+          done
+
+          echo "===== AUTHORITATIVE TRACE (SUMMARY) ====="
+          dig +trace "$DOMAIN" A 2>&1 | tail -n 80 || true
+
+          echo "===== HTTP/HTTPS CURRENT DOMAIN ====="
+          curl -svI --max-time 25 "http://$DOMAIN/" 2>&1 | tail -n 80 || true
+          curl -svI --max-time 25 "https://$DOMAIN/" 2>&1 | tail -n 120 || true
+          curl -svI --max-time 25 "https://$WWW/" 2>&1 | tail -n 120 || true
+
+          echo "===== GITHUB DEFAULT HOST ====="
+          curl -svI --max-time 25 "https://$DEFAULT_HOST/mensagem-studio-portfolio/" 2>&1 | tail -n 120 || true
+
+          echo "===== FORCED GITHUB PAGES IPS WITH CUSTOM HOST ====="
+          for ip in $EXPECTED_A; do
+            echo "--- $ip ---"
+            curl -skvI --max-time 20 --resolve "$DOMAIN:443:$ip" "https://$DOMAIN/" 2>&1 | tail -n 80 || true
+          done
+
+          echo "===== TLS CERTIFICATE VIA CURRENT DNS ====="
+          timeout 20 openssl s_client -connect "$DOMAIN:443" -servername "$DOMAIN" </dev/null 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName 2>&1 || true
+
+          echo "===== EXPECTED GITHUB PAGES A RECORDS ====="
+          printf '%s\n' $EXPECTED_A
