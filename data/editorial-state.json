@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "df02e07dec6c5015ee27",
-    "saved_at": "2026-09-05T21:06:21.383081+00:00"
+    "revision": "c2888ffafe8a445f78ab",
+    "saved_at": "2026-09-05T21:06:32.156019+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3323,7 +3323,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "carousel_3d",
-          "visible": true
+          "visible": false
         },
         {
           "body": "Adicione um serviço ao orçamento e continue navegando pelo portfólio.",
@@ -34106,7 +34106,7 @@
           "order": 100,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "block-mt7w1mxs-fz7yt",
