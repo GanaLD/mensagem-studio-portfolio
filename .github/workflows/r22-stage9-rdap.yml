@@ -1,0 +1,57 @@
+name: R2.2 Stage9 RDAP Registrar Probe
+
+on:
+  push:
+    branches:
+      - r22-stage9-candidate-20260904
+    paths:
+      - .github/workflows/r22-stage9-rdap.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rdap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query official SHOP RDAP
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://rdap.gmoregistry.net/rdap/domain/mensagemstudio.shop"
+          curl -fsSL --retry 3 --connect-timeout 10 --max-time 30 "$URL" -o "$RUNNER_TEMP/rdap.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d=json.loads((Path(os.environ['RUNNER_TEMP'])/'rdap.json').read_text('utf-8'))
+          def vcard_name(entity):
+              vc=entity.get('vcardArray') or []
+              if len(vc)<2: return None
+              for row in vc[1]:
+                  if row and row[0]=='fn' and len(row)>3: return row[3]
+              return None
+          entities=[]
+          for e in d.get('entities',[]):
+              roles=e.get('roles') or []
+              if 'registrar' in roles:
+                  entities.append({
+                      'handle':e.get('handle'),
+                      'roles':roles,
+                      'name':vcard_name(e),
+                      'publicIds':e.get('publicIds'),
+                      'links':[{'rel':x.get('rel'),'href':x.get('href')} for x in (e.get('links') or []) if x.get('href')]
+                  })
+          out={
+              'ldhName':d.get('ldhName'),
+              'unicodeName':d.get('unicodeName'),
+              'handle':d.get('handle'),
+              'status':d.get('status'),
+              'registrarEntities':entities,
+              'nameservers':[n.get('ldhName') for n in (d.get('nameservers') or [])],
+              'events':[{'action':e.get('eventAction'),'date':e.get('eventDate')} for e in (d.get('events') or [])],
+              'secureDNS':d.get('secureDNS'),
+              'notices':[{'title':n.get('title'),'description':n.get('description'),'links':[x.get('href') for x in (n.get('links') or []) if x.get('href')]} for n in (d.get('notices') or [])]
+          }
+          print(json.dumps(out, indent=2, ensure_ascii=False))
+          PY
