@@ -1,0 +1,16 @@
+{
+  "drive_root": {
+    "id": "stage8",
+    "name": "Stage8"
+  },
+  "items": [],
+  "owner": "assets.registry",
+  "schema_version": 1,
+  "summary": {
+    "drive": 0,
+    "failed": 0,
+    "local": 0,
+    "total": 0,
+    "types": {}
+  }
+}

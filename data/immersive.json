@@ -1,0 +1,67 @@
+{
+  "camera_owner": "experience.camera",
+  "canvas": "#experience-canvas",
+  "enabled": true,
+  "frame_loop_owner": "experience.runtime",
+  "glb_asset_id": "studio-orbit-dish",
+  "owner": "experience.runtime",
+  "postfx_owner": "experience.postfx",
+  "quality_owner": "experience.quality",
+  "runtime": "assets/immersive/immersive-v31.js",
+  "runtime_version": "3.1",
+  "schema_version": 1,
+  "scroll_owner": "experience.scroll",
+  "section_owner": "experience.sections",
+  "sections": [
+    {
+      "camera": "hero-camera",
+      "id": "hero",
+      "post": "hero",
+      "scene": "artifact"
+    },
+    {
+      "camera": "manifesto-camera",
+      "id": "manifesto",
+      "post": "void",
+      "scene": "artifact"
+    },
+    {
+      "camera": "capabilities-camera",
+      "id": "capabilities",
+      "post": "capabilities",
+      "scene": "artifact"
+    },
+    {
+      "camera": "projects-camera",
+      "id": "projects",
+      "post": "projects",
+      "scene": "artifact"
+    },
+    {
+      "camera": "media-camera",
+      "id": "media",
+      "post": "media",
+      "scene": "artifact"
+    },
+    {
+      "camera": "forms-camera",
+      "id": "quote",
+      "post": "forms",
+      "scene": "artifact"
+    },
+    {
+      "camera": "forms-camera",
+      "id": "briefing",
+      "post": "forms",
+      "scene": "artifact"
+    },
+    {
+      "camera": "footer-camera",
+      "id": "footer",
+      "post": "footer",
+      "scene": "artifact"
+    }
+  ],
+  "visual_proof": true,
+  "webgl_owner": "experience.webgl"
+}

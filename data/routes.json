@@ -1,0 +1,328 @@
+{
+  "items": [
+    {
+      "canonical": "https://mensagemstudio.shop/",
+      "index": true,
+      "kind": "home",
+      "path": "/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/",
+      "index": true,
+      "kind": "services",
+      "path": "/servicos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/arte-avulsa-para-post-ou-story/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/arte-avulsa-para-post-ou-story/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/carrossel-com-ate-5-paginas/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/carrossel-com-ate-5-paginas/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-criativos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/pacote-com-10-criativos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/reel-basico-de-ate-90-segundos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/reel-basico-de-ate-90-segundos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/reel-com-motion-legendas-e-efeitos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/reel-com-motion-legendas-e-efeitos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-8-reels/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/pacote-com-8-reels/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/video-institucional-de-1-a-3-minutos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/video-institucional-de-1-a-3-minutos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/captacao-essencial-de-ate-2-horas/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/captacao-essencial-de-ate-2-horas/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/meia-diaria-de-producao/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/meia-diaria-de-producao/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/diaria-de-producao-audiovisual/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/diaria-de-producao-audiovisual/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/video-de-produto/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/video-de-produto/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/animacao-de-logotipo/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/animacao-de-logotipo/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/motion-para-redes-sociais/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/motion-para-redes-sociais/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-e-vfx-por-cena/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/composicao-e-vfx-por-cena/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/packshot-animado-de-produto/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/packshot-animado-de-produto/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/correcao-basica/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/correcao-basica/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/retoque-avancado/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/retoque-avancado/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-fotos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/pacote-com-10-fotos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/montagem-simples/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/montagem-simples/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-publicitaria/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/composicao-publicitaria/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/composicao-complexa/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/composicao-complexa/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/manual-essencial/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/manual-essencial/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/manual-completo/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/manual-completo/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/key-visual-de-campanha/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/key-visual-de-campanha/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-visual-de-campanha/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/pacote-visual-de-campanha/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/direcao-de-arte/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/direcao-de-arte/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/imagem-tratada-de-produto/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/imagem-tratada-de-produto/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/pacote-com-10-imagens-de-produto/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/pacote-com-10-imagens-de-produto/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/kit-visual-para-marketplace/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/kit-visual-para-marketplace/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/banner-para-loja-ou-colecao/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/banner-para-loja-ou-colecao/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/ilustracao-individual/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/ilustracao-individual/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/criacao-de-personagem/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/criacao-de-personagem/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/roteiro-curto-publicitario/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/roteiro-curto-publicitario/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/storyboard-com-ate-8-quadros/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/storyboard-com-ate-8-quadros/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/site-html-editor-studioframe/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/site-html-editor-studioframe/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/site-studioframe-manutencao-mensal/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/site-studioframe-manutencao-mensal/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/briefing/",
+      "index": false,
+      "kind": "briefing",
+      "path": "/briefing/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/clientes/",
+      "index": true,
+      "kind": "clients",
+      "path": "/clientes/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/sobre/",
+      "index": true,
+      "kind": "about",
+      "path": "/sobre/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/contato/",
+      "index": true,
+      "kind": "contact",
+      "path": "/contato/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/orcamento/",
+      "index": true,
+      "kind": "quote",
+      "path": "/orcamento/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/busca/",
+      "index": true,
+      "kind": "search",
+      "path": "/busca/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/arquivo/",
+      "index": true,
+      "kind": "archive",
+      "path": "/arquivo/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/404/",
+      "index": false,
+      "kind": "not_found",
+      "path": "/404/",
+      "project_id": ""
+    }
+  ],
+  "owner": "site.routes",
+  "schema_version": 1
+}

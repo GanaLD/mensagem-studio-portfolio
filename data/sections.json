@@ -1,0 +1,173 @@
+{
+  "fixed": [
+    {
+      "id": "header",
+      "owner": "site_builder.header",
+      "template": "templates/components/header.html"
+    },
+    {
+      "id": "home-featured-projects",
+      "owner": "home.projects",
+      "registry": "projects.registry",
+      "template": "templates/sections/home_projects.html"
+    },
+    {
+      "id": "home-services",
+      "owner": "site_builder.services",
+      "template": "templates/sections/home_services.html"
+    },
+    {
+      "id": "home-showcase-hub",
+      "owner": "home.showcase_hub",
+      "registry": "home.showcase_hub",
+      "template": "templates/sections/home_showcases.html"
+    },
+    {
+      "endpoint": "/api/quote",
+      "id": "home-quote",
+      "owner": "forms.quote",
+      "template": "templates/sections/home_quote.html"
+    },
+    {
+      "endpoint": "/api/briefings/start",
+      "id": "home-briefing",
+      "owner": "forms.briefing",
+      "template": "templates/sections/home_briefing.html"
+    },
+    {
+      "id": "experience-canvas",
+      "owner": "experience.webgl",
+      "persistent": true,
+      "runtime": "assets/immersive/immersive-v31.js"
+    },
+    {
+      "id": "footer",
+      "owner": "site_builder.footer",
+      "template": "templates/components/footer.html"
+    }
+  ],
+  "home": [
+    {
+      "id": "core-hero",
+      "label": "Hero",
+      "order": 0,
+      "owner": "site_builder.home.blocks",
+      "type": "hero",
+      "visible": true
+    },
+    {
+      "id": "core-intro",
+      "label": "Introdução",
+      "order": 1,
+      "owner": "site_builder.home.blocks",
+      "type": "intro",
+      "visible": false
+    },
+    {
+      "id": "core-lettering",
+      "label": "Lettering",
+      "order": 2,
+      "owner": "site_builder.home.blocks",
+      "type": "lettering",
+      "visible": false
+    },
+    {
+      "id": "block-mt7w7u6g-rltgl",
+      "label": "Text Motion · TXT",
+      "order": 3,
+      "owner": "site_builder.home.blocks",
+      "type": "text_motion",
+      "visible": true
+    },
+    {
+      "id": "core-projects-header",
+      "label": "Cabeçalho do portfólio",
+      "order": 4,
+      "owner": "site_builder.home.blocks",
+      "type": "projects_header",
+      "visible": false
+    },
+    {
+      "id": "core-projects",
+      "label": "Projetos",
+      "order": 5,
+      "owner": "site_builder.home.blocks",
+      "type": "projects",
+      "visible": true
+    },
+    {
+      "id": "block-mt7vxqnd-yp24f",
+      "label": "Sliced Hero Builder",
+      "order": 6,
+      "owner": "site_builder.home.blocks",
+      "type": "sliced_hero",
+      "visible": true
+    },
+    {
+      "id": "youtube-showcase-main",
+      "label": "YouTube Showcase",
+      "order": 7,
+      "owner": "site_builder.home.blocks",
+      "type": "youtube_showcase",
+      "visible": true
+    },
+    {
+      "id": "block-mt7w4nzd-iqxso",
+      "label": "Dynamic Island · TXT",
+      "order": 8,
+      "owner": "site_builder.home.blocks",
+      "type": "dynamic_island",
+      "visible": true
+    },
+    {
+      "id": "block-mt7w65mq-gj3mf",
+      "label": "3D Carousel · TXT",
+      "order": 9,
+      "owner": "site_builder.home.blocks",
+      "type": "carousel_3d",
+      "visible": true
+    },
+    {
+      "id": "block-mt7w1mxs-fz7yt",
+      "label": "Orçamento integrado",
+      "order": 10,
+      "owner": "site_builder.home.blocks",
+      "type": "quote_cta",
+      "visible": true
+    },
+    {
+      "id": "block-mt7w6ubb-x0xc9",
+      "label": "Logo Carousel · TXT",
+      "order": 11,
+      "owner": "site_builder.home.blocks",
+      "type": "logo_carousel",
+      "visible": true
+    },
+    {
+      "id": "block-mt7w5bn1-p6bcf",
+      "label": "Canvas Fractal Grid · TXT",
+      "order": 12,
+      "owner": "site_builder.home.blocks",
+      "type": "canvas_fractal_grid",
+      "visible": true
+    },
+    {
+      "id": "core-contact",
+      "label": "Contato",
+      "order": 13,
+      "owner": "site_builder.home.blocks",
+      "type": "contact",
+      "visible": true
+    },
+    {
+      "id": "core-about",
+      "label": "Sobre",
+      "order": 14,
+      "owner": "site_builder.home.blocks",
+      "type": "about",
+      "visible": true
+    }
+  ],
+  "owner": "site.sections",
+  "schema_version": 1
+}

@@ -1,0 +1,13 @@
+{
+  "fallback": true,
+  "gpu_webgl_physical_validation": "PENDING_WINDOWS",
+  "mobile_recomposition": true,
+  "one_frame_loop": true,
+  "one_scroll_clock": true,
+  "owner": "experience.runtime",
+  "persistent_canvas": true,
+  "reduced_motion": true,
+  "schema_version": 1,
+  "section_ids_unique": true,
+  "status": "PASS"
+}
