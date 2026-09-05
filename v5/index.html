@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07110d">
+  <meta name="description" content="Mensagem Studio — imagem, direção, 3D, audiovisual e experiências digitais.">
+  <title>Mensagem Studio — Immersive V5</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="topbar" data-topbar>
+    <a class="brand" href="#hero" aria-label="Mensagem Studio — início">MENSAGEM <span>STUDIO</span></a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#projects">Projetos</a>
+      <a href="#showcase-3d">3D</a>
+      <a href="#showcase-pdf">PDF</a>
+      <a href="#services">Serviços</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="hero-scroll" aria-labelledby="hero-title">
+      <div class="hero-sticky">
+        <video id="heroVideo" class="hero-video" muted playsinline preload="auto" aria-label="Hero cinematográfico controlado pelo scroll">
+          <source src="https://drive.google.com/uc?export=download&id=1FG0Ud3XujQTg3h751si80UJ-ri4PDoSg" type="video/mp4">
+        </video>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-copy wrap">
+          <p class="eyebrow">MENSAGEM STUDIO · IMMERSIVE V5</p>
+          <h1 id="hero-title">A PROJEÇÃO DO FUTURO<br>ATRAVÉS DE QUEM<br>ACREDITA NELE.</h1>
+          <div class="hero-meta">
+            <p>Imagem · direção · vídeo · 3D · experiências digitais.</p>
+            <a class="text-link" href="#projects">Explorar projetos ↓</a>
+          </div>
+        </div>
+        <div class="scroll-meter" aria-hidden="true"><span id="heroProgress"></span></div>
+      </div>
+    </section>
+
+    <section class="statement section" id="manifesto">
+      <div class="wrap split">
+        <p class="eyebrow">DIREÇÃO HUMANA · TECNOLOGIA APLICADA</p>
+        <div>
+          <h2>Transformamos pensamentos em realidade.</h2>
+          <p class="lead">A ferramenta muda. A responsabilidade de direção permanece humana. O estúdio combina imagem, composição, 3D, audiovisual, design e código conforme a necessidade de cada projeto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+      <div class="wrap section-head">
+        <div>
+          <p class="eyebrow">PORTFÓLIO · GOOGLE DRIVE</p>
+          <h2 id="projects-title">Projetos</h2>
+        </div>
+        <p class="section-note">Um card por pasta de projeto. As subpastas permanecem como galeria interna, sem multiplicar o grid.</p>
+      </div>
+      <div class="wrap">
+        <div id="projectGrid" class="project-grid" aria-live="polite">
+          <p class="loading-copy">Carregando registro de projetos…</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase-3d" class="section showcase showcase-3d" aria-labelledby="three-title">
+      <div class="wrap showcase-grid">
+        <div class="showcase-copy">
+          <p class="eyebrow">SHOWCASE 3D · WEBGL</p>
+          <h2 id="three-title">Objeto, espaço e interação.</h2>
+          <p class="lead">O V5 preserva o canvas contínuo e mantém o 3D em owner isolado. A biblioteca de GLBs do Drive fica registrada como fonte para materialização no build.</p>
+          <div class="asset-chips" aria-label="Assets 3D registrados">
+            <span>Toy Car</span><span>Lantern</span><span>Interior</span><span>Cat Motion</span><span>Spaceship</span>
+          </div>
+        </div>
+        <div class="three-stage" id="threeStage" aria-label="Demonstração WebGL interativa">
+          <canvas id="threeCanvas"></canvas>
+          <p class="stage-hint">Mover cursor · arrastar visualmente pelo enquadramento</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase-pdf" class="section showcase showcase-pdf" aria-labelledby="pdf-title">
+      <div class="wrap section-head">
+        <div>
+          <p class="eyebrow">SHOWCASE PDF · 64 PÁGINAS</p>
+          <h2 id="pdf-title">Brand system em contexto.</h2>
+        </div>
+        <p class="section-note">Manual completo da Mensagem Studio integrado como peça editorial do portfólio.</p>
+      </div>
+      <div class="wrap pdf-shell">
+        <div class="pdf-toolbar">
+          <span>MENSAGEM_STUDIO_MANUAL_COMPLETO_V3</span>
+          <a class="text-link" href="https://drive.google.com/file/d/1BznGOFXMcp1Xorww8kTZJ6xymCl4MCNb/view" target="_blank" rel="noopener">Abrir documento ↗</a>
+        </div>
+        <iframe
+          class="pdf-frame"
+          title="Manual completo Mensagem Studio — 64 páginas"
+          src="https://drive.google.com/file/d/1BznGOFXMcp1Xorww8kTZJ6xymCl4MCNb/preview"
+          loading="lazy"
+          allow="autoplay">
+        </iframe>
+      </div>
+    </section>
+
+    <section id="services" class="section services" aria-labelledby="services-title">
+      <div class="wrap section-head">
+        <div>
+          <p class="eyebrow">SERVIÇOS</p>
+          <h2 id="services-title">Capacidade multidisciplinar.</h2>
+        </div>
+        <p class="section-note">Uma mesma direção pode atravessar branding, imagem, vídeo, HTML, 3D e storytelling.</p>
+      </div>
+      <div class="wrap service-grid">
+        <article><span>01</span><h3>Imagens & Key Visuals</h3></article>
+        <article><span>02</span><h3>Banners & E-commerce</h3></article>
+        <article><span>03</span><h3>Identidade Visual</h3></article>
+        <article><span>04</span><h3>Vídeo & Narrativas</h3></article>
+        <article><span>05</span><h3>3D de Produto</h3></article>
+        <article><span>06</span><h3>HTML & Experiências Digitais</h3></article>
+        <article><span>07</span><h3>IA aplicada à criação</h3></article>
+      </div>
+    </section>
+
+    <section id="contact" class="section conversion" aria-labelledby="contact-title">
+      <div class="wrap conversion-grid">
+        <div>
+          <p class="eyebrow">COMEÇAR UM PROJETO</p>
+          <h2 id="contact-title">Da ideia ao escopo.</h2>
+          <p class="lead">Use o orçamento para uma estimativa objetiva ou abra o briefing completo para estruturar contexto, objetivos, entregáveis e referências.</p>
+        </div>
+        <div class="conversion-actions">
+          <a class="action-card" href="../orcamento/">
+            <span>ORÇAMENTO</span><strong>Solicitar estimativa</strong><b>↗</b>
+          </a>
+          <a class="action-card" href="../briefing/">
+            <span>BRIEFING</span><strong>Estruturar o projeto</strong><b>↗</b>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <p class="brand footer-brand">MENSAGEM <span>STUDIO</span></p>
+      <p>Criação visual e narrativa · Curitiba, Brasil.</p>
+      <a class="text-link" href="#hero">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
