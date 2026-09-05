@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "version": "5.0.0-dev",
+  "base": {
+    "branch": "main",
+    "runtime": "Mensagem Immersive Web Starter V4 / published portfolio baseline",
+    "strategy": "additive development branch; no production promotion"
+  },
+  "contracts": {
+    "oneFrameLoop": true,
+    "oneScrollClock": true,
+    "persistentCanvas": true,
+    "isolatedOwners": true,
+    "previewEqualsBuildRequired": true,
+    "zeroAccidentalOverlap": true,
+    "zeroAccidentalClipping": true,
+    "responsiveReleaseGate": true
+  },
+  "hero": {
+    "owner": "home.hero",
+    "mode": "scroll-controlled-video",
+    "source": {
+      "provider": "google-drive",
+      "fileId": "1FG0Ud3XujQTg3h751si80UJ-ri4PDoSg",
+      "name": "VÍDEO PARA HERO.mp4",
+      "viewUrl": "https://drive.google.com/file/d/1FG0Ud3XujQTg3h751si80UJ-ri4PDoSg/view",
+      "directCandidate": "https://drive.google.com/uc?export=download&id=1FG0Ud3XujQTg3h751si80UJ-ri4PDoSg"
+    },
+    "localTarget": "/assets/v5/hero/video-para-hero.mp4",
+    "developmentFallback": "/assets/hero/dermacast-laila.mp4",
+    "materializationStatus": "REMOTE_SOURCE_REGISTERED_LOCAL_BINARY_PENDING"
+  },
+  "pdfShowcase": {
+    "owner": "studio.pdf",
+    "source": {
+      "provider": "google-drive",
+      "fileId": "1BznGOFXMcp1Xorww8kTZJ6xymCl4MCNb",
+      "name": "MENSAGEM_STUDIO_MANUAL_COMPLETO_V3_LOGO_UNICA_64P.pdf",
+      "pageCount": 64,
+      "previewUrl": "https://drive.google.com/file/d/1BznGOFXMcp1Xorww8kTZJ6xymCl4MCNb/preview"
+    },
+    "localTarget": "/assets/v5/showcase/MENSAGEM_STUDIO_MANUAL_COMPLETO_V3_LOGO_UNICA_64P.pdf",
+    "developmentFallback": "/assets/showcases/proof/stage5-pdf-proof.pdf",
+    "materializationStatus": "REMOTE_SOURCE_REGISTERED_LOCAL_BINARY_PENDING"
+  },
+  "projectGrid": {
+    "owner": "home.projects",
+    "mode": "one-cover-per-project-folder",
+    "registry": "./projects-v5.json",
+    "sources": [
+      {
+        "id": "portfolio-primary",
+        "folderId": "1ePsjyC57ddsmZYfQPB7OvyA8V1XHbZj0",
+        "url": "https://drive.google.com/drive/folders/1ePsjyC57ddsmZYfQPB7OvyA8V1XHbZj0",
+        "topLevelFoldersAreProjects": true
+      },
+      {
+        "id": "portfolio-secondary",
+        "folderId": "1h-JWjCHEnyfbsIb__SG3CiW_kcDVqQd9",
+        "projectFolderId": "1IMWwgtyX0_IzG1t2pU46cQeja1nIM9s3",
+        "url": "https://drive.google.com/drive/folders/1h-JWjCHEnyfbsIb__SG3CiW_kcDVqQd9",
+        "topLevelFoldersAreProjects": true
+      }
+    ],
+    "coverPolicy": "explicit cover folder when present; otherwise first eligible visual media; never render every media item as a grid project"
+  },
+  "threeD": {
+    "owner": "studio.model",
+    "libraryFolderId": "1Lol9Q3Xrd6H7_wzdgZ3kP95d7zwyAbjR",
+    "mixedLibraryFolderId": "1Ea_4oibE8oUY0wfYcUqRXB17ev_gaT7H",
+    "directGlbSources": [
+      {"fileId":"1zIJ0dtXkjG7QUFsg4l1ImujCeZdzWtVG","name":"khronos_toy_car_clearcoat_CC0.glb"},
+      {"fileId":"10dxl_4309H-YHXM8PWpbxsvTwSIQlTRZ","name":"khronos_lantern_CC0.glb"},
+      {"fileId":"1EQ9Z774-1pCnddcGUsXdnUpCYBFfnawc","name":"the_interior_14_is_spacious..glb"},
+      {"fileId":"1bu6AdgQ-6xZ6xkB8P4lSuw4xCFLDg50z","name":"cat_in_motion_3d_model_free.glb"},
+      {"fileId":"1YmSjiYygvy03kK_NM-0Och7Zt1D2l2s4","name":"nave_espacial_ultrassonica.glb"}
+    ],
+    "materializationStatus": "SOURCE_LIBRARY_REGISTERED"
+  },
+  "forms": {
+    "quote": {"owner":"forms.quote","route":"/orcamento/","reuseExisting":true},
+    "briefing": {"owner":"forms.briefing","route":"/briefing/","reuseExisting":true}
+  },
+  "brand": {
+    "positioning": "A PROJEÇÃO DO FUTURO ATRAVÉS DE QUEM ACREDITA NELE.",
+    "services": [
+      "Imagens & Key Visuals",
+      "Banners & E-commerce",
+      "Identidade Visual",
+      "Vídeo & Narrativas",
+      "3D de Produto",
+      "HTML & Experiências Digitais",
+      "IA aplicada à criação"
+    ]
+  }
+}
