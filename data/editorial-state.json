@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "3a3787a4917304b1304f",
-    "saved_at": "2026-09-05T21:09:54.420087+00:00"
+    "revision": "d093cf6deb4f3aa8fb86",
+    "saved_at": "2026-09-05T21:12:23.352603+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -32400,7 +32400,7 @@
         "aspect_ratio": "16/9",
         "description": "Experiência HTML real isolada em iframe sandbox.",
         "enabled": true,
-        "entrypoint": "/assets/showcases/proof/html5/index.html",
+        "entrypoint": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
         "owner": "studio.html5",
         "preview_image": "",
         "sandbox": "allow-scripts",
