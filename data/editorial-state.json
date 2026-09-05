@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "f063010eb7bba1749dd8",
-    "saved_at": "2026-09-05T21:03:54.612518+00:00"
+    "revision": "97ec438f77fecf907a10",
+    "saved_at": "2026-09-05T21:04:32.204240+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3954,10 +3954,11 @@
           "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
           "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF"
+          "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
+          "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX"
         ]
       },
-      "header_visible": false,
+      "header_visible": true,
       "title": "",
       "visible": true
     },
