@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "0de556b0051d1da7d4e6",
-    "saved_at": "2026-09-05T21:06:57.216947+00:00"
+    "revision": "bb33bd392b5ee9bb653b",
+    "saved_at": "2026-09-05T21:07:22.988978+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3791,13 +3791,13 @@
     },
     "immersive": {
       "debug": false,
-      "enabled": true,
-      "fallback": true,
+      "enabled": false,
+      "fallback": false,
       "glb_asset_id": "studio-orbit-dish",
       "intensity": 1.0,
       "quality": "auto",
       "runtime_version": "3.1",
-      "visual_proof": true
+      "visual_proof": false
     },
     "layout": {
       "ambient_motion": true,
