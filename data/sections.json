@@ -61,7 +61,7 @@
       "order": 1,
       "owner": "site_builder.home.blocks",
       "type": "intro",
-      "visible": false
+      "visible": true
     },
     {
       "id": "core-lettering",
@@ -77,7 +77,7 @@
       "order": 3,
       "owner": "site_builder.home.blocks",
       "type": "text_motion",
-      "visible": true
+      "visible": false
     },
     {
       "id": "core-projects-header",
@@ -85,7 +85,7 @@
       "order": 4,
       "owner": "site_builder.home.blocks",
       "type": "projects_header",
-      "visible": false
+      "visible": true
     },
     {
       "id": "core-projects",
@@ -117,7 +117,7 @@
       "order": 8,
       "owner": "site_builder.home.blocks",
       "type": "dynamic_island",
-      "visible": true
+      "visible": false
     },
     {
       "id": "block-mt7w65mq-gj3mf",
@@ -125,7 +125,7 @@
       "order": 9,
       "owner": "site_builder.home.blocks",
       "type": "carousel_3d",
-      "visible": true
+      "visible": false
     },
     {
       "id": "block-mt7w1mxs-fz7yt",
@@ -141,7 +141,7 @@
       "order": 11,
       "owner": "site_builder.home.blocks",
       "type": "logo_carousel",
-      "visible": true
+      "visible": false
     },
     {
       "id": "block-mt7w5bn1-p6bcf",
@@ -149,7 +149,7 @@
       "order": 12,
       "owner": "site_builder.home.blocks",
       "type": "canvas_fractal_grid",
-      "visible": true
+      "visible": false
     },
     {
       "id": "core-contact",

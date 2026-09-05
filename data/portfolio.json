@@ -2,9 +2,9 @@
   "schema_version": 17,
   "app_version": "7.12.20",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "revision": "e487664ee5757ea8480d",
-  "source_revision": "e487664ee5757ea8480d",
-  "editorial_revision": "e487664ee5757ea8480d",
+  "revision": "d093cf6deb4f3aa8fb86",
+  "source_revision": "d093cf6deb4f3aa8fb86",
+  "editorial_revision": "d093cf6deb4f3aa8fb86",
   "generated_from": "google-drive",
   "link_policy": "validated-drive-bytes-zero-drive-ui-video",
   "identity": {
@@ -747,7 +747,7 @@
       "full_path": "briefing"
     },
     "theme": {
-      "theme_id": "oryzo-ai",
+      "theme_id": "studioframe-default",
       "theme_version": 1,
       "theme_overrides": {},
       "custom_theme_metadata": {
@@ -797,7 +797,7 @@
           }
         }
       },
-      "theme_variant_id": "oryzo-ai--base"
+      "theme_variant_id": "studioframe-default--base"
     },
     "media_delivery": {
       "mode": "drive_public_bytes",
@@ -2505,7 +2505,7 @@
           "order": 20,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": false
+          "visible": true
         },
         {
           "block_id": "core-lettering",
@@ -2527,7 +2527,7 @@
           "order": 40,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "core-projects-header",
@@ -2538,7 +2538,7 @@
           "order": 50,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": false
+          "visible": true
         },
         {
           "block_id": "core-projects",
@@ -2582,7 +2582,7 @@
           "order": 90,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "block-mt7w65mq-gj3mf",
@@ -2593,7 +2593,7 @@
           "order": 100,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "block-mt7w1mxs-fz7yt",
@@ -2615,7 +2615,7 @@
           "order": 120,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "block-mt7w5bn1-p6bcf",
@@ -2626,7 +2626,7 @@
           "order": 130,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "core-contact",
@@ -9269,12 +9269,12 @@
     "immersive": {
       "enabled": true,
       "runtime_version": "3.1",
-      "visual_proof": true,
+      "visual_proof": false,
       "quality": "auto",
       "intensity": 1.0,
       "glb_asset_id": "studio-orbit-dish",
       "debug": false,
-      "fallback": true
+      "fallback": false
     },
     "performance": {
       "profile": "auto",
@@ -9429,7 +9429,7 @@
       "quote_home_title": "Monte seu orçamento",
       "quote_home_intro": "Escolha serviços, detalhe o escopo e envie uma solicitação com protocolo de recebimento.",
       "offer_notification": {
-        "enabled": false,
+        "enabled": true,
         "delay_seconds": 8,
         "title": "Gostou deste projeto?",
         "message": "Podemos criar algo semelhante para sua marca.",
@@ -37074,7 +37074,7 @@
         "pin": true,
         "start": "top top",
         "end_percent": 260,
-        "scrub": 0.72,
+        "scrub": 0.7,
         "smoothing": 0.2,
         "speed": 1,
         "rotation_x_from": 8,
@@ -37174,7 +37174,7 @@
     },
     "projects": {
       "visible": true,
-      "header_visible": false,
+      "header_visible": true,
       "eyebrow": "Porfólio",
       "title": "",
       "filters": {
@@ -37191,7 +37191,8 @@
           "14TRyDDWeqk9Ge0M9u8haN3Ve_nK-YjiJ",
           "1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
-          "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF"
+          "1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
+          "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX"
         ],
         "display_mode": "inline"
       }
@@ -37443,7 +37444,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "intro",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -37629,7 +37630,7 @@
           "title_weight": "400",
           "trigger": "viewport",
           "type": "text_motion",
-          "visible": true
+          "visible": false
         },
         {
           "body": "",
@@ -37719,7 +37720,7 @@
           "title_size": "",
           "title_weight": "300",
           "type": "projects_header",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -38245,7 +38246,7 @@
           "title_weight": "400",
           "trigger": "click",
           "type": "dynamic_island",
-          "visible": true
+          "visible": false
         },
         {
           "autoplay": true,
@@ -38337,7 +38338,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "carousel_3d",
-          "visible": true
+          "visible": false
         },
         {
           "body": "Adicione um serviço ao orçamento e continue navegando pelo portfólio.",
@@ -38522,7 +38523,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "logo_carousel",
-          "visible": true
+          "visible": false
         },
         {
           "body_size": "",
@@ -38616,7 +38617,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "canvas_fractal_grid",
-          "visible": true,
+          "visible": false,
           "wave_intensity": 40,
           "wave_radius": 250
         },
@@ -39919,23 +39920,82 @@
       "transparent": false,
       "version": 1
     },
+    "showcases": {
+      "description": "3D, PDF, HTML5 e mídia executados como módulos independentes.",
+      "enabled": true,
+      "eyebrow": "SHOWCASE HUB",
+      "html5": {
+        "allow_fullscreen": true,
+        "aspect_ratio": "16/9",
+        "description": "Experiência HTML real isolada em iframe sandbox.",
+        "enabled": true,
+        "entrypoint": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
+        "owner": "studio.html5",
+        "preview_image": "",
+        "sandbox": "allow-scripts",
+        "title": "Showcase HTML5"
+      },
+      "layout": "tabs",
+      "model": {
+        "asset_id": "studio-orbit-dish",
+        "auto_rotate": true,
+        "background": "transparent",
+        "camera_preset": "three-quarter",
+        "description": "Modelo GLB com orbit, presets de câmera e fallback procedural.",
+        "enabled": true,
+        "fallback": "/assets/3d/fallbacks/studio-orbit-dish.png",
+        "interaction": true,
+        "material": "physical",
+        "owner": "studio.model",
+        "quality": "balanced",
+        "title": "Showcase 3D"
+      },
+      "owner": "home.showcase_hub",
+      "pdf": {
+        "controls": true,
+        "description": "Documento paginado em canvas responsivo.",
+        "enabled": true,
+        "fit_mode": "width",
+        "owner": "studio.pdf",
+        "poster": "",
+        "src": "/assets/showcases/proof/stage5-pdf-proof.pdf",
+        "start_page": 1,
+        "title": "Showcase PDF",
+        "zoom": 1
+      },
+      "player": {
+        "aspect_ratio": "16/9",
+        "autoplay": false,
+        "captions": "",
+        "controls": true,
+        "description": "Player próprio com estados físicos sincronizados.",
+        "enabled": true,
+        "loop": false,
+        "muted": false,
+        "owner": "studio.player",
+        "poster": "/assets/showcases/proof/stage5-poster.png",
+        "src": "/assets/showcases/proof/stage5-player-proof.mp4",
+        "title": "Media / Player"
+      },
+      "title": "Experiências interativas"
+    },
     "three_d_scene": {
-      "asset_id": "oryzo-crystal-cluster",
+      "asset_id": "oryzo-controller",
       "drive_file_id": "",
       "enabled": true,
       "engine": "glb",
       "fallback_url": "",
       "geometry": "torus_knot",
       "interaction": {
-        "auto_rotate": true,
+        "auto_rotate": false,
         "gyro": false,
-        "pointer_events": false,
-        "pointer_mode": "tilt",
-        "pointer_strength": 0.35,
-        "scroll_mode": "rotate",
-        "scroll_strength": 0.4
+        "pointer_events": true,
+        "pointer_mode": "orbit",
+        "pointer_strength": 0.55,
+        "scroll_mode": "dolly",
+        "scroll_strength": 0.3
       },
-      "opacity": 0.82,
+      "opacity": 1,
       "performance": {
         "desktop_enabled": true,
         "max_pixel_ratio": 1.5,
@@ -39944,11 +40004,11 @@
         "tablet_enabled": true,
         "transparent": true
       },
-      "placement": "global_background",
+      "placement": "hero",
       "rotation_x": 0,
       "rotation_y": 0,
       "rotation_z": 0,
-      "scale": 1.1,
+      "scale": 1,
       "section_block_id": "",
       "source": "bundled_asset",
       "url": "",
@@ -40440,45 +40500,46 @@
     "runtime_version": "7.8.7",
     "registry_version": "7.8.2",
     "active_theme": {
-      "id": "oryzo-ai",
-      "name": "Oryzo AI",
+      "id": "studioframe-default",
+      "name": "StudioFrame Default",
       "version": 1,
-      "builtin": false,
+      "builtin": true,
       "immutable_base": true,
-      "stylesheet": "assets/themes/oryzo-ai.css",
+      "stylesheet": "assets/themes/studioframe-default.css",
       "fallback": "studioframe-default",
       "preview": {
+        "background": "appearance.background_color",
+        "surface": "appearance.surface_color",
+        "text": "appearance.text_color",
+        "accent": "appearance.accent_color",
         "colors": {
-          "background": "#100904",
-          "surface": "#382416",
-          "text": "#ffedd7",
-          "muted": "#6c5f51",
-          "accent": "#dc5000"
-        },
-        "mode": "dark",
-        "display_font": "halyard-display-variable",
-        "body_font": "Arial"
+          "background": "#080C0E",
+          "surface": "#101719",
+          "text": "#F2F7F5",
+          "muted": "#93A19D",
+          "accent": "#72F2A5"
+        }
       }
     },
     "active_variant": {
-      "id": "oryzo-ai--base",
+      "id": "studioframe-default--base",
       "key": "base",
-      "theme_id": "oryzo-ai",
+      "theme_id": "studioframe-default",
       "exclusive": true
     },
     "variant_tokens": {},
     "available_variants": [
       {
-        "id": "oryzo-ai--base",
+        "id": "studioframe-default--base",
         "key": "base",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {}
       },
       {
-        "id": "oryzo-ai--soft",
+        "id": "studioframe-default--soft",
         "key": "soft",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {
           "radius": {
@@ -40497,9 +40558,9 @@
         }
       },
       {
-        "id": "oryzo-ai--editorial",
+        "id": "studioframe-default--editorial",
         "key": "editorial",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {
           "radius": {
@@ -40525,9 +40586,9 @@
         }
       },
       {
-        "id": "oryzo-ai--sharp",
+        "id": "studioframe-default--sharp",
         "key": "sharp",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {
           "radius": {
@@ -40552,9 +40613,9 @@
         }
       },
       {
-        "id": "oryzo-ai--glass",
+        "id": "studioframe-default--glass",
         "key": "glass",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {
           "radius": {
@@ -40576,9 +40637,9 @@
         }
       },
       {
-        "id": "oryzo-ai--cinematic",
+        "id": "studioframe-default--cinematic",
         "key": "cinematic",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "exclusive": true,
         "tokens": {
           "spacing": {
@@ -40652,37 +40713,54 @@
     },
     "tokens": {
       "colors": {
-        "primary": "#dc5000",
-        "secondary": "#6c5f51",
-        "accent": "#dc5000",
-        "background": "#100904",
-        "surface": "#382416",
-        "foreground": "#ffedd7",
-        "muted": "#6c5f51",
-        "border": "#40372e"
+        "primary": "#006B5B",
+        "secondary": "#58697D",
+        "accent": "#006B5B",
+        "background": "#F3F6FA",
+        "surface": "#FFFFFF",
+        "foreground": "#172033",
+        "muted": "#58697D",
+        "border": "currentColor"
       },
       "typography": {
-        "display": "halyard-display-variable",
-        "body": "Arial",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
+        "preset": "humanist",
+        "display": "display",
+        "body": "body",
+        "weight": "500",
+        "tracking": 0.16
+      },
+      "spacing": {
+        "container": "wide",
+        "section": "generous",
+        "blocks": "airy"
       },
       "radius": {
-        "block": 12
+        "block": 20
+      },
+      "borders": {
+        "style": "hairline"
+      },
+      "shadows": {
+        "style": "soft"
       },
       "surfaces": {
-        "style": "solid"
+        "style": "glass"
       },
       "backgrounds": {
-        "style": "solid"
+        "style": "glow",
+        "texture": "grid"
       },
       "buttons": {
-        "style": "pill"
+        "style": "rounded",
+        "cta_style": "solid"
       },
       "cards": {
-        "style": "themed"
+        "grid_language": "balanced"
       },
       "motion": {
-        "preset": "balanced"
+        "preset": "subtle",
+        "reveal": "fade",
+        "parallax": "off"
       },
       "components": {}
     },
@@ -86843,7 +86921,7 @@
     "unsupported": 38,
     "ignored": 15,
     "api_calls": 47,
-    "duration_seconds": 18.398
+    "duration_seconds": 18.694
   },
   "asset_registry": {
     "owner": "assets.registry",
@@ -93988,7 +94066,7 @@
         "owner": "studio.html5",
         "enabled": true,
         "title": "Showcase HTML5",
-        "source": "/assets/showcases/proof/html5/index.html",
+        "source": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
         "status": "CONFIGURED"
       }
     ],
@@ -94043,14 +94121,14 @@
         "owner": "studio.html5",
         "title": "Showcase HTML5",
         "description": "Experiência HTML real isolada em iframe sandbox.",
-        "entrypoint": "/assets/showcases/proof/html5/index.html",
+        "entrypoint": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
         "sandbox": "allow-scripts",
         "allow_fullscreen": true,
         "aspect_ratio": "16/9",
         "preview_image": ""
       },
-      "schema_version": 1,
-      "owner": "home.showcase_hub"
+      "owner": "home.showcase_hub",
+      "schema_version": 1
     }
   },
   "showcase_health": {
@@ -94117,7 +94195,7 @@
     "canvas": "#experience-canvas",
     "runtime": "assets/immersive/immersive-v31.js",
     "glb_asset_id": "studio-orbit-dish",
-    "visual_proof": true,
+    "visual_proof": false,
     "sections": [
       {
         "id": "hero",
@@ -94172,12 +94250,12 @@
   "immersive_health": {
     "schema_version": 1,
     "owner": "experience.runtime",
-    "status": "PASS",
+    "status": "WARN",
     "one_frame_loop": true,
     "one_scroll_clock": true,
     "persistent_canvas": true,
     "section_ids_unique": true,
-    "fallback": true,
+    "fallback": false,
     "reduced_motion": true,
     "mobile_recomposition": true,
     "gpu_webgl_physical_validation": "PENDING_WINDOWS"
@@ -95053,7 +95131,7 @@
         "id": "core-intro",
         "type": "intro",
         "label": "Introdução",
-        "visible": false,
+        "visible": true,
         "owner": "site_builder.home.blocks",
         "order": 1
       },
@@ -95069,7 +95147,7 @@
         "id": "block-mt7w7u6g-rltgl",
         "type": "text_motion",
         "label": "Text Motion · TXT",
-        "visible": true,
+        "visible": false,
         "owner": "site_builder.home.blocks",
         "order": 3
       },
@@ -95077,7 +95155,7 @@
         "id": "core-projects-header",
         "type": "projects_header",
         "label": "Cabeçalho do portfólio",
-        "visible": false,
+        "visible": true,
         "owner": "site_builder.home.blocks",
         "order": 4
       },
@@ -95109,7 +95187,7 @@
         "id": "block-mt7w4nzd-iqxso",
         "type": "dynamic_island",
         "label": "Dynamic Island · TXT",
-        "visible": true,
+        "visible": false,
         "owner": "site_builder.home.blocks",
         "order": 8
       },
@@ -95117,7 +95195,7 @@
         "id": "block-mt7w65mq-gj3mf",
         "type": "carousel_3d",
         "label": "3D Carousel · TXT",
-        "visible": true,
+        "visible": false,
         "owner": "site_builder.home.blocks",
         "order": 9
       },
@@ -95133,7 +95211,7 @@
         "id": "block-mt7w6ubb-x0xc9",
         "type": "logo_carousel",
         "label": "Logo Carousel · TXT",
-        "visible": true,
+        "visible": false,
         "owner": "site_builder.home.blocks",
         "order": 11
       },
@@ -95141,7 +95219,7 @@
         "id": "block-mt7w5bn1-p6bcf",
         "type": "canvas_fractal_grid",
         "label": "Canvas Fractal Grid · TXT",
-        "visible": true,
+        "visible": false,
         "owner": "site_builder.home.blocks",
         "order": 12
       },

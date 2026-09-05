@@ -62,6 +62,6 @@
       "scene": "artifact"
     }
   ],
-  "visual_proof": true,
+  "visual_proof": false,
   "webgl_owner": "experience.webgl"
 }

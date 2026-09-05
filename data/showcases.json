@@ -8,7 +8,7 @@
       "aspect_ratio": "16/9",
       "description": "Experiência HTML real isolada em iframe sandbox.",
       "enabled": true,
-      "entrypoint": "/assets/showcases/proof/html5/index.html",
+      "entrypoint": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
       "owner": "studio.html5",
       "preview_image": "",
       "sandbox": "allow-scripts",
@@ -89,7 +89,7 @@
       "enabled": true,
       "id": "html5",
       "owner": "studio.html5",
-      "source": "/assets/showcases/proof/html5/index.html",
+      "source": "https://drive.google.com/drive/folders/19lAopiCn43vfanW-oN9mIDkd0GgJ1CQZ?usp=drive_link",
       "status": "CONFIGURED",
       "title": "Showcase HTML5"
     }

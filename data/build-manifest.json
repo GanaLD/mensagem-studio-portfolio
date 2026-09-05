@@ -1,12 +1,12 @@
 {
   "app_version": "7.12.20",
-  "artifact_id": "r22-e487664ee575-8af7a902d5e1169d",
-  "artifact_sha256": "8af7a902d5e1169d99dcef0e3ce5a04e204dbc521dc8c4f48a209d2123c1fe85",
+  "artifact_id": "r22-d093cf6deb4f-5d36a5e487dda7d9",
+  "artifact_sha256": "5d36a5e487dda7d986070cf058b76bb6401ce89e9cc06061f852eb48d31b03ed",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "8af7a902d5e1169d99dc",
-  "built_at": "2026-09-05T14:26:02.808659+00:00",
-  "bundle_sha256": "8af7a902d5e1169d99dcef0e3ce5a04e204dbc521dc8c4f48a209d2123c1fe85",
-  "editorial_revision": "e487664ee5757ea8480d",
+  "build_revision": "5d36a5e487dda7d98607",
+  "built_at": "2026-09-05T21:14:07.749624+00:00",
+  "bundle_sha256": "5d36a5e487dda7d986070cf058b76bb6401ce89e9cc06061f852eb48d31b03ed",
+  "editorial_revision": "d093cf6deb4f3aa8fb86",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -28,10 +28,6 @@
       "bytes": 14739,
       "sha256": "1b4d2681a7000db00533f8dc51814b0d6c36eb2627ca6f1fab34b5fdb7f57656"
     },
-    "assets/3d/fallbacks/oryzo-crystal-cluster.png": {
-      "bytes": 4114,
-      "sha256": "adbabdcd08c7294f5b499d103862e1ce39e9b36e3ed2cd862b240624c3216f9e"
-    },
     "assets/3d/fallbacks/studio-orbit-dish.png": {
       "bytes": 4620,
       "sha256": "cd83f18d45aaa58658e123eafccc0c0f6ce750d62ed443d92a3bf46c100f85b0"
@@ -40,9 +36,9 @@
       "bytes": 594,
       "sha256": "7f047e5624a979b70cb5188e72e644eef87156fae9272dff5fb40902064d73b9"
     },
-    "assets/3d/oryzo-crystal-cluster.glb.gz": {
-      "bytes": 8067,
-      "sha256": "f0f71fda56dcf784510713d41e0f98bb24812151b9a0cccafabbde9b6f6a7bf7"
+    "assets/3d/oryzo-controller.glb.gz": {
+      "bytes": 7163903,
+      "sha256": "bd8aa3d064c7c006833cfb7813a8ed8a20e372b54c2f6e01493d417b35537a10"
     },
     "assets/3d/studio-orbit-dish.glb.gz": {
       "bytes": 6874,
@@ -257,20 +253,20 @@
       "sha256": "b4cda6568e7effb649890796ee97659cdbb0757e5d29b3aaa79429ec4b5f341f"
     },
     "data/immersive-health.json": {
-      "bytes": 337,
-      "sha256": "3172cd6a3c0759ec49afec71d5c0b0aa0d7305c1baa1338c544320c3ce162d16"
+      "bytes": 338,
+      "sha256": "628ef2a82407df2135aae71d3470d92c84b8ed3d5dcee1c2543143cc3cac7db5"
     },
     "data/immersive.json": {
-      "bytes": 1581,
-      "sha256": "54292381e52493e180d94ca24d2597bbe5d21b4a5dadede496d192e0c83d1a33"
+      "bytes": 1582,
+      "sha256": "210cf8d1a647b47f361d3cb473c90c48607c2a40db973cc4cc405cc110090bae"
     },
     "data/pages.json": {
       "bytes": 689,
       "sha256": "f1756a54e524f2fbf34005dbab3891b20d9ad71eaf3bf73fe7ac068111f4cf69"
     },
     "data/portfolio.json": {
-      "bytes": 4660318,
-      "sha256": "5931cf186bb1b81c47c28e9f3d485d3df838531ae044c820c8debd182e6d3022"
+      "bytes": 4663166,
+      "sha256": "fd39bb2589f87008541dfca844045e251a2c4ce076f314aac2713c77245c447c"
     },
     "data/projects.json": {
       "bytes": 28172,
@@ -281,8 +277,8 @@
       "sha256": "f703dbfccb1da340800a1eaaf768b0bbeea8cba8fef171560d6caa8b2eee2ce9"
     },
     "data/sections.json": {
-      "bytes": 4379,
-      "sha256": "db93536b975a10abb7c325dd11a0947bf2fbeb72530fa26cb7b81dfadb3f0cc7"
+      "bytes": 4382,
+      "sha256": "706836a1598d6b4e3bd198b56550500a1eee90a6c5606b7b19c858a8d7da58fc"
     },
     "data/seo-report.json": {
       "bytes": 49434,
@@ -293,12 +289,12 @@
       "sha256": "8413fe99649d228c450e61a49043155b4115fb43daa538ea7bf47a43a0313d15"
     },
     "data/showcases.json": {
-      "bytes": 2963,
-      "sha256": "af05534fb1c6252b19fbc7e506da87303601ff5be580dc97fc18caf892c78847"
+      "bytes": 3057,
+      "sha256": "0956a1c5fec1581a5b20e7bce0c3a10dbace79162204504eb512d54990987e8c"
     },
     "index.html": {
-      "bytes": 3277955,
-      "sha256": "324b9a2288cf708ff2fb06a170714cfe1ca2f89a2e183d46c632fb209a60331b"
+      "bytes": 3280000,
+      "sha256": "7d92ee67bf43bc988a708bdc6f894649f9e8cebf6f7bb0cca07f4c13631312bb"
     },
     "orcamento/index.html": {
       "bytes": 14745,
@@ -857,50 +853,51 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 4660318,
-  "portfolio_sha256": "5931cf186bb1b81c47c28e9f3d485d3df838531ae044c820c8debd182e6d3022",
+  "portfolio_bytes": 4663166,
+  "portfolio_sha256": "fd39bb2589f87008541dfca844045e251a2c4ce076f314aac2713c77245c447c",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "e487664ee5757ea8480d",
+  "revision": "d093cf6deb4f3aa8fb86",
   "runtime_dependencies": [],
-  "source_revision": "e487664ee5757ea8480d",
+  "source_revision": "d093cf6deb4f3aa8fb86",
   "stats": {
-    "bytes": 15220828,
-    "files": 193,
-    "largest_file_bytes": 4660318,
+    "bytes": 22377542,
+    "files": 192,
+    "largest_file_bytes": 7163903,
     "route_shells": 125
   },
   "theme_runtime": {
     "active_theme": {
-      "builtin": false,
+      "builtin": true,
       "fallback": "studioframe-default",
-      "id": "oryzo-ai",
+      "id": "studioframe-default",
       "immutable_base": true,
-      "name": "Oryzo AI",
+      "name": "StudioFrame Default",
       "preview": {
-        "body_font": "Arial",
+        "accent": "appearance.accent_color",
+        "background": "appearance.background_color",
         "colors": {
-          "accent": "#dc5000",
-          "background": "#100904",
-          "muted": "#6c5f51",
-          "surface": "#382416",
-          "text": "#ffedd7"
+          "accent": "#72F2A5",
+          "background": "#080C0E",
+          "muted": "#93A19D",
+          "surface": "#101719",
+          "text": "#F2F7F5"
         },
-        "display_font": "halyard-display-variable",
-        "mode": "dark"
+        "surface": "appearance.surface_color",
+        "text": "appearance.text_color"
       },
-      "stylesheet": "assets/themes/oryzo-ai.css",
+      "stylesheet": "assets/themes/studioframe-default.css",
       "version": 1
     },
     "active_variant": {
       "exclusive": true,
-      "id": "oryzo-ai--base",
+      "id": "studioframe-default--base",
       "key": "base",
-      "theme_id": "oryzo-ai"
+      "theme_id": "studioframe-default"
     },
     "authoring_contract": {
       "base_immutable": true,
@@ -1151,16 +1148,16 @@
     "available_variants": [
       {
         "exclusive": true,
-        "id": "oryzo-ai--base",
+        "id": "studioframe-default--base",
         "key": "base",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {}
       },
       {
         "exclusive": true,
-        "id": "oryzo-ai--soft",
+        "id": "studioframe-default--soft",
         "key": "soft",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {
           "radius": {
             "block": 20,
@@ -1179,9 +1176,9 @@
       },
       {
         "exclusive": true,
-        "id": "oryzo-ai--editorial",
+        "id": "studioframe-default--editorial",
         "key": "editorial",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {
           "buttons": {
             "style": "editorial"
@@ -1207,9 +1204,9 @@
       },
       {
         "exclusive": true,
-        "id": "oryzo-ai--sharp",
+        "id": "studioframe-default--sharp",
         "key": "sharp",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {
           "buttons": {
             "style": "square"
@@ -1234,9 +1231,9 @@
       },
       {
         "exclusive": true,
-        "id": "oryzo-ai--glass",
+        "id": "studioframe-default--glass",
         "key": "glass",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {
           "cards": {
             "style": "glass"
@@ -1258,9 +1255,9 @@
       },
       {
         "exclusive": true,
-        "id": "oryzo-ai--cinematic",
+        "id": "studioframe-default--cinematic",
         "key": "cinematic",
-        "theme_id": "oryzo-ai",
+        "theme_id": "studioframe-default",
         "tokens": {
           "backgrounds": {
             "intensity": 78,
@@ -1343,38 +1340,55 @@
     },
     "tokens": {
       "backgrounds": {
-        "style": "solid"
+        "style": "glow",
+        "texture": "grid"
+      },
+      "borders": {
+        "style": "hairline"
       },
       "buttons": {
-        "style": "pill"
+        "cta_style": "solid",
+        "style": "rounded"
       },
       "cards": {
-        "style": "themed"
+        "grid_language": "balanced"
       },
       "colors": {
-        "accent": "#dc5000",
-        "background": "#100904",
-        "border": "#40372e",
-        "foreground": "#ffedd7",
-        "muted": "#6c5f51",
-        "primary": "#dc5000",
-        "secondary": "#6c5f51",
-        "surface": "#382416"
+        "accent": "#006B5B",
+        "background": "#F3F6FA",
+        "border": "currentColor",
+        "foreground": "#172033",
+        "muted": "#58697D",
+        "primary": "#006B5B",
+        "secondary": "#58697D",
+        "surface": "#FFFFFF"
       },
       "components": {},
       "motion": {
-        "preset": "balanced"
+        "parallax": "off",
+        "preset": "subtle",
+        "reveal": "fade"
       },
       "radius": {
-        "block": 12
+        "block": 20
+      },
+      "shadows": {
+        "style": "soft"
+      },
+      "spacing": {
+        "blocks": "airy",
+        "container": "wide",
+        "section": "generous"
       },
       "surfaces": {
-        "style": "solid"
+        "style": "glass"
       },
       "typography": {
-        "body": "Arial",
-        "display": "halyard-display-variable",
-        "fallback": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif"
+        "body": "body",
+        "display": "display",
+        "preset": "humanist",
+        "tracking": 0.16,
+        "weight": "500"
       }
     },
     "variant_count": 78,
