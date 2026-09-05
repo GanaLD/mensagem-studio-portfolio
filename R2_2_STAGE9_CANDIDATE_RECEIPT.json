@@ -1,0 +1,46 @@
+{
+  "schema": "mse2-r22-stage9-candidate-receipt-v1",
+  "project": "ENGINE MENSAGEM STUDIO / EMS EDITOR / EE12",
+  "release_line": "R2.2",
+  "stage": 9,
+  "status": "CANDIDATE_ARTIFACT_READY_GITHUB_PROMOTION_PENDING",
+  "canonical_stage8": {
+    "supersedes_artifact": "r22-7e8bf3667496-b184490130080817",
+    "artifact_id": "r22-7e8bf3667496-ed448d516239e489",
+    "artifact_sha256": "ed448d516239e4896a6c49f55f76d33d75426fa0b8c2fe8c9cad4f7666cc6056",
+    "editorial_revision": "7e8bf36674964235ffb7",
+    "build_id": "V74-V75-EDITOR-MOTION-VIDEO"
+  },
+  "source_verification": {
+    "runtime_editor_paths": "37/37 exact SHA-256",
+    "immersive_v31": {
+      "bytes": 17651,
+      "sha256": "7fb9a828ec22937c9ecc5675c57b0e4d714e8c19b3f31964ab47fc556dea191b"
+    },
+    "stage8_selftest": "39/39 PASS",
+    "reproduced_artifact": true
+  },
+  "candidate_package": {
+    "file_name": "R2_2_STAGE9_CANDIDATE_SITE_ed448d516239e489.zip",
+    "zip_sha256": "ccf1d4f6e3f1e6dd9d07765dcf714a9f48f78fd309ba0f9a27b6869c07fb1b0a",
+    "bytes": 10466636,
+    "drive_id": "1Xj0oY0VY3k-It2GQ4-70UKPlHqC17N7o",
+    "drive_evidence_folder_id": "17Ij7Kp6sFwQiQlgb6bX1CBxasfFuO-iZ"
+  },
+  "github": {
+    "repository": "GanaLD/mensagem-studio-portfolio",
+    "candidate_branch": "r22-stage9-candidate-20260904",
+    "main_rollback_commit": "b6bd9a71f235448bfe860af57ca5b537860c08c7",
+    "production_modified": false
+  },
+  "gates": {
+    "exact_artifact_reproduced": "PASS",
+    "drive_artifact_frozen": "PASS",
+    "candidate_branch_isolated": "PASS",
+    "github_connector_write_readback": "PASS",
+    "github_site_commit": "PENDING",
+    "public_pages_publish": "PENDING",
+    "windows_physical": "PENDING_FINAL"
+  },
+  "release_current_policy": "DO_NOT_MODIFY_MSE2_RELEASE_CURRENT_UNTIL_FINAL_VALIDATION"
+}
