@@ -274,6 +274,559 @@
       "project_id": ""
     },
     {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/banner-mobile/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/banners/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/campanha-007-completa/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/carrossel/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/dermacast/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/edicao-de-videos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/lateral-banners/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/laminas-para-divulgacao/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/motion/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/manual-da-marca/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dia-da-velocidade/",
+      "index": true,
+      "kind": "category",
+      "path": "/projetos/dia-da-velocidade/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-mobile-allergan/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-mobile-allergan/",
+      "project_id": "media:1arFMeQ8p0X2b5tGwx5-PnffxGZ62Fc0R"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-bacio/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-bacio/",
+      "project_id": "media:1Be72MnUnOKz38FhpgiIsgF63aKkZiG0l"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-da-evo/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-da-evo/",
+      "project_id": "media:11nGPVaeNIpB2vtubtneucmcf1rlilH2P"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-galderma/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-galderma/",
+      "project_id": "media:1zIQ5vsdQJUINY2OrT3cXXY5Cg7AMgS8O"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-hydro/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-hydro/",
+      "project_id": "media:1OgQIuSIHrt734TDOndjPIaZ_Hw0uwn4u"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-lancamento-bellarine/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-lancamento-bellarine/",
+      "project_id": "media:1vAqrbIf4dp7HqjSEnAXNF79yqgAyjysb"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-lancamento-rennova/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-lancamento-rennova/",
+      "project_id": "media:1e6g5slCNoJqpgie3vcAH5ZQv2SG33_pu"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banner-mobile/banner-rennova-diamond/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banner-mobile/banner-rennova-diamond/",
+      "project_id": "media:1OUnEO8phxcBAXl2l7Th7Ls53pkO6_Bum"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-allergan/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-allergan/",
+      "project_id": "media:1qG5y8s1rx3g8qDTyVNYOXUSwfQC1pb6z"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-bacio/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-bacio/",
+      "project_id": "media:1uNktPEZ7Ik7G2nPfKhOSd1tlmIrH7bYo"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-bellarine/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-bellarine/",
+      "project_id": "media:1w55qe59iktNa4i5WdoknGNuFdtumThpB"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-central-rejuvital/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-central-rejuvital/",
+      "project_id": "media:1iy9RpC3UhXiBwuHwyu5EsxWAU2CBa3ll"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-central-rejuvital-2/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-central-rejuvital-2/",
+      "project_id": "media:1jeRqQax2mPtKCbn1YTqajS9MH1NG8lrt"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-evo/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-evo/",
+      "project_id": "media:1VscXUZg-4fbR_2oGJGZTw7HHNPLKi5p7"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-lancamento/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-lancamento/",
+      "project_id": "media:128fOGCip0vtquE_3u4TsyMRrkpy_CiPO"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rejuvital/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-rejuvital/",
+      "project_id": "media:1EQHAbMP8ryV0_BrcewmvKPNjHBLgvD71"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-club/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-rennova-club/",
+      "project_id": "media:1bkL4J_0YCU2Y1cOZH-t-sKtakAw--rDX"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-diamond/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-rennova-diamond/",
+      "project_id": "media:1-pcn2xqbDXrR7wsombuiHsX8sw_AUIGM"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-elleva/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-rennova-elleva/",
+      "project_id": "media:1b4P2Ue_FDZJC9CrNzmFGEZKeEWz2FI9e"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-rennova-hydro/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-rennova-hydro/",
+      "project_id": "media:1FDvh55V5pCDUBKkOmx6dj7AqzuTbOYke"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-shape-lido/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-shape-lido/",
+      "project_id": "media:1Hc2ncNsna-WdDGfax2xerOOUrmq_bovG"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-v-hacker/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-v-hacker/",
+      "project_id": "media:1ntuTqARjmjncJaEl2y_zgWpzk8G-2SoZ"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/banners/banner-verve/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/banners/banner-verve/",
+      "project_id": "media:1ZWzGyFyD0CKjaZP9MoNt3QZi5zunzpgb"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/banner-da-campanha/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/banner-da-campanha/",
+      "project_id": "media:1EB0D8wT9PIAAUCF1Gf72sfyDs2_xU-Wi"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/card-de-storys/",
+      "project_id": "media:1OR1fwSvdjbbTiNV08JTCFRBZqD4uh-65"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-2/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/card-de-storys-2/",
+      "project_id": "media:1IyZjFT2ubbIp1M0JR1GzE43lKP4HSSIk"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-3/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/card-de-storys-3/",
+      "project_id": "media:1MJQMRDFgcRTEZeFgGwa6rdnJebl-Ch0V"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-de-storys-4/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/card-de-storys-4/",
+      "project_id": "media:1-hNyh25AieUZvCw1aKVNXgmFjjgbvsD9"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/card-para-feed/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/card-para-feed/",
+      "project_id": "media:1MWZgPSlXu5WpLNMDLC7JBS5H7ul_JzF4"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/logo-para-campanha/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/logo-para-campanha/",
+      "project_id": "media:1Vjgc-Kufccj12mqxOpcNVtx14MKIWDwc"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-de-produtos-e-valores/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/lamina-de-produtos-e-valores/",
+      "project_id": "media:1tVJBX_1JckjczuocAaQDjLy3dfzpxf34"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/lamina-precos-e-produtos/",
+      "project_id": "media:19knSx9Q1Qjdu1fhaU61uRl3NEik7v2GN"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos-2/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/lamina-precos-e-produtos-2/",
+      "project_id": "media:1FZFB1JuvGxVxfT4ExcpUGaSoc9Qg8pA5"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/lamina-precos-e-produtos-3/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/lamina-precos-e-produtos-3/",
+      "project_id": "media:1-ybH_F5Jwz2HNnxdI9M5FtF0813qSNA0"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/mobile/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/mobile/",
+      "project_id": "media:1YnFd-ow5HIVdRvwAEM3STnv2RrEobg9B"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/motion-com-spoiler-da-campanha/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/motion-com-spoiler-da-campanha/",
+      "project_id": "media:1XK6rZjryFbn5ZZGRyBnKZQS-haV6Hnzy"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/storys-de-divulgacao/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/storys-de-divulgacao/",
+      "project_id": "media:167yJrfQyCiLpZmOVvCqjDeA_Zhk0rN68"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/campanha-007-completa/video-de-divulgacao/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/campanha-007-completa/video-de-divulgacao/",
+      "project_id": "media:1nq9aJR2B2QDAqAqWR045LUuPCdpf4z_t"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-bacio/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel-bacio/",
+      "project_id": "1Zgcw2vJGRMAOfu66qef-O4RARrEmnCIt"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-img/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel-img/",
+      "project_id": "17ytoPQgi88br27-K9zt3tYzNd4FP945f"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-evo/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel-evo/",
+      "project_id": "1JmhaL8TQBZ8L5cgWZywzoShmDr2bbmoO"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel/",
+      "project_id": "1Ue3H7WUsfsMzF3Gn3hk3mOISYPx022z9"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-rennova/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel-rennova/",
+      "project_id": "1XyfSSVyp2O1QxdW7SA7zEXvoMpsPKot8"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/carrossel/carrossel-v-hacker/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/carrossel/carrossel-v-hacker/",
+      "project_id": "13GdA0aJV1pdYUtwPQ_uuqJqQz93KbHR_"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/cortes/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/dermacast/cortes/",
+      "project_id": "1-aM_k157VuMK3WvoKVfPlw3rAvA7rhgh"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dermacast/episodio-completo/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/dermacast/episodio-completo/",
+      "project_id": "1VJKZFBV5fWEaO_1I66HAjn6yJtCuBntZ"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-em-workshop/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/edicao-de-videos/videos-em-workshop/",
+      "project_id": "1A3jEnJbgw17TBus5WQAf4EvijHF9YsJn"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-para-allergan/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/edicao-de-videos/videos-para-allergan/",
+      "project_id": "1hXPbGzYgXCkYclSHlJ0IkZTYyn-BAfoB"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/edicao-de-videos/videos-para-rejuvital/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/edicao-de-videos/videos-para-rejuvital/",
+      "project_id": "1_DuKohL_ARGrbwMQnIAASWzaJut15eyY"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-belotero/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/lateral-banners/banner-belotero/",
+      "project_id": "media:1DWgvZUDBOtpczVtqbYjHg7Lv-apcWXBF"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-diamond/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/lateral-banners/banner-diamond/",
+      "project_id": "media:1Uc35o-C4ECF8N00826XB3mS3lj8DFxYx"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-lift/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/lateral-banners/banner-lift/",
+      "project_id": "media:1eym2ztVwiKjM2FZZSe0EygPkBI52sjw6"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/lateral-banners/banner-restylane/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/lateral-banners/banner-restylane/",
+      "project_id": "media:1IFjwrry_ZqNKFr-ZI3fqI0o-vm2jPVhU"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/divulgacao-de-produto/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/laminas-para-divulgacao/divulgacao-de-produto/",
+      "project_id": "1beTARHOWQPaa7KuGPUu5hbGlNZXJy2m4"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/laminas-para-divulgacao/divulgacao-para-workshop/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/laminas-para-divulgacao/divulgacao-para-workshop/",
+      "project_id": "1dXJeaBVN-ELVq8p_Qlq5vrC7SeFvKsob"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/motion-fundo-de-tela/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/motion-fundo-de-tela/",
+      "project_id": "media:1beWkRgffY9Brko94NH00Sb_ghoMaGdp8"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/motion-para-podcast/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/motion-para-podcast/",
+      "project_id": "media:1Gd3kp8MYBiotjguw2kpGx2bcSECaZnED"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/produto-com-ia/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/produto-com-ia/",
+      "project_id": "media:1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/reels-rejuvital/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/reels-rejuvital/",
+      "project_id": "media:1RTgYMz6Dnis15E5_lekHz_4vuk1N_7Eb"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/rejuvital-pdrn/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/rejuvital-pdrn/",
+      "project_id": "media:1LuIG7UQEnE-afoIW6ajcefA6J2fumnqz"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/sculpt-galderma/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/sculpt-galderma/",
+      "project_id": "media:1ruFK-vUQDjuMsLZQlz6WrFRU-d-spNLM"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/motion/story-rejuvital/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/motion/story-rejuvital/",
+      "project_id": "media:1uu2RwzNdrFd-rWqUnzC8ewamTxV4qvJg"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/ref-resumido/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/manual-da-marca/ref-resumido/",
+      "project_id": "1zJI3cyVuXmlWJ83xPH4BQvUdSKYWrpdo"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/ref/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/manual-da-marca/ref/",
+      "project_id": "1FGjllpSgDzPfJrLC_fUeAUOhIkqbjbAb"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/visual-branding/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/manual-da-marca/visual-branding/",
+      "project_id": "media:1zvhvW4D9wGen9FyUyWOQ7gIi6ZFSeold"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/manual-da-marca/visual-branding-pasta/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/manual-da-marca/visual-branding-pasta/",
+      "project_id": "1t0MBqjWJRIkFd6w8cnu78n6avbil1EhA"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dia-da-velocidade/spoiler-dia-d-9-9/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/dia-da-velocidade/spoiler-dia-d-9-9/",
+      "project_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/projetos/dia-da-velocidade/video-final-dia-d-9-9/",
+      "index": true,
+      "kind": "project",
+      "path": "/projetos/dia-da-velocidade/video-final-dia-d-9-9/",
+      "project_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8"
+    },
+    {
       "canonical": "https://mensagemstudio.shop/clientes/",
       "index": true,
       "kind": "clients",

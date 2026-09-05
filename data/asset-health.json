@@ -1,14 +1,18 @@
 {
-  "checked": 0,
+  "checked": 195,
   "failures": [],
   "ok": true,
   "state": "PASS",
   "summary": {
-    "drive": 0,
+    "drive": 195,
     "failed": 0,
     "local": 0,
-    "total": 0,
-    "types": {}
+    "total": 195,
+    "types": {
+      "image": 161,
+      "pdf": 5,
+      "video": 29
+    }
   },
   "warnings": []
 }
