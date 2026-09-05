@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "2607c0dfd001da656991",
-    "saved_at": "2026-09-05T14:20:59.268770+00:00"
+    "revision": "acfb1bbb6a12f796f4d9",
+    "saved_at": "2026-09-05T14:21:19.249001+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -34040,11 +34040,20 @@
           "tab": "categorypages"
         },
         {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "id": "v9-category-page:1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "kind": "category-page",
+          "label": "DIA DA VELOCIDADE",
+          "order": 150,
+          "parent_id": "v9-pages-collections",
+          "tab": "categorypages"
+        },
+        {
           "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "id": "v9-category-page:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "kind": "category-page",
           "label": "DERMACAST",
-          "order": 150,
+          "order": 160,
           "parent_id": "v9-pages-collections",
           "tab": "categorypages"
         },
@@ -34053,7 +34062,7 @@
           "id": "v9-category-page:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "category-page",
           "label": "Edição de vídeos",
-          "order": 160,
+          "order": 170,
           "parent_id": "v9-pages-collections",
           "tab": "categorypages"
         },
@@ -34062,7 +34071,7 @@
           "id": "v9-category-page:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "kind": "category-page",
           "label": "Lâminas para divulgação",
-          "order": 170,
+          "order": 180,
           "parent_id": "v9-pages-collections",
           "tab": "categorypages"
         },
@@ -34071,7 +34080,7 @@
           "id": "v9-category-page:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
           "kind": "category-page",
           "label": "MANUAL DA MARCA",
-          "order": 180,
+          "order": 190,
           "parent_id": "v9-pages-collections",
           "tab": "categorypages"
         },
@@ -34080,7 +34089,7 @@
           "id": "v9-category-page:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
           "kind": "category-page",
           "label": "Motion",
-          "order": 190,
+          "order": 200,
           "parent_id": "v9-pages-collections",
           "tab": "categorypages"
         },
@@ -37586,11 +37595,164 @@
           "tab": "projects"
         },
         {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "id": "v9-project-category:1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "kind": "project-category",
+          "label": "DIA DA VELOCIDADE",
+          "order": 150,
+          "parent_id": "v9-projects-entities",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "kind": "project-item",
+          "label": "SPOILER DIA D 9.9",
+          "order": 10,
+          "parent_id": "v9-project-category:1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "tab": "projects",
+          "visible": true
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM:data",
+          "kind": "project-item-target",
+          "label": "Dados / título / descrição",
+          "order": 10,
+          "parent_id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_target": "data",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM:cover",
+          "kind": "project-item-target",
+          "label": "Capa / enquadramento",
+          "order": 20,
+          "parent_id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_target": "cover",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM:media",
+          "kind": "project-item-target",
+          "label": "Mídias do projeto",
+          "order": 30,
+          "parent_id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_target": "media",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM:case",
+          "kind": "project-item-target",
+          "label": "Case Builder / narrativa",
+          "order": 40,
+          "parent_id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_target": "case",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM:commercial",
+          "kind": "project-item-target",
+          "label": "Serviços relacionados / CTA",
+          "order": 50,
+          "parent_id": "v9-project-item:media:14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_id": "14EDHwxdhomae1nRzG3WRfBo4APFtJrCM",
+          "project_target": "commercial",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "kind": "project-item",
+          "label": "Vídeo final DIA D 9.9",
+          "order": 20,
+          "parent_id": "v9-project-category:1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "tab": "projects",
+          "visible": true
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8:data",
+          "kind": "project-item-target",
+          "label": "Dados / título / descrição",
+          "order": 10,
+          "parent_id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_target": "data",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8:cover",
+          "kind": "project-item-target",
+          "label": "Capa / enquadramento",
+          "order": 20,
+          "parent_id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_target": "cover",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8:media",
+          "kind": "project-item-target",
+          "label": "Mídias do projeto",
+          "order": 30,
+          "parent_id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_target": "media",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8:case",
+          "kind": "project-item-target",
+          "label": "Case Builder / narrativa",
+          "order": 40,
+          "parent_id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_target": "case",
+          "tab": "projects"
+        },
+        {
+          "category_id": "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX",
+          "entity_id": "media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8:commercial",
+          "kind": "project-item-target",
+          "label": "Serviços relacionados / CTA",
+          "order": 50,
+          "parent_id": "v9-project-item:media:1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_id": "1poYlFVO-T-dyX5ElP_bbqbikbDf2r6n8",
+          "project_target": "commercial",
+          "tab": "projects"
+        },
+        {
           "category_id": "1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "id": "v9-project-category:1hXDfSwV5Zw0DuoAgz67YhS0JDGdp8NYL",
           "kind": "project-category",
           "label": "DERMACAST",
-          "order": 150,
+          "order": 160,
           "parent_id": "v9-projects-entities",
           "tab": "projects"
         },
@@ -37743,7 +37905,7 @@
           "id": "v9-project-category:1C7TOoTobZNOWtVOrHix58a7_eEBMOymZ",
           "kind": "project-category",
           "label": "Edição de vídeos",
-          "order": 160,
+          "order": 170,
           "parent_id": "v9-projects-entities",
           "tab": "projects"
         },
@@ -37968,7 +38130,7 @@
           "id": "v9-project-category:1WDzLRymNZnp_wPbjkGf77ZAoX-w5aZ1V",
           "kind": "project-category",
           "label": "Lâminas para divulgação",
-          "order": 170,
+          "order": 180,
           "parent_id": "v9-projects-entities",
           "tab": "projects"
         },
@@ -38121,7 +38283,7 @@
           "id": "v9-project-category:1BxcqWD9VyApwqs3KMSqg3PGdJ7g0pBNF",
           "kind": "project-category",
           "label": "MANUAL DA MARCA",
-          "order": 180,
+          "order": 190,
           "parent_id": "v9-projects-entities",
           "tab": "projects"
         },
@@ -38418,7 +38580,7 @@
           "id": "v9-project-category:1FWLlXuHbzj4XhddndYx2jXcloccHB1FF",
           "kind": "project-category",
           "label": "Motion",
-          "order": 190,
+          "order": 200,
           "parent_id": "v9-projects-entities",
           "tab": "projects"
         },
