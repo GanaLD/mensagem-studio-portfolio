@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "c2888ffafe8a445f78ab",
-    "saved_at": "2026-09-05T21:06:32.156019+00:00"
+    "revision": "9a5702f15de827aadd56",
+    "saved_at": "2026-09-05T21:06:41.513652+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3508,7 +3508,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "logo_carousel",
-          "visible": true
+          "visible": false
         },
         {
           "body_size": "",
@@ -3602,7 +3602,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "canvas_fractal_grid",
-          "visible": true,
+          "visible": false,
           "wave_intensity": 40,
           "wave_radius": 250
         },
@@ -34128,7 +34128,7 @@
           "order": 120,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "block-mt7w5bn1-p6bcf",
@@ -34139,7 +34139,7 @@
           "order": 130,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": true
+          "visible": false
         },
         {
           "block_id": "core-contact",
