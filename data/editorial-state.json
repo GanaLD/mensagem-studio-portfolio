@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "0f491a1bb153de165d3d",
-    "saved_at": "2026-09-05T21:07:32.417624+00:00"
+    "revision": "f33f908181e1e68cabc0",
+    "saved_at": "2026-09-05T21:07:49.957098+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -32390,6 +32390,65 @@
       "visible": true,
       "whatsapp_message": "Olá! Gostaria de solicitar um orçamento para um projeto.",
       "whatsapp_number": "5541999999937"
+    },
+    "showcases": {
+      "description": "3D, PDF, HTML5 e mídia executados como módulos independentes.",
+      "enabled": true,
+      "eyebrow": "SHOWCASE HUB",
+      "html5": {
+        "allow_fullscreen": true,
+        "aspect_ratio": "16/9",
+        "description": "Experiência HTML real isolada em iframe sandbox.",
+        "enabled": true,
+        "entrypoint": "/assets/showcases/proof/html5/index.html",
+        "owner": "studio.html5",
+        "preview_image": "",
+        "sandbox": "allow-scripts",
+        "title": "Showcase HTML5"
+      },
+      "layout": "tabs",
+      "model": {
+        "asset_id": "studio-orbit-dish",
+        "auto_rotate": true,
+        "background": "transparent",
+        "camera_preset": "three-quarter",
+        "description": "Modelo GLB com orbit, presets de câmera e fallback procedural.",
+        "enabled": true,
+        "fallback": "/assets/3d/fallbacks/studio-orbit-dish.png",
+        "interaction": true,
+        "material": "physical",
+        "owner": "studio.model",
+        "quality": "balanced",
+        "title": "Showcase 3D"
+      },
+      "owner": "home.showcase_hub",
+      "pdf": {
+        "controls": true,
+        "description": "Documento paginado em canvas responsivo.",
+        "enabled": true,
+        "fit_mode": "width",
+        "owner": "studio.pdf",
+        "poster": "",
+        "src": "/assets/showcases/proof/stage5-pdf-proof.pdf",
+        "start_page": 1,
+        "title": "Showcase PDF",
+        "zoom": 1
+      },
+      "player": {
+        "aspect_ratio": "16/9",
+        "autoplay": false,
+        "captions": "",
+        "controls": true,
+        "description": "Player próprio com estados físicos sincronizados.",
+        "enabled": true,
+        "loop": false,
+        "muted": false,
+        "owner": "studio.player",
+        "poster": "/assets/showcases/proof/stage5-poster.png",
+        "src": "/assets/showcases/proof/stage5-player-proof.mp4",
+        "title": "Media / Player"
+      },
+      "title": "Experiências interativas"
     },
     "site_tree": {
       "nodes": [
