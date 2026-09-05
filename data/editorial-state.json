@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "97a6b967d77614929428",
-    "saved_at": "2026-09-05T21:08:41.868724+00:00"
+    "revision": "3a3787a4917304b1304f",
+    "saved_at": "2026-09-05T21:09:54.420087+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -2429,7 +2429,7 @@
           "title_size": "",
           "title_weight": "400",
           "type": "intro",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -2705,7 +2705,7 @@
           "title_size": "",
           "title_weight": "300",
           "type": "projects_header",
-          "visible": false
+          "visible": true
         },
         {
           "body_size": "",
@@ -3958,7 +3958,7 @@
           "1y6oTIVsb1IpcZYLcuwLmBQHPPb1yAQiX"
         ]
       },
-      "header_visible": false,
+      "header_visible": true,
       "title": "",
       "visible": true
     },
@@ -34077,7 +34077,7 @@
           "order": 20,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": false
+          "visible": true
         },
         {
           "block_id": "core-lettering",
@@ -34110,7 +34110,7 @@
           "order": 50,
           "parent_id": "v9-home-blocks",
           "tab": "home",
-          "visible": false
+          "visible": true
         },
         {
           "block_id": "core-projects",
