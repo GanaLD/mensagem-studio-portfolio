@@ -1,0 +1,109 @@
+name: R2.2 Stage9 Materialize Exact Artifact
+
+on:
+  push:
+    branches:
+      - r22-stage9-candidate-20260904
+    paths:
+      - .github/workflows/r22-stage9-materialize.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    env:
+      DRIVE_FILE_ID: 1Xj0oY0VY3k-It2GQ4-70UKPlHqC17N7o
+      EXPECTED_ZIP_SHA256: ccf1d4f6e3f1e6dd9d07765dcf714a9f48f78fd309ba0f9a27b6869c07fb1b0a
+      EXPECTED_ARTIFACT_ID: r22-7e8bf3667496-ed448d516239e489
+      EXPECTED_ARTIFACT_SHA256: ed448d516239e4896a6c49f55f76d33d75426fa0b8c2fe8c9cad4f7666cc6056
+      ROLLBACK_COMMIT: b6bd9a71f235448bfe860af57ca5b537860c08c7
+      TARGET_BRANCH: r22-stage9-site-ed448
+
+    steps:
+      - name: Checkout control branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download frozen candidate only
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL="https://drive.usercontent.google.com/download?id=${DRIVE_FILE_ID}&export=download&confirm=t"
+          curl -L --fail --retry 4 --retry-delay 3 "$URL" -o "$RUNNER_TEMP/candidate.zip"
+          echo "${EXPECTED_ZIP_SHA256}  $RUNNER_TEMP/candidate.zip" | sha256sum --check --strict
+
+      - name: Extract and verify artifact identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/site"
+          unzip -q "$RUNNER_TEMP/candidate.zip" -d "$RUNNER_TEMP/site"
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+
+          root = Path(os.environ['RUNNER_TEMP']) / 'site'
+          manifest_path = root / 'data' / 'build-manifest.json'
+          if not manifest_path.is_file():
+              raise SystemExit('FAIL: build-manifest.json missing')
+          manifest = json.loads(manifest_path.read_text('utf-8'))
+          expected_id = os.environ['EXPECTED_ARTIFACT_ID']
+          expected_sha = os.environ['EXPECTED_ARTIFACT_SHA256']
+          if manifest.get('artifact_id') != expected_id:
+              raise SystemExit(f"FAIL artifact_id: {manifest.get('artifact_id')} != {expected_id}")
+          if manifest.get('artifact_sha256') != expected_sha:
+              raise SystemExit(f"FAIL artifact_sha256: {manifest.get('artifact_sha256')} != {expected_sha}")
+          files = manifest.get('files') or {}
+          failures = []
+          for rel, meta in files.items():
+              p = root / rel
+              if not p.is_file():
+                  failures.append(f'missing:{rel}')
+                  continue
+              data = p.read_bytes()
+              sha = hashlib.sha256(data).hexdigest()
+              if sha != meta.get('sha256'):
+                  failures.append(f'sha:{rel}')
+              if len(data) != int(meta.get('bytes', -1)):
+                  failures.append(f'bytes:{rel}')
+          if failures:
+              raise SystemExit('FAIL file manifest: ' + ', '.join(failures[:20]))
+          print('PASS exact artifact', expected_id, expected_sha, 'files', len(files))
+          PY
+
+      - name: Materialize site-only candidate branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "${ROLLBACK_COMMIT}"
+          rm -rf "$RUNNER_TEMP/sitework"
+          git worktree add --detach "$RUNNER_TEMP/sitework" "${ROLLBACK_COMMIT}"
+          cd "$RUNNER_TEMP/sitework"
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -a "$RUNNER_TEMP/site/." .
+          git add -A
+          git config user.name "Mensagem Studio Release Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -m "EMS R2.2 Stage9: materialize exact ed448 artifact"
+          git push --force-with-lease origin "HEAD:refs/heads/${TARGET_BRANCH}"
+          echo "candidate_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Verify branch tree points to certified manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "${TARGET_BRANCH}"
+          git show "origin/${TARGET_BRANCH}:data/build-manifest.json" > "$RUNNER_TEMP/branch-build-manifest.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ['RUNNER_TEMP']) / 'branch-build-manifest.json'
+          m = json.loads(p.read_text('utf-8'))
+          assert m['artifact_id'] == os.environ['EXPECTED_ARTIFACT_ID']
+          assert m['artifact_sha256'] == os.environ['EXPECTED_ARTIFACT_SHA256']
+          print('PASS branch manifest read-back')
+          PY
