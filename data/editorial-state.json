@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "b7374b43611d01ab62f3",
-    "saved_at": "2026-09-04T01:37:58.002105+00:00"
+    "revision": "2607c0dfd001da656991",
+    "saved_at": "2026-09-05T14:20:59.268770+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -3620,6 +3620,16 @@
         }
       ],
       "youtube_showcase_removed": false
+    },
+    "immersive": {
+      "debug": false,
+      "enabled": true,
+      "fallback": true,
+      "glb_asset_id": "studio-orbit-dish",
+      "intensity": 1.0,
+      "quality": "auto",
+      "runtime_version": "3.1",
+      "visual_proof": true
     },
     "layout": {
       "ambient_motion": true,
@@ -32174,13 +32184,20 @@
       "quote_case_action_label": "Quero algo semelhante",
       "quote_dock_label": "Orçamento",
       "quote_enabled": true,
-      "quote_finish_label": "Finalizar pelo WhatsApp",
+      "quote_endpoint": "/api/quote",
+      "quote_endpoint_enabled": true,
+      "quote_fallback_whatsapp": true,
+      "quote_finish_label": "Enviar solicitação",
+      "quote_home_intro": "Escolha serviços, detalhe o escopo e envie uma solicitação com protocolo de recebimento.",
+      "quote_home_title": "Monte seu orçamento",
+      "quote_home_visible": true,
       "quote_intro": "Revise os serviços, quantidades e referências antes de enviar o briefing.",
       "quote_item_action_label": "Adicionar ao orçamento",
       "quote_show_deadline": true,
       "quote_show_estimate": true,
       "quote_show_revisions": true,
       "quote_state_version": 1,
+      "quote_success_message": "Solicitação recebida. Guarde o protocolo para acompanhar o pedido.",
       "quote_title": "Seu orçamento",
       "quote_whatsapp_intro": "Olá! Gostaria de solicitar um orçamento.",
       "response_note": "Retorno comercial em até 1 dia útil.",
@@ -32502,6 +32519,15 @@
           "tab": "pagebuilder"
         },
         {
+          "id": "v9-site-html-runtime",
+          "kind": "section-editor",
+          "label": "HTML canônico / páginas / registries",
+          "order": 15,
+          "parent_id": "v9-site-routes",
+          "r22_owner": "site.pages",
+          "tab": "pagebuilder"
+        },
+        {
           "id": "v9-site-header",
           "kind": "component",
           "label": "Cabeçalho",
@@ -32610,6 +32636,63 @@
           "order": 10,
           "parent_id": "v9-pages-home",
           "tab": "home"
+        },
+        {
+          "id": "v9-pages-home-gallery",
+          "kind": "section-editor",
+          "label": "Galeria / Project Registry",
+          "order": 15,
+          "parent_id": "v9-pages-home",
+          "r22_owner": "home.projects",
+          "tab": "projects"
+        },
+        {
+          "id": "v9-pages-home-showcases",
+          "kind": "group",
+          "label": "Player / Showcases",
+          "order": 17,
+          "parent_id": "v9-pages-home",
+          "r22_owner": "home.showcase_hub"
+        },
+        {
+          "editor_anchor": "modelShowcaseEditor",
+          "id": "v9-home-showcase-model",
+          "kind": "editor-anchor",
+          "label": "Showcase 3D",
+          "order": 10,
+          "parent_id": "v9-pages-home-showcases",
+          "r22_owner": "studio.model",
+          "tab": "showcases"
+        },
+        {
+          "editor_anchor": "pdfShowcaseEditor",
+          "id": "v9-home-showcase-pdf",
+          "kind": "editor-anchor",
+          "label": "Showcase PDF",
+          "order": 20,
+          "parent_id": "v9-pages-home-showcases",
+          "r22_owner": "studio.pdf",
+          "tab": "showcases"
+        },
+        {
+          "editor_anchor": "html5ShowcaseEditor",
+          "id": "v9-home-showcase-html5",
+          "kind": "editor-anchor",
+          "label": "Showcase HTML5",
+          "order": 30,
+          "parent_id": "v9-pages-home-showcases",
+          "r22_owner": "studio.html5",
+          "tab": "showcases"
+        },
+        {
+          "editor_anchor": "studioPlayerEditor",
+          "id": "v9-home-showcase-player",
+          "kind": "editor-anchor",
+          "label": "Media / StudioPlayer",
+          "order": 40,
+          "parent_id": "v9-pages-home-showcases",
+          "r22_owner": "studio.player",
+          "tab": "showcases"
         },
         {
           "id": "v9-home-blocks",
@@ -32812,6 +32895,15 @@
           "tab": "projects"
         },
         {
+          "id": "v9-projects-registry",
+          "kind": "section-editor",
+          "label": "Project Registry / ordem / capas / slugs",
+          "order": 15,
+          "parent_id": "v9-projects",
+          "r22_owner": "projects.registry",
+          "tab": "projects"
+        },
+        {
           "id": "v9-projects-entities",
           "kind": "group",
           "label": "Project Entity / páginas / trabalhos",
@@ -32878,13 +32970,24 @@
           "tab": "services"
         },
         {
-          "id": "v9-services-quote",
+          "id": "v9-services-contact",
           "kind": "service-anchor",
-          "label": "Orçamento e contato",
+          "label": "Contato e CTA",
           "order": 40,
           "parent_id": "v9-services-settings",
-          "service_anchor": "servicesBriefVisible",
+          "service_anchor": "servicesCtaTitle",
           "tab": "services"
+        },
+        {
+          "alias_of": "v9-quote-editor",
+          "contextual_alias": true,
+          "editor_anchor": "servicesQuoteEnabled",
+          "id": "v9-services-quote",
+          "kind": "editor-anchor",
+          "label": "Orçamento integrado · atalho",
+          "order": 45,
+          "parent_id": "v9-services-settings",
+          "tab": "quote"
         },
         {
           "id": "v9-services-offer",
@@ -32901,6 +33004,50 @@
           "label": "Categorias / serviços / páginas",
           "order": 20,
           "parent_id": "v9-services"
+        },
+        {
+          "id": "v9-quote",
+          "kind": "group",
+          "label": "ORÇAMENTO",
+          "order": 65,
+          "parent_id": "v9-functional-tree",
+          "r22_owner": "forms.quote"
+        },
+        {
+          "id": "v9-quote-editor",
+          "kind": "section-editor",
+          "label": "QuoteWizard / Home / drawer",
+          "order": 10,
+          "parent_id": "v9-quote",
+          "r22_owner": "forms.quote",
+          "tab": "quote"
+        },
+        {
+          "editor_anchor": "quoteGeneralEditor",
+          "id": "v9-quote-config",
+          "kind": "editor-anchor",
+          "label": "Exibição / estimativa / mensagens",
+          "order": 20,
+          "parent_id": "v9-quote",
+          "tab": "quote"
+        },
+        {
+          "editor_anchor": "quoteEndpointEditor",
+          "id": "v9-quote-endpoint",
+          "kind": "editor-anchor",
+          "label": "Endpoint / confirmação HTTP",
+          "order": 30,
+          "parent_id": "v9-quote",
+          "tab": "quote"
+        },
+        {
+          "editor_anchor": "quoteReceiptsEditor",
+          "id": "v9-quote-receipts",
+          "kind": "editor-anchor",
+          "label": "Protocolos recebidos",
+          "order": 40,
+          "parent_id": "v9-quote",
+          "tab": "quote"
         },
         {
           "id": "v9-composition",
@@ -33091,13 +33238,24 @@
         },
         {
           "contextual_alias": true,
-          "editor_anchor": "servicesQuoteEnabled",
+          "editor_anchor": "servicesCtaTitle",
           "id": "v9-actions-services",
           "kind": "editor-anchor",
-          "label": "Serviços / Orçamento / CTA",
+          "label": "Serviços / CTA",
           "order": 30,
           "parent_id": "v9-buttons-actions",
           "tab": "services"
+        },
+        {
+          "alias_of": "v9-quote-editor",
+          "contextual_alias": true,
+          "editor_anchor": "servicesQuoteFinishLabel",
+          "id": "v9-actions-quote",
+          "kind": "editor-anchor",
+          "label": "Orçamento / enviar solicitação",
+          "order": 35,
+          "parent_id": "v9-buttons-actions",
+          "tab": "quote"
         },
         {
           "editor_anchor": "siteThemeButtons",
@@ -33199,9 +33357,66 @@
           "tab": "home"
         },
         {
+          "id": "v9-immersive",
+          "kind": "group",
+          "label": "10 · IMMERSIVE V3.1",
+          "order": 95,
+          "parent_id": "v9-functional-tree",
+          "r22_owner": "experience.runtime"
+        },
+        {
+          "id": "v9-immersive-runtime",
+          "kind": "section-editor",
+          "label": "Experience Engine / AppKernel",
+          "order": 10,
+          "parent_id": "v9-immersive",
+          "r22_owner": "experience.runtime",
+          "tab": "immersive"
+        },
+        {
+          "editor_anchor": "immersiveDiagnostics",
+          "id": "v9-immersive-scroll",
+          "kind": "editor-anchor",
+          "label": "ScrollOrchestrator / SectionRegistry",
+          "order": 20,
+          "parent_id": "v9-immersive",
+          "r22_owner": "experience.scroll",
+          "tab": "immersive"
+        },
+        {
+          "editor_anchor": "immersiveDiagnostics",
+          "id": "v9-immersive-camera",
+          "kind": "editor-anchor",
+          "label": "Camera / Scene / PostFX",
+          "order": 30,
+          "parent_id": "v9-immersive",
+          "r22_owner": "experience.camera",
+          "tab": "immersive"
+        },
+        {
+          "editor_anchor": "immersiveRuntimeEditor",
+          "id": "v9-immersive-quality",
+          "kind": "editor-anchor",
+          "label": "Quality / Mobile / Reduced Motion",
+          "order": 40,
+          "parent_id": "v9-immersive",
+          "r22_owner": "experience.quality",
+          "tab": "immersive"
+        },
+        {
+          "editor_anchor": "immersiveDiagnostics",
+          "id": "v9-immersive-diagnostics",
+          "kind": "editor-anchor",
+          "label": "Visual Proof / diagnóstico",
+          "order": 50,
+          "parent_id": "v9-immersive",
+          "r22_owner": "experience.runtime",
+          "tab": "immersive"
+        },
+        {
           "id": "v9-media-player",
           "kind": "group",
-          "label": "10 · MÍDIA",
+          "label": "11 · MÍDIA",
           "legacy_label": "15 · Mídia / Player",
           "order": 100,
           "parent_id": "v9-functional-tree"
@@ -33217,13 +33432,16 @@
           "tab": "projects"
         },
         {
-          "editor_anchor": "mediaManagerInspector",
+          "alias_of": "v9-home-showcase-player",
+          "contextual_alias": true,
+          "editor_anchor": "studioPlayerEditor",
           "id": "v9-player",
           "kind": "editor-anchor",
-          "label": "StudioFrame Player / enquadramento",
+          "label": "StudioFrame Player / mídia real",
           "order": 20,
           "parent_id": "v9-media-player",
-          "tab": "projects"
+          "r22_owner": "studio.player",
+          "tab": "showcases"
         },
         {
           "editor_anchor": "siteAmbientAudioEnabled",
@@ -33237,7 +33455,7 @@
         {
           "id": "v9-responsive",
           "kind": "group",
-          "label": "11 · RESPONSIVIDADE",
+          "label": "12 · RESPONSIVIDADE",
           "legacy_label": "20 · RESPONSIVIDADE",
           "order": 110,
           "parent_id": "v9-functional-tree"
@@ -33290,7 +33508,7 @@
         {
           "id": "v9-preview-root",
           "kind": "group",
-          "label": "12 · PRÉ-VISUALIZAÇÃO",
+          "label": "13 · PRÉ-VISUALIZAÇÃO",
           "order": 120,
           "parent_id": "v9-functional-tree"
         },
@@ -33326,7 +33544,7 @@
         {
           "id": "v9-seo",
           "kind": "group",
-          "label": "13 · SEO",
+          "label": "14 · SEO",
           "legacy_label": "21 · SEO / DISCOVERY",
           "order": 130,
           "parent_id": "v9-functional-tree"
@@ -33342,7 +33560,7 @@
         {
           "id": "v9-briefing",
           "kind": "group",
-          "label": "14 · BRIEFING",
+          "label": "15 · BRIEFING",
           "legacy_label": "23 · Briefing Engine",
           "order": 140,
           "parent_id": "v9-functional-tree"
@@ -33395,7 +33613,7 @@
         {
           "id": "v9-data-drive",
           "kind": "group",
-          "label": "15 · DADOS / CLOUD / DRIVE",
+          "label": "16 · DADOS / CLOUD / DRIVE",
           "legacy_label": "22 · DADOS / DRIVE",
           "order": 150,
           "parent_id": "v9-functional-tree"
@@ -33419,11 +33637,21 @@
           "tab": "categories"
         },
         {
+          "editor_anchor": "assetRegistryInspector",
+          "id": "v9-data-assets-registry",
+          "kind": "editor-anchor",
+          "label": "Asset Registry / health / cache",
+          "order": 30,
+          "parent_id": "v9-data-drive",
+          "r22_owner": "assets.registry",
+          "tab": "categories"
+        },
+        {
           "editor_anchor": "driveSyncInspector",
           "id": "v9-data-drive-sync",
           "kind": "editor-anchor",
           "label": "Sincronização / cache",
-          "order": 30,
+          "order": 40,
           "parent_id": "v9-data-drive",
           "tab": "categories"
         },
@@ -33432,14 +33660,14 @@
           "id": "v9-data-drive-editorial",
           "kind": "editor-anchor",
           "label": "Projeção editorial",
-          "order": 40,
+          "order": 50,
           "parent_id": "v9-data-drive",
           "tab": "categories"
         },
         {
           "id": "v9-operations",
           "kind": "group",
-          "label": "16 · PUBLICAÇÃO",
+          "label": "17 · PUBLICAÇÃO",
           "order": 160,
           "parent_id": "v9-functional-tree"
         },
@@ -33510,7 +33738,7 @@
         {
           "id": "v9-history",
           "kind": "group",
-          "label": "17 · HISTÓRICO / RECUPERAÇÃO",
+          "label": "18 · HISTÓRICO / RECUPERAÇÃO",
           "legacy_label": "28 · Histórico",
           "order": 170,
           "parent_id": "v9-functional-tree"
@@ -33535,7 +33763,7 @@
         {
           "id": "v9-diagnostics",
           "kind": "group",
-          "label": "18 · SISTEMA / DIAGNÓSTICO",
+          "label": "19 · SISTEMA / DIAGNÓSTICO",
           "legacy_label": "29 · Diagnóstico / Recuperação",
           "order": 180,
           "parent_id": "v9-functional-tree"
@@ -40097,7 +40325,7 @@
         }
       ],
       "root_id": "site",
-      "version": 16
+      "version": 21
     },
     "special_routes": {
       "about": {
