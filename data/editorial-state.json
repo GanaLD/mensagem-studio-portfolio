@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "c5ffcca380ac939f32fb",
-    "saved_at": "2026-09-06T18:50:38.589375+00:00"
+    "revision": "1b5738da586bc7c80b73",
+    "saved_at": "2026-09-06T18:51:24.168521+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -2181,7 +2181,7 @@
         "attribution_visible": true,
         "enabled": true,
         "end_percent": 260,
-        "media_id": "",
+        "media_id": "1tCeCpU_Q5HyWo1l71VIvIrt_9RSbTyCE",
         "mobile_fallback": "poster",
         "mobile_media_id": "",
         "mode": "video_scrub",
