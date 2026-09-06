@@ -3,8 +3,8 @@
     "app_version": "7.12.20",
     "device_id": "device-3e7f29f7077c4942",
     "format": "studioframe-editorial-v1",
-    "revision": "147e3ec8220021b4e235",
-    "saved_at": "2026-09-06T18:50:17.788858+00:00"
+    "revision": "c5ffcca380ac939f32fb",
+    "saved_at": "2026-09-06T18:50:38.589375+00:00"
   },
   "app_version": "7.12.20",
   "collections": {},
@@ -2244,8 +2244,8 @@
       "sound_control_visible": true,
       "start_muted": true,
       "story": {
-        "enabled": false,
-        "mode": "slides",
+        "enabled": true,
+        "mode": "scroll",
         "scenes": [],
         "version": 1
       },
