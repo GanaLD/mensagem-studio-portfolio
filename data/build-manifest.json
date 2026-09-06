@@ -1,12 +1,12 @@
 {
   "app_version": "7.12.20",
-  "artifact_id": "r22-d093cf6deb4f-5d36a5e487dda7d9",
-  "artifact_sha256": "5d36a5e487dda7d986070cf058b76bb6401ce89e9cc06061f852eb48d31b03ed",
+  "artifact_id": "r22-1b5738da586b-0c9bf00e64cf94da",
+  "artifact_sha256": "0c9bf00e64cf94dad3c6eb8ef5c9da38f19d682a93aa6f5eb53d98c79b534f22",
   "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
-  "build_revision": "5d36a5e487dda7d98607",
-  "built_at": "2026-09-05T21:14:07.749624+00:00",
-  "bundle_sha256": "5d36a5e487dda7d986070cf058b76bb6401ce89e9cc06061f852eb48d31b03ed",
-  "editorial_revision": "d093cf6deb4f3aa8fb86",
+  "build_revision": "0c9bf00e64cf94dad3c6",
+  "built_at": "2026-09-06T18:52:51.232263+00:00",
+  "bundle_sha256": "0c9bf00e64cf94dad3c6eb8ef5c9da38f19d682a93aa6f5eb53d98c79b534f22",
+  "editorial_revision": "1b5738da586bc7c80b73",
   "files": {
     ".nojekyll": {
       "bytes": 0,
@@ -14,11 +14,11 @@
     },
     "404.html": {
       "bytes": 14357,
-      "sha256": "fb600cd5ecf5f80697b1321505c71a24c079a8d0c36ce5ffc6d4d2cd78b851c6"
+      "sha256": "de5d894093f57889f552579773b51cf8dd961897b1554bade1949c88e536fcad"
     },
     "404/index.html": {
       "bytes": 14872,
-      "sha256": "85defa099d2bdc8e196c21ddcdb4eb5ae8646a3409f0070d71280619f72c915f"
+      "sha256": "7d48d4cbb2f817cd0f902c221823c64567d595c6a7b00c19d4cee627ed09b255"
     },
     "CNAME": {
       "bytes": 21,
@@ -26,7 +26,7 @@
     },
     "arquivo/index.html": {
       "bytes": 14739,
-      "sha256": "1b4d2681a7000db00533f8dc51814b0d6c36eb2627ca6f1fab34b5fdb7f57656"
+      "sha256": "08c115489e4f7ae170636e90210d4df61e064901cc92fe40731e21ccb87d24be"
     },
     "assets/3d/fallbacks/studio-orbit-dish.png": {
       "bytes": 4620,
@@ -222,19 +222,19 @@
     },
     "briefing/index.html": {
       "bytes": 14681,
-      "sha256": "d23a971608652a26011062140f718b45f067c917738f608b9d317e0ed04fdb82"
+      "sha256": "e7fd0b4db5f54356f28b9e3b5aef33021bc13bd29240fe60b2dac75c6688c46b"
     },
     "busca/index.html": {
       "bytes": 14762,
-      "sha256": "21d4f517e563ffc60c54437e48dc026d6793dd95cde247c1592696262c52bcea"
+      "sha256": "0a74f51f161d71f8408e5c389560f77551e2d61f33424686aaaf6a606f40c8f7"
     },
     "clientes/index.html": {
       "bytes": 14847,
-      "sha256": "6d4e73527d2eae38769fab0178cfc7a527962a4163380de3a5a954b2bf40f51a"
+      "sha256": "90ac2de2d6e92a20e38a3303b553e3ec62d2d2a293e74e9d6b8b144f178bd175"
     },
     "contato/index.html": {
       "bytes": 14776,
-      "sha256": "f62f758327a7fa3966cdb50647508528d62698296aa6e55db468aacc958b99d1"
+      "sha256": "47df9de67392201fd5e659ec249b457a314b2ad9796583bde2730449678b7eba"
     },
     "data/asset-health.json": {
       "bytes": 272,
@@ -265,8 +265,8 @@
       "sha256": "f1756a54e524f2fbf34005dbab3891b20d9ad71eaf3bf73fe7ac068111f4cf69"
     },
     "data/portfolio.json": {
-      "bytes": 4663166,
-      "sha256": "fd39bb2589f87008541dfca844045e251a2c4ce076f314aac2713c77245c447c"
+      "bytes": 4663147,
+      "sha256": "fe1d2fc0588a032924658e2751fa55c6e0d25b49fe0bb4b1d2e663ac902c40bf"
     },
     "data/projects.json": {
       "bytes": 28172,
@@ -293,12 +293,12 @@
       "sha256": "0956a1c5fec1581a5b20e7bce0c3a10dbace79162204504eb512d54990987e8c"
     },
     "index.html": {
-      "bytes": 3280000,
-      "sha256": "7d92ee67bf43bc988a708bdc6f894649f9e8cebf6f7bb0cca07f4c13631312bb"
+      "bytes": 3279981,
+      "sha256": "e2608b88878e74856b53009cddcd94eb8f95c755658e013663770e68bd8035d5"
     },
     "orcamento/index.html": {
       "bytes": 14745,
-      "sha256": "93ce01f3246c887d97d9e261157deabdd004b57e756576d083f7d3f914b51d88"
+      "sha256": "37cc48f7ee13f4cf427075b3750c0ae3f3348822ae6061ef9a6161a8d527370c"
     },
     "projetos/banner-mobile/banner-bacio/index.html": {
       "bytes": 15345,
@@ -622,151 +622,151 @@
     },
     "servicos/animacao-de-logotipo/index.html": {
       "bytes": 15338,
-      "sha256": "adbf8ccb764012a72b935cc1ae674d4a8f9fa0184ee18ea9594429a6fa610a7d"
+      "sha256": "1e39d8cfcb9a9cea655e78fca8b5e2e196b58fed43ed33579c971aad6c12aeec"
     },
     "servicos/arte-avulsa-para-post-ou-story/index.html": {
       "bytes": 15542,
-      "sha256": "c3786ccccd394aa8af65fa6018e7470d810027ecd7033f234bae7aaf58ab78df"
+      "sha256": "0ed413cb6b4036465f80254200c7981df0bd2ddf917eb64baa2ccf0d32ef93e0"
     },
     "servicos/banner-para-loja-ou-colecao/index.html": {
       "bytes": 15435,
-      "sha256": "da13671d40a2ba6e7b6009e9c3ebdcf70b364f8286fabd2c7e0a81cc8b0b9d84"
+      "sha256": "6cf69dd8a9c2158b5e72d640d610553e9ffcc8e82f33feb0ecf0299e0e8659b2"
     },
     "servicos/captacao-essencial-de-ate-2-horas/index.html": {
       "bytes": 15596,
-      "sha256": "097378ca4b808fc445bb5de747e134ff6e34f1fddb017055cc2177719d8949b5"
+      "sha256": "b996392dd2f1bb7df98b0ad533e4f25b2897b83782f0f9d0cea9101c2ecb33b0"
     },
     "servicos/carrossel-com-ate-5-paginas/index.html": {
       "bytes": 15411,
-      "sha256": "f13f80ad33f135da54db27240991ab4fabe33e172c77f46975d26223f8358576"
+      "sha256": "498ef75dc274a0b99d8cc8f1669097dabe8d9ba870ff50a175c6cf81ab93edfb"
     },
     "servicos/composicao-complexa/index.html": {
       "bytes": 15347,
-      "sha256": "14bcdc1f7f3257506a683f09f4614fb7a1be639dab540ba960288ef39a182224"
+      "sha256": "bb130521b26810409d7af54436a8dd0a2400a686548331d57777d51a0c1a75f0"
     },
     "servicos/composicao-e-vfx-por-cena/index.html": {
       "bytes": 15413,
-      "sha256": "0b4624a8741c3fceeca99bb2c094e5264d872ffe87272b26dc248683949dc5f9"
+      "sha256": "6436c69e4d3ac74d39969af5070ac05d772f22e9fbff7784cce7e2d59b45cf14"
     },
     "servicos/composicao-publicitaria/index.html": {
       "bytes": 15406,
-      "sha256": "2e5ecead1b154eeef05b14f4c30008fbd201330d5b5e91fea8f6d0cf33602286"
+      "sha256": "d355915d9c9947a799e895489884c339813b68948e06117d6532b4595acf90ac"
     },
     "servicos/correcao-basica/index.html": {
       "bytes": 15218,
-      "sha256": "263e34c576a9915ee30950c2af30aefb53b05ac75f539c4ba5a0088e57c62ddc"
+      "sha256": "8a4e7a82e781f3c58d4c14ab1404257a8f7d7760818981e3ffa410419c79bf54"
     },
     "servicos/criacao-de-personagem/index.html": {
       "bytes": 15405,
-      "sha256": "eeb5e873b4a739b55194c6a0a7730ac8d2c1cc68a377ae15e9ab043e9950477c"
+      "sha256": "25b17c7fe53a35c14b40613963b86c857da11cadde671eed020441df5f220aa8"
     },
     "servicos/diaria-de-producao-audiovisual/index.html": {
       "bytes": 15539,
-      "sha256": "aae6cd3fe23b5c7c1defe5a58e53ba087bcb12548bd22505fca968b53f42e77f"
+      "sha256": "499bc211bc708aa6346f3bd63a1d4a4d9217b0147dc2e15652c9ec8b30e1d163"
     },
     "servicos/direcao-de-arte/index.html": {
       "bytes": 15295,
-      "sha256": "98d497d00f4fc12a2c6db3b540dddec4b60bdc20a02d533b4088455135c5a4e5"
+      "sha256": "96c2ae372b8dfe502e4e52e8c70591a5ffd95d6d5576d5e9e680417cea1e5433"
     },
     "servicos/ilustracao-individual/index.html": {
       "bytes": 15337,
-      "sha256": "ddc5d51b4f399edc32cf34a6f5621dd98e611f638e69d8dbdf92dd013a0c24b3"
+      "sha256": "6634cd99fe134656121ed10db755b999fd1e76142b6ab6d37b90a3f950ef3bad"
     },
     "servicos/imagem-tratada-de-produto/index.html": {
       "bytes": 15407,
-      "sha256": "996fcf243257e59b9535c98e8f815a0addef122c4707c4be0f197008715ec9f7"
+      "sha256": "621ef9bfbbe3b789498b0374add094aa02d42271437432386bdc5519521268d6"
     },
     "servicos/index.html": {
       "bytes": 15139,
-      "sha256": "01ad8d588e0584f35df788f3eeacb098fe89662fc4aaff3877714d47920a2526"
+      "sha256": "3aefadfdab1033f8ab5fb702fe04c03b9a8a5dc708cb8cc516bb57c8ff1377d1"
     },
     "servicos/key-visual-de-campanha/index.html": {
       "bytes": 15382,
-      "sha256": "a55d34d4413b176a1ccfd249ff35f8b484a2f453ee6adcb160bba16e1d895937"
+      "sha256": "fa2459d3978f72d93a7447818bfde625131a07446849669c1816b415e0798d51"
     },
     "servicos/kit-visual-para-marketplace/index.html": {
       "bytes": 15449,
-      "sha256": "19c4602e19e756b7a619a7a6ab7d489e345b4737972fa56acd53edb42ae1854d"
+      "sha256": "954a2b61bfa9f6e4fa37e2486f9d1ded4db1c9733e36ac1bb5d6fe66002975d3"
     },
     "servicos/manual-completo/index.html": {
       "bytes": 15317,
-      "sha256": "e0b20f39439a06ca8815a02fd5d60eaadaf521a35f6c1ca80773e69f8e65d31f"
+      "sha256": "5e7c8cf265fdef4602f8b438058ad3fbfcacab7a8abc4b5802b1b70ac52557fe"
     },
     "servicos/manual-essencial/index.html": {
       "bytes": 15288,
-      "sha256": "d797d4ff7d0f50993a7ab623ce29eaf8cd24532b581724673f12f61b47291923"
+      "sha256": "92eb1d36b1dc27d711cf86705b2a99edb995c49e8ee86282194496bbad9b76b8"
     },
     "servicos/meia-diaria-de-producao/index.html": {
       "bytes": 15426,
-      "sha256": "e20a7494e150b18e67f254c7cc346c5d3f0d9ab205b7b7cbde56c350d435e2b4"
+      "sha256": "ce6f1b220ff7b038662f1ee2d6728fc49176882bc307f2ebe723cadb610317e2"
     },
     "servicos/montagem-simples/index.html": {
       "bytes": 15236,
-      "sha256": "aac0837d35bd7313aa2359ab774ab876a7d3ad328904cc4f2fb51fcb1ebaf46d"
+      "sha256": "932de26de1d608372f8aab28de3970dcc73d1186aab1660d15f70f4ae50cde5a"
     },
     "servicos/motion-para-redes-sociais/index.html": {
       "bytes": 15403,
-      "sha256": "cae15e8f0507f13e787550d49f261300cfae83b051b73d991da5ed427e647e03"
+      "sha256": "f6d66d3f2776b830a67dfbcbd4532a92e48bf1e1e56c2642dc0bc28c16775dda"
     },
     "servicos/packshot-animado-de-produto/index.html": {
       "bytes": 15405,
-      "sha256": "8883365d7377eeeb98e0bc2e7a9a2f7c796c80eb874381b9a73d5619430c6e4a"
+      "sha256": "0f83ab7db48fda6ac9591c37a04cc304e2ef7634c01945b1bd496c5c7cb58d40"
     },
     "servicos/pacote-com-10-criativos/index.html": {
       "bytes": 15345,
-      "sha256": "21e93d320956e911130570a7548e371b4697084a9f28052668d6ef63746d889a"
+      "sha256": "9014f98049e6a5fc29c19d80962ae5d4acfe1cbb887f96fe677327a3a81898bb"
     },
     "servicos/pacote-com-10-fotos/index.html": {
       "bytes": 15261,
-      "sha256": "42204a1c20ee67817e9e7b99589b36a9360029256e9abc2c82e820b1f561f9d8"
+      "sha256": "2b52cfcbf2c65cc0c2f845d7c40c73205530ffd3ad65abecaed4dd16bd8fbb62"
     },
     "servicos/pacote-com-10-imagens-de-produto/index.html": {
       "bytes": 15464,
-      "sha256": "2271f39b2d8d978ef828fbd7994b5bd94b328c402cfc036498f7a6b8fc06583b"
+      "sha256": "8d1b72eee270c0100e62b5ef0c6e37edb15f351ad982f72637f1caec69443cae"
     },
     "servicos/pacote-com-8-reels/index.html": {
       "bytes": 15266,
-      "sha256": "8a5be90c248cec0daedf03c61571ac03dcc40aa5b2876b8da975976ffd79fd57"
+      "sha256": "3dfa38ab288f6fa3d41774e2fac27b2dda11ab9a0e06943d8b44a87127b99fba"
     },
     "servicos/pacote-visual-de-campanha/index.html": {
       "bytes": 15423,
-      "sha256": "cc7bf66fc0f6b5bc6d5f91c8ccf9f45847ba95d90932de89139611efc390f866"
+      "sha256": "d5d7b59cc90dfc35f9da1919d5e14703604ec95dcb2b1ce54d19c6a049c1b335"
     },
     "servicos/reel-basico-de-ate-90-segundos/index.html": {
       "bytes": 15512,
-      "sha256": "806eac78969d97b584e294fbc1a4b9d544bc374735e544651fc9b11f35954b42"
+      "sha256": "4251834d93de1fb5e78f56997ed3124bf45426762f3ae6ff8cdfbed94c00d611"
     },
     "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
       "bytes": 15553,
-      "sha256": "4774dc957845603c7109b8c241a3d12068735f006777cbdacf687055ba8696f9"
+      "sha256": "b490567da2433f923b03211027dde979b4d5b4c0f27988147edf28b0b7455766"
     },
     "servicos/retoque-avancado/index.html": {
       "bytes": 15239,
-      "sha256": "c4578073aae9c87a9c3376d8a72831e9b52a061c8285419fc3631f87d7a05f44"
+      "sha256": "15e3ae28a554b03d137385a5e1dbdc4ce2eb98cd22d091d0f9ed02946906f540"
     },
     "servicos/roteiro-curto-publicitario/index.html": {
       "bytes": 15433,
-      "sha256": "d76c99c0e5fc1d8ca8fb73faa7ee8292ac8b2117e7caa70c230ff1cc2a7f4e03"
+      "sha256": "79dda3045d6fddc7d274467672b3b98ab0d1fc32ff4683f02666ac505cc341f1"
     },
     "servicos/site-html-editor-studioframe/index.html": {
       "bytes": 16066,
-      "sha256": "badcfb250355183e1d0c0f3bfd075d47fb1d0efc71b41ce06ccbeab69450382a"
+      "sha256": "74643f9258fe99430ff51cf7ba67bcd29a90b099d8f4b0ff827f5c52304706d5"
     },
     "servicos/site-studioframe-manutencao-mensal/index.html": {
       "bytes": 15894,
-      "sha256": "dc58c633db9c7f78f74013435a73595ad91e0fd259657ec20dc270fea870e21d"
+      "sha256": "3b0217fd53826d23d5080c5d5befc240a87524e8e176d46edc5d664406f20119"
     },
     "servicos/storyboard-com-ate-8-quadros/index.html": {
       "bytes": 15419,
-      "sha256": "bd6a30d9bec712e80b8a5a8630111af59017afab46a746690432503f67020123"
+      "sha256": "a7e843fc1e3221e7de59d60fd18cdac7786256c59eb6973d7c488037e731cb2f"
     },
     "servicos/video-de-produto/index.html": {
       "bytes": 15307,
-      "sha256": "94a3fe15a38e1269a2e248bec6b2051466dd11e0350001c6b3bc783cca271234"
+      "sha256": "963e148573bb462e5622b511ffa905de974e4376dd84cb4def4cf92655e7c68f"
     },
     "servicos/video-institucional-de-1-a-3-minutos/index.html": {
       "bytes": 15571,
-      "sha256": "4653d352b262439517f6d4b4a456b071ee5e9da70fe03bec6d6bce230edd39cd"
+      "sha256": "b7190571469ff71079825b579cc57997977017d4a902c67c2ee42949b45ce4fe"
     },
     "sitemap.xml": {
       "bytes": 11103,
@@ -774,7 +774,7 @@
     },
     "sobre/index.html": {
       "bytes": 14696,
-      "sha256": "5f667bfc801a365f345b14f655e894beeb7cda020131f0a7300808da51463970"
+      "sha256": "a164531e8db9329dac65672f277238d1f9c3616300004bc8b909dfeeeea343de"
     }
   },
   "format": "studioframe-public-build-v2",
@@ -853,19 +853,19 @@
     },
     "used_presets": []
   },
-  "portfolio_bytes": 4663166,
-  "portfolio_sha256": "fd39bb2589f87008541dfca844045e251a2c4ce076f314aac2713c77245c447c",
+  "portfolio_bytes": 4663147,
+  "portfolio_sha256": "fe1d2fc0588a032924658e2751fa55c6e0d25b49fe0bb4b1d2e663ac902c40bf",
   "poster_assets": {
     "bytes": 0,
     "failed": 0,
     "hosted": 0,
     "mode": "drive-public-readonly-no-github-media"
   },
-  "revision": "d093cf6deb4f3aa8fb86",
+  "revision": "1b5738da586bc7c80b73",
   "runtime_dependencies": [],
-  "source_revision": "d093cf6deb4f3aa8fb86",
+  "source_revision": "1b5738da586bc7c80b73",
   "stats": {
-    "bytes": 22377542,
+    "bytes": 22377504,
     "files": 192,
     "largest_file_bytes": 7163903,
     "route_shells": 125
