@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'wix-preview/catalog-sync.js'
+      - 'wix-preview/scroll-reveal.js'
       - 'scripts/integrate_catalog_sync.py'
       - '.github/workflows/integrate-catalog-sync.yml'
   workflow_dispatch:
@@ -19,16 +20,20 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Ensure navigator script is linked
+      - name: Ensure Home runtime scripts are linked
         run: python scripts/integrate_catalog_sync.py
-      - name: Verify Home services navigator
+      - name: Verify Home services navigator and scroll reveals
         run: |
           grep -q 'catalog-sync.js' wix-preview/index.html
+          grep -q 'scroll-reveal.js' wix-preview/index.html
           grep -q 'ms3d-deck' wix-preview/catalog-sync.js
           grep -q "'Social Media'" wix-preview/catalog-sync.js
           grep -q "'Web / HTML'" wix-preview/catalog-sync.js
           grep -q "SERVICES_URL+'#cat-12'" wix-preview/catalog-sync.js
           grep -q 'window.location.assign(card.href)' wix-preview/catalog-sync.js
+          grep -q "#projects .project" wix-preview/scroll-reveal.js
+          grep -q "#brief .brief-card" wix-preview/scroll-reveal.js
+          grep -q "IntersectionObserver" wix-preview/scroll-reveal.js
       - name: Commit generated preview change
         run: |
           git config user.name 'github-actions[bot]'
@@ -38,5 +43,5 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'Ensure Home services navigator integration'
+          git commit -m 'Ensure Home runtime integrations'
           git push
