@@ -27,7 +27,8 @@ jobs:
           grep -q 'ms3d-deck' wix-preview/catalog-sync.js
           grep -q "'Social Media'" wix-preview/catalog-sync.js
           grep -q "'Web / HTML'" wix-preview/catalog-sync.js
-          grep -q './servicos/#cat-12' wix-preview/catalog-sync.js
+          grep -q "SERVICES_URL+'#cat-12'" wix-preview/catalog-sync.js
+          grep -q 'window.location.assign(card.href)' wix-preview/catalog-sync.js
       - name: Commit generated preview change
         run: |
           git config user.name 'github-actions[bot]'
