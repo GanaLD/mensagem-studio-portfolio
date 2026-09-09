@@ -1,4 +1,4 @@
-name: Integrate services and portfolio catalog
+name: Integrate Home services navigator
 
 on:
   push:
@@ -12,20 +12,22 @@ permissions:
   contents: write
 
 jobs:
-  integrate-catalog:
+  integrate-home-services:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Integrate catalog script
+      - name: Ensure navigator script is linked
         run: python scripts/integrate_catalog_sync.py
-      - name: Verify integration
+      - name: Verify Home services navigator
         run: |
           grep -q 'catalog-sync.js' wix-preview/index.html
-          grep -q 'Projetos do Mensagem Studio' wix-preview/catalog-sync.js
-          grep -q 'Da ideia ao resultado' wix-preview/catalog-sync.js
+          grep -q 'ms3d-deck' wix-preview/catalog-sync.js
+          grep -q "'Social Media'" wix-preview/catalog-sync.js
+          grep -q "'Web / HTML'" wix-preview/catalog-sync.js
+          grep -q './servicos/#cat-12' wix-preview/catalog-sync.js
       - name: Commit generated preview change
         run: |
           git config user.name 'github-actions[bot]'
@@ -35,5 +37,5 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'Integrate services catalog and public portfolio'
+          git commit -m 'Ensure Home services navigator integration'
           git push
