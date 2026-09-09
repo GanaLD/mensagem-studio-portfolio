@@ -39,6 +39,11 @@ child = child.replace("  updateMetrics();\n  (function loop() { render(); reques
 
 index_path = repo / 'wix-preview' / 'index.html'
 html = index_path.read_text(encoding='utf-8')
+if 'cyberAngelBg' in html and 'imperialEstateBg' not in html:
+    print('Cyber Angel background already integrated; refreshed source asset only')
+    print((asset_dir / 'cyber-angel-bg.html').stat().st_size)
+    raise SystemExit(0)
+
 css = re.search(r'#sfGlobalMediaCanvas\{.*?\.after-word \.wrap\{position:relative;z-index:2\}', html, re.S)
 if not css:
     raise SystemExit('global background CSS block not found')
