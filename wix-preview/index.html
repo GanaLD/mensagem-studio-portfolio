@@ -63,5 +63,6 @@ function bindTabs(root,cb){document.querySelector(root).addEventListener('click'
 bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.google.com/file/d/'+b.dataset.pdf+'/preview'});bindTabs('#modelTabs',b=>{document.querySelector('#modelViewer').src='https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-3d-assets?asset='+b.dataset.model});bindTabs('#ytTabs',b=>{document.querySelector('#ytFrame').src='https://www.youtube.com/embed/'+b.dataset.yt+'?rel=0&modestbranding=1'});
 </script>
 <script type="module" src="./pdf-click-viewer.js"></script>
+<script type="module" src="./catalog-sync.js"></script>
 </body>
 </html>
