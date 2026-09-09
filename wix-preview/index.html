@@ -62,5 +62,6 @@ video.addEventListener('loadedmetadata',()=>{video.pause();videoReady=true;const
 function bindTabs(root,cb){document.querySelector(root).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll(root+' button').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b)})}
 bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.google.com/file/d/'+b.dataset.pdf+'/preview'});bindTabs('#modelTabs',b=>{document.querySelector('#modelViewer').src='https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-3d-assets?asset='+b.dataset.model});bindTabs('#ytTabs',b=>{document.querySelector('#ytFrame').src='https://www.youtube.com/embed/'+b.dataset.yt+'?rel=0&modestbranding=1'});
 </script>
+<script type="module" src="./pdf-click-viewer.js"></script>
 </body>
 </html>
