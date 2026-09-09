@@ -37,10 +37,14 @@ jobs:
           grep -q 'cyberAngelBg' wix-preview/index.html
           ! grep -q 'imperialEstateBg' wix-preview/index.html
 
-      - name: Commit generated site
+      - name: Commit generated site if changed
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add wix-preview/index.html wix-preview/assets/cyber-angel-bg.html
+          if git diff --cached --quiet; then
+            echo 'Cyber Angel site files already current.'
+            exit 0
+          fi
           git commit -m 'Swap global background asset to Cyber Angel scroll'
           git push
