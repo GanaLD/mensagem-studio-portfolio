@@ -10,6 +10,7 @@ on:
       - 'robots.txt'
       - 'llms.txt'
       - 'CNAME'
+      - '.github/workflows/indexnow.yml'
   workflow_dispatch:
 
 permissions:
@@ -43,10 +44,13 @@ jobs:
           echo "IndexNow key was not visible on Pages in time."
           exit 1
 
-      - name: Submit changed URLs to IndexNow
+      - name: Submit URLs to IndexNow
         shell: bash
         env:
           INDEXNOW_KEY: 0d0aafe26f6ac66cbd4f0f735c216aad
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           python - <<'PY'
           import json
@@ -59,18 +63,21 @@ jobs:
           base = "https://mensagemstudio.shop"
           key = os.environ["INDEXNOW_KEY"]
           key_location = f"{base}/{key}.txt"
-
           event = os.environ.get("GITHUB_EVENT_NAME", "push")
           urls = set()
 
-          if event == "workflow_dispatch":
+          def add_sitemap_urls():
               sitemap = Path("sitemap.xml")
-              if sitemap.exists():
-                  root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
-                  ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-                  for loc in root.findall("sm:url/sm:loc", ns):
-                      if loc.text and loc.text.startswith(base):
-                          urls.add(loc.text.strip())
+              if not sitemap.exists():
+                  return
+              root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              for loc in root.findall("sm:url/sm:loc", ns):
+                  if loc.text and loc.text.startswith(base):
+                      urls.add(loc.text.strip())
+
+          if event == "workflow_dispatch":
+              add_sitemap_urls()
           else:
               before = os.environ.get("GITHUB_EVENT_BEFORE", "")
               sha = os.environ.get("GITHUB_SHA", "HEAD")
@@ -83,22 +90,29 @@ jobs:
               except Exception:
                   changed = []
 
-              for path in changed:
-                  path = path.replace("\\", "/")
-                  if path == "index.html":
-                      urls.add(base + "/")
-                  elif path.endswith("/index.html"):
-                      route = path[:-len("index.html")]
-                      urls.add(base + "/" + route.lstrip("/"))
-                  elif path in {"sitemap.xml", "robots.txt", "llms.txt", "CNAME"}:
-                      urls.add(base + "/")
+              # Bootstrap/full refresh when indexing infrastructure changes.
+              if any(path in {
+                  ".github/workflows/indexnow.yml",
+                  "sitemap.xml",
+                  "CNAME",
+              } for path in changed):
+                  add_sitemap_urls()
+              else:
+                  for path in changed:
+                      path = path.replace("\\", "/")
+                      if path == "index.html":
+                          urls.add(base + "/")
+                      elif path.endswith("/index.html"):
+                          route = path[:-len("index.html")]
+                          urls.add(base + "/" + route.lstrip("/"))
+                      elif path in {"robots.txt", "llms.txt"}:
+                          urls.add(base + "/")
 
           urls = sorted(u for u in urls if u.startswith(base))
           if not urls:
               print("No public page URLs changed; nothing to submit.")
               raise SystemExit(0)
 
-          # IndexNow supports bulk URL submission. Keep batches bounded.
           for offset in range(0, len(urls), 1000):
               batch = urls[offset:offset + 1000]
               payload = json.dumps({
@@ -116,7 +130,3 @@ jobs:
               with urllib.request.urlopen(req, timeout=30) as response:
                   print("IndexNow:", response.status, "URLs:", len(batch))
           PY
-        env:
-          GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-          GITHUB_SHA: ${{ github.sha }}
