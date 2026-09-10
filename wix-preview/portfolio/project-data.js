@@ -112,7 +112,7 @@ window.MENSAGEM_PROJECTS = [
     slug:'motors-vans', sourceSlug:'project-title-6', title:'Social Media | Motors Vans', tag:'Social Media / Automotivo',
     description:`Proposta de propaganda para divulgação em Social Media da Motors Vans Autopeças\n\nCriação de peça publicitária para redes sociais, desenvolvida para a Motors Vans Autopeças, seguindo a identidade visual da marca.\nO design foi elaborado para destacar a qualidade e variedade dos produtos, reforçando a credibilidade da empresa no segmento automotivo.`,
     details:[{label:'Data',text:'Abril 2023'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
-    cover:'https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc', coverVideo:'',
+    cover:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg', coverVideo:'',
     media:[
       {type:'VIDEO',title:'INSTITUCIONAL MV FINAL VERSION',url:'https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file',poster:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg'},
       {type:'VIDEO',title:'VAN LOGO REVEAL LIGHT VERTICAL',url:'https://video.wixstatic.com/video/ef8a3a_1ae2b09a2d384e6d9628732d090c4ceb/file',poster:'https://static.wixstatic.com/media/ef8a3a_1ae2b09a2d384e6d9628732d090c4cebf000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_1ae2b09a2d384e6d9628732d090c4cebf000.jpg'},
