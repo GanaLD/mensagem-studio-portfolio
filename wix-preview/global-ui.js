@@ -8,7 +8,7 @@
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260910-r3';
+  const VERSION = '20260910-r4';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -86,9 +86,8 @@
         <a class="ms-menu-link ${active==='home'?'active':''}" href="${ROOT}"><span>HOME</span><small>01</small></a>
         <a class="ms-menu-link ${active==='projetos'?'active':''}" href="${PORTFOLIO_URL}"><span>PROJETOS</span><small>02</small></a>
         <a class="ms-menu-link ${active==='servicos'?'active':''}" href="${SERVICES_URL}"><span>SERVIÇOS</span><small>03</small></a>
-        <a class="ms-menu-link pending ${active==='sobre'?'active':''}" href="${ABOUT_URL}" data-ms-about-pending><span>SOBRE</span><small>04 · EM IMPORTAÇÃO</small></a>
+        <a class="ms-menu-link ${active==='sobre'?'active':''}" href="${ABOUT_URL}"><span>SOBRE</span><small>04</small></a>
       </div>
-      <div class="ms-menu-pending-note" role="status">A money page SOBRE ainda será importada. O link já está reservado para /wix-preview/sobre/.</div>
     </nav>`;
   document.body.append(menuBtn,menu);
 
@@ -96,14 +95,6 @@
   const closeMenu = () => { menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); };
   menuBtn.addEventListener('click',()=>menu.classList.contains('open')?closeMenu():openMenu());
   menu.addEventListener('click',e=>{ if(e.target===menu) closeMenu(); });
-  menu.querySelector('[data-ms-about-pending]')?.addEventListener('click',e=>{
-    if (!document.documentElement.dataset.msAboutReady) {
-      e.preventDefault();
-      const note=menu.querySelector('.ms-menu-pending-note');
-      note?.classList.add('show');
-      clearTimeout(note?._t); if(note) note._t=setTimeout(()=>note.classList.remove('show'),2600);
-    }
-  });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeMenu(); closeContact(); } });
 
   // Timed contact invitation: counts only time while the tab is visible and shows once per browser session.
