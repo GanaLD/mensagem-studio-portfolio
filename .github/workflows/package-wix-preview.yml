@@ -4,281 +4,51 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - ".github/workflows/package-wix-preview.yml"
-
-permissions:
-  contents: read
+      - '.github/workflows/package-wix-preview.yml'
+      - 'docs/MENSAGEM_STUDIO_SITE_MAP.md'
 
 jobs:
   package:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Prepare documentation
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install --quiet python-docx
-          python - <<'PY'
-          from pathlib import Path
-          from docx import Document
-          from docx.shared import Pt, Inches
-          from docx.enum.text import WD_ALIGN_PARAGRAPH
-          from docx.enum.section import WD_SECTION
-          from docx.oxml import OxmlElement
-          from docx.oxml.ns import qn
-          import subprocess
-
-          root = Path(".")
-          site = root / "wix-preview"
-          out = root / "package-docs"
-          out.mkdir(exist_ok=True)
-
-          commit = subprocess.check_output(["git","rev-parse","HEAD"], text=True).strip()
-
-          pages = [
-              ("HOME", "/wix-preview/", "wix-preview/index.html"),
-              ("SERVIÇOS", "/wix-preview/servicos/", "wix-preview/servicos/index.html"),
-              ("PORTFÓLIO", "/wix-preview/portfolio/", "wix-preview/portfolio/index.html"),
-          ]
-
-          project_dirs = sorted(
-              p.parent.name for p in (site / "portfolio").glob("*/index.html")
-          )
-
-          md = f"""# MENSAGEM STUDIO — DOCUMENTAÇÃO DO SITE
-
-Snapshot do código: {commit}
-Origem: GanaLD/mensagem-studio-portfolio
-Escopo empacotado: wix-preview/
-URL de homologação: https://mensagemstudio.shop/wix-preview/
-
-## 1. Objetivo do pacote
-Este pacote preserva o HTML e o runtime completo do preview atual do Mensagem Studio, incluindo Home, Serviços, Portfólio e as subpáginas de projetos. Também preserva os scripts usados para HeroScroll, carrossel 3D de serviços, PDF viewer, animações, responsividade, briefing e páginas de case.
-
-## 2. Mapa do site
-- HOME — /wix-preview/
-- SERVIÇOS — /wix-preview/servicos/
-- PORTFÓLIO — /wix-preview/portfolio/
-"""
-          for slug in project_dirs:
-              md += f"- PROJETO — /wix-preview/portfolio/{slug}/\n"
-
-          md += """
-## 3. Arquitetura da Home
-Ordem estrutural:
-1. HeroScroll
-2. Serviços
-3. Seção narrativa / WordScroll
-4. Background global imersivo
-5. PDF Showcase
-6. 3D Showcase
-7. Projetos
-8. Motion / YouTube Showcase
-9. Briefing / Ação
-10. Rodapé / CTA final
-
-### HeroScroll
-A Home usa uma seção longa com vídeo sticky. O scroll controla o tempo do vídeo. A primeira parte mantém o filme como foco principal e, depois do limiar configurado no runtime, entram os cases. Há tratamento separado para mobile para reduzir atraso entre o gesto e o frame exibido.
-
-### Serviços
-O catálogo usa uma navegação visual 3D/coverflow. Desktop e mobile possuem comportamentos diferentes para preservar legibilidade. Os cards apontam para a página geral de Serviços.
-
-### Narrativa / WordScroll
-A seção narrativa funciona como transição visual antes do conteúdo downstream.
-
-### Background global
-O background global é uma camada persistente atrás das seções posteriores. No snapshot atual, a Home utiliza um iframe apontando para assets/cyber-angel-bg.html e transmite progresso de scroll via postMessage.
-
-### Showcases
-- PDF: iframe/visualizador com documentos externos.
-- 3D: model-viewer com assets servidos por endpoint externo.
-- Motion/YouTube: embeds de vídeo.
-- Projetos: cards que abrem subpáginas individuais.
-
-### Briefing
-O bloco final organiza processo e ações. O texto do processo foi retirado do sistema de blur/reveal para permanecer nítido no desktop e no mobile.
-
-## 4. Arquivos principais
-- wix-preview/index.html — Home e lógica principal do HeroScroll.
-- wix-preview/catalog-sync.js — entrypoint do runtime modular.
-- wix-preview/home-runtime.js — catálogo/carrossel de Serviços.
-- wix-preview/home-round2.js — correções de interação, setas, mobile e indicador de scroll.
-- wix-preview/home-round2d.js — estrutura e hardening do bloco Briefing/Ação.
-- wix-preview/scroll-reveal.js — reveals das áreas downstream; Briefing excluído.
-- wix-preview/pdf-click-viewer.js — interação do showcase PDF.
-- wix-preview/portfolio/project-data.js — dados e mídias das páginas de projeto.
-- wix-preview/portfolio/project-page.js — renderização das páginas de projeto.
-- wix-preview/portfolio/project-page.css — layout responsivo dos cases.
-- wix-preview/assets/cyber-angel-bg.html — cena/background imersivo atual.
-- wix-preview/assets/imperial-asian-estate.glb — asset 3D preservado no repositório; pode não estar ativo no runtime atual.
-
-## 5. Subpáginas de projeto
-As subpáginas ficam em wix-preview/portfolio/<slug>/index.html. Elas compartilham o mesmo runtime de case e recebem conteúdo de project-data.js. Isso evita duplicar a lógica da galeria em cada página.
-
-## 6. Mídias e dependências externas
-O pacote preserva referências externas existentes no código. Parte das mídias não é duplicada localmente: o site consulta URLs/embeds externos, incluindo Wix Static Media, YouTube, Google Drive e endpoints Supabase. Portanto, para reproduzir 100% do conteúdo visual, o ambiente precisa de conexão com a internet e acesso às fontes externas ainda ativas.
-
-## 7. Execução local
-Não é recomendado abrir index.html diretamente com file:// porque o projeto usa ES modules e outras integrações web. Sirva a pasta por HTTP.
-
-Exemplo:
-python -m http.server 8080
-
-Depois abra:
-http://localhost:8080/wix-preview/
-
-## 8. Responsividade
-Breakpoints importantes estão concentrados em 1024 px e 760 px. O mobile possui:
-- HeroScroll com resposta de scrub mais rápida;
-- affordance de touch/scroll;
-- carrossel de Serviços em coverflow controlado;
-- grids convertidos para fluxo vertical quando necessário;
-- botões e cards com medidas próprias para viewport estreita.
-
-## 9. Regras de manutenção
-- Não alterar a lógica aprovada do HeroScroll sem teste específico.
-- Diferenciar sempre deploy técnico de aprovação visual.
-- Manter desktop e mobile validados separadamente.
-- Evitar sobreposição, blur involuntário e overflow horizontal.
-- Quando alterar catalog-sync.js ou módulos importados, usar versionamento/cache-bust coerente.
-- As páginas de projeto devem continuar apontando para project-data.js como fonte central de conteúdo.
-
-## 10. Publicação
-O preview é publicado via GitHub Pages dentro do domínio mensagemstudio.shop, no caminho /wix-preview/. Este pacote é um snapshot para backup, homologação, manutenção e eventual migração.
-
-## 11. Conteúdo do ZIP
-- SITE/wix-preview/ — snapshot completo da pasta publicada.
-- DOCUMENTACAO/MENSAGEM_STUDIO_DOCUMENTACAO_SITE.docx
-- DOCUMENTACAO/MENSAGEM_STUDIO_DOCUMENTACAO_SITE.md
-- DOCUMENTACAO/MANIFESTO_ARQUIVOS.txt
-- README_PACKAGE.txt
-
-## 12. Observação de integridade
-O ZIP é gerado diretamente do branch main do repositório. O manifesto lista todos os arquivos incluídos na pasta wix-preview no momento da geração.
-"""
-          (out / "MENSAGEM_STUDIO_DOCUMENTACAO_SITE.md").write_text(md, encoding="utf-8")
-
-          files = sorted(p.as_posix() for p in site.rglob("*") if p.is_file())
-          manifest = f"COMMIT={commit}\nTOTAL_ARQUIVOS={len(files)}\n\n" + "\n".join(files) + "\n"
-          (out / "MANIFESTO_ARQUIVOS.txt").write_text(manifest, encoding="utf-8")
-
-          readme = f"""MENSAGEM STUDIO — PACOTE DO SITE
-Snapshot: {commit}
-
-Abra primeiro:
-DOCUMENTACAO/MENSAGEM_STUDIO_DOCUMENTACAO_SITE.docx
-
-Código do site:
-SITE/wix-preview/
-
-Para teste local:
-1. Abra um terminal na pasta que contém SITE.
-2. Execute: python -m http.server 8080
-3. Acesse: http://localhost:8080/SITE/wix-preview/
-
-Observação:
-Mídias externas continuam sendo carregadas das fontes configuradas no código.
-"""
-          (root / "README_PACKAGE.txt").write_text(readme, encoding="utf-8")
-
-          doc = Document()
-          sec = doc.sections[0]
-          sec.top_margin = Inches(0.75)
-          sec.bottom_margin = Inches(0.75)
-          sec.left_margin = Inches(0.8)
-          sec.right_margin = Inches(0.8)
-
-          styles = doc.styles
-          styles["Normal"].font.name = "Arial"
-          styles["Normal"].font.size = Pt(10)
-          styles["Title"].font.name = "Arial"
-          styles["Title"].font.size = Pt(28)
-          styles["Heading 1"].font.name = "Arial"
-          styles["Heading 1"].font.size = Pt(18)
-          styles["Heading 2"].font.name = "Arial"
-          styles["Heading 2"].font.size = Pt(13)
-
-          title = doc.add_paragraph(style="Title")
-          title.alignment = WD_ALIGN_PARAGRAPH.LEFT
-          title.add_run("MENSAGEM STUDIO\nSITE — MAPA E CONSTRUÇÃO")
-          p = doc.add_paragraph()
-          p.add_run("Snapshot: ").bold = True
-          p.add_run(commit)
-          p = doc.add_paragraph()
-          p.add_run("URL: ").bold = True
-          p.add_run("https://mensagemstudio.shop/wix-preview/")
-
-          sections = [
-              ("1. Visão geral",
-               "Este documento descreve a construção do preview atual do Mensagem Studio, o mapa das páginas, a arquitetura de interação, os arquivos principais, as dependências externas e as regras de manutenção do pacote."),
-              ("2. Mapa do site",
-               "Páginas principais:\n• HOME — /wix-preview/\n• SERVIÇOS — /wix-preview/servicos/\n• PORTFÓLIO — /wix-preview/portfolio/\n\nSubpáginas de projetos:\n" + "\n".join(f"• /wix-preview/portfolio/{s}/" for s in project_dirs)),
-              ("3. Mapa da Home",
-               "HeroScroll → Serviços → Narrativa / WordScroll → Background global → PDF Showcase → 3D Showcase → Projetos → Motion / YouTube → Briefing / Ação → Rodapé."),
-              ("4. HeroScroll",
-               "A Home usa vídeo sticky controlado pelo scroll. O progresso da página é convertido em tempo do vídeo; depois do limiar do filme entram os cases. No mobile há resposta de scrub mais rápida para reduzir atraso entre o gesto e o frame."),
-              ("5. Serviços",
-               "O catálogo usa uma vitrine 3D no desktop e um coverflow controlado no mobile. As setas laterais e o swipe/arraste navegam pelos cards. Os cards direcionam para a página geral de Serviços."),
-              ("6. Background global",
-               "Após a seção narrativa, a Home mantém uma camada visual global atrás do conteúdo. No snapshot atual essa camada usa assets/cyber-angel-bg.html dentro de um iframe e recebe progresso de scroll via postMessage. O arquivo imperial-asian-estate.glb permanece preservado como asset do projeto, mas pode não estar ativo."),
-              ("7. Showcases",
-               "PDF, 3D e Motion/YouTube funcionam como módulos independentes. O PDF usa iframe/visualizador, o 3D usa model-viewer e endpoint externo, e os vídeos usam embeds. Os cards de projetos abrem cases individuais."),
-              ("8. Portfólio e subpáginas",
-               "Cada case possui uma pasta própria em wix-preview/portfolio/<slug>/. As páginas compartilham project-page.js e project-page.css. O arquivo project-data.js centraliza títulos, descrições, capas, vídeos e arrays de mídia."),
-              ("9. Briefing e fechamento",
-               "O bloco de Briefing apresenta o processo de atendimento e três caminhos de ação. O conteúdo foi removido do efeito de blur/reveal para permanecer nítido. O fechamento mantém CTA, links sociais e acesso ao WhatsApp conforme o runtime atual."),
-              ("10. Dependências externas",
-               "Parte das mídias continua remota. O código referencia fontes como Wix Static Media, YouTube, Google Drive e endpoints Supabase. O ZIP preserva essas referências; uma reprodução visual completa exige internet e disponibilidade dessas fontes."),
-              ("11. Arquivos-chave",
-               "index.html — Home e HeroScroll.\ncatalog-sync.js — entrypoint.\nhome-runtime.js — Serviços.\nhome-round2.js — interações e mobile.\nhome-round2d.js — Briefing/Ação.\nscroll-reveal.js — reveals downstream.\npdf-click-viewer.js — PDF.\nportfolio/project-data.js — conteúdo dos cases.\nportfolio/project-page.js + project-page.css — renderer/layout dos cases."),
-              ("12. Execução local",
-               "Sirva o diretório por HTTP. Exemplo: python -m http.server 8080. Depois abra http://localhost:8080/SITE/wix-preview/. Evite file:// porque ES modules e integrações web podem ser bloqueados."),
-              ("13. Responsividade",
-               "Os breakpoints principais estão em 1024 px e 760 px. Mobile e desktop devem ser validados separadamente. O mobile possui scrub do Hero mais responsivo, affordance touch, coverflow específico de Serviços e fluxos verticais para grids."),
-              ("14. Regras de manutenção",
-               "Preservar a lógica aprovada do HeroScroll; evitar sobreposição, blur involuntário e overflow horizontal; usar cache-bust ao alterar módulos; manter project-data.js como fonte central dos cases; separar aprovação técnica de aprovação visual."),
-              ("15. Estrutura do pacote",
-               "SITE/wix-preview/ contém o snapshot completo da pasta publicada. DOCUMENTACAO/ contém este DOCX, a versão Markdown e o manifesto de arquivos. README_PACKAGE.txt contém instruções rápidas."),
-          ]
-
-          for heading, body in sections:
-              doc.add_heading(heading, level=1)
-              for block in body.split("\n\n"):
-                  if "\n• " in block or block.startswith("• "):
-                      for line in block.split("\n"):
-                          if line.startswith("• "):
-                              doc.add_paragraph(line[2:], style="List Bullet")
-                          elif line.strip():
-                              doc.add_paragraph(line)
-                  else:
-                      doc.add_paragraph(block)
-
-          doc.add_paragraph()
-          end = doc.add_paragraph()
-          end.add_run("Snapshot técnico: ").bold = True
-          end.add_run(commit)
-          end.add_run("\nGerado automaticamente a partir do branch main.")
-
-          doc.save(out / "MENSAGEM_STUDIO_DOCUMENTACAO_SITE.docx")
-          PY
 
       - name: Build package
         shell: bash
         run: |
           set -euo pipefail
+          COMMIT="$(git rev-parse HEAD)"
           rm -rf MENSAGEM_STUDIO_SITE_PACKAGE
           mkdir -p MENSAGEM_STUDIO_SITE_PACKAGE/SITE
           mkdir -p MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO
           cp -a wix-preview MENSAGEM_STUDIO_SITE_PACKAGE/SITE/
-          cp -a package-docs/. MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO/
-          cp README_PACKAGE.txt MENSAGEM_STUDIO_SITE_PACKAGE/
+          cp docs/MENSAGEM_STUDIO_SITE_MAP.md MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO/
+          {
+            echo "COMMIT=$COMMIT"
+            echo
+            find wix-preview -type f -print | sort
+          } > MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO/MANIFESTO_ARQUIVOS.txt
+          {
+            echo "MENSAGEM STUDIO - PACOTE DO SITE"
+            echo "Snapshot: $COMMIT"
+            echo
+            echo "Codigo: SITE/wix-preview/"
+            echo "Documentacao: DOCUMENTACAO/MENSAGEM_STUDIO_SITE_MAP.md"
+            echo "Manifesto: DOCUMENTACAO/MANIFESTO_ARQUIVOS.txt"
+            echo
+            echo "Teste local:"
+            echo "python -m http.server 8080"
+            echo "http://localhost:8080/MENSAGEM_STUDIO_SITE_PACKAGE/SITE/wix-preview/"
+            echo
+            echo "Observacao: parte das midias continua externa e exige internet."
+          } > MENSAGEM_STUDIO_SITE_PACKAGE/README_PACKAGE.txt
           zip -r -9 MENSAGEM_STUDIO_SITE_PACKAGE.zip MENSAGEM_STUDIO_SITE_PACKAGE >/dev/null
-          ls -lh MENSAGEM_STUDIO_SITE_PACKAGE.zip
+          test -s MENSAGEM_STUDIO_SITE_PACKAGE.zip
 
-      - name: Upload package artifact
+      - name: Upload package
         uses: actions/upload-artifact@v4
         with:
           name: MENSAGEM_STUDIO_SITE_PACKAGE
