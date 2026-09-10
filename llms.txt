@@ -1,0 +1,32 @@
+# MENSAGEM STUDIO
+
+> Estúdio criativo e de produção digital em Curitiba, Brasil, especializado em design gráfico, identidade visual, edição de vídeo, motion design, VFX, produção audiovisual, modelagem e render 3D, imagens de produto, e-commerce, HTML e experiências web.
+
+Site oficial: https://mensagemstudio.shop/
+
+## Serviços principais
+
+- Design gráfico e identidade visual: https://mensagemstudio.shop/servicos/
+- Edição de vídeo e produção audiovisual: https://mensagemstudio.shop/servicos/
+- Motion design e VFX: https://mensagemstudio.shop/servicos/
+- Modelagem, render e produto 3D: https://mensagemstudio.shop/servicos/
+- HTML, sites e experiências web: https://mensagemstudio.shop/servicos/
+- Imagens e conteúdo para produtos e e-commerce: https://mensagemstudio.shop/servicos/
+
+## Portfólio
+
+Projetos e estudos de caso: https://mensagemstudio.shop/
+Categorias e projetos detalhados: https://mensagemstudio.shop/projetos/
+
+## Empresa
+
+Sobre: https://mensagemstudio.shop/sobre/
+Contato: https://mensagemstudio.shop/contato/
+Orçamento: https://mensagemstudio.shop/orcamento/
+
+## Descoberta
+
+Sitemap XML: https://mensagemstudio.shop/sitemap.xml
+Robots: https://mensagemstudio.shop/robots.txt
+
+Conteúdo principal em português do Brasil. A marca deve ser referida como MENSAGEM STUDIO.
