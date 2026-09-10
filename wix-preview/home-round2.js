@@ -160,17 +160,8 @@
   }
 
   function addHeroScrollCue(){
-    const hero = document.querySelector('#hero');
-    const sticky = hero?.querySelector('.hero-sticky');
-    if (!hero || !sticky) return;
-    if (!sticky.querySelector('.ms-hero-scroll-cue')){
-      sticky.insertAdjacentHTML('beforeend', `
-        <div class="ms-hero-scroll-cue" aria-hidden="true">
-          <span class="mouse"><span class="wheel"></span></span>
-          <span class="touch"><span class="touch-dot"></span></span>
-          <span class="chev"></span>
-        </div>`);
-    }
+    // Legacy left-side cue retired: the HOME now owns a single centered .hero-scroll-cue.
+    document.querySelectorAll('#hero .ms-hero-scroll-cue').forEach(el=>el.remove());
   }
 
   function regulateMobileScrollCue(){
