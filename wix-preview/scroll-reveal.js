@@ -1,5 +1,5 @@
 // Scroll reveal effects for downstream Home blocks only.
-// HeroScroll, Services 3D navigator and Narrative/WordScroll are intentionally untouched.
+// HeroScroll, Services 3D navigator, Narrative/WordScroll and Briefing content are intentionally untouched.
 (() => {
   const supportsIO = 'IntersectionObserver' in window;
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -61,23 +61,26 @@
       box-shadow:0 30px 110px rgba(0,0,0,.24);
     }
 
-    body.ms-reveal-ready .brief-card.ms-reveal{transform:translate3d(0,38px,0) scale(.98)}
-    body.ms-reveal-ready .step.ms-reveal{transform:translate3d(20px,16px,0);filter:blur(4px)}
-
     body.ms-reveal-ready .final-cta .ms-reveal{transform:translate3d(0,28px,0) scale(.975)}
+
+    /* Briefing is static, crisp foreground content. Never blur/transform it. */
+    #brief .brief-card,
+    #brief .brief-card *,
+    #brief .step,
+    #brief .step *{
+      filter:none!important;
+    }
 
     @media(max-width:760px){
       body.ms-reveal-ready .ms-reveal,
       body.ms-reveal-ready .project.ms-reveal,
-      body.ms-reveal-ready .stage.ms-reveal,
-      body.ms-reveal-ready .brief-card.ms-reveal{
+      body.ms-reveal-ready .stage.ms-reveal{
         transform:translate3d(0,24px,0) scale(.99);
         filter:blur(4px);
       }
       body.ms-reveal-ready .ms-reveal.is-visible,
       body.ms-reveal-ready .project.ms-reveal.is-visible,
-      body.ms-reveal-ready .stage.ms-reveal.is-visible,
-      body.ms-reveal-ready .brief-card.ms-reveal.is-visible{
+      body.ms-reveal-ready .stage.ms-reveal.is-visible{
         transform:translate3d(0,0,0) scale(1);
         filter:blur(0);
       }
@@ -104,6 +107,16 @@
     targets.push(el);
   }
 
+  // Clean any stale Briefing reveal classes from a cached/previous runtime pass.
+  document.querySelectorAll('#brief .brief-card, #brief .step').forEach(el => {
+    el.classList.remove('ms-reveal','ms-reveal-left','ms-reveal-right','ms-reveal-scale','is-visible');
+    delete el.dataset.msRevealBound;
+    el.style.removeProperty('--ms-reveal-delay');
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.style.filter = 'none';
+  });
+
   // Only sections after the Narrative/WordScroll block.
   document.querySelectorAll('#afterWord > .section').forEach((section) => {
     const head = section.querySelector('.section-head');
@@ -125,13 +138,7 @@
     add(card, {delay:Math.min(i * 85, 430)});
   });
 
-  // Briefing cards and their steps.
-  document.querySelectorAll('#brief .brief-card').forEach((card, i) => {
-    add(card, {variant:i % 2 ? 'right' : 'left', delay:i * 90});
-  });
-  document.querySelectorAll('#brief .step').forEach((step, i) => {
-    add(step, {delay:180 + i * 85});
-  });
+  // Briefing cards and steps are deliberately excluded from reveal animation.
 
   // Final CTA: staged appearance.
   const final = document.querySelector('.final-cta');
@@ -165,7 +172,6 @@
     threshold:0.12
   });
 
-  // Elements already visible on load should not flash hidden.
   requestAnimationFrame(() => {
     targets.forEach((el) => {
       const r = el.getBoundingClientRect();
