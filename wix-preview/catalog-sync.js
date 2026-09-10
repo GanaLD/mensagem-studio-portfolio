@@ -6,3 +6,4 @@
 // SERVICES_URL+'#cat-12'
 // window.location.assign(card.href)
 import './home-runtime.js';
+import './home-round2.js';
