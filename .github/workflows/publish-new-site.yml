@@ -53,7 +53,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A index.html catalog-sync.js global-ui.js home-round2.js home-round2d.js home-runtime.js pdf-click-viewer.js scroll-reveal.js services-cart-suggestions.js assets portfolio servicos sobre projetos clientes contato orcamento busca arquivo briefing
+          git add -A
           if git diff --cached --quiet; then
             echo 'Public root already matches NOVO SITE.'
             exit 0
