@@ -9,13 +9,24 @@
     style.id = 'ms-home-round2-style';
     style.textContent = `
       .ms3d-card{cursor:pointer!important}
+
+      /* Keep only the requested left/right carousel navigation chevrons. */
       .ms3d-edge{padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;line-height:0!important}
       .ms3d-edge svg{display:block;width:31px;height:31px;overflow:visible;pointer-events:none}
       .ms3d-edge svg path{fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
       .ms3d-edge.prev svg{transform:translateX(-1px)}
       .ms3d-edge.next svg{transform:translateX(1px)}
 
-      .ms-hero-scroll-cue{position:absolute!important;z-index:20!important;left:clamp(28px,13.5vw,220px)!important;top:43%!important;transform:translateY(-50%)!important;width:58px!important;height:92px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:10px!important;pointer-events:none!important;opacity:.58;transition:opacity .18s linear;filter:drop-shadow(0 0 12px rgba(201,255,54,.2))}
+      /* Remove the repeated diagonal/up-right arrow decoration from buttons/cards. */
+      .ms3d-arrow,
+      .ms-brief-action span:last-child,
+      .ms-footer-link b,
+      .btn b{display:none!important}
+      .ms-brief-action{justify-content:flex-start!important}
+
+      /* Scroll affordance stays visible for the same Hero phase as the progress bar.
+         Both now disappear only when the cases start via --case-alpha. */
+      .ms-hero-scroll-cue{position:absolute!important;z-index:20!important;left:clamp(28px,13.5vw,220px)!important;top:43%!important;transform:translateY(-50%)!important;width:58px!important;height:92px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:10px!important;pointer-events:none!important;opacity:calc((1 - var(--case-alpha)) * .58)!important;transition:opacity .12s linear;filter:drop-shadow(0 0 12px rgba(201,255,54,.2))}
       .ms-hero-scroll-cue .mouse{position:relative;display:block;width:33px;height:52px;border:1.8px solid rgba(244,245,239,.82);border-radius:20px;background:rgba(7,8,6,.06);box-shadow:inset 0 0 14px rgba(255,255,255,.025)}
       .ms-hero-scroll-cue .wheel{position:absolute;left:50%;top:9px;width:3.5px;height:10px;border-radius:999px;background:var(--lime);transform:translateX(-50%);box-shadow:0 0 8px rgba(201,255,54,.85),0 0 18px rgba(201,255,54,.34);animation:msScrollWheel 1.25s ease-in-out infinite}
       .ms-hero-scroll-cue .chev{display:block;width:14px;height:14px;border-right:1.8px solid rgba(201,255,54,.9);border-bottom:1.8px solid rgba(201,255,54,.9);transform:rotate(45deg);animation:msScrollChevron 1.25s ease-in-out infinite}
@@ -54,23 +65,13 @@
     const hero = document.querySelector('#hero');
     const sticky = hero?.querySelector('.hero-sticky');
     if (!hero || !sticky) return;
-    let cue = sticky.querySelector('.ms-hero-scroll-cue');
-    if (!cue){
+    if (!sticky.querySelector('.ms-hero-scroll-cue')){
       sticky.insertAdjacentHTML('beforeend', `
         <div class="ms-hero-scroll-cue" aria-hidden="true">
           <span class="mouse"><span class="wheel"></span></span>
           <span class="chev"></span>
         </div>`);
-      cue = sticky.querySelector('.ms-hero-scroll-cue');
     }
-    const updateCue = () => {
-      const travelled = Math.max(0, window.scrollY - hero.offsetTop);
-      const fade = Math.max(0, Math.min(1, 1 - travelled / Math.max(1, window.innerHeight * .95)));
-      cue.style.opacity = String(.58 * fade);
-    };
-    addEventListener('scroll', updateCue, {passive:true});
-    addEventListener('resize', updateCue, {passive:true});
-    updateCue();
   }
 
   function init(){addRound2Styles();fixServicesNavigation();addHeroScrollCue()}
