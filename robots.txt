@@ -1,5 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /projetos/
+Disallow: /clientes/
+Disallow: /contato/
+Disallow: /orcamento/
+Disallow: /busca/
+Disallow: /arquivo/
+Disallow: /briefing/
 
 User-agent: OAI-SearchBot
 Allow: /

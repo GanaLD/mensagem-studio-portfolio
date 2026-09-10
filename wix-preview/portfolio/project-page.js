@@ -8,9 +8,6 @@
     if (app) app.innerHTML = `<div class="error"><div><h1>Projeto não encontrado.</h1><p>Volte para a página de Projetos e escolha outro case.</p><a class="nav a" href="../">Projetos</a></div></div>`;
     return;
   }
-
-  document.title = `${project.title} — Mensagem Studio`;
-
   function ratioFrom(url='') {
     const m = String(url).match(/w_(\d+),h_(\d+)/i);
     if (!m) return 1.2;
