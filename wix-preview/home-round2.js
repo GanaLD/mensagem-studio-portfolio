@@ -1,5 +1,5 @@
-// Round 2 — interaction corrections requested during visual QA.
-// Keeps the approved HeroScroll scrub logic untouched.
+// Round 2k — interaction corrections requested during visual QA.
+// Keeps the approved desktop HeroScroll scrub behavior untouched while tuning mobile response.
 (() => {
   const SERVICES_URL = 'https://mensagemstudio.shop/wix-preview/servicos/';
 
@@ -24,28 +24,27 @@
       .btn b{display:none!important}
       .ms-brief-action{justify-content:flex-start!important}
 
-      /* Scroll affordance stays visible for the same Hero phase as the progress bar.
-         Both now disappear only when the cases start via --case-alpha. */
+      /* Scroll affordance stays visible for the same Hero phase as the progress bar. */
       .ms-hero-scroll-cue{position:absolute!important;z-index:20!important;left:clamp(28px,13.5vw,220px)!important;top:43%!important;transform:translateY(-50%)!important;width:58px!important;height:92px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:10px!important;pointer-events:none!important;opacity:calc((1 - var(--case-alpha)) * .58)!important;transition:opacity .12s linear;filter:drop-shadow(0 0 12px rgba(201,255,54,.2))}
       .ms-hero-scroll-cue .mouse{position:relative;display:block;width:33px;height:52px;border:1.8px solid rgba(244,245,239,.82);border-radius:20px;background:rgba(7,8,6,.06);box-shadow:inset 0 0 14px rgba(255,255,255,.025)}
       .ms-hero-scroll-cue .wheel{position:absolute;left:50%;top:9px;width:3.5px;height:10px;border-radius:999px;background:var(--lime);transform:translateX(-50%);box-shadow:0 0 8px rgba(201,255,54,.85),0 0 18px rgba(201,255,54,.34);animation:msScrollWheel 1.25s ease-in-out infinite}
       .ms-hero-scroll-cue .touch{display:none;position:relative;width:28px;height:48px}
       .ms-hero-scroll-cue .touch:before{content:"";position:absolute;left:50%;top:3px;bottom:3px;width:1px;transform:translateX(-50%);background:linear-gradient(180deg,transparent,rgba(244,245,239,.38),rgba(201,255,54,.42),transparent)}
-      .ms-hero-scroll-cue .touch-dot{position:absolute;left:50%;top:6px;width:9px;height:9px;border-radius:50%;background:var(--lime);transform:translateX(-50%);box-shadow:0 0 9px rgba(201,255,54,.9),0 0 20px rgba(201,255,54,.35);animation:msTouchSwipe 1.25s ease-in-out infinite}
-      .ms-hero-scroll-cue .chev{display:block;width:14px;height:14px;border-right:1.8px solid rgba(201,255,54,.9);border-bottom:1.8px solid rgba(201,255,54,.9);transform:rotate(45deg);animation:msScrollChevron 1.25s ease-in-out infinite}
+      .ms-hero-scroll-cue .touch-dot{position:absolute;left:50%;top:6px;width:9px;height:9px;border-radius:50%;background:var(--lime);transform:translateX(-50%);box-shadow:0 0 9px rgba(201,255,54,.9),0 0 20px rgba(201,255,54,.35);animation:msTouchSwipe 1.25s ease-in-out infinite;will-change:transform,opacity}
+      .ms-hero-scroll-cue .chev{display:block;width:14px;height:14px;border-right:1.8px solid rgba(201,255,54,.9);border-bottom:1.8px solid rgba(201,255,54,.9);transform:rotate(45deg);animation:msScrollChevron 1.25s ease-in-out infinite;will-change:transform,opacity}
+      .ms-hero-scroll-cue.is-touch-tracking .touch-dot,.ms-hero-scroll-cue.is-touch-tracking .chev{animation:none!important}
       @keyframes msScrollWheel{0%{transform:translate(-50%,0);opacity:0}18%{opacity:1}68%{transform:translate(-50%,17px);opacity:.95}100%{transform:translate(-50%,22px);opacity:0}}
       @keyframes msTouchSwipe{0%{transform:translate(-50%,0);opacity:0}18%{opacity:1}68%{transform:translate(-50%,26px);opacity:.95}100%{transform:translate(-50%,32px);opacity:0}}
       @keyframes msScrollChevron{0%,100%{opacity:.24;transform:translateY(-2px) rotate(45deg)}50%{opacity:1;transform:translateY(4px) rotate(45deg)}}
       @media(max-width:760px){
-        .ms-hero-scroll-cue{display:flex!important;left:18px!important;top:44%!important;width:44px!important;height:78px!important;gap:7px!important;opacity:calc((1 - var(--case-alpha)) * .46)!important}
+        .ms-hero-scroll-cue{display:flex!important;left:18px!important;top:44%!important;width:44px!important;height:78px!important;gap:7px!important;opacity:calc((1 - var(--case-alpha)) * .52)!important}
         .ms-hero-scroll-cue .mouse{display:none!important}
         .ms-hero-scroll-cue .touch{display:block!important}
         .ms-hero-scroll-cue .chev{width:11px;height:11px}
         .ms3d-edge svg{width:25px;height:25px}
         #brief .ms-brief-action>span:first-child{display:block!important;visibility:visible!important;opacity:1!important;color:var(--fg)!important;font-size:clamp(18px,6vw,24px)!important;font-weight:850!important;line-height:1.05!important}
 
-        /* Mobile Services: controlled coverflow instead of the desktop 3D ring.
-           Only the active card and its immediate neighbors are visible. */
+        /* Mobile Services: controlled coverflow instead of the desktop 3D ring. */
         #services .section-head{margin-bottom:8px!important}
         #services .section-head p{font-size:15px!important;line-height:1.55!important}
         #msServices3dShell{min-height:470px!important;perspective:none!important;overflow:hidden!important;touch-action:pan-y!important}
@@ -174,7 +173,50 @@
     }
   }
 
-  function init(){addRound2Styles();fixServicesNavigation();stabilizeMobileServices();addHeroScrollCue()}
+  function regulateMobileScrollCue(){
+    const hero = document.querySelector('#hero');
+    const cue = hero?.querySelector('.ms-hero-scroll-cue');
+    const dot = cue?.querySelector('.touch-dot');
+    const chev = cue?.querySelector('.chev');
+    if (!hero || !cue || !dot || !chev) return;
+    let startY = null;
+    let releaseTimer = 0;
+    const clamp = (v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+
+    const release = () => {
+      clearTimeout(releaseTimer);
+      releaseTimer = setTimeout(() => {
+        cue.classList.remove('is-touch-tracking');
+        dot.style.removeProperty('transform');
+        dot.style.removeProperty('opacity');
+        chev.style.removeProperty('transform');
+        chev.style.removeProperty('opacity');
+        startY = null;
+      }, 140);
+    };
+
+    hero.addEventListener('touchstart', e => {
+      if (innerWidth > 760 || !e.touches?.length) return;
+      clearTimeout(releaseTimer);
+      startY = e.touches[0].clientY;
+      cue.classList.add('is-touch-tracking');
+    }, {passive:true});
+
+    hero.addEventListener('touchmove', e => {
+      if (innerWidth > 760 || startY == null || !e.touches?.length) return;
+      const travel = Math.max(72, innerHeight * .12);
+      const progress = clamp((startY - e.touches[0].clientY) / travel);
+      dot.style.transform = `translate(-50%,${(progress*32).toFixed(1)}px)`;
+      dot.style.opacity = String(.42 + progress*.58);
+      chev.style.transform = `translateY(${(-2 + progress*8).toFixed(1)}px) rotate(45deg)`;
+      chev.style.opacity = String(.35 + progress*.65);
+    }, {passive:true});
+
+    hero.addEventListener('touchend', release, {passive:true});
+    hero.addEventListener('touchcancel', release, {passive:true});
+  }
+
+  function init(){addRound2Styles();fixServicesNavigation();stabilizeMobileServices();addHeroScrollCue();regulateMobileScrollCue()}
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
   else init();
 })();
