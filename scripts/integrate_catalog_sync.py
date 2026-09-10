@@ -4,10 +4,13 @@ path = Path('wix-preview/index.html')
 text = path.read_text(encoding='utf-8')
 
 catalog_plain = '<script type="module" src="./catalog-sync.js"></script>'
-catalog_r2b = '<script type="module" src="./catalog-sync.js?v=20260909-r2b"></script>'
-catalog_r2c = '<script type="module" src="./catalog-sync.js?v=20260909-r2c"></script>'
-catalog_r2d = '<script type="module" src="./catalog-sync.js?v=20260909-r2d"></script>'
-catalog_r2e = '<script type="module" src="./catalog-sync.js?v=20260909-r2e"></script>'
+catalog_versions = [
+    '<script type="module" src="./catalog-sync.js?v=20260909-r2b"></script>',
+    '<script type="module" src="./catalog-sync.js?v=20260909-r2c"></script>',
+    '<script type="module" src="./catalog-sync.js?v=20260909-r2d"></script>',
+    '<script type="module" src="./catalog-sync.js?v=20260909-r2e"></script>',
+]
+catalog_r2f = '<script type="module" src="./catalog-sync.js?v=20260909-r2f"></script>'
 scroll_tag = '<script type="module" src="./scroll-reveal.js"></script>'
 marker = '</body>'
 
@@ -15,17 +18,18 @@ if marker not in text:
     raise SystemExit('Missing </body> marker in wix-preview/index.html')
 
 changed = False
-if catalog_r2e not in text:
-    if catalog_r2d in text:
-        text = text.replace(catalog_r2d, catalog_r2e, 1)
-    elif catalog_r2c in text:
-        text = text.replace(catalog_r2c, catalog_r2e, 1)
-    elif catalog_r2b in text:
-        text = text.replace(catalog_r2b, catalog_r2e, 1)
-    elif catalog_plain in text:
-        text = text.replace(catalog_plain, catalog_r2e, 1)
-    else:
-        text = text.replace(marker, f'{catalog_r2e}\n{marker}', 1)
+if catalog_r2f not in text:
+    replaced = False
+    for old in reversed(catalog_versions):
+        if old in text:
+            text = text.replace(old, catalog_r2f, 1)
+            replaced = True
+            break
+    if not replaced and catalog_plain in text:
+        text = text.replace(catalog_plain, catalog_r2f, 1)
+        replaced = True
+    if not replaced:
+        text = text.replace(marker, f'{catalog_r2f}\n{marker}', 1)
     changed = True
 
 if scroll_tag not in text:
@@ -34,6 +38,6 @@ if scroll_tag not in text:
 
 if changed:
     path.write_text(text, encoding='utf-8')
-    print('Injected round 2e cache-busted Home runtime into preview.')
+    print('Injected round 2f cache-busted Home runtime into preview.')
 else:
-    print('Round 2e Home runtime already integrated; no change.')
+    print('Round 2f Home runtime already integrated; no change.')
