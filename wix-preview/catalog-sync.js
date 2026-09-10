@@ -5,6 +5,6 @@
 // 'Web / HTML'
 // SERVICES_URL+'#cat-12'
 // window.location.assign(card.href)
-import './home-runtime.js?v=20260910-r2j';
-import './home-round2.js?v=20260910-r2j';
-import './home-round2d.js?v=20260910-r2j';
+import './home-runtime.js?v=20260910-r2k';
+import './home-round2.js?v=20260910-r2k';
+import './home-round2d.js?v=20260910-r2k';
