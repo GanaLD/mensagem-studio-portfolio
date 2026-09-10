@@ -6,27 +6,33 @@ Site oficial: https://mensagemstudio.shop/
 
 ## Serviços principais
 
-- Design gráfico e identidade visual: https://mensagemstudio.shop/servicos/
-- Edição de vídeo e produção audiovisual: https://mensagemstudio.shop/servicos/
-- Motion design e VFX: https://mensagemstudio.shop/servicos/
-- Modelagem, render e produto 3D: https://mensagemstudio.shop/servicos/
-- HTML, sites e experiências web: https://mensagemstudio.shop/servicos/
-- Imagens e conteúdo para produtos e e-commerce: https://mensagemstudio.shop/servicos/
+- Serviços: https://mensagemstudio.shop/servicos/
+- Design gráfico, identidade visual e direção de arte: https://mensagemstudio.shop/servicos/
+- Edição de vídeo e produção audiovisual: https://mensagemstudio.shop/projetos/edicao-de-videos/
+- Motion design, VFX e vídeo com IA: https://mensagemstudio.shop/projetos/motion/
+- Branding e manuais de marca: https://mensagemstudio.shop/projetos/manual-da-marca/
+- HTML, sites e experiências web: https://mensagemstudio.shop/servicos/site-html-editor-studioframe/
+- Imagens e conteúdo para produtos e e-commerce: https://mensagemstudio.shop/servicos/kit-visual-para-marketplace/
 
 ## Portfólio
 
-Projetos e estudos de caso: https://mensagemstudio.shop/
-Categorias e projetos detalhados: https://mensagemstudio.shop/projetos/
+- Portfólio selecionado: https://mensagemstudio.shop/
+- Motion: https://mensagemstudio.shop/projetos/motion/
+- Edição de vídeo: https://mensagemstudio.shop/projetos/edicao-de-videos/
+- Campanhas: https://mensagemstudio.shop/projetos/campanha-007-completa/
+- Branding: https://mensagemstudio.shop/projetos/manual-da-marca/
+- Dermacast: https://mensagemstudio.shop/projetos/dermacast/
 
 ## Empresa
 
-Sobre: https://mensagemstudio.shop/sobre/
-Contato: https://mensagemstudio.shop/contato/
-Orçamento: https://mensagemstudio.shop/orcamento/
+- Sobre: https://mensagemstudio.shop/sobre/
+- Clientes: https://mensagemstudio.shop/clientes/
+- Contato: https://mensagemstudio.shop/contato/
+- Orçamento: https://mensagemstudio.shop/orcamento/
 
 ## Descoberta
 
-Sitemap XML: https://mensagemstudio.shop/sitemap.xml
-Robots: https://mensagemstudio.shop/robots.txt
+- Sitemap XML: https://mensagemstudio.shop/sitemap.xml
+- Robots: https://mensagemstudio.shop/robots.txt
 
 Conteúdo principal em português do Brasil. A marca deve ser referida como MENSAGEM STUDIO.
