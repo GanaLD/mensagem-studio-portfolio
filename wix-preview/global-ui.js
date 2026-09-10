@@ -8,7 +8,7 @@
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260910-r4';
+  const VERSION = '20260910-r5';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -40,25 +40,27 @@
 
     .ms-contact-overlay{position:fixed;z-index:100060;inset:0;display:grid;place-items:center;padding:20px;background:rgba(2,3,2,.36);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease}
     .ms-contact-overlay.open{opacity:1;visibility:visible;pointer-events:auto}
-    .ms-contact-card{position:relative;width:min(560px,100%);border:1px solid rgba(255,255,255,.20);border-radius:26px;padding:clamp(26px,5vw,42px);background:linear-gradient(145deg,rgba(12,14,11,.84),rgba(6,8,6,.68));box-shadow:0 32px 110px rgba(0,0,0,.55),0 0 55px rgba(201,255,54,.055),inset 0 1px rgba(255,255,255,.06);transform:translateY(14px) scale(.975);transition:transform .32s cubic-bezier(.2,.85,.2,1)}
-    .ms-contact-overlay.open .ms-contact-card{transform:none}
-    .ms-contact-close{position:absolute;right:15px;top:15px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.035);cursor:pointer;font-size:18px;display:grid;place-items:center}
-    .ms-contact-kicker{color:var(--ms-ui-lime);font-size:10px;letter-spacing:.17em;text-transform:uppercase;margin-bottom:14px}
-    .ms-contact-card h2{margin:0 0 16px;font-size:clamp(40px,6.2vw,72px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;max-width:9ch;color:var(--ms-ui-fg)}
-    .ms-contact-card p{margin:0 0 25px;color:#c0c5b9;font-size:14px;line-height:1.55;max-width:46ch}
-    .ms-contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .ms-glass-cta{position:relative;min-height:56px;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 18px;font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase;color:var(--ms-ui-fg);overflow:hidden;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
-    .ms-glass-cta:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(100deg,transparent 35%,rgba(201,255,54,.14) 48%,transparent 61%);transform:translateX(-52%);transition:transform .55s ease;pointer-events:none}
-    .ms-glass-cta:hover,.ms-glass-cta:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(201,255,54,.68);box-shadow:0 0 24px rgba(201,255,54,.12),0 12px 34px rgba(0,0,0,.28)}
+    .ms-contact-card{position:relative;width:min(620px,100%);border:1px solid rgba(201,255,54,.30);border-radius:28px;padding:clamp(32px,5vw,48px);background:linear-gradient(145deg,rgba(18,22,17,.68),rgba(5,8,6,.52));backdrop-filter:blur(28px) saturate(135%);-webkit-backdrop-filter:blur(28px) saturate(135%);box-shadow:0 34px 120px rgba(0,0,0,.58),0 0 42px rgba(201,255,54,.12),inset 0 1px rgba(255,255,255,.10),inset 0 0 42px rgba(201,255,54,.035);transform:translateY(14px) scale(.975);transition:transform .32s cubic-bezier(.2,.85,.2,1),border-color .25s ease,box-shadow .25s ease;overflow:hidden}
+    .ms-contact-overlay.open .ms-contact-card{transform:none;border-color:rgba(201,255,54,.44);box-shadow:0 34px 120px rgba(0,0,0,.58),0 0 54px rgba(201,255,54,.16),inset 0 1px rgba(255,255,255,.11),inset 0 0 46px rgba(201,255,54,.04)}
+    .ms-contact-card:before{content:"";position:absolute;inset:-45% -20%;background:radial-gradient(circle at 16% 15%,rgba(201,255,54,.10),transparent 30%),linear-gradient(110deg,transparent 34%,rgba(255,255,255,.055) 48%,transparent 62%);pointer-events:none;transform:translateX(-18%);opacity:.85}
+    .ms-contact-close{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.20);background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);cursor:pointer;font-size:18px;display:grid;place-items:center;box-shadow:0 0 18px rgba(201,255,54,.06);transition:.2s ease}
+    .ms-contact-close:hover,.ms-contact-close:focus-visible{outline:none;border-color:rgba(201,255,54,.58);color:var(--ms-ui-lime);box-shadow:0 0 22px rgba(201,255,54,.12)}
+    .ms-contact-kicker{position:relative;z-index:1;color:var(--ms-ui-lime);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;font-weight:800;text-shadow:0 0 12px rgba(201,255,54,.30)}
+    .ms-contact-card h2{position:relative;z-index:1;margin:0 0 22px;font-size:clamp(38px,5vw,62px);line-height:.90;letter-spacing:-.05em;text-transform:uppercase;max-width:11.5ch;color:var(--ms-ui-fg);text-wrap:balance}
+    .ms-contact-card p{position:relative;z-index:1;margin:0 0 30px;color:#c9cec3;font-size:14px;line-height:1.65;max-width:48ch}
+    .ms-contact-actions{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .ms-glass-cta{position:relative;min-height:60px;border:1px solid rgba(201,255,54,.26);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.03));backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%);display:flex;align-items:center;justify-content:center;gap:0;padding:0 20px;font-size:10px;letter-spacing:.13em;font-weight:850;text-transform:uppercase;color:var(--ms-ui-fg);overflow:hidden;box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 18px rgba(201,255,54,.045);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-glass-cta:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(100deg,transparent 34%,rgba(201,255,54,.22) 48%,transparent 62%);transform:translateX(-58%);transition:transform .55s ease;pointer-events:none}
+    .ms-glass-cta:hover,.ms-glass-cta:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(201,255,54,.82);background:linear-gradient(145deg,rgba(201,255,54,.12),rgba(255,255,255,.035));box-shadow:0 0 28px rgba(201,255,54,.18),0 12px 34px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.11)}
     .ms-glass-cta:hover:before,.ms-glass-cta:focus-visible:before{transform:translateX(52%)}
-    .ms-glass-cta.primary{border-color:rgba(201,255,54,.60);background:linear-gradient(145deg,rgba(201,255,54,.18),rgba(201,255,54,.055));color:var(--ms-ui-lime)}
+    .ms-glass-cta.primary{border-color:rgba(201,255,54,.72);background:linear-gradient(145deg,rgba(201,255,54,.20),rgba(201,255,54,.055));color:var(--ms-ui-lime);box-shadow:0 0 24px rgba(201,255,54,.10),inset 0 1px rgba(255,255,255,.10)}
 
     body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:48px}
     @media(max-width:760px){
       .ms-universal-menu-btn{top:10px;left:10px;width:40px;height:40px;border-radius:14px}
       .ms-menu-overlay{padding:60px 10px 10px}.ms-menu-panel{width:100%;border-radius:20px;padding:14px 15px}.ms-menu-link{font-size:clamp(38px,13vw,58px);padding:14px 4px 15px}.ms-menu-link:hover{padding-left:8px}
       .ms-sound-toggle{left:12px;bottom:12px;height:36px;padding:0 10px}.ms-sound-toggle .label{display:none}
-      .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:28px 22px}.ms-contact-card h2{font-size:clamp(40px,12vw,58px)}
+      .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:30px 22px}.ms-contact-card h2{font-size:clamp(36px,11vw,52px);line-height:.92;max-width:10.8ch}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:24px}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
     @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
@@ -106,10 +108,10 @@
       <button class="ms-contact-close" type="button" aria-label="Fechar">×</button>
       <div class="ms-contact-kicker">1 MINUTO POR AQUI</div>
       <h2 id="msContactTitle">Vamos transformar sua ideia?</h2>
-      <p>Se você já encontrou uma direção para o projeto, fale direto com o estúdio. Se ainda estiver explorando, veja os cases antes de decidir.</p>
+      <p>Já encontrou uma direção para o projeto? Fale com o estúdio. Se ainda estiver explorando, veja os projetos e escolha o melhor caminho.</p>
       <div class="ms-contact-actions">
-        <a class="ms-glass-cta primary" href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer"><span>FALAR NO WHATSAPP</span><b>↗</b></a>
-        <a class="ms-glass-cta" href="${PORTFOLIO_URL}"><span>VER PORTFÓLIO</span><b>→</b></a>
+        <a class="ms-glass-cta primary" href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer"><span>FALAR NO WHATSAPP</span></a>
+        <a class="ms-glass-cta" href="${PORTFOLIO_URL}"><span>VER PORTFÓLIO</span></a>
       </div>
     </aside>`;
   document.body.appendChild(popup);
