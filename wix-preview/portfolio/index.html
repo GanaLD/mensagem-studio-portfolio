@@ -18,4 +18,5 @@
 </div></div></main><footer><span>Mensagem Studio © 2026</span><a href="../servicos/">Conhecer serviços ↗</a></footer>
 <script>const cards=[...document.querySelectorAll('.card')],cats=['Todos',...new Set(cards.map(c=>c.dataset.cat))],filters=document.querySelector('#filters');let active='Todos';function render(){filters.innerHTML=cats.map(c=>`<button class="filter ${c===active?'on':''}" data-cat="${c}">${c}</button>`).join('');cards.forEach(c=>c.hidden=active!=='Todos'&&c.dataset.cat!==active)}filters.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;active=b.dataset.cat;render()});render();</script><script src="./project-data.js"></script>
 <script src="./portfolio-linker.js"></script>
+<script src="../global-ui.js?v=20260910-r3"></script>
 </body></html>
