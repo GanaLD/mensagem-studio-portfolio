@@ -1,4 +1,4 @@
-// Round 2f — deterministic service-card navigation + exact Briefing content/layout.
+// Round 2i — deterministic service-card navigation + Briefing foreground/layout hardening.
 (() => {
   const SERVICES_URL = 'https://mensagemstudio.shop/wix-preview/servicos/';
   const BRIEFING_URL = 'https://mensagemstudio.shop/briefing/';
@@ -10,27 +10,48 @@
     style.id = 'ms-home-round2d-style';
     style.textContent = `
       #brief .brief-grid{position:relative;z-index:3;align-items:stretch}
-      #brief .brief-card{position:relative;isolation:isolate;overflow:hidden;background:transparent!important;min-height:100%}
-      #brief .brief-card::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(145deg,rgba(10,11,9,.88),rgba(8,9,7,.78));border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(18px)}
-      #brief .brief-card>*{position:relative;z-index:1}
-      #brief .brief-card:first-child{display:flex;flex-direction:column}
-      #brief .brief-card:first-child .steps{display:grid;gap:0;margin-top:14px}
-      #brief .brief-card:first-child .step{grid-template-columns:54px minmax(0,1fr);gap:18px;padding:22px 0;border-top:1px solid rgba(255,255,255,.14);align-items:start}
-      #brief .brief-card:first-child .step b{font-size:13px;line-height:1.2;letter-spacing:.14em;color:var(--lime);padding-top:4px;font-weight:800}
-      #brief .brief-card:first-child .step-content{min-width:0}
-      #brief .brief-card:first-child .step h4{margin:0 0 7px;color:var(--fg);font-size:clamp(19px,1.55vw,27px);line-height:1.05;letter-spacing:-.025em;text-transform:uppercase;font-weight:800}
-      #brief .brief-card:first-child .step p{margin:0;max-width:58ch;color:#c0c5b9;line-height:1.55;font-size:clamp(12px,.95vw,15px)}
-      .ms-brief-seo{margin-top:auto;padding-top:24px;border-top:1px solid rgba(201,255,54,.34)}
-      .ms-brief-seo strong{display:block;color:var(--lime);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
-      .ms-brief-seo span{display:block;color:#c4c8bd;font-size:12px;line-height:1.55;max-width:58ch}
+      #brief .brief-card{position:relative;z-index:1;isolation:isolate;overflow:hidden;background:transparent!important;min-height:100%}
+      #brief .brief-card::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(145deg,rgba(9,10,8,.94),rgba(7,8,6,.90));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px);pointer-events:none}
+      #brief .brief-card>*{position:relative!important;z-index:2!important;filter:none!important;opacity:1!important}
+
+      /* Briefing content must never inherit the downstream blur/reveal state. */
+      #brief .brief-card.ms-reveal,
+      #brief .brief-card.ms-reveal.is-visible,
+      #brief .step.ms-reveal,
+      #brief .step.ms-reveal.is-visible{
+        opacity:1!important;
+        transform:none!important;
+        filter:none!important;
+      }
+
+      #brief .brief-card:first-child{display:flex;flex-direction:column;padding:36px 36px 32px!important}
+      #brief .brief-card:first-child .kicker{color:var(--lime)!important;font-weight:800;letter-spacing:.16em}
+      #brief .brief-card:first-child>h3{margin:12px 0 0;color:var(--fg)!important;font-size:clamp(34px,3.3vw,58px);line-height:.94;letter-spacing:-.045em;max-width:11ch}
+      #brief .brief-card:first-child .steps{display:grid;gap:0;margin-top:30px}
+      #brief .brief-card:first-child .step{display:grid!important;grid-template-columns:54px minmax(0,1fr);gap:20px;padding:24px 0;border-top:1px solid rgba(255,255,255,.15);align-items:start;background:transparent!important}
+      #brief .brief-card:first-child .step:first-child{border-top-color:rgba(201,255,54,.34)}
+      #brief .brief-card:first-child .step b{display:block!important;font-size:13px;line-height:1.2;letter-spacing:.14em;color:var(--lime)!important;padding-top:4px;font-weight:850}
+      #brief .brief-card:first-child .step-content{display:block!important;min-width:0;position:relative;z-index:3}
+      #brief .brief-card:first-child .step h4{display:block!important;margin:0 0 9px;color:#f4f5ef!important;font-size:clamp(21px,1.65vw,29px);line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;font-weight:850;filter:none!important;text-shadow:none!important}
+      #brief .brief-card:first-child .step p{display:block!important;margin:0;max-width:60ch;color:#c9cec2!important;line-height:1.55;font-size:clamp(13px,1vw,16px);filter:none!important;text-shadow:none!important}
+      .ms-brief-seo{margin-top:auto;padding-top:24px;border-top:1px solid rgba(201,255,54,.34);position:relative;z-index:3}
+      .ms-brief-seo strong{display:block;color:var(--lime)!important;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+      .ms-brief-seo span{display:block;color:#c9cec2!important;font-size:12px;line-height:1.55;max-width:58ch}
+
       #brief .brief-card:last-child{display:flex;flex-direction:column}
       #brief .brief-card:last-child .muted{max-width:54ch}
       #brief .ms-brief-actions{display:grid;gap:12px;margin-top:28px}
       #brief .ms-brief-action{min-height:92px;width:100%;padding:0 26px;border:1px solid rgba(255,255,255,.17);background:rgba(5,6,5,.42);display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:clamp(18px,1.6vw,28px);font-weight:850;letter-spacing:-.025em;text-transform:uppercase;transition:.2s ease}
       #brief .ms-brief-action::after{content:"›";font-size:34px;line-height:1;color:var(--lime);font-weight:400;transform:translateY(-1px)}
       #brief .ms-brief-action:hover,#brief .ms-brief-action:focus-visible{outline:none;border-color:var(--lime);background:rgba(201,255,54,.075);transform:translateX(4px)}
+
       @media(max-width:760px){
-        #brief .brief-card:first-child .step{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:18px 0}
+        #brief .brief-card:first-child{padding:28px 24px 26px!important}
+        #brief .brief-card:first-child>h3{font-size:clamp(34px,10vw,46px);max-width:10ch}
+        #brief .brief-card:first-child .steps{margin-top:24px}
+        #brief .brief-card:first-child .step{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:20px 0}
+        #brief .brief-card:first-child .step h4{font-size:clamp(18px,5.6vw,23px)}
+        #brief .brief-card:first-child .step p{font-size:13px;line-height:1.5}
         .ms-brief-seo{margin-top:18px}
         #brief .ms-brief-action{min-height:76px;padding:0 18px}
       }
