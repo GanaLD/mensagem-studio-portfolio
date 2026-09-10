@@ -1,0 +1,122 @@
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'llms.txt'
+      - 'CNAME'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-main
+  cancel-in-progress: true
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Wait for GitHub Pages key
+        shell: bash
+        run: |
+          KEY='0d0aafe26f6ac66cbd4f0f735c216aad'
+          KEY_URL="https://mensagemstudio.shop/$KEY.txt"
+          for i in {1..18}; do
+            if curl -fsSL "$KEY_URL" | grep -qx "$KEY"; then
+              echo "IndexNow key is live."
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "IndexNow key was not visible on Pages in time."
+          exit 1
+
+      - name: Submit changed URLs to IndexNow
+        shell: bash
+        env:
+          INDEXNOW_KEY: 0d0aafe26f6ac66cbd4f0f735c216aad
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          base = "https://mensagemstudio.shop"
+          key = os.environ["INDEXNOW_KEY"]
+          key_location = f"{base}/{key}.txt"
+
+          event = os.environ.get("GITHUB_EVENT_NAME", "push")
+          urls = set()
+
+          if event == "workflow_dispatch":
+              sitemap = Path("sitemap.xml")
+              if sitemap.exists():
+                  root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
+                  ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+                  for loc in root.findall("sm:url/sm:loc", ns):
+                      if loc.text and loc.text.startswith(base):
+                          urls.add(loc.text.strip())
+          else:
+              before = os.environ.get("GITHUB_EVENT_BEFORE", "")
+              sha = os.environ.get("GITHUB_SHA", "HEAD")
+              if before and before != "0" * 40:
+                  cmd = ["git", "diff", "--name-only", before, sha]
+              else:
+                  cmd = ["git", "diff", "--name-only", "HEAD~1", "HEAD"]
+              try:
+                  changed = subprocess.check_output(cmd, text=True).splitlines()
+              except Exception:
+                  changed = []
+
+              for path in changed:
+                  path = path.replace("\\", "/")
+                  if path == "index.html":
+                      urls.add(base + "/")
+                  elif path.endswith("/index.html"):
+                      route = path[:-len("index.html")]
+                      urls.add(base + "/" + route.lstrip("/"))
+                  elif path in {"sitemap.xml", "robots.txt", "llms.txt", "CNAME"}:
+                      urls.add(base + "/")
+
+          urls = sorted(u for u in urls if u.startswith(base))
+          if not urls:
+              print("No public page URLs changed; nothing to submit.")
+              raise SystemExit(0)
+
+          # IndexNow supports bulk URL submission. Keep batches bounded.
+          for offset in range(0, len(urls), 1000):
+              batch = urls[offset:offset + 1000]
+              payload = json.dumps({
+                  "host": "mensagemstudio.shop",
+                  "key": key,
+                  "keyLocation": key_location,
+                  "urlList": batch,
+              }).encode("utf-8")
+              req = urllib.request.Request(
+                  "https://api.indexnow.org/IndexNow",
+                  data=payload,
+                  headers={"Content-Type": "application/json; charset=utf-8"},
+                  method="POST",
+              )
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  print("IndexNow:", response.status, "URLs:", len(batch))
+          PY
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
