@@ -1,6 +1,6 @@
 window.MENSAGEM_PROJECTS = [
   {
-    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Produto 3D | EGEO', tag:'3D / Produto', description:'', details:[],
+    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Modelagem e Render 3D de Produto | EGEO', tag:'3D / Produto', description:'Case de modelagem e render 3D de produto para apresentação comercial de perfume, com foco em materiais, iluminação, composição e visualização CGI para publicidade, campanhas e conteúdo digital.', details:[{label:'Serviço',text:'Modelagem 3D de produto · Render 3D'},{label:'Aplicações',text:'Publicidade · Campanhas · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg', coverVideo:'https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file',
     media:[
       {type:'VIDEO',title:'CARROSSEL 3',url:'https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file',poster:'https://static.wixstatic.com/media/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg'},
