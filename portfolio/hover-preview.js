@@ -15,9 +15,16 @@
 
     if (!project || !mediaBox || !cover) return;
 
+    // Preview priority: always use real project videos first.
+    // coverVideo is only a technical fallback because some legacy cover videos
+    // are not the best representation of the project itself.
+    const projectVideos = (project.media || [])
+      .filter(item => item?.type === 'VIDEO' && item?.url)
+      .map(item => item.url);
+
     const videoCandidates = unique([
-      project.coverVideo,
-      ...(project.media || []).filter(item => item?.type === 'VIDEO').map(item => item.url)
+      ...projectVideos,
+      project.coverVideo
     ]);
 
     const imageCandidates = unique(
@@ -131,7 +138,21 @@
           const play = el.play();
           if (play?.catch) {
             play.catch(() => {
-              if (active) startSlideshow();
+              if (!active) return;
+              // Do not jump straight to images when another project video may exist.
+              videoIndex += 1;
+              if (videoIndex < videoCandidates.length) {
+                el.src = videoCandidates[videoIndex];
+                el.load();
+                const retry = el.play();
+                if (retry?.catch) {
+                  retry.catch(() => {
+                    if (active && videoIndex >= videoCandidates.length - 1) startSlideshow();
+                  });
+                }
+              } else {
+                startSlideshow();
+              }
             });
           }
           return;
