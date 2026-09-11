@@ -64,6 +64,29 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 @media(max-width:1024px){.hero-grid{grid-template-columns:1fr 1fr}.hero-copy h1{font-size:clamp(48px,8vw,86px)}.services-grid{grid-template-columns:repeat(2,1fr)}.project,.project:nth-child(1),.project:nth-child(6){grid-column:span 6}.section-head{grid-template-columns:1fr}.stage{grid-template-columns:220px 1fr}.brief-grid{grid-template-columns:1fr}.gmc-word.one{font-size:36vw}.gmc-word.two{font-size:28vw}}
 @media(max-width:760px){header{height:60px;padding:0 14px}.nav{gap:10px}.nav a{font-size:9px}#hero{height:1200vh}.hero-grid{grid-template-columns:1fr;grid-template-rows:1fr 1fr;padding:78px 16px 26px;gap:12px}.hero-art{order:1;width:100%;height:39vh;aspect-ratio:auto;align-self:start}.hero-copy{order:2;align-self:end}.hero-copy h1{font-size:clamp(36px,12vw,58px);margin-bottom:12px}.hero-copy p{font-size:13px;margin-bottom:15px}.hero-count{margin-bottom:10px}.hero-progress{right:16px;bottom:14px}.video-scroll-label{left:16px}.video-scroll-meter{left:16px;right:16px}.services-grid{grid-template-columns:1fr}.projects-grid{display:block}.project{margin-bottom:14px}.section{padding:76px 0}.section-head{margin-bottom:30px}.stage{grid-template-columns:1fr;min-height:0}.stage-side{border-right:0;border-bottom:1px solid var(--line);display:flex;flex-direction:row;overflow:auto}.stage-side button{flex:0 0 auto}.stage-main,.stage-main iframe,.stage-main model-viewer{min-height:60vh;height:60vh}.brief-card{padding:24px}.gmc-word.one{font-size:58vw}.gmc-word.two{font-size:44vw}.gmc-word.three{font-size:28vw}footer{flex-direction:column;padding:28px 16px}}
 @media(prefers-reduced-motion:reduce){#sfGlobalMediaCanvas{transition:none}.gmc-word{transform:none!important}.gmc-grid{transform:none!important}}
+/* PROJECT GRID — INTERAÇÃO / PREVIEW */
+#projects .projects-grid{align-items:stretch}
+#projects .project{position:relative;display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none;cursor:pointer;isolation:isolate;transform-origin:center;transition:transform .34s cubic-bezier(.2,.72,.18,1),border-color .28s ease,box-shadow .28s ease,background .28s ease;will-change:transform}
+#projects .project:before{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;opacity:0;pointer-events:none;background:linear-gradient(135deg,rgba(201,255,54,.58),rgba(255,255,255,.08) 38%,rgba(255,112,67,.2));filter:blur(12px);transition:opacity .28s ease}
+#projects .project:hover,#projects .project:focus-visible{z-index:10;transform:translateY(-9px) scale(1.028);border-color:rgba(201,255,54,.68);background:rgba(16,18,13,.94);box-shadow:0 26px 70px rgba(0,0,0,.5),0 0 0 1px rgba(201,255,54,.30),0 0 34px rgba(201,255,54,.20)}
+#projects .project:hover:before,#projects .project:focus-visible:before{opacity:.9}
+#projects .project:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+#projects .project-media{position:relative}
+#projects .project-media .project-cover,#projects .project-media .project-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .28s ease,transform .48s cubic-bezier(.2,.72,.18,1),filter .35s ease}
+#projects .project-media .project-cover{z-index:1;opacity:1}
+#projects .project-media .project-preview{z-index:2;opacity:0;pointer-events:none;background:#0d0f0b}
+#projects .project:hover .project-cover,#projects .project:focus-visible .project-cover{transform:scale(1.055);filter:saturate(1.08) contrast(1.04)}
+#projects .project.is-previewing .project-cover{opacity:0}
+#projects .project.is-previewing .project-preview{opacity:1;transform:scale(1.025)}
+#projects .project-open{position:absolute;z-index:4;right:14px;top:14px;padding:9px 11px;border:1px solid rgba(255,255,255,.19);background:rgba(7,8,6,.66);backdrop-filter:blur(10px);font-size:9px;font-weight:800;letter-spacing:.11em;color:#f5f6ef;opacity:0;transform:translateY(-6px);transition:opacity .24s ease,transform .24s ease,border-color .24s ease,background .24s ease}
+#projects .project:hover .project-open,#projects .project:focus-visible .project-open{opacity:1;transform:translateY(0);border-color:rgba(201,255,54,.48);background:rgba(7,8,6,.78)}
+#projects .project-text{position:relative;z-index:3;flex:1;transition:transform .32s ease}
+#projects .project:hover .project-text,#projects .project:focus-visible .project-text{transform:translateY(-2px)}
+#projects .project-text h3{transition:color .24s ease}
+#projects .project:hover .project-text h3,#projects .project:focus-visible .project-text h3{color:#fff}
+@media(max-width:760px){#projects .project:hover,#projects .project:focus-visible{transform:none}.project-open{display:none}}
+@media(hover:none){#projects .project:hover{transform:none;box-shadow:none}#projects .project:before{display:none}}
+@media(prefers-reduced-motion:reduce){#projects .project,#projects .project:before,#projects .project-media .project-cover,#projects .project-media .project-preview,#projects .project-open,#projects .project-text{transition:none!important}#projects .project:hover,#projects .project:focus-visible{transform:none}}
 </style>
 </head>
 <body>
@@ -75,7 +98,15 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 <main id="afterWord" class="after-word">
 <section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">02 · DOCUMENTOS</div><h2>PDF Showcase.</h2></div><p>Um viewer compartilhado para vários documentos.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL">Manual de Marca</button><button data-pdf="1aqI0tbJjItjRLoZcvCd1Asm24e-O1pYs">Mídia Kit 2026</button><button data-pdf="1j3yee9MH266rojP_F8IwkHfKsLqTvihj">Branding V1</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" src="https://drive.google.com/file/d/11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL/preview"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
 <section id="three" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">03 · 3D / WEBGL</div><h2>3D interativo.</h2></div><p>Um único viewer para vários GLBs. Arraste para orbitar e use os botões para trocar o modelo.</p></div><div class="stage"><div class="stage-side" id="modelTabs"><button class="active" data-model="car">Car</button><button data-model="lantern">Lantern</button><button data-model="spacecraft">Spacecraft</button></div><div class="stage-main"><model-viewer id="modelViewer" camera-controls auto-rotate shadow-intensity="1" exposure="1.05" environment-image="neutral" alt="Modelo 3D" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-3d-assets?asset=car"></model-viewer><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></div></section>
-<section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Cases reais reutilizados do acervo atual para validar seleção, hierarquia e conteúdo.</p></div><div class="projects-grid"><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc" alt="Motors Vans"></div><div class="project-text"><small>Social / Automotivo</small><h3>Motors Vans</h3><p>Criação publicitária e social media seguindo a identidade da marca e reforçando presença no segmento automotivo.</p></div></article><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png" alt="Poster Cartaz"></div><div class="project-text"><small>Poster / Direção de arte</small><h3>Pôster | Cartaz</h3><p>Edição gráfica para projetos que exigem impacto visual, estética cinematográfica e presença de campanha.</p></div></article><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg/v1/fill/w_743,h_835,al_c/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg" alt="Motion Banner"></div><div class="project-text"><small>Motion / Cinema</small><h3>Motion Banner</h3><p>Animação e design para conteúdos visuais com movimento, lançamentos, trailers e campanhas.</p></div></article><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/ef8a3a_4bc9c5ada1c9448e6946f3426667e5188~mv2.jpeg" alt="Fotos para ecommerce" onerror="this.src='https://static.wixstatic.com/media/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg/v1/fill/w_1200,h_1200,al_c/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg'"></div><div class="project-text"><small>E-commerce / IA</small><h3>Fotos para E-commerce</h3><p>Tratamento e recriação de produtos com fidelidade, qualidade visual e aplicação comercial.</p></div></article><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/ef8a3a_111ac4aceeea4a6c93f88fda38430e88~mv2.jpeg/v1/fill/w_1216,h_832,al_c/ef8a3a_111ac4aceeea4a6c93f88fda38430e88~mv2.jpeg" alt="Capa de Album"></div><div class="project-text"><small>Aesthetics / Music</small><h3>Capa de Álbum</h3><p>Conceito visual autoral para capas, singles e EPs, com linguagem alinhada ao universo sonoro.</p></div></article><article class="project"><div class="project-media"><img src="https://static.wixstatic.com/media/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png" alt="Natural One"></div><div class="project-text"><small>Branding / Campanha</small><h3>Natural One</h3><p>Branding e comunicação com foco em naturalidade, autenticidade, direção de arte e percepção premium.</p></div></article></div></div></section>
+<section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Cases reais reutilizados do acervo atual para validar seleção, hierarquia e conteúdo.</p></div><div class="projects-grid">
+<a class="project has-preview" href="./portfolio/produto-3d-egeo/" aria-label="Abrir projeto Produto 3D EGEO"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" src="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>3D / Produto</small><h3>Produto 3D | EGEO</h3><p>Projeto de produto 3D com foco em apresentação, materialidade, iluminação e render.</p></div></a>
+<a class="project" href="./portfolio/carrossel-banner-estetica/" aria-label="Abrir projeto Carrossel e Banner Estética"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png" alt="Carrossel Estética"><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Design / Social Media</small><h3>Carrossel e Banner Estética</h3><p>Carrossel e banner desenvolvidos para comunicação de estética e presença digital.</p></div></a>
+<a class="project has-preview" href="./portfolio/edicao-podcast-workshop/" aria-label="Abrir projeto Edição de Podcast e Workshop"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" alt="Podcast Workshop"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" src="https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Audiovisual / Edição</small><h3>Edição de Podcast e Workshop</h3><p>Edição audiovisual para podcast, workshop e conteúdos institucionais.</p></div></a>
+<a class="project has-preview" href="./portfolio/motion-ia-video-campanhas/" aria-label="Abrir projeto Motion IA Vídeo para Campanhas"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg" alt="Motion IA"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg" src="https://video.wixstatic.com/video/ef8a3a_47db0d21af3542abb5e1af4992b47135/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Motion / IA</small><h3>Motion + IA | Vídeo para Campanhas</h3><p>Motion e inteligência artificial aplicados a peças e vídeos de campanha.</p></div></a>
+<a class="project has-preview" href="./portfolio/suco-laranja-natural-one/" aria-label="Abrir projeto Suco de Laranja Natural One"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg" alt="Natural One"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg" src="https://video.wixstatic.com/video/ef8a3a_1ff0b6395d104d9cb9cb04b997f3d4fc/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Branding / Campanha</small><h3>Suco de Laranja | Natural One</h3><p>Branding e comunicação com foco em naturalidade, autenticidade, direção de arte e percepção premium.</p></div></a>
+<a class="project has-preview" href="./portfolio/esporte-fitness/" aria-label="Abrir projeto Esporte Fitness"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg/v1/fill/w_2160,h_2700,al_c/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg" alt="Esporte Fitness"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg/v1/fill/w_2160,h_2700,al_c/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg" src="https://video.wixstatic.com/video/ef8a3a_f57409b1be21499eba6d825c07371206/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Produto / Campanha</small><h3>Esporte Fitness</h3><p>Projeto demonstrativo de inserção de produto em ambientes realistas com finalidade comercial.</p></div></a>
+<a class="project has-preview" href="./portfolio/creatina-growth/" aria-label="Abrir projeto Creatina Growth"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg" alt="Creatina Growth"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg" src="https://video.wixstatic.com/video/ef8a3a_bb66b77e34da4a2188503e76e05eed12/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Produto / Motion</small><h3>Creatina Growth</h3><p>Banner e vídeo de produto com narrativa visual voltada a treino, disciplina e evolução.</p></div></a>
+</div></div></section>
 <section id="motion" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">04 · MOTION / VIDEO</div><h2>Movimento como linguagem.</h2></div><p>O showcase audiovisual fica isolado depois dos projetos para funcionar como uma nova mudança de ritmo.</p></div><div class="stage"><div class="stage-side" id="ytTabs"><button class="active" data-yt="XVL_ToV0-uY">Showreel / Hero</button><button data-yt="G_2jdXfXxiI">Showcase 02</button></div><div class="stage-main"><iframe id="ytFrame" title="YouTube Showcase" src="https://www.youtube.com/embed/XVL_ToV0-uY?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="stage-note">player compartilhado · 01/02</div></div></div></div></section>
 <section id="brief" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">05 · BRIEFING</div><h2>Transforme referência em projeto.</h2></div><p>Fechamento da jornada: descoberta, escopo e produção.</p></div><div class="brief-grid"><div class="brief-card"><div class="kicker">PROCESSO</div><h3>Do objetivo à produção.</h3><div class="steps"><div class="step"><b>01</b><p><strong>Descoberta</strong><br>Objetivo, contexto, referências e direção.</p></div><div class="step"><b>02</b><p><strong>Escopo</strong><br>Entregáveis, prazo, orçamento e revisões.</p></div><div class="step"><b>03</b><p><strong>Produção</strong><br>Design, motion, 3D e web conectados.</p></div></div></div><div class="brief-card"><div class="kicker">AÇÃO</div><h3>Começar projeto.</h3><p class="muted">Abra o briefing para detalhar a demanda ou monte primeiro uma solicitação de orçamento.</p><div class="cta-row" style="margin-top:28px"><a class="btn primary" href="https://mensagemstudio.shop/briefing/">Começar briefing <b>↗</b></a><a class="btn" href="https://mensagemstudio.shop/orcamento/">Solicitar orçamento <b>↗</b></a></div></div></div></div></section>
 <section class="final-cta"><div class="wrap"><div class="kicker">MENSAGEM STUDIO · PROJETO COMPLETO</div><h2>Ideia em experiência.</h2><p>Design, motion, 3D, web e direção visual conectados em uma única linguagem.</p><div class="cta-row" style="justify-content:center"><a class="btn primary" href="#hero">Rever do início <b>↑</b></a><a class="btn" href="https://www.mensagemstudio.com.br/">Site atual <b>↗</b></a></div></div></section>
@@ -109,5 +140,86 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <style id="ms-home-whatsapp-style">#msHomeWhatsapp{position:fixed;right:24px;bottom:24px;z-index:130;display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 18px;border-radius:999px;background:#25d366;color:#07110a;font:800 11px/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 26px rgba(37,211,102,.18);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(10px);transition:transform .2s ease,filter .2s ease}#msHomeWhatsapp:hover{transform:translateY(-2px);filter:brightness(1.06)}#msHomeWhatsapp i{width:8px;height:8px;border-radius:50%;background:#07110a;opacity:.8}@media(max-width:760px){#msHomeWhatsapp{right:16px;bottom:16px;min-height:46px;padding:0 15px}}</style><a id="msHomeWhatsapp" href="https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="Falar com a Mensagem Studio pelo WhatsApp"><i></i>WhatsApp ↗</a><script type="module" src="./scroll-reveal.js?v=20260910-brief-crisp"></script>
 <script src="./global-ui.js?v=20260910-r5"></script>
 <!-- SEO-PUBLISH-SOURCE: wix-preview -->
+<script>
+(() => {
+  const fineHover = window.matchMedia('(hover:hover) and (pointer:fine)');
+  const cards = [...document.querySelectorAll('#projects .project.has-preview')];
+  const videos = cards.map(card => card.querySelector('.project-preview')).filter(Boolean);
+  let gridActive = false;
+
+  const playVideo = (video) => {
+    if (!video) return;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.volume = 0;
+    video.loop = true;
+    video.playsInline = true;
+    video.autoplay = true;
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
+  const pauseAll = () => videos.forEach(video => {
+    video.pause();
+  });
+
+  const playAll = () => videos.forEach(playVideo);
+
+  // Os previews já ficam efetivamente tocando enquanto o grid está em/ao redor da viewport.
+  // Assim o hover não depende de iniciar o decoder naquele instante.
+  if ('IntersectionObserver' in window) {
+    const grid = document.querySelector('#projects .projects-grid');
+    const io = new IntersectionObserver(entries => {
+      const active = entries.some(entry => entry.isIntersecting);
+      gridActive = active;
+      if (active) playAll();
+      else pauseAll();
+    }, { rootMargin: '35% 0px 35% 0px', threshold: 0.01 });
+    if (grid) io.observe(grid);
+  } else {
+    gridActive = true;
+    playAll();
+  }
+
+  cards.forEach(card => {
+    const video = card.querySelector('.project-preview');
+    if (!video) return;
+
+    video.addEventListener('loadeddata', () => {
+      if (gridActive) playVideo(video);
+    });
+
+    video.addEventListener('canplay', () => {
+      if (gridActive) playVideo(video);
+    });
+
+    card.addEventListener('mouseenter', () => {
+      if (!fineHover.matches) return;
+      playVideo(video);
+      card.classList.add('is-previewing');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('is-previewing');
+      if (!gridActive) video.pause();
+    });
+
+    card.addEventListener('focusin', () => {
+      playVideo(video);
+      card.classList.add('is-previewing');
+    });
+
+    card.addEventListener('focusout', () => {
+      card.classList.remove('is-previewing');
+      if (!gridActive) video.pause();
+    });
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pauseAll();
+    else if (gridActive) playAll();
+  });
+})();
+</script>
 </body>
 </html>
