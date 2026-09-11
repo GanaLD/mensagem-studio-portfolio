@@ -1,0 +1,14 @@
+{
+  "studio-orbit-dish": {
+    "path": "3d/studio-orbit-dish.glb.gz",
+    "fallback_path": "3d/fallbacks/studio-orbit-dish.png",
+    "engine": "glb",
+    "compression": "gzip",
+    "content_type": "model/gltf-binary",
+    "license": "CC0-1.0",
+    "source_page": "https://kenney.nl/assets/space-kit",
+    "source_glb_sha256": "143dd36b2c427e3201110967a18fd836bc7aa8002dbf3e44efa42c75fbb44ae5",
+    "runtime_sha256": "ee1373e8528f83505f15518329d39513901b4cde2a3a11d14b603c05203a4953",
+    "fallback_sha256": "cd83f18d45aaa58658e123eafccc0c0f6ce750d62ed443d92a3bf46c100f85b0"
+  }
+}
