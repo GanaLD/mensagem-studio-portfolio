@@ -4,7 +4,7 @@
   cards.forEach((card, index) => {
     const project = projects[index];
     if (!project) return;
-    const url = `https://mensagemstudio.shop/portfolio/${project.slug}/`;
+    const url = `./${project.slug}/`;
     card.dataset.projectUrl = url;
     card.setAttribute('role','link');
     card.setAttribute('tabindex','0');
