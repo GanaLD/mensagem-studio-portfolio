@@ -3,26 +3,17 @@ Allow: /
 Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
-Disallow: /projetos/
-Disallow: /clientes/
-Disallow: /contato/
-Disallow: /orcamento/
-Disallow: /busca/
-Disallow: /arquivo/
-Disallow: /briefing/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
-Disallow: /projetos/
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
-Disallow: /projetos/
 
 Sitemap: https://mensagemstudio.shop/sitemap.xml
