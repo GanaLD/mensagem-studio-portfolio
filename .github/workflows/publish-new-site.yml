@@ -18,6 +18,7 @@ on:
       - 'servicos/**'
       - 'sobre/**'
       - 'assets/**'
+      - '.github/workflows/publish-new-site.yml'
   workflow_dispatch:
 
 permissions:
@@ -117,4 +118,5 @@ jobs:
             exit 0
           fi
           git commit -m 'Sync wix-preview backup from production'
+          git pull --rebase origin main
           git push
