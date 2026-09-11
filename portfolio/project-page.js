@@ -5,7 +5,7 @@
   const app = document.querySelector('#projectApp');
   const esc = (v='') => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   if (!project || !app) {
-    if (app) app.innerHTML = `<div class="error"><div><h1>Projeto não encontrado.</h1><p>Volte para a página de Projetos e escolha outro case.</p><a class="nav a" href="../">Projetos</a></div></div>`;
+    if (app) app.innerHTML = `<div class="error"><div><h1>Projeto não encontrado.</h1><p>Volte para a página de Projetos e escolha outro case.</p><a class="nav a" href="https://mensagemstudio.shop/portfolio/">Projetos</a></div></div>`;
     return;
   }
   function ratioFrom(url='') {
@@ -57,8 +57,8 @@
       <div class="media-grid">${project.media.map(itemHTML).join('')}</div>
     </div></section>
     <section class="project-nav"><div class="wrap"><div class="project-nav-grid">
-      <a class="project-link" href="../${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
-      <a class="project-link next" href="../${esc(next.slug)}/"><small>Próximo projeto →</small><strong>${esc(next.title)}</strong></a>
+      <a class="project-link" href="https://mensagemstudio.shop/portfolio/${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
+      <a class="project-link next" href="https://mensagemstudio.shop/portfolio/${esc(next.slug)}/"><small>Próximo projeto →</small><strong>${esc(next.title)}</strong></a>
     </div></div></section>`;
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
