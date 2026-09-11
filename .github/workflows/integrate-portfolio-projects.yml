@@ -1,55 +1,17 @@
-name: Integrate Portfolio project pages
+name: Legacy Portfolio Integration — disabled
 
 on:
-  push:
-    paths:
-      - 'wix-preview/portfolio/project-data.js'
-      - 'wix-preview/portfolio/project-page.js'
-      - 'wix-preview/portfolio/project-page.css'
-      - 'wix-preview/portfolio/portfolio-linker.js'
-      - 'wix-preview/portfolio/*/index.html'
-      - 'scripts/integrate_portfolio_projects.py'
-      - '.github/workflows/integrate-portfolio-projects.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  integrate-project-pages:
+  legacy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Validate shared JavaScript
+      - name: Preview is backup-only
         run: |
-          node --check wix-preview/portfolio/project-data.js
-          node --check wix-preview/portfolio/project-page.js
-          node --check wix-preview/portfolio/portfolio-linker.js
-      - name: Verify 13 project subpages
-        run: |
-          test "$(find wix-preview/portfolio -mindepth 2 -maxdepth 2 -name index.html | wc -l)" -eq 13
-          test "$(grep -c "^    slug:'" wix-preview/portfolio/project-data.js)" -eq 13
-          grep -q "data-project=\"motors-vans\"" wix-preview/portfolio/motors-vans/index.html
-          grep -q "data-project=\"produto-3d-egeo\"" wix-preview/portfolio/produto-3d-egeo/index.html
-          grep -q "data-project=\"motion-ia-video-campanhas\"" wix-preview/portfolio/motion-ia-video-campanhas/index.html
-      - name: Integrate project links into Portfolio index
-        run: python scripts/integrate_portfolio_projects.py
-      - name: Verify Portfolio card navigation
-        run: |
-          grep -q 'project-data.js' wix-preview/portfolio/index.html
-          grep -q 'portfolio-linker.js' wix-preview/portfolio/index.html
-          grep -q 'Ver projeto' wix-preview/portfolio/portfolio-linker.js
-      - name: Commit generated Portfolio index
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/portfolio/index.html
-          if git diff --cached --quiet; then
-            echo 'No generated changes to commit.'
-            exit 0
-          fi
-          git commit -m 'Link Portfolio cards to project subpages'
-          git push
+          echo "This legacy preview integration is disabled."
+          echo "Production root is authoritative."
+          echo "wix-preview is synchronized automatically from production and must not be used as an editing or publishing source."
