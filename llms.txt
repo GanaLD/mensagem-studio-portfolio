@@ -10,6 +10,14 @@ Site oficial: https://mensagemstudio.shop/
 - Serviços: https://mensagemstudio.shop/servicos/
 - Sobre: https://mensagemstudio.shop/sobre/
 
+## Serviços principais
+- Design para Social Media: https://mensagemstudio.shop/servicos/design-social-media/
+- Edição de Vídeo e Reels: https://mensagemstudio.shop/servicos/edicao-video/
+- Motion Design e VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
+- Fotos de Produto para E-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
+- Modelagem e Render 3D de Produto: https://mensagemstudio.shop/servicos/modelagem-3d-produto/
+- Sites em HTML e Experiências Web: https://mensagemstudio.shop/servicos/sites-html/
+
 ## Projetos selecionados
 - https://mensagemstudio.shop/portfolio/produto-3d-egeo/
 - https://mensagemstudio.shop/portfolio/carrossel-banner-estetica/
