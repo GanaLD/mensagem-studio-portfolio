@@ -45,9 +45,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'suco-laranja-natural-one', sourceSlug:'suco-de-laranja-natural-one', title:'Suco de Laranja | Natural One', tag:'Branding / Campanha',
+    slug:'suco-laranja-natural-one', sourceSlug:'suco-de-laranja-natural-one', title:'Branding e Campanha de Produto | Natural One', tag:'Branding / Campanha',
     description:`Projeto de branding e comunicação desenvolvido para a Natural One, com foco em posicionamento premium, naturalidade e autenticidade do produto.\n\nA proposta visual valoriza a pureza do suco 100% fruta, destacando frescor, cor vibrante e transparência como elementos centrais da narrativa. O sistema gráfico foi construído com tipografia limpa, paleta cromática inspirada na fruta in natura e composições que reforçam qualidade, simplicidade e confiança.\n\nO projeto inclui:\n\n• Direção de arte para redes sociais\n• Key visual para campanhas digitais\n• Mockups de embalagem e variações sazonais\n• Aplicações em mídia digital e materiais promocionais\n\nObjetivo estratégico: fortalecer percepção de produto natural e premium, aumentar conexão emocional com o consumidor e consolidar autoridade da marca no segmento de sucos integrais.`,
-    details:[{label:'Tipo de projeto',text:'Natural One'},{label:'Data',text:'Janeiro de 2026'}], cover:'https://static.wixstatic.com/media/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg', coverVideo:'https://video.wixstatic.com/video/fcde01b8-9a3e-4582-a193-3afeebfbbf69/file',
+    details:[{label:'Serviço',text:'Branding · Direção de arte · Key visual'},{label:'Aplicações',text:'Campanha de produto · Social media · Mídia digital'}], cover:'https://static.wixstatic.com/media/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg', coverVideo:'https://video.wixstatic.com/video/fcde01b8-9a3e-4582-a193-3afeebfbbf69/file',
     media:[
       {type:'IMAGE',title:'Apresentação',description:'o céu não é o limite',url:'https://static.wixstatic.com/media/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png'},
       {type:'VIDEO',title:'Fazendo de suco',description:'Gigante Natural',url:'https://video.wixstatic.com/video/ef8a3a_1ff0b6395d104d9cb9cb04b997f3d4fc/file',poster:'https://static.wixstatic.com/media/ef8a3a_1ff0b6395d104d9cb9cb04b997f3d4fcf000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_1ff0b6395d104d9cb9cb04b997f3d4fcf000.jpg'},
@@ -57,9 +57,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'esporte-fitness', sourceSlug:'esporte-fitness', title:'Esporte Fitness', tag:'Produto / Campanha',
-    description:'Projeto conceitual de inserção de produto em ambientes realistas para publicidade, combinando composição, direção de arte e apresentação comercial no segmento fitness.',
-    details:[{label:'Tipo de projeto',text:'Esporte Fitness'},{label:'Data',text:'01/01/2026'}],
+    slug:'esporte-fitness', sourceSlug:'esporte-fitness', title:'Composição Publicitária de Produto | Fitness', tag:'Produto / Campanha',
+    description:'Projeto conceitual de composição publicitária e inserção de produto em ambientes realistas para campanhas fitness, combinando direção de arte, ambientação e apresentação comercial.',
+    details:[{label:'Serviço',text:'Composição publicitária · Direção de arte'},{label:'Aplicações',text:'Produto fitness · Campanha · Social media'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg/v1/fill/w_2160,h_2700,al_c/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg', coverVideo:'https://video.wixstatic.com/video/42b13f40-78c5-40dc-82a8-4f09790259e5/file',
     media:[
       {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_2081318bbc0b4b118bf746c5d85383cf~mv2.png/v1/fill/w_1920,h_1080,al_c/ef8a3a_2081318bbc0b4b118bf746c5d85383cf~mv2.png'},
@@ -128,9 +128,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'edicao-fantasia-photoshop', sourceSlug:'edição-fantasia-photoshop', title:'Photoshop | Edição Fantasia', tag:'Photoshop / Composição',
-    description:`Dividindo em 12 fundamentos para montagem e construção de imagens, podemos criar sensações incríveis.\n\nPré Edição\n- Pesquisa de material\n- Decupagem (Seleção)\n\n- Blocagem\n- Texturas\n- Protagonista (Foco)\n- Refinamentos\n- Ambientação\n- Primeiro Plano (Profundidade)\n- Movimento\n- Luz e Sombra\n- VFX\n- Finalização\n\nLembrando que não é uma regra, e que muitas vezes vamos trabalhar varias das etapas de uma vez.`,
-    details:[{label:'Tipo de projeto',text:'Edição Fantástica Photoshop'},{label:'Data',text:'05/10/2025'},{label:'Local',text:'Curitiba - PR'}], cover:'https://static.wixstatic.com/media/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg/v1/fill/w_1280,h_720,al_c/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg', coverVideo:'https://video.wixstatic.com/video/1f1af26b-e4d4-4a0a-ae69-0a43a87f4d89/file',
+    slug:'edicao-fantasia-photoshop', sourceSlug:'edição-fantasia-photoshop', title:'Manipulação de Imagem e Composição | Photoshop', tag:'Photoshop / Composição',
+    description:`Projeto de manipulação de imagem e composição publicitária no Photoshop, construído com recorte, blocagem, texturas, luz, sombra, profundidade, VFX e finalização.\n\nDividindo em 12 fundamentos para montagem e construção de imagens, podemos criar sensações incríveis.\n\nPré Edição\n- Pesquisa de material\n- Decupagem (Seleção)\n\n- Blocagem\n- Texturas\n- Protagonista (Foco)\n- Refinamentos\n- Ambientação\n- Primeiro Plano (Profundidade)\n- Movimento\n- Luz e Sombra\n- VFX\n- Finalização\n\nLembrando que não é uma regra, e que muitas vezes vamos trabalhar varias das etapas de uma vez.`,
+    details:[{label:'Serviço',text:'Manipulação de imagem · Composição · Photoshop'},{label:'Aplicações',text:'Publicidade · Campanhas · Social media'}], cover:'https://static.wixstatic.com/media/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg/v1/fill/w_1280,h_720,al_c/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg', coverVideo:'https://video.wixstatic.com/video/1f1af26b-e4d4-4a0a-ae69-0a43a87f4d89/file',
     media:[
       {type:'IMAGE',title:'Imagem Finalizada',url:'https://static.wixstatic.com/media/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png'},
       {type:'IMAGE',title:'Recortes brutos',description:'Recortes sem refino antes da edição',url:'https://static.wixstatic.com/media/ef8a3a_018406a540e341a89e1382352fb2c016~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_018406a540e341a89e1382352fb2c016~mv2.png'},
@@ -139,9 +139,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'poster-cartaz', sourceSlug:'project-title-4', title:'Pôster | Cartaz', tag:'Poster / Direção de Arte',
-    description:`Edição gráfica de alto nível para projetos que exigem impacto visual. Cartazes, artes promocionais e montagens criativas com estética cinematográfica, perfeitas para campanhas, lançamentos e divulgação. Seu projeto merece visual de blockbuster.`,
-    details:[{label:'Data',text:'Abril 2023'}], cover:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png', coverVideo:'',
+    slug:'poster-cartaz', sourceSlug:'project-title-4', title:'Design de Pôster e Cartaz Cinematográfico', tag:'Pôster / Direção de Arte',
+    description:`Design de pôster e cartaz cinematográfico com direção de arte, composição visual e acabamento publicitário para campanhas, lançamentos, eventos e divulgação.`,
+    details:[{label:'Serviço',text:'Design de pôster · Direção de arte · Composição'},{label:'Aplicações',text:'Campanhas · Lançamentos · Divulgação'}], cover:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png', coverVideo:'',
     media:[
       {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png'},
       {type:'IMAGE',title:'PosterColonia copiar2',url:'https://static.wixstatic.com/media/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg/v1/fill/w_5400,h_7200,al_c/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg'}
