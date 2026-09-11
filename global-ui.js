@@ -3,12 +3,12 @@
   if (window.__MS_GLOBAL_UI_V1__) return;
   window.__MS_GLOBAL_UI_V1__ = true;
 
-  const ROOT = '/';
+  const ROOT = location.pathname.startsWith('/wix-preview/') ? '/wix-preview/' : '/';
   const PORTFOLIO_URL = ROOT + 'portfolio/';
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260911-r8-youtube-audio-published';
+  const VERSION = '20260911-r9-youtube-audio-stable';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
