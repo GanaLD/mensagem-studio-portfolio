@@ -109,6 +109,16 @@ document.querySelector('#sendBtn').onclick=()=>{if(!cart.length){openDrawer();re
 function jumpToHash(){const id=decodeURIComponent(location.hash.slice(1));if(!/^cat-(?:[1-9]|1[0-2])$/.test(id))return;const target=document.getElementById(id);if(!target)return;requestAnimationFrame(()=>requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'auto'})))}
 window.addEventListener('hashchange',jumpToHash);
 renderFilters();renderCatalog();renderCart();jumpToHash();
+const quoteParams=new URLSearchParams(location.search);
+if(quoteParams.get('orcamento')==='1'){
+  const projeto=quoteParams.get('projeto')||'';
+  const ref=quoteParams.get('ref')||'';
+  const detailsField=document.querySelector('#details');
+  if(detailsField && !detailsField.value && (projeto||ref)){
+    detailsField.value='Referência de projeto: '+(projeto||ref);
+  }
+  requestAnimationFrame(()=>requestAnimationFrame(openDrawer));
+}
 </script>
 <script src="../wix-preview/global-ui.js?v=20260911-r9-youtube-audio-stable"></script>
 <script src="../services-cart-suggestions.js?v=20260910-r3"></script>
