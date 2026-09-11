@@ -1,4 +1,4 @@
-// Universal UI for the published Mensagem Studio site: glass menu, timed contact popup and low-volume ambient soundtrack.
+// Backup UI mirror for Mensagem Studio preview path. Production source is /global-ui.js.
 (() => {
   if (window.__MS_GLOBAL_UI_V1__) return;
   window.__MS_GLOBAL_UI_V1__ = true;
