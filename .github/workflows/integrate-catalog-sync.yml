@@ -1,57 +1,17 @@
-name: Integrate Home services navigator
+name: Legacy Catalog Integration — disabled
 
 on:
-  push:
-    paths:
-      - 'wix-preview/catalog-sync.js'
-      - 'wix-preview/scroll-reveal.js'
-      - 'wix-preview/global-ui.js'
-      - 'wix-preview/services-cart-suggestions.js'
-      - 'scripts/integrate_catalog_sync.py'
-      - '.github/workflows/integrate-catalog-sync.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  integrate-home-services:
+  legacy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Ensure preview runtime scripts are linked
-        run: python scripts/integrate_catalog_sync.py
-      - name: Verify Home and universal UI integrations
+      - name: Preview is backup-only
         run: |
-          grep -q 'catalog-sync.js' wix-preview/index.html
-          grep -q 'scroll-reveal.js' wix-preview/index.html
-          grep -q 'global-ui.js' wix-preview/index.html
-          grep -q 'global-ui.js' wix-preview/portfolio/index.html
-          grep -q 'global-ui.js' wix-preview/servicos/index.html
-          grep -q 'services-cart-suggestions.js' wix-preview/servicos/index.html
-          grep -q 'global-ui.js' wix-preview/portfolio/motors-vans/index.html
-          grep -q 'ms-universal-menu-btn' wix-preview/global-ui.js
-          grep -q '60000' wix-preview/global-ui.js
-          grep -q 'ms-sound-toggle' wix-preview/global-ui.js
-          grep -q 'ms-cart-suggestions' wix-preview/services-cart-suggestions.js
-          grep -q 'ms3d-deck' wix-preview/catalog-sync.js
-          grep -q "'Social Media'" wix-preview/catalog-sync.js
-          grep -q "'Web / HTML'" wix-preview/catalog-sync.js
-          grep -q "SERVICES_URL+'#cat-12'" wix-preview/catalog-sync.js
-          grep -q 'window.location.assign(card.href)' wix-preview/catalog-sync.js
-          grep -q "#projects .project" wix-preview/scroll-reveal.js
-          grep -q "IntersectionObserver" wix-preview/scroll-reveal.js
-      - name: Commit generated preview changes
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/index.html wix-preview/portfolio/index.html wix-preview/servicos/index.html wix-preview/portfolio/*/index.html
-          if git diff --cached --quiet; then
-            echo 'No generated changes to commit.'
-            exit 0
-          fi
-          git commit -m 'Integrate universal preview UI'
-          git push
+          echo "This legacy preview integration is disabled."
+          echo "Production root is authoritative."
+          echo "wix-preview is synchronized automatically from production and must not be used as an editing or publishing source."
