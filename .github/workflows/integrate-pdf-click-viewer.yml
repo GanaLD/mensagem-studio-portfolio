@@ -1,38 +1,17 @@
-name: Integrate PDF click viewer
+name: Legacy PDF Viewer Integration — disabled
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/integrate-pdf-click-viewer.yml'
-      - 'scripts/integrate_pdf_click_viewer.py'
-      - 'wix-preview/pdf-click-viewer.js'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  integrate-pdf-click-viewer:
+  legacy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Patch preview
+      - name: Preview is backup-only
         run: |
-          python scripts/integrate_pdf_click_viewer.py
-          grep -q 'pdf-click-viewer.js' wix-preview/index.html
-
-      - name: Commit integration
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '4189824+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/index.html
-          if git diff --cached --quiet; then
-            echo 'No integration changes to commit.'
-            exit 0
-          fi
-          git commit -m 'Integrate click-based PDF page viewer'
-          git push
+          echo "This legacy preview integration is disabled."
+          echo "Production root is authoritative."
+          echo "wix-preview is synchronized automatically from production and must not be used as an editing or publishing source."
