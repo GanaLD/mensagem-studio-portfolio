@@ -1,9 +1,9 @@
-// Universal UI for Mensagem Studio preview: glass menu, timed contact popup and low-volume ambient soundtrack.
+// Universal UI for the published Mensagem Studio site: glass menu, timed contact popup and low-volume ambient soundtrack.
 (() => {
   if (window.__MS_GLOBAL_UI_V1__) return;
   window.__MS_GLOBAL_UI_V1__ = true;
 
-  const ROOT = '/wix-preview/';
+  const ROOT = '/';
   const PORTFOLIO_URL = ROOT + 'portfolio/';
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
