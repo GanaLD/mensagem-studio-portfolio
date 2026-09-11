@@ -51,6 +51,14 @@ jobs:
               "poster-cartaz",
               "motion-banner-cartaz-cinematografico",
           ]
+          service_slugs = [
+              "design-social-media",
+              "edicao-video",
+              "motion-design-vfx",
+              "fotos-ecommerce",
+              "modelagem-3d-produto",
+              "sites-html",
+          ]
           pages = {
               "index.html": base,
               "portfolio/index.html": base + "portfolio/",
@@ -60,6 +68,10 @@ jobs:
           pages.update({
               f"portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
               for slug in slugs
+          })
+          pages.update({
+              f"servicos/{slug}/index.html": base + f"servicos/{slug}/"
+              for slug in service_slugs
           })
 
           errors = []
@@ -95,8 +107,8 @@ jobs:
               ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
               urls = [x.text.strip() for x in root.findall("sm:url/sm:loc", ns) if x.text]
               expected = list(pages.values())
-              if len(urls) != 17:
-                  errors.append(f"sitemap.xml: expected 17 URLs, got {len(urls)}")
+              if len(urls) != 23:
+                  errors.append(f"sitemap.xml: expected 23 URLs, got {len(urls)}")
               if len(urls) != len(set(urls)):
                   errors.append("sitemap.xml: duplicate URLs")
               if set(urls) != set(expected):
@@ -118,6 +130,10 @@ jobs:
           backup_pages.update({
               f"wix-preview/portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
               for slug in slugs
+          })
+          backup_pages.update({
+              f"wix-preview/servicos/{slug}/index.html": base + f"servicos/{slug}/"
+              for slug in service_slugs
           })
           for path, canonical in backup_pages.items():
               p = Path(path)
@@ -144,6 +160,6 @@ jobs:
 
           print(f"SEO PASS: {len(pages)} indexable pages validated.")
           print("Canonical domain: https://mensagemstudio.shop/")
-          print("Sitemap: 17/17 URLs.")
+          print("Sitemap: 23/23 URLs.")
           print("Preview backup: noindex,follow with production canonicals.")
           PY
