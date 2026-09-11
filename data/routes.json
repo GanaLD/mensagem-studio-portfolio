@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "base_url": "https://mensagemstudio.shop",
   "generated_at": "2026-09-11",
   "items": [
@@ -29,6 +29,48 @@
       "index": true,
       "kind": "about",
       "path": "/sobre/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/design-social-media/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/design-social-media/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/edicao-video/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/edicao-video/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/motion-design-vfx/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/motion-design-vfx/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/fotos-ecommerce/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/fotos-ecommerce/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/modelagem-3d-produto/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/modelagem-3d-produto/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/sites-html/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/sites-html/",
       "project_id": ""
     },
     {
