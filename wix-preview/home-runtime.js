@@ -1,5 +1,5 @@
-const SERVICES_URL='https://mensagemstudio.shop/wix-preview/servicos/';
-const BRIEFING_URL='https://mensagemstudio.shop/briefing/';
+const SERVICES_URL='https://mensagemstudio.shop/servicos/';
+const BRIEFING_URL='https://mensagemstudio.shop/servicos/#briefing';
 const WHATSAPP_URL='https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
 const INSTAGRAM_URL='https://www.instagram.com/mensagem_studio/';
 const BEHANCE_URL='https://www.behance.net/gabrieldesigner42';
