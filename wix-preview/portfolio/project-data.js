@@ -26,7 +26,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Podcast e Workshop', tag:'Audiovisual / Edição', description:'Edição de vídeo para podcast e workshops, com montagem, ritmo, tratamento visual e adaptação para episódios, cortes e conteúdo de redes sociais.', details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção'},{label:'Aplicações',text:'Podcast · Workshop · Conteúdo digital'}],
+    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Vídeo para Podcast e Workshop', tag:'Audiovisual / Edição', description:'Edição e pós-produção de vídeo para podcasts e workshops, com montagem, ritmo, tratamento visual e adaptação para episódios completos, cortes e conteúdo para redes sociais.', details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção audiovisual'},{label:'Aplicações',text:'Podcast · Workshop · Reels · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg', coverVideo:'https://video.wixstatic.com/video/e540722d-a0a6-49fc-ac9e-6a48b56046f4/file',
     media:[
       {type:'VIDEO',title:'EPISÓDIO DE PODCAST 2',url:'https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/file',poster:'https://static.wixstatic.com/media/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg'},
@@ -35,7 +35,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Motion + IA | Vídeo para Campanhas', tag:'Motion / IA', description:'Projeto de motion design e vídeo com IA para campanhas, combinando animação, composição, direção visual e recursos generativos aplicados a produtos e peças publicitárias.', details:[{label:'Serviço',text:'Motion design · Vídeo com IA'},{label:'Aplicações',text:'Campanhas · Produtos · Social media'}],
+    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Motion Design + IA para Campanhas', tag:'Motion / IA', description:'Criação de vídeos para campanhas com motion design, composição, direção de arte e inteligência artificial aplicada a produtos, anúncios e conteúdo para redes sociais.', details:[{label:'Serviço',text:'Motion design · Vídeo com IA · Composição'},{label:'Aplicações',text:'Campanhas · Anúncios · Produto · Social media'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg', coverVideo:'https://video.wixstatic.com/video/4aadeaac-504f-4fbb-97c6-3114b8393c68/file',
     media:[
       {type:'VIDEO',title:'PRODUTO COM IA',url:'https://video.wixstatic.com/video/ef8a3a_47db0d21af3542abb5e1af4992b47135/file',poster:'https://static.wixstatic.com/media/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg/v1/fill/w_720,h_1280,al_c/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg'},
@@ -74,9 +74,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Creatina Growth', tag:'Produto / Motion',
-    description:`Case de direção de arte, composição publicitária e motion para produto fitness, desenvolvido para explorar impacto visual, presença de marca e comunicação de campanha.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
-    details:[{label:'Tipo de projeto',text:'Banner e Vídeo | Creatina Growth'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/7f7e07df-24f9-4ce3-ad9e-f6adf44228e6/file',
+    slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Vídeo de Produto e Motion | Creatina Growth', tag:'Produto / Motion Design',
+    description:`Case de vídeo de produto, motion design e direção de arte para Creatina Growth, desenvolvido para campanha fitness com composição publicitária, ritmo visual e presença de marca.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
+    details:[{label:'Serviço',text:'Vídeo de produto · Motion design · Direção de arte'},{label:'Aplicações',text:'Campanha fitness · Social media · Publicidade'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/7f7e07df-24f9-4ce3-ad9e-f6adf44228e6/file',
     media:[
       {type:'IMAGE',title:'Mensagem Design',url:'https://static.wixstatic.com/media/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png'},
       {type:'VIDEO',title:'Creatina no helicóptero',url:'https://video.wixstatic.com/video/ef8a3a_bb66b77e34da4a2188503e76e05eed12/file',poster:'https://static.wixstatic.com/media/ef8a3a_bb66b77e34da4a2188503e76e05eed12f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_bb66b77e34da4a2188503e76e05eed12f000.jpg'}
@@ -98,9 +98,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'fotos-para-ecommerce', sourceSlug:'fotos-para-ecommerce', title:'Fotos para E-commerce', tag:'E-commerce / IA',
-    description:'Tratamento e recriação de fotos de produtos para e-commerce usando IA, mantendo fidelidade ao produto e melhorando qualidade visual para marketplaces e lojas online.',
-    details:[{label:'Tipo de projeto',text:'Fotos para e-commerce'},{label:'Data',text:'Março de 2026'}], cover:'https://static.wixstatic.com/media/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg/v1/fill/w_1200,h_1200,al_c/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg', coverVideo:'',
+    slug:'fotos-para-ecommerce', sourceSlug:'fotos-para-ecommerce', title:'Fotos de Produto para E-commerce e Marketplace', tag:'E-commerce / Produto',
+    description:'Tratamento, recriação e padronização de imagens de produto para e-commerce, marketplaces e catálogos digitais, com foco em fidelidade visual, recorte, fundo, enquadramento e apresentação comercial.',
+    details:[{label:'Serviço',text:'Tratamento de imagem · Foto de produto'},{label:'Aplicações',text:'E-commerce · Marketplace · Catálogo digital'}], cover:'https://static.wixstatic.com/media/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg/v1/fill/w_1200,h_1200,al_c/ef8a3a_4bc9c5ada1c9443eb0f855414f006fe2~mv2.jpeg', coverVideo:'',
     media:[
       {type:'IMAGE',title:'Destaque seus itens',url:'https://static.wixstatic.com/media/ef8a3a_1b64b4b224cf4876ae77960f13956953~mv2.png/v1/fill/w_1080,h_1450,al_c/ef8a3a_1b64b4b224cf4876ae77960f13956953~mv2.png'},
       {type:'IMAGE',title:'Solução para E-commerce',url:'https://static.wixstatic.com/media/ef8a3a_9020f1c9700448e6946f3426667e5188~mv2.png/v1/fill/w_1080,h_1450,al_c/ef8a3a_9020f1c9700448e6946f3426667e5188~mv2.png'},
