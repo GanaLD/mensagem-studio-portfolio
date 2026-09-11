@@ -1,7 +1,7 @@
 // Round 2k — interaction corrections requested during visual QA.
 // Keeps the approved desktop HeroScroll scrub behavior untouched while tuning mobile response.
 (() => {
-  const SERVICES_URL = 'https://mensagemstudio.shop/wix-preview/servicos/';
+  const SERVICES_URL = 'https://mensagemstudio.shop/servicos/';
 
   function addRound2Styles(){
     if (document.querySelector('#ms-home-round2-style')) return;
