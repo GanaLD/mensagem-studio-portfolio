@@ -1,50 +1,17 @@
-name: Integrate Cyber Angel background
+name: Legacy Cyber Angel Integration — disabled
 
 on:
-  push:
-    paths:
-      - '.github/workflows/integrate-cyber-angel-bg.yml'
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  integrate:
+  legacy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Download Cyber Angel source
+      - name: Preview is backup-only
         run: |
-          curl -L --fail --retry 5 --retry-delay 3 \
-            'https://moses-alien-ltd-chip.trycloudflare.com/CYBER_ANGEL_SCROLL_MODEL.zip' \
-            -o CYBER_ANGEL_SCROLL_MODEL.zip
-          test -s CYBER_ANGEL_SCROLL_MODEL.zip
-          unzip -t CYBER_ANGEL_SCROLL_MODEL.zip >/dev/null
-
-      - name: Integrate into existing global background interval
-        run: |
-          python scripts/integrate_cyber_angel_bg.py
-          test -s wix-preview/assets/cyber-angel-bg.html
-          grep -q 'cyberAngelBg' wix-preview/index.html
-          ! grep -q 'imperialEstateBg' wix-preview/index.html
-
-      - name: Commit generated site if changed
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/index.html wix-preview/assets/cyber-angel-bg.html
-          if git diff --cached --quiet; then
-            echo 'Cyber Angel site files already current.'
-            exit 0
-          fi
-          git commit -m 'Swap global background asset to Cyber Angel scroll'
-          git push
+          echo "This legacy preview integration is disabled."
+          echo "Production root is authoritative."
+          echo "wix-preview is synchronized automatically from production and must not be used as an editing or publishing source."
