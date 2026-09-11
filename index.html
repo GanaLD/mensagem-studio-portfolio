@@ -145,53 +145,53 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
   const fineHover = window.matchMedia('(hover:hover) and (pointer:fine)');
   const cards = [...document.querySelectorAll('#projects .project.has-preview')];
   const videos = cards.map(card => card.querySelector('.project-preview')).filter(Boolean);
-  let gridActive = false;
 
-  const playVideo = (video) => {
+  const prepareVideo = (video) => {
     if (!video) return;
     video.defaultMuted = true;
     video.muted = true;
     video.volume = 0;
     video.loop = true;
     video.playsInline = true;
-    video.autoplay = true;
-    const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => {});
+    video.preload = 'auto';
   };
 
-  const pauseAll = () => videos.forEach(video => {
+  const pauseVideo = (video, reset = false) => {
+    if (!video) return;
     video.pause();
-  });
+    if (reset) {
+      try { video.currentTime = 0; } catch (_) {}
+    }
+  };
 
-  const playAll = () => videos.forEach(playVideo);
+  const pauseOthers = (activeVideo) => {
+    videos.forEach(video => {
+      if (video !== activeVideo) pauseVideo(video, true);
+    });
+    cards.forEach(card => {
+      if (card.querySelector('.project-preview') !== activeVideo) {
+        card.classList.remove('is-previewing');
+      }
+    });
+  };
 
-  // Os previews já ficam efetivamente tocando enquanto o grid está em/ao redor da viewport.
-  // Assim o hover não depende de iniciar o decoder naquele instante.
-  if ('IntersectionObserver' in window) {
-    const grid = document.querySelector('#projects .projects-grid');
-    const io = new IntersectionObserver(entries => {
-      const active = entries.some(entry => entry.isIntersecting);
-      gridActive = active;
-      if (active) playAll();
-      else pauseAll();
-    }, { rootMargin: '35% 0px 35% 0px', threshold: 0.01 });
-    if (grid) io.observe(grid);
-  } else {
-    gridActive = true;
-    playAll();
-  }
+  const playPriority = (card, video) => {
+    if (!video) return;
+    pauseOthers(video);
+    prepareVideo(video);
+    try { video.currentTime = 0; } catch (_) {}
+    card.classList.add('is-previewing');
+    const play = video.play();
+    if (play && typeof play.catch === 'function') {
+      play.catch(() => card.classList.remove('is-previewing'));
+    }
+  };
 
   cards.forEach(card => {
     const video = card.querySelector('.project-preview');
     if (!video) return;
 
-    video.addEventListener('loadeddata', () => {
-      if (gridActive) playVideo(video);
-    });
-
-    video.addEventListener('canplay', () => {
-      if (gridActive) playVideo(video);
-    });
+    prepareVideo(video);
 
     // O vídeo principal do projeto tem prioridade. Só usa o vídeo secundário se o principal falhar.
     video.addEventListener('error', () => {
@@ -200,37 +200,34 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
       video.dataset.fallbackUsed = '1';
       video.src = fallback;
       video.load();
-      if (card.matches(':hover') || card.matches(':focus-within')) playVideo(video);
+      if (card.matches(':hover') || card.matches(':focus-within')) playPriority(card, video);
     });
 
     card.addEventListener('mouseenter', () => {
       if (!fineHover.matches) return;
-      playVideo(video);
-      card.classList.add('is-previewing');
+      playPriority(card, video);
     });
 
     card.addEventListener('mouseleave', () => {
       card.classList.remove('is-previewing');
-      if (!gridActive) video.pause();
+      pauseVideo(video, true);
     });
 
-    card.addEventListener('focusin', () => {
-      playVideo(video);
-      card.classList.add('is-previewing');
-    });
-
+    card.addEventListener('focusin', () => playPriority(card, video));
     card.addEventListener('focusout', () => {
       card.classList.remove('is-previewing');
-      if (!gridActive) video.pause();
+      pauseVideo(video, true);
     });
   });
 
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) pauseAll();
-    else if (gridActive) playAll();
+    if (document.hidden) {
+      cards.forEach(card => card.classList.remove('is-previewing'));
+      videos.forEach(video => pauseVideo(video, true));
+    }
   });
-})();
+})();;
 </script>
-<!-- HOME_BUILD: 20260911-r4-project-video-priority -->
+<!-- HOME_BUILD: 20260911-r5-project-hover-priority -->
 </body>
 </html>
