@@ -1,18 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /wix-preview/
 Disallow: /data/
 Disallow: /scripts/
 
