@@ -193,6 +193,16 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
       if (gridActive) playVideo(video);
     });
 
+    // O vídeo principal do projeto tem prioridade. Só usa o vídeo secundário se o principal falhar.
+    video.addEventListener('error', () => {
+      const fallback = video.dataset.previewFallback;
+      if (!fallback || video.dataset.fallbackUsed === '1') return;
+      video.dataset.fallbackUsed = '1';
+      video.src = fallback;
+      video.load();
+      if (card.matches(':hover') || card.matches(':focus-within')) playVideo(video);
+    });
+
     card.addEventListener('mouseenter', () => {
       if (!fineHover.matches) return;
       playVideo(video);
@@ -221,6 +231,6 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
   });
 })();
 </script>
-<!-- HOME_BUILD: 20260911-r3-grid-hero-3d -->
+<!-- HOME_BUILD: 20260911-r4-project-video-priority -->
 </body>
 </html>
