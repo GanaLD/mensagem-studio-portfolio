@@ -38,10 +38,12 @@ jobs:
           cp wix-preview/scroll-reveal.js scroll-reveal.js
           cp wix-preview/services-cart-suggestions.js services-cart-suggestions.js
 
-          rm -rf portfolio servicos sobre
+          rm -rf portfolio sobre
           cp -a wix-preview/portfolio portfolio
-          cp -a wix-preview/servicos servicos
           cp -a wix-preview/sobre sobre
+
+          # /servicos is the canonical published page.
+          # wix-preview/servicos is intentionally only a redirect and must never overwrite it.
 
           mkdir -p assets
           cp -a wix-preview/assets/. assets/
