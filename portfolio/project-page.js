@@ -42,6 +42,12 @@
   const prev = projects[(idx - 1 + projects.length) % projects.length];
   const next = projects[(idx + 1) % projects.length];
 
+  const whatsappMessage = encodeURIComponent(
+    'Olá! Vi o projeto "' + project.title + '" no portfólio da Mensagem Studio e quero conversar sobre um trabalho nessa direção.'
+  );
+  const whatsappURL = 'https://wa.me/5541999999937?text=' + whatsappMessage;
+  const quoteURL = '../../servicos/?orcamento=1&ref=' + encodeURIComponent(project.slug) + '&projeto=' + encodeURIComponent(project.title);
+
   app.innerHTML = `
     <section class="hero"><div class="wrap"><div class="hero-grid">
       <div class="hero-copy">
@@ -55,6 +61,20 @@
     <section class="gallery-section"><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>Conteúdo do projeto preservado na ordem do portfólio original.</p></div>
       <div class="media-grid">${project.media.map(itemHTML).join('')}</div>
+    </div></section>
+    <section class="project-conversion"><div class="wrap">
+      <div class="conversion-card">
+        <div class="conversion-copy">
+          <div class="eyebrow">CONTRATE A MENSAGEM STUDIO</div>
+          <h2>Quer algo nessa direção?</h2>
+          <p>Se este projeto combina com o que você procura, fale com o estúdio ou abra uma solicitação de orçamento usando este case como referência.</p>
+        </div>
+        <div class="conversion-actions">
+          <a class="conversion-btn primary" href="${whatsappURL}" target="_blank" rel="noopener noreferrer">Falar no WhatsApp ↗</a>
+          <a class="conversion-btn" href="${quoteURL}">Solicitar orçamento ↗</a>
+        </div>
+        <div class="conversion-ref"><span>Referência</span><strong>${esc(project.title)}</strong></div>
+      </div>
     </div></section>
     <section class="project-nav"><div class="wrap"><div class="project-nav-grid">
       <a class="project-link" href="../${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
