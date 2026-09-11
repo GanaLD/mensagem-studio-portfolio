@@ -1,64 +1,120 @@
-name: Publish NOVO SITE
+name: Sync PREVIEW Backup
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'wix-preview/**'
+      - 'index.html'
+      - 'catalog-sync.js'
+      - 'global-ui.js'
+      - 'home-round2.js'
+      - 'home-round2d.js'
+      - 'home-runtime.js'
+      - 'pdf-click-viewer.js'
+      - 'scroll-reveal.js'
+      - 'services-cart-suggestions.js'
+      - 'portfolio/**'
+      - 'servicos/**'
+      - 'sobre/**'
+      - 'assets/**'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: publish-novo-site
+  group: sync-preview-backup
   cancel-in-progress: true
 
 jobs:
-  publish:
+  backup:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout production
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Promote wix-preview to public root
+      - name: Mirror production into wix-preview backup
         shell: bash
         run: |
           set -euo pipefail
-          cp wix-preview/index.html index.html
-          cp wix-preview/catalog-sync.js catalog-sync.js
-          cp wix-preview/global-ui.js global-ui.js
-          cp wix-preview/home-round2.js home-round2.js
-          cp wix-preview/home-round2d.js home-round2d.js
-          cp wix-preview/home-runtime.js home-runtime.js
-          cp wix-preview/pdf-click-viewer.js pdf-click-viewer.js
-          cp wix-preview/scroll-reveal.js scroll-reveal.js
-          cp wix-preview/services-cart-suggestions.js services-cart-suggestions.js
 
-          rm -rf portfolio sobre
-          cp -a wix-preview/portfolio portfolio
-          cp -a wix-preview/sobre sobre
+          mkdir -p wix-preview
+          cp index.html wix-preview/index.html
+          cp catalog-sync.js wix-preview/catalog-sync.js
+          cp global-ui.js wix-preview/global-ui.js
+          cp home-round2.js wix-preview/home-round2.js
+          cp home-round2d.js wix-preview/home-round2d.js
+          cp home-runtime.js wix-preview/home-runtime.js
+          cp pdf-click-viewer.js wix-preview/pdf-click-viewer.js
+          cp scroll-reveal.js wix-preview/scroll-reveal.js
+          cp services-cart-suggestions.js wix-preview/services-cart-suggestions.js
 
-          # /servicos is the canonical published page.
-          # wix-preview/servicos is intentionally only a redirect and must never overwrite it.
+          rm -rf wix-preview/portfolio wix-preview/servicos wix-preview/sobre
+          cp -a portfolio wix-preview/portfolio
+          cp -a servicos wix-preview/servicos
+          cp -a sobre wix-preview/sobre
 
-          mkdir -p assets
-          cp -a wix-preview/assets/. assets/
+          rm -rf wix-preview/assets
+          cp -a assets wix-preview/assets
 
-          rm -rf projetos clientes contato orcamento busca arquivo briefing
+          python - <<'PY'
+          from pathlib import Path
+          import re
 
-      - name: Commit public build
+          root = Path("wix-preview")
+
+          # Backup navigation stays inside the backup tree.
+          gui = root / "global-ui.js"
+          if gui.exists():
+              text = gui.read_text(encoding="utf-8")
+              text = text.replace("const ROOT = '/';", "const ROOT = '/wix-preview/';")
+              gui.write_text(text, encoding="utf-8")
+
+          for path in root.rglob("*.html"):
+              text = path.read_text(encoding="utf-8")
+              text = re.sub(
+                  r'<meta name="robots" content="[^"]*">',
+                  '<meta name="robots" content="noindex,follow">',
+                  text,
+                  count=1,
+                  flags=re.I,
+              )
+              if 'name="robots"' not in text.lower():
+                  text = re.sub(
+                      r'<head>',
+                      '<head><meta name="robots" content="noindex,follow">',
+                      text,
+                      count=1,
+                      flags=re.I,
+                  )
+              if 'name="ms-backup-source"' not in text:
+                  text = re.sub(
+                      r'<head>',
+                      '<head><meta name="ms-backup-source" content="production-mirror">',
+                      text,
+                      count=1,
+                      flags=re.I,
+                  )
+              text = re.sub(
+                  r'/global-ui\.js\?v=([^"\']+)',
+                  r'/wix-preview/global-ui.js?v=\1',
+                  text
+              )
+              path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Commit backup snapshot
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
+          git add wix-preview
           if git diff --cached --quiet; then
-            echo 'Public root already matches NOVO SITE.'
+            echo 'Preview backup already matches production.'
             exit 0
           fi
-          git commit -m 'Publish NOVO SITE from wix-preview'
+          git commit -m 'Sync wix-preview backup from production'
           git push
