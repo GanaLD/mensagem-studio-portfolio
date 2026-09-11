@@ -15,9 +15,8 @@
 
     if (!project || !mediaBox || !cover) return;
 
-    // Preview priority: always use real project videos first.
-    // coverVideo is only a technical fallback because some legacy cover videos
-    // are not the best representation of the project itself.
+    // Deterministic preview: prioritize the actual videos inside this project.
+    // Legacy coverVideo is only used if the project has no playable internal video.
     const projectVideos = (project.media || [])
       .filter(item => item?.type === 'VIDEO' && item?.url)
       .map(item => item.url);
@@ -139,7 +138,6 @@
           if (play?.catch) {
             play.catch(() => {
               if (!active) return;
-              // Do not jump straight to images when another project video may exist.
               videoIndex += 1;
               if (videoIndex < videoCandidates.length) {
                 el.src = videoCandidates[videoIndex];
