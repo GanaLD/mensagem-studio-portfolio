@@ -13,7 +13,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Carrossel e Banner Estética', tag:'Design / Social Media', description:'', details:[],
+    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Carrossel e Banner Estética', tag:'Design / Social Media', description:'Projeto de design para estética com criação de carrosséis, banners e peças de social media para campanhas digitais, lançamentos e comunicação de marca.', details:[{label:'Serviço',text:'Design gráfico · Social media'},{label:'Aplicações',text:'Carrosséis · Banners · Campanhas digitais'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png', coverVideo:'',
     media:[
       {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png'},
@@ -26,7 +26,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Podcast e Workshop', tag:'Audiovisual / Edição', description:'', details:[],
+    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Podcast e Workshop', tag:'Audiovisual / Edição', description:'Edição de vídeo para podcast e workshops, com montagem, ritmo, tratamento visual e adaptação para episódios, cortes e conteúdo de redes sociais.', details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção'},{label:'Aplicações',text:'Podcast · Workshop · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg', coverVideo:'https://video.wixstatic.com/video/e540722d-a0a6-49fc-ac9e-6a48b56046f4/file',
     media:[
       {type:'VIDEO',title:'EPISÓDIO DE PODCAST 2',url:'https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/file',poster:'https://static.wixstatic.com/media/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg'},
@@ -35,7 +35,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Motion + IA | Vídeo para Campanhas', tag:'Motion / IA', description:'', details:[],
+    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Motion + IA | Vídeo para Campanhas', tag:'Motion / IA', description:'Projeto de motion design e vídeo com IA para campanhas, combinando animação, composição, direção visual e recursos generativos aplicados a produtos e peças publicitárias.', details:[{label:'Serviço',text:'Motion design · Vídeo com IA'},{label:'Aplicações',text:'Campanhas · Produtos · Social media'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg', coverVideo:'https://video.wixstatic.com/video/4aadeaac-504f-4fbb-97c6-3114b8393c68/file',
     media:[
       {type:'VIDEO',title:'PRODUTO COM IA',url:'https://video.wixstatic.com/video/ef8a3a_47db0d21af3542abb5e1af4992b47135/file',poster:'https://static.wixstatic.com/media/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg/v1/fill/w_720,h_1280,al_c/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg'},
@@ -58,7 +58,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'esporte-fitness', sourceSlug:'esporte-fitness', title:'Esporte Fitness', tag:'Produto / Campanha',
-    description:'Projeto fictício com intuito de demonstrar a incerção de produto em ambientes realistas atrativos com a finalidade comercial.',
+    description:'Projeto conceitual de inserção de produto em ambientes realistas para publicidade, combinando composição, direção de arte e apresentação comercial no segmento fitness.',
     details:[{label:'Tipo de projeto',text:'Esporte Fitness'},{label:'Data',text:'01/01/2026'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg/v1/fill/w_2160,h_2700,al_c/ef8a3a_7215a0a68ae841d6ad1a8cf912660138f000.jpg', coverVideo:'https://video.wixstatic.com/video/42b13f40-78c5-40dc-82a8-4f09790259e5/file',
     media:[
@@ -75,7 +75,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Creatina Growth', tag:'Produto / Motion',
-    description:`Sabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
+    description:`Case de direção de arte, composição publicitária e motion para produto fitness, desenvolvido para explorar impacto visual, presença de marca e comunicação de campanha.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
     details:[{label:'Tipo de projeto',text:'Banner e Vídeo | Creatina Growth'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/7f7e07df-24f9-4ce3-ad9e-f6adf44228e6/file',
     media:[
       {type:'IMAGE',title:'Mensagem Design',url:'https://static.wixstatic.com/media/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png'},
