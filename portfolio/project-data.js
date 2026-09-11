@@ -13,7 +13,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Carrossel e Banner Estética', tag:'Design / Social Media', description:'Projeto de design para estética com criação de carrosséis, banners e peças de social media para campanhas digitais, lançamentos e comunicação de marca.', details:[{label:'Serviço',text:'Design gráfico · Social media'},{label:'Aplicações',text:'Carrosséis · Banners · Campanhas digitais'}],
+    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Design para Estética | Carrossel e Banner', tag:'Design / Social Media', description:'Projeto de design para clínicas e marcas de estética com criação de carrosséis, banners e peças de social media para campanhas digitais, lançamentos e comunicação visual.', details:[{label:'Serviço',text:'Design gráfico · Social media · Campanhas'},{label:'Aplicações',text:'Estética · Carrosséis · Banners · Mídia digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png', coverVideo:'',
     media:[
       {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png'},
@@ -83,9 +83,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'personagens-consistentes-com-ia', sourceSlug:'personagens-consistentes-com-ia', title:'Personagens Consistentes com IA', tag:'IA / Direção Criativa',
+    slug:'personagens-consistentes-com-ia', sourceSlug:'personagens-consistentes-com-ia', title:'Criação de Personagens Consistentes com IA', tag:'IA / Direção Criativa',
     description:`Criar personagens consistentes com Inteligência Artificial vai muito além de gerar imagens bonitas. Trata-se de construir identidade visual, coerência estrutural e repetibilidade técnica entre diferentes cenas, ângulos e contextos.\n\nUm personagem consistente mantém:\n\n• Proporções corporais estáveis\n• Traços faciais reconhecíveis\n• Paleta cromática fixa\n• Texturas recorrentes em roupas e acessórios\n• Linguagem corporal alinhada à personalidade\n\nEm IA generativa, consistência depende de três pilares:\n\n1. Definição Estrutural\nDescrição detalhada de anatomia, medidas relativas, formato de rosto, cabelo, expressões padrão e postura dominante.\n\n2. Identidade Visual\nEspecificação clara de materiais, tecidos, iluminação recorrente, estilo fotográfico ou cinematográfico e atmosfera.\n\n3. Persistência de Prompt\nUso de descrições base idênticas entre gerações, variações controladas e referência visual fixa quando possível.\n\nPersonagens bem construídos permitem:\n\n• Produção escalável de campanhas\n• Narrativas visuais contínuas\n• Reconhecimento de marca\n• Criação de universos visuais proprietários\n\nConsistência não é sorte do algoritmo.\nÉ direção criativa estruturada aplicada com precisão técnica.`,
-    details:[{label:'Tipo de projeto',text:'Personagens Consistentes | Esporte'},{label:'Data',text:'Fevereiro de 2026'}], cover:'https://static.wixstatic.com/media/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg', coverVideo:'https://video.wixstatic.com/video/b66980a3-fd2c-4083-ba76-0d5d1027a959/file',
+    details:[{label:'Serviço',text:'Direção criativa · Personagens com IA'},{label:'Aplicações',text:'Campanhas · Narrativa visual · Conteúdo escalável'}], cover:'https://static.wixstatic.com/media/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg', coverVideo:'https://video.wixstatic.com/video/b66980a3-fd2c-4083-ba76-0d5d1027a959/file',
     media:[
       {type:'IMAGE',title:'Paraquedas Prompt',description:'Salto de paraquedas',url:'https://static.wixstatic.com/media/ef8a3a_5afa166edf7742fc8f323eb8136c213b~mv2.png/v1/fill/w_2302,h_2880,al_c/ef8a3a_5afa166edf7742fc8f323eb8136c213b~mv2.png'},
       {type:'IMAGE',title:'Montanha Prompt',description:'Escalada Vertical',url:'https://static.wixstatic.com/media/ef8a3a_2ffc07ead9bf4efcb7b8a81424d04f96~mv2.png/v1/fill/w_2302,h_2880,al_c/ef8a3a_2ffc07ead9bf4efcb7b8a81424d04f96~mv2.png'},
@@ -109,9 +109,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'motors-vans', sourceSlug:'project-title-6', title:'Social Media | Motors Vans', tag:'Social Media / Automotivo',
-    description:`Proposta de propaganda para divulgação em Social Media da Motors Vans Autopeças\n\nCriação de peça publicitária para redes sociais, desenvolvida para a Motors Vans Autopeças, seguindo a identidade visual da marca.\nO design foi elaborado para destacar a qualidade e variedade dos produtos, reforçando a credibilidade da empresa no segmento automotivo.`,
-    details:[{label:'Data',text:'Abril 2023'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
+    slug:'motors-vans', sourceSlug:'project-title-6', title:'Design e Social Media Automotivo | Motors Vans', tag:'Social Media / Automotivo',
+    description:`Projeto de design e social media para Motors Vans Autopeças, com peças digitais, banners, campanhas sazonais e motion aplicados à comunicação visual automotiva.\n\nProposta de propaganda para divulgação em Social Media da Motors Vans Autopeças\n\nCriação de peça publicitária para redes sociais, desenvolvida para a Motors Vans Autopeças, seguindo a identidade visual da marca.\nO design foi elaborado para destacar a qualidade e variedade dos produtos, reforçando a credibilidade da empresa no segmento automotivo.`,
+    details:[{label:'Serviço',text:'Design gráfico · Social media · Motion'},{label:'Aplicações',text:'Automotivo · Campanhas · Conteúdo digital'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg', coverVideo:'',
     media:[
       {type:'VIDEO',title:'INSTITUCIONAL MV FINAL VERSION',url:'https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file',poster:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg'},
@@ -148,9 +148,9 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'motion-banner-cartaz-cinematografico', sourceSlug:'project-title-1', title:'Motion Banner | Cartaz Cinematográfico', tag:'Motion / Direção de Arte',
-    description:`Animação e design em alto nível para projetos que exigem presença e dinamismo. Damos vida a cartazes, artes promocionais e conteúdos visuais com movimento, criando experiências que prendem a atenção e elevam sua marca. Perfeitos para redes sociais, trailers, lançamentos e campanhas.\nSeu projeto merece a energia e o impacto visual de uma superprodução.`,
-    details:[{label:'Animação de banner cinematográfico',text:'Edição com photoshop\nAnimação com After Effects'},{label:'Data',text:'Abril 2023'}],
+    slug:'motion-banner-cartaz-cinematografico', sourceSlug:'project-title-1', title:'Motion Design para Pôster e Cartaz Cinematográfico', tag:'Motion / Direção de Arte',
+    description:`Projeto de motion design para pôsteres, banners e cartazes cinematográficos, combinando animação, composição, tipografia e direção de arte para campanhas e lançamentos.\n\nAnimação e design em alto nível para projetos que exigem presença e dinamismo. Damos vida a cartazes, artes promocionais e conteúdos visuais com movimento, criando experiências que prendem a atenção e elevam sua marca. Perfeitos para redes sociais, trailers, lançamentos e campanhas.\nSeu projeto merece a energia e o impacto visual de uma superprodução.`,
+    details:[{label:'Serviço',text:'Motion design · After Effects · Composição'},{label:'Aplicações',text:'Pôster animado · Campanhas · Lançamentos'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg/v1/fill/w_743,h_835,al_c/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg', coverVideo:'',
     media:[
       {type:'VIDEO',title:'ULTIMA GUERRA FINAL PREMIERE',url:'https://video.wixstatic.com/video/ef8a3a_975bfc2b96794afbb2d9a300f25d5169/file',poster:'https://static.wixstatic.com/media/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg'},
