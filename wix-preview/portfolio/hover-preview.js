@@ -15,9 +15,15 @@
 
     if (!project || !mediaBox || !cover) return;
 
+    // Deterministic preview: prioritize the actual videos inside this project.
+    // Legacy coverVideo is only used if the project has no playable internal video.
+    const projectVideos = (project.media || [])
+      .filter(item => item?.type === 'VIDEO' && item?.url)
+      .map(item => item.url);
+
     const videoCandidates = unique([
-      project.coverVideo,
-      ...(project.media || []).filter(item => item?.type === 'VIDEO').map(item => item.url)
+      ...projectVideos,
+      project.coverVideo
     ]);
 
     const imageCandidates = unique(
@@ -131,7 +137,20 @@
           const play = el.play();
           if (play?.catch) {
             play.catch(() => {
-              if (active) startSlideshow();
+              if (!active) return;
+              videoIndex += 1;
+              if (videoIndex < videoCandidates.length) {
+                el.src = videoCandidates[videoIndex];
+                el.load();
+                const retry = el.play();
+                if (retry?.catch) {
+                  retry.catch(() => {
+                    if (active && videoIndex >= videoCandidates.length - 1) startSlideshow();
+                  });
+                }
+              } else {
+                startSlideshow();
+              }
             });
           }
           return;
