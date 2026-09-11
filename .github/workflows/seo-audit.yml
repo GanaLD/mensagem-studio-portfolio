@@ -107,8 +107,32 @@ jobs:
           robots = Path("robots.txt").read_text(encoding="utf-8") if Path("robots.txt").exists() else ""
           if "Sitemap: https://mensagemstudio.shop/sitemap.xml" not in robots:
               errors.append("robots.txt: sitemap declaration missing")
-          if "Disallow: /wix-preview/" not in robots:
-              errors.append("robots.txt: source preview is not blocked")
+          # Preview is a backup mirror: crawlers may read it so they can see noindex/canonical.
+          # It must never appear in the sitemap or be indexable.
+          backup_pages = {
+              "wix-preview/index.html": base,
+              "wix-preview/portfolio/index.html": base + "portfolio/",
+              "wix-preview/servicos/index.html": base + "servicos/",
+              "wix-preview/sobre/index.html": base + "sobre/",
+          }
+          backup_pages.update({
+              f"wix-preview/portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
+              for slug in slugs
+          })
+          for path, canonical in backup_pages.items():
+              p = Path(path)
+              if not p.exists():
+                  errors.append(f"MISSING BACKUP PAGE: {path}")
+                  continue
+              html = p.read_text(encoding="utf-8")
+              if not re.search(
+                  r'<meta\s+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex[^"\']*follow',
+                  html,
+                  flags=re.I | re.S,
+              ):
+                  errors.append(f"{path}: backup must be noindex,follow")
+              if not re.search(re.escape(f'rel="canonical" href="{canonical}"'), html, flags=re.I | re.S):
+                  errors.append(f"{path}: backup canonical must point to production")
 
           pjs = Path("portfolio/project-page.js")
           if not pjs.exists() or "<h1>" not in pjs.read_text(encoding="utf-8"):
@@ -121,4 +145,5 @@ jobs:
           print(f"SEO PASS: {len(pages)} indexable pages validated.")
           print("Canonical domain: https://mensagemstudio.shop/")
           print("Sitemap: 17/17 URLs.")
+          print("Preview backup: noindex,follow with production canonicals.")
           PY
