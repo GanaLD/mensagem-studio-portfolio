@@ -305,6 +305,31 @@ button{font:inherit}
   max-width:34ch;
   font-size:14px;
 }
+a.card{color:inherit;text-decoration:none;cursor:pointer}
+a.card:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.card-link{
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:22px;
+  color:var(--lime);
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.card-link:after{content:"↗";font-size:13px;line-height:1}
+.section-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
 
 /* PROCESS */
 .process{
@@ -585,18 +610,22 @@ footer{
       <p>Identidade visual, design gráfico e edição de vídeo para marcas, campanhas e conteúdos digitais.</p>
     </div>
     <div class="cards3">
-      <article class="card">
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Identidade Visual e Branding">
         <small>Branding</small>
-        <div><h3>Identidade Visual & Branding</h3><p>Logotipo, tipografia, cores, sistemas visuais e aplicações para construir marcas consistentes.</p></div>
-      </article>
-      <article class="card">
+        <div><h3>Identidade Visual & Branding</h3><p>Logotipo, tipografia, cores, sistemas visuais e aplicações para construir marcas consistentes.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Design Gráfico e Campanhas">
         <small>Design</small>
-        <div><h3>Design Gráfico & Campanhas</h3><p>Key visuals, social media, banners, apresentações e desdobramentos de campanha.</p></div>
-      </article>
-      <article class="card">
+        <div><h3>Design Gráfico & Campanhas</h3><p>Key visuals, social media, banners, apresentações e desdobramentos de campanha.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Edição de Vídeo e Pós">
         <small>Vídeo</small>
-        <div><h3>Edição de Vídeo & Pós</h3><p>Montagem, tratamento visual, lettering, som, legendas e versões para diferentes formatos.</p></div>
-      </article>
+        <div><h3>Edição de Vídeo & Pós</h3><p>Montagem, tratamento visual, lettering, som, legendas e versões para diferentes formatos.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+    </div>
+    <div class="section-actions">
+      <a class="btn" href="../">Ir para Home ↗</a>
+      <a class="btn primary" href="../portfolio/">Ver projetos ↗</a>
     </div>
   </div>
 </section>
@@ -652,18 +681,22 @@ footer{
       <p>Motion, audiovisual e 3D para campanhas, produtos e conteúdos digitais.</p>
     </div>
     <div class="cards3">
-      <article class="card">
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Motion Design e Animação">
         <small>Motion</small>
-        <div><h3>Motion Design & Animação</h3><p>Motion graphics, animação de marca, lettering, peças para campanhas e redes sociais.</p></div>
-      </article>
-      <article class="card">
+        <div><h3>Motion Design & Animação</h3><p>Motion graphics, animação de marca, lettering, peças para campanhas e redes sociais.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Audiovisual e Conteúdo">
         <small>Audiovisual</small>
-        <div><h3>Audiovisual & Conteúdo</h3><p>Captação, edição e conteúdo audiovisual para marcas, produtos, lançamentos e institucional.</p></div>
-      </article>
-      <article class="card">
+        <div><h3>Audiovisual & Conteúdo</h3><p>Captação, edição e conteúdo audiovisual para marcas, produtos, lançamentos e institucional.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+      <a class="card" href="../portfolio/" aria-label="Ver projetos de Design e Visualização 3D">
         <small>3D</small>
-        <div><h3>Design & Visualização 3D</h3><p>Modelagem, materiais, iluminação, render, animação e visualização de produto.</p></div>
-      </article>
+        <div><h3>Design & Visualização 3D</h3><p>Modelagem, materiais, iluminação, render, animação e visualização de produto.</p><span class="card-link">Ver projetos</span></div>
+      </a>
+    </div>
+    <div class="section-actions">
+      <a class="btn" href="../">Ir para Home ↗</a>
+      <a class="btn primary" href="../portfolio/">Ver projetos ↗</a>
     </div>
   </div>
 </section>
@@ -678,7 +711,7 @@ footer{
       </div>
       <div class="actions">
         <a class="btn primary" href="../portfolio/">Explorar projetos ↗</a>
-        <a class="btn" href="../servicos/">Explorar serviços ↗</a>
+        <a class="btn" href="../">Ir para Home ↗</a>
       </div>
     </div>
   </div>
