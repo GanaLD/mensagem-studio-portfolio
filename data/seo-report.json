@@ -1,16 +1,16 @@
 {
-  "version": 3,
+  "version": 4,
   "owner": "site_builder.seo",
   "base_url": "https://mensagemstudio.shop",
   "generated_at": "2026-09-11",
   "summary": {
-    "routes": 17,
-    "indexable": 17,
+    "routes": 23,
+    "indexable": 23,
     "noindex": 0,
     "warnings": 0,
     "info": 0,
-    "with_social_image": 17,
-    "with_breadcrumbs": 13
+    "with_social_image": 23,
+    "with_breadcrumbs": 19
   },
   "diagnostics": [],
   "routes": [
@@ -37,6 +37,54 @@
       "index": true,
       "robots": "index,follow",
       "schema_type": "CollectionPage"
+    },
+    {
+      "path": "servicos/design-social-media",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/design-social-media/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/edicao-video",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/edicao-video/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/motion-design-vfx",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/motion-design-vfx/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/fotos-ecommerce",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/fotos-ecommerce/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/modelagem-3d-produto",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/modelagem-3d-produto/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/sites-html",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/sites-html/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
     },
     {
       "path": "sobre",
