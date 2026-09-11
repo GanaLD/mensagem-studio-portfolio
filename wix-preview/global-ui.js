@@ -1,14 +1,14 @@
-// Universal UI for Mensagem Studio preview: glass menu, timed contact popup and low-volume ambient soundtrack.
+// Universal UI for the published Mensagem Studio site: glass menu, timed contact popup and low-volume ambient soundtrack.
 (() => {
   if (window.__MS_GLOBAL_UI_V1__) return;
   window.__MS_GLOBAL_UI_V1__ = true;
 
-  const ROOT = '/wix-preview/';
+  const ROOT = location.pathname.startsWith('/wix-preview/') ? '/wix-preview/' : '/';
   const PORTFOLIO_URL = ROOT + 'portfolio/';
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260910-r5';
+  const VERSION = '20260911-r9-youtube-audio-stable';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -54,6 +54,38 @@
     .ms-glass-cta:hover,.ms-glass-cta:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(201,255,54,.82);background:linear-gradient(145deg,rgba(201,255,54,.12),rgba(255,255,255,.035));box-shadow:0 0 28px rgba(201,255,54,.18),0 12px 34px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.11)}
     .ms-glass-cta:hover:before,.ms-glass-cta:focus-visible:before{transform:translateX(52%)}
     .ms-glass-cta.primary{border-color:rgba(201,255,54,.72);background:linear-gradient(145deg,rgba(201,255,54,.20),rgba(201,255,54,.055));color:var(--ms-ui-lime);box-shadow:0 0 24px rgba(201,255,54,.10),inset 0 1px rgba(255,255,255,.10)}
+
+
+    /* Compact YouTube soundtrack controller */
+    .ms-sound-dock{position:fixed;z-index:100035;left:16px;bottom:16px;display:flex;align-items:center;gap:6px}
+    .ms-sound-dock .ms-sound-toggle{position:static;left:auto;bottom:auto;min-width:68px;height:38px;padding:0 11px;border-color:rgba(255,255,255,.18);background:rgba(7,9,7,.54);gap:7px}
+    .ms-sound-dock .ms-sound-toggle .icon{width:16px;height:16px;display:grid;place-items:center;color:var(--ms-ui-lime)}
+    .ms-sound-dock .ms-sound-toggle .icon svg{width:15px;height:15px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .ms-sound-dock .ms-sound-toggle .label{display:inline;font-size:9px;letter-spacing:.14em;font-weight:800}
+    .ms-sound-dock .ms-sound-toggle.muted{opacity:.60}
+    .ms-sound-more{width:38px;height:38px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(7,9,7,.54);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;place-items:center;cursor:pointer;color:var(--ms-ui-fg);box-shadow:0 8px 28px rgba(0,0,0,.28);transition:.2s ease}
+    .ms-sound-more:hover,.ms-sound-more:focus-visible,.ms-sound-more[aria-expanded="true"]{outline:none;border-color:rgba(201,255,54,.58);box-shadow:0 0 20px rgba(201,255,54,.10),0 8px 28px rgba(0,0,0,.32)}
+    .ms-sound-more .dots{display:flex;gap:3px;align-items:center;justify-content:center}
+    .ms-sound-more .dots i{display:block;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.84}
+    .ms-sound-panel{position:absolute;left:0;bottom:46px;width:220px;padding:12px;border:1px solid rgba(255,255,255,.17);border-radius:15px;background:linear-gradient(145deg,rgba(7,9,7,.88),rgba(7,9,7,.72));backdrop-filter:blur(22px) saturate(125%);-webkit-backdrop-filter:blur(22px) saturate(125%);box-shadow:0 20px 54px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.045);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(7px) scale(.98);transform-origin:0 100%;transition:opacity .18s ease,visibility .18s ease,transform .18s ease}
+    .ms-sound-panel.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+    .ms-sound-track{min-width:0;margin:0 0 10px;padding:0 2px 9px;border-bottom:1px solid rgba(255,255,255,.09);font-size:9px;line-height:1.35;letter-spacing:.06em;color:#d8dcd3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ms-sound-volume{display:grid;grid-template-columns:15px minmax(0,1fr) 25px;align-items:center;gap:8px;margin-bottom:10px;color:var(--ms-ui-muted);font-size:8px;letter-spacing:.08em}
+    .ms-sound-volume svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .ms-sound-volume input{width:100%;height:16px;margin:0;accent-color:var(--ms-ui-lime);cursor:pointer}
+    .ms-sound-volume output{font-variant-numeric:tabular-nums;text-align:right;color:var(--ms-ui-lime);font-weight:800}
+    .ms-sound-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .ms-sound-controls button{height:34px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:rgba(255,255,255,.035);color:var(--ms-ui-fg);cursor:pointer;display:grid;place-items:center;font-size:13px;line-height:1;transition:.18s ease}
+    .ms-sound-controls button:hover,.ms-sound-controls button:focus-visible{outline:none;border-color:rgba(201,255,54,.50);color:var(--ms-ui-lime);background:rgba(201,255,54,.045)}
+    .ms-sound-controls .play{color:var(--ms-ui-lime)}
+    .ms-youtube-audio-host{position:fixed!important;left:-9999px!important;top:-9999px!important;width:2px!important;height:2px!important;opacity:0!important;pointer-events:none!important}
+    @media(max-width:760px){
+      .ms-sound-dock{left:12px;bottom:12px}
+      .ms-sound-dock .ms-sound-toggle{height:36px;min-width:64px;padding:0 10px}
+      .ms-sound-dock .ms-sound-toggle .label{display:inline}
+      .ms-sound-more{width:36px;height:36px}
+      .ms-sound-panel{bottom:44px;width:210px}
+    }
 
     body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:48px}
     @media(max-width:760px){
@@ -146,61 +178,249 @@
   });
   if(!popupAlreadyShown())schedulePopup();
 
-  // Very low-volume procedural cyber-Japanese ambience. Browsers require a user gesture before audible playback.
-  const soundBtn=document.createElement('button');
-  soundBtn.type='button';soundBtn.className='ms-sound-toggle';soundBtn.setAttribute('aria-label','Mutar trilha ambiente');
-  soundBtn.innerHTML='<span class="icon" aria-hidden="true">♪</span><span class="label">SOM</span>';
-  document.body.appendChild(soundBtn);
-  const muteKey='ms.ambient.muted.v1';
-  let muted=false;
-  try{muted=localStorage.getItem(muteKey)==='1'}catch(_){ }
-  let audioCtx=null,master=null,filter=null,ambientInterval=0,started=false,userUnlocked=false,step=0;
-  const notes=[293.66,349.23,329.63,440.00,349.23,466.16,329.63,293.66]; // D Hirajoshi-like contour
+  // Low-volume YouTube playlist soundtrack. Audible playback is unlocked on the first user gesture.
+  const PLAYLIST_ID='PLP2BlXXbCDiYNzhsfQHB5V4BMfyLrm88h';
+  const START_VIDEO_ID='tTN-G4WEonY';
+  const DEFAULT_INDEX=1; // YouTube URL index=2 -> API uses zero-based index.
+  const DEFAULT_VOLUME=3;
+  const soundtrackKey='ms.youtube.soundtrack.session.v1';
 
-  function updateSoundButton(){
-    soundBtn.classList.toggle('muted',muted);
-    soundBtn.querySelector('.icon').textContent=muted?'×':'♪';
-    soundBtn.setAttribute('aria-label',muted?'Ativar trilha ambiente':'Mutar trilha ambiente');
-    soundBtn.title=muted?'Ativar trilha ambiente':'Mutar trilha ambiente';
+  let savedSoundtrack=null;
+  try{savedSoundtrack=JSON.parse(sessionStorage.getItem(soundtrackKey)||'null')}catch(_){savedSoundtrack=null}
+  let soundVolume=Number.isFinite(savedSoundtrack?.volume)?Math.max(0,Math.min(100,savedSoundtrack.volume)):DEFAULT_VOLUME;
+  let soundMuted=savedSoundtrack?.muted===true;
+  let soundPaused=savedSoundtrack?.paused===true;
+  let resumeIndex=Number.isInteger(savedSoundtrack?.index)?Math.max(0,savedSoundtrack.index):DEFAULT_INDEX;
+  let resumeTime=Number.isFinite(savedSoundtrack?.time)?Math.max(0,savedSoundtrack.time):0;
+  let ytPlayer=null,ytReady=false,audioUnlocked=false,soundPanelOpen=false,saveTimer=0;
+
+  const speakerSvg='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 9.5v5h4l4.5 3.5V6L8.5 9.5h-4Z"></path><path d="M16 9c1.4 1.5 1.4 4.5 0 6"></path><path d="M18.5 6.5c3 3.1 3 7.9 0 11"></path></svg>';
+  const soundDock=document.createElement('div');
+  soundDock.className='ms-sound-dock';
+  soundDock.innerHTML=
+    '<button type="button" class="ms-sound-toggle" aria-label="Desligar trilha sonora">'+
+      '<span class="icon">'+speakerSvg+'</span><span class="label">ON</span>'+
+    '</button>'+
+    '<button type="button" class="ms-sound-more" aria-label="Abrir controles de som" aria-expanded="false">'+
+      '<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>'+
+    '</button>'+
+    '<div class="ms-sound-panel" role="dialog" aria-label="Controles da trilha sonora" aria-hidden="true">'+
+      '<div class="ms-sound-track" title="Samurai - Archangel (long version)">Samurai - Archangel (long version)</div>'+
+      '<label class="ms-sound-volume" aria-label="Volume">'+speakerSvg+
+        '<input type="range" min="0" max="100" step="1" value="'+soundVolume+'">'+
+        '<output>'+soundVolume+'</output>'+
+      '</label>'+
+      '<div class="ms-sound-controls">'+
+        '<button type="button" class="prev" aria-label="Faixa anterior" title="Faixa anterior">‹</button>'+
+        '<button type="button" class="play" aria-label="Pausar" title="Pausar">❚❚</button>'+
+        '<button type="button" class="next" aria-label="Próxima faixa" title="Próxima faixa">›</button>'+
+      '</div>'+
+    '</div>';
+  document.body.appendChild(soundDock);
+
+  const soundBtn=soundDock.querySelector('.ms-sound-toggle');
+  const soundMore=soundDock.querySelector('.ms-sound-more');
+  const soundPanel=soundDock.querySelector('.ms-sound-panel');
+  const soundTrack=soundDock.querySelector('.ms-sound-track');
+  const volumeInput=soundDock.querySelector('input[type="range"]');
+  const volumeOutput=soundDock.querySelector('output');
+  const prevBtn=soundDock.querySelector('.prev');
+  const playBtn=soundDock.querySelector('.play');
+  const nextBtn=soundDock.querySelector('.next');
+
+  function updateSoundUi(){
+    const off=soundMuted||soundVolume===0;
+    soundBtn.classList.toggle('muted',off);
+    soundBtn.querySelector('.label').textContent=off?'OFF':'ON';
+    soundBtn.setAttribute('aria-label',off?'Ligar trilha sonora':'Desligar trilha sonora');
+    soundBtn.title=off?'Ligar trilha sonora':'Desligar trilha sonora';
+    volumeInput.value=String(soundVolume);
+    volumeOutput.value=String(soundVolume);
+    volumeOutput.textContent=String(soundVolume);
+    playBtn.textContent=soundPaused?'▶':'❚❚';
+    playBtn.setAttribute('aria-label',soundPaused?'Reproduzir':'Pausar');
+    playBtn.title=soundPaused?'Reproduzir':'Pausar';
   }
-  function createTone(freq,when,dur=.48,level=.07){
-    if(!audioCtx||!master)return;
-    const osc=audioCtx.createOscillator(),g=audioCtx.createGain(),lp=audioCtx.createBiquadFilter();
-    osc.type='sine';osc.frequency.setValueAtTime(freq,when);
-    lp.type='lowpass';lp.frequency.setValueAtTime(1200,when);lp.Q.value=.7;
-    g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(level,when+.035);g.gain.exponentialRampToValueAtTime(.0001,when+dur);
-    osc.connect(lp);lp.connect(g);g.connect(master);osc.start(when);osc.stop(when+dur+.04);
+
+  function setPanel(open){
+    soundPanelOpen=!!open;
+    soundPanel.classList.toggle('open',soundPanelOpen);
+    soundPanel.setAttribute('aria-hidden',soundPanelOpen?'false':'true');
+    soundMore.setAttribute('aria-expanded',soundPanelOpen?'true':'false');
+    soundMore.setAttribute('aria-label',soundPanelOpen?'Fechar controles de som':'Abrir controles de som');
   }
-  function startAmbient(){
-    if(started||muted||!userUnlocked)return;
-    const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
-    audioCtx=audioCtx||new AC();
-    master=master||audioCtx.createGain();master.gain.value=.014;master.connect(audioCtx.destination);
-    filter=audioCtx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=520;
-    const droneGain=audioCtx.createGain();droneGain.gain.value=.045;
-    const d1=audioCtx.createOscillator(),d2=audioCtx.createOscillator();d1.type='sine';d2.type='triangle';d1.frequency.value=73.42;d2.frequency.value=110;
-    d1.connect(filter);d2.connect(filter);filter.connect(droneGain);droneGain.connect(master);d1.start();d2.start();
-    const lfo=audioCtx.createOscillator(),lfoGain=audioCtx.createGain();lfo.frequency.value=.075;lfoGain.gain.value=95;lfo.connect(lfoGain);lfoGain.connect(filter.frequency);lfo.start();
-    started=true;audioCtx.resume().catch(()=>{});
-    ambientInterval=setInterval(()=>{
-      if(!audioCtx||muted||audioCtx.state!=='running')return;
-      const now=audioCtx.currentTime+.03;
-      createTone(notes[step%notes.length],now,.52,.045);
-      if(step%4===2)createTone(notes[(step+3)%notes.length]/2,now+.19,.82,.022);
-      step++;
-    },720);
+
+  function saveSoundtrackState(){
+    if(!ytReady||!ytPlayer)return;
+    try{
+      const index=Math.max(0,ytPlayer.getPlaylistIndex?.()??resumeIndex);
+      const time=Math.max(0,ytPlayer.getCurrentTime?.()??resumeTime);
+      sessionStorage.setItem(soundtrackKey,JSON.stringify({
+        index,time,volume:soundVolume,muted:soundMuted,paused:soundPaused
+      }));
+    }catch(_){}
   }
-  function unlockAudio(){userUnlocked=true;if(!muted)startAmbient();if(audioCtx&&!muted)audioCtx.resume().catch(()=>{});}
-  ['pointerdown','touchstart','keydown'].forEach(type=>document.addEventListener(type,unlockAudio,{once:true,passive:type!=='keydown'}));
-  soundBtn.addEventListener('click',()=>{
-    muted=!muted;userUnlocked=true;
-    try{localStorage.setItem(muteKey,muted?'1':'0')}catch(_){ }
-    if(!started&&!muted)startAmbient();
-    if(audioCtx&&master){const t=audioCtx.currentTime;master.gain.cancelScheduledValues(t);master.gain.setTargetAtTime(muted?0:.014,t,.08);if(!muted)audioCtx.resume().catch(()=>{});}
-    updateSoundButton();
+
+  function syncPlayerAudio(){
+    if(!ytReady||!ytPlayer)return;
+    try{
+      ytPlayer.setVolume(soundVolume);
+      if(soundMuted||soundVolume===0||!audioUnlocked)ytPlayer.mute();
+      else ytPlayer.unMute();
+      if(soundPaused)ytPlayer.pauseVideo();
+      else if(audioUnlocked)ytPlayer.playVideo();
+    }catch(_){}
+    updateSoundUi();
+  }
+
+  function refreshTrackTitle(){
+    if(!ytReady||!ytPlayer)return;
+    try{
+      const data=ytPlayer.getVideoData?.();
+      const title=(data&&data.title)||'Samurai - Archangel (long version)';
+      if(title){soundTrack.textContent=title;soundTrack.title=title}
+    }catch(_){}
+  }
+
+  function unlockSound(){
+    if(audioUnlocked)return;
+    audioUnlocked=true;
+    if(ytReady){
+      syncPlayerAudio();
+      if(!soundMuted&&!soundPaused&&soundVolume>0){
+        try{ytPlayer.playVideo();ytPlayer.unMute();ytPlayer.setVolume(soundVolume)}catch(_){}
+      }
+    }
+  }
+
+  function createYouTubePlayer(){
+    if(ytPlayer||!window.YT?.Player)return;
+    const host=document.createElement('div');
+    host.id='msYoutubeAudioPlayer';
+    host.className='ms-youtube-audio-host';
+    document.body.appendChild(host);
+    ytPlayer=new YT.Player(host,{
+      height:'2',width:'2',
+      playerVars:{
+        autoplay:1,controls:0,disablekb:1,playsinline:1,rel:0,loop:1,
+        listType:'playlist',list:PLAYLIST_ID,index:resumeIndex
+      },
+      events:{
+        onReady:(event)=>{
+          ytReady=true;
+          try{
+            event.target.setVolume(soundVolume);
+            event.target.mute();
+            event.target.loadPlaylist({
+              listType:'playlist',
+              list:PLAYLIST_ID,
+              index:resumeIndex,
+              startSeconds:resumeTime
+            });
+          }catch(_){}
+          setTimeout(()=>{
+            // First fresh visit must begin on Samurai - Archangel even if playlist order metadata arrives late.
+            if(!savedSoundtrack){
+              try{
+                const ids=event.target.getPlaylist?.()||[];
+                const exact=ids.indexOf(START_VIDEO_ID);
+                if(exact>=0&&event.target.getPlaylistIndex?.()!==exact){
+                  event.target.playVideoAt(exact);
+                  resumeIndex=exact;
+                }
+              }catch(_){}
+            }
+            if(soundPaused){try{event.target.pauseVideo()}catch(_){}}
+            if(audioUnlocked)syncPlayerAudio();
+            refreshTrackTitle();
+          },700);
+          clearInterval(saveTimer);
+          saveTimer=setInterval(saveSoundtrackState,1200);
+          updateSoundUi();
+        },
+        onStateChange:(event)=>{
+          if(event.data===YT.PlayerState.PLAYING){soundPaused=false;refreshTrackTitle()}
+          else if(event.data===YT.PlayerState.PAUSED){soundPaused=true}
+          else if(event.data===YT.PlayerState.ENDED){soundPaused=false}
+          updateSoundUi();
+          saveSoundtrackState();
+        },
+        onError:()=>{soundTrack.textContent='Playlist indisponível';soundTrack.title='Playlist indisponível'}
+      }
+    });
+  }
+
+  function loadYouTubeApi(){
+    if(window.YT?.Player){createYouTubePlayer();return}
+    const previous=window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady=function(){
+      try{if(typeof previous==='function')previous()}catch(_){}
+      createYouTubePlayer();
+    };
+    if(!document.querySelector('script[src*="youtube.com/iframe_api"]')){
+      const script=document.createElement('script');
+      script.src='https://www.youtube.com/iframe_api';
+      script.async=true;
+      document.head.appendChild(script);
+    }
+  }
+
+  ['pointerdown','touchstart','keydown'].forEach(type=>{
+    document.addEventListener(type,unlockSound,{once:true,passive:type!=='keydown'});
   });
-  document.addEventListener('visibilitychange',()=>{if(!audioCtx)return;if(document.hidden)audioCtx.suspend().catch(()=>{});else if(!muted&&userUnlocked)audioCtx.resume().catch(()=>{});});
-  updateSoundButton();
+
+  soundBtn.addEventListener('click',()=>{
+    soundMuted=!soundMuted;
+    if(!soundMuted&&soundVolume===0)soundVolume=DEFAULT_VOLUME;
+    if(!soundMuted)soundPaused=false;
+    unlockSound();
+    syncPlayerAudio();
+    saveSoundtrackState();
+  });
+
+  soundMore.addEventListener('click',e=>{
+    e.stopPropagation();
+    setPanel(!soundPanelOpen);
+  });
+  soundPanel.addEventListener('click',e=>e.stopPropagation());
+  document.addEventListener('click',()=>{if(soundPanelOpen)setPanel(false)});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&soundPanelOpen)setPanel(false)});
+
+  volumeInput.addEventListener('input',()=>{
+    soundVolume=Math.max(0,Math.min(100,Number(volumeInput.value)||0));
+    soundMuted=soundVolume===0;
+    if(soundVolume>0){soundMuted=false;soundPaused=false}
+    unlockSound();
+    syncPlayerAudio();
+    saveSoundtrackState();
+  });
+
+  prevBtn.addEventListener('click',()=>{
+    unlockSound();soundPaused=false;
+    try{ytPlayer?.previousVideo()}catch(_){}
+    syncPlayerAudio();
+    setTimeout(refreshTrackTitle,220);
+  });
+  nextBtn.addEventListener('click',()=>{
+    unlockSound();soundPaused=false;
+    try{ytPlayer?.nextVideo()}catch(_){}
+    syncPlayerAudio();
+    setTimeout(refreshTrackTitle,220);
+  });
+  playBtn.addEventListener('click',()=>{
+    unlockSound();
+    soundPaused=!soundPaused;
+    try{soundPaused?ytPlayer?.pauseVideo():ytPlayer?.playVideo()}catch(_){}
+    syncPlayerAudio();
+    saveSoundtrackState();
+  });
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)saveSoundtrackState();
+  });
+  window.addEventListener('pagehide',saveSoundtrackState);
+  updateSoundUi();
+  loadYouTubeApi();
 
   document.documentElement.dataset.msGlobalUi=VERSION;
 })();
