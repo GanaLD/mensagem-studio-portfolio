@@ -116,52 +116,451 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 /* 3D SIDEBAR MOBILE — ASSET ONLY */
 @media(max-width:760px){#three .three-sidebar{display:flex!important;flex-direction:column!important;gap:14px!important}#three .three-sidebar-group{width:100%}}
 
-/* SECTION INFORMATIVE COPY — WHITE LUMINOUS STANDARD */
-.section-head{overflow:visible!important;contain:none!important;clip-path:none!important;-webkit-clip-path:none!important}
-.section-head>p,.section-head p{
-  position:relative!important;
-  z-index:4!important;
-  overflow:visible!important;
-  contain:none!important;
-  clip-path:none!important;
-  -webkit-clip-path:none!important;
-  -webkit-mask-image:none!important;
-  mask-image:none!important;
-  mix-blend-mode:normal!important;
-  background:none!important;
-  background-image:none!important;
-  -webkit-background-clip:border-box!important;
-  background-clip:border-box!important;
-  -webkit-text-fill-color:#fff!important;
-  color:#fff!important;
-  opacity:1!important;
-  filter:none!important;
-  font-weight:500!important;
-  text-shadow:
-    0 0 8px rgba(255,255,255,.26),
-    0 0 18px rgba(255,255,255,.14),
-    0 0 34px rgba(255,255,255,.075)!important;
+/* IDENTITY COPY — LUMINOUS GREEN */
+#pdf .identity-hire-copy{color:var(--lime)!important;opacity:1!important;font-weight:700;text-shadow:0 0 10px rgba(201,255,54,.55),0 0 24px rgba(201,255,54,.28)}
+</style>
+<!-- HOME_SECTION_NAV_CSS_START -->
+<style id="home-section-nav-css">
+:root{
+  --ms-section-nav-accent:#2FD59A;
+  --ms-section-nav-bg:rgba(8,12,11,.46);
+  --ms-section-nav-line:rgba(255,255,255,.13);
+  --ms-section-nav-text:#F4F4EF;
+  --ms-section-nav-muted:#9EA39D;
 }
-#pdf .identity-hire-copy,#three .three-intro-copy,#services .section-head p,#motion .section-head p,#brief .section-head p{
-  color:#fff!important;
-  -webkit-text-fill-color:#fff!important;
-  opacity:1!important;
-  font-weight:500!important;
-  text-shadow:
-    0 0 8px rgba(255,255,255,.28),
-    0 0 20px rgba(255,255,255,.15),
-    0 0 38px rgba(255,255,255,.08)!important;
+.ms-section-nav{
+  position:fixed;
+  right:clamp(12px,1.35vw,24px);
+  top:50%;
+  z-index:85;
+  transform:translateY(-50%);
+  width:34px;
+  padding:10px 7px;
+  border:1px solid var(--ms-section-nav-line);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),
+    var(--ms-section-nav-bg);
+  -webkit-backdrop-filter:blur(18px) saturate(135%);
+  backdrop-filter:blur(18px) saturate(135%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 14px 42px rgba(0,0,0,.18);
+  overflow:hidden;
+  transition:
+    width .28s cubic-bezier(.2,.7,.2,1),
+    padding .28s cubic-bezier(.2,.7,.2,1),
+    border-color .22s ease,
+    background .22s ease;
+}
+.ms-section-nav:hover,
+.ms-section-nav:focus-within,
+.ms-section-nav.is-open{
+  width:158px;
+  padding:10px 10px;
+  border-color:rgba(47,213,154,.28);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.055),rgba(47,213,154,.018)),
+    rgba(8,12,11,.68);
+}
+.ms-section-nav::before{
+  content:"";
+  position:absolute;
+  top:18px;
+  bottom:18px;
+  right:16px;
+  width:1px;
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(255,255,255,.12) 12%,
+    rgba(255,255,255,.12) 88%,
+    transparent
+  );
+  pointer-events:none;
+}
+.ms-section-nav-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:4px;
+}
+.ms-section-nav-item{
+  margin:0;
+  padding:0;
+}
+.ms-section-nav-btn{
+  position:relative;
+  width:100%;
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:var(--ms-section-nav-muted);
+  cursor:pointer;
+  font:500 10px/1.15 "Gotham","Montserrat",Arial,sans-serif;
+  letter-spacing:.025em;
+  text-align:right;
+}
+.ms-section-nav-label{
+  min-width:0;
+  opacity:0;
+  transform:translateX(8px);
+  white-space:nowrap;
+  pointer-events:none;
+  transition:opacity .18s ease,transform .22s ease,color .18s ease;
+}
+.ms-section-nav:hover .ms-section-nav-label,
+.ms-section-nav:focus-within .ms-section-nav-label,
+.ms-section-nav.is-open .ms-section-nav-label{
+  opacity:1;
+  transform:none;
+}
+.ms-section-nav-dot{
+  position:relative;
+  z-index:2;
+  flex:0 0 auto;
+  width:8px;
+  height:8px;
+  border:1px solid rgba(244,244,239,.38);
+  border-radius:999px;
+  background:rgba(5,7,6,.88);
+  box-shadow:0 0 0 3px rgba(5,7,6,.75);
+  transition:
+    width .2s ease,
+    height .2s ease,
+    border-color .2s ease,
+    background .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+.ms-section-nav-btn:hover .ms-section-nav-label,
+.ms-section-nav-btn:focus-visible .ms-section-nav-label{
+  color:#fff;
+}
+.ms-section-nav-btn:hover .ms-section-nav-dot,
+.ms-section-nav-btn:focus-visible .ms-section-nav-dot{
+  border-color:rgba(47,213,154,.72);
+  transform:scale(1.15);
+}
+.ms-section-nav-btn.is-active{
+  color:#fff;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-label{
+  color:#fff;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-dot{
+  width:10px;
+  height:10px;
+  border-color:var(--ms-section-nav-accent);
+  background:var(--ms-section-nav-accent);
+  box-shadow:
+    0 0 0 3px rgba(5,7,6,.82),
+    0 0 18px rgba(47,213,154,.42);
+}
+.ms-section-nav-progress{
+  position:absolute;
+  right:15.5px;
+  top:18px;
+  bottom:18px;
+  width:2px;
+  border-radius:999px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.ms-section-nav-progress > i{
+  display:block;
+  width:100%;
+  height:100%;
+  transform-origin:top;
+  transform:scaleY(0);
+  background:linear-gradient(180deg,var(--ms-section-nav-accent),rgba(47,213,154,.12));
+  transition:transform .18s linear;
 }
 </style>
+<!-- HOME_SECTION_NAV_CSS_END -->
+
+<!-- HOME_SECTION_NAV_GLASS_V2_START -->
+<style id="home-section-nav-glass-v2">
+.ms-section-nav{
+  width:32px !important;
+  padding:9px 6px !important;
+  border-color:rgba(255,255,255,.11) !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.006)),
+    rgba(5,9,8,.10) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(125%) !important;
+  backdrop-filter:blur(18px) saturate(125%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 12px 34px rgba(0,0,0,.10) !important;
+}
+.ms-section-nav:hover,
+.ms-section-nav:focus-within,
+.ms-section-nav.is-open{
+  width:166px !important;
+  padding:9px 10px !important;
+  border-color:rgba(47,213,154,.24) !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.008)),
+    rgba(5,9,8,.18) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 14px 38px rgba(0,0,0,.12) !important;
+}
+.ms-section-nav-btn{
+  min-height:31px !important;
+}
+.ms-section-nav-label{
+  font-size:9.5px !important;
+  letter-spacing:.035em !important;
+}
+.ms-section-nav-dot{
+  background:rgba(5,8,7,.34) !important;
+  border-color:rgba(244,244,239,.42) !important;
+  box-shadow:0 0 0 2px rgba(5,8,7,.18) !important;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-dot{
+  background:var(--ms-section-nav-accent) !important;
+  border-color:var(--ms-section-nav-accent) !important;
+  box-shadow:
+    0 0 0 2px rgba(5,8,7,.26),
+    0 0 16px rgba(47,213,154,.36) !important;
+}
+#processo,
+#briefing{
+  scroll-margin-top:96px;
+}
+@media(max-width:760px){
+  .ms-section-nav{
+    width:auto !important;
+    padding:7px 10px !important;
+    background:rgba(5,9,8,.14) !important;
+  }
+  .ms-section-nav:hover,
+  .ms-section-nav:focus-within,
+  .ms-section-nav.is-open{
+    width:auto !important;
+    padding:7px 10px !important;
+  }
+}
+</style>
+<!-- HOME_SECTION_NAV_GLASS_V2_END -->
+
+<!-- HOME_SECTION_NAV_GLASS_BUTTONS_START -->
+<style id="home-section-nav-glass-buttons">
+/* Transparent glass shell */
+.ms-section-nav{
+  padding:8px 6px !important;
+  background:rgba(5,9,8,.08) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(125%) !important;
+  backdrop-filter:blur(18px) saturate(125%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 34px rgba(0,0,0,.08) !important;
+}
+.ms-section-nav:hover,
+.ms-section-nav:focus-within,
+.ms-section-nav.is-open{
+  background:rgba(5,9,8,.12) !important;
+  border-color:rgba(47,213,154,.18) !important;
+}
+
+/* Each section is the luminous glass button */
+.ms-section-nav-btn{
+  min-height:32px !important;
+  padding:0 7px 0 10px !important;
+  border:1px solid transparent !important;
+  border-radius:12px !important;
+  background:transparent !important;
+  -webkit-backdrop-filter:blur(12px) saturate(125%) !important;
+  backdrop-filter:blur(12px) saturate(125%) !important;
+  box-shadow:none !important;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    box-shadow .22s ease,
+    color .22s ease !important;
+}
+.ms-section-nav:hover .ms-section-nav-btn,
+.ms-section-nav:focus-within .ms-section-nav-btn,
+.ms-section-nav.is-open .ms-section-nav-btn{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.045),rgba(47,213,154,.018)) !important;
+  border-color:rgba(255,255,255,.075) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055) !important;
+}
+.ms-section-nav-btn:hover,
+.ms-section-nav-btn:focus-visible{
+  transform:translateX(-2px) !important;
+  color:#fff !important;
+  border-color:rgba(47,213,154,.32) !important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.075),rgba(47,213,154,.085)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 0 18px rgba(47,213,154,.045),
+    0 0 18px rgba(47,213,154,.055) !important;
+  outline:none !important;
+}
+.ms-section-nav-btn.is-active{
+  color:#fff !important;
+  border-color:rgba(47,213,154,.42) !important;
+  background:
+    linear-gradient(135deg,rgba(47,213,154,.13),rgba(255,255,255,.045)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    inset 0 0 20px rgba(47,213,154,.065),
+    0 0 22px rgba(47,213,154,.08) !important;
+}
+.ms-section-nav-btn:active{
+  transform:scale(.98) !important;
+}
+.ms-section-nav-label{
+  font-size:9.5px !important;
+  letter-spacing:.03em !important;
+  text-transform:none !important;
+}
+.ms-section-nav-dot{
+  width:7px !important;
+  height:7px !important;
+  background:rgba(5,8,7,.28) !important;
+  border-color:rgba(244,244,239,.42) !important;
+  box-shadow:0 0 0 2px rgba(5,8,7,.14) !important;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-dot{
+  width:9px !important;
+  height:9px !important;
+  background:var(--ms-section-nav-accent) !important;
+  border-color:var(--ms-section-nav-accent) !important;
+  box-shadow:
+    0 0 0 2px rgba(5,8,7,.20),
+    0 0 16px rgba(47,213,154,.44) !important;
+}
+@media(max-width:760px){
+  .ms-section-nav{
+    padding:7px 9px !important;
+  }
+  .ms-section-nav-btn{
+    width:28px !important;
+    min-height:28px !important;
+    padding:0 !important;
+    border-radius:999px !important;
+  }
+}
+</style>
+<!-- HOME_SECTION_NAV_GLASS_BUTTONS_END -->
+
+<!-- HOME_SECTION_NAV_NO_DOTS_START -->
+<style id="home-section-nav-no-dots">
+/* No three-dot controls in this navigation concept. */
+.ms-section-nav-toggle,
+.ms-section-nav-toggle-dots,
+.ms-section-nav-toggle-glow{
+  display:none !important;
+}
+
+/* The global three-dot menu must not overlap/appear in this preview concept. */
+.ms-universal-menu-btn{
+  display:none !important;
+}
+
+/* Undo global brand offset caused by the hidden universal menu button. */
+body.ms-global-ui-mounted header .brand,
+body.ms-global-ui-mounted .top .brand{
+  margin-left:0 !important;
+}
+</style>
+<!-- HOME_SECTION_NAV_NO_DOTS_END -->
+
+<!-- HOME_SECTION_NAV_HOMOGENEOUS_START -->
+<style id="home-section-nav-homogeneous">
+/* Homogeneous glass: one transparent material + one green indicator bar. */
+.ms-section-nav{
+  background:rgba(7,10,9,.08) !important;
+  border:1px solid rgba(255,255,255,.11) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(118%) !important;
+  backdrop-filter:blur(18px) saturate(118%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+.ms-section-nav:hover,
+.ms-section-nav:focus-within,
+.ms-section-nav.is-open{
+  background:rgba(7,10,9,.10) !important;
+  border-color:rgba(255,255,255,.14) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055) !important;
+}
+
+/* Remove all segmented fills / localized glows from section buttons. */
+.ms-section-nav-btn,
+.ms-section-nav:hover .ms-section-nav-btn,
+.ms-section-nav:focus-within .ms-section-nav-btn,
+.ms-section-nav.is-open .ms-section-nav-btn,
+.ms-section-nav-btn:hover,
+.ms-section-nav-btn:focus-visible,
+.ms-section-nav-btn.is-active{
+  background:transparent !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+}
+
+/* Keep only the clean indicator rail. */
+.ms-section-nav::before{
+  right:16px !important;
+  width:1px !important;
+  background:rgba(255,255,255,.15) !important;
+}
+.ms-section-nav-progress{
+  right:15.5px !important;
+  width:2px !important;
+}
+.ms-section-nav-progress > i{
+  background:var(--ms-section-nav-accent) !important;
+  box-shadow:none !important;
+}
+
+/* Dots stay minimal; active state is expressed by the bar + clean dot. */
+.ms-section-nav-dot,
+.ms-section-nav-btn:hover .ms-section-nav-dot,
+.ms-section-nav-btn:focus-visible .ms-section-nav-dot{
+  background:transparent !important;
+  border:1px solid rgba(244,244,239,.42) !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-dot{
+  width:8px !important;
+  height:8px !important;
+  background:var(--ms-section-nav-accent) !important;
+  border-color:var(--ms-section-nav-accent) !important;
+  box-shadow:none !important;
+}
+</style>
+<!-- HOME_SECTION_NAV_HOMOGENEOUS_END -->
+
 </head>
 <body>
+<!-- HOME_SECTION_NAV_HTML_START -->
+<nav class="ms-section-nav" id="msSectionNav" aria-label="Navegação por seções da Home">
+<div class="ms-section-nav-progress" aria-hidden="true"><i id="msSectionNavProgress"></i></div>
+  <ol class="ms-section-nav-list" id="msSectionNavList"></ol>
+</nav>
+<!-- HOME_SECTION_NAV_HTML_END -->
+
 <div id="sfGlobalMediaCanvas" aria-hidden="true"><div id="cyberAngelSlot" data-asset="cyber-angel-scroll"><iframe id="cyberAngelBg" src="./assets/cyber-angel-bg.html" title="Cyber Angel global scroll background" tabindex="-1" loading="eager"></iframe></div></div>
 <header class="content-layer"><div class="brand">MENSAGEM STUDIO</div><nav class="nav"><a href="./">HOME</a><a href="./portfolio/">PROJETOS</a><a href="./servicos/">SERVIÇOS</a><a href="./sobre/">SOBRE</a></nav></header>
 <section id="hero" class="content-layer"><div class="hero-sticky"><video id="heroVideo" class="hero-video" muted playsinline preload="auto" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=hero"></video><div class="hero-shade"></div><div id="heroCaseStage" class="hero-case-stage"><div class="wrap hero-grid"><div class="hero-copy"><div class="hero-count"><strong id="heroNum">01 / 06</strong><span></span></div><div class="kicker" id="heroCat">SOCIAL</div><h1 id="heroTitle">Motors Vans</h1><p id="heroDesc">Direção visual e peças digitais para comunicação automotiva, com identidade consistente e foco em presença de marca.</p><div class="cta-row"><a class="btn primary" href="#projects">Ver projeto <b>↗</b></a><a class="btn" href="#services">Serviços <b>↓</b></a></div></div><a class="hero-art" href="#projects"><img id="heroArt" alt="Projeto em destaque" src="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc"><span class="hero-art-label"><span><small>CASE / <b id="heroCaseNo">01</b></small><br><b id="heroArtName">MOTORS VANS</b></span><small>scroll driven</small></span></a></div></div><div class="hero-progress" id="heroProgress"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="hero-scroll-cue" aria-hidden="true"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div><div class="video-scroll-label">Role para controlar o filme · depois entram os cases</div><div class="video-scroll-meter"><i></i></div></div></section>
 <section id="services" class="section content-layer"><div class="wrap"><div class="section-head"><div><div class="kicker">01 · SERVIÇOS</div><h2>Do conceito à entrega.</h2></div><p>Uma frente integrada para design, audiovisual, 3D, web e experiências digitais.</p></div><div class="services-grid"><a class="service" href="./servicos/#cat-7"><span class="num">01</span><div><h3>Branding</h3><p>Identidade visual, direção de arte, sistemas gráficos e posicionamento.</p></div></a><a class="service" href="./servicos/#cat-8"><span class="num">02</span><div><h3>Imagem & KV</h3><p>Campanhas, peças publicitárias, manipulação, composição e key visuals.</p></div></a><a class="service" href="./servicos/fotos-ecommerce/"><span class="num">03</span><div><h3>E-commerce</h3><p>Tratamento, padronização e direção visual de produto para marketplaces e lojas online.</p></div></a><a class="service" href="./servicos/motion-design-vfx/"><span class="num">04</span><div><h3>Motion & Vídeo</h3><p>Motion design, VFX, animação e peças audiovisuais para campanhas e lançamentos.</p></div></a><a class="service" href="./servicos/modelagem-3d-produto/"><span class="num">05</span><div><h3>3D / CGI</h3><p>Modelagem, materiais, render, animação e experiências de produto em 3D.</p></div></a><a class="service" href="./servicos/sites-html/"><span class="num">06</span><div><h3>Web & Experiências</h3><p>HTML, páginas imersivas, publicação e experiências digitais sob medida.</p></div></a></div></div></section>
 <section id="word" class="content-layer"><div class="word-sticky"><video class="word-video" muted autoplay loop playsinline preload="metadata" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=orbit"></video><div class="word-shade"></div><div class="kicker word-top-label">NARRATIVA · MOTION</div><div class="word-stack"><h2 id="wordMain" class="word-main">DESIGN</h2></div><div class="word-sub word-bottom-label">uma linguagem · vários meios</div><div class="word-dots" id="wordDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div></section>
 <main id="afterWord" class="after-word">
-<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy">Modelos que você pode contratar.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL">Manual de Marca</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" src="https://drive.google.com/file/d/11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL/preview"></iframe><div class="stage-note">viewer compartilhado · 01/01</div></div></div></div></section>
+<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy" style="color:#c9ff36!important;font-weight:800;text-shadow:0 0 8px #c9ff36,0 0 20px rgba(201,255,54,.72),0 0 34px rgba(201,255,54,.38)">Modelos que você pode contratar.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL">Manual de Marca</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" src="https://drive.google.com/file/d/11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL/preview"></iframe><div class="stage-note">viewer compartilhado · 01/01</div></div></div></div></section>
 <section id="three" class="section"><div class="wrap"><div class="section-head"><div><h2>3D interativo.</h2></div><p class="three-intro-copy">Ambientes e produtos em 3D para explorar diretamente na página. Escolha o asset à esquerda e interaja diretamente no viewer.</p></div><div class="stage three-project-stage"><aside class="stage-side three-sidebar" aria-label="Assets 3D"><div class="three-sidebar-group"><span class="three-sidebar-label">ASSETS 3D</span><div id="modelTabs" class="three-asset-list"><button class="active" type="button" data-model="black-skull-creatine-v2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" data-alt="Black Skull Creatine em visualização 3D interativa" data-orbit-theta="180deg">Black Skull Creatine</button><button type="button" data-model="arma-cyberpunk" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" data-alt="Arma Cyberpunk em visualização 3D interativa" data-orbit-theta="0deg">Arma Cyberpunk</button></div></div></aside><div class="stage-main"><model-viewer id="modelViewer3D" camera-controls shadow-intensity="1.15" shadow-softness="0.8" exposure="1.08" environment-image="neutral" interaction-prompt="none" alt="Black Skull Creatine em visualização 3D interativa" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" camera-target="auto auto auto" camera-orbit="180deg 75deg 103%" field-of-view="28deg" touch-action="pan-y" loading="eager"></model-viewer><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></div></section>
 <section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Seleção de projetos de design, audiovisual, motion, 3D, campanhas e conteúdo digital desenvolvidos pela Mensagem Studio.</p></div><div class="projects-grid">
 <a class="project has-preview" href="./portfolio/produto-3d-egeo/" aria-label="Abrir projeto Produto 3D EGEO"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" src="https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file" data-preview-fallback="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>3D / Produto</small><h3>Modelagem e Render 3D | EGEO</h3><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p></div></a>
@@ -173,7 +572,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 <a class="project has-preview" href="./portfolio/creatina-growth/" aria-label="Abrir projeto Creatina Growth"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg" alt="Creatina Growth"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg" src="https://video.wixstatic.com/video/7f7e07df-24f9-4ce3-ad9e-f6adf44228e6/file" data-preview-fallback="https://video.wixstatic.com/video/ef8a3a_bb66b77e34da4a2188503e76e05eed12/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Produto / Motion Design</small><h3>Vídeo de Produto | Creatina Growth</h3><p>Vídeo de produto, motion design e direção de arte para campanha fitness e social media.</p></div></a>
 </div></div></section>
 <section id="motion" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">04 · MOTION / VIDEO</div><h2>Movimento como linguagem.</h2></div><p>O showcase audiovisual fica isolado depois dos projetos para funcionar como uma nova mudança de ritmo.</p></div><div class="stage"><div class="stage-side" id="ytTabs"><button class="active" data-yt="XVL_ToV0-uY">Showreel / Hero</button><button data-yt="G_2jdXfXxiI">Showcase 02</button></div><div class="stage-main"><iframe id="ytFrame" title="YouTube Showcase" src="https://www.youtube.com/embed/XVL_ToV0-uY?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="stage-note">player compartilhado · 01/02</div></div></div></div></section>
-<section id="brief" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">05 · BRIEFING</div><h2>Transforme referência em projeto.</h2></div><p>Fechamento da jornada: descoberta, escopo e produção.</p></div><div class="brief-grid"><div class="brief-card"><div class="kicker">PROCESSO</div><h3>Do objetivo à produção.</h3><div class="steps"><div class="step"><b>01</b><p><strong>Descoberta</strong><br>Objetivo, contexto, referências e direção.</p></div><div class="step"><b>02</b><p><strong>Escopo</strong><br>Entregáveis, prazo, orçamento e revisões.</p></div><div class="step"><b>03</b><p><strong>Produção</strong><br>Design, motion, 3D e web conectados.</p></div></div></div><div class="brief-card"><div class="kicker">AÇÃO</div><h3>Começar projeto.</h3><p class="muted">Abra o briefing para detalhar a demanda ou monte primeiro uma solicitação de orçamento.</p><div class="cta-row" style="margin-top:28px"><a class="btn primary" href="./servicos/#briefing">Começar briefing <b>↗</b></a><a class="btn" href="./servicos/#orcamento">Solicitar orçamento <b>↗</b></a></div></div></div></div></section>
+<section id="brief" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">05 · BRIEFING</div><h2>Transforme referência em projeto.</h2></div><p>Fechamento da jornada: descoberta, escopo e produção.</p></div><div class="brief-grid"><div class="brief-card" id="processo"><div class="kicker">PROCESSO</div><h3>Do objetivo à produção.</h3><div class="steps"><div class="step"><b>01</b><p><strong>Descoberta</strong><br>Objetivo, contexto, referências e direção.</p></div><div class="step"><b>02</b><p><strong>Escopo</strong><br>Entregáveis, prazo, orçamento e revisões.</p></div><div class="step"><b>03</b><p><strong>Produção</strong><br>Design, motion, 3D e web conectados.</p></div></div></div><div class="brief-card" id="briefing"><div class="kicker">AÇÃO</div><h3>Começar projeto.</h3><p class="muted">Abra o briefing para detalhar a demanda ou monte primeiro uma solicitação de orçamento.</p><div class="cta-row" style="margin-top:28px"><a class="btn primary" href="./servicos/#briefing">Começar briefing <b>↗</b></a><a class="btn" href="./servicos/#orcamento">Solicitar orçamento <b>↗</b></a></div></div></div></div></section>
 <section class="final-cta"><div class="wrap"><div class="kicker">MENSAGEM STUDIO · PROJETO COMPLETO</div><h2>Ideia em experiência.</h2><p>Design, motion, 3D, web e direção visual conectados em uma única linguagem.</p><div class="cta-row" style="justify-content:center"><a class="btn primary" href="#hero">Rever do início <b>↑</b></a><a class="btn" href="./portfolio/">Ver projetos <b>↗</b></a></div></div></section>
 <footer><span>Mensagem Studio · Curitiba</span><span>Design · Motion · 3D · Web · Experiences</span></footer>
 </main>
@@ -328,5 +727,119 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
   viewer.addEventListener('load', () => requestAnimationFrame(fitAsset));
 })();
 </script>
+<!-- HOME_SECTION_NAV_JS_START -->
+<script id="home-section-nav-js">
+(()=>{
+  const sections=[
+    {id:'hero',label:'HERO'},
+    {id:'services',label:'SERVIÇOS'},
+    {id:'pdf',label:'BRAND BOOK'},
+    {id:'three',label:'3D'},
+    {id:'projects',label:'PROJETOS'},
+    {id:'processo',label:'PROCESSO'},
+    {id:'briefing',label:'BRIEFING'}
+  ].filter(item=>document.getElementById(item.id));
+
+  const nav=document.getElementById('msSectionNav');
+  const list=document.getElementById('msSectionNavList');
+  const progress=document.getElementById('msSectionNavProgress');
+  if(!nav||!list||!sections.length)return;
+
+
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeId=sections[0].id;
+  let ticking=false;
+
+  const buttons=new Map();
+
+  sections.forEach((item,index)=>{
+    const li=document.createElement('li');
+    li.className='ms-section-nav-item';
+
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='ms-section-nav-btn';
+    btn.dataset.target=item.id;
+    btn.setAttribute('aria-label',item.label);
+    btn.title=item.label;
+    btn.innerHTML=
+      '<span class="ms-section-nav-label">'+item.label+'</span>'+
+      '<span class="ms-section-nav-dot" aria-hidden="true"></span>';
+
+    btn.addEventListener('click',()=>{
+      const target=document.getElementById(item.id);
+      if(!target)return;
+      target.scrollIntoView({
+        behavior:reduced?'auto':'smooth',
+        block:'start'
+      });
+    });
+
+    buttons.set(item.id,btn);
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+
+  function setActive(id){
+    if(!buttons.has(id))return;
+    activeId=id;
+    buttons.forEach((btn,key)=>{
+      const on=key===id;
+      btn.classList.toggle('is-active',on);
+      if(on)btn.setAttribute('aria-current','true');
+      else btn.removeAttribute('aria-current');
+    });
+  }
+
+  function updateByScroll(){
+    ticking=false;
+    const viewportAnchor=Math.max(120,innerHeight*.38);
+    let best=sections[0].id;
+    let bestDistance=Infinity;
+
+    sections.forEach(item=>{
+      const el=document.getElementById(item.id);
+      if(!el)return;
+      const r=el.getBoundingClientRect();
+
+      if(r.top<=viewportAnchor && r.bottom>viewportAnchor){
+        best=item.id;
+        bestDistance=0;
+        return;
+      }
+
+      const d=Math.min(
+        Math.abs(r.top-viewportAnchor),
+        Math.abs(r.bottom-viewportAnchor)
+      );
+      if(d<bestDistance){
+        bestDistance=d;
+        best=item.id;
+      }
+    });
+
+    setActive(best);
+
+    const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+    const ratio=Math.max(0,Math.min(1,scrollY/max));
+    if(progress)progress.style.transform='scaleY('+ratio+')';
+  }
+
+  function queueUpdate(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(updateByScroll);
+  }
+
+  addEventListener('scroll',queueUpdate,{passive:true});
+  addEventListener('resize',queueUpdate,{passive:true});
+  addEventListener('hashchange',queueUpdate,{passive:true});
+
+  setActive(activeId);
+  updateByScroll();
+})();
+</script>
+<!-- HOME_SECTION_NAV_JS_END -->
+
 </body>
 </html>
