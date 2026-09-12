@@ -508,6 +508,70 @@ h1 em{color:var(--green);font-style:normal}
 }
 </style>
 <!-- MENSAGEM_SERVICOS_V3_DESIGN_END -->
+<!-- V3_CARD_ALIGNMENT_LOCK_START -->
+<style id="v3-card-alignment-lock">
+/* Final geometry lock for the isolated V3 prototype */
+#catalog .grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-auto-flow:row !important;
+  align-items:stretch !important;
+  gap:14px !important;
+}
+#catalog .grid > .card,
+#catalog .grid > .card:nth-child(n){
+  grid-column:auto !important;
+  width:auto !important;
+  max-width:none !important;
+  min-width:0 !important;
+  align-self:stretch !important;
+}
+#catalog .grid > .card:not(.is-open){
+  height:292px !important;
+  min-height:292px !important;
+  max-height:292px !important;
+}
+#catalog .grid > .card h3{
+  min-height:2.25em !important;
+  max-height:2.25em !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  overflow:hidden !important;
+  margin-bottom:18px !important;
+}
+#catalog .grid > .card .expand-hint{
+  flex:0 0 auto !important;
+}
+#catalog .grid > .card .card-details{
+  flex:0 0 auto !important;
+}
+#catalog .grid > .card .price{
+  margin-top:auto !important;
+  margin-bottom:12px !important;
+  flex:0 0 auto !important;
+}
+#catalog .grid > .card .note{
+  flex:0 0 auto !important;
+}
+#catalog .grid > .card .add{
+  flex:0 0 48px !important;
+  margin-top:0 !important;
+}
+@media(max-width:1100px){
+  #catalog .grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media(max-width:767px){
+  #catalog .grid{grid-template-columns:1fr !important}
+  #catalog .grid > .card:not(.is-open){
+    height:auto !important;
+    min-height:292px !important;
+    max-height:none !important;
+  }
+}
+</style>
+<!-- V3_CARD_ALIGNMENT_LOCK_END -->
+
 </head>
 <body data-prototype="servicos-v3"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V3</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
