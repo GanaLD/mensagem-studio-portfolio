@@ -405,10 +405,129 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 </style>
 <!-- HOME_SECTION_NAV_GLASS_V2_END -->
 
+<!-- HOME_SECTION_NAV_V3_START -->
+<style id="home-section-nav-v3">
+.ms-section-nav{
+  padding-top:50px !important;
+}
+.ms-section-nav-toggle{
+  position:absolute !important;
+  top:8px !important;
+  right:6px !important;
+  z-index:5 !important;
+  width:22px !important;
+  height:34px !important;
+  display:grid !important;
+  place-items:center !important;
+  padding:0 !important;
+  border:1px solid rgba(255,255,255,.16) !important;
+  border-radius:12px !important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.018) 56%,rgba(47,213,154,.055)) !important;
+  -webkit-backdrop-filter:blur(16px) saturate(135%) !important;
+  backdrop-filter:blur(16px) saturate(135%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.13),
+    inset 0 -1px 0 rgba(47,213,154,.07),
+    0 0 20px rgba(47,213,154,.06),
+    0 10px 24px rgba(0,0,0,.16) !important;
+  cursor:pointer !important;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    box-shadow .22s ease !important;
+}
+.ms-section-nav:hover .ms-section-nav-toggle,
+.ms-section-nav:focus-within .ms-section-nav-toggle,
+.ms-section-nav.is-open .ms-section-nav-toggle{
+  right:10px !important;
+}
+.ms-section-nav-toggle:hover,
+.ms-section-nav-toggle:focus-visible{
+  transform:translateY(-1px) !important;
+  border-color:rgba(47,213,154,.46) !important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.11),rgba(47,213,154,.09) 60%,rgba(255,255,255,.028)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    0 0 24px rgba(47,213,154,.12),
+    0 12px 28px rgba(0,0,0,.18) !important;
+  outline:none !important;
+}
+.ms-section-nav-toggle:active{
+  transform:scale(.97) !important;
+}
+.ms-section-nav-toggle-glow{
+  position:absolute !important;
+  inset:5px !important;
+  border-radius:9px !important;
+  background:radial-gradient(circle at 50% 30%,rgba(47,213,154,.20),transparent 70%) !important;
+  opacity:.9 !important;
+  pointer-events:none !important;
+}
+.ms-section-nav-toggle-dots{
+  position:relative !important;
+  z-index:2 !important;
+  display:grid !important;
+  gap:3px !important;
+}
+.ms-section-nav-toggle-dots i{
+  width:3px !important;
+  height:3px !important;
+  border-radius:50% !important;
+  display:block !important;
+  background:#F4F4EF !important;
+  box-shadow:0 0 7px rgba(47,213,154,.42) !important;
+}
+.ms-section-nav.is-open .ms-section-nav-toggle{
+  border-color:rgba(47,213,154,.50) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 0 16px rgba(47,213,154,.07),
+    0 0 24px rgba(47,213,154,.14) !important;
+}
+.ms-section-nav.is-open .ms-section-nav-toggle-dots i{
+  background:var(--ms-section-nav-accent) !important;
+}
+.ms-section-nav-label{
+  text-transform:none !important;
+}
+@media(max-width:760px){
+  .ms-section-nav{
+    padding-top:7px !important;
+    padding-left:44px !important;
+  }
+  .ms-section-nav-toggle{
+    top:50% !important;
+    left:7px !important;
+    right:auto !important;
+    transform:translateY(-50%) !important;
+    width:30px !important;
+    height:30px !important;
+    border-radius:999px !important;
+  }
+  .ms-section-nav:hover .ms-section-nav-toggle,
+  .ms-section-nav:focus-within .ms-section-nav-toggle,
+  .ms-section-nav.is-open .ms-section-nav-toggle{
+    right:auto !important;
+  }
+  .ms-section-nav-toggle:hover,
+  .ms-section-nav-toggle:focus-visible{
+    transform:translateY(-50%) !important;
+  }
+}
+</style>
+<!-- HOME_SECTION_NAV_V3_END -->
+
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
 <nav class="ms-section-nav" id="msSectionNav" aria-label="Navegação por seções da Home">
+  <button class="ms-section-nav-toggle" id="msSectionNavToggle" type="button" aria-label="Abrir navegação por seções" aria-expanded="false">
+    <span class="ms-section-nav-toggle-glow" aria-hidden="true"></span>
+    <span class="ms-section-nav-toggle-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
   <div class="ms-section-nav-progress" aria-hidden="true"><i id="msSectionNavProgress"></i></div>
   <ol class="ms-section-nav-list" id="msSectionNavList"></ol>
 </nav>
@@ -591,19 +710,28 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <script id="home-section-nav-js">
 (()=>{
   const sections=[
-    {id:'hero',label:'1 HERO'},
-    {id:'services',label:'2 SERVIÇOS'},
-    {id:'pdf',label:'3 BRAND BOOK'},
-    {id:'three',label:'4 3D'},
-    {id:'projects',label:'5 PROJETOS'},
-    {id:'processo',label:'6 PROCESSO'},
-    {id:'briefing',label:'7 BRIEFING'}
+    {id:'hero',label:'HERO'},
+    {id:'services',label:'SERVIÇOS'},
+    {id:'pdf',label:'BRAND BOOK'},
+    {id:'three',label:'3D'},
+    {id:'projects',label:'PROJETOS'},
+    {id:'processo',label:'PROCESSO'},
+    {id:'briefing',label:'BRIEFING'}
   ].filter(item=>document.getElementById(item.id));
 
   const nav=document.getElementById('msSectionNav');
   const list=document.getElementById('msSectionNavList');
   const progress=document.getElementById('msSectionNavProgress');
+  const toggle=document.getElementById('msSectionNavToggle');
   if(!nav||!list||!sections.length)return;
+
+  if(toggle){
+    toggle.addEventListener('click',()=>{
+      const open=nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded',String(open));
+      toggle.setAttribute('aria-label',open?'Recolher navegação por seções':'Abrir navegação por seções');
+    });
+  }
 
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeId=sections[0].id;
