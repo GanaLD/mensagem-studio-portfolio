@@ -8,7 +8,7 @@
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260912-r10-popup-once';
+  const VERSION = '20260912-r11-popup-copy';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -45,9 +45,8 @@
     .ms-contact-card:before{content:"";position:absolute;inset:-45% -20%;background:radial-gradient(circle at 16% 15%,rgba(201,255,54,.10),transparent 30%),linear-gradient(110deg,transparent 34%,rgba(255,255,255,.055) 48%,transparent 62%);pointer-events:none;transform:translateX(-18%);opacity:.85}
     .ms-contact-close{position:absolute;right:16px;top:16px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.20);background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);cursor:pointer;font-size:18px;display:grid;place-items:center;box-shadow:0 0 18px rgba(201,255,54,.06);transition:.2s ease}
     .ms-contact-close:hover,.ms-contact-close:focus-visible{outline:none;border-color:rgba(201,255,54,.58);color:var(--ms-ui-lime);box-shadow:0 0 22px rgba(201,255,54,.12)}
-    .ms-contact-kicker{position:relative;z-index:1;color:var(--ms-ui-lime);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px;font-weight:800;text-shadow:0 0 12px rgba(201,255,54,.30)}
-    .ms-contact-card h2{position:relative;z-index:1;margin:0 0 22px;font-size:clamp(38px,5vw,62px);line-height:.90;letter-spacing:-.05em;text-transform:uppercase;max-width:11.5ch;color:var(--ms-ui-fg);text-wrap:balance}
-    .ms-contact-card p{position:relative;z-index:1;margin:0 0 30px;color:#c9cec3;font-size:14px;line-height:1.65;max-width:48ch}
+    .ms-contact-card h2{position:relative;z-index:1;margin:0 0 20px;padding-right:52px;font-size:clamp(34px,4.6vw,56px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase;max-width:14ch;color:var(--ms-ui-fg);text-wrap:balance}
+    .ms-contact-card p{position:relative;z-index:1;margin:0 0 28px;color:#c9cec3;font-size:14px;line-height:1.62;max-width:50ch}
     .ms-contact-actions{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .ms-glass-cta{position:relative;min-height:60px;border:1px solid rgba(201,255,54,.26);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.03));backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%);display:flex;align-items:center;justify-content:center;gap:0;padding:0 20px;font-size:10px;letter-spacing:.13em;font-weight:850;text-transform:uppercase;color:var(--ms-ui-fg);overflow:hidden;box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 18px rgba(201,255,54,.045);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-glass-cta:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(100deg,transparent 34%,rgba(201,255,54,.22) 48%,transparent 62%);transform:translateX(-58%);transition:transform .55s ease;pointer-events:none}
@@ -92,7 +91,7 @@
       .ms-universal-menu-btn{top:10px;left:10px;width:40px;height:40px;border-radius:14px}
       .ms-menu-overlay{padding:60px 10px 10px}.ms-menu-panel{width:100%;border-radius:20px;padding:14px 15px}.ms-menu-link{font-size:clamp(38px,13vw,58px);padding:14px 4px 15px}.ms-menu-link:hover{padding-left:8px}
       .ms-sound-toggle{left:12px;bottom:12px;height:36px;padding:0 10px}.ms-sound-toggle .label{display:none}
-      .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:30px 22px}.ms-contact-card h2{font-size:clamp(36px,11vw,52px);line-height:.92;max-width:10.8ch}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:24px}.ms-glass-cta{min-height:56px}
+      .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
     @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
@@ -138,8 +137,7 @@
   popup.innerHTML = `
     <aside class="ms-contact-card" role="dialog" aria-modal="true" aria-labelledby="msContactTitle">
       <button class="ms-contact-close" type="button" aria-label="Fechar">×</button>
-      <div class="ms-contact-kicker">1 MINUTO POR AQUI</div>
-      <h2 id="msContactTitle">Vamos transformar sua ideia?</h2>
+      <h2 id="msContactTitle">Vamos transformar sua ideia em realidade?</h2>
       <p>Já encontrou uma direção para o projeto? Fale com o estúdio. Se ainda estiver explorando, veja os projetos e escolha o melhor caminho.</p>
       <div class="ms-contact-actions">
         <a class="ms-glass-cta primary" href="${WHATSAPP_URL}" target="_blank" rel="noopener noreferrer"><span>FALAR NO WHATSAPP</span></a>
