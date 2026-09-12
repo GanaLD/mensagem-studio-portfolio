@@ -282,59 +282,6 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   background:linear-gradient(180deg,var(--ms-section-nav-accent),rgba(47,213,154,.12));
   transition:transform .18s linear;
 }
-.ms-section-nav-toggle{
-  display:none;
-}
-@media(max-width:760px){
-  .ms-section-nav{
-    top:auto;
-    right:50%;
-    bottom:18px;
-    transform:translateX(50%);
-    width:auto;
-    max-width:calc(100vw - 32px);
-    padding:7px 10px;
-    border-radius:999px;
-  }
-  .ms-section-nav:hover,
-  .ms-section-nav:focus-within,
-  .ms-section-nav.is-open{
-    width:auto;
-    padding:7px 10px;
-  }
-  .ms-section-nav::before,
-  .ms-section-nav-progress,
-  .ms-section-nav-label{
-    display:none !important;
-  }
-  .ms-section-nav-list{
-    display:flex;
-    gap:7px;
-    align-items:center;
-  }
-  .ms-section-nav-btn{
-    width:24px;
-    min-height:30px;
-    justify-content:center;
-  }
-  .ms-section-nav-dot{
-    width:7px;
-    height:7px;
-    box-shadow:0 0 0 2px rgba(5,7,6,.72);
-  }
-  .ms-section-nav-btn.is-active .ms-section-nav-dot{
-    width:10px;
-    height:10px;
-  }
-}
-@media(prefers-reduced-motion:reduce){
-  .ms-section-nav,
-  .ms-section-nav-label,
-  .ms-section-nav-dot,
-  .ms-section-nav-progress > i{
-    transition:none !important;
-  }
-}
 </style>
 <!-- HOME_SECTION_NAV_CSS_END -->
 
@@ -510,6 +457,28 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 }
 </style>
 <!-- HOME_SECTION_NAV_GLASS_BUTTONS_END -->
+
+<!-- HOME_SECTION_NAV_NO_DOTS_START -->
+<style id="home-section-nav-no-dots">
+/* No three-dot controls in this navigation concept. */
+.ms-section-nav-toggle,
+.ms-section-nav-toggle-dots,
+.ms-section-nav-toggle-glow{
+  display:none !important;
+}
+
+/* The global three-dot menu must not overlap/appear in this preview concept. */
+.ms-universal-menu-btn{
+  display:none !important;
+}
+
+/* Undo global brand offset caused by the hidden universal menu button. */
+body.ms-global-ui-mounted header .brand,
+body.ms-global-ui-mounted .top .brand{
+  margin-left:0 !important;
+}
+</style>
+<!-- HOME_SECTION_NAV_NO_DOTS_END -->
 
 </head>
 <body>
