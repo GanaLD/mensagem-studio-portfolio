@@ -545,6 +545,84 @@ body.ms-global-ui-mounted .top .brand{
 </style>
 <!-- HOME_SECTION_NAV_HOMOGENEOUS_END -->
 
+<!-- HOME_SECTION_NAV_FINAL_USER_SPEC_START -->
+<style id="home-section-nav-final-user-spec">
+/* FINAL USER SPEC
+   COLLAPSED: only the illuminated progress line is visible.
+   EXPANDED ON HOVER/FOCUS: neutral transparent glass, never green-filled.
+*/
+#msSectionNav{
+  background:transparent !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+#msSectionNav:hover,
+#msSectionNav:focus-within,
+#msSectionNav.is-open{
+  background:rgba(10,12,11,.10) !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(118%) !important;
+  backdrop-filter:blur(18px) saturate(118%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+
+/* No green blocks, fills or glow behind any navigation item. */
+#msSectionNav .ms-section-nav-btn,
+#msSectionNav:hover .ms-section-nav-btn,
+#msSectionNav:focus-within .ms-section-nav-btn,
+#msSectionNav.is-open .ms-section-nav-btn,
+#msSectionNav .ms-section-nav-btn:hover,
+#msSectionNav .ms-section-nav-btn:focus-visible,
+#msSectionNav .ms-section-nav-btn.is-active{
+  background:transparent !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+  color:#F4F4EF !important;
+}
+
+/* Neutral dots only. Green belongs exclusively to the progress line. */
+#msSectionNav .ms-section-nav-dot,
+#msSectionNav .ms-section-nav-btn:hover .ms-section-nav-dot,
+#msSectionNav .ms-section-nav-btn:focus-visible .ms-section-nav-dot,
+#msSectionNav .ms-section-nav-btn.is-active .ms-section-nav-dot{
+  width:7px !important;
+  height:7px !important;
+  background:transparent !important;
+  border:1px solid rgba(244,244,239,.48) !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+
+/* Rail stays subtle; progress is the only illuminated green element. */
+#msSectionNav::before{
+  background:rgba(255,255,255,.14) !important;
+  box-shadow:none !important;
+}
+#msSectionNav .ms-section-nav-progress{
+  width:2px !important;
+}
+#msSectionNav .ms-section-nav-progress > i{
+  background:#2FD59A !important;
+  box-shadow:0 0 10px rgba(47,213,154,.35) !important;
+}
+
+/* Labels only reveal when the transparent glass navigator expands. */
+#msSectionNav .ms-section-nav-label{
+  color:#F4F4EF !important;
+}
+@media(max-width:760px){
+  #msSectionNav{
+    background:rgba(10,12,11,.08) !important;
+    border:1px solid rgba(255,255,255,.10) !important;
+    -webkit-backdrop-filter:blur(14px) saturate(115%) !important;
+    backdrop-filter:blur(14px) saturate(115%) !important;
+  }
+}
+</style>
+<!-- HOME_SECTION_NAV_FINAL_USER_SPEC_END -->
+
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
