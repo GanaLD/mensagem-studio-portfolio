@@ -1105,6 +1105,134 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_OVERFLOW_ARROW_FIX_END -->
 
+<!-- V4_READABILITY_COLLISION_FIX_START -->
+<style id="v4-readability-collision-fix">
+/* MENSAGEM STUDIO V4 — collision-free editorial spacing */
+.category{
+  grid-template-columns:minmax(290px,330px) minmax(0,1fr) !important;
+  column-gap:clamp(72px,7vw,108px) !important;
+}
+.category-head{
+  padding-right:8px !important;
+  overflow:visible !important;
+}
+.category h2{
+  max-width:320px !important;
+  font-size:clamp(2rem,2.65vw,3rem) !important;
+  line-height:.96 !important;
+  letter-spacing:-.03em !important;
+  overflow-wrap:normal !important;
+  word-break:normal !important;
+  hyphens:none !important;
+}
+.category-count{
+  font-size:11px !important;
+  line-height:1.45 !important;
+}
+.category-desc{
+  max-width:31ch !important;
+  font-size:14px !important;
+  line-height:1.72 !important;
+  color:#B3B6AF !important;
+}
+.category-case{
+  font-size:11px !important;
+  line-height:1.45 !important;
+}
+.cat,.num{
+  font-size:10px !important;
+}
+.expand-hint{
+  font-size:10px !important;
+  line-height:1.45 !important;
+  color:#A4A7A0 !important;
+}
+.detail-block strong{
+  font-size:10px !important;
+  line-height:1.4 !important;
+}
+.detail-block p,
+.detail-block.delivery p{
+  font-size:13px !important;
+  line-height:1.68 !important;
+  color:#C1C3BD !important;
+}
+.price{
+  font-size:13px !important;
+  line-height:1.6 !important;
+}
+.note{
+  font-size:12px !important;
+  line-height:1.55 !important;
+  color:#A8AAA5 !important;
+}
+.offer{
+  font-size:10px !important;
+}
+.hero-kicker,
+.hero-metrics span{
+  font-size:10px !important;
+}
+.chip{
+  font-size:11px !important;
+}
+
+/* Prohibited directional arrows: kill inherited/generated arrow UI completely. */
+.add::after,
+.add:after,
+.category-case::after,
+.category-case:after{
+  content:none !important;
+  display:none !important;
+  width:0 !important;
+  height:0 !important;
+}
+.add{
+  justify-content:center !important;
+  text-align:center !important;
+  padding-inline:20px !important;
+}
+
+/* Medium desktop: preserve a real breathing corridor instead of squeezing columns. */
+@media(max-width:1180px) and (min-width:1025px){
+  .category{
+    grid-template-columns:300px minmax(0,1fr) !important;
+    column-gap:64px !important;
+  }
+  .category h2{
+    max-width:292px !important;
+    font-size:clamp(2rem,3.65vw,2.8rem) !important;
+  }
+  .category-desc{max-width:29ch !important}
+}
+
+/* Stack before geometry can collide. */
+@media(max-width:1024px){
+  .category{
+    grid-template-columns:1fr !important;
+    row-gap:42px !important;
+  }
+  .category-head{
+    max-width:760px !important;
+    padding-right:0 !important;
+  }
+  .category h2{
+    max-width:680px !important;
+    font-size:clamp(2.15rem,6vw,3.5rem) !important;
+  }
+  .category-desc{
+    max-width:58ch !important;
+  }
+}
+@media(max-width:640px){
+  .category{row-gap:30px !important}
+  .category h2{font-size:clamp(2rem,10.5vw,3rem) !important}
+  .category-desc{font-size:13.5px !important}
+  .detail-block p,.detail-block.delivery p{font-size:12.5px !important}
+}
+</style>
+<!-- V4_READABILITY_COLLISION_FIX_END -->
+
 </head>
 <body data-prototype="servicos-v4"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V4</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
