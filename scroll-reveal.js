@@ -220,3 +220,116 @@
     });
   });
 })();
+
+// HOME_BACKGROUND_SWITCH_V1 — final CTA placement + hard bottom fill.
+(() => {
+  function installFinalBackgroundSwitchFix(){
+    const finalCta = document.querySelector('.final-cta');
+    const footer = document.querySelector('#afterWord > footer');
+    const switcher = document.querySelector('.bg-switcher');
+    if (!finalCta || !footer || !switcher) return;
+
+    // The control belongs to the black closing CTA, not inside the landing reveal or footer.
+    switcher.classList.add('bg-switcher-final');
+    switcher.setAttribute('aria-label','Trocar fundo da Home');
+    const switchLabel = switcher.querySelector('.bg-switcher-label');
+    if (switchLabel) switchLabel.textContent = 'FUNDO';
+    finalCta.appendChild(switcher);
+
+    const fixStyle = document.createElement('style');
+    fixStyle.id = 'ms-home-background-switch-final-fix';
+    fixStyle.textContent = `
+      html,body{background:#050605!important}
+      .final-cta{
+        position:relative!important;
+        overflow:visible!important;
+        background:#050605!important;
+        border-bottom:0!important;
+      }
+      .final-cta .bg-switcher-final{
+        position:absolute!important;
+        right:var(--pad)!important;
+        bottom:clamp(38px,5vw,72px)!important;
+        z-index:12!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:flex-end!important;
+        gap:10px!important;
+        opacity:1!important;
+        visibility:visible!important;
+        transform:none!important;
+        filter:none!important;
+        pointer-events:auto!important;
+      }
+      .final-cta .bg-switcher-final .bg-switcher-label{
+        display:block!important;
+        color:#b8beb1!important;
+        font-size:9px!important;
+        font-weight:800!important;
+        letter-spacing:.16em!important;
+      }
+      .final-cta .bg-switcher-final button{
+        min-width:184px!important;
+        min-height:50px!important;
+        justify-content:center!important;
+        gap:12px!important;
+        border:1px solid rgba(201,255,54,.78)!important;
+        background:linear-gradient(135deg,rgba(16,20,13,.96),rgba(5,7,5,.9))!important;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 26px rgba(201,255,54,.18)!important;
+        color:#f4f5ef!important;
+        opacity:1!important;
+        visibility:visible!important;
+        cursor:pointer!important;
+      }
+      .final-cta .bg-switcher-final button::before{
+        content:'TROCAR FUNDO';
+        color:#f4f5ef;
+        font-size:9px;
+        font-weight:900;
+        letter-spacing:.12em;
+        margin-right:2px;
+      }
+      #afterWord>footer{
+        position:relative!important;
+        margin:0!important;
+        min-height:124px!important;
+        padding-top:26px!important;
+        padding-bottom:max(42px,env(safe-area-inset-bottom))!important;
+        background:#050605!important;
+        border-bottom:0!important;
+        box-shadow:none!important;
+      }
+      #afterWord>footer::after{
+        content:'';
+        position:absolute;
+        left:0;
+        right:0;
+        top:100%;
+        height:3px;
+        background:#050605;
+        pointer-events:none;
+      }
+      @media(max-width:900px){
+        .final-cta .bg-switcher-final{
+          position:relative!important;
+          right:auto!important;
+          bottom:auto!important;
+          margin:34px auto 0!important;
+          justify-content:center!important;
+          flex-wrap:wrap!important;
+          width:max-content!important;
+          max-width:calc(100% - 32px)!important;
+        }
+        .final-cta .bg-switcher-final .bg-switcher-label{width:100%;text-align:center}
+        #afterWord>footer{min-height:148px!important;padding-bottom:max(48px,env(safe-area-inset-bottom))!important}
+      }
+    `;
+    document.head.appendChild(fixStyle);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', installFinalBackgroundSwitchFix, {once:true});
+  } else {
+    installFinalBackgroundSwitchFix();
+  }
+})();
