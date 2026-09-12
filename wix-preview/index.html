@@ -97,20 +97,21 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 #three .three-project-stage model-viewer{display:block;width:100%;height:clamp(620px,78vh,940px);background:rgba(8,9,7,.44)}
 @media(max-width:760px){#three .three-project-stage,#three .three-project-stage .stage-main{min-height:72vh}#three .three-project-stage model-viewer{height:72vh}}
 
-/* MS THREE PROJECT FEED V2 FULL BLEED */
+/* MS THREE PROJECT FEED V3 CONTAINED SIDEBAR */
 #three{overflow:visible}
-#three .three-head-wrap{position:relative;z-index:2}
 #three .three-intro-copy{color:#fff!important;opacity:1!important}
-#three .three-project-feed{width:100vw;margin-left:calc(50% - 50vw);display:flex;flex-direction:column;gap:0}
-#three .three-project{position:relative;width:100%;min-width:0}
-#three .three-project-stage{width:100%;min-height:clamp(680px,82vh,980px);grid-template-columns:1fr;border-left:0;border-right:0;background:rgba(7,8,6,.58);backdrop-filter:blur(10px)}
-#three .three-project-stage .stage-main{width:100%;min-height:clamp(680px,82vh,980px)}
-#three .three-project-stage model-viewer{display:block;width:100%;height:clamp(680px,82vh,980px);background:radial-gradient(circle at 50% 46%,rgba(38,45,49,.34) 0%,rgba(7,8,7,.72) 58%,rgba(3,4,3,.96) 100%)}
-#three .three-controls{position:absolute;left:clamp(16px,2.3vw,38px);right:clamp(16px,2.3vw,38px);bottom:clamp(16px,2.2vw,30px);z-index:8;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-#three .three-controls button{min-height:42px;padding:0 15px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(7,8,6,.62);backdrop-filter:blur(12px);color:#fff;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease,transform .18s ease}
-#three .three-controls button:hover,#three .three-controls button.is-active{border-color:var(--lime);color:var(--lime);background:rgba(12,15,8,.82);transform:translateY(-1px)}
-#three .stage-note-3d{top:22px;left:clamp(16px,2.3vw,38px);bottom:auto}
-@media(max-width:760px){#three .three-project-stage,#three .three-project-stage .stage-main{min-height:76vh}#three .three-project-stage model-viewer{height:76vh}#three .three-controls{bottom:14px;gap:6px}#three .three-controls button{min-height:38px;padding:0 11px;font-size:9px}}
+#three .three-project-stage{min-height:70vh;grid-template-columns:300px minmax(0,1fr);overflow:hidden;background:rgba(10,11,9,.70);backdrop-filter:blur(10px)}
+#three .three-project-stage .stage-main{min-width:0;min-height:70vh;overflow:hidden;background:rgba(6,7,6,.48)}
+#three .three-project-stage model-viewer{display:block;width:100%;height:70vh;background:radial-gradient(circle at 50% 48%,rgba(31,38,42,.24),rgba(7,8,7,.76) 62%,rgba(3,4,3,.96) 100%)}
+#three .three-sidebar{padding:22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:26px;background:rgba(5,6,5,.45);overflow:auto}
+#three .three-sidebar-group{display:flex;flex-direction:column;gap:9px}
+#three .three-sidebar-label{font-size:9px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:#8e9488;font-weight:800;padding:0 2px 3px}
+#three .three-asset-list,#three .three-camera-list{display:flex;flex-direction:column;gap:8px}
+#three .three-asset-list button,#three .three-camera-list button{width:100%;min-height:43px;padding:11px 13px;border:1px solid var(--line);background:rgba(8,9,7,.46);text-align:left;color:#f5f6ef;font-size:11px;cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease}
+#three .three-asset-list button.active,#three .three-asset-list button:hover,#three .three-camera-list button.is-active,#three .three-camera-list button:hover{border-color:var(--lime);color:var(--lime);background:rgba(14,17,9,.72)}
+#three .stage-note-3d{left:22px;right:auto;top:20px;bottom:auto}
+@media(max-width:900px){#three .three-project-stage{grid-template-columns:220px minmax(0,1fr)}}
+@media(max-width:760px){#three .three-project-stage{grid-template-columns:1fr;min-height:0}#three .three-sidebar{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px}#three .three-sidebar-group:last-child{grid-column:1/-1}#three .three-camera-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#three .three-project-stage .stage-main{min-height:62vh}#three .three-project-stage model-viewer{height:62vh}#three .stage-note-3d{left:12px;top:12px}}
 </style>
 </head>
 <body>
@@ -121,7 +122,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 <section id="word" class="content-layer"><div class="word-sticky"><video class="word-video" muted autoplay loop playsinline preload="metadata" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=orbit"></video><div class="word-shade"></div><div class="kicker word-top-label">NARRATIVA · MOTION</div><div class="word-stack"><h2 id="wordMain" class="word-main">DESIGN</h2></div><div class="word-sub word-bottom-label">uma linguagem · vários meios</div><div class="word-dots" id="wordDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div></section>
 <main id="afterWord" class="after-word">
 <section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p>Modelos que você pode contratar.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL">Manual de Marca</button><button data-pdf="1aqI0tbJjItjRLoZcvCd1Asm24e-O1pYs">Mídia Kit 2026</button><button data-pdf="1j3yee9MH266rojP_F8IwkHfKsLqTvihj">Branding V1</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" src="https://drive.google.com/file/d/11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL/preview"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
-<section id="three" class="section"><div class="wrap three-head-wrap"><div class="section-head"><div><h2>3D interativo.</h2></div><p class="three-intro-copy">Ambientes e produtos em 3D para explorar diretamente na página. Arraste para orbitar, use o zoom e continue rolando para ver os próximos projetos.</p></div></div><div class="three-project-feed" id="threeProjectFeed"><article class="three-project" data-project="pote-creatina-black-skull"><div class="stage three-project-stage"><div class="stage-main"><model-viewer id="modelViewerCreatina" camera-controls auto-rotate auto-rotate-delay="1400" rotation-per-second="8deg" shadow-intensity="1.25" shadow-softness="0.85" exposure="1.12" environment-image="neutral" interaction-prompt="none" alt="Cena 3D completa da Creatina Black Skull em ringue de boxe" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/86d469ea-2b02-442c-a25e-b8c5b868e65d.glb" camera-target="0m 0.055m 0m" camera-orbit="0deg 76deg 0.42m" field-of-view="25deg" min-camera-orbit="auto 52deg 0.22m" max-camera-orbit="auto 105deg 1.6m" min-field-of-view="18deg" max-field-of-view="38deg" touch-action="pan-y" loading="eager"></model-viewer><div class="three-controls" aria-label="Controles da cena 3D"><button type="button" data-view="front">Frente</button><button type="button" data-view="threequarter">3/4</button><button type="button" data-view="wide">Cena</button><button type="button" data-action="reset">Reset</button><button type="button" data-action="rotate">Auto</button><button type="button" data-animation="BS_Cap_Close_Action">Tampa</button><button type="button" data-animation="BS_Product_Slow_Settle_Action">Assentar</button></div><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></article></div></section>
+<section id="three" class="section"><div class="wrap"><div class="section-head"><div><h2>3D interativo.</h2></div><p class="three-intro-copy">Ambientes e produtos em 3D para explorar diretamente na página. Escolha o asset à esquerda e use os controles de câmera para visualizar a cena.</p></div><div class="stage three-project-stage"><aside class="stage-side three-sidebar" aria-label="Assets e câmeras 3D"><div class="three-sidebar-group"><span class="three-sidebar-label">ASSETS 3D</span><div id="modelTabs" class="three-asset-list"><button class="active" type="button" data-model="creatina" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/86d469ea-2b02-442c-a25e-b8c5b868e65d.glb">Creatina Black Skull</button></div></div><div class="three-sidebar-group"><span class="three-sidebar-label">CÂMERA</span><div class="three-camera-list three-controls"><button type="button" data-view="front">Frente</button><button type="button" data-view="threequarter">3/4</button><button type="button" data-view="wide">Cena inteira</button><button type="button" data-action="reset">Reset</button><button type="button" data-action="rotate">Auto rotação</button></div></div><div class="three-sidebar-group"><span class="three-sidebar-label">ANIMAÇÃO</span><div class="three-camera-list three-controls"><button type="button" data-animation="BS_Cap_Close_Action">Tampa</button><button type="button" data-animation="BS_Product_Slow_Settle_Action">Assentar</button></div></div></aside><div class="stage-main"><model-viewer id="modelViewerCreatina" camera-controls auto-rotate auto-rotate-delay="1400" rotation-per-second="8deg" shadow-intensity="1.25" shadow-softness="0.85" exposure="1.12" environment-image="neutral" interaction-prompt="none" alt="Cena 3D completa da Creatina Black Skull em ringue de boxe" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/86d469ea-2b02-442c-a25e-b8c5b868e65d.glb" touch-action="pan-y" loading="eager"></model-viewer><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></div></section>
 <section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Seleção de projetos de design, audiovisual, motion, 3D, campanhas e conteúdo digital desenvolvidos pela Mensagem Studio.</p></div><div class="projects-grid">
 <a class="project has-preview" href="./portfolio/produto-3d-egeo/" aria-label="Abrir projeto Produto 3D EGEO"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"><video class="project-preview" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" src="https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file" data-preview-fallback="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>3D / Produto</small><h3>Modelagem e Render 3D | EGEO</h3><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p></div></a>
 <a class="project" href="./portfolio/carrossel-banner-estetica/" aria-label="Abrir projeto Design para Estética com Carrossel e Banner"><div class="project-media"><img class="project-cover" src="https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png" alt="Carrossel Estética"><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>Design / Social Media</small><h3>Design para Estética | Carrossel e Banner</h3><p>Design gráfico e social media para clínicas e marcas de estética, com carrosséis e banners para campanhas.</p></div></a>
@@ -255,41 +256,50 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <!-- HOME_BUILD: 20260911-r5-project-hover-priority -->
 
 <script>
-/* MS THREE CONTROLS V2 */
+/* MS THREE CONTROLS V3 */
 (() => {
   const viewer = document.getElementById('modelViewerCreatina');
-  const controls = document.querySelector('#three .three-controls');
-  if (!viewer || !controls) return;
-  const mark = (button) => {
-    controls.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
-    if (button) button.classList.add('is-active');
+  const sidebar = document.querySelector('#three .three-sidebar');
+  if (!viewer || !sidebar) return;
+
+  const setSceneFit = (theta = '0deg', phi = '75deg', radius = '105%', fov = '35deg') => {
+    viewer.cameraTarget = 'auto auto auto';
+    viewer.cameraOrbit = `${theta} ${phi} ${radius}`;
+    viewer.fieldOfView = fov;
   };
-  controls.addEventListener('click', (event) => {
+
+  const clearCameraActive = () => {
+    sidebar.querySelectorAll('.three-camera-list button').forEach(b => b.classList.remove('is-active'));
+  };
+
+  sidebar.addEventListener('click', (event) => {
     const button = event.target.closest('button');
     if (!button) return;
+
+    if (button.dataset.src) {
+      sidebar.querySelectorAll('#modelTabs button').forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      if (viewer.src !== button.dataset.src) viewer.src = button.dataset.src;
+      clearCameraActive();
+      return;
+    }
+
     const view = button.dataset.view;
     const action = button.dataset.action;
     const animation = button.dataset.animation;
+
     if (view === 'front') {
-      viewer.cameraTarget = '0m 0.055m 0m';
-      viewer.cameraOrbit = '0deg 76deg 0.36m';
-      viewer.fieldOfView = '23deg';
-      mark(button);
+      setSceneFit('0deg','75deg','105%','35deg');
+      clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'threequarter') {
-      viewer.cameraTarget = '0m 0.055m 0m';
-      viewer.cameraOrbit = '32deg 74deg 0.40m';
-      viewer.fieldOfView = '24deg';
-      mark(button);
+      setSceneFit('35deg','72deg','108%','35deg');
+      clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'wide') {
-      viewer.cameraTarget = '0m 0.05m 0m';
-      viewer.cameraOrbit = '24deg 72deg 0.78m';
-      viewer.fieldOfView = '28deg';
-      mark(button);
+      setSceneFit('25deg','70deg','122%','38deg');
+      clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'reset') {
-      viewer.cameraTarget = '0m 0.055m 0m';
-      viewer.cameraOrbit = '0deg 76deg 0.42m';
-      viewer.fieldOfView = '25deg';
-      mark(button);
+      setSceneFit('0deg','75deg','105%','35deg');
+      clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'rotate') {
       viewer.autoRotate = !viewer.autoRotate;
       button.classList.toggle('is-active', viewer.autoRotate);
@@ -297,15 +307,13 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
       try {
         viewer.animationName = animation;
         viewer.currentTime = 0;
-        viewer.play({ repetitions: 1 });
-        mark(button);
+        viewer.play({repetitions:1});
       } catch (_) {}
     }
   });
+
   viewer.addEventListener('load', () => {
-    viewer.cameraTarget = '0m 0.055m 0m';
-    viewer.cameraOrbit = '0deg 76deg 0.42m';
-    viewer.fieldOfView = '25deg';
+    requestAnimationFrame(() => setSceneFit('0deg','75deg','105%','35deg'));
   });
 })();
 </script>
