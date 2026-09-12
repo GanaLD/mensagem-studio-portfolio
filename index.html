@@ -406,6 +406,23 @@ body.ms-global-ui-mounted .top .brand{
 </style>
 <!-- HOME_SECTION_NAV_STRICT_TRANSPARENT_END -->
 
+<style id="ms-bg-switch-direct-v2">
+html,body{background:#050605!important}
+.final-cta{position:relative!important;overflow:visible!important;background:#050605!important;border-bottom:0!important;min-height:clamp(420px,54vw,760px)}
+.final-cta>.final-cta-bg-switcher{position:absolute!important;right:clamp(24px,4vw,72px)!important;bottom:clamp(34px,4.5vw,72px)!important;z-index:30!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:10px!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;pointer-events:auto!important}
+.final-cta>.final-cta-bg-switcher .bg-switcher-label{display:block!important;color:#b8beb1!important;font-size:9px!important;font-weight:800!important;letter-spacing:.16em!important;text-transform:uppercase!important}
+.final-cta>.final-cta-bg-switcher button{min-width:220px!important;min-height:52px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;padding:0 18px!important;border:1px solid rgba(201,255,54,.82)!important;border-radius:999px!important;background:linear-gradient(135deg,rgba(16,20,13,.98),rgba(5,7,5,.94))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 30px rgba(201,255,54,.20)!important;color:#f4f5ef!important;opacity:1!important;visibility:visible!important;cursor:pointer!important;pointer-events:auto!important}
+.final-cta>.final-cta-bg-switcher .bg-switcher-button-copy{font-size:9px!important;font-weight:900!important;letter-spacing:.12em!important;color:#f4f5ef!important}
+.final-cta>.final-cta-bg-switcher .bg-switcher-current{color:var(--lime)!important;text-shadow:0 0 12px rgba(201,255,54,.52)!important}
+#afterWord>footer{position:relative!important;margin:0!important;min-height:124px!important;padding:26px var(--pad) max(42px,env(safe-area-inset-bottom))!important;background:#050605!important;border-bottom:0!important;box-shadow:none!important}
+#afterWord>footer::after{content:"";position:absolute;left:0;right:0;top:100%;height:4px;background:#050605;pointer-events:none}
+@media(max-width:900px){
+  .final-cta{min-height:0!important;padding-bottom:72px!important}
+  .final-cta>.final-cta-bg-switcher{position:relative!important;right:auto!important;bottom:auto!important;margin:38px auto 0!important;justify-content:center!important;flex-wrap:wrap!important;width:max-content!important;max-width:calc(100% - 32px)!important}
+  .final-cta>.final-cta-bg-switcher .bg-switcher-label{width:100%!important;text-align:center!important}
+  .final-cta>.final-cta-bg-switcher button{min-width:210px!important}
+}
+</style>
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
@@ -435,8 +452,8 @@ body.ms-global-ui-mounted .top .brand{
 <section id="motion" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">04 · MOTION / VIDEO</div><h2>Movimento como linguagem.</h2></div><p>O showcase audiovisual fica isolado depois dos projetos para funcionar como uma nova mudança de ritmo.</p></div><div class="stage"><div class="stage-side" id="ytTabs"><button class="active" data-yt="XVL_ToV0-uY">Showreel / Hero</button><button data-yt="G_2jdXfXxiI">Showcase 02</button></div><div class="stage-main"><iframe id="ytFrame" title="YouTube Showcase" src="https://www.youtube.com/embed/XVL_ToV0-uY?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="stage-note">player compartilhado · 01/02</div></div></div></div></section>
 <section id="brief" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">05 · BRIEFING</div><h2>Transforme referência em projeto.</h2></div><p>Fechamento da jornada: descoberta, escopo e produção.</p></div><div class="brief-grid"><div class="brief-card" id="processo"><div class="kicker">PROCESSO</div><h3>Do objetivo à produção.</h3><div class="steps"><div class="step"><b>01</b><p><strong>Descoberta</strong><br>Objetivo, contexto, referências e direção.</p></div><div class="step"><b>02</b><p><strong>Escopo</strong><br>Entregáveis, prazo, orçamento e revisões.</p></div><div class="step"><b>03</b><p><strong>Produção</strong><br>Design, motion, 3D e web conectados.</p></div></div></div><div class="brief-card" id="briefing"><div class="kicker">AÇÃO</div><h3>Começar projeto.</h3><p class="muted">Abra o briefing para detalhar a demanda ou monte primeiro uma solicitação de orçamento.</p><div class="cta-row" style="margin-top:28px"><a class="btn primary" href="./servicos/#briefing">Começar briefing <b>↗</b></a><a class="btn" href="./servicos/#orcamento">Solicitar orçamento <b>↗</b></a></div></div></div></div></section>
 <section id="landingReveal" class="landing-reveal" aria-label="Conclusão visual Cyber Angel"><div id="cyber-landing-sentinel" class="landing-reveal-sentinel" aria-hidden="true"></div></section>
-<section class="final-cta"><div class="wrap"><div class="kicker">MENSAGEM STUDIO · PROJETO COMPLETO</div><h2>Ideia em experiência.</h2><p>Design, motion, 3D, web e direção visual conectados em uma única linguagem.</p><div class="cta-row" style="justify-content:center"><a class="btn primary" href="#hero">Rever do início <b>↑</b></a><a class="btn" href="./portfolio/">Ver projetos <b>↗</b></a></div></div></section>
-<footer><span>Mensagem Studio · Curitiba</span><div class="bg-switcher" aria-label="Alternar cenário de fundo"><span class="bg-switcher-label">Cenário</span><button id="backgroundSwitcher" type="button" aria-label="Trocar para o background 02"><span class="bg-switcher-current" id="backgroundState">01</span><i class="bg-switcher-arrow" aria-hidden="true">↔</i><span id="backgroundNext">02</span></button></div><span>Design · Motion · 3D · Web · Experiences</span></footer>
+<section class="final-cta"><div class="wrap"><div class="kicker">MENSAGEM STUDIO · PROJETO COMPLETO</div><h2>Ideia em experiência.</h2><p>Design, motion, 3D, web e direção visual conectados em uma única linguagem.</p><div class="cta-row" style="justify-content:center"><a class="btn primary" href="#hero">Rever do início <b>↑</b></a><a class="btn" href="./portfolio/">Ver projetos <b>↗</b></a></div></div><div class="bg-switcher final-cta-bg-switcher" aria-label="Alternar cenário de fundo"><span class="bg-switcher-label">FUNDO</span><button id="backgroundSwitcher" type="button" aria-label="Trocar para o background 02"><span class="bg-switcher-button-copy">TROCAR FUNDO</span><span class="bg-switcher-current" id="backgroundState">01</span><i class="bg-switcher-arrow" aria-hidden="true">↔</i><span id="backgroundNext">02</span></button></div></section>
+<footer><span>Mensagem Studio · Curitiba</span><span>Design · Motion · 3D · Web · Experiences</span></footer>
 </main>
 <script>
 const heroStates=[
