@@ -32,6 +32,34 @@
       position:relative;
       overflow:hidden;
     }
+    body.ms-reveal-ready .section-head.ms-reveal-line{
+      overflow:visible!important;
+      clip-path:none!important;
+      -webkit-clip-path:none!important;
+      contain:none!important;
+    }
+    body.ms-reveal-ready .section-head>p.ms-section-copy-static{
+      position:relative!important;
+      z-index:4!important;
+      overflow:visible!important;
+      opacity:1!important;
+      transform:none!important;
+      filter:none!important;
+      mix-blend-mode:normal!important;
+      background:none!important;
+      background-image:none!important;
+      -webkit-background-clip:border-box!important;
+      background-clip:border-box!important;
+      -webkit-text-fill-color:#fff!important;
+      color:#fff!important;
+      font-weight:500!important;
+      text-shadow:
+        0 0 8px rgba(255,255,255,.28),
+        0 0 18px rgba(255,255,255,.15),
+        0 0 36px rgba(255,255,255,.08)!important;
+      transition:none!important;
+      will-change:auto!important;
+    }
     body.ms-reveal-ready .ms-reveal-line:after{
       content:"";
       position:absolute;
@@ -123,7 +151,19 @@
     if (head) {
       add(head.querySelector('.kicker'), {variant:'left', delay:0});
       add(head.querySelector('h2'), {variant:'left', delay:70});
-      add(head.querySelector('p'), {variant:'right', delay:130});
+
+      // Informational copy stays permanently crisp and luminous over the background.
+      const copy = head.querySelector('p');
+      if (copy) {
+        copy.classList.remove('ms-reveal','ms-reveal-left','ms-reveal-right','ms-reveal-scale','is-visible');
+        delete copy.dataset.msRevealBound;
+        copy.style.removeProperty('--ms-reveal-delay');
+        copy.style.opacity='1';
+        copy.style.transform='none';
+        copy.style.filter='none';
+        copy.classList.add('ms-section-copy-static');
+      }
+
       head.classList.add('ms-reveal-line');
     }
   });
