@@ -137,24 +137,5 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Comparativo',description:'Um breve comparativo das imagens sem recorte e edição.',url:'https://static.wixstatic.com/media/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png'},
       {type:'IMAGE',title:'Formato para Feed do instagram',url:'https://static.wixstatic.com/media/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png'}
     ]
-  },
-  {
-    slug:'poster-cartaz', sourceSlug:'project-title-4', title:'Design de Pôster e Cartaz Cinematográfico', tag:'Pôster / Direção de Arte',
-    description:`Design de pôster e cartaz cinematográfico com direção de arte, composição visual e acabamento publicitário para campanhas, lançamentos, eventos e divulgação.`,
-    details:[{label:'Serviço',text:'Design de pôster · Direção de arte · Composição'},{label:'Aplicações',text:'Campanhas · Lançamentos · Divulgação'}], cover:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png', coverVideo:'',
-    media:[
-      {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png'},
-      {type:'IMAGE',title:'PosterColonia copiar2',url:'https://static.wixstatic.com/media/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg/v1/fill/w_5400,h_7200,al_c/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg'}
-    ]
-  },
-  {
-    slug:'motion-banner-cartaz-cinematografico', sourceSlug:'project-title-1', title:'Motion Design para Pôster e Cartaz Cinematográfico', tag:'Motion / Direção de Arte',
-    description:`Projeto de motion design para pôsteres, banners e cartazes cinematográficos, combinando animação, composição, tipografia e direção de arte para campanhas e lançamentos.\n\nAnimação e design em alto nível para projetos que exigem presença e dinamismo. Damos vida a cartazes, artes promocionais e conteúdos visuais com movimento, criando experiências que prendem a atenção e elevam sua marca. Perfeitos para redes sociais, trailers, lançamentos e campanhas.\nSeu projeto merece a energia e o impacto visual de uma superprodução.`,
-    details:[{label:'Serviço',text:'Motion design · After Effects · Composição'},{label:'Aplicações',text:'Pôster animado · Campanhas · Lançamentos'}],
-    cover:'https://static.wixstatic.com/media/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg/v1/fill/w_743,h_835,al_c/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg', coverVideo:'',
-    media:[
-      {type:'VIDEO',title:'ULTIMA GUERRA FINAL PREMIERE',url:'https://video.wixstatic.com/video/ef8a3a_975bfc2b96794afbb2d9a300f25d5169/file',poster:'https://static.wixstatic.com/media/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg'},
-      {type:'VIDEO',title:'POSTER ANIMADO',url:'https://video.wixstatic.com/video/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498/file',poster:'https://static.wixstatic.com/media/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg/v1/fill/w_2160,h_2800,al_c/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg'}
-    ]
   }
 ];
