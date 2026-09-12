@@ -480,6 +480,71 @@ body.ms-global-ui-mounted .top .brand{
 </style>
 <!-- HOME_SECTION_NAV_NO_DOTS_END -->
 
+<!-- HOME_SECTION_NAV_HOMOGENEOUS_START -->
+<style id="home-section-nav-homogeneous">
+/* Homogeneous glass: one transparent material + one green indicator bar. */
+.ms-section-nav{
+  background:rgba(7,10,9,.08) !important;
+  border:1px solid rgba(255,255,255,.11) !important;
+  -webkit-backdrop-filter:blur(18px) saturate(118%) !important;
+  backdrop-filter:blur(18px) saturate(118%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+.ms-section-nav:hover,
+.ms-section-nav:focus-within,
+.ms-section-nav.is-open{
+  background:rgba(7,10,9,.10) !important;
+  border-color:rgba(255,255,255,.14) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055) !important;
+}
+
+/* Remove all segmented fills / localized glows from section buttons. */
+.ms-section-nav-btn,
+.ms-section-nav:hover .ms-section-nav-btn,
+.ms-section-nav:focus-within .ms-section-nav-btn,
+.ms-section-nav.is-open .ms-section-nav-btn,
+.ms-section-nav-btn:hover,
+.ms-section-nav-btn:focus-visible,
+.ms-section-nav-btn.is-active{
+  background:transparent !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+}
+
+/* Keep only the clean indicator rail. */
+.ms-section-nav::before{
+  right:16px !important;
+  width:1px !important;
+  background:rgba(255,255,255,.15) !important;
+}
+.ms-section-nav-progress{
+  right:15.5px !important;
+  width:2px !important;
+}
+.ms-section-nav-progress > i{
+  background:var(--ms-section-nav-accent) !important;
+  box-shadow:none !important;
+}
+
+/* Dots stay minimal; active state is expressed by the bar + clean dot. */
+.ms-section-nav-dot,
+.ms-section-nav-btn:hover .ms-section-nav-dot,
+.ms-section-nav-btn:focus-visible .ms-section-nav-dot{
+  background:transparent !important;
+  border:1px solid rgba(244,244,239,.42) !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+.ms-section-nav-btn.is-active .ms-section-nav-dot{
+  width:8px !important;
+  height:8px !important;
+  background:var(--ms-section-nav-accent) !important;
+  border-color:var(--ms-section-nav-accent) !important;
+  box-shadow:none !important;
+}
+</style>
+<!-- HOME_SECTION_NAV_HOMOGENEOUS_END -->
+
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
