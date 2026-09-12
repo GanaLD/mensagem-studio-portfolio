@@ -8,7 +8,7 @@
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260911-r9-youtube-audio-stable';
+  const VERSION = '20260912-r10-popup-once';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -131,7 +131,7 @@
   menu.addEventListener('click',e=>{ if(e.target===menu) closeMenu(); });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeMenu(); closeContact(); } });
 
-  // Timed contact invitation: counts only time while the tab is visible and shows once per browser session.
+  // Timed contact invitation: counts only visible time and is shown only once per browser/device.
   const popup = document.createElement('div');
   popup.className = 'ms-contact-overlay';
   popup.setAttribute('aria-hidden','true');
@@ -147,24 +147,34 @@
       </div>
     </aside>`;
   document.body.appendChild(popup);
-  const popupKey='ms.contact.popup.session.v1';
+  const popupKey='ms.contact.popup.once.v2';
+  const legacyPopupKey='ms.contact.popup.session.v1';
   let popupClosed=false;
+  function markPopupShown(){
+    try{localStorage.setItem(popupKey,'1')}catch(_){ }
+  }
+  function popupAlreadyShown(){
+    try{
+      if(localStorage.getItem(popupKey)==='1') return true;
+      if(sessionStorage.getItem(legacyPopupKey)==='1'){markPopupShown();return true}
+    }catch(_){ }
+    return false;
+  }
   function closeContact(){
     if(!popup?.classList.contains('open')) return;
     popup.classList.remove('open'); popup.setAttribute('aria-hidden','true'); popupClosed=true;
-    try{sessionStorage.setItem(popupKey,'1')}catch(_){ }
+    markPopupShown();
   }
   popup.querySelector('.ms-contact-close')?.addEventListener('click',closeContact);
   popup.addEventListener('click',e=>{if(e.target===popup)closeContact()});
-  popup.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{try{sessionStorage.setItem(popupKey,'1')}catch(_){}}));
+  popup.querySelectorAll('a').forEach(a=>a.addEventListener('click',markPopupShown));
 
   let remaining=60000, visibleSince=performance.now(), popupTimer=0;
-  function popupAlreadyShown(){try{return sessionStorage.getItem(popupKey)==='1'}catch(_){return false}}
   function showContact(){
     if(popupAlreadyShown()||popupClosed) return;
     if(document.querySelector('.drawer.open,.lightbox.open,.ms-menu-overlay.open')){remaining=9000;schedulePopup();return;}
     popup.classList.add('open');popup.setAttribute('aria-hidden','false');
-    try{sessionStorage.setItem(popupKey,'1')}catch(_){ }
+    markPopupShown();
   }
   function schedulePopup(){
     clearTimeout(popupTimer);
