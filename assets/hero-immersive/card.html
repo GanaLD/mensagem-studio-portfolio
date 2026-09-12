@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cyber Angel — Hero Immersive</title>
+<style>
+:root{color-scheme:dark;--bg:#07090c}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg)}
+body{font-family:Arial,Helvetica,sans-serif}
+.stage{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.055),transparent 37%),#07090c}
+.angel-wrap{position:absolute;inset:0;display:grid;place-items:center;padding:4%;transform:translateZ(0)}
+#angel{display:block;width:min(88%,620px);height:auto;max-width:88%;max-height:88%;object-fit:contain;object-position:50% 50%;user-select:none;-webkit-user-drag:none;pointer-events:none;transform:translateZ(0)}
+@media(max-width:600px){.angel-wrap{padding:2%}#angel{width:min(92%,520px);max-width:92%;max-height:92%}}
+</style>
+</head>
+<body>
+<div class="stage" aria-label="Anjo em rotação controlado pelo scroll">
+  <div class="angel-wrap"><img id="angel" alt="Anjo em rotação" draggable="false"></div>
+</div>
+<script>
+(()=>{
+'use strict';
+const files=[
+  'frame_01.deflate','frame_02.deflate','frame_03.deflate','frame_04.deflate','frame_05.deflate',
+  'frame_07.deflate','frame_08.deflate','frame_09.deflate','frame_10.deflate','frame_11.deflate','frame_12.deflate'
+];
+const img=document.getElementById('angel');
+const frames=new Array(files.length);
+let progress=0,last=-1,ready=false;
+const clamp=v=>Math.max(0,Math.min(1,Number(v)||0));
+async function inflatePng(file){
+  const r=await fetch(file,{cache:'force-cache'});
+  if(!r.ok)throw new Error('frame '+r.status);
+  if(!('DecompressionStream' in window))throw new Error('DecompressionStream unavailable');
+  const compressed=await r.arrayBuffer();
+  const stream=new Blob([compressed]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+  const raw=await new Response(stream).arrayBuffer();
+  return URL.createObjectURL(new Blob([raw],{type:'image/png'}));
+}
+function render(p){
+  progress=clamp(p);
+  if(!ready)return;
+  const idx=Math.min(frames.length-1,Math.floor(progress*frames.length));
+  if(idx===last)return;
+  img.src=frames[idx];
+  last=idx;
+}
+window.addEventListener('message',e=>{
+  const d=e.data||{};
+  if(d.type==='hero-immersive-progress')render(d.progress);
+});
+Promise.all(files.map((file,i)=>inflatePng(file).then(url=>{frames[i]=url;if(i===0&&!img.src)img.src=url;})))
+  .then(()=>{ready=true;render(progress);parent.postMessage({type:'hero-immersive-ready'},'*');})
+  .catch(err=>{parent.postMessage({type:'hero-immersive-error',message:String(err&&err.message||err)},'*');});
+})();
+</script>
+</body>
+</html>
