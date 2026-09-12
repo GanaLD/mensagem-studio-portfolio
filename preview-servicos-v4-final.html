@@ -1558,6 +1558,89 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_HERO_SHOWCASE_CSS_END -->
 
+<!-- V4_SHOWCASE_BREATHING_START -->
+<style id="v4-showcase-breathing">
+/* Showcase content rhythm: smaller copy, more breathing room, compact metrics. */
+.hero-showcase-content{
+  left:clamp(38px,3.8vw,52px) !important;
+  right:auto !important;
+  bottom:clamp(34px,3.2vw,46px) !important;
+  width:min(56%,390px) !important;
+  max-width:390px !important;
+  gap:24px !important;
+  align-items:start !important;
+  justify-items:start !important;
+  text-align:left !important;
+}
+.hero-showcase-content p{
+  width:100% !important;
+  max-width:36ch !important;
+  margin:0 !important;
+  font-size:12.5px !important;
+  line-height:1.62 !important;
+  letter-spacing:0 !important;
+  color:#E2E5E1 !important;
+}
+.hero-showcase .hero-metrics{
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  display:flex !important;
+  justify-content:flex-start !important;
+  align-items:flex-start !important;
+  gap:20px !important;
+  margin:0 !important;
+  padding-top:16px !important;
+  padding-right:0 !important;
+  border-top:1px solid rgba(244,244,239,.20) !important;
+}
+.hero-showcase .hero-metrics > div{
+  min-width:62px !important;
+  display:grid !important;
+  gap:4px !important;
+  justify-items:start !important;
+  text-align:left !important;
+}
+.hero-showcase .hero-metrics b{
+  font-size:1.55rem !important;
+  line-height:1 !important;
+  letter-spacing:-.025em !important;
+}
+.hero-showcase .hero-metrics span{
+  font-size:7.5px !important;
+  line-height:1.25 !important;
+  letter-spacing:.11em !important;
+  white-space:nowrap !important;
+}
+@media(max-width:1120px){
+  .hero-showcase-content{
+    width:min(62%,400px) !important;
+  }
+}
+@media(max-width:640px){
+  .hero-showcase-content{
+    left:22px !important;
+    right:22px !important;
+    bottom:24px !important;
+    width:auto !important;
+    max-width:none !important;
+    gap:20px !important;
+  }
+  .hero-showcase-content p{
+    max-width:33ch !important;
+    font-size:12px !important;
+  }
+  .hero-showcase .hero-metrics{
+    gap:18px !important;
+    padding-top:14px !important;
+  }
+  .hero-showcase .hero-metrics b{
+    font-size:1.4rem !important;
+  }
+}
+</style>
+<!-- V4_SHOWCASE_BREATHING_END -->
+
 </head>
 <body data-prototype="servicos-v4"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V4 FINAL</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
