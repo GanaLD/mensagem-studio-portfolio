@@ -82,9 +82,11 @@ function addStyles(){
   .ms-footer-links .bg-switcher{position:relative!important;inset:auto!important;z-index:4!important;display:flex!important;align-items:center!important;gap:0!important;margin:0 0 0 4px!important;min-width:0!important;width:auto!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;pointer-events:auto!important}
   .ms-footer-links .bg-switcher-label{display:none!important}
   .ms-footer-links .bg-switcher button{min-width:300px!important;min-height:48px!important;height:48px!important;padding:0 20px!important;border:1px solid rgba(201,255,54,.68)!important;border-radius:999px!important;background:rgba(8,9,7,.48)!important;backdrop-filter:blur(12px)!important;box-shadow:0 0 20px rgba(201,255,54,.10)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;color:#f4f5ef!important;font-size:10px!important;font-weight:800!important;letter-spacing:.12em!important;text-transform:uppercase!important;cursor:pointer!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
-  .ms-footer-links .bg-switcher button:before{content:'TROCAR FUNDO';color:#f4f5ef;font-size:10px;font-weight:800;letter-spacing:.12em}
-  .ms-footer-links .bg-switcher-current{color:var(--lime)!important;text-shadow:0 0 10px rgba(201,255,54,.42)!important}
-  .ms-footer-links .bg-switcher-arrow{font-style:normal!important;opacity:.72!important}
+  .ms-footer-links .bg-switcher button:before{content:none!important}
+  .ms-footer-links .bg-switcher-button-copy{display:inline!important;color:#f4f5ef!important;font-size:10px!important;font-weight:800!important;letter-spacing:.12em!important}
+  .ms-footer-links .bg-switcher-current,
+  .ms-footer-links .bg-switcher-arrow,
+  .ms-footer-links #backgroundNext{display:none!important}
   .ms-footer-links .bg-switcher button:hover,.ms-footer-links .bg-switcher button:focus-visible{outline:none!important;border-color:var(--lime)!important;box-shadow:0 0 28px rgba(201,255,54,.18)!important}
   @media(max-width:760px){.ms-footer-links .bg-switcher{grid-column:1/-1!important;margin:0!important;width:100%!important}.ms-footer-links .bg-switcher button{width:100%!important;min-width:0!important}}
   .ms-footer-meta{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;color:#73796f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
