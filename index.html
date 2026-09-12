@@ -406,23 +406,7 @@ body.ms-global-ui-mounted .top .brand{
 </style>
 <!-- HOME_SECTION_NAV_STRICT_TRANSPARENT_END -->
 
-<style id="ms-bg-switch-direct-v2">
-html,body{background:#050605!important}
-.final-cta{position:relative!important;overflow:visible!important;background:#050605!important;border-bottom:0!important;min-height:clamp(420px,54vw,760px)}
-.final-cta>.final-cta-bg-switcher{position:absolute!important;right:clamp(24px,4vw,72px)!important;bottom:clamp(34px,4.5vw,72px)!important;z-index:30!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:10px!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;pointer-events:auto!important}
-.final-cta>.final-cta-bg-switcher .bg-switcher-label{display:block!important;color:#b8beb1!important;font-size:9px!important;font-weight:800!important;letter-spacing:.16em!important;text-transform:uppercase!important}
-.final-cta>.final-cta-bg-switcher button{min-width:220px!important;min-height:52px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;padding:0 18px!important;border:1px solid rgba(201,255,54,.82)!important;border-radius:999px!important;background:linear-gradient(135deg,rgba(16,20,13,.98),rgba(5,7,5,.94))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 30px rgba(201,255,54,.20)!important;color:#f4f5ef!important;opacity:1!important;visibility:visible!important;cursor:pointer!important;pointer-events:auto!important}
-.final-cta>.final-cta-bg-switcher .bg-switcher-button-copy{font-size:9px!important;font-weight:900!important;letter-spacing:.12em!important;color:#f4f5ef!important}
-.final-cta>.final-cta-bg-switcher .bg-switcher-current{color:var(--lime)!important;text-shadow:0 0 12px rgba(201,255,54,.52)!important}
-#afterWord>footer{position:relative!important;margin:0!important;min-height:124px!important;padding:26px var(--pad) max(42px,env(safe-area-inset-bottom))!important;background:#050605!important;border-bottom:0!important;box-shadow:none!important}
-#afterWord>footer::after{content:"";position:absolute;left:0;right:0;top:100%;height:4px;background:#050605;pointer-events:none}
-@media(max-width:900px){
-  .final-cta{min-height:0!important;padding-bottom:72px!important}
-  .final-cta>.final-cta-bg-switcher{position:relative!important;right:auto!important;bottom:auto!important;margin:38px auto 0!important;justify-content:center!important;flex-wrap:wrap!important;width:max-content!important;max-width:calc(100% - 32px)!important}
-  .final-cta>.final-cta-bg-switcher .bg-switcher-label{width:100%!important;text-align:center!important}
-  .final-cta>.final-cta-bg-switcher button{min-width:210px!important}
-}
-</style>
+
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
@@ -720,119 +704,7 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <!-- HOME_SECTION_NAV_JS_END -->
 
 
-<!-- MS HARD BACKGROUND SWITCHER V3 -->
-<div id="msHardBackgroundSwitcher" aria-label="Alternar fundo da Home">
-  <span class="ms-hard-bg-label">FUNDO</span>
-  <button id="msHardBackgroundButton" type="button" aria-label="Trocar fundo da Home">
-    <span class="ms-hard-bg-copy">TROCAR FUNDO</span>
-    <b id="msHardBgCurrent">01</b>
-    <i aria-hidden="true">↔</i>
-    <b id="msHardBgNext">02</b>
-  </button>
-</div>
-<style id="ms-hard-background-switcher-style">
-#msHardBackgroundSwitcher{
-  position:absolute;
-  left:33vw;
-  top:0;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
-  transform:none;
-  filter:none;
-}
-#msHardBackgroundSwitcher .ms-hard-bg-label{
-  color:#aeb4a7;
-  font:800 9px/1 Inter,Arial,sans-serif;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-#msHardBackgroundButton{
-  min-width:300px;
-  min-height:54px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:13px;
-  padding:0 22px;
-  border:1px solid rgba(201,255,54,.92);
-  border-radius:999px;
-  background:linear-gradient(135deg,rgba(15,20,12,.98),rgba(4,6,4,.96));
-  color:#f4f5ef;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 30px rgba(201,255,54,.22);
-  backdrop-filter:blur(16px);
-  cursor:pointer;
-  font:900 10px/1 Inter,Arial,sans-serif;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-}
-#msHardBackgroundButton:hover{
-  border-color:#c9ff36;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.11),0 0 38px rgba(201,255,54,.34);
-}
-#msHardBackgroundButton .ms-hard-bg-copy{color:#fff}
-#msHardBackgroundButton b{color:#c9ff36;font:900 11px/1 Inter,Arial,sans-serif}
-#msHardBackgroundButton i{font-style:normal;color:#d9ddd4;opacity:.8}
-@media(max-width:900px){
-  #msHardBackgroundSwitcher{
-    left:50%;
-    transform:translateX(-50%);
-    flex-wrap:wrap;
-    justify-content:center;
-    width:min(92vw,360px);
-  }
-  #msHardBackgroundSwitcher .ms-hard-bg-label{width:100%;text-align:center}
-  #msHardBackgroundButton{min-width:min(86vw,320px)}
-}
-</style>
-<script id="ms-hard-background-switcher-script">
-(() => {
-  const hard = document.getElementById('msHardBackgroundSwitcher');
-  const hardButton = document.getElementById('msHardBackgroundButton');
-  const hardCurrent = document.getElementById('msHardBgCurrent');
-  const hardNext = document.getElementById('msHardBgNext');
-  if (!hard || !hardButton) return;
 
-  function getMainSwitcher(){
-    return document.getElementById('backgroundSwitcher');
-  }
-  function syncLabels(){
-    const state = document.getElementById('backgroundState');
-    const next = document.getElementById('backgroundNext');
-    if (state && hardCurrent) hardCurrent.textContent = state.textContent || '01';
-    if (next && hardNext) hardNext.textContent = next.textContent || '02';
-  }
-  function place(){
-    const footer = document.querySelector('#afterWord > footer') || document.querySelector('footer');
-    if (!footer) return;
-    const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-    const top = Math.max(0, footerTop - 112);
-    hard.style.top = top + 'px';
-  }
-
-  hardButton.addEventListener('click', () => {
-    const main = getMainSwitcher();
-    if (main) {
-      main.click();
-      requestAnimationFrame(() => requestAnimationFrame(syncLabels));
-    }
-  });
-
-  const mo = new MutationObserver(syncLabels);
-  const state = document.getElementById('backgroundState');
-  const next = document.getElementById('backgroundNext');
-  if (state) mo.observe(state,{childList:true,subtree:true,characterData:true});
-  if (next) mo.observe(next,{childList:true,subtree:true,characterData:true});
-
-  window.addEventListener('resize',place,{passive:true});
-  window.addEventListener('load',()=>{place();syncLabels()},{once:true});
-  requestAnimationFrame(()=>{place();syncLabels()});
-})();
-</script>
 
 </body>
 </html>
