@@ -1462,6 +1462,88 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_CRISTO_VISIBILITY_LOCK_END -->
 
+<!-- V4_HERO_SHOWCASE_CSS_START -->
+<style id="v4-hero-showcase-css">
+.hero-showcase{
+  position:relative !important;
+  isolation:isolate !important;
+  overflow:hidden !important;
+  min-height:420px !important;
+  padding:clamp(34px,4vw,54px) !important;
+  display:flex !important;
+  align-items:flex-end !important;
+  border:1px solid rgba(53,211,154,.26) !important;
+  background:#07111D !important;
+}
+.hero-showcase-media{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:#07111D;
+}
+.hero-showcase-video{
+  position:absolute;
+  inset:-2%;
+  width:104%;
+  height:104%;
+  object-fit:cover;
+  opacity:0;
+  transform:scale(1.025);
+  filter:saturate(.9) contrast(1.03) brightness(.8);
+  transition:opacity .9s ease,transform 5.4s linear;
+}
+.hero-showcase-video.is-active{
+  opacity:1;
+  transform:scale(1.07);
+}
+.hero-showcase-shade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(4,8,12,.80) 0%,rgba(4,8,12,.54) 48%,rgba(4,8,12,.38) 100%),
+    linear-gradient(0deg,rgba(4,8,12,.92) 0%,rgba(4,8,12,.36) 58%,rgba(4,8,12,.40) 100%);
+  pointer-events:none;
+}
+.hero-showcase-content{
+  position:relative;
+  z-index:2;
+  width:min(100%,470px);
+  display:grid;
+  gap:34px;
+}
+.hero-showcase-content p{
+  margin:0;
+  color:#E2E5E0 !important;
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.hero-showcase .hero-metrics{
+  border-top-color:rgba(244,244,239,.22) !important;
+}
+.hero-showcase .hero-metrics b{
+  color:#fff;
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+}
+.hero-showcase .hero-metrics span{
+  color:#C6CBC6;
+}
+@media(max-width:900px){
+  .hero-showcase{
+    min-height:360px !important;
+  }
+}
+@media(max-width:640px){
+  .hero-showcase{
+    min-height:330px !important;
+    padding:28px 22px !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-showcase-video{transition:none;transform:none !important}
+}
+</style>
+<!-- V4_HERO_SHOWCASE_CSS_END -->
+
 </head>
 <body data-prototype="servicos-v4"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V4 FINAL</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
@@ -1472,11 +1554,18 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
       <div class="hero-title-wrap">
         <h1><span>IMAGEM.</span><span>MOVIMENTO.</span><span>NARRATIVA.</span></h1>
       </div>
-      <div class="hero-copy">
-        <p>Design, vídeo, produção, motion, fotografia, identidade, campanhas, e-commerce, 3D e experiências web reunidos em um catálogo único.</p>
-        <div class="hero-metrics">
-          <div><b>36</b><span>serviços</span></div>
-          <div><b>12</b><span>especialidades</span></div>
+      <div class="hero-copy hero-showcase" id="heroProjectShowcase">
+        <div class="hero-showcase-media" aria-hidden="true">
+          <video class="hero-showcase-video is-active" muted playsinline preload="metadata"></video>
+          <video class="hero-showcase-video" muted playsinline preload="metadata"></video>
+          <div class="hero-showcase-shade"></div>
+        </div>
+        <div class="hero-showcase-content">
+          <p>Design, vídeo, produção, motion, fotografia, identidade, campanhas, e-commerce, 3D e experiências web reunidos em um catálogo único.</p>
+          <div class="hero-metrics">
+            <div><b>36</b><span>serviços</span></div>
+            <div><b>12</b><span>especialidades</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1641,5 +1730,81 @@ if(quoteParams.get('orcamento')==='1'){
 })();
 </script>
 <!-- MENSAGEM_SERVICOS_V3_MOTION_END -->
+<!-- V4_HERO_SHOWCASE_JS_START -->
+<script id="v4-hero-showcase-js">
+(()=>{
+  const root=document.getElementById('heroProjectShowcase');
+  if(!root)return;
+
+  const sources=[
+    'https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file',
+    'https://video.wixstatic.com/video/e540722d-a0a6-49fc-ac9e-6a48b56046f4/file',
+    'https://video.wixstatic.com/video/4aadeaac-504f-4fbb-97c6-3114b8393c68/file',
+    'https://video.wixstatic.com/video/fcde01b8-9a3e-4582-a193-3afeebfbbf69/file',
+    'https://video.wixstatic.com/video/7f7e07df-24f9-4ce3-ad9e-f6adf44228e6/file'
+  ];
+
+  const videos=[...root.querySelectorAll('.hero-showcase-video')];
+  if(videos.length<2||!sources.length)return;
+
+  let sourceIndex=0;
+  let activeIndex=0;
+  let timer=0;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function prepare(video,src){
+    if(video.dataset.src===src)return;
+    video.dataset.src=src;
+    video.src=src;
+    video.load();
+  }
+
+  function playSafe(video){
+    video.currentTime=0;
+    const p=video.play();
+    if(p&&typeof p.catch==='function')p.catch(()=>{});
+  }
+
+  function showInitial(){
+    prepare(videos[0],sources[0]);
+    prepare(videos[1],sources[1%sources.length]);
+    videos[0].classList.add('is-active');
+    videos[1].classList.remove('is-active');
+    playSafe(videos[0]);
+  }
+
+  function rotate(){
+    const nextSource=(sourceIndex+1)%sources.length;
+    const nextVideoIndex=1-activeIndex;
+    const current=videos[activeIndex];
+    const next=videos[nextVideoIndex];
+
+    prepare(next,sources[nextSource]);
+    playSafe(next);
+    next.classList.add('is-active');
+    current.classList.remove('is-active');
+
+    setTimeout(()=>{try{current.pause()}catch(e){}},950);
+    sourceIndex=nextSource;
+    activeIndex=nextVideoIndex;
+
+    const preloadSource=(sourceIndex+1)%sources.length;
+    prepare(current,sources[preloadSource]);
+  }
+
+  showInitial();
+  if(!reduced) timer=setInterval(rotate,5000);
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){
+      videos.forEach(v=>{try{v.pause()}catch(e){}});
+    }else{
+      playSafe(videos[activeIndex]);
+    }
+  });
+})();
+</script>
+<!-- V4_HERO_SHOWCASE_JS_END -->
+
 </body>
 </html>
