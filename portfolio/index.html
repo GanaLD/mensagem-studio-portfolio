@@ -33,6 +33,6 @@
 </div></div></main><footer><span>Mensagem Studio © 2026</span><a href="../servicos/">Conhecer serviços ↗</a></footer>
 <script>const cards=[...document.querySelectorAll('.card')],cats=['Todos',...new Set(cards.map(c=>c.dataset.cat))],filters=document.querySelector('#filters');let active='Todos';function render(){filters.innerHTML=cats.map(c=>`<button class="filter ${c===active?'on':''}" data-cat="${c}">${c}</button>`).join('');cards.forEach(c=>c.hidden=active!=='Todos'&&c.dataset.cat!==active)}filters.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;active=b.dataset.cat;render()});render();</script><script src="./project-data.js?v=20260910-motors-cover1"></script>
 <script src="./portfolio-linker.js"></script>
-<script src="../global-ui.js?v=20260911-r9-youtube-audio-stable"></script>
+<script src="../global-ui.js?v=20260912-r10-popup-once"></script>
 <script src="./project-data.js"></script>
 <script src="./project-video-preview.js?v=20260911-explicit-video1"></script>\n</body></html>
