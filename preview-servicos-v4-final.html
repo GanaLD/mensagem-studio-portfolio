@@ -1759,6 +1759,73 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_HERO_GEOMETRY_FIX_END -->
 
+<!-- V4_SHOWCASE_TEXT_POSITION_START -->
+<style id="v4-showcase-text-position">
+/* User-directed layout: metrics bottom-left, descriptive copy bottom-right. */
+.hero-showcase-content{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  max-width:none !important;
+  display:block !important;
+  pointer-events:none !important;
+}
+.hero-showcase-content p{
+  position:absolute !important;
+  right:clamp(28px,3vw,42px) !important;
+  bottom:clamp(30px,3vw,42px) !important;
+  left:auto !important;
+  top:auto !important;
+  width:min(44%,340px) !important;
+  max-width:340px !important;
+  margin:0 !important;
+  font-size:12px !important;
+  line-height:1.6 !important;
+  text-align:left !important;
+  color:#E4E7E2 !important;
+}
+.hero-showcase .hero-metrics{
+  position:absolute !important;
+  left:clamp(28px,3vw,42px) !important;
+  bottom:clamp(30px,3vw,42px) !important;
+  right:auto !important;
+  top:auto !important;
+  display:flex !important;
+  gap:18px !important;
+  margin:0 !important;
+  padding-top:12px !important;
+  width:auto !important;
+  border-top:1px solid rgba(244,244,239,.22) !important;
+  pointer-events:none !important;
+}
+.hero-showcase .hero-metrics > div{
+  min-width:52px !important;
+}
+.hero-showcase .hero-metrics b{
+  font-size:1.3rem !important;
+  line-height:1 !important;
+}
+.hero-showcase .hero-metrics span{
+  font-size:7px !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+}
+@media(max-width:760px){
+  .hero-showcase-content p{
+    right:22px !important;
+    bottom:22px !important;
+    width:min(48%,270px) !important;
+    font-size:11.5px !important;
+  }
+  .hero-showcase .hero-metrics{
+    left:22px !important;
+    bottom:22px !important;
+    gap:14px !important;
+  }
+}
+</style>
+<!-- V4_SHOWCASE_TEXT_POSITION_END -->
+
 </head>
 <body data-prototype="servicos-v4"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V4 FINAL</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
