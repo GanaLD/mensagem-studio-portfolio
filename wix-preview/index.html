@@ -384,12 +384,17 @@ body.ms-global-ui-mounted .top .brand{
   transform:none !important;
 }
 
-/* Labels stay neutral/white; no green text state. */
+/* Labels keep breathing room from the rail; active section lights green. */
 #msSectionNav .ms-section-nav-label,
-#msSectionNav .ms-section-nav-btn.is-active .ms-section-nav-label,
 #msSectionNav .ms-section-nav-btn:hover .ms-section-nav-label{
+  margin-right:16px !important;
   color:#F4F4EF !important;
   text-shadow:none !important;
+}
+#msSectionNav .ms-section-nav-btn.is-active .ms-section-nav-label{
+  margin-right:16px !important;
+  color:#2FD59A !important;
+  text-shadow:0 0 8px rgba(47,213,154,.55),0 0 18px rgba(47,213,154,.28) !important;
 }
 
 /* The only green luminous element. */
