@@ -157,7 +157,8 @@ function upgradeFooter(){
   footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
   if(existingSwitcher){
     existingSwitcher.classList.add('ms-footer-bg-switcher');
-    const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.textContent='FUNDO';
+    const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.remove();
+    const button=existingSwitcher.querySelector('#backgroundSwitcher');if(button)button.textContent='TROCAR FUNDO';
     const links=footer.querySelector('.ms-footer-links');if(links)links.appendChild(existingSwitcher);
   }
 }
