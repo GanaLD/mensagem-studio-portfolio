@@ -1233,6 +1233,68 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_READABILITY_COLLISION_FIX_END -->
 
+<!-- V4_MIDNIGHT_SECTION_START -->
+<style id="v4-midnight-section">
+/* Approved direction: midnight-blue services field, while preserving the dark brand shell. */
+.catalog{
+  position:relative !important;
+  isolation:isolate !important;
+  background:transparent !important;
+}
+.catalog::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(70vw 36vw at 88% 6%,rgba(53,211,154,.055),transparent 66%),
+    radial-gradient(52vw 38vw at 8% 46%,rgba(242,200,75,.025),transparent 72%),
+    linear-gradient(180deg,#07111D 0%,#081522 38%,#0A1626 72%,#07111D 100%);
+  border-top:1px solid rgba(255,255,255,.045);
+  border-bottom:1px solid rgba(255,255,255,.045);
+  pointer-events:none;
+}
+.category{
+  background:transparent !important;
+}
+.category + .category{
+  border-top-color:rgba(244,244,239,.105) !important;
+}
+#catalog .grid > .card,
+#catalog .grid > .card:nth-child(n){
+  background:
+    linear-gradient(180deg,rgba(16,25,38,.88),rgba(8,14,22,.94)) !important;
+  border-color:rgba(154,172,184,.16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 18px 46px rgba(0,0,0,.16) !important;
+}
+#catalog .grid > .card:hover{
+  background:
+    linear-gradient(180deg,rgba(18,30,45,.94),rgba(9,16,25,.98)) !important;
+  border-color:rgba(53,211,154,.30) !important;
+}
+.category-head{
+  border-left-color:rgba(53,211,154,.42) !important;
+}
+.category-desc,
+.detail-block p,
+.detail-block.delivery p{
+  color:#C0C7C8 !important;
+}
+.expand-hint{
+  color:#A9B1B2 !important;
+}
+.price{
+  color:#F4F4EF !important;
+}
+</style>
+<!-- V4_MIDNIGHT_SECTION_END -->
+
 </head>
 <body data-prototype="servicos-v4"><div style="position:fixed;right:14px;bottom:14px;z-index:100500;padding:8px 11px;border:1px solid rgba(47,213,154,.35);border-radius:999px;background:rgba(7,7,7,.76);backdrop-filter:blur(14px);color:#2FD59A;font:10px/1.2 'Courier New',monospace;letter-spacing:.08em;pointer-events:none">PREVIEW · SERVIÇOS V4</div>
 <div class="ms-v3-progress" aria-hidden="true"></div>
