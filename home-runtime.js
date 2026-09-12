@@ -78,7 +78,15 @@ function addStyles(){
   footer.ms-site-footer{display:block!important;padding:clamp(54px,7vw,110px) var(--pad) 32px!important;color:var(--fg)!important;background:linear-gradient(180deg,rgba(7,8,6,.18),rgba(7,8,6,.94) 28%,#070806 100%)!important;border-top:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(10px)!important}
   .ms-footer-inner{width:min(1600px,100%);margin:0 auto}.ms-footer-kicker{color:var(--lime);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
   .ms-footer-title{font-size:clamp(44px,7vw,116px);line-height:.86;letter-spacing:-.06em;text-transform:uppercase;margin:0;max-width:12ch}
-  .ms-footer-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:42px}.ms-footer-link{min-height:48px;padding:0 17px;border:1px solid rgba(255,255,255,.17);background:rgba(8,9,7,.5);display:inline-flex;align-items:center;justify-content:space-between;gap:24px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.2s ease}.ms-footer-link:hover,.ms-footer-link:focus-visible{outline:none;border-color:var(--lime);color:var(--lime);background:rgba(201,255,54,.04)}
+  .ms-footer-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:42px;align-items:center}.ms-footer-link{min-height:48px;padding:0 17px;border:1px solid rgba(255,255,255,.17);background:rgba(8,9,7,.5);display:inline-flex;align-items:center;justify-content:space-between;gap:24px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.2s ease}.ms-footer-link:hover,.ms-footer-link:focus-visible{outline:none;border-color:var(--lime);color:var(--lime);background:rgba(201,255,54,.04)}
+  .ms-footer-links .bg-switcher{position:relative!important;inset:auto!important;z-index:4!important;display:flex!important;align-items:center!important;gap:0!important;margin:0 0 0 4px!important;min-width:0!important;width:auto!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;pointer-events:auto!important}
+  .ms-footer-links .bg-switcher-label{display:none!important}
+  .ms-footer-links .bg-switcher button{min-width:300px!important;min-height:48px!important;height:48px!important;padding:0 20px!important;border:1px solid rgba(201,255,54,.68)!important;border-radius:999px!important;background:rgba(8,9,7,.48)!important;backdrop-filter:blur(12px)!important;box-shadow:0 0 20px rgba(201,255,54,.10)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;color:#f4f5ef!important;font-size:10px!important;font-weight:800!important;letter-spacing:.12em!important;text-transform:uppercase!important;cursor:pointer!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+  .ms-footer-links .bg-switcher button:before{content:'TROCAR FUNDO';color:#f4f5ef;font-size:10px;font-weight:800;letter-spacing:.12em}
+  .ms-footer-links .bg-switcher-current{color:var(--lime)!important;text-shadow:0 0 10px rgba(201,255,54,.42)!important}
+  .ms-footer-links .bg-switcher-arrow{font-style:normal!important;opacity:.72!important}
+  .ms-footer-links .bg-switcher button:hover,.ms-footer-links .bg-switcher button:focus-visible{outline:none!important;border-color:var(--lime)!important;box-shadow:0 0 28px rgba(201,255,54,.18)!important}
+  @media(max-width:760px){.ms-footer-links .bg-switcher{grid-column:1/-1!important;margin:0!important;width:100%!important}.ms-footer-links .bg-switcher button{width:100%!important;min-width:0!important}}
   .ms-footer-meta{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;color:#73796f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
   #msHomeWhatsapp{width:58px!important;height:58px!important;min-height:58px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#25D366!important;color:#fff!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 28px rgba(37,211,102,.24)!important;font-size:0!important}
   #msHomeWhatsapp i{display:none!important}#msHomeWhatsapp svg{width:30px;height:30px;display:block;fill:currentColor}
@@ -141,7 +149,15 @@ function upgradeBrief(){
 
 function upgradeFooter(){
   const finalCta=document.querySelector('.final-cta');if(finalCta)finalCta.setAttribute('aria-hidden','true');
-  const footer=document.querySelector('footer');if(!footer)return;footer.classList.add('ms-site-footer');footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
+  const footer=document.querySelector('footer');if(!footer)return;
+  const existingSwitcher=document.querySelector('.bg-switcher');
+  footer.classList.add('ms-site-footer');
+  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
+  if(existingSwitcher){
+    existingSwitcher.classList.add('ms-footer-bg-switcher');
+    const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.textContent='FUNDO';
+    const links=footer.querySelector('.ms-footer-links');if(links)links.appendChild(existingSwitcher);
+  }
 }
 
 function upgradeWhatsapp(){
