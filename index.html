@@ -256,15 +256,18 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <!-- HOME_BUILD: 20260911-r5-project-hover-priority -->
 
 <script>
-/* MS THREE CONTROLS V4 */
+/* MS THREE CONTROLS V5 TIGHT FRAME */
 (() => {
   const viewer = document.getElementById('modelViewerCreatina');
   const sidebar = document.querySelector('#three .three-sidebar');
   if (!viewer || !sidebar) return;
 
-  const SCENE_TARGET = '-6.966m 12.572m -27.794m';
+  // Ajustado a partir dos limites reais do ringue + produto no GLB.
+  // O alvo foi deslocado para frente da cena para eliminar o excesso de vazio
+  // e permitir um enquadramento grande sem cortar o conjunto principal.
+  const SCENE_TARGET = '-6.97m 4m -6m';
 
-  const setCamera = (theta='0deg', phi='82deg', radius='370m', fov='38deg') => {
+  const setCamera = (theta='0deg', phi='37.5deg', radius='300m', fov='36deg') => {
     viewer.cameraTarget = SCENE_TARGET;
     viewer.cameraOrbit = `${theta} ${phi} ${radius}`;
     viewer.fieldOfView = fov;
@@ -291,16 +294,16 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
     const animation = button.dataset.animation;
 
     if (view === 'front') {
-      setCamera('0deg','82deg','370m','38deg');
+      setCamera('0deg','37.5deg','300m','36deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'threequarter') {
-      setCamera('32deg','78deg','405m','39deg');
+      setCamera('30deg','40deg','315m','36deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'wide') {
-      setCamera('0deg','82deg','430m','42deg');
+      setCamera('0deg','40deg','335m','38deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'reset') {
-      setCamera('0deg','82deg','370m','38deg');
+      setCamera('0deg','37.5deg','300m','36deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'rotate') {
       viewer.autoRotate = !viewer.autoRotate;
@@ -316,7 +319,8 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 
   viewer.addEventListener('load', () => {
     requestAnimationFrame(() => {
-      setCamera('0deg','82deg','370m','38deg');
+      setCamera('0deg','37.5deg','300m','36deg');
+      clearCameraActive();
       const front = sidebar.querySelector('[data-view="front"]');
       if (front) front.classList.add('is-active');
     });
