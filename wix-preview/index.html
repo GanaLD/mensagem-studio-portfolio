@@ -256,14 +256,16 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
 <!-- HOME_BUILD: 20260911-r5-project-hover-priority -->
 
 <script>
-/* MS THREE CONTROLS V3 */
+/* MS THREE CONTROLS V4 */
 (() => {
   const viewer = document.getElementById('modelViewerCreatina');
   const sidebar = document.querySelector('#three .three-sidebar');
   if (!viewer || !sidebar) return;
 
-  const setSceneFit = (theta = '0deg', phi = '75deg', radius = '105%', fov = '35deg') => {
-    viewer.cameraTarget = 'auto auto auto';
+  const SCENE_TARGET = '-6.966m 12.572m -27.794m';
+
+  const setCamera = (theta='0deg', phi='82deg', radius='370m', fov='38deg') => {
+    viewer.cameraTarget = SCENE_TARGET;
     viewer.cameraOrbit = `${theta} ${phi} ${radius}`;
     viewer.fieldOfView = fov;
   };
@@ -289,16 +291,16 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
     const animation = button.dataset.animation;
 
     if (view === 'front') {
-      setSceneFit('0deg','75deg','105%','35deg');
+      setCamera('0deg','82deg','370m','38deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'threequarter') {
-      setSceneFit('35deg','72deg','108%','35deg');
+      setCamera('32deg','78deg','405m','39deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (view === 'wide') {
-      setSceneFit('25deg','70deg','122%','38deg');
+      setCamera('0deg','82deg','430m','42deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'reset') {
-      setSceneFit('0deg','75deg','105%','35deg');
+      setCamera('0deg','82deg','370m','38deg');
       clearCameraActive(); button.classList.add('is-active');
     } else if (action === 'rotate') {
       viewer.autoRotate = !viewer.autoRotate;
@@ -313,7 +315,11 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
   });
 
   viewer.addEventListener('load', () => {
-    requestAnimationFrame(() => setSceneFit('0deg','75deg','105%','35deg'));
+    requestAnimationFrame(() => {
+      setCamera('0deg','82deg','370m','38deg');
+      const front = sidebar.querySelector('[data-view="front"]');
+      if (front) front.classList.add('is-active');
+    });
   });
 })();
 </script>
