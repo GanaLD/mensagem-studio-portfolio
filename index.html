@@ -620,8 +620,7 @@ bindTabs('#pdfTabs',b=>{document.querySelector('#pdfFrame').src='https://drive.g
     btn.setAttribute('aria-label',item.label);
     btn.title=item.label;
     btn.innerHTML=
-      '<span class="ms-section-nav-label">'+item.label+'</span>'+
-      '<span class="ms-section-nav-dot" aria-hidden="true"></span>';
+      '<span class="ms-section-nav-label">'+item.label+'</span>';
 
     btn.addEventListener('click',()=>{
       const target=document.getElementById(item.id);
