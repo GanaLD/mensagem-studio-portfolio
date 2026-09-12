@@ -117,10 +117,10 @@
     <nav class="ms-menu-panel" aria-label="Menu principal">
       <div class="ms-menu-head"><span>MENSAGEM STUDIO</span><span>NAVEGAÇÃO</span></div>
       <div class="ms-menu-list">
-        <a class="ms-menu-link ${active==='home'?'active':''}" href="${ROOT}"><span>HOME</span><small>01</small></a>
-        <a class="ms-menu-link ${active==='projetos'?'active':''}" href="${PORTFOLIO_URL}"><span>PROJETOS</span><small>02</small></a>
-        <a class="ms-menu-link ${active==='servicos'?'active':''}" href="${SERVICES_URL}"><span>SERVIÇOS</span><small>03</small></a>
-        <a class="ms-menu-link ${active==='sobre'?'active':''}" href="${ABOUT_URL}"><span>SOBRE</span><small>04</small></a>
+        <a class="ms-menu-link ${active==='home'?'active':''}" href="${ROOT}"><span>HOME</span></a>
+        <a class="ms-menu-link ${active==='projetos'?'active':''}" href="${PORTFOLIO_URL}"><span>PROJETOS</span></a>
+        <a class="ms-menu-link ${active==='servicos'?'active':''}" href="${SERVICES_URL}"><span>SERVIÇOS</span></a>
+        <a class="ms-menu-link ${active==='sobre'?'active':''}" href="${ABOUT_URL}"><span>SOBRE</span></a>
       </div>
     </nav>`;
   document.body.append(menuBtn,menu);
