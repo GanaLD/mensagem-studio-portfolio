@@ -65,11 +65,12 @@
   }
   function itemHTML(item, index) {
     const type = item.type === 'VIDEO' ? 'Vídeo' : 'Imagem';
+    const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
     const visual = item.type === 'VIDEO'
-      ? `<video controls muted autoplay loop playsinline preload="auto" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
-      : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(item.title || project.title)}" data-lightbox>`;
-    const caption = item.title || item.description ? `<div class="caption"><div>${item.title ? `<strong>${esc(item.title)}</strong>` : ''}${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>` : `<div class="caption"><div></div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
-    return `<article class="media-item ${mediaClass(item)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
+      ? `<video controls muted autoplay loop playsinline preload="auto" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
+      : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
+    const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
+    return `<article class="media-item ${mediaClass(item)}" role="group" aria-label="${esc(mediaLabel)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
 
   // Galeria = somente mídias reais cadastradas no projeto.
