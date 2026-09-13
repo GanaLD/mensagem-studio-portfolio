@@ -2,7 +2,7 @@
   "version": 4,
   "owner": "site_builder.seo",
   "base_url": "https://mensagemstudio.shop",
-  "generated_at": "2026-09-11",
+  "generated_at": "2026-09-13",
   "summary": {
     "routes": 23,
     "indexable": 23,
@@ -183,17 +183,17 @@
       "schema_type": "CreativeWork"
     },
     {
-      "path": "portfolio/poster-cartaz",
+      "path": "portfolio/poster-cartaz-cinematografico",
       "kind": "project",
-      "canonical": "https://mensagemstudio.shop/portfolio/poster-cartaz/",
+      "canonical": "https://mensagemstudio.shop/portfolio/poster-cartaz-cinematografico/",
       "index": true,
       "robots": "index,follow",
       "schema_type": "CreativeWork"
     },
     {
-      "path": "portfolio/motion-banner-cartaz-cinematografico",
+      "path": "portfolio/motion-design-cartaz-cinematografico",
       "kind": "project",
-      "canonical": "https://mensagemstudio.shop/portfolio/motion-banner-cartaz-cinematografico/",
+      "canonical": "https://mensagemstudio.shop/portfolio/motion-design-cartaz-cinematografico/",
       "index": true,
       "robots": "index,follow",
       "schema_type": "CreativeWork"
