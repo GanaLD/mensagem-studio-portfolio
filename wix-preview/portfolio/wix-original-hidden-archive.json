@@ -1,0 +1,92 @@
+{
+  "sourceSite": "Mensagem Design Studio",
+  "sourceSiteId": "0544783f-d9d1-4571-9058-e8114129e63f",
+  "auditedAt": "2026-09-13",
+  "purpose": "Preserve Wix Portfolio projects that were hidden in the original site. This file is archival and is not rendered in the public portfolio.",
+  "projects": [
+    {
+      "wixProjectId": "08bafbca-f195-4cb6-b3d1-94bbb44836e7",
+      "slug": "project-title-5",
+      "title": "Capa de Livro | Lombada",
+      "hidden": true,
+      "description": "Criamos capas que contam histórias antes mesmo da primeira página. Do romance ao suspense, da fantasia ao não-ficção, desenvolvemos artes autorais com conceito, estética e apelo editorial. Cada elemento é pensado para comunicar o tom da obra e se destacar nas prateleiras — físicas ou digitais.\nSeu livro merece uma capa que seja tão forte quanto o conteúdo.",
+      "cover": {
+        "type": "IMAGE",
+        "url": "https://static.wixstatic.com/media/1ff71f9b-aa67-445b-ae1d-bac6c52d966e/v1/fill/w_896,h_1344,al_c/1ff71f9b-aa67-445b-ae1d-bac6c52d966e"
+      },
+      "items": [
+        {
+          "type": "IMAGE",
+          "title": "",
+          "url": "https://static.wixstatic.com/media/ef8a3a_2b53836919794739b62340d46a94b34d~mv2.jpg/v1/fill/w_1024,h_1024,al_c/ef8a3a_2b53836919794739b62340d46a94b34d~mv2.jpg"
+        }
+      ]
+    },
+    {
+      "wixProjectId": "d27017b1-fd9a-4b8c-b94a-8ecf5684d3f6",
+      "slug": "capa-de-álbum",
+      "title": "Capa de Álbum",
+      "hidden": true,
+      "description": "Cada som merece uma imagem à altura. Criamos capas, artes visuais e conceitos gráficos completos para álbuns, singles e EPs — do digital ao físico. Estilo autoral, linguagem visual alinhada ao gênero e à proposta sonora, com atenção a cada detalhe estético.\nSeu álbum não é só ouvido. Ele é sentido, visto e lembrado.",
+      "cover": {
+        "type": "IMAGE",
+        "url": "https://static.wixstatic.com/media/ef8a3a_111ac4aceeea4a6c93f88fda38430e88~mv2.jpeg/v1/fill/w_1216,h_832,al_c/ef8a3a_111ac4aceeea4a6c93f88fda38430e88~mv2.jpeg"
+      },
+      "items": [
+        {
+          "type": "VIDEO",
+          "title": "Arquivo Corrompido art",
+          "url": "https://video.wixstatic.com/video/ef8a3a_e359c10b5dcf4187a5d8ae68a1a848cf/file",
+          "poster": "https://static.wixstatic.com/media/ef8a3a_e359c10b5dcf4187a5d8ae68a1a848cff000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_e359c10b5dcf4187a5d8ae68a1a848cff000.jpg"
+        }
+      ]
+    },
+    {
+      "wixProjectId": "d8cf3dad-3429-470b-afc8-eed4224777d4",
+      "slug": "edição-design",
+      "title": "Edição | Design",
+      "hidden": true,
+      "description": "Transformamos suas ideias em narrativas visuais poderosas. Edição de vídeos com ritmo, estética e impacto — ideal para reels, trailers, vídeos promocionais, institucionais ou criativos. Cuidamos de cortes, transições, efeitos e sonorização para que cada cena conte uma história com emoção e clareza.\nSe é vídeo que comunica, engaja e impressiona, aqui é o lugar.",
+      "cover": {
+        "type": "IMAGE",
+        "url": "https://static.wixstatic.com/media/4b6b6eb9-4267-4a55-a4c5-5d8df2297b01/v1/fill/w_1920,h_1080,al_c/4b6b6eb9-4267-4a55-a4c5-5d8df2297b01"
+      },
+      "items": [
+        {
+          "type": "VIDEO",
+          "title": "",
+          "url": "https://video.wixstatic.com/video/ef8a3a_6b843ba14bfb4117883c4828016bb90d/file",
+          "poster": "https://static.wixstatic.com/media/ef8a3a_6b843ba14bfb4117883c4828016bb90df000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_6b843ba14bfb4117883c4828016bb90df000.jpg"
+        }
+      ]
+    },
+    {
+      "wixProjectId": "5409b1ce-82b0-4d5d-b90c-20d7dbba6fc5",
+      "slug": "saúde-estética",
+      "title": "Saúde | Estética",
+      "hidden": true,
+      "description": "Projetos exclusivos com design luxuoso e acabamento premium, desenvolvidos especialmente para clínicas de saúde, consultórios odontológicos e espaços de estética de alto padrão. Cada ambiente é pensado para transmitir sofisticação, conforto e confiança, valorizando a experiência do paciente e a identidade da marca. Soluções personalizadas que unem funcionalidade, elegância e excelência em cada detalhe.",
+      "cover": {
+        "type": "IMAGE",
+        "url": "https://static.wixstatic.com/media/ef8a3a_cd58571cf43c49709a2a9430819a6fdd~mv2.jpeg/v1/fill/w_896,h_1152,al_c/ef8a3a_cd58571cf43c49709a2a9430819a6fdd~mv2.jpeg"
+      },
+      "items": [
+        {
+          "type": "IMAGE",
+          "title": "amostra-3",
+          "url": "https://static.wixstatic.com/media/ef8a3a_134f5c5c67b24c0fb4fa37930396920b~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_134f5c5c67b24c0fb4fa37930396920b~mv2.png"
+        },
+        {
+          "type": "IMAGE",
+          "title": "amostra-produtos-verão",
+          "url": "https://static.wixstatic.com/media/ef8a3a_57de5fc1f9dd43a59e28c7de25103017~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_57de5fc1f9dd43a59e28c7de25103017~mv2.png"
+        },
+        {
+          "type": "IMAGE",
+          "title": "amostra-impacto-e-assunto",
+          "url": "https://static.wixstatic.com/media/ef8a3a_ee1d6d57258445b5b7720b75c2172a28~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ee1d6d57258445b5b7720b75c2172a28~mv2.png"
+        }
+      ]
+    }
+  ]
+}
