@@ -138,8 +138,7 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Comparativo',description:'Um breve comparativo das imagens sem recorte e edição.',url:'https://static.wixstatic.com/media/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png'},
       {type:'IMAGE',title:'Formato para Feed do instagram',url:'https://static.wixstatic.com/media/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png'}
     ]
-  }
-  ,
+  },
   {
     slug:'poster-cartaz-cinematografico', sourceSlug:'project-title-4', title:'Pôster | Cartaz Cinematográfico', tag:'Design / Cinema',
     description:'Projeto de edição gráfica e composição para pôsteres e cartazes de linguagem cinematográfica, desenvolvido para criar impacto visual em campanhas e divulgação.',
