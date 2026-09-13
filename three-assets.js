@@ -34,7 +34,7 @@ function initRejuvitalAsset() {
 
   const applyLook = () => {
     const active = tabs.querySelector('button.active');
-    const isRejuvital = active?.dataset.model === 'rejuvital';
+    const isRejuvital = active?.dataset.model?.startsWith('rejuvital');
     const look = isRejuvital ? REJUVITAL_LOOK : DEFAULT_LOOK;
 
     viewer.setAttribute('exposure', look.exposure);
