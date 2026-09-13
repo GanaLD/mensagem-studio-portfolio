@@ -1944,6 +1944,171 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <!-- V4_FILTER_GLASS_END -->
 
+
+<!-- SERVICES_HERO_PROJECT_REEL_V6_CSS_START -->
+<style id="services-hero-project-reel-v6-css">
+.hero{
+  position:relative!important;
+  isolation:isolate!important;
+  width:100vw!important;
+  max-width:none!important;
+  height:calc(100svh - 72px)!important;
+  min-height:680px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#030504!important;
+}
+.hero-kicker{
+  position:absolute!important;
+  z-index:8!important;
+  top:clamp(120px,15vh,170px)!important;
+  left:max(var(--pad),calc((100vw - 1400px)/2 + var(--pad)))!important;
+  margin:0!important;
+  color:var(--v4-green)!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.72)!important;
+}
+.hero-grid{
+  position:relative!important;
+  z-index:3!important;
+  width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+}
+.hero-title-wrap{
+  position:absolute!important;
+  z-index:8!important;
+  left:max(var(--pad),calc((100vw - 1400px)/2 + var(--pad)))!important;
+  top:50%!important;
+  width:min(760px,55vw)!important;
+  max-width:none!important;
+  transform:translateY(-42%)!important;
+  pointer-events:none!important;
+}
+.hero h1{
+  margin:0!important;
+  max-width:8.2ch!important;
+  font-size:clamp(4.8rem,8vw,9.2rem)!important;
+  line-height:.78!important;
+  letter-spacing:-.06em!important;
+  text-shadow:0 4px 32px rgba(0,0,0,.62)!important;
+}
+.hero h1 span:nth-child(1){color:#F4F4EF!important}
+.hero h1 span:nth-child(2){color:var(--v4-green)!important}
+.hero h1 span:nth-child(3){
+  color:transparent!important;
+  -webkit-text-stroke:1.25px rgba(244,244,239,.68)!important;
+}
+.hero-copy.hero-showcase{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#020503!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  isolation:isolate!important;
+}
+.hero-showcase-media{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+  background:#020503!important;
+}
+.hero-showcase-video,
+.hero-showcase-youtube{
+  position:absolute!important;
+  top:50%!important;
+  left:50%!important;
+  z-index:0!important;
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  transition:opacity .9s ease!important;
+}
+.hero-showcase-video{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  transform:translate(-50%,-50%) scale(1.015)!important;
+  filter:saturate(.96) contrast(1.06) brightness(.78)!important;
+}
+.hero-showcase-youtube{
+  width:max(100vw,177.78vh)!important;
+  height:max(56.25vw,100vh)!important;
+  border:0!important;
+  transform:translate(-50%,-50%) scale(1.03)!important;
+  filter:saturate(.96) contrast(1.06) brightness(.78)!important;
+}
+.hero-showcase-video.is-active,
+.hero-showcase-youtube.is-active{opacity:1!important}
+.hero-showcase-shade{
+  position:absolute!important;
+  inset:0!important;
+  z-index:3!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(90deg,rgba(2,5,4,.84) 0%,rgba(2,5,4,.63) 23%,rgba(2,5,4,.25) 56%,rgba(2,5,4,.18) 100%),
+    linear-gradient(180deg,rgba(2,5,4,.34) 0%,rgba(2,5,4,.05) 38%,rgba(2,5,4,.52) 100%)!important;
+}
+.hero-showcase-content{
+  position:absolute!important;
+  z-index:9!important;
+  left:max(var(--pad),calc((100vw - 1400px)/2 + var(--pad)))!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:clamp(38px,5vh,62px)!important;
+  width:auto!important;
+  max-width:none!important;
+  display:block!important;
+  pointer-events:none!important;
+}
+.hero-showcase-content>p{display:none!important}
+.hero-showcase .hero-metrics{
+  display:flex!important;
+  gap:28px!important;
+  width:max-content!important;
+  margin:0!important;
+  padding-top:15px!important;
+  border-top:1px solid rgba(244,244,239,.30)!important;
+}
+.hero-showcase .hero-metrics b{
+  color:#fff!important;
+  font-size:1.55rem!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.68)!important;
+}
+.hero-showcase .hero-metrics span{
+  color:#D3D8D4!important;
+  font-size:7px!important;
+}
+.filters-wrap{margin-top:0!important}
+@media(max-width:900px){
+  .hero{height:86svh!important;min-height:620px!important}
+  .hero-kicker{top:100px!important;left:24px!important}
+  .hero-title-wrap{left:24px!important;top:48%!important;width:calc(100vw - 48px)!important}
+  .hero h1{font-size:clamp(3.7rem,14vw,7rem)!important;max-width:8.5ch!important}
+  .hero-showcase-content{left:24px!important;bottom:28px!important}
+  .hero-showcase-youtube{width:max(100vw,177.78svh)!important;height:max(56.25vw,100svh)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-showcase-video,.hero-showcase-youtube{transition:none!important}
+}
+</style>
+<!-- SERVICES_HERO_PROJECT_REEL_V6_CSS_END -->
+
 </head>
 <body data-page="servicos" data-version="v4">
 <div class="ms-v3-progress" aria-hidden="true"></div>
@@ -1956,12 +2121,13 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
       </div>
       <div class="hero-copy hero-showcase" id="heroProjectShowcase">
         <div class="hero-showcase-media" aria-hidden="true">
-          <video class="hero-showcase-video is-active" muted playsinline preload="metadata"></video>
-          <video class="hero-showcase-video" muted playsinline preload="metadata"></video>
+          <video class="hero-showcase-video is-active" id="heroProjectVideoA" muted playsinline preload="auto"></video>
+          <video class="hero-showcase-video" id="heroProjectVideoB" muted playsinline preload="auto"></video>
+          <iframe class="hero-showcase-youtube" id="heroProjectYoutube" title="Showcase de projetos no Hero" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           <div class="hero-showcase-shade"></div>
         </div>
         <div class="hero-showcase-content">
-          <p>Design, vídeo, produção, motion, fotografia, identidade, campanhas, e-commerce, 3D e experiências web reunidos em um catálogo único.</p>
+          
           <div class="hero-metrics">
             <div><b>36</b><span>serviços</span></div>
             <div><b>12</b><span>especialidades</span></div>
@@ -2130,55 +2296,56 @@ if(quoteParams.get('orcamento')==='1'){
 })();
 </script>
 <!-- MENSAGEM_SERVICOS_V3_MOTION_END -->
-<!-- V4_HERO_SHOWCASE_JS_START -->
-<script id="v4-hero-showcase-js">
+<!-- SERVICES_HERO_PROJECT_REEL_V6_JS_START -->
+<script id="services-hero-project-reel-v6-js">
 (()=>{
-  const root=document.getElementById('heroProjectShowcase');
-  if(!root)return;
+  const videoA=document.getElementById('heroProjectVideoA');
+  const videoB=document.getElementById('heroProjectVideoB');
+  const youtube=document.getElementById('heroProjectYoutube');
+  if(!videoA||!videoB||!youtube)return;
 
-  // Internal project videos — same media family used by the working portfolio previews.
-  const sources=[
-    'https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file',
-    'https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/file',
-    'https://video.wixstatic.com/video/ef8a3a_47db0d21af3542abb5e1af4992b47135/file',
-    'https://video.wixstatic.com/video/ef8a3a_1ff0b6395d104d9cb9cb04b997f3d4fc/file',
-    'https://video.wixstatic.com/video/ef8a3a_bb66b77e34da4a2188503e76e05eed12/file'
+  const MAGO_ID='G_2jdXfXxiI';
+  const queue=[
+    {type:'video',name:'Miranha',src:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/51f4e63c-6d8a-4514-9dd1-4798996f76c1.mp4'},
+    {type:'video',name:'Cyberpunk',src:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/fa5b396e-dfaa-4537-887b-3c6843563d18.mp4'},
+    {type:'youtube',name:'Mago',id:MAGO_ID},
+    {type:'video',name:'Podcast / Workshop',src:'https://video.wixstatic.com/video/e540722d-a0a6-49fc-ac9e-6a48b56046f4/file'},
+    {type:'video',name:'Podcast — Episódio 2',src:'https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/file'},
+    {type:'video',name:'Workshop',src:'https://video.wixstatic.com/video/ef8a3a_1196bf4f729e43b2833694732dc048ed/file'},
+    {type:'video',name:'Workshop Cimed',src:'https://video.wixstatic.com/video/ef8a3a_1782a8e2c5c84a1db8e037ccf1e82bb0/file'},
+    {type:'video',name:'Motors Vans — Institucional',src:'https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file'},
+    {type:'video',name:'Composição Photoshop',src:'https://video.wixstatic.com/video/1f1af26b-e4d4-4a0a-ae69-0a43a87f4d89/file'}
   ];
 
-  const videos=[...root.querySelectorAll('.hero-showcase-video')];
-  if(videos.length<2)return;
-
+  const videos=[videoA,videoB];
   videos.forEach(v=>{
     v.muted=true;
+    v.defaultMuted=true;
     v.loop=true;
     v.playsInline=true;
     v.preload='auto';
     v.setAttribute('muted','');
     v.setAttribute('playsinline','');
-    v.setAttribute('aria-hidden','true');
   });
 
-  let sourceIndex=0;
-  let activeIndex=0;
-  let timer=null;
-  let switching=false;
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let queueIndex=0;
+  let activeVideo=null;
+  let activeKind=null;
+  let activeEl=null;
+  let timer=0;
+  let transitioning=false;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD_MS=9000;
+
+  function youtubeSrc(id){
+    return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist='+encodeURIComponent(id)+'&enablejsapi=1';
+  }
 
   function waitPlayable(video,src){
     return new Promise((resolve,reject)=>{
       let settled=false;
-      const done=()=>{
-        if(settled)return;
-        settled=true;
-        cleanup();
-        resolve();
-      };
-      const fail=()=>{
-        if(settled)return;
-        settled=true;
-        cleanup();
-        reject(new Error('video load failed'));
-      };
+      const done=()=>{if(settled)return;settled=true;cleanup();resolve()};
+      const fail=()=>{if(settled)return;settled=true;cleanup();reject(new Error('video load failed'))};
       const cleanup=()=>{
         video.removeEventListener('loadeddata',done);
         video.removeEventListener('canplay',done);
@@ -2193,84 +2360,86 @@ if(quoteParams.get('orcamento')==='1'){
     });
   }
 
-  async function playVideo(video){
+  function fadeOut(el){
+    if(!el)return;
+    el.classList.remove('is-active');
+    if(el.tagName==='VIDEO'){
+      setTimeout(()=>{
+        if(!el.classList.contains('is-active')){
+          try{el.pause()}catch(_){}
+        }
+      },950);
+    }else if(el===youtube){
+      setTimeout(()=>{
+        if(!youtube.classList.contains('is-active'))youtube.src='about:blank';
+      },950);
+    }
+  }
+
+  async function showItem(index){
+    if(transitioning)return false;
+    transitioning=true;
+    const item=queue[index];
+
     try{
-      video.currentTime=0;
-      await video.play();
+      if(item.type==='youtube'){
+        youtube.src=youtubeSrc(item.id);
+        requestAnimationFrame(()=>youtube.classList.add('is-active'));
+        if(activeEl&&activeEl!==youtube)fadeOut(activeEl);
+        activeEl=youtube;
+        activeKind='youtube';
+        activeVideo=null;
+      }else{
+        const nextVideo=activeVideo===videoA?videoB:videoA;
+        await waitPlayable(nextVideo,item.src);
+        try{nextVideo.currentTime=0}catch(_){}
+        await nextVideo.play().catch(()=>{});
+        nextVideo.classList.add('is-active');
+
+        if(activeEl&&activeEl!==nextVideo)fadeOut(activeEl);
+
+        activeEl=nextVideo;
+        activeKind='video';
+        activeVideo=nextVideo;
+      }
+      queueIndex=index;
+      transitioning=false;
       return true;
-    }catch(e){
+    }catch(_){
+      transitioning=false;
       return false;
     }
   }
 
-  async function loadFirst(){
-    for(let attempt=0;attempt<sources.length;attempt++){
-      const idx=(sourceIndex+attempt)%sources.length;
-      try{
-        await waitPlayable(videos[0],sources[idx]);
-        const ok=await playVideo(videos[0]);
-        if(!ok)continue;
-        sourceIndex=idx;
-        activeIndex=0;
-        videos[0].classList.add('is-active');
-        videos[1].classList.remove('is-active');
-        return true;
-      }catch(e){}
+  async function advance(){
+    for(let step=1;step<=queue.length;step++){
+      const idx=(queueIndex+step)%queue.length;
+      if(await showItem(idx))return;
     }
-    return false;
   }
 
-  async function rotate(){
-    if(switching)return;
-    switching=true;
-
-    const current=videos[activeIndex];
-    const next=videos[1-activeIndex];
-
-    for(let step=1;step<=sources.length;step++){
-      const idx=(sourceIndex+step)%sources.length;
-      try{
-        await waitPlayable(next,sources[idx]);
-        const ok=await playVideo(next);
-        if(!ok)continue;
-
-        next.classList.add('is-active');
-        current.classList.remove('is-active');
-
-        setTimeout(()=>{
-          try{current.pause()}catch(e){}
-          current.removeAttribute('src');
-          current.load();
-        },900);
-
-        sourceIndex=idx;
-        activeIndex=1-activeIndex;
-        switching=false;
-        return;
-      }catch(e){}
+  async function start(){
+    for(let i=0;i<queue.length;i++){
+      if(await showItem(i)){
+        queueIndex=i;
+        break;
+      }
     }
-
-    switching=false;
+    if(!reduce)timer=setInterval(advance,HOLD_MS);
   }
-
-  (async()=>{
-    const started=await loadFirst();
-    if(started&&!reduced){
-      timer=setInterval(rotate,5000);
-    }
-  })();
 
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){
-      videos.forEach(v=>{try{v.pause()}catch(e){}});
-    }else{
-      const active=videos[activeIndex];
-      if(active?.src) active.play().catch(()=>{});
+      videos.forEach(v=>{try{v.pause()}catch(_){}});
+    }else if(activeKind==='video'&&activeVideo){
+      activeVideo.play().catch(()=>{});
     }
   });
+
+  start();
 })();
 </script>
-<!-- V4_HERO_SHOWCASE_JS_END -->
+<!-- SERVICES_HERO_PROJECT_REEL_V6_JS_END -->
 
 </body>
 </html>
