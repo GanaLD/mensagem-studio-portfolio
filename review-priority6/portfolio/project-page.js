@@ -94,7 +94,7 @@
     'Olá! Vi o projeto "' + project.title + '" no portfólio da Mensagem Studio e quero conversar sobre um trabalho nessa direção.'
   );
   const whatsappURL = 'https://wa.me/5541999999937?text=' + whatsappMessage;
-  const quoteURL = '../../servicos/?orcamento=1&ref=' + encodeURIComponent(project.slug) + '&projeto=' + encodeURIComponent(project.title);
+  const quoteURL = '/wix-preview/servicos/?orcamento=1&ref=' + encodeURIComponent(project.slug) + '&projeto=' + encodeURIComponent(project.title);
 
   app.innerHTML = `
     <section class="hero"><div class="wrap"><div class="hero-grid">
@@ -126,8 +126,8 @@
       </div>
     </div></section>
     <section class="project-nav"><div class="wrap"><div class="project-nav-grid">
-      <a class="project-link" href="../${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
-      <a class="project-link next" href="../${esc(next.slug)}/"><small>Próximo projeto →</small><strong>${esc(next.title)}</strong></a>
+      <a class="project-link" href="/wix-preview/portfolio/${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
+      <a class="project-link next" href="/wix-preview/portfolio/${esc(next.slug)}/"><small>Próximo projeto →</small><strong>${esc(next.title)}</strong></a>
     </div></div></section>`;
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
