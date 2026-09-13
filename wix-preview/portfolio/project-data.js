@@ -1,6 +1,6 @@
 window.MENSAGEM_PROJECTS = [
   {
-    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Modelagem e Render 3D de Produto | EGEO', tag:'3D / Produto', description:'Case de modelagem e render 3D de produto para apresentação comercial de perfume, com foco em materiais, iluminação, composição e visualização CGI para publicidade, campanhas e conteúdo digital.', details:[{label:'Serviço',text:'Modelagem 3D de produto · Render 3D'},{label:'Aplicações',text:'Publicidade · Campanhas · Conteúdo digital'}],
+    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Modelagem e Render 3D de Produto | EGEO', tag:'3D / Produto', description:"Modelagem e render 3D de produto para apresentar o perfume com controle de forma, material, luz e enquadramento.", details:[{label:'Serviço',text:'Modelagem 3D de produto · Render 3D'},{label:'Aplicações',text:'Publicidade · Campanhas · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_4c36901c2391413a94b821cb081437f9/720p/mp4/file.mp4',
     media:[
       {type:'VIDEO',title:'Render 3D do Perfume EGEO Blue',url:'https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/720p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg'},
@@ -13,7 +13,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Design para Estética | Carrossel e Banner', tag:'Design / Social Media', description:'Projeto de design para clínicas e marcas de estética com criação de carrosséis, banners e peças de social media para campanhas digitais, lançamentos e comunicação visual.', details:[{label:'Serviço',text:'Design gráfico · Social media · Campanhas'},{label:'Aplicações',text:'Estética · Carrosséis · Banners · Mídia digital'}],
+    slug:'carrossel-banner-estetica', sourceSlug:'carrossel-e-banner-estética', title:'Design para Estética | Carrossel e Banner', tag:'Design / Social Media', description:"Design para campanhas de estética com foco em clareza, hierarquia visual e adaptação para banners e carrosséis.", details:[{label:'Serviço',text:'Design gráfico · Social media · Campanhas'},{label:'Aplicações',text:'Estética · Carrosséis · Banners · Mídia digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png', coverVideo:'',
     media:[
       {type:'IMAGE',title:'Carrossel para Estética — Design de Campanha',url:'https://static.wixstatic.com/media/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_b2c6c39450524cbf83b5e6828bf57d2a~mv2.png'},
@@ -26,7 +26,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Vídeo para Podcast e Workshop', tag:'Audiovisual / Edição', description:'Edição e pós-produção de vídeo para podcasts e workshops, com montagem, ritmo, tratamento visual e adaptação para episódios completos, cortes e conteúdo para redes sociais.', details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção audiovisual'},{label:'Aplicações',text:'Podcast · Workshop · Reels · Conteúdo digital'}],
+    slug:'edicao-podcast-workshop', sourceSlug:'edição-de-podcast-e-workshop', title:'Edição de Vídeo para Podcast e Workshop', tag:'Audiovisual / Edição', description:"Edição e pós-produção para transformar gravações em conteúdo claro, dinâmico e adaptável para diferentes formatos.", details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção audiovisual'},{label:'Aplicações',text:'Podcast · Workshop · Reels · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4',
     media:[
       {type:'VIDEO',title:'Edição de Podcast — Episódio Completo',url:'https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/1080p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg'},
@@ -75,7 +75,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Vídeo de Produto e Motion | Creatina Growth', tag:'Produto / Motion Design',
-    description:`Case de vídeo de produto, motion design e direção de arte para Creatina Growth, desenvolvido para campanha fitness com composição publicitária, ritmo visual e presença de marca.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
+    description:"Vídeo de produto com motion design e direção de arte para campanha fitness, com foco em ritmo, impacto e presença de marca.",
     details:[{label:'Serviço',text:'Vídeo de produto · Motion design · Direção de arte'},{label:'Aplicações',text:'Campanha fitness · Social media · Publicidade'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_b49679eaa9a2447dad19a3624ba5c58d/1080p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Key Visual Creatina Growth — Campanha Fitness',url:'https://static.wixstatic.com/media/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png'},
@@ -110,7 +110,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'motors-vans', sourceSlug:'project-title-6', title:'Design e Social Media Automotivo | Motors Vans', tag:'Social Media / Automotivo',
-    description:`Projeto de design e social media para Motors Vans Autopeças, com peças digitais, banners, campanhas sazonais e motion aplicados à comunicação visual automotiva.\n\nProposta de propaganda para divulgação em Social Media da Motors Vans Autopeças\n\nCriação de peça publicitária para redes sociais, desenvolvida para a Motors Vans Autopeças, seguindo a identidade visual da marca.\nO design foi elaborado para destacar a qualidade e variedade dos produtos, reforçando a credibilidade da empresa no segmento automotivo.`,
+    description:"Design e social media para campanhas automotivas, com foco em leitura rápida, oferta e presença de marca.",
     details:[{label:'Serviço',text:'Design gráfico · Social media · Motion'},{label:'Aplicações',text:'Automotivo · Campanhas · Conteúdo digital'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg', coverVideo:'',
     media:[
@@ -130,7 +130,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'edicao-fantasia-photoshop', sourceSlug:'edição-fantasia-photoshop', title:'Manipulação de Imagem e Composição | Photoshop', tag:'Photoshop / Composição',
-    description:`Projeto de manipulação de imagem e composição publicitária no Photoshop, construído com recorte, blocagem, texturas, luz, sombra, profundidade, VFX e finalização.\n\nDividindo em 12 fundamentos para montagem e construção de imagens, podemos criar sensações incríveis.\n\nPré Edição\n- Pesquisa de material\n- Decupagem (Seleção)\n\n- Blocagem\n- Texturas\n- Protagonista (Foco)\n- Refinamentos\n- Ambientação\n- Primeiro Plano (Profundidade)\n- Movimento\n- Luz e Sombra\n- VFX\n- Finalização\n\nLembrando que não é uma regra, e que muitas vezes vamos trabalhar varias das etapas de uma vez.`,
+    description:"Manipulação de imagem e composição no Photoshop com foco em integração, profundidade, luz e acabamento.",
     details:[{label:'Serviço',text:'Manipulação de imagem · Composição · Photoshop'},{label:'Aplicações',text:'Publicidade · Campanhas · Social media'}], cover:'https://static.wixstatic.com/media/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg/v1/fill/w_1280,h_720,al_c/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_1fb5082116104ec08b7e3a25b0f17011/720p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Composição Final no Photoshop — Key Visual',url:'https://static.wixstatic.com/media/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png'},
@@ -160,3 +160,72 @@ window.MENSAGEM_PROJECTS = [
     ]
   }
 ];
+
+window.MENSAGEM_CASE_STUDIES = {
+  "produto-3d-egeo": {
+    "intro": "Modelagem e render 3D de produto para apresentar o perfume com mais controle visual.",
+    "context": "Transformar o frasco em um ativo visual reutilizável para campanhas e conteúdo digital.",
+    "objective": "Valorizar o produto e manter consistência entre imagens e animações.",
+    "solution": "Modelagem fiel, materiais, iluminação e composição com foco no frasco.",
+    "process": "Referência, modelagem, materiais, luz, render e finalização.",
+    "tools": "Modelagem 3D, materiais, iluminação, render e composição.",
+    "result": "Um ativo 3D pronto para diferentes cenas, vídeos e peças publicitárias.",
+    "serviceLabel": "Modelagem 3D de Produto",
+    "serviceHref": "../../servicos/modelagem-3d-produto/"
+  },
+  "edicao-fantasia-photoshop": {
+    "intro": "Manipulação e composição no Photoshop para integrar elementos em uma cena única.",
+    "context": "Unir imagens diferentes mantendo perspectiva, cor e iluminação coerentes.",
+    "objective": "Criar uma composição convincente e visualmente clara.",
+    "solution": "Recorte, blocagem, luz, sombra, profundidade e VFX.",
+    "process": "Seleção, montagem, integração, refinamento e finalização.",
+    "tools": "Photoshop, máscaras, tratamento de cor, luz e VFX.",
+    "result": "Uma cena final coesa, com melhor profundidade e acabamento.",
+    "serviceLabel": "Design para Social Media",
+    "serviceHref": "../../servicos/design-social-media/"
+  },
+  "motors-vans": {
+    "intro": "Design e social media para campanhas automotivas com leitura rápida e foco comercial.",
+    "context": "Organizar ofertas, veículos e informações sem sobrecarregar a peça.",
+    "objective": "Destacar produto, condição e marca em poucos segundos.",
+    "solution": "Grid simples, contraste, recorte de veículos e hierarquia direta.",
+    "process": "Briefing, layout principal e adaptação para banner, feed e story.",
+    "tools": "Design gráfico, tratamento de imagem e motion de apoio.",
+    "result": "Peças consistentes e fáceis de adaptar para campanhas recorrentes.",
+    "serviceLabel": "Design para Social Media",
+    "serviceHref": "../../servicos/design-social-media/"
+  },
+  "creatina-growth": {
+    "intro": "Vídeo de produto com motion e direção de arte para campanha fitness.",
+    "context": "Apresentar a creatina com impacto sem perder a leitura da embalagem.",
+    "objective": "Criar uma peça curta, forte e direta para social media.",
+    "solution": "Composição, movimento e transições com o produto sempre em destaque.",
+    "process": "Conceito, montagem, animação, cor e finalização.",
+    "tools": "Edição, motion design, composição e VFX.",
+    "result": "Um vídeo de produto mais dinâmico, claro e pronto para campanha.",
+    "serviceLabel": "Motion Design e VFX",
+    "serviceHref": "../../servicos/motion-design-vfx/"
+  },
+  "edicao-podcast-workshop": {
+    "intro": "Edição e pós-produção para transformar gravações em conteúdo claro e dinâmico.",
+    "context": "Organizar material longo para episódio, cortes e redes sociais.",
+    "objective": "Melhorar ritmo e facilitar o reaproveitamento do conteúdo.",
+    "solution": "Montagem, cortes, tratamento visual e apoio gráfico.",
+    "process": "Decupagem, edição, refinamento e adaptação de formatos.",
+    "tools": "Edição, cor, áudio e motion de apoio.",
+    "result": "Conteúdo mais objetivo e preparado para diferentes canais.",
+    "serviceLabel": "Edição de Vídeo",
+    "serviceHref": "../../servicos/edicao-video/"
+  },
+  "carrossel-banner-estetica": {
+    "intro": "Design para campanhas de estética com foco em clareza, hierarquia e consistência.",
+    "context": "Organizar ofertas e informações em banners e carrosséis.",
+    "objective": "Transmitir a mensagem principal de forma rápida e visualmente limpa.",
+    "solution": "Hierarquia tipográfica, contraste, respiro e foco em produto ou modelo.",
+    "process": "Briefing, seleção de imagens, layout e adaptação para cada formato.",
+    "tools": "Direção de arte, tratamento de imagem e composição gráfica.",
+    "result": "Peças mais claras, consistentes e prontas para campanha.",
+    "serviceLabel": "Design para Social Media",
+    "serviceHref": "../../servicos/design-social-media/"
+  }
+};
