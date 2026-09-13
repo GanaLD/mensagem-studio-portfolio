@@ -75,7 +75,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Vídeo de Produto e Motion | Creatina Growth', tag:'Produto / Motion Design',
-    description:`Case de vídeo de produto, motion design e direção de arte para Creatina Growth, desenvolvido para campanha fitness com composição publicitária, ritmo visual e presença de marca.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
+    description:'Vídeo de produto com motion design e direção de arte para campanha fitness, com foco em ritmo, composição e presença de marca.',
     details:[{label:'Serviço',text:'Vídeo de produto · Motion design · Direção de arte'},{label:'Aplicações',text:'Campanha fitness · Social media · Publicidade'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_b49679eaa9a2447dad19a3624ba5c58d/1080p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Key Visual Creatina Growth — Campanha Fitness',url:'https://static.wixstatic.com/media/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png'},
