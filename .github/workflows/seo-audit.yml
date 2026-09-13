@@ -48,8 +48,8 @@ jobs:
               "fotos-para-ecommerce",
               "motors-vans",
               "edicao-fantasia-photoshop",
-              "poster-cartaz",
-              "motion-banner-cartaz-cinematografico",
+              "poster-cartaz-cinematografico",
+              "motion-design-cartaz-cinematografico",
           ]
           service_slugs = [
               "design-social-media",
