@@ -63,6 +63,9 @@ a{color:inherit;text-decoration:none}
 .masthead-side{padding:26px 0 8px 26px;border-left:1px solid rgba(201,255,54,.55)}
 .masthead-side strong{display:block;margin-top:12px;max-width:12ch;font-size:clamp(25px,2.3vw,38px);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere}
 .masthead-side p{margin:16px 0 0;color:#bcc2b6;line-height:1.6;font-size:14px}
+.quote-side blockquote{margin:16px 0 18px;max-width:14ch;font-size:clamp(26px,2.5vw,40px);line-height:1.04;letter-spacing:-.04em;font-weight:700}
+.quote-side cite{display:block;color:#d7ddd1;font-size:10px;line-height:1.4;letter-spacing:.13em;text-transform:uppercase;font-style:normal}
+.quote-side cite:before{content:"— ";color:var(--lime)}
 
 /* SHARED */
 .section{padding:var(--space) 0;border-bottom:1px solid rgba(255,255,255,.075)}
@@ -210,10 +213,10 @@ footer{padding:32px var(--pad);border-top:1px solid var(--line);display:flex;jus
           <a class="btn" href="../portfolio/">Ver projetos</a>
         </div>
       </div>
-      <aside class="masthead-side">
-        <div class="kicker">Imagem em movimento</div>
-        <strong>Criação também é ritmo.</strong>
-        <p>O vídeo de fundo entra em um trecho avançado do Dermacast para dar movimento à abertura sem repetir o fechamento da página.</p>
+      <aside class="masthead-side quote-side">
+        <div class="kicker">Direção · detalhe · acabamento</div>
+        <blockquote>“Os detalhes fazem a perfeição, e a perfeição não é um detalhe.”</blockquote>
+        <cite>Michelangelo Buonarroti</cite>
       </aside>
     </div>
   </div>
