@@ -19,697 +19,280 @@
 <meta name="twitter:title" content="Sobre a Mensagem Studio | Design, Audiovisual, 3D e Web em Curitiba">
 <meta name="twitter:description" content="Conheça a Mensagem Studio e Gabriel Slompo, designer e profissional de audiovisual em Curitiba com atuação em design gráfico, motion, edição de vídeo, 3D, IA e experiências web.">
 <meta name="twitter:image" content="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mensagemstudio.shop/#organization","name":"MENSAGEM STUDIO","url":"https://mensagemstudio.shop/","areaServed":[{"@type":"City","name":"Curitiba"},{"@type":"Country","name":"Brasil"}],"founder":{"@id":"https://mensagemstudio.shop/sobre/#gabriel"},"knowsAbout":["Design gráfico","Branding","Direção de arte","Edição de vídeo","Produção audiovisual","Motion design","VFX","Modelagem 3D","Render 3D","Inteligência artificial aplicada à criação","HTML","Experiências web","E-commerce"]},{"@type":"Person","@id":"https://mensagemstudio.shop/sobre/#gabriel","name":"Gabriel Slompo","jobTitle":"Designer Gráfico e Profissional de Audiovisual","worksFor":{"@id":"https://mensagemstudio.shop/#organization"},"url":"https://mensagemstudio.shop/sobre/","homeLocation":{"@type":"City","name":"Curitiba"},"alumniOf":[{"@type":"EducationalOrganization","name":"UniCesumar"},{"@type":"EducationalOrganization","name":"Estácio"},{"@type":"EducationalOrganization","name":"EBAC"}],"knowsAbout":["Design gráfico","Audiovisual","Cinema","Direção de arte","Edição de vídeo","Motion design","3D","UX/UI","E-commerce","Inteligência artificial aplicada à criação"]},{"@type":"AboutPage","@id":"https://mensagemstudio.shop/sobre/#webpage","name":"Sobre a Mensagem Studio | Design, Audiovisual, 3D e Web em Curitiba","url":"https://mensagemstudio.shop/sobre/","inLanguage":"pt-BR","description":"Conheça a Mensagem Studio e Gabriel Slompo, designer e profissional de audiovisual em Curitiba com atuação em design gráfico, motion, edição de vídeo, 3D, IA e experiências web.","image":"https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg","about":[{"@id":"https://mensagemstudio.shop/#organization"},{"@id":"https://mensagemstudio.shop/sobre/#gabriel"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mensagemstudio.shop/#organization","name":"MENSAGEM STUDIO","url":"https://mensagemstudio.shop/","areaServed":[{"@type":"City","name":"Curitiba"},{"@type":"Country","name":"Brasil"}],"founder":{"@id":"https://mensagemstudio.shop/sobre/#gabriel"},"knowsAbout":["Design gráfico","Branding","Direção de arte","Edição de vídeo","Produção audiovisual","Motion design","VFX","Modelagem 3D","Render 3D","Inteligência artificial aplicada à criação","HTML","Experiências web","E-commerce"]},{"@type":"Person","@id":"https://mensagemstudio.shop/sobre/#gabriel","name":"Gabriel Slompo","jobTitle":"Designer Gráfico e Profissional de Audiovisual","worksFor":{"@id":"https://mensagemstudio.shop/#organization"},"url":"https://mensagemstudio.shop/sobre/","homeLocation":{"@type":"City","name":"Curitiba"},"alumniOf":[{"@type":"EducationalOrganization","name":"UniCesumar"},{"@type":"EducationalOrganization","name":"EBAC"}],"affiliation":[{"@type":"EducationalOrganization","name":"Estácio"}],"knowsAbout":["Design gráfico","Audiovisual","Cinema","Direção de arte","Edição de vídeo","Motion design","3D","UX/UI","E-commerce","Inteligência artificial aplicada à criação"]},{"@type":"AboutPage","@id":"https://mensagemstudio.shop/sobre/#webpage","name":"Sobre a Mensagem Studio | Design, Audiovisual, 3D e Web em Curitiba","url":"https://mensagemstudio.shop/sobre/","inLanguage":"pt-BR","description":"Conheça a Mensagem Studio e Gabriel Slompo, designer e profissional de audiovisual em Curitiba com atuação em design gráfico, motion, edição de vídeo, 3D, IA e experiências web.","image":"https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg","about":[{"@id":"https://mensagemstudio.shop/#organization"},{"@id":"https://mensagemstudio.shop/sobre/#gabriel"}]}]}</script>
 
 <style>
-:root{
-  --bg:#070806;
-  --surface:#0e110c;
-  --surface-muted:#151a12;
-  --fg:#f5f6ef;
-  --muted:#a8aea0;
-  --line:rgba(255,255,255,.13);
-  --lime:#c9ff36;
-  --orange:#ff7043;
-  --pad:clamp(18px,4vw,64px);
-  --max:1540px;
-  --section-space:clamp(88px,9vw,144px);
-}
+:root{--bg:#070806;--panel:#0d110c;--panel2:#12170f;--fg:#f4f6ef;--muted:#a8afa0;--line:rgba(255,255,255,.12);--line-strong:rgba(201,255,54,.28);--lime:#c9ff36;--pad:clamp(18px,4vw,64px);--max:1480px;--radius:22px;--space:clamp(76px,8vw,124px)}
 *{box-sizing:border-box}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
 html{background:var(--bg);scroll-behavior:smooth}
-body{
-  margin:0;
-  background:
-    radial-gradient(circle at 84% 8%,rgba(201,255,54,.075),transparent 25%),
-    var(--bg);
-  color:var(--fg);
-  font-family:Arial,Helvetica,sans-serif;
-  overflow-x:hidden;
-}
+body{margin:0;color:var(--fg);font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at 84% 6%,rgba(201,255,54,.075),transparent 23%),radial-gradient(circle at 8% 48%,rgba(49,124,76,.11),transparent 28%),var(--bg)}
+img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-button{font:inherit}
-.wrap{width:min(var(--max),100%);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}
-.kicker{
-  color:var(--lime);
-  font-size:10px;
-  line-height:1.2;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:800;
-}
-.muted{color:var(--muted)}
+.wrap{width:min(var(--max),100%);margin-inline:auto;padding-inline:var(--pad);min-width:0}
+.kicker{color:var(--lime);font-size:10px;line-height:1.2;letter-spacing:.18em;text-transform:uppercase;font-weight:850}
 
-/* HEADER */
-.top{
-  position:sticky;
-  top:0;
-  z-index:60;
-  min-height:72px;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:18px;
-  padding:0 var(--pad);
-  border-bottom:1px solid var(--line);
-  background:rgba(7,8,6,.82);
-  backdrop-filter:blur(18px);
-}
-.brand{font-size:12px;font-weight:850;letter-spacing:.12em}
-.nav{display:flex;gap:8px;justify-content:center}
-.nav a{
-  padding:10px 14px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:999px;
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:.18s ease;
-}
-.nav a:hover{border-color:rgba(201,255,54,.52);color:var(--lime)}
-.nav a.on{background:var(--fg);border-color:var(--fg);color:#080907}
-.right{justify-self:end;color:var(--muted);font-size:10px;letter-spacing:.11em;text-transform:uppercase}
+/* NAV */
+.top{position:sticky;top:0;z-index:100;min-height:72px;padding-inline:var(--pad);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:18px;background:rgba(7,8,6,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.brand{min-width:0;font-size:12px;font-weight:900;letter-spacing:.12em;white-space:nowrap}
+.brand em{font-style:normal;color:var(--lime)}
+.nav{display:flex;gap:8px;justify-content:center;min-width:0}
+.nav a{padding:10px 15px;border:1px solid var(--line);border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.nav a:hover{border-color:rgba(201,255,54,.48);color:var(--lime)}
+.nav a.on{background:#f7f8f4;color:#090a08;border-color:#f7f8f4}
+.location{justify-self:end;color:var(--muted);font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
 
 /* BUTTONS */
 .actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{
-  min-height:52px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-  padding:0 20px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.035);
-  color:var(--fg);
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-  transition:transform .18s ease,border-color .18s ease,background .18s ease;
-}
-.btn:hover{transform:translateY(-2px);border-color:rgba(201,255,54,.58);background:rgba(201,255,54,.055)}
-.btn.primary{background:var(--lime);border-color:var(--lime);color:#0a0d08}
-.btn.primary:hover{background:#d5ff62}
+.btn{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 19px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.03);font-size:10px;font-weight:850;letter-spacing:.105em;text-transform:uppercase;transition:.18s ease}
+.btn:hover{transform:translateY(-2px);border-color:rgba(201,255,54,.5)}
+.btn.primary{background:var(--lime);border-color:var(--lime);color:#091006}
 
-/* HERO */
-.hero{
-  position:relative;
-  min-height:88vh;
-  display:flex;
-  align-items:flex-end;
-  overflow:hidden;
-  border-bottom:1px solid var(--line);
-  padding:clamp(120px,12vw,176px) 0 clamp(76px,7vw,104px);
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/25% 100%,
-    radial-gradient(circle at 77% 23%,rgba(201,255,54,.115),transparent 26%);
-  opacity:.6;
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  left:var(--pad);
-  right:var(--pad);
-  bottom:0;
-  height:1px;
-  background:linear-gradient(90deg,var(--lime),rgba(201,255,54,0) 32%);
-  opacity:.55;
-}
-.hero-grid{
-  position:relative;
-  z-index:2;
-  width:100%;
-  display:grid;
-  grid-template-columns:minmax(0,1.52fr) minmax(320px,.48fr);
-  gap:clamp(54px,7vw,118px);
-  align-items:end;
-}
-.hero-main{min-width:0}
-.hero-title{
-  margin:18px 0 0;
-  font-size:clamp(60px,7.5vw,122px);
-  line-height:.86;
-  letter-spacing:-.063em;
-  text-transform:uppercase;
-  font-weight:850;
-  max-width:12ch;
-}
-.hero-title span{display:block}
-.hero-bottom{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  align-items:end;
-  gap:clamp(26px,4vw,68px);
-  margin-top:38px;
-  max-width:1040px;
-}
-.hero-lead{
-  margin:0;
-  max-width:48ch;
-  color:#c4c9bd;
-  font-size:clamp(16px,1.25vw,20px);
-  line-height:1.58;
-}
-.hero-side{
-  position:relative;
-  padding:30px 0 4px 30px;
-  border-left:1px solid rgba(201,255,54,.55);
-}
-.hero-side:before{
-  content:"";
-  position:absolute;
-  left:-1px;
-  top:0;
-  width:1px;
-  height:58px;
-  background:var(--lime);
-  box-shadow:0 0 18px rgba(201,255,54,.4);
-}
-.hero-side .label{
-  display:block;
-  color:var(--lime);
-  font-size:9px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-weight:800;
-  margin-bottom:16px;
-}
-.hero-side strong{
-  display:block;
-  max-width:12ch;
-  font-size:clamp(24px,2.25vw,36px);
-  line-height:1.02;
-  letter-spacing:-.035em;
-}
-.hero-side p{
-  margin:18px 0 0;
-  color:var(--muted);
-  line-height:1.62;
-  max-width:34ch;
-  font-size:14px;
-}
-.hero-tags{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px 18px;
-  margin-top:28px;
-  padding-top:20px;
-  border-top:1px solid var(--line);
-  color:#c9cec3;
-  font-size:9px;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-}
+/* TOP VIDEO */
+.masthead{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line);background:#030403;isolation:isolate}
+.masthead-video,.masthead-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+.masthead-poster{z-index:-4}
+.masthead-video{filter:saturate(.78) contrast(1.04) brightness(.74)}
+.masthead:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(3,4,3,.88) 0%,rgba(3,4,3,.5) 43%,rgba(3,4,3,.18) 72%,rgba(3,4,3,.34) 100%),linear-gradient(0deg,rgba(3,4,3,.91) 0%,rgba(3,4,3,.08) 58%,rgba(3,4,3,.36) 100%)}
+.masthead:after{content:"";position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:1px;background:linear-gradient(90deg,var(--lime),transparent 30%);opacity:.5}
+.masthead-content{width:100%;padding:clamp(128px,13vw,190px) 0 clamp(70px,7vw,104px)}
+.masthead-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.38fr);gap:clamp(44px,7vw,110px);align-items:end;min-width:0}
+.masthead-copy,.masthead-side{min-width:0}
+.masthead h1{margin:16px 0 24px;padding-top:.07em;max-width:10.2ch;font-size:clamp(62px,8vw,126px);line-height:.92;letter-spacing:-.067em;text-transform:uppercase;overflow:visible;text-wrap:balance}
+.masthead-lead{margin:0;max-width:54ch;color:#d0d5ca;font-size:clamp(16px,1.2vw,20px);line-height:1.62}
+.masthead-side{padding:26px 0 8px 26px;border-left:1px solid rgba(201,255,54,.55)}
+.masthead-side strong{display:block;margin-top:12px;max-width:12ch;font-size:clamp(25px,2.3vw,38px);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere}
+.masthead-side p{margin:16px 0 0;color:#bcc2b6;line-height:1.6;font-size:14px}
 
-/* SHARED SECTIONS */
-.section{padding:var(--section-space) 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.section-head{
-  display:grid;
-  grid-template-columns:minmax(0,.95fr) minmax(320px,.55fr);
-  gap:clamp(42px,7vw,116px);
-  align-items:end;
-  margin-bottom:clamp(42px,5vw,72px);
-}
-.section-head h2{
-  margin:12px 0 0;
-  max-width:11ch;
-  font-size:clamp(48px,5.6vw,88px);
-  line-height:.9;
-  letter-spacing:-.052em;
-  text-transform:uppercase;
-}
-.section-head p{
-  margin:0;
-  color:var(--muted);
-  max-width:54ch;
-  line-height:1.68;
-  font-size:clamp(15px,1.05vw,18px);
-}
+/* SHARED */
+.section{padding:var(--space) 0;border-bottom:1px solid rgba(255,255,255,.075)}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.56fr);gap:clamp(34px,6vw,90px);align-items:end;margin-bottom:44px;min-width:0}
+.section-head>*{min-width:0}
+.section-head h2{margin:11px 0 0;max-width:11ch;font-size:clamp(46px,5.4vw,82px);line-height:.9;letter-spacing:-.055em;text-transform:uppercase;overflow-wrap:anywhere}
+.section-head p{margin:0;max-width:58ch;color:var(--muted);line-height:1.68;font-size:16px}
 
-/* CAPABILITY CARDS */
-.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{
-  min-height:300px;
-  padding:30px;
-  border:1px solid var(--line);
-  background:linear-gradient(145deg,rgba(255,255,255,.042),rgba(255,255,255,.012));
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  position:relative;
-  overflow:hidden;
-  transition:transform .22s ease,border-color .22s ease,background .22s ease;
-}
-.card:hover{transform:translateY(-4px);border-color:rgba(201,255,54,.42);background:linear-gradient(145deg,rgba(201,255,54,.055),rgba(255,255,255,.012))}
-.card:before{
-  content:"";
-  position:absolute;
-  right:-78px;
-  top:-78px;
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  background:rgba(201,255,54,.075);
-  filter:blur(12px);
-}
-.card small{
-  position:relative;
-  z-index:1;
-  color:var(--lime);
-  font-size:9px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-weight:800;
-}
-.card h3{
-  position:relative;
-  z-index:1;
-  margin:70px 0 14px;
-  font-size:clamp(27px,2.45vw,40px);
-  line-height:.98;
-  letter-spacing:-.04em;
-  text-transform:uppercase;
-}
-.card p{
-  position:relative;
-  z-index:1;
-  margin:0;
-  color:var(--muted);
-  line-height:1.6;
-  max-width:34ch;
-  font-size:14px;
-}
-a.card{color:inherit;text-decoration:none;cursor:pointer}
-a.card:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
-.card-link{
-  position:relative;
-  z-index:1;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  margin-top:22px;
-  color:var(--lime);
-  font-size:9px;
-  font-weight:850;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.card-link:after{content:"↗";font-size:13px;line-height:1}
-.section-actions{
-  display:flex;
-  justify-content:flex-end;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:28px;
-  padding-top:24px;
-  border-top:1px solid rgba(255,255,255,.08);
-}
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{min-width:0;min-height:310px;padding:28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.008)),var(--panel);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.card:after{content:"";position:absolute;width:170px;height:170px;right:-100px;top:-100px;border-radius:50%;background:rgba(201,255,54,.09);filter:blur(18px)}
+.card small{position:relative;z-index:1;color:var(--lime);font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+.card h3{position:relative;z-index:1;margin:62px 0 12px;font-size:clamp(26px,2.4vw,38px);line-height:1;letter-spacing:-.04em;text-transform:uppercase;overflow-wrap:anywhere}
+.card p{position:relative;z-index:1;margin:0;color:var(--muted);line-height:1.6}
 
+/* PROFILE */
+.profile{width:100%;min-width:0;display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:radial-gradient(circle at 10% 7%,rgba(201,255,54,.09),transparent 30%),var(--panel)}
+.profile-intro,.profile-body{min-width:0;padding:clamp(30px,4vw,60px)}
+.profile-intro{border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:56px}
+.profile-intro h2{margin:12px 0 24px;max-width:9.5ch;font-size:clamp(46px,5vw,78px);line-height:.91;letter-spacing:-.054em;text-transform:uppercase;overflow-wrap:anywhere}
+.profile-intro p{margin:0;max-width:44ch;color:#c3c9bc;line-height:1.7}
+.profile-name{padding-top:22px;border-top:1px solid var(--line)}
+.profile-name small{display:block;margin-bottom:10px;color:var(--lime);font-size:9px;text-transform:uppercase;letter-spacing:.15em}
+.profile-name strong{display:block;font-size:clamp(28px,2.5vw,40px);line-height:1;letter-spacing:-.04em;overflow-wrap:anywhere}
+.profile-body{display:grid;gap:0}
+.credential-group{min-width:0;display:grid;grid-template-columns:minmax(118px,150px) minmax(0,1fr);gap:clamp(18px,2.5vw,32px);padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid var(--line)}
+.credential-group:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+.credential-label{min-width:0;padding-top:4px;color:var(--lime);font-size:9px;line-height:1.35;letter-spacing:.15em;text-transform:uppercase;font-weight:850;overflow-wrap:anywhere}
+.credential-list{min-width:0;display:grid;gap:22px}
+.credential{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,max-content);gap:18px;align-items:start}
+.credential.no-date{grid-template-columns:minmax(0,1fr)}
+.credential>div{min-width:0}
+.credential h3{margin:0 0 8px;min-width:0;font-size:clamp(22px,1.65vw,28px);line-height:1.08;letter-spacing:-.026em;overflow-wrap:anywhere}
+.credential p{margin:0;min-width:0;max-width:60ch;color:var(--muted);font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.credential-date{min-width:0;padding-top:5px;color:#d9dfd1;font-size:9px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;text-align:right;white-space:normal;overflow-wrap:anywhere}
+.skills{min-width:0;display:flex;flex-wrap:wrap;gap:8px}
+.skills span{min-width:0;padding:8px 11px;border:1px solid rgba(201,255,54,.24);border-radius:999px;background:rgba(201,255,54,.035);font-size:9px;line-height:1.15;text-transform:uppercase;letter-spacing:.09em;overflow-wrap:anywhere}
 
-/* PROFILE / CREDENTIALS */
-.profile-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
-  border:1px solid var(--line);
-  background:
-    radial-gradient(circle at 12% 8%,rgba(201,255,54,.09),transparent 28%),
-    var(--surface);
-}
-.profile-intro,.profile-content{padding:clamp(34px,4.4vw,68px)}
-.profile-intro{border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:54px}
-.profile-intro h2{margin:14px 0 24px;font-size:clamp(48px,5.4vw,84px);line-height:.9;letter-spacing:-.052em;text-transform:uppercase}
-.profile-intro p{margin:0;color:#c5cabf;line-height:1.7;max-width:46ch}
-.profile-name{padding-top:24px;border-top:1px solid var(--line)}
-.profile-name small{display:block;color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
-.profile-name strong{display:block;font-size:clamp(28px,2.4vw,40px);line-height:1;letter-spacing:-.04em}
-.profile-content{display:grid;gap:36px}
-.credential-group{display:grid;grid-template-columns:160px 1fr;gap:28px;padding-bottom:30px;border-bottom:1px solid var(--line)}
-.credential-group:last-child{border-bottom:0;padding-bottom:0}
-.credential-label{color:var(--lime);font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;padding-top:5px}
-.credential-list{display:grid;gap:18px}
-.credential{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start}
-.credential h3{margin:0 0 7px;font-size:clamp(21px,1.7vw,28px);letter-spacing:-.025em}
-.credential p{margin:0;color:var(--muted);line-height:1.58;font-size:14px;max-width:58ch}
-.credential span{color:#d6dccf;font-size:10px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding-top:5px}
-.skill-cloud{display:flex;flex-wrap:wrap;gap:8px}
-.skill-cloud span{padding:9px 12px;border:1px solid rgba(201,255,54,.22);background:rgba(201,255,54,.035);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#d3d9cd}
-@media(max-width:900px){.profile-shell{grid-template-columns:1fr}.profile-intro{border-right:0;border-bottom:1px solid var(--line)}}
-@media(max-width:660px){.profile-intro,.profile-content{padding:28px 22px}.credential-group{grid-template-columns:1fr;gap:16px}.credential{grid-template-columns:1fr}.credential span{white-space:normal}}
+/* EXPERIENCE */
+.experience-shell{width:100%;display:grid;grid-template-columns:minmax(0,.58fr) minmax(0,1.42fr);gap:16px}
+.experience-copy,.experience-grid{min-width:0;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.experience-copy{padding:32px}
+.experience-copy h3{margin:14px 0;font-size:clamp(31px,3vw,48px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase}
+.experience-copy p{margin:0;color:var(--muted);line-height:1.65}
+.experience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden}
+.xp{min-width:0;padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.xp:nth-child(2n){border-right:0}.xp:nth-last-child(-n+2){border-bottom:0}
+.xp small{color:var(--lime);font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+.xp strong{display:block;margin-top:10px;font-size:22px;letter-spacing:-.03em;overflow-wrap:anywhere}
+.xp p{margin:9px 0 0;color:var(--muted);line-height:1.55;font-size:13px}
 
 /* PROCESS */
-.process{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
-}
-.step{
-  min-height:240px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:28px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:rgba(9,11,8,.5);
-}
-.step b{
-  color:var(--lime);
-  font-size:10px;
-  letter-spacing:.15em;
-}
-.step h3{
-  margin:54px 0 10px;
-  font-size:clamp(23px,2vw,31px);
-  line-height:1;
-  letter-spacing:-.03em;
-  text-transform:uppercase;
-}
-.step p{margin:0;color:var(--muted);line-height:1.58;font-size:14px}
-
-/* AGENCY */
-.agency-shell{
-  display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(300px,.55fr);
-  border:1px solid var(--line);
-  background:
-    radial-gradient(circle at 88% 8%,rgba(201,255,54,.1),transparent 23%),
-    var(--surface);
-}
-.agency-main,.agency-side{padding:clamp(34px,4.4vw,68px)}
-.agency-main{border-right:1px solid var(--line)}
-.agency-main h2{
-  margin:14px 0 26px;
-  max-width:10ch;
-  font-size:clamp(50px,5.6vw,90px);
-  line-height:.88;
-  letter-spacing:-.055em;
-  text-transform:uppercase;
-}
-.agency-main p,.agency-side p{margin:0;color:#c5cabf;line-height:1.68;max-width:56ch}
-.agency-side{
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  gap:54px;
-}
-.agency-side strong{
-  display:block;
-  max-width:12ch;
-  font-size:clamp(25px,2.65vw,42px);
-  line-height:1.02;
-  letter-spacing:-.04em;
-}
+.process{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);border-radius:18px;overflow:hidden}
+.step{min-width:0;min-height:220px;padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(9,11,8,.48);display:flex;flex-direction:column;justify-content:space-between}
+.step b{color:var(--lime);font-size:10px;letter-spacing:.12em}
+.step h3{margin:42px 0 9px;font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:-.03em;overflow-wrap:anywhere}
+.step p{margin:0;color:var(--muted);line-height:1.58}
 
 /* PROJECT CTA */
-.project-band{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:48px;
-  align-items:end;
-  padding:clamp(38px,5vw,68px);
-  border:1px solid var(--line);
-  background:linear-gradient(120deg,var(--surface-muted),rgba(14,17,12,.45));
-}
-.project-band h2{
-  margin:12px 0 18px;
-  max-width:13ch;
-  font-size:clamp(44px,5vw,78px);
-  line-height:.92;
-  letter-spacing:-.05em;
-  text-transform:uppercase;
-}
+.project-band{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:end;padding:clamp(28px,4vw,48px);border:1px solid var(--line-strong);border-radius:20px;background:linear-gradient(120deg,rgba(201,255,54,.055),rgba(14,17,12,.7)),var(--panel2)}
+.project-band>*{min-width:0}
+.project-band h2{margin:10px 0 14px;max-width:11ch;font-size:clamp(44px,4.9vw,74px);line-height:.92;letter-spacing:-.052em;text-transform:uppercase;overflow-wrap:anywhere}
 .project-band p{margin:0;color:var(--muted);max-width:58ch;line-height:1.65}
 
-/* CRISTO CLOSING HERO */
-.cristo{
-  position:relative;
-  min-height:88vh;
-  overflow:hidden;
-  border-bottom:1px solid var(--line);
-  background:#050604;
-}
-.cristo video,
-.cristo .cristo-poster{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.cristo video{z-index:0}
-.cristo-poster{z-index:-1}
-.cristo-overlay{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:
-    linear-gradient(90deg,rgba(5,6,4,.93) 0%,rgba(5,6,4,.72) 38%,rgba(5,6,4,.2) 72%,rgba(5,6,4,.32) 100%),
-    linear-gradient(0deg,rgba(5,6,4,.88) 0%,rgba(5,6,4,.14) 52%,rgba(5,6,4,.46) 100%);
-}
-.cristo-content{
-  position:relative;
-  z-index:2;
-  min-height:88vh;
-  display:flex;
-  align-items:flex-end;
-  padding:clamp(110px,13vw,180px) 0 clamp(70px,7vw,104px);
-}
-.cristo-grid{
-  width:100%;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(270px,.42fr);
-  gap:clamp(46px,8vw,130px);
-  align-items:end;
-}
-.cristo h2{
-  margin:14px 0 26px;
-  max-width:8ch;
-  font-size:clamp(66px,9vw,142px);
-  line-height:.82;
-  letter-spacing:-.068em;
-  text-transform:uppercase;
-}
-.cristo-copy{
-  margin:0;
-  color:#d0d4cb;
-  max-width:47ch;
-  font-size:clamp(16px,1.2vw,20px);
-  line-height:1.62;
-}
-.cristo-side{
-  padding-left:28px;
-  border-left:1px solid rgba(201,255,54,.56);
-}
-.cristo-side strong{
-  display:block;
-  font-size:clamp(24px,2.4vw,38px);
-  line-height:1.04;
-  letter-spacing:-.035em;
-  max-width:12ch;
-}
-.cristo-side p{margin:16px 0 28px;color:#c2c7bc;line-height:1.6}
+/* CLOSING */
+.closing{min-height:70vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;background:#050604;border-top:1px solid var(--line)}
+.closing img,.closing video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}
+.closing video{z-index:-2}
+.closing:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,6,4,.94),rgba(5,6,4,.6) 45%,rgba(5,6,4,.2)),linear-gradient(0deg,rgba(5,6,4,.9),transparent 60%)}
+.closing-content{width:100%;padding:100px 0 68px}
+.closing h2{margin:11px 0 22px;max-width:7ch;font-size:clamp(64px,8.8vw,132px);line-height:.82;letter-spacing:-.067em;text-transform:uppercase}
+.closing p{margin:0;max-width:50ch;color:#d1d6ca;line-height:1.65;font-size:18px}
+.closing .actions{margin-top:28px}
 
-/* FOOTER */
-footer{
-  padding:34px var(--pad);
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
+footer{padding:32px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
 
-/* RESPONSIVE */
-@media(max-width:1080px){
-  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(280px,.48fr);gap:44px}
-  .hero-bottom{grid-template-columns:1fr}
-  .section-head{grid-template-columns:minmax(0,1fr) minmax(280px,.6fr);gap:42px}
-  .cards3{grid-template-columns:1fr 1fr}
-  .card:last-child{grid-column:1/-1}
+@media(max-width:1180px){
+  .credential{grid-template-columns:minmax(0,1fr);gap:7px}
+  .credential.no-date{grid-template-columns:1fr}
+  .credential-date{text-align:left;padding-top:0;color:var(--lime)}
 }
-@media(max-width:900px){
-  .top{grid-template-columns:1fr auto}
-  .right{display:none}
-  .hero{min-height:auto;padding:116px 0 78px}
-  .hero-grid,.section-head,.agency-shell,.project-band,.cristo-grid{grid-template-columns:1fr}
-  .hero-side{
-    border-left:0;
-    border-top:1px solid rgba(201,255,54,.5);
-    padding:28px 0 0;
-  }
-  .hero-side:before{left:0;top:-1px;width:76px;height:1px}
-  .hero-side strong{max-width:18ch}
-  .agency-main{border-right:0;border-bottom:1px solid var(--line)}
-  .process{grid-template-columns:1fr 1fr}
-  .cristo-side{max-width:580px}
+@media(max-width:940px){
+  .top{grid-template-columns:minmax(0,1fr) auto}.location{display:none}
+  .masthead{min-height:auto}.masthead-grid,.section-head,.profile,.experience-shell,.project-band{grid-template-columns:1fr}
+  .masthead-side{max-width:640px;border-left:0;border-top:1px solid rgba(201,255,54,.45);padding:24px 0 0}
+  .profile-intro{border-right:0;border-bottom:1px solid var(--line)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cards .card:last-child{grid-column:1/-1}
+  .process{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-band .btn{justify-self:start}
 }
-@media(max-width:660px){
-  .top{padding:10px 14px;min-height:64px}
-  .brand{display:none}
-  .nav{justify-content:flex-start;overflow:auto}
-  .nav a{padding:9px 11px;white-space:nowrap}
-  .hero{padding:96px 0 64px}
-  .hero-title{font-size:clamp(48px,14vw,70px);max-width:10.5ch}
-  .hero-bottom{margin-top:28px}
-  .hero-lead{font-size:15px}
-  .hero-tags{grid-template-columns:1fr 1fr}
-  .section{padding:76px 0}
-  .section-head{margin-bottom:34px}
+@media(max-width:700px){
+  :root{--pad:18px}
+  .top{min-height:64px;padding:8px 14px;grid-template-columns:1fr}
+  .brand{display:none}.nav{justify-content:flex-start;overflow:auto}.nav::-webkit-scrollbar{display:none}
+  .masthead-content{padding:92px 0 62px}
+  .masthead h1{font-size:clamp(48px,14vw,70px);max-width:9ch;line-height:.95;padding-top:.08em}
+  .masthead-lead{font-size:15px}
+  .section{padding:74px 0}.section-head{margin-bottom:30px}
   .section-head h2{font-size:clamp(42px,12vw,58px)}
-  .cards3{grid-template-columns:1fr}
-  .card:last-child{grid-column:auto}
-  .card{min-height:245px;padding:24px}
-  .card h3{margin-top:48px}
-  .process{grid-template-columns:1fr}
-  .step{min-height:205px;padding:24px}
-  .step h3{margin-top:38px}
-  .agency-main,.agency-side{padding:28px 22px}
-  .project-band{padding:28px 22px}
-  .cristo{min-height:82vh}
-  .cristo-content{min-height:82vh;padding:100px 0 64px}
-  .cristo h2{font-size:clamp(56px,16vw,82px)}
-  .cristo-side{padding-left:0;padding-top:24px;border-left:0;border-top:1px solid rgba(201,255,54,.55)}
-  footer{flex-direction:column;padding:28px 18px}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .card,.btn{transition:none}
+  .cards{grid-template-columns:1fr}.cards .card:last-child{grid-column:auto}
+  .card{min-height:240px;padding:23px}
+  .profile-intro,.profile-body{padding:26px 20px}.profile-intro h2{font-size:clamp(40px,11vw,56px)}
+  .credential-group{grid-template-columns:1fr;gap:14px}.credential-label{padding-top:0}
+  .credential{grid-template-columns:1fr;gap:8px;padding:0}.credential-date{text-align:left;padding-top:0;color:var(--lime)}
+  .experience-grid{grid-template-columns:1fr}
+  .xp,.xp:nth-child(2n),.xp:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}
+  .xp:last-child{border-bottom:0}
+  .process{grid-template-columns:1fr}.step{min-height:190px}
+  .project-band{padding:24px 20px}
+  .closing{min-height:66vh}.closing-content{padding:84px 0 58px}
+  .closing h2{font-size:clamp(54px,16vw,80px)}
+  footer{flex-direction:column;padding:28px 18px 62px}
 }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <a class="brand" href="../">MENSAGEM STUDIO</a>
+  <a class="brand" href="../">MENSAGEM <em>STUDIO</em></a>
   <nav class="nav" aria-label="Navegação principal">
     <a href="../">Home</a>
     <a href="../portfolio/">Projetos</a>
     <a href="../servicos/">Serviços</a>
     <a class="on" href="./">Sobre</a>
   </nav>
-  <span class="right">Produção criativa · Curitiba</span>
+  <span class="location">Curitiba · Brasil</span>
 </header>
 
 <main>
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-main">
-      <div class="kicker">MENSAGEM STUDIO · PRODUÇÃO CRIATIVA</div>
-      <h1 class="hero-title">
-        <span>Estúdio de design</span>
-        <span>e produção criativa</span>
-        <span>em Curitiba</span>
-      </h1>
-      <div class="hero-bottom">
-        <p class="hero-lead">Design gráfico, audiovisual, motion, 3D, inteligência artificial e experiências web para marcas, agências, produtoras e negócios digitais.</p>
-        <div class="actions">
-          <a class="btn primary" href="../servicos/">Conhecer serviços ↗</a>
-          <a class="btn" href="../portfolio/">Ver projetos ↗</a>
+<section class="masthead">
+  <img class="masthead-poster" src="https://static.wixstatic.com/media/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg" alt="">
+  <video id="dermacastBg" class="masthead-video" muted autoplay playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_9f378301d1d941d9894a82556f8e76a6f000.jpg">
+    <source src="https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/1080p/mp4/file.mp4" type="video/mp4">
+  </video>
+
+  <div class="masthead-content">
+    <div class="wrap masthead-grid">
+      <div class="masthead-copy">
+        <div class="kicker">Mensagem Studio · Curitiba</div>
+        <h1>Sobre o estúdio.</h1>
+        <p class="masthead-lead">Design gráfico, audiovisual, motion, 3D, inteligência artificial e experiências web trabalhando sob uma mesma direção criativa.</p>
+        <div class="actions" style="margin-top:28px">
+          <a class="btn primary" href="#criador">Conhecer trajetória</a>
+          <a class="btn" href="../portfolio/">Ver projetos</a>
         </div>
       </div>
+      <aside class="masthead-side">
+        <div class="kicker">Imagem em movimento</div>
+        <strong>Criação também é ritmo.</strong>
+        <p>O vídeo de fundo entra em um trecho avançado do Dermacast para dar movimento à abertura sem repetir o fechamento da página.</p>
+      </aside>
     </div>
-
-    <aside class="hero-side">
-      <span class="label">Direção integrada</span>
-      <strong>Da ideia à entrega, uma direção só.</strong>
-      <p>Direção de arte, design, audiovisual e tecnologia trabalhando juntos para transformar objetivos de marca em peças, campanhas, produtos e experiências digitais.</p>
-      <div class="hero-tags">
-        <span>Design</span><span>Motion</span>
-        <span>Audiovisual</span><span>3D / CGI</span>
-      </div>
-    </aside>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">01 · DESIGN, MARCA E VÍDEO</div>
-        <h2>Forma, mensagem e movimento.</h2>
-      </div>
-      <p>Identidade visual, design gráfico e edição de vídeo para marcas, campanhas e conteúdos digitais.</p>
+      <div><div class="kicker">01 · Frentes de atuação</div><h2>Forma, mensagem e movimento.</h2></div>
+      <p>Uma estrutura multidisciplinar para marcas, campanhas, audiovisual, produtos e experiências digitais — sem fragmentar a direção criativa entre diferentes fornecedores.</p>
     </div>
-    <div class="cards3">
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Identidade Visual e Branding">
-        <small>Branding</small>
-        <div><h3>Identidade Visual & Branding</h3><p>Logotipo, tipografia, cores, sistemas visuais e aplicações para construir marcas consistentes.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Design Gráfico e Campanhas">
-        <small>Design</small>
-        <div><h3>Design Gráfico & Campanhas</h3><p>Key visuals, social media, banners, apresentações e desdobramentos de campanha.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Edição de Vídeo e Pós">
-        <small>Vídeo</small>
-        <div><h3>Edição de Vídeo & Pós</h3><p>Montagem, tratamento visual, lettering, som, legendas e versões para diferentes formatos.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-    </div>
-    <div class="section-actions">
-      <a class="btn" href="../">Ir para Home ↗</a>
-      <a class="btn primary" href="../portfolio/">Ver projetos ↗</a>
+    <div class="cards">
+      <article class="card"><small>Branding / Design</small><div><h3>Identidade visual & campanhas</h3><p>Sistemas gráficos, direção de arte, social media, key visuals e peças para campanhas digitais.</p></div></article>
+      <article class="card"><small>Audiovisual</small><div><h3>Edição, motion & conteúdo</h3><p>Captação, edição, pós-produção, motion graphics, VFX e formatos para redes sociais.</p></div></article>
+      <article class="card"><small>Digital</small><div><h3>3D, IA & experiências web</h3><p>Modelagem e render de produto, IA generativa, interfaces e experiências digitais personalizadas.</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="section" id="criador">
   <div class="wrap">
-    <div class="profile-shell">
+    <div class="profile">
       <div class="profile-intro">
         <div>
-          <div class="kicker">02 · CRIADOR, FORMAÇÃO E TRAJETÓRIA</div>
+          <div class="kicker">02 · Criador, formação e trajetória</div>
           <h2>Design com repertório multidisciplinar.</h2>
-          <p>A Mensagem Studio é conduzida por Gabriel Slompo, designer gráfico e profissional de audiovisual em Curitiba. A formação cruza design, cinema, produção audiovisual, ilustração, roteiro e experiência digital — base que permite conectar imagem, movimento, narrativa e tecnologia dentro do mesmo projeto.</p>
+          <p>A Mensagem Studio é conduzida por Gabriel Slompo, designer gráfico e profissional de audiovisual em Curitiba. A formação cruza design, cinema, produção audiovisual, ilustração, roteiro e experiência digital — conectando imagem, movimento, narrativa e tecnologia dentro do mesmo projeto.</p>
         </div>
-        <div class="profile-name">
-          <small>Direção criativa</small>
-          <strong>Gabriel Slompo</strong>
-        </div>
+        <div class="profile-name"><small>Direção criativa</small><strong>Gabriel Slompo</strong></div>
       </div>
-      <div class="profile-content">
+
+      <div class="profile-body">
         <div class="credential-group">
           <div class="credential-label">Formação acadêmica</div>
           <div class="credential-list">
             <article class="credential">
-              <div><h3>Design Gráfico — UniCesumar</h3><p>Formação superior em design gráfico com base em processo criativo, produção gráfica, mídias digitais, história da arte e do design, UX/UI e desenvolvimento visual.</p></div>
-              <span>Conclusão prevista · 2026</span>
+              <div>
+                <h3>Design Gráfico — UniCesumar</h3>
+                <p>Formação superior concluída em Design Gráfico, com base em processo criativo, produção gráfica, mídias digitais, história da arte e do design, UX/UI e desenvolvimento visual.</p>
+              </div>
+              <span class="credential-date">Formação concluída</span>
             </article>
-            <article class="credential">
-              <div><h3>Cinema e Produção Audiovisual — Estácio</h3><p>Pós-graduação voltada a linguagem cinematográfica, produção audiovisual, narrativa, direção e construção de conteúdo para vídeo.</p></div>
-              <span>Em andamento · 2026–2027</span>
+            <article class="credential no-date">
+              <div>
+                <h3>Cinema e Produção Audiovisual — Estácio</h3>
+                <p>Pós-graduação voltada a linguagem cinematográfica, produção audiovisual, narrativa, direção e construção de conteúdo para vídeo.</p>
+              </div>
             </article>
           </div>
         </div>
+
         <div class="credential-group">
           <div class="credential-label">Formação complementar</div>
           <div class="credential-list">
-            <article class="credential">
-              <div><h3>Ilustração e Roteiro — EBAC</h3><p>Formações complementares em ilustração e desenvolvimento de roteiro, ampliando repertório para direção visual, storytelling e construção de personagens.</p></div>
-              <span>Formação complementar</span>
+            <article class="credential no-date">
+              <div>
+                <h3>Ilustração e Roteiro — EBAC</h3>
+                <p>Formações complementares em ilustração e desenvolvimento de roteiro, ampliando repertório para direção visual, storytelling e construção de personagens.</p>
+              </div>
             </article>
           </div>
         </div>
+
         <div class="credential-group">
           <div class="credential-label">Experiência</div>
           <div class="credential-list">
             <article class="credential">
-              <div><h3>Design, audiovisual e produção digital</h3><p>Experiência profissional em design gráfico, social media, edição de vídeo, captação, motion, e-commerce e criação de campanhas para marcas, produtos e negócios.</p></div>
-              <span>2023 — atual</span>
+              <div>
+                <h3>Design, audiovisual e produção digital</h3>
+                <p>Experiência profissional em design gráfico, social media, edição de vídeo, captação, motion, e-commerce e criação de campanhas para marcas, produtos e negócios.</p>
+              </div>
+              <span class="credential-date">2023 — atual</span>
             </article>
           </div>
         </div>
+
         <div class="credential-group">
           <div class="credential-label">Competências</div>
-          <div class="skill-cloud">
+          <div class="skills">
             <span>Design gráfico</span><span>Direção de arte</span><span>Photoshop</span><span>Illustrator</span><span>Premiere Pro</span><span>After Effects</span><span>Motion Design</span><span>Captação</span><span>Colorimetria</span><span>3D / Blender</span><span>IA generativa</span><span>UX/UI</span><span>E-commerce</span><span>HTML / Web</span>
           </div>
         </div>
@@ -721,40 +304,21 @@ footer{
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">03 · NOSSO PROCESSO</div>
-        <h2>Do briefing à entrega.</h2>
-      </div>
-      <p>Uma sequência simples para manter direção, consistência e acabamento visual do início ao arquivo final.</p>
+      <div><div class="kicker">03 · Experiência aplicada</div><h2>Trabalho que cruza disciplinas.</h2></div>
+      <p>O repertório não fica só na formação: ele aparece na execução de projetos que combinam design, audiovisual, produto, e-commerce e tecnologia.</p>
     </div>
-    <div class="process">
-      <article class="step"><b>01</b><div><h3>Briefing</h3><p>Objetivo, público, referências, prazo e entregáveis.</p></div></article>
-      <article class="step"><b>02</b><div><h3>Direção</h3><p>Linguagem visual, abordagem criativa e caminho de produção.</p></div></article>
-      <article class="step"><b>03</b><div><h3>Produção</h3><p>Design, edição, motion, audiovisual ou 3D entram em execução.</p></div></article>
-      <article class="step"><b>04</b><div><h3>Refinamento</h3><p>Ajustes de composição, movimento, acabamento e aplicação.</p></div></article>
-      <article class="step"><b>05</b><div><h3>Aprovação</h3><p>Validação final das peças e alinhamento dos últimos detalhes.</p></div></article>
-      <article class="step"><b>06</b><div><h3>Entrega</h3><p>Arquivos finais preparados para os formatos e canais definidos.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="agency-shell">
-      <div class="agency-main">
-        <div class="kicker">04 · AGÊNCIAS E PRODUTORAS</div>
-        <h2>Produção criativa para equipes.</h2>
-        <p>Mais capacidade de produção sem fragmentar a direção criativa. Apoio em design, identidade, motion, edição, audiovisual e 3D para agências, produtoras e equipes de marketing.</p>
+    <div class="experience-shell">
+      <div class="experience-copy">
+        <div class="kicker">Atuação profissional</div>
+        <h3>Da peça estática ao sistema completo.</h3>
+        <p>Produção orientada por objetivo, canal e contexto: campanhas, conteúdo, apresentações, produtos, vídeos, interfaces e experiências visuais.</p>
       </div>
-      <aside class="agency-side">
-        <strong>Uma extensão visual da sua equipe.</strong>
-        <div>
-          <p>Entre com o briefing e alinhe a demanda diretamente com o estúdio.</p>
-          <div class="actions" style="margin-top:26px">
-            <a class="btn primary" href="https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20produ%C3%A7%C3%A3o%20criativa%20da%20Mensagem%20Studio." target="_blank" rel="noopener">Falar com o estúdio ↗</a>
-          </div>
-        </div>
-      </aside>
+      <div class="experience-grid">
+        <article class="xp"><small>Design</small><strong>Campanhas e social media</strong><p>Peças digitais, key visuals, banners, carrosséis e identidade aplicada.</p></article>
+        <article class="xp"><small>Audiovisual</small><strong>Edição e pós-produção</strong><p>Montagem, ritmo, tratamento visual, motion, legendas e formatos sociais.</p></article>
+        <article class="xp"><small>Produto</small><strong>3D e e-commerce</strong><p>Visualização de produto, render, tratamento de imagens e apresentação comercial.</p></article>
+        <article class="xp"><small>Digital</small><strong>Web e experiências</strong><p>Interfaces, páginas em HTML, experiências imersivas e integração de conteúdo.</p></article>
+      </div>
     </div>
   </div>
 </section>
@@ -762,29 +326,16 @@ footer{
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">05 · MOVIMENTO, CONTEÚDO E 3D</div>
-        <h2>Produção além do estático.</h2>
-      </div>
-      <p>Motion, audiovisual e 3D para campanhas, produtos e conteúdos digitais.</p>
+      <div><div class="kicker">04 · Processo</div><h2>Do briefing à entrega.</h2></div>
+      <p>Uma sequência clara para manter direção, consistência e acabamento do primeiro alinhamento ao arquivo final.</p>
     </div>
-    <div class="cards3">
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Motion Design e Animação">
-        <small>Motion</small>
-        <div><h3>Motion Design & Animação</h3><p>Motion graphics, animação de marca, lettering, peças para campanhas e redes sociais.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Audiovisual e Conteúdo">
-        <small>Audiovisual</small>
-        <div><h3>Audiovisual & Conteúdo</h3><p>Captação, edição e conteúdo audiovisual para marcas, produtos, lançamentos e institucional.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-      <a class="card" href="../portfolio/" aria-label="Ver projetos de Design e Visualização 3D">
-        <small>3D</small>
-        <div><h3>Design & Visualização 3D</h3><p>Modelagem, materiais, iluminação, render, animação e visualização de produto.</p><span class="card-link">Ver projetos</span></div>
-      </a>
-    </div>
-    <div class="section-actions">
-      <a class="btn" href="../">Ir para Home ↗</a>
-      <a class="btn primary" href="../portfolio/">Ver projetos ↗</a>
+    <div class="process">
+      <article class="step"><b>01</b><div><h3>Briefing</h3><p>Objetivo, público, referências, prazo e entregáveis.</p></div></article>
+      <article class="step"><b>02</b><div><h3>Direção</h3><p>Linguagem visual, conceito e caminho de produção.</p></div></article>
+      <article class="step"><b>03</b><div><h3>Produção</h3><p>Design, edição, motion, audiovisual ou 3D entram em execução.</p></div></article>
+      <article class="step"><b>04</b><div><h3>Refinamento</h3><p>Ajustes de composição, movimento e acabamento.</p></div></article>
+      <article class="step"><b>05</b><div><h3>Aprovação</h3><p>Validação das peças e últimos detalhes.</p></div></article>
+      <article class="step"><b>06</b><div><h3>Entrega</h3><p>Arquivos finais preparados para os canais definidos.</p></div></article>
     </div>
   </div>
 </section>
@@ -793,39 +344,29 @@ footer{
   <div class="wrap">
     <div class="project-band">
       <div>
-        <div class="kicker">06 · PROJETOS</div>
+        <div class="kicker">05 · Projetos</div>
         <h2>Veja o trabalho em contexto.</h2>
-        <p>Explore projetos de identidade visual, design, motion, vídeo, audiovisual e 3D e veja como ideias se transformam em entregas visuais.</p>
+        <p>Explore cases de design, vídeo, motion, 3D e campanhas para entender como ideias se transformam em entregas visuais.</p>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="../portfolio/">Explorar projetos ↗</a>
-        <a class="btn" href="../">Ir para Home ↗</a>
-      </div>
+      <a class="btn primary" href="../portfolio/">Explorar projetos</a>
     </div>
   </div>
 </section>
 
-<section class="cristo" aria-label="Mensagem Studio em Curitiba">
-  <img class="cristo-poster" src="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg" alt="">
+<section class="closing">
+  <img src="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg" alt="">
   <video autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg">
     <source src="https://video.wixstatic.com/video/ef8a3a_20f3e61f512e474ba48e61e8c19bc054/720p/mp4/file.mp4" type="video/mp4">
   </video>
-  <div class="cristo-overlay"></div>
-  <div class="wrap cristo-content">
-    <div class="cristo-grid">
-      <div>
-        <div class="kicker">MENSAGEM STUDIO · CURITIBA</div>
-        <h2>Vamos criar?</h2>
-        <p class="cristo-copy">Conte o objetivo, as referências e o que precisa ser produzido. O briefing organiza a demanda e abre o caminho para um orçamento sob medida.</p>
+  <div class="closing-content">
+    <div class="wrap">
+      <div class="kicker">Mensagem Studio · Curitiba</div>
+      <h2>Vamos criar?</h2>
+      <p>Conte o objetivo, as referências e o que precisa ser produzido. O briefing organiza a demanda e abre o caminho para um orçamento sob medida.</p>
+      <div class="actions">
+        <a class="btn primary" href="../servicos/#briefing">Começar briefing</a>
+        <a class="btn" href="../servicos/">Ver serviços</a>
       </div>
-      <aside class="cristo-side">
-        <strong>Da ideia à execução.</strong>
-        <p>Design, imagem, movimento e tecnologia dentro de uma mesma direção criativa.</p>
-        <div class="actions">
-          <a class="btn primary" href="../servicos/#briefing">Começar briefing ↗</a>
-          <a class="btn" href="https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20Sobre%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">Atendimento ↗</a>
-        </div>
-      </aside>
     </div>
   </div>
 </section>
@@ -836,6 +377,29 @@ footer{
   <span>Design · Audiovisual · Motion · 3D · Web</span>
 </footer>
 
-<script src="../global-ui.js?v=20260912-r11-popup-copy"></script>
+<script>
+(function(){
+  const video=document.getElementById('dermacastBg');
+  if(video){
+    const START_AT=65;
+    const seek=()=>{
+      if(Number.isFinite(video.duration)&&video.duration>START_AT+1&&video.currentTime<START_AT-.5){
+        video.currentTime=START_AT;
+      }
+      video.play().catch(()=>{});
+    };
+    video.addEventListener('loadedmetadata',seek,{once:true});
+    video.addEventListener('canplay',seek,{once:true});
+    video.addEventListener('ended',()=>{
+      if(Number.isFinite(video.duration)&&video.duration>START_AT+1){
+        video.currentTime=START_AT;
+        video.play().catch(()=>{});
+      }
+    });
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)seek()});
+  }
+})();
+</script>
+<script src="../global-ui.js?v=20260913-r13-home-menu-restored"></script>
 </body>
 </html>
