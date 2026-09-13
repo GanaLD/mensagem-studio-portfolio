@@ -1,7 +1,7 @@
 {
   "version": 4,
   "base_url": "https://mensagemstudio.shop",
-  "generated_at": "2026-09-11",
+  "generated_at": "2026-09-13",
   "items": [
     {
       "canonical": "https://mensagemstudio.shop/",
@@ -151,18 +151,18 @@
       "project_id": "edicao-fantasia-photoshop"
     },
     {
-      "canonical": "https://mensagemstudio.shop/portfolio/poster-cartaz/",
+      "canonical": "https://mensagemstudio.shop/portfolio/poster-cartaz-cinematografico/",
       "index": true,
       "kind": "project",
-      "path": "/portfolio/poster-cartaz/",
-      "project_id": "poster-cartaz"
+      "path": "/portfolio/poster-cartaz-cinematografico/",
+      "project_id": "poster-cartaz-cinematografico"
     },
     {
-      "canonical": "https://mensagemstudio.shop/portfolio/motion-banner-cartaz-cinematografico/",
+      "canonical": "https://mensagemstudio.shop/portfolio/motion-design-cartaz-cinematografico/",
       "index": true,
       "kind": "project",
-      "path": "/portfolio/motion-banner-cartaz-cinematografico/",
-      "project_id": "motion-banner-cartaz-cinematografico"
+      "path": "/portfolio/motion-design-cartaz-cinematografico/",
+      "project_id": "motion-design-cartaz-cinematografico"
     }
   ]
 }
