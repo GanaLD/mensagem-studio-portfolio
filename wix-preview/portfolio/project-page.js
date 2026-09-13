@@ -19,23 +19,58 @@
     if (r <= .82) return 'portrait';
     return '';
   }
+  function videoCandidates(url='') {
+    const src=String(url||'').trim();
+    const m=src.match(/^(https:\/\/video\.wixstatic\.com\/video\/([^/]+))\/(?:(\d+)p\/mp4\/file\.mp4|file)$/i);
+    if(!m) return src ? [src] : [];
+    const base=m[1];
+    const current=src;
+    return [current,
+      base+'/1080p/mp4/file.mp4',
+      base+'/720p/mp4/file.mp4',
+      base+'/480p/mp4/file.mp4',
+      base+'/360p/mp4/file.mp4'
+    ].filter((v,i,a)=>a.indexOf(v)===i);
+  }
+  function wireVideoFallbacks(root=document) {
+    root.querySelectorAll('video[data-ms-video-src]').forEach(video=>{
+      if(video.dataset.msVideoWired==='1') return;
+      video.dataset.msVideoWired='1';
+      const candidates=videoCandidates(video.dataset.msVideoSrc||video.currentSrc||video.src);
+      let index=Math.max(0,candidates.indexOf(video.currentSrc||video.src));
+      const tryNext=()=>{
+        index++;
+        if(index>=candidates.length){
+          video.classList.add('ms-video-failed');
+          return;
+        }
+        video.src=candidates[index];
+        try{video.load()}catch(_){}
+        if(video.autoplay) video.play().catch(()=>{});
+      };
+      video.addEventListener('error',tryNext);
+      video.addEventListener('loadedmetadata',()=>video.classList.remove('ms-video-failed'));
+    });
+  }
+
   function detailsHTML() {
     if (!project.details?.length) return '';
     return `<div class="details">${project.details.map(d => `<div class="detail"><small>${esc(d.label)}</small>${d.link ? `<a href="${esc(d.link)}" target="_blank" rel="noopener">${esc(d.text || d.link)} ↗</a>` : `<span>${esc(d.text || '')}</span>`}</div>`).join('')}</div>`;
   }
   function heroMediaHTML() {
     if (project.coverVideo) {
-      return `<video muted autoplay loop playsinline preload="metadata" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
+      return `<video muted autoplay loop playsinline preload="metadata" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
     }
     return `<img src="${esc(project.cover || '')}" alt="${esc(project.title)}">`;
   }
   function itemHTML(item, index) {
     const type = item.type === 'VIDEO' ? 'Vídeo' : 'Imagem';
+    const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
     const visual = item.type === 'VIDEO'
-      ? `<video controls muted autoplay loop playsinline preload="auto" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
-      : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(item.title || project.title)}" data-lightbox>`;
-    const caption = item.title || item.description ? `<div class="caption"><div>${item.title ? `<strong>${esc(item.title)}</strong>` : ''}${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>` : `<div class="caption"><div></div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
-    return `<article class="media-item ${mediaClass(item)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
+      ? `<video controls muted autoplay loop playsinline preload="auto" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
+      : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
+    const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
+    return `<article class="media-item ${mediaClass(item)}" role="group" aria-label="${esc(mediaLabel)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
 
   // Galeria = somente mídias reais cadastradas no projeto.
@@ -94,6 +129,8 @@
     }), {threshold:.12, rootMargin:'0px 0px -5% 0px'});
     revealItems.forEach(el => io.observe(el));
   }
+
+  wireVideoFallbacks(app);
 
   const lightbox = document.querySelector('#lightbox');
   const lightboxImg = lightbox?.querySelector('img');
