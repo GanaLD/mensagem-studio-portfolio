@@ -32,36 +32,15 @@
   function itemHTML(item, index) {
     const type = item.type === 'VIDEO' ? 'Vídeo' : 'Imagem';
     const visual = item.type === 'VIDEO'
-      ? `<video controls playsinline preload="metadata" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
+      ? `<video controls muted autoplay loop playsinline preload="auto" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
       : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(item.title || project.title)}" data-lightbox>`;
     const caption = item.title || item.description ? `<div class="caption"><div>${item.title ? `<strong>${esc(item.title)}</strong>` : ''}${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>` : `<div class="caption"><div></div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
     return `<article class="media-item ${mediaClass(item)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
 
-  const galleryMedia = (() => {
-    const base = Array.isArray(project.media) ? [...project.media] : [];
-    const cover = String(project.cover || '').trim();
-    const coverVideo = String(project.coverVideo || '').trim();
-
-    if (coverVideo) {
-      const videoAlreadyIncluded = base.some(item => item?.type === 'VIDEO' && String(item.url || '').trim() === coverVideo);
-      if (!videoAlreadyIncluded) {
-        return [{
-          type:'VIDEO',
-          title:'Capa do projeto',
-          url:coverVideo,
-          poster:cover,
-          isCover:true
-        }, ...base];
-      }
-      return base;
-    }
-
-    if (!cover) return base;
-    const imageAlreadyIncluded = base.some(item => item?.type === 'IMAGE' && String(item.url || '').trim() === cover);
-    if (imageAlreadyIncluded) return base;
-    return [{type:'IMAGE', title:'Capa do projeto', url:cover, isCover:true}, ...base];
-  })();
+  // Galeria = somente mídias reais cadastradas no projeto.
+  // Não sintetizar "Capa do projeto" nem criar players a partir do cover/coverVideo.
+  const galleryMedia = Array.isArray(project.media) ? [...project.media] : [];
 
   const idx = projects.indexOf(project);
   const prev = projects[(idx - 1 + projects.length) % projects.length];
