@@ -57,27 +57,6 @@
     if (!project.details?.length) return '';
     return `<div class="details">${project.details.map(d => `<div class="detail"><small>${esc(d.label)}</small>${d.link ? `<a href="${esc(d.link)}" target="_blank" rel="noopener">${esc(d.text || d.link)} ↗</a>` : `<span>${esc(d.text || '')}</span>`}</div>`).join('')}</div>`;
   }
-  function caseStudyHTML() {
-    const c = (window.MENSAGEM_CASE_STUDIES || {})[project.slug];
-    if (!c) return '';
-    const card = (label, text, extra='') => text ? `<article class="case-study-card ${extra}"><small>${esc(label)}</small><p>${esc(text)}</p></article>` : '';
-    const service = c.serviceLabel && c.serviceHref
-      ? `<div class="case-study-service"><div><small>Serviço relacionado</small><strong>${esc(c.serviceLabel)}</strong></div><a href="${esc(c.serviceHref)}">Conhecer serviço</a></div>`
-      : '';
-    return `<section class="case-study-section"><div class="wrap">
-      <div class="case-study-head"><div><div class="eyebrow">CASE DO PROJETO</div><h2>Do briefing à entrega.</h2></div><p>${esc(c.intro || '')}</p></div>
-      <div class="case-study-grid">
-        ${card('Contexto', c.context, 'case-study-card-wide')}
-        ${card('Objetivo', c.objective)}
-        ${card('Solução visual', c.solution)}
-        ${card('Processo', c.process, 'case-study-card-wide')}
-        ${card('Ferramentas e técnica', c.tools)}
-        ${card('Resultado', c.result)}
-      </div>
-      ${service}
-    </div></section>`;
-  }
-
   function heroMediaHTML() {
     const heroLabel = `${project.title} — Capa do projeto`;
     if (project.coverVideo) {
@@ -123,7 +102,6 @@
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>Conteúdo do projeto preservado na ordem do portfólio original.</p></div>
       <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
     </div></section>
-    ${caseStudyHTML()}
     <section class="project-conversion"><div class="wrap">
       <div class="conversion-card">
         <div class="conversion-copy">

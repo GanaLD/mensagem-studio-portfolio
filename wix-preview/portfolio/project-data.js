@@ -46,7 +46,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'suco-laranja-natural-one', sourceSlug:'suco-de-laranja-natural-one', title:'Branding e Campanha de Produto | Natural One', tag:'Branding / Campanha',
-    description:'Branding e campanha de produto para Natural One, com foco em frescor, naturalidade, direção de arte e presença de marca.',
+    description:`Projeto de branding e comunicação desenvolvido para a Natural One, com foco em posicionamento premium, naturalidade e autenticidade do produto.\n\nA proposta visual valoriza a pureza do suco 100% fruta, destacando frescor, cor vibrante e transparência como elementos centrais da narrativa. O sistema gráfico foi construído com tipografia limpa, paleta cromática inspirada na fruta in natura e composições que reforçam qualidade, simplicidade e confiança.\n\nO projeto inclui:\n\n• Direção de arte para redes sociais\n• Key visual para campanhas digitais\n• Mockups de embalagem e variações sazonais\n• Aplicações em mídia digital e materiais promocionais\n\nObjetivo estratégico: fortalecer percepção de produto natural e premium, aumentar conexão emocional com o consumidor e consolidar autoridade da marca no segmento de sucos integrais.`,
     details:[{label:'Serviço',text:'Branding · Direção de arte · Key visual'},{label:'Aplicações',text:'Campanha de produto · Social media · Mídia digital'}], cover:'https://static.wixstatic.com/media/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_2d11f6b95ce142f8b07e1277c3af9986/720p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Key Visual Natural One — Campanha de Produto',description:'o céu não é o limite',url:'https://static.wixstatic.com/media/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_2cc1263aaaaa4d28825bf9991c4d07e4~mv2.png'},
@@ -75,7 +75,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'creatina-growth', sourceSlug:'creatina-growth', title:'Vídeo de Produto e Motion | Creatina Growth', tag:'Produto / Motion Design',
-    description:'Vídeo de produto com motion design e direção de arte para campanha fitness, com foco em ritmo, composição e presença de marca.',
+    description:`Case de vídeo de produto, motion design e direção de arte para Creatina Growth, desenvolvido para campanha fitness com composição publicitária, ritmo visual e presença de marca.\n\nSabe o que fortalece.\nSabe o que constrói.\nSabe o que sustenta constância.\n\nResultado não vem do acaso.\nVem de escolha diária.\n\nDisciplina é escolha.\nTreino é escolha.\nE qualidade também é escolha.\n\nSe é pra evoluir, que seja com o que entrega de verdade.\n\nA vida sabe o que é bom.\nVocê também sabe.`,
     details:[{label:'Serviço',text:'Vídeo de produto · Motion design · Direção de arte'},{label:'Aplicações',text:'Campanha fitness · Social media · Publicidade'}], cover:'https://static.wixstatic.com/media/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_b49679eaa9a2447dad19a3624ba5c58df000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_b49679eaa9a2447dad19a3624ba5c58d/1080p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Key Visual Creatina Growth — Campanha Fitness',url:'https://static.wixstatic.com/media/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_ff0c4a12c3a146f3b8e99e31c994c928~mv2.png'},
@@ -84,7 +84,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'personagens-consistentes-com-ia', sourceSlug:'personagens-consistentes-com-ia', title:'Criação de Personagens Consistentes com IA', tag:'IA / Direção Criativa',
-    description:'Direção criativa com IA para manter personagens consistentes entre cenas, ângulos e diferentes contextos visuais.',
+    description:`Criar personagens consistentes com Inteligência Artificial vai muito além de gerar imagens bonitas. Trata-se de construir identidade visual, coerência estrutural e repetibilidade técnica entre diferentes cenas, ângulos e contextos.\n\nUm personagem consistente mantém:\n\n• Proporções corporais estáveis\n• Traços faciais reconhecíveis\n• Paleta cromática fixa\n• Texturas recorrentes em roupas e acessórios\n• Linguagem corporal alinhada à personalidade\n\nEm IA generativa, consistência depende de três pilares:\n\n1. Definição Estrutural\nDescrição detalhada de anatomia, medidas relativas, formato de rosto, cabelo, expressões padrão e postura dominante.\n\n2. Identidade Visual\nEspecificação clara de materiais, tecidos, iluminação recorrente, estilo fotográfico ou cinematográfico e atmosfera.\n\n3. Persistência de Prompt\nUso de descrições base idênticas entre gerações, variações controladas e referência visual fixa quando possível.\n\nPersonagens bem construídos permitem:\n\n• Produção escalável de campanhas\n• Narrativas visuais contínuas\n• Reconhecimento de marca\n• Criação de universos visuais proprietários\n\nConsistência não é sorte do algoritmo.\nÉ direção criativa estruturada aplicada com precisão técnica.`,
     details:[{label:'Serviço',text:'Direção criativa · Personagens com IA'},{label:'Aplicações',text:'Campanhas · Narrativa visual · Conteúdo escalável'}], cover:'https://static.wixstatic.com/media/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_e0902b34b4f940eab13a9f52654feab4f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_e0902b34b4f940eab13a9f52654feab4/720p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Personagem com IA em Salto de Paraquedas',description:'Salto de paraquedas',url:'https://static.wixstatic.com/media/ef8a3a_5afa166edf7742fc8f323eb8136c213b~mv2.png/v1/fill/w_2302,h_2880,al_c/ef8a3a_5afa166edf7742fc8f323eb8136c213b~mv2.png'},
@@ -110,7 +110,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'motors-vans', sourceSlug:'project-title-6', title:'Design e Social Media Automotivo | Motors Vans', tag:'Social Media / Automotivo',
-    description:'Design e social media para o setor automotivo, com banners, campanhas promocionais, peças digitais e motion.',
+    description:`Projeto de design e social media para Motors Vans Autopeças, com peças digitais, banners, campanhas sazonais e motion aplicados à comunicação visual automotiva.\n\nProposta de propaganda para divulgação em Social Media da Motors Vans Autopeças\n\nCriação de peça publicitária para redes sociais, desenvolvida para a Motors Vans Autopeças, seguindo a identidade visual da marca.\nO design foi elaborado para destacar a qualidade e variedade dos produtos, reforçando a credibilidade da empresa no segmento automotivo.`,
     details:[{label:'Serviço',text:'Design gráfico · Social media · Motion'},{label:'Aplicações',text:'Automotivo · Campanhas · Conteúdo digital'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg', coverVideo:'',
     media:[
@@ -130,7 +130,7 @@ window.MENSAGEM_PROJECTS = [
   },
   {
     slug:'edicao-fantasia-photoshop', sourceSlug:'edição-fantasia-photoshop', title:'Manipulação de Imagem e Composição | Photoshop', tag:'Photoshop / Composição',
-    description:'Manipulação de imagem e composição no Photoshop, com foco em recorte, profundidade, luz, sombra, VFX e acabamento.',
+    description:`Projeto de manipulação de imagem e composição publicitária no Photoshop, construído com recorte, blocagem, texturas, luz, sombra, profundidade, VFX e finalização.\n\nDividindo em 12 fundamentos para montagem e construção de imagens, podemos criar sensações incríveis.\n\nPré Edição\n- Pesquisa de material\n- Decupagem (Seleção)\n\n- Blocagem\n- Texturas\n- Protagonista (Foco)\n- Refinamentos\n- Ambientação\n- Primeiro Plano (Profundidade)\n- Movimento\n- Luz e Sombra\n- VFX\n- Finalização\n\nLembrando que não é uma regra, e que muitas vezes vamos trabalhar varias das etapas de uma vez.`,
     details:[{label:'Serviço',text:'Manipulação de imagem · Composição · Photoshop'},{label:'Aplicações',text:'Publicidade · Campanhas · Social media'}], cover:'https://static.wixstatic.com/media/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg/v1/fill/w_1280,h_720,al_c/ef8a3a_1fb5082116104ec08b7e3a25b0f17011f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_1fb5082116104ec08b7e3a25b0f17011/720p/mp4/file.mp4',
     media:[
       {type:'IMAGE',title:'Composição Final no Photoshop — Key Visual',url:'https://static.wixstatic.com/media/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_1bed9790808c4ac895c6d485ede5f785~mv2.png'},
@@ -160,149 +160,3 @@ window.MENSAGEM_PROJECTS = [
     ]
   }
 ];
-
-window.MENSAGEM_CASE_STUDIES = {
-  "produto-3d-egeo": {
-    "intro": "Visualização 3D de produto criada para apresentar o perfume com mais controle de forma, material, luz e enquadramento.",
-    "context": "O projeto precisava valorizar o frasco em peças de campanha sem depender apenas de fotografia tradicional.",
-    "objective": "Criar um ativo 3D reutilizável para imagens, vídeos e diferentes formatos de publicidade.",
-    "solution": "Modelagem do frasco, materiais, iluminação e composição pensados para manter o produto como protagonista.",
-    "process": "Referência, modelagem, materiais, testes de luz, enquadramento, render e acabamento final.",
-    "tools": "Modelagem 3D, materiais, iluminação, render e composição.",
-    "result": "Um conjunto de peças consistentes, com o mesmo produto pronto para novas cenas e campanhas.",
-    "serviceLabel": "Modelagem 3D de Produto",
-    "serviceHref": "../../servicos/modelagem-3d-produto/"
-  },
-  "carrossel-banner-estetica": {
-    "intro": "Design para campanhas de estética com foco em leitura rápida, organização e consistência visual.",
-    "context": "As peças precisavam comunicar ofertas, lançamentos e benefícios em formatos diferentes sem perder clareza.",
-    "objective": "Organizar imagem, título, benefício e CTA de forma direta e fácil de entender.",
-    "solution": "Uso de hierarquia tipográfica, contraste, respiro e enquadramentos que destacam a mensagem principal.",
-    "process": "Briefing, seleção de imagens, construção do layout e adaptação para banner, post e carrossel.",
-    "tools": "Direção de arte, tratamento de imagem, tipografia e composição gráfica.",
-    "result": "Peças mais consistentes e fáceis de adaptar para campanhas e social media.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "edicao-podcast-workshop": {
-    "intro": "Edição e pós-produção para transformar gravações longas em conteúdo claro, dinâmico e reaproveitável.",
-    "context": "Podcasts e workshops geram muito material e precisam funcionar em episódio completo, cortes e redes sociais.",
-    "objective": "Melhorar ritmo, clareza e aproveitamento do conteúdo.",
-    "solution": "Montagem, cortes, tratamento visual e apoio gráfico sem tirar o foco da fala.",
-    "process": "Decupagem, montagem principal, refinamento de ritmo, tratamento e versões para formatos diferentes.",
-    "tools": "Edição, correção de cor, áudio e motion de apoio.",
-    "result": "Conteúdo mais organizado e pronto para episódio, cortes e peças promocionais.",
-    "serviceLabel": "Edição de Vídeo",
-    "serviceHref": "../../servicos/edicao-video/"
-  },
-  "motion-ia-video-campanhas": {
-    "intro": "Motion design e IA usados juntos para criar campanhas com mais liberdade visual e controle criativo.",
-    "context": "Algumas ideias exigem cenas difíceis de produzir apenas com captação tradicional.",
-    "objective": "Usar IA como parte da produção, mantendo coerência com produto, campanha e ritmo do vídeo.",
-    "solution": "Geração de material visual, seleção, composição, animação e acabamento em motion.",
-    "process": "Conceito, referências, geração, escolha das melhores cenas, composição, animação e finalização.",
-    "tools": "IA generativa, motion design, composição e edição de vídeo.",
-    "result": "Peças com maior variedade visual, mas ainda organizadas por uma direção de arte consistente.",
-    "serviceLabel": "Motion Design e VFX",
-    "serviceHref": "../../servicos/motion-design-vfx/"
-  },
-  "suco-laranja-natural-one": {
-    "intro": "Campanha de produto com foco em frescor, naturalidade e presença de marca.",
-    "context": "O produto precisava se destacar rapidamente e transmitir uma percepção mais premium.",
-    "objective": "Criar uma linguagem visual que valorizasse embalagem, cor e sensação de frescor.",
-    "solution": "Composições limpas, contraste, paleta ligada à fruta e produto sempre em evidência.",
-    "process": "Referências, key visual, refinamento de cor e adaptação para diferentes formatos de campanha.",
-    "tools": "Direção de arte, composição, tratamento de imagem e motion de apoio.",
-    "result": "Uma linguagem consistente para peças estáticas e vídeos de campanha.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "esporte-fitness": {
-    "intro": "Composição publicitária para inserir produtos fitness em cenas com mais impacto e profundidade.",
-    "context": "A imagem do produto precisava transmitir performance e contexto, não apenas funcionar como foto de catálogo.",
-    "objective": "Criar cenas mais fortes sem perder a leitura comercial do produto.",
-    "solution": "Integração de fundo, luz, sombra, perspectiva e tratamento de cor em uma única composição.",
-    "process": "Escolha de cenário, blocagem, recorte, integração, ajustes de luz e acabamento.",
-    "tools": "Composição, tratamento de imagem, luz, sombra e correção de cor.",
-    "result": "Peças com linguagem de campanha e melhor integração entre produto e ambiente.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "creatina-growth": {
-    "intro": "Vídeo de produto com motion e direção de arte para uma campanha fitness mais intensa.",
-    "context": "A peça precisava chamar atenção sem perder a leitura da embalagem e da marca.",
-    "objective": "Criar um vídeo curto, direto e visualmente forte para social media.",
-    "solution": "Composição, montagem, motion e transições com o produto sempre como ponto principal.",
-    "process": "Conceito, cena principal, montagem, animação, cor e refinamento de timing.",
-    "tools": "Edição de vídeo, motion design, composição e VFX.",
-    "result": "Uma peça de campanha mais energética, mantendo clareza e presença de produto.",
-    "serviceLabel": "Motion Design e VFX",
-    "serviceHref": "../../servicos/motion-design-vfx/"
-  },
-  "personagens-consistentes-com-ia": {
-    "intro": "Direção criativa com IA para manter o mesmo personagem reconhecível em cenas diferentes.",
-    "context": "O principal desafio é evitar mudanças de rosto, roupa, proporção e identidade entre gerações.",
-    "objective": "Criar continuidade visual mesmo com mudanças de cenário, ação e enquadramento.",
-    "solution": "Características fixas, referências consistentes e variações controladas de prompt.",
-    "process": "Ficha visual, prompts-base, testes de ângulo, seleção e correção de desvios.",
-    "tools": "IA generativa, direção de arte, prompt e tratamento de imagem.",
-    "result": "Personagens mais estáveis para campanhas, narrativas e universos visuais recorrentes.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "fotos-para-ecommerce": {
-    "intro": "Padronização de imagens de produto para lojas online, marketplaces e catálogos.",
-    "context": "Diferenças de fundo, escala e enquadramento deixam o catálogo inconsistente e dificultam comparação.",
-    "objective": "Criar uma apresentação mais uniforme e clara entre os produtos.",
-    "solution": "Recorte, correção de cor, limpeza, ajuste de fundo e padronização de enquadramento.",
-    "process": "Triagem, definição de padrão, tratamento e exportação otimizada para cada canal.",
-    "tools": "Tratamento de imagem, recorte, correção de cor e composição.",
-    "result": "Imagens mais consistentes e prontas para uso em diferentes plataformas de venda.",
-    "serviceLabel": "Fotos para E-commerce",
-    "serviceHref": "../../servicos/fotos-ecommerce/"
-  },
-  "motors-vans": {
-    "intro": "Comunicação visual automotiva para campanhas, banners, social media e peças promocionais.",
-    "context": "O setor trabalha com muitas ofertas, modelos e datas promocionais, exigindo leitura rápida e organização.",
-    "objective": "Destacar veículo, oferta e marca sem sobrecarregar a peça.",
-    "solution": "Grid simples, contraste alto, recorte de veículos e hierarquia clara de informação.",
-    "process": "Briefing, seleção de material, layout principal e adaptação para site, feed e story.",
-    "tools": "Design gráfico, tratamento de imagem, social media e motion de apoio.",
-    "result": "Peças comerciais mais consistentes e fáceis de adaptar para campanhas recorrentes.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "edicao-fantasia-photoshop": {
-    "intro": "Manipulação de imagem e composição no Photoshop com foco em integração, profundidade e acabamento.",
-    "context": "A cena combina elementos de origens diferentes que precisam parecer parte da mesma imagem.",
-    "objective": "Criar uma composição final coerente em perspectiva, luz, cor e profundidade.",
-    "solution": "Recorte, blocagem, texturas, luz, sombra, atmosfera e VFX aplicados em etapas.",
-    "process": "Seleção, montagem, integração, refinamento e finalização.",
-    "tools": "Photoshop, máscaras, composição em camadas, cor, luz e VFX.",
-    "result": "Uma imagem final mais convincente e um processo claro de construção visual.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "poster-cartaz-cinematografico": {
-    "intro": "Direção de arte e composição para pôster cinematográfico com foco em impacto e leitura rápida.",
-    "context": "O cartaz precisa transmitir gênero, atmosfera e hierarquia em uma única peça.",
-    "objective": "Criar uma composição forte, clara e adaptável para divulgação.",
-    "solution": "Uso de protagonista, profundidade, contraste, luz e tipografia integrada à imagem.",
-    "process": "Referências, blocagem, composição, cor, iluminação e acabamento final.",
-    "tools": "Photoshop, recorte, composição, tipografia e tratamento de imagem.",
-    "result": "Um pôster com linguagem cinematográfica e aplicação direta em campanhas e lançamentos.",
-    "serviceLabel": "Design para Social Media",
-    "serviceHref": "../../servicos/design-social-media/"
-  },
-  "motion-design-cartaz-cinematografico": {
-    "intro": "Motion poster criado para adicionar movimento ao cartaz sem perder sua leitura original.",
-    "context": "O desafio é animar com intenção, evitando excesso de movimento e perda de hierarquia.",
-    "objective": "Criar uma peça curta, cinematográfica e adequada a divulgação digital.",
-    "solution": "Parallax, movimento de câmera, atmosfera, luz e animação controlada dos elementos.",
-    "process": "Separação de camadas, preparação do arquivo, animação, efeitos e finalização.",
-    "tools": "Photoshop e After Effects para composição, parallax, câmera e motion.",
-    "result": "Um pôster animado que mantém a identidade visual e amplia o uso da peça em mídia digital.",
-    "serviceLabel": "Motion Design e VFX",
-    "serviceHref": "../../servicos/motion-design-vfx/"
-  }
-};
