@@ -114,6 +114,7 @@ window.MENSAGEM_PROJECTS = [
     details:[{label:'Serviço',text:'Design gráfico · Social media · Motion'},{label:'Aplicações',text:'Automotivo · Campanhas · Conteúdo digital'},{label:'Instagram',link:'https://www.instagram.com/motorsvans/'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg', coverVideo:'',
     media:[
+      {type:'IMAGE',title:'Capa original do projeto',url:'https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc'},
       {type:'VIDEO',title:'INSTITUCIONAL MV FINAL VERSION',url:'https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file',poster:'https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg'},
       {type:'VIDEO',title:'VAN LOGO REVEAL LIGHT VERTICAL',url:'https://video.wixstatic.com/video/ef8a3a_1ae2b09a2d384e6d9628732d090c4ceb/file',poster:'https://static.wixstatic.com/media/ef8a3a_1ae2b09a2d384e6d9628732d090c4cebf000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_1ae2b09a2d384e6d9628732d090c4cebf000.jpg'},
       {type:'IMAGE',title:'MAIO-AMARELO-FULL-BANNER',url:'https://static.wixstatic.com/media/ef8a3a_07dcb6d7b2bb4066837018ff40bddfb3~mv2.png/v1/fill/w_2160,h_1350,al_c/ef8a3a_07dcb6d7b2bb4066837018ff40bddfb3~mv2.png'},
@@ -136,6 +137,27 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Recortes brutos',description:'Recortes sem refino antes da edição',url:'https://static.wixstatic.com/media/ef8a3a_018406a540e341a89e1382352fb2c016~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_018406a540e341a89e1382352fb2c016~mv2.png'},
       {type:'IMAGE',title:'Comparativo',description:'Um breve comparativo das imagens sem recorte e edição.',url:'https://static.wixstatic.com/media/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png/v1/fill/w_2732,h_1536,al_c/ef8a3a_dc21ad383116485fb2c5cd66e76a73de~mv2.png'},
       {type:'IMAGE',title:'Formato para Feed do instagram',url:'https://static.wixstatic.com/media/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png/v1/fill/w_1080,h_1350,al_c/ef8a3a_04d0a2a399c1463583b6b2bddf6795ff~mv2.png'}
+    ]
+  }
+  ,
+  {
+    slug:'poster-cartaz-cinematografico', sourceSlug:'project-title-4', title:'Pôster | Cartaz Cinematográfico', tag:'Design / Cinema',
+    description:'Projeto de edição gráfica e composição para pôsteres e cartazes de linguagem cinematográfica, desenvolvido para criar impacto visual em campanhas e divulgação.',
+    details:[{label:'Data',text:'Abril 2023'}],
+    cover:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'',url:'https://static.wixstatic.com/media/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png/v1/fill/w_896,h_1152,al_c/ef8a3a_3b5d4efb1f4a43359248351337a59d6c~mv2.png'},
+      {type:'IMAGE',title:'PosterColonia copiar2',url:'https://static.wixstatic.com/media/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg/v1/fill/w_5400,h_7200,al_c/ef8a3a_efc5ceca382b4fdcad4a303d586a7765~mv2.jpg'}
+    ]
+  },
+  {
+    slug:'motion-design-cartaz-cinematografico', sourceSlug:'project-title-1', title:'Motion Design | Cartaz Cinematográfico', tag:'Motion / Cinema',
+    description:'Projeto de motion design aplicado a cartazes e peças cinematográficas, combinando composição, animação e impacto visual para campanhas e lançamentos.',
+    details:[{label:'Animação de banner cinematográfico',text:'Edição com Photoshop · Animação com After Effects'},{label:'Data',text:'Abril 2023'}],
+    cover:'https://static.wixstatic.com/media/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg/v1/fill/w_743,h_835,al_c/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg', coverVideo:'',
+    media:[
+      {type:'VIDEO',title:'ULTIMA GUERRA FINAL PREMIERE',url:'https://video.wixstatic.com/video/ef8a3a_975bfc2b96794afbb2d9a300f25d5169/file',poster:'https://static.wixstatic.com/media/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg'},
+      {type:'VIDEO',title:'POSTER ANIMADO',url:'https://video.wixstatic.com/video/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498/file',poster:'https://static.wixstatic.com/media/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg/v1/fill/w_2160,h_2800,al_c/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg'}
     ]
   }
 ];
