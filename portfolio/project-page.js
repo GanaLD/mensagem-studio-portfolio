@@ -41,9 +41,25 @@
   const galleryMedia = (() => {
     const base = Array.isArray(project.media) ? [...project.media] : [];
     const cover = String(project.cover || '').trim();
+    const coverVideo = String(project.coverVideo || '').trim();
+
+    if (coverVideo) {
+      const videoAlreadyIncluded = base.some(item => item?.type === 'VIDEO' && String(item.url || '').trim() === coverVideo);
+      if (!videoAlreadyIncluded) {
+        return [{
+          type:'VIDEO',
+          title:'Capa do projeto',
+          url:coverVideo,
+          poster:cover,
+          isCover:true
+        }, ...base];
+      }
+      return base;
+    }
+
     if (!cover) return base;
-    const alreadyIncluded = base.some(item => item?.type === 'IMAGE' && String(item.url || '').trim() === cover);
-    if (alreadyIncluded) return base;
+    const imageAlreadyIncluded = base.some(item => item?.type === 'IMAGE' && String(item.url || '').trim() === cover);
+    if (imageAlreadyIncluded) return base;
     return [{type:'IMAGE', title:'Capa do projeto', url:cover, isCover:true}, ...base];
   })();
 
