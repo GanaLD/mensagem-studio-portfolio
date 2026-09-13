@@ -9,3 +9,5 @@ import './home-runtime.js?v=20260913-r14-royal-blue-cards';
 import './home-round2.js?v=20260911-r3-grid-hero-3d';
 import './home-round2d.js?v=20260911-r3-grid-hero-3d';
 import './hero-hotfix.js?v=20260913-r1-mago-dermacast';
+
+import './three-assets.js?v=20260913-r1-rejuvital';
