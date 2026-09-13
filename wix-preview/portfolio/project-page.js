@@ -119,11 +119,11 @@
       </div>
       <div class="hero-media">${heroMediaHTML()}<div class="hero-label"><span>Projeto / Mensagem Studio</span><b>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'}</b></div></div>
     </div></div></section>
-    ${caseStudyHTML()}
     <section class="gallery-section"><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>Conteúdo do projeto preservado na ordem do portfólio original.</p></div>
       <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
     </div></section>
+    ${caseStudyHTML()}
     <section class="project-conversion"><div class="wrap">
       <div class="conversion-card">
         <div class="conversion-copy">
