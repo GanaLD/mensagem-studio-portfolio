@@ -2305,8 +2305,8 @@ if(quoteParams.get('orcamento')==='1'){
   const mago=document.getElementById('heroMagoVideo');
   if(!spider||!cyber||!mago)return;
 
-  const SPIDER='https://drive.usercontent.google.com/download?id=1KwsOgDJ9p3-TTe0HPVP-0kUrtGyjaF2h&export=download&confirm=t';
-  const CYBER='https://drive.usercontent.google.com/download?id=1sPinKIYuwTSQ3DaHBRxL1-dOx3kQlmFg&export=download&confirm=t';
+  const SPIDER='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/51f4e63c-6d8a-4514-9dd1-4798996f76c1.mp4';
+  const CYBER='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/fa5b396e-dfaa-4537-887b-3c6843563d18.mp4';
   const MAGO='https://www.youtube-nocookie.com/embed/G_2jdXfXxiI?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist=G_2jdXfXxiI&enablejsapi=1';
 
   [spider,cyber].forEach(v=>{
@@ -2359,6 +2359,11 @@ if(quoteParams.get('orcamento')==='1'){
   function advance(){
     startSlide((active+1)%slides.length);
   }
+
+  spider.addEventListener('error',()=>{ if(active===0) advance(); });
+  cyber.addEventListener('error',()=>{ if(active===1) advance(); });
+  spider.addEventListener('loadeddata',()=>{ if(active===0) spider.play().catch(()=>{}); },{once:true});
+  cyber.addEventListener('loadeddata',()=>{ if(active===1) cyber.play().catch(()=>{}); },{once:true});
 
   startSlide(0);
   if(!reduce) timer=setInterval(advance,9000);
