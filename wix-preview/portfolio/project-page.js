@@ -58,10 +58,11 @@
     return `<div class="details">${project.details.map(d => `<div class="detail"><small>${esc(d.label)}</small>${d.link ? `<a href="${esc(d.link)}" target="_blank" rel="noopener">${esc(d.text || d.link)} ↗</a>` : `<span>${esc(d.text || '')}</span>`}</div>`).join('')}</div>`;
   }
   function heroMediaHTML() {
+    const heroLabel = `${project.title} — Capa do projeto`;
     if (project.coverVideo) {
-      return `<video muted autoplay loop playsinline preload="metadata" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
+      return `<video muted autoplay loop playsinline preload="metadata" title="${esc(heroLabel)}" aria-label="${esc(heroLabel)}" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
     }
-    return `<img src="${esc(project.cover || '')}" alt="${esc(project.title)}">`;
+    return `<img src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
   }
   function itemHTML(item, index) {
     const type = item.type === 'VIDEO' ? 'Vídeo' : 'Imagem';
