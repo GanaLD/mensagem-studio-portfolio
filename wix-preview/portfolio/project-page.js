@@ -38,6 +38,15 @@
     return `<article class="media-item ${mediaClass(item)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
 
+  const galleryMedia = (() => {
+    const base = Array.isArray(project.media) ? [...project.media] : [];
+    const cover = String(project.cover || '').trim();
+    if (!cover) return base;
+    const alreadyIncluded = base.some(item => item?.type === 'IMAGE' && String(item.url || '').trim() === cover);
+    if (alreadyIncluded) return base;
+    return [{type:'IMAGE', title:'Capa do projeto', url:cover, isCover:true}, ...base];
+  })();
+
   const idx = projects.indexOf(project);
   const prev = projects[(idx - 1 + projects.length) % projects.length];
   const next = projects[(idx + 1) % projects.length];
@@ -56,11 +65,11 @@
         ${project.description ? `<p class="description">${esc(project.description)}</p>` : ''}
         ${detailsHTML()}
       </div>
-      <div class="hero-media">${heroMediaHTML()}<div class="hero-label"><span>Projeto / Mensagem Studio</span><b>${project.media.length} ${project.media.length===1?'mídia':'mídias'}</b></div></div>
+      <div class="hero-media">${heroMediaHTML()}<div class="hero-label"><span>Projeto / Mensagem Studio</span><b>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'}</b></div></div>
     </div></div></section>
     <section class="gallery-section"><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>Conteúdo do projeto preservado na ordem do portfólio original.</p></div>
-      <div class="media-grid">${project.media.map(itemHTML).join('')}</div>
+      <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
     </div></section>
     <section class="project-conversion"><div class="wrap">
       <div class="conversion-card">
