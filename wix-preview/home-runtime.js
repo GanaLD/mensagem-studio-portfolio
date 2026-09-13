@@ -5,6 +5,9 @@ const INSTAGRAM_URL='https://www.instagram.com/mensagem_studio/';
 const BEHANCE_URL='https://www.behance.net/gabrieldesigner42';
 const LINKEDIN_URL='https://www.linkedin.com/in/gabriel-slompo-136531286/';
 const MAGO_YT='G_2jdXfXxiI';
+const DERMACAST_YT='XVL_ToV0-uY';
+const MOTORS_VANS_INSTITUTIONAL='https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file';
+const MOTORS_VANS_INSTITUTIONAL_POSTER='https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg';
 const AREAS=[
 ['01','Social Media','Posts, stories, carrosséis e pacotes de criativos.'],
 ['02','Vídeo','Reels, edição com motion, legendas, efeitos e vídeo PRO.'],
@@ -66,6 +69,7 @@ function addStyles(){
   #motion .stage-side button{flex:0 0 auto;background:rgba(6,7,5,.68);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);padding:11px 14px}
   #motion .stage-main{width:100%;height:clamp(300px,56.25vw,900px);min-height:0;display:block;background:#000}
   #motion .stage-main iframe{display:block;width:100%;height:100%;min-height:0;border:0;background:#000}
+  #motion .stage-main #motionInstitutionalVideo{display:none;width:100%;height:100%;min-height:0;object-fit:contain;background:#000}
   #motion .stage-note{z-index:8;right:var(--pad);bottom:18px}
   #brief .brief-card{min-height:100%;padding:34px}
   #brief .step{grid-template-columns:54px 1fr;padding:20px 0}
@@ -136,11 +140,88 @@ function upgradeMotion(){
   const section=document.querySelector('#motion'),frame=document.querySelector('#ytFrame'),tabs=document.querySelector('#ytTabs');if(!section||!frame)return;
   const h2=section.querySelector('.section-head h2');if(h2)h2.textContent='ASSISTA AO PROCESSO CRIATIVO';
   const p=section.querySelector('.section-head p');if(p)p.textContent='Acompanhe o processo criativo em edição, composição e direção visual — da construção da imagem ao resultado final.';
-  if(tabs){const buttons=[...tabs.querySelectorAll('button')];buttons.forEach(b=>b.classList.toggle('active',b.dataset.yt===MAGO_YT));const mago=buttons.find(b=>b.dataset.yt===MAGO_YT);if(mago)mago.textContent='Processo criativo';tabs.addEventListener('click',e=>{const b=e.target.closest('button[data-yt]');if(!b)return;requestAnimationFrame(()=>{frame.src=ytSrc(b.dataset.yt,false)})})}
-  frame.src=ytSrc(MAGO_YT,false);
+
   const target=frame.closest('.stage-main');
+  let institutional=target?.querySelector('#motionInstitutionalVideo');
+  if(target&&!institutional){
+    institutional=document.createElement('video');
+    institutional.id='motionInstitutionalVideo';
+    institutional.src=MOTORS_VANS_INSTITUTIONAL;
+    institutional.poster=MOTORS_VANS_INSTITUTIONAL_POSTER;
+    institutional.controls=true;
+    institutional.muted=true;
+    institutional.playsInline=true;
+    institutional.preload='metadata';
+    institutional.setAttribute('aria-label','Institucional Motors Vans');
+    target.insertBefore(institutional,frame.nextSibling);
+  }
+
   const command=func=>{try{frame.contentWindow?.postMessage(JSON.stringify({event:'command',func,args:[]}), '*')}catch{}};
-  if(target&&!matchMedia('(hover:none)').matches){target.addEventListener('mouseenter',()=>{command('mute');command('playVideo')});target.addEventListener('mouseleave',()=>command('pauseVideo'))}
+  const setActive=button=>{
+    if(!tabs)return;
+    tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===button));
+  };
+  const showYoutube=(id,button)=>{
+    if(institutional){institutional.pause();institutional.style.display='none'}
+    frame.style.display='block';
+    frame.src=ytSrc(id,false);
+    setActive(button);
+  };
+  const showInstitutional=button=>{
+    command('pauseVideo');
+    frame.style.display='none';
+    if(institutional){
+      institutional.style.display='block';
+      try{institutional.currentTime=0}catch{}
+      institutional.play().catch(()=>{});
+    }
+    setActive(button);
+  };
+
+  if(tabs){
+    const dermacast=tabs.querySelector('button[data-yt="'+DERMACAST_YT+'"]');
+    const mago=tabs.querySelector('button[data-yt="'+MAGO_YT+'"]');
+    if(dermacast)dermacast.textContent='DERMACAST';
+    if(mago)mago.textContent='Processo criativo';
+
+    let institutionalButton=tabs.querySelector('button[data-video="motors-vans-institucional"]');
+    if(!institutionalButton){
+      institutionalButton=document.createElement('button');
+      institutionalButton.type='button';
+      institutionalButton.dataset.video='motors-vans-institucional';
+      institutionalButton.textContent='INSTITUCIONAL';
+      tabs.appendChild(institutionalButton);
+    }
+
+    tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b===mago));
+
+    if(tabs.dataset.msMotionTabsBound!=='1'){
+      tabs.dataset.msMotionTabsBound='1';
+      tabs.addEventListener('click',e=>{
+        const b=e.target.closest('button[data-yt],button[data-video]');
+        if(!b)return;
+        if(b.dataset.video==='motors-vans-institucional')showInstitutional(b);
+        else if(b.dataset.yt)showYoutube(b.dataset.yt,b);
+      });
+    }
+  }
+
+  // PROCESSO CRIATIVO (mago) continua sendo a primeira mídia exibida.
+  if(institutional){institutional.pause();institutional.style.display='none'}
+  frame.style.display='block';
+  frame.src=ytSrc(MAGO_YT,false);
+
+  if(target&&!matchMedia('(hover:none)').matches&&target.dataset.msMotionHoverBound!=='1'){
+    target.dataset.msMotionHoverBound='1';
+    target.addEventListener('mouseenter',()=>{
+      if(institutional&&institutional.style.display!=='none'){institutional.play().catch(()=>{});return}
+      command('mute');command('playVideo');
+    });
+    target.addEventListener('mouseleave',()=>{
+      if(institutional&&institutional.style.display!=='none'){institutional.pause();return}
+      command('pauseVideo');
+    });
+  }
 }
 
 function upgradeBrief(){
