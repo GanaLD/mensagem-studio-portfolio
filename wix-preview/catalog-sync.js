@@ -8,3 +8,4 @@
 import './home-runtime.js?v=20260913-r13-motion-tabs';
 import './home-round2.js?v=20260911-r3-grid-hero-3d';
 import './home-round2d.js?v=20260911-r3-grid-hero-3d';
+import './hero-hotfix.js?v=20260913-r1-mago-dermacast';
