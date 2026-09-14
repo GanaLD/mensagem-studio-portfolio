@@ -161,7 +161,7 @@ function upgradeMotion(){
     institutional=document.createElement('video');
     institutional.id='motionInstitutionalVideo';
     institutional.dataset.src=MOTORS_VANS_INSTITUTIONAL;
-    institutional.poster=MOTORS_VANS_INSTITUTIONAL_POSTER;
+    institutional.dataset.poster=MOTORS_VANS_INSTITUTIONAL_POSTER;
     institutional.controls=true;
     institutional.muted=true;
     institutional.playsInline=true;
@@ -185,6 +185,7 @@ function upgradeMotion(){
     command('pauseVideo');
     frame.style.display='none';
     if(institutional){
+      if(!institutional.getAttribute('poster')&&institutional.dataset.poster)institutional.setAttribute('poster',institutional.dataset.poster);
       if(!institutional.getAttribute('src')&&institutional.dataset.src)institutional.setAttribute('src',institutional.dataset.src);
       institutional.style.display='block';
       try{institutional.currentTime=0}catch{}
