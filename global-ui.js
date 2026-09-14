@@ -8,7 +8,7 @@
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260912-r11-popup-copy';
+  const VERSION = '20260913-r14-analytics-bridge';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -429,6 +429,129 @@
   window.addEventListener('pagehide',saveSoundtrackState);
   updateSoundUi();
   loadYouTubeApi();
+
+
+  // Conversion analytics bridge. It queues events safely even before a real GA4
+  // Measurement ID is configured. No analytics network request is made while
+  // analytics-config.js keeps enabled=false or has an empty ID.
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
+
+  const msAnalytics={
+    event(name,params={}){
+      const clean={page_path:location.pathname,...params};
+      try{window.gtag('event',name,clean)}catch(_){}
+      try{window.dispatchEvent(new CustomEvent('ms:analytics',{detail:{name,params:clean}}))}catch(_){}
+    }
+  };
+  window.MSAnalytics=window.MSAnalytics||msAnalytics;
+
+  function initConfiguredGa4(){
+    const cfg=window.MS_ANALYTICS_CONFIG||{};
+    const id=String(cfg.ga4MeasurementId||'').trim();
+    if(cfg.enabled!==true||!/^G-[A-Z0-9]+$/i.test(id))return;
+    if(document.querySelector('script[data-ms-ga4]'))return;
+    const s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
+    s.dataset.msGa4='1';
+    document.head.appendChild(s);
+    window.gtag('js',new Date());
+    window.gtag('config',id,{send_page_view:true});
+    document.documentElement.dataset.msGa4=id;
+  }
+
+  if(!document.querySelector('script[data-ms-analytics-config]')){
+    const configScript=document.createElement('script');
+    configScript.src=ROOT+'analytics-config.js?v=20260913-1';
+    configScript.async=true;
+    configScript.dataset.msAnalyticsConfig='1';
+    configScript.addEventListener('load',initConfiguredGa4,{once:true});
+    document.head.appendChild(configScript);
+  }else{
+    initConfiguredGa4();
+  }
+
+  function textLabel(el){
+    return String(el?.getAttribute?.('aria-label')||el?.textContent||'').replace(/\s+/g,' ').trim().slice(0,120);
+  }
+
+  document.addEventListener('click',e=>{
+    const el=e.target.closest?.('a,button');
+    if(!el)return;
+
+    if(el.matches('[data-add]')){
+      const card=el.closest('[data-service-card]');
+      window.MSAnalytics.event('quote_add',{
+        service_name:textLabel(card?.querySelector('h3')),
+        source:'services_catalog'
+      });
+    }
+
+    if(el.id==='cartBtn'){
+      window.MSAnalytics.event('quote_open',{source:'cart_button'});
+    }
+
+    if(el.tagName!=='A')return;
+    const raw=el.getAttribute('href')||'';
+    let url;
+    try{url=new URL(raw,location.href)}catch(_){return}
+
+    if(/(^|\.)wa\.me$|whatsapp\.com$/i.test(url.hostname)){
+      window.MSAnalytics.event('whatsapp_click',{
+        link_text:textLabel(el),
+        link_url:url.href
+      });
+    }
+
+    if(url.hash==='#briefing'){
+      window.MSAnalytics.event('briefing_open',{
+        link_text:textLabel(el),
+        source:'link'
+      });
+    }
+
+    if(url.hash==='#orcamento'||url.searchParams.get('orcamento')==='1'){
+      window.MSAnalytics.event('quote_open',{
+        link_text:textLabel(el),
+        source:'link'
+      });
+    }
+
+    if(url.origin===location.origin&&/^\/portfolio\/[^/]+\/?$/.test(url.pathname)&&url.pathname!=='/portfolio/'){
+      const slug=url.pathname.split('/').filter(Boolean).pop()||'';
+      window.MSAnalytics.event('project_view',{
+        project_slug:slug,
+        source:'project_link'
+      });
+    }
+  },true);
+
+  const videoInteractions=new WeakSet();
+  document.addEventListener('pointerup',e=>{
+    const video=e.target.closest?.('video');
+    if(!video||videoInteractions.has(video))return;
+    if(!location.pathname.includes('/portfolio/'))return;
+    videoInteractions.add(video);
+    window.MSAnalytics.event('video_engagement',{
+      video_title:video.getAttribute('title')||video.getAttribute('aria-label')||'Portfolio video',
+      video_url:video.currentSrc||video.src||'',
+      project_slug:location.pathname.split('/').filter(Boolean).pop()||''
+    });
+  },true);
+
+  if(/^\/portfolio\/[^/]+\/?$/.test(location.pathname)&&location.pathname!=='/portfolio/'){
+    window.MSAnalytics.event('project_view',{
+      project_slug:location.pathname.split('/').filter(Boolean).pop()||'',
+      source:'page_view'
+    });
+  }
+  if(location.pathname.includes('/servicos/')){
+    if(location.hash==='#briefing')window.MSAnalytics.event('briefing_open',{source:'page_state'});
+    if(location.hash==='#orcamento'||new URLSearchParams(location.search).get('orcamento')==='1'){
+      window.MSAnalytics.event('quote_open',{source:'page_state'});
+    }
+  }
 
   document.documentElement.dataset.msGlobalUi=VERSION;
 })();
