@@ -158,6 +158,24 @@ window.MENSAGEM_PROJECTS = [
       {type:'VIDEO',title:'Última Guerra — Motion Poster Cinematográfico',url:'https://video.wixstatic.com/video/ef8a3a_975bfc2b96794afbb2d9a300f25d5169/720p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg/v1/fill/w_1080,h_1350,al_c/ef8a3a_975bfc2b96794afbb2d9a300f25d5169f000.jpg'},
       {type:'VIDEO',title:'Pôster Animado — Motion Design para Cinema',url:'https://video.wixstatic.com/video/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498/1080p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg/v1/fill/w_2160,h_2800,al_c/ef8a3a_65a95e82e2bc4562abd9a260fb6fc498f000.jpg'}
     ]
+  },
+  {
+    slug:'laminas-divulgacao-publicidade-story', sourceSlug:'lâminas-de-divulgação-publicidade-story', title:'Lâminas de Divulgação | Publicidade Story', tag:'Social Media / Publicidade',
+    description:'Criação de stories publicitários e lâminas de divulgação para campanhas, WhatsApp e redes sociais, com adaptação vertical, hierarquia visual e foco em comunicação comercial.',
+    details:[
+      {label:'Serviço',text:'Design para Social Media · Publicidade · Stories'},
+      {label:'Aplicações',text:'Instagram Stories · WhatsApp · Campanhas · Divulgação'}
+    ],
+    cover:'https://static.wixstatic.com/media/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'Capa — Lâminas de Divulgação para Stories',url:'https://static.wixstatic.com/media/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png'},
+      {type:'IMAGE',title:'Story de Divulgação para WhatsApp',url:'https://static.wixstatic.com/media/ef8a3a_d0b12d6126354aa592cf3c1bef5ce40c~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_d0b12d6126354aa592cf3c1bef5ce40c~mv2.png'},
+      {type:'IMAGE',title:'Lâmina de Divulgação Vertical',url:'https://static.wixstatic.com/media/ef8a3a_e9679be81771444b908133bd242b9d81~mv2.png/v1/fill/w_230,h_610,al_c/ef8a3a_e9679be81771444b908133bd242b9d81~mv2.png'},
+      {type:'IMAGE',title:'Evofill Ever — Story Publicitário',url:'https://static.wixstatic.com/media/ef8a3a_6dfbafcbc2d247c8bfe188438e4e445c~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_6dfbafcbc2d247c8bfe188438e4e445c~mv2.png'},
+      {type:'IMAGE',title:'Lâmina de Percentual — Campanha Vertical',url:'https://static.wixstatic.com/media/ef8a3a_d3b69c8340044ef890c7b154ffa7fcf1~mv2.png/v1/fill/w_1576,h_2752,al_c/ef8a3a_d3b69c8340044ef890c7b154ffa7fcf1~mv2.png'},
+      {type:'IMAGE',title:'Banner Diamond — Divulgação Vertical',url:'https://static.wixstatic.com/media/ef8a3a_d63d1abd3f92400b994f8759e758923b~mv2.png/v1/fill/w_460,h_1220,al_c/ef8a3a_d63d1abd3f92400b994f8759e758923b~mv2.png'},
+      {type:'IMAGE',title:'Diamond X — Story Publicitário',url:'https://static.wixstatic.com/media/ef8a3a_6dcb231171434ad8866786dbb7a81cc4~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_6dcb231171434ad8866786dbb7a81cc4~mv2.png'}
+    ]
   }
 ];
 
@@ -225,6 +243,17 @@ window.MENSAGEM_CASE_STUDIES = {
     "process": "Briefing, seleção de imagens, layout e adaptação para cada formato.",
     "tools": "Direção de arte, tratamento de imagem e composição gráfica.",
     "result": "Peças mais claras, consistentes e prontas para campanha.",
+    "serviceLabel": "Design para Social Media",
+    "serviceHref": "../../servicos/design-social-media/"
+  },
+  "laminas-divulgacao-publicidade-story": {
+    "intro": "Design de stories e lâminas publicitárias pensado para comunicar campanhas com leitura rápida, consistência visual e adaptação aos formatos verticais.",
+    "context": "O projeto reúne peças de divulgação desenvolvidas para diferentes ações comerciais e canais digitais. O desafio é manter a mensagem principal legível em poucos segundos, mesmo quando cada campanha possui produtos, percentuais, chamadas e identidades visuais diferentes.",
+    "objective": "Criar materiais verticais que apresentem oferta, produto ou chamada promocional com hierarquia clara e possam ser usados em Stories, WhatsApp e outras frentes de divulgação digital.",
+    "solution": "A direção visual prioriza contraste, títulos objetivos, áreas de respiro e composição adaptada à leitura em tela cheia no celular. Cada lâmina preserva a identidade da campanha enquanto organiza informação comercial, produto e chamada para ação.",
+    "process": "O fluxo passa por leitura do briefing, definição da informação prioritária, escolha e tratamento dos elementos visuais, construção do layout vertical e refinamento de tipografia, contraste e alinhamento. Depois, cada peça é conferida no formato de publicação para garantir legibilidade em dispositivos móveis.",
+    "tools": "Design gráfico, direção de arte, tratamento de imagem, composição, tipografia e adaptação para formatos verticais de social media.",
+    "result": "Um conjunto de materiais publicitários prontos para divulgação, com comunicação mais direta e consistência entre campanhas, facilitando o uso recorrente em Stories, WhatsApp e ações promocionais.",
     "serviceLabel": "Design para Social Media",
     "serviceHref": "../../servicos/design-social-media/"
   }
