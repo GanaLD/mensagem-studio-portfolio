@@ -176,6 +176,20 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Banner Diamond — Divulgação Vertical',url:'https://static.wixstatic.com/media/ef8a3a_d63d1abd3f92400b994f8759e758923b~mv2.png/v1/fill/w_460,h_1220,al_c/ef8a3a_d63d1abd3f92400b994f8759e758923b~mv2.png'},
       {type:'IMAGE',title:'Diamond X — Story Publicitário',url:'https://static.wixstatic.com/media/ef8a3a_6dcb231171434ad8866786dbb7a81cc4~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_6dcb231171434ad8866786dbb7a81cc4~mv2.png'}
     ]
+  },
+  {
+    slug:'produtos-3d-codex-blender', title:'PRODUTOS 3D | CODEX + BLENDER', tag:'3D / Produto',
+    description:'Modelagem, animação e render de produtos 3D desenvolvidos com pipeline entre Codex e Blender, reunindo visualização interativa, motion e acabamento publicitário.',
+    details:[
+      {label:'Serviço',text:'Modelagem 3D de Produto · Render · Animação 3D'},
+      {label:'Pipeline',text:'Codex + Blender · GLB animado · Cycles'}
+    ],
+    cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'Arencia — Render de Produto 3D',description:'Render de produto com embalagem aberta, materiais suaves e iluminação clean.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'},
+      {type:'VIDEO',title:'Arencia — Motion Preview',description:'Preview animado do produto com abertura flutuante e apresentação de embalagem.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/bc0c7c1e-70df-4081-95d7-268762fc9f64.mp4',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'},
+      {type:'MODEL',title:'Arencia — Modelo GLB Animado',description:'Modelo 3D interativo em GLB com animação Arencia_Float_Open_8s.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b56bf8b1-cdab-445d-9fa5-4fe838d4be44.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'}
+    ]
   }
 ];
 
@@ -256,5 +270,16 @@ window.MENSAGEM_CASE_STUDIES = {
     "result": "Um conjunto de materiais publicitários prontos para divulgação, com comunicação mais direta e consistência entre campanhas, facilitando o uso recorrente em Stories, WhatsApp e ações promocionais.",
     "serviceLabel": "Design para Social Media",
     "serviceHref": "../../servicos/design-social-media/"
+  },
+  "produtos-3d-codex-blender": {
+    "intro": "Pipeline de produto 3D que combina desenvolvimento assistido por Codex com modelagem, animação e renderização no Blender.",
+    "context": "O projeto explora uma rotina de produção para criar ativos de produto reutilizáveis em render, motion e visualização interativa.",
+    "objective": "Construir um fluxo eficiente para modelar, revisar, animar e exportar produtos 3D com consistência entre apresentação estática, vídeo e GLB.",
+    "solution": "Modelagem e organização do asset no Blender, materiais e iluminação para render, animação de abertura e exportação em GLB para uso interativo na web.",
+    "process": "Estruturação do produto, refinamento de geometria e materiais, preparação de animação, renderização em Cycles, preview em vídeo e exportação final do GLB animado.",
+    "tools": "Blender, Cycles, GLB/glTF, animação 3D e Codex como apoio ao pipeline técnico e de produção.",
+    "result": "Um conjunto de entregáveis conectado: imagem final, motion preview e modelo 3D animado pronto para visualização interativa.",
+    "serviceLabel": "Modelagem 3D de Produto",
+    "serviceHref": "../../servicos/modelagem-3d-produto/"
   }
 };
