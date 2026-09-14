@@ -2,7 +2,9 @@ const PDF_PROXY='https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-pd
 const PDF_KEYS={
   '11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL':'manual',
   '1aqI0tbJjItjRLoZcvCd1Asm24e-O1pYs':'mediakit',
-  '1j3yee9MH266rojP_F8IwkHfKsLqTvihj':'branding'
+  '1j3yee9MH266rojP_F8IwkHfKsLqTvihj':'branding',
+  '1O70TxveLOia-045XtQzSBiBLJsVcUv91':'brandessential',
+  '1g2Vb8HoxaY2l4wv-TeZDi9laZhi3BPXP':'manualbasic'
 };
 
 const style=document.createElement('style');
