@@ -188,7 +188,12 @@ window.MENSAGEM_PROJECTS = [
     media:[
       {type:'IMAGE',title:'Arencia — Render de Produto 3D',description:'Render de produto com embalagem aberta, materiais suaves e iluminação clean.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'},
       {type:'VIDEO',title:'Arencia — Motion Preview',description:'Preview animado do produto com abertura flutuante e apresentação de embalagem.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/bc0c7c1e-70df-4081-95d7-268762fc9f64.mp4',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'},
-      {type:'MODEL',title:'Arencia — Modelo GLB Animado',description:'Modelo 3D interativo em GLB com animação Arencia_Float_Open_8s.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b56bf8b1-cdab-445d-9fa5-4fe838d4be44.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'}
+      {type:'MODEL',title:'Arencia — Modelo GLB Animado',description:'Modelo 3D interativo em GLB com animação Arencia_Float_Open_8s.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b56bf8b1-cdab-445d-9fa5-4fe838d4be44.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png'},
+      {type:'IMAGE',title:'Rejuvital 4ML — Render de Produto',description:'Render publicitário do Rejuvital 4ML com iluminação iridescente e apresentação premium de embalagem.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/526dfcc3-c7c5-457c-886f-42a1386ea990.jpg'},
+      {type:'VIDEO',title:'Rejuvital — Motion de Produto',description:'Animação vertical de produto em 1080 × 1920, preparada para apresentação e social media.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/40a6ccb5-8f93-4afd-adb0-1b6c2f2876c2.mp4',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/526dfcc3-c7c5-457c-886f-42a1386ea990.jpg'},
+      {type:'MODEL',title:'Rejuvital 4ML — GLB Animado',description:'Modelo 3D interativo e animado do Rejuvital 4ML com acabamento reflexivo.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/8a3aa015-4a63-4fd9-9cb3-b9eec2df2780.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/526dfcc3-c7c5-457c-886f-42a1386ea990.jpg'},
+      {type:'MODEL',title:'Rejuvital — Product Master GLB',description:'Modelo master 3D interativo do produto Rejuvital com materiais e acabamento reflexivo.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/7e84585e-8b0a-4701-99c2-3348d1ffd2cf.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/526dfcc3-c7c5-457c-886f-42a1386ea990.jpg'},
+      {type:'IMAGE',title:'Black Skull Creatine — Render de Produto 3D',description:'Render de produto 3D em cenário de ringue, com foco em embalagem, materiais e direção de arte esportiva.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/6ec3eed6-8862-4ef7-b5a4-493984e962b9.jpg'}
     ]
   }
 ];
@@ -278,7 +283,7 @@ window.MENSAGEM_CASE_STUDIES = {
     "solution": "Modelagem e organização do asset no Blender, materiais e iluminação para render, animação de abertura e exportação em GLB para uso interativo na web.",
     "process": "Estruturação do produto, refinamento de geometria e materiais, preparação de animação, renderização em Cycles, preview em vídeo e exportação final do GLB animado.",
     "tools": "Blender, Cycles, GLB/glTF, animação 3D e Codex como apoio ao pipeline técnico e de produção.",
-    "result": "Um conjunto de entregáveis conectado: imagem final, motion preview e modelo 3D animado pronto para visualização interativa.",
+    "result": "Um portfólio técnico de produtos 3D com renders, motions e modelos GLB interativos de Arencia, Rejuvital e Black Skull, pronto para crescer com novos produtos.",
     "serviceLabel": "Modelagem 3D de Produto",
     "serviceHref": "../../servicos/modelagem-3d-produto/"
   }
