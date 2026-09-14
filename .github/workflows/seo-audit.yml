@@ -59,6 +59,18 @@ jobs:
               "modelagem-3d-produto",
               "sites-html",
           ]
+          video_slugs = [
+              "produto-3d-egeo",
+              "edicao-podcast-workshop",
+              "motion-ia-video-campanhas",
+              "suco-laranja-natural-one",
+              "esporte-fitness",
+              "creatina-growth",
+              "personagens-consistentes-com-ia",
+              "motors-vans",
+              "edicao-fantasia-photoshop",
+              "motion-design-cartaz-cinematografico",
+          ]
           pages = {
               "index.html": base,
               "portfolio/index.html": base + "portfolio/",
@@ -98,6 +110,11 @@ jobs:
                   errors.append(f"{path}: homologation title/text leaked into SEO")
               if 'canonical" href="https://mensagemstudio.shop/wix-preview/' in html:
                   errors.append(f"{path}: canonical points to wix-preview")
+
+              if path.startswith("portfolio/") and path != "portfolio/index.html":
+                  slug = path.split("/")[1]
+                  if slug in video_slugs and '"@type":"VideoObject"' not in html:
+                      errors.append(f"{path}: video project missing VideoObject schema")
 
           sitemap = Path("sitemap.xml")
           if not sitemap.exists():
