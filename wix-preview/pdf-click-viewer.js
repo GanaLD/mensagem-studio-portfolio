@@ -9,7 +9,7 @@ const style=document.createElement('style');
 style.id='pdfClickViewerStyle';
 style.textContent=`
 #pdf .stage-main{overflow:hidden;background:rgba(8,9,7,.52)}
-#pdfFrame{display:none!important;pointer-events:none!important}
+#pdfFrame{display:none!important;pointer-events:none!important;width:100%;height:70vh;min-height:70vh;border:0;background:#fff}\n#pdf .stage-main.pdf-drive-mode #pdfFrame{display:block!important;pointer-events:auto!important}\n#pdf .stage-main.pdf-drive-mode .pdf-click-viewer{display:none!important}
 .pdf-click-viewer{position:relative;width:100%;height:70vh;min-height:70vh;display:grid;place-items:center;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.035),rgba(0,0,0,.12) 48%,rgba(0,0,0,.32));touch-action:pan-y}
 .pdf-click-viewer canvas{display:block;max-width:calc(100% - 34px);max-height:calc(100% - 34px);box-shadow:0 22px 64px rgba(0,0,0,.38);background:#fff;pointer-events:none}
 .pdf-click-zone{position:absolute;z-index:5;top:0;bottom:0;width:42%;border:0;background:transparent;padding:0;cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
@@ -26,7 +26,7 @@ style.textContent=`
 .pdf-page-indicator{position:absolute;z-index:7;left:50%;bottom:16px;transform:translateX(-50%);padding:9px 12px;border:1px solid rgba(255,255,255,.16);background:rgba(5,6,5,.78);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#d6d9cf;pointer-events:none}
 .pdf-load-state{position:absolute;z-index:3;inset:0;display:grid;place-items:center;text-align:center;padding:30px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#c9ff36;pointer-events:none}
 #pdf .stage-note{z-index:8}
-@media(max-width:760px){.pdf-click-viewer{height:60vh;min-height:60vh}.pdf-arrow{width:42px;height:42px;font-size:21px}.pdf-click-zone.prev .pdf-arrow{left:8px}.pdf-click-zone.next .pdf-arrow{right:8px}.pdf-page-indicator{bottom:10px}.pdf-click-viewer canvas{max-width:calc(100% - 20px);max-height:calc(100% - 20px)}}
+@media(max-width:760px){.pdf-click-viewer{height:60vh;min-height:60vh}#pdf .stage-main.pdf-drive-mode #pdfFrame{height:60vh;min-height:60vh}.pdf-arrow{width:42px;height:42px;font-size:21px}.pdf-click-zone.prev .pdf-arrow{left:8px}.pdf-click-zone.next .pdf-arrow{right:8px}.pdf-page-indicator{bottom:10px}.pdf-click-viewer canvas{max-width:calc(100% - 20px);max-height:calc(100% - 20px)}}
 `;
 document.head.append(style);
 
@@ -135,7 +135,20 @@ async function bootPdfClickViewer(){
     const btn=e.target.closest('button[data-pdf]');
     if(!btn)return;
     const key=PDF_KEYS[btn.dataset.pdf];
-    if(key&&key!==activeKey) loadDocument(key);
+    if(key){
+      stage.classList.remove('pdf-drive-mode');
+      legacy.setAttribute('aria-hidden','true');
+      legacy.tabIndex=-1;
+      if(key!==activeKey) loadDocument(key);
+      else if(note&&doc) note.textContent=`clique nas laterais · ${doc.numPages} páginas`;
+      return;
+    }
+    stage.classList.add('pdf-drive-mode');
+    legacy.removeAttribute('aria-hidden');
+    legacy.tabIndex=0;
+    const pages=btn.dataset.pages;
+    const label=(btn.textContent||'PDF').trim();
+    if(note) note.textContent=pages?`${label} · ${pages} páginas`:label;
   });
 
   let resizeRaf=0;
