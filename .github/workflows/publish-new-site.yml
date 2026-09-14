@@ -8,6 +8,7 @@ on:
       - 'index.html'
       - 'catalog-sync.js'
       - 'global-ui.js'
+      - 'analytics-config.js'
       - 'home-round2.js'
       - 'home-round2d.js'
       - 'home-runtime.js'
@@ -46,6 +47,7 @@ jobs:
           cp index.html wix-preview/index.html
           cp catalog-sync.js wix-preview/catalog-sync.js
           cp global-ui.js wix-preview/global-ui.js
+          cp analytics-config.js wix-preview/analytics-config.js
           cp home-round2.js wix-preview/home-round2.js
           cp home-round2d.js wix-preview/home-round2d.js
           cp home-runtime.js wix-preview/home-runtime.js
