@@ -131,8 +131,22 @@ function upgradeServices(){
   function endDrag(e){if(!dragging||(e&&e.pointerId!==pointerId))return;dragging=false;stage.classList.remove('is-dragging');try{stage.releasePointerCapture(pointerId)}catch{}pointerId=null;targetRotation=rotation+velocity*360;lastInteraction=performance.now()}
   stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);
   cards.forEach((card,i)=>{card.addEventListener('click',e=>{if(suppressClick){e.preventDefault();suppressClick=false;return}e.preventDefault();window.location.assign(SERVICES_URL)});card.addEventListener('mouseenter',()=>lastInteraction=performance.now());card.addEventListener('focus',()=>snapTo(i))});
-  function tick(now){const dt=Math.min(40,now-previousFrame);previousFrame=now;if(!dragging){if(!reduceMotion&&now-lastInteraction>1200)targetRotation-=dt*.0032;rotation+=(targetRotation-rotation)*Math.min(.12,dt*.0065);velocity*=.92}render();requestAnimationFrame(tick)}
-  addEventListener('resize',()=>{computeRadius();render()},{passive:true});computeRadius();render();requestAnimationFrame(tick);
+  let carouselVisible=false,carouselRaf=0;
+  function tick(now){
+    carouselRaf=0;
+    if(!carouselVisible||document.hidden)return;
+    const dt=Math.min(40,now-previousFrame);previousFrame=now;
+    if(!dragging){if(!reduceMotion&&now-lastInteraction>1200)targetRotation-=dt*.0032;rotation+=(targetRotation-rotation)*Math.min(.12,dt*.0065);velocity*=.92}
+    render();
+    carouselRaf=requestAnimationFrame(tick);
+  }
+  function startCarousel(){if(carouselVisible&&!document.hidden&&!carouselRaf){previousFrame=performance.now();carouselRaf=requestAnimationFrame(tick)}}
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{carouselVisible=entries.some(e=>e.isIntersecting);if(carouselVisible)startCarousel()},{rootMargin:'240px 0px',threshold:.01});
+    io.observe(shell);
+  }else carouselVisible=true;
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)startCarousel()});
+  addEventListener('resize',()=>{computeRadius();render();if(innerWidth<=760)startCarousel()},{passive:true});computeRadius();render();startCarousel();
 }
 
 function ytSrc(id,autoplay=false){return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&enablejsapi=1&playsinline=1&mute=1${autoplay?'&autoplay=1':''}`}
@@ -146,12 +160,12 @@ function upgradeMotion(){
   if(target&&!institutional){
     institutional=document.createElement('video');
     institutional.id='motionInstitutionalVideo';
-    institutional.src=MOTORS_VANS_INSTITUTIONAL;
+    institutional.dataset.src=MOTORS_VANS_INSTITUTIONAL;
     institutional.poster=MOTORS_VANS_INSTITUTIONAL_POSTER;
     institutional.controls=true;
     institutional.muted=true;
     institutional.playsInline=true;
-    institutional.preload='metadata';
+    institutional.preload='none';
     institutional.setAttribute('aria-label','Institucional Motors Vans');
     target.insertBefore(institutional,frame.nextSibling);
   }
@@ -171,6 +185,7 @@ function upgradeMotion(){
     command('pauseVideo');
     frame.style.display='none';
     if(institutional){
+      if(!institutional.getAttribute('src')&&institutional.dataset.src)institutional.setAttribute('src',institutional.dataset.src);
       institutional.style.display='block';
       try{institutional.currentTime=0}catch{}
       institutional.play().catch(()=>{});
@@ -207,9 +222,10 @@ function upgradeMotion(){
   }
 
   // PROCESSO CRIATIVO (mago) continua sendo a primeira mídia exibida.
+  // A mídia só é hidratada quando a seção se aproxima da viewport.
   if(institutional){institutional.pause();institutional.style.display='none'}
   frame.style.display='block';
-  frame.src=ytSrc(MAGO_YT,false);
+  if(!frame.dataset.src)frame.dataset.src=ytSrc(MAGO_YT,false);
 
   if(target&&!matchMedia('(hover:none)').matches&&target.dataset.msMotionHoverBound!=='1'){
     target.dataset.msMotionHoverBound='1';
