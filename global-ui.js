@@ -291,8 +291,12 @@
   }
 
   function unlockSound(){
-    if(audioUnlocked)return;
-    audioUnlocked=true;
+    if(!audioUnlocked){
+      audioUnlocked=true;
+      loadYouTubeApi();
+    }else if(!ytReady&&!ytPlayer){
+      loadYouTubeApi();
+    }
     if(ytReady){
       syncPlayerAudio();
       if(!soundMuted&&!soundPaused&&soundVolume>0){
@@ -428,7 +432,6 @@
   });
   window.addEventListener('pagehide',saveSoundtrackState);
   updateSoundUi();
-  loadYouTubeApi();
 
 
   // Conversion analytics bridge. It queues events safely even before a real GA4
