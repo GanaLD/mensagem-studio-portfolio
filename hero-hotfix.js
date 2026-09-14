@@ -25,6 +25,5 @@
   }
 
   new MutationObserver(applyHeroFix).observe(num, { childList: true, characterData: true, subtree: true });
-  addEventListener('scroll', applyHeroFix, { passive: true });
   applyHeroFix();
 })();
