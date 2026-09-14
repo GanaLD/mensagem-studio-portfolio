@@ -23,48 +23,43 @@ main{
   position:relative;
   isolation:isolate;
   overflow:clip;
-  background:
-    radial-gradient(78% 58% at 8% 18%,rgba(12,34,76,.62) 0,rgba(8,24,54,.34) 36%,rgba(5,10,18,.08) 68%,transparent 82%),
-    radial-gradient(72% 54% at 92% 34%,rgba(4,62,47,.34) 0,rgba(4,38,31,.22) 34%,rgba(3,13,15,.06) 66%,transparent 82%),
-    linear-gradient(180deg,#040605 0%,#07121f 46%,#050806 100%);
-  background-size:135% 125%,135% 125%,100% 100%;
-  background-position:0% 0%,100% 8%,0 0;
-  animation:projectsMainGradient 30s ease-in-out infinite alternate;
+  background:#050706;
 }
-main::before{
-  content:"";
+.projects-shader{
   position:absolute;
-  inset:-8% -16% -4%;
+  inset:0;
   z-index:0;
   pointer-events:none;
+  overflow:hidden;
   background:
-    radial-gradient(34% 30% at 30% 42%,rgba(10,44,92,.26),transparent 72%),
-    radial-gradient(30% 28% at 72% 58%,rgba(8,72,54,.18),transparent 72%);
-  filter:blur(34px) saturate(1.08);
-  opacity:.9;
-  animation:projectsShaderDrift 24s ease-in-out infinite alternate;
+    radial-gradient(72% 58% at 12% 18%,rgba(10,34,82,.72) 0,rgba(8,25,58,.40) 34%,transparent 72%),
+    radial-gradient(68% 52% at 88% 34%,rgba(5,70,52,.38) 0,rgba(4,42,34,.22) 38%,transparent 74%),
+    linear-gradient(180deg,#050706 0%,#07111d 50%,#050806 100%);
 }
-main::after{
+.projects-shader::before{
+  content:"";
+  position:absolute;
+  inset:-16%;
+  background:
+    radial-gradient(36% 32% at 28% 42%,rgba(22,67,132,.34),transparent 72%),
+    radial-gradient(32% 28% at 72% 58%,rgba(7,88,63,.22),transparent 72%);
+  filter:blur(42px) saturate(1.06);
+  transform:translate3d(-2%,0,0) scale(1.02);
+  animation:projectsShaderDrift 26s ease-in-out infinite alternate;
+}
+.projects-shader::after{
   content:"";
   position:absolute;
   inset:0;
-  z-index:1;
-  pointer-events:none;
-  background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.01) 36%,rgba(0,0,0,.14) 100%);
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,0) 36%,rgba(0,0,0,.16) 100%),
+    radial-gradient(circle at 50% 48%,transparent 0 50%,rgba(0,0,0,.10) 100%);
 }
 main>.wrap{position:relative;z-index:2}
-@keyframes projectsMainGradient{
-  0%{background-position:0% 0%,100% 8%,0 0}
-  50%{background-position:12% 6%,88% 16%,0 0}
-  100%{background-position:4% 14%,96% 2%,0 0}
-}
 @keyframes projectsShaderDrift{
-  0%{transform:translate3d(-1.5%,0,0) scale(1)}
-  50%{transform:translate3d(1.5%,1%,0) scale(1.025)}
-  100%{transform:translate3d(0,-1%,0) scale(1.012)}
-}
-  50%{background-position:10% 7%,90% 15%,55% 92%,0 0;transform:scale(1.018)}
-  100%{background-position:4% 14%,96% 2%,44% 86%,0 0;transform:scale(1.008)}
+  0%{transform:translate3d(-2%,0,0) scale(1.02)}
+  50%{transform:translate3d(2%,1.2%,0) scale(1.045)}
+  100%{transform:translate3d(0,-1.2%,0) scale(1.025)}
 }
 .projects-filter-shell{
   position:sticky;
@@ -142,15 +137,20 @@ main>.wrap{position:relative;z-index:2}
   .projects-filter-shell{top:80px}
 }
 @media(max-width:650px){
-  main::before{inset:-5% -55% 0;animation-duration:34s}
+  .projects-shader{
+    background:
+      radial-gradient(92% 58% at 8% 16%,rgba(10,34,82,.64) 0,rgba(8,25,58,.34) 38%,transparent 74%),
+      radial-gradient(88% 52% at 94% 36%,rgba(5,70,52,.30) 0,rgba(4,42,34,.18) 38%,transparent 76%),
+      linear-gradient(180deg,#050706 0%,#07111d 50%,#050806 100%);
+  }
   .projects-filter-shell{top:70px;margin-bottom:26px;padding:7px;border-radius:22px}
   .projects-filter-shell .filter{min-height:38px;padding:0 13px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){
-  main,main::before,.projects-filter-shell::before{animation:none!important}
+  .projects-shader::before,.projects-filter-shell::before{animation:none!important}
 }
 </style></head>
-<body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1>Projetos.</h1><p class="lead">Projetos do Mensagem Studio organizados por frente de trabalho para facilitar a navegação entre design, motion, produto, 3D e audiovisual.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><div class="grid" id="grid">
+<body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1>Projetos.</h1><p class="lead">Projetos do Mensagem Studio organizados por frente de trabalho para facilitar a navegação entre design, motion, produto, 3D e audiovisual.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><div class="grid" id="grid">
 <article class="card featured" data-cat="3D" data-project-slug="produto-3d-egeo" data-preview-video="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/720p/mp4/file.mp4"><div class="media"><img src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"></div><div class="text"><small>3D / Produto</small><h2>Modelagem e Render 3D | EGEO</h2><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Social Media" data-project-slug="carrossel-banner-estetica"><div class="media"><img src="https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png" alt="Carrossel Estética"></div><div class="text"><small>Design / Social Media</small><h2>Design para Estética | Carrossel e Banner</h2><p>Design gráfico e social media para clínicas e marcas de estética, com carrosséis e banners para campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Audiovisual" data-project-slug="edicao-podcast-workshop" data-preview-video="https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/1080p/mp4/file.mp4"><div class="media"><img src="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" alt="Podcast Workshop"></div><div class="text"><small>Audiovisual / Edição</small><h2>Edição de Vídeo para Podcast e Workshop</h2><p>Edição e pós-produção para podcasts, workshops, cortes e conteúdo para redes sociais.</p><span class="badge">Mensagem Studio</span></div></article>
