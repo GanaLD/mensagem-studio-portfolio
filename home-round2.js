@@ -114,8 +114,18 @@
     const step = 360 / count;
     const signed = a => { let n=((a%360)+360)%360; if(n>180)n-=360; return n; };
     let lastNudge = 0;
+    let inView = false;
+    let frameRaf = 0;
+
+    function clearMobileProps(){
+      cards.forEach(card=>{
+        ['--ms-mobile-x','--ms-mobile-ry','--ms-mobile-scale','--ms-mobile-opacity','--ms-mobile-bright','--ms-mobile-sat','--ms-mobile-visible','--ms-mobile-pointer'].forEach(p=>card.style.removeProperty(p));
+      });
+    }
 
     function frame(now){
+      frameRaf=0;
+      if(!inView||document.hidden)return;
       if (innerWidth <= 760){
         const match = deck.style.transform.match(/rotateY\((-?[\d.]+)deg\)/);
         const rotation = match ? Number(match[1]) : 0;
@@ -149,14 +159,29 @@
           const meta = status.nextElementSibling;
           if (meta) meta.textContent='arraste · swipe · toque para abrir';
         }
+        frameRaf=requestAnimationFrame(frame);
       } else {
-        cards.forEach(card=>{
-          ['--ms-mobile-x','--ms-mobile-ry','--ms-mobile-scale','--ms-mobile-opacity','--ms-mobile-bright','--ms-mobile-sat','--ms-mobile-visible','--ms-mobile-pointer'].forEach(p=>card.style.removeProperty(p));
-        });
+        clearMobileProps();
       }
-      requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+
+    function startFrame(){
+      if(inView&&!document.hidden&&innerWidth<=760&&!frameRaf)frameRaf=requestAnimationFrame(frame);
+    }
+
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>{
+        inView=entries.some(entry=>entry.isIntersecting);
+        if(inView)startFrame();
+      },{rootMargin:'180px 0px',threshold:.01});
+      io.observe(shell);
+    }else{
+      inView=true;
+      startFrame();
+    }
+
+    addEventListener('resize',()=>{if(innerWidth>760)clearMobileProps();else startFrame()},{passive:true});
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)startFrame()});
   }
 
   function addHeroScrollCue(){
