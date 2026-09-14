@@ -14,6 +14,7 @@
     return Number(m[1]) / Math.max(1, Number(m[2]));
   }
   function mediaClass(item) {
+    if (item.type === 'MODEL') return 'wide model';
     const r = ratioFrom(item.type === 'VIDEO' ? (item.poster || '') : item.url);
     if (r >= 1.55) return 'wide';
     if (r <= .82) return 'portrait';
@@ -91,12 +92,18 @@
     return `<img src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
   }
   function itemHTML(item, index) {
-    const type = item.type === 'VIDEO' ? 'Vídeo' : 'Imagem';
+    const type = item.type === 'VIDEO' ? 'Vídeo' : item.type === 'MODEL' ? 'Modelo 3D' : 'Imagem';
     const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
-    const visual = item.type === 'VIDEO'
-      ? `<video controls muted autoplay loop playsinline preload="auto" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`
-      : `<img loading="lazy" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
-    const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><small>${type} · ${String(index+1).padStart(2,'0')}</small></div>`;
+    let visual='';
+    if (item.type === 'VIDEO') {
+      visual=`<video controls muted autoplay loop playsinline preload="auto" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`;
+    } else if (item.type === 'MODEL') {
+      visual=`<model-viewer camera-controls autoplay shadow-intensity="1.1" shadow-softness=".85" exposure="1.05" environment-image="neutral" interaction-prompt="auto" touch-action="pan-y" loading="lazy" src="${esc(item.url)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} alt="${esc(mediaLabel)}"></model-viewer>`;
+    } else {
+      visual=`<img loading="lazy" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
+    }
+    const modelAction=item.type==='MODEL' ? `<a class="model-file-link" href="${esc(item.url)}" target="_blank" rel="noopener">ABRIR GLB ↗</a>` : '';
+    const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><div class="caption-meta"><small>${type} · ${String(index+1).padStart(2,'0')}</small>${modelAction}</div></div>`;
     return `<article class="media-item ${mediaClass(item)}" role="group" aria-label="${esc(mediaLabel)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
 
