@@ -7,8 +7,9 @@
   const PORTFOLIO_URL = ROOT + 'portfolio/';
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
+  const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260913-r14-analytics-bridge';
+  const VERSION = '20260915-r15-universal-quote';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -32,6 +33,13 @@
     .ms-menu-link.pending{color:rgba(244,245,239,.48)}
     .ms-menu-pending-note{min-height:18px;padding:14px 6px 2px;color:var(--ms-ui-lime);font-size:9px;letter-spacing:.13em;text-transform:uppercase;opacity:0;transition:opacity .2s ease}
     .ms-menu-pending-note.show{opacity:1}
+    .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
+
+    .ms-quote-fab{position:fixed;z-index:100034;right:16px;bottom:16px;min-height:46px;padding:0 16px;border:1px solid rgba(201,255,54,.48);border-radius:999px;background:linear-gradient(145deg,rgba(11,14,9,.78),rgba(201,255,54,.10));backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);display:inline-flex;align-items:center;justify-content:center;gap:10px;color:var(--ms-ui-fg);font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 24px rgba(201,255,54,.10),inset 0 1px rgba(255,255,255,.09);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab b{color:var(--ms-ui-lime);font-size:13px;font-weight:700;line-height:1}
+    .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(201,255,54,.88);background:linear-gradient(145deg,rgba(18,23,13,.90),rgba(201,255,54,.15));box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 32px rgba(201,255,54,.18),inset 0 1px rgba(255,255,255,.12)}
+    .ms-quote-fab.above-whatsapp{bottom:84px}
 
     .ms-sound-toggle{position:fixed;z-index:100030;left:16px;bottom:16px;min-width:50px;height:38px;padding:0 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(7,9,7,.46);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:9px;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 8px 28px rgba(0,0,0,.28);transition:.2s ease}
     .ms-sound-toggle:hover,.ms-sound-toggle:focus-visible{outline:none;border-color:rgba(201,255,54,.58);box-shadow:0 0 20px rgba(201,255,54,.10),0 8px 28px rgba(0,0,0,.32)}
@@ -91,10 +99,11 @@
       .ms-universal-menu-btn{top:10px;left:10px;width:40px;height:40px;border-radius:14px}
       .ms-menu-overlay{padding:60px 10px 10px}.ms-menu-panel{width:100%;border-radius:20px;padding:14px 15px}.ms-menu-link{font-size:clamp(38px,13vw,58px);padding:14px 4px 15px}.ms-menu-link:hover{padding-left:8px}
       .ms-sound-toggle{left:12px;bottom:12px;height:36px;padding:0 10px}.ms-sound-toggle .label{display:none}
+      .ms-quote-fab{right:12px;bottom:12px;min-height:42px;padding:0 14px;font-size:8px}.ms-quote-fab.above-whatsapp{bottom:72px}
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
+    @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-menu-quote,.ms-quote-fab,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
   `;
   document.head.appendChild(style);
   document.body.classList.add('ms-global-ui-mounted');
@@ -121,8 +130,28 @@
         <a class="ms-menu-link ${active==='servicos'?'active':''}" href="${SERVICES_URL}"><span>SERVIÇOS</span></a>
         <a class="ms-menu-link ${active==='sobre'?'active':''}" href="${ABOUT_URL}"><span>SOBRE</span></a>
       </div>
+      <a class="ms-menu-quote ms-quote-link" href="${QUOTE_URL}"><span>ABRIR ORÇAMENTO</span><b aria-hidden="true">↗</b></a>
     </nav>`;
   document.body.append(menuBtn,menu);
+
+  const quoteFab = document.createElement('a');
+  quoteFab.className = 'ms-quote-fab ms-quote-link';
+  quoteFab.href = QUOTE_URL;
+  quoteFab.setAttribute('aria-label','Abrir orçamento');
+  quoteFab.innerHTML = '<span>ORÇAMENTO</span><b aria-hidden="true">↗</b>';
+  if(document.getElementById('msHomeWhatsapp')) quoteFab.classList.add('above-whatsapp');
+  document.body.appendChild(quoteFab);
+
+  const openQuote = (event) => {
+    if(active!=='servicos') return;
+    const cartBtn = document.getElementById('cartBtn');
+    if(!cartBtn) return;
+    event.preventDefault();
+    closeMenu();
+    cartBtn.click();
+    if(location.hash!=='#orcamento') history.replaceState(null,'',location.pathname+location.search+'#orcamento');
+  };
+  document.querySelectorAll('.ms-quote-link').forEach(link=>link.addEventListener('click',openQuote));
 
   const openMenu = () => { menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); menuBtn.setAttribute('aria-expanded','true'); };
   const closeMenu = () => { menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); menuBtn.setAttribute('aria-expanded','false'); };
