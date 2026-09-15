@@ -1,0 +1,82 @@
+name: TEMP Swap Cyber Angel Preview Background
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/temp-cyber-bg-preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  swap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build preview-only Cyber Angel variant
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          ACTIVE_HTML_URL='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/9269603f-6e14-4da8-a4d5-1adb49bb8358.html'
+          NEW_BG_URL='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/e2b35a9e-65c0-4528-981d-3312fb04bb7e.jpg'
+
+          mkdir -p wix-preview/assets
+
+          curl -L --fail --retry 4 --retry-delay 2 "$ACTIVE_HTML_URL" -o wix-preview/assets/cyber-angel-bg-preview-v2.html
+          curl -L --fail --retry 4 --retry-delay 2 "$NEW_BG_URL" -o wix-preview/assets/cyber-angel-bg-preview-v2.jpg
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          html_path = Path('wix-preview/assets/cyber-angel-bg-preview-v2.html')
+          bg_path = Path('wix-preview/assets/cyber-angel-bg-preview-v2.jpg')
+          home_path = Path('wix-preview/index.html')
+
+          if not html_path.exists() or html_path.stat().st_size < 1000:
+              raise SystemExit('Downloaded Cyber Angel HTML is missing or too small.')
+          if not bg_path.exists() or bg_path.stat().st_size < 10000:
+              raise SystemExit('Downloaded background image is missing or too small.')
+
+          html = html_path.read_text(encoding='utf-8')
+          # Change ONLY the background image source. Angel frames, animation logic and landing position stay untouched.
+          pattern = r'(<img\s+id=["\']bg["\'][^>]*?\bsrc=["\'])([^"\']+)(["\'])'
+          html, count = re.subn(pattern, r'\1./cyber-angel-bg-preview-v2.jpg\3', html, count=1, flags=re.I | re.S)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one #bg image replacement, got {count}.')
+          html_path.write_text(html, encoding='utf-8')
+
+          home = home_path.read_text(encoding='utf-8')
+          iframe_pattern = r'(<iframe\s+id=["\']cyberAngelBg["\'][^>]*?\bdata-src=["\'])([^"\']+)(["\'])'
+          home, count = re.subn(
+              iframe_pattern,
+              r'\1./assets/cyber-angel-bg-preview-v2.html?v=20260914-bg-v2\3',
+              home,
+              count=1,
+              flags=re.I | re.S,
+          )
+          if count != 1:
+              raise SystemExit(f'Expected exactly one #cyberAngelBg data-src replacement, got {count}.')
+          home_path.write_text(home, encoding='utf-8')
+          PY
+
+      - name: Commit preview-only result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          rm -f .github/workflows/temp-cyber-bg-preview.yml
+          git add wix-preview/index.html wix-preview/assets/cyber-angel-bg-preview-v2.html wix-preview/assets/cyber-angel-bg-preview-v2.jpg .github/workflows/temp-cyber-bg-preview.yml
+
+          git commit -m 'preview: swap only Cyber Angel 1 background image'
+          git pull --rebase origin main
+          git push
