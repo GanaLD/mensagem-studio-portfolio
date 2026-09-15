@@ -50,6 +50,8 @@ jobs:
               "edicao-fantasia-photoshop",
               "poster-cartaz-cinematografico",
               "motion-design-cartaz-cinematografico",
+              "laminas-divulgacao-publicidade-story",
+              "produtos-3d-codex-blender",
           ]
           service_slugs = [
               "design-social-media",
@@ -70,6 +72,7 @@ jobs:
               "motors-vans",
               "edicao-fantasia-photoshop",
               "motion-design-cartaz-cinematografico",
+              "produtos-3d-codex-blender",
           ]
           pages = {
               "index.html": base,
@@ -124,8 +127,8 @@ jobs:
               ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
               urls = [x.text.strip() for x in root.findall("sm:url/sm:loc", ns) if x.text]
               expected = list(pages.values())
-              if len(urls) != 23:
-                  errors.append(f"sitemap.xml: expected 23 URLs, got {len(urls)}")
+              if len(urls) != 25:
+                  errors.append(f"sitemap.xml: expected 25 URLs, got {len(urls)}")
               if len(urls) != len(set(urls)):
                   errors.append("sitemap.xml: duplicate URLs")
               if set(urls) != set(expected):
@@ -177,6 +180,6 @@ jobs:
 
           print(f"SEO PASS: {len(pages)} indexable pages validated.")
           print("Canonical domain: https://mensagemstudio.shop/")
-          print("Sitemap: 23/23 URLs.")
+          print("Sitemap: 25/25 URLs.")
           print("Preview backup: noindex,follow with production canonicals.")
           PY
