@@ -6,15 +6,14 @@ on:
       - main
     paths:
       - 'index.html'
-      - 'catalog-sync.js'
-      - 'global-ui.js'
-      - 'analytics-config.js'
-      - 'home-round2.js'
-      - 'home-round2d.js'
-      - 'home-runtime.js'
-      - 'pdf-click-viewer.js'
-      - 'scroll-reveal.js'
-      - 'services-cart-suggestions.js'
+      - '404.html'
+      - '404/**'
+      - '*.js'
+      - '*.txt'
+      - '.nojekyll'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'data/**'
       - 'portfolio/**'
       - 'servicos/**'
       - 'sobre/**'
@@ -38,30 +37,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Mirror production into wix-preview backup
+      - name: Rebuild wix-preview from production
         shell: bash
         run: |
           set -euo pipefail
 
+          # Recreate the backup from scratch so preview-only experiments and
+          # stale files can never survive a production -> backup sync.
+          rm -rf wix-preview
           mkdir -p wix-preview
-          cp index.html wix-preview/index.html
-          cp catalog-sync.js wix-preview/catalog-sync.js
-          cp global-ui.js wix-preview/global-ui.js
-          cp analytics-config.js wix-preview/analytics-config.js
-          cp home-round2.js wix-preview/home-round2.js
-          cp home-round2d.js wix-preview/home-round2d.js
-          cp home-runtime.js wix-preview/home-runtime.js
-          cp pdf-click-viewer.js wix-preview/pdf-click-viewer.js
-          cp scroll-reveal.js wix-preview/scroll-reveal.js
-          cp services-cart-suggestions.js wix-preview/services-cart-suggestions.js
 
-          rm -rf wix-preview/portfolio wix-preview/servicos wix-preview/sobre
-          cp -a portfolio wix-preview/portfolio
-          cp -a servicos wix-preview/servicos
-          cp -a sobre wix-preview/sobre
-
-          rm -rf wix-preview/assets
-          cp -a assets wix-preview/assets
+          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='wix-preview/'             --exclude='scripts/'             --exclude='docs/'             --exclude='review-priority6/'             --exclude='preview-*.html'             --exclude='CNAME'             ./ wix-preview/
 
           python - <<'PY'
           from pathlib import Path
@@ -69,15 +55,19 @@ jobs:
 
           root = Path("wix-preview")
 
-          # Backup navigation stays inside the backup tree.
+          # Keep global navigation inside the backup tree.
           gui = root / "global-ui.js"
           if gui.exists():
               text = gui.read_text(encoding="utf-8")
               text = text.replace("const ROOT = '/';", "const ROOT = '/wix-preview/';")
               gui.write_text(text, encoding="utf-8")
 
+          # Preview HTML should mirror production content while remaining
+          # excluded from indexing. Do NOT rewrite relative asset/script paths:
+          # the mirrored directory structure already resolves them correctly.
           for path in root.rglob("*.html"):
               text = path.read_text(encoding="utf-8")
+
               text = re.sub(
                   r'<meta name="robots" content="[^"]*">',
                   '<meta name="robots" content="noindex,follow">',
@@ -85,6 +75,7 @@ jobs:
                   count=1,
                   flags=re.I,
               )
+
               if 'name="robots"' not in text.lower():
                   text = re.sub(
                       r'<head>',
@@ -93,6 +84,7 @@ jobs:
                       count=1,
                       flags=re.I,
                   )
+
               if 'name="ms-backup-source"' not in text:
                   text = re.sub(
                       r'<head>',
@@ -101,11 +93,12 @@ jobs:
                       count=1,
                       flags=re.I,
                   )
-              text = re.sub(
-                  r'/global-ui\.js\?v=([^"\']+)',
-                  r'/wix-preview/global-ui.js?v=\1',
-                  text
-              )
+
+              # Repair legacy duplicated path if it exists in an older source.
+              text = text.replace('./wix-preview/global-ui.js', './global-ui.js')
+              text = text.replace('../wix-preview/global-ui.js', '../global-ui.js')
+              text = text.replace('../../wix-preview/global-ui.js', '../../global-ui.js')
+
               path.write_text(text, encoding="utf-8")
           PY
 
@@ -114,7 +107,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview
+          git add -A wix-preview
           if git diff --cached --quiet; then
             echo 'Preview backup already matches production.'
             exit 0
