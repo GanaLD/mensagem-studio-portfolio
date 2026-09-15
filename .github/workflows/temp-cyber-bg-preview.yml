@@ -46,11 +46,26 @@ jobs:
               raise SystemExit('Downloaded background image is missing or too small.')
 
           html = html_path.read_text(encoding='utf-8')
-          # Change ONLY the background image source. Angel frames, animation logic and landing position stay untouched.
-          pattern = r'(<img\s+id=["\']bg["\'][^>]*?\bsrc=["\'])([^"\']+)(["\'])'
-          html, count = re.subn(pattern, r'\1./cyber-angel-bg-preview-v2.jpg\3', html, count=1, flags=re.I | re.S)
-          if count != 1:
-              raise SystemExit(f'Expected exactly one #bg image replacement, got {count}.')
+          # Change ONLY the two background layers used by the approved V2.1.5:
+          # world-bg = visible background; ambient-bg = blurred copy behind it.
+          # Angel frames, animation logic and landing position stay untouched.
+          total = 0
+          for image_id in ('ambient-bg', 'world-bg'):
+              pattern = rf'(<img\\s+id=["\\']{image_id}["\\'][^>]*?\\bsrc=["\\'])([^"\\']+)(["\\'])'
+              html, count = re.subn(
+                  pattern,
+                  r'\\1./cyber-angel-bg-preview-v2.jpg\\3',
+                  html,
+                  count=1,
+                  flags=re.I | re.S,
+              )
+              if count != 1:
+                  raise SystemExit(f'Expected one #{image_id} background replacement, got {count}.')
+              total += count
+          if total != 2:
+              raise SystemExit(f'Expected two background replacements, got {total}.')
+          if 'id="angel"' not in html or 'landing-marker' not in html:
+              raise SystemExit('Angel or landing marker disappeared unexpectedly.')
           html_path.write_text(html, encoding='utf-8')
 
           home = home_path.read_text(encoding='utf-8')
