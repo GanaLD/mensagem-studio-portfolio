@@ -94,10 +94,14 @@ jobs:
                       flags=re.I,
                   )
 
-              # Repair legacy duplicated path if it exists in an older source.
+              # Repair legacy duplicated paths without touching correct relative refs.
               text = text.replace('./wix-preview/global-ui.js', './global-ui.js')
               text = text.replace('../wix-preview/global-ui.js', '../global-ui.js')
               text = text.replace('../../wix-preview/global-ui.js', '../../global-ui.js')
+
+              # Root-absolute references must stay inside the backup tree.
+              text = text.replace('src="/global-ui.js', 'src="/wix-preview/global-ui.js')
+              text = text.replace("src='/global-ui.js", "src='/wix-preview/global-ui.js")
 
               path.write_text(text, encoding="utf-8")
           PY
