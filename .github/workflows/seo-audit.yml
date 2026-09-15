@@ -56,8 +56,14 @@ jobs:
           service_slugs = [
               "design-social-media",
               "edicao-video",
+              "producao-audiovisual",
               "motion-design-vfx",
+              "tratamento-retoque-fotos",
+              "manipulacao-imagem",
+              "identidade-visual-branding",
+              "direcao-arte-campanhas",
               "fotos-ecommerce",
+              "ilustracao-personagens-storyboard",
               "modelagem-3d-produto",
               "sites-html",
           ]
@@ -127,8 +133,8 @@ jobs:
               ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
               urls = [x.text.strip() for x in root.findall("sm:url/sm:loc", ns) if x.text]
               expected = list(pages.values())
-              if len(urls) != 25:
-                  errors.append(f"sitemap.xml: expected 25 URLs, got {len(urls)}")
+              if len(urls) != 31:
+                  errors.append(f"sitemap.xml: expected 31 URLs, got {len(urls)}")
               if len(urls) != len(set(urls)):
                   errors.append("sitemap.xml: duplicate URLs")
               if set(urls) != set(expected):
@@ -180,6 +186,6 @@ jobs:
 
           print(f"SEO PASS: {len(pages)} indexable pages validated.")
           print("Canonical domain: https://mensagemstudio.shop/")
-          print("Sitemap: 25/25 URLs.")
+          print("Sitemap: 31/31 URLs.")
           print("Preview backup: noindex,follow with production canonicals.")
           PY
