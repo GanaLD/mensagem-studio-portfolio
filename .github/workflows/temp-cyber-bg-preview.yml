@@ -51,7 +51,7 @@ jobs:
           # Angel frames, animation logic and landing position stay untouched.
           total = 0
           for image_id in ('ambient-bg', 'world-bg'):
-              pattern = rf'(<img\\s+id=["\\']{image_id}["\\'][^>]*?\\bsrc=["\\'])([^"\\']+)(["\\'])'
+              pattern = rf"""(<img\s+id=["']{re.escape(image_id)}["'][^>]*?\bsrc=["'])([^"']+)(["'])"""
               html, count = re.subn(
                   pattern,
                   r'\\1./cyber-angel-bg-preview-v2.jpg\\3',
@@ -69,7 +69,7 @@ jobs:
           html_path.write_text(html, encoding='utf-8')
 
           home = home_path.read_text(encoding='utf-8')
-          iframe_pattern = r'(<iframe\s+id=["\']cyberAngelBg["\'][^>]*?\bdata-src=["\'])([^"\']+)(["\'])'
+          iframe_pattern = r"""(<iframe\s+id=["']cyberAngelBg["'][^>]*?\bdata-src=["'])([^"']+)(["'])"""
           home, count = re.subn(
               iframe_pattern,
               r'\1./assets/cyber-angel-bg-preview-v2.html?v=20260914-bg-v2\3',
