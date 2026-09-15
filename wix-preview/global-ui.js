@@ -4,6 +4,19 @@
   window.__MS_GLOBAL_UI_V1__ = true;
 
   const ROOT = location.pathname.startsWith('/wix-preview/') ? '/wix-preview/' : '/';
+  // Preview favicon: same mark across every backup page.
+  if (ROOT === '/wix-preview/') {
+    let favicon = document.querySelector('link[rel~="icon"]');
+    if (!favicon) {
+      favicon = document.createElement('link');
+      favicon.rel = 'icon';
+      document.head.appendChild(favicon);
+    }
+    favicon.type = 'image/png';
+    favicon.sizes = '48x48';
+    favicon.href = ROOT + 'favicon-48.png';
+  }
+
   const PORTFOLIO_URL = ROOT + 'portfolio/';
   const SERVICES_URL = ROOT + 'servicos/';
   const ABOUT_URL = ROOT + 'sobre/';
