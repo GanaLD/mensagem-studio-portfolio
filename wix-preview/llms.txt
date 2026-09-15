@@ -15,6 +15,12 @@ Site oficial: https://mensagemstudio.shop/
 - Edição de Vídeo e Reels: https://mensagemstudio.shop/servicos/edicao-video/
 - Motion Design e VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
 - Fotos de Produto para E-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
+- Produção Audiovisual: https://mensagemstudio.shop/servicos/producao-audiovisual/
+- Tratamento e Retoque de Fotos: https://mensagemstudio.shop/servicos/tratamento-retoque-fotos/
+- Manipulação de Imagem e Composição: https://mensagemstudio.shop/servicos/manipulacao-imagem/
+- Identidade Visual e Branding: https://mensagemstudio.shop/servicos/identidade-visual-branding/
+- Direção de Arte e Campanhas: https://mensagemstudio.shop/servicos/direcao-arte-campanhas/
+- Ilustração, Personagens e Storyboard: https://mensagemstudio.shop/servicos/ilustracao-personagens-storyboard/
 - Modelagem e Render 3D de Produto: https://mensagemstudio.shop/servicos/modelagem-3d-produto/
 - Sites em HTML e Experiências Web: https://mensagemstudio.shop/servicos/sites-html/
 
@@ -30,8 +36,8 @@ Site oficial: https://mensagemstudio.shop/
 - https://mensagemstudio.shop/portfolio/fotos-para-ecommerce/
 - https://mensagemstudio.shop/portfolio/motors-vans/
 - https://mensagemstudio.shop/portfolio/edicao-fantasia-photoshop/
-- https://mensagemstudio.shop/portfolio/poster-cartaz/
-- https://mensagemstudio.shop/portfolio/motion-banner-cartaz-cinematografico/
+- https://mensagemstudio.shop/portfolio/poster-cartaz-cinematografico/
+- https://mensagemstudio.shop/portfolio/motion-design-cartaz-cinematografico/
 
 ## Descoberta
 - Sitemap XML: https://mensagemstudio.shop/sitemap.xml
