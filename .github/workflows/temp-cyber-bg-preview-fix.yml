@@ -1,0 +1,85 @@
+name: TEMP Fix Cyber Angel Preview Background
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/temp-cyber-bg-preview-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild exact preview variant with new background only
+        shell: bash
+        run: |
+          set -euo pipefail
+          ACTIVE_HTML_URL='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/9269603f-6e14-4da8-a4d5-1adb49bb8358.html'
+          NEW_BG_URL='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/e2b35a9e-65c0-4528-981d-3312fb04bb7e.jpg'
+
+          curl -L --fail --retry 4 --retry-delay 2 "$ACTIVE_HTML_URL" -o wix-preview/assets/cyber-angel-bg-preview-v2.html
+          curl -L --fail --retry 4 --retry-delay 2 "$NEW_BG_URL" -o wix-preview/assets/cyber-angel-bg-preview-v2.jpg
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          html_path = Path('wix-preview/assets/cyber-angel-bg-preview-v2.html')
+          home_path = Path('wix-preview/index.html')
+
+          html = html_path.read_text(encoding='utf-8')
+          for image_id in ('ambient-bg', 'world-bg'):
+              pattern = rf"""(<img\s+id=["']{re.escape(image_id)}["'][^>]*?\bsrc=["'])([^"']+)(["'])"""
+              html, count = re.subn(
+                  pattern,
+                  lambda m: m.group(1) + './cyber-angel-bg-preview-v2.jpg' + m.group(3),
+                  html,
+                  count=1,
+                  flags=re.I | re.S,
+              )
+              if count != 1:
+                  raise SystemExit(f'Expected one #{image_id} replacement, got {count}.')
+
+          if 'id="angel"' not in html:
+              raise SystemExit('Angel asset missing after background replacement.')
+          if 'landing-marker' not in html:
+              raise SystemExit('Landing logic marker missing after background replacement.')
+          if '\\1./cyber-angel-bg-preview-v2.jpg\\3' in html:
+              raise SystemExit('Literal regex backreference leaked into HTML.')
+
+          html_path.write_text(html, encoding='utf-8')
+
+          home = home_path.read_text(encoding='utf-8')
+          iframe_pattern = r"""(<iframe\s+id=["']cyberAngelBg["'][^>]*?\bdata-src=["'])([^"']+)(["'])"""
+          home, count = re.subn(
+              iframe_pattern,
+              lambda m: m.group(1) + './assets/cyber-angel-bg-preview-v2.html?v=20260914-bg-v3' + m.group(3),
+              home,
+              count=1,
+              flags=re.I | re.S,
+          )
+          if count != 1:
+              raise SystemExit(f'Expected one cyberAngelBg iframe replacement, got {count}.')
+          home_path.write_text(home, encoding='utf-8')
+          PY
+
+      - name: Commit preview-only fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .github/workflows/temp-cyber-bg-preview-fix.yml
+          git add wix-preview/index.html wix-preview/assets/cyber-angel-bg-preview-v2.html wix-preview/assets/cyber-angel-bg-preview-v2.jpg .github/workflows/temp-cyber-bg-preview-fix.yml
+          git commit -m 'preview: fix Cyber Angel background-only swap'
+          git pull --rebase origin main
+          git push
