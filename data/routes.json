@@ -1,7 +1,7 @@
 {
   "version": 4,
   "base_url": "https://mensagemstudio.shop",
-  "generated_at": "2026-09-13",
+  "generated_at": "2026-09-14",
   "items": [
     {
       "canonical": "https://mensagemstudio.shop/",
@@ -163,6 +163,20 @@
       "kind": "project",
       "path": "/portfolio/motion-design-cartaz-cinematografico/",
       "project_id": "motion-design-cartaz-cinematografico"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/portfolio/laminas-divulgacao-publicidade-story/",
+      "index": true,
+      "kind": "project",
+      "path": "/portfolio/laminas-divulgacao-publicidade-story/",
+      "project_id": "laminas-divulgacao-publicidade-story"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/",
+      "index": true,
+      "kind": "project",
+      "path": "/portfolio/produtos-3d-codex-blender/",
+      "project_id": "produtos-3d-codex-blender"
     }
   ]
 }
