@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /scripts/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /data/
+Disallow: /scripts/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /data/
+Disallow: /scripts/
+
+Sitemap: https://mensagemstudio.shop/sitemap.xml

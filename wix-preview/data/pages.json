@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "id": "home",
+      "path": "/",
+      "runtime": "ems-r2.2-modular",
+      "sections": [
+        "core-hero",
+        "core-intro",
+        "core-lettering",
+        "block-mt7w7u6g-rltgl",
+        "core-projects-header",
+        "core-projects",
+        "block-mt7vxqnd-yp24f",
+        "youtube-showcase-main",
+        "block-mt7w4nzd-iqxso",
+        "block-mt7w65mq-gj3mf",
+        "block-mt7w1mxs-fz7yt",
+        "block-mt7w6ubb-x0xc9",
+        "block-mt7w5bn1-p6bcf",
+        "core-contact",
+        "core-about"
+      ],
+      "template": "templates/pages/home.html"
+    }
+  ],
+  "owner": "site.pages",
+  "schema_version": 1
+}

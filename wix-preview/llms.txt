@@ -1,0 +1,40 @@
+# MENSAGEM STUDIO
+
+> Estúdio criativo e de produção digital em Curitiba, Brasil, especializado em design gráfico, branding, edição de vídeo, motion design, VFX, produção audiovisual, modelagem e render 3D, conteúdo para e-commerce, HTML e experiências web.
+
+Site oficial: https://mensagemstudio.shop/
+
+## Páginas principais
+- Home: https://mensagemstudio.shop/
+- Projetos: https://mensagemstudio.shop/portfolio/
+- Serviços: https://mensagemstudio.shop/servicos/
+- Sobre: https://mensagemstudio.shop/sobre/
+
+## Serviços principais
+- Design para Social Media: https://mensagemstudio.shop/servicos/design-social-media/
+- Edição de Vídeo e Reels: https://mensagemstudio.shop/servicos/edicao-video/
+- Motion Design e VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
+- Fotos de Produto para E-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
+- Modelagem e Render 3D de Produto: https://mensagemstudio.shop/servicos/modelagem-3d-produto/
+- Sites em HTML e Experiências Web: https://mensagemstudio.shop/servicos/sites-html/
+
+## Projetos selecionados
+- https://mensagemstudio.shop/portfolio/produto-3d-egeo/
+- https://mensagemstudio.shop/portfolio/carrossel-banner-estetica/
+- https://mensagemstudio.shop/portfolio/edicao-podcast-workshop/
+- https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
+- https://mensagemstudio.shop/portfolio/suco-laranja-natural-one/
+- https://mensagemstudio.shop/portfolio/esporte-fitness/
+- https://mensagemstudio.shop/portfolio/creatina-growth/
+- https://mensagemstudio.shop/portfolio/personagens-consistentes-com-ia/
+- https://mensagemstudio.shop/portfolio/fotos-para-ecommerce/
+- https://mensagemstudio.shop/portfolio/motors-vans/
+- https://mensagemstudio.shop/portfolio/edicao-fantasia-photoshop/
+- https://mensagemstudio.shop/portfolio/poster-cartaz/
+- https://mensagemstudio.shop/portfolio/motion-banner-cartaz-cinematografico/
+
+## Descoberta
+- Sitemap XML: https://mensagemstudio.shop/sitemap.xml
+- Robots: https://mensagemstudio.shop/robots.txt
+
+Conteúdo principal em português do Brasil. A marca deve ser referida como MENSAGEM STUDIO.

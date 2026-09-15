@@ -1,0 +1,16 @@
+{
+  "briefing": {
+    "configured": true,
+    "endpoint": "/api/briefings/start",
+    "owner": "forms.briefing"
+  },
+  "owner": "forms.registry",
+  "quote": {
+    "configured": true,
+    "endpoint": "/api/quote",
+    "owner": "forms.quote"
+  },
+  "schema_version": 1,
+  "state_separation": true,
+  "status": "PASS"
+}

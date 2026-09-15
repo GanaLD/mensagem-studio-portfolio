@@ -1,0 +1,1407 @@
+{
+  "app_version": "7.12.20",
+  "artifact_id": "r22-1b5738da586b-0c9bf00e64cf94da",
+  "artifact_sha256": "0c9bf00e64cf94dad3c6eb8ef5c9da38f19d682a93aa6f5eb53d98c79b534f22",
+  "build_id": "V74-V75-EDITOR-MOTION-VIDEO",
+  "build_revision": "0c9bf00e64cf94dad3c6",
+  "built_at": "2026-09-06T18:52:51.232263+00:00",
+  "bundle_sha256": "0c9bf00e64cf94dad3c6eb8ef5c9da38f19d682a93aa6f5eb53d98c79b534f22",
+  "editorial_revision": "1b5738da586bc7c80b73",
+  "files": {
+    ".nojekyll": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "404.html": {
+      "bytes": 14357,
+      "sha256": "de5d894093f57889f552579773b51cf8dd961897b1554bade1949c88e536fcad"
+    },
+    "404/index.html": {
+      "bytes": 14872,
+      "sha256": "7d48d4cbb2f817cd0f902c221823c64567d595c6a7b00c19d4cee627ed09b255"
+    },
+    "CNAME": {
+      "bytes": 21,
+      "sha256": "4a0c14a9f7c2c83d85e3758eff762e7af02b569cd44486ccd9125c4b3348565d"
+    },
+    "arquivo/index.html": {
+      "bytes": 14739,
+      "sha256": "08c115489e4f7ae170636e90210d4df61e064901cc92fe40731e21ccb87d24be"
+    },
+    "assets/3d/fallbacks/studio-orbit-dish.png": {
+      "bytes": 4620,
+      "sha256": "cd83f18d45aaa58658e123eafccc0c0f6ce750d62ed443d92a3bf46c100f85b0"
+    },
+    "assets/3d/manifest.json": {
+      "bytes": 594,
+      "sha256": "7f047e5624a979b70cb5188e72e644eef87156fae9272dff5fb40902064d73b9"
+    },
+    "assets/3d/oryzo-controller.glb.gz": {
+      "bytes": 7163903,
+      "sha256": "bd8aa3d064c7c006833cfb7813a8ed8a20e372b54c2f6e01493d417b35537a10"
+    },
+    "assets/3d/studio-orbit-dish.glb.gz": {
+      "bytes": 6874,
+      "sha256": "ee1373e8528f83505f15518329d39513901b4cde2a3a11d14b603c05203a4953"
+    },
+    "assets/components/advanced-components.js": {
+      "bytes": 7283,
+      "sha256": "cde143bd96600ddc5041c0bc2891fb4df77cbc521d8696a16c07962eca27cab6"
+    },
+    "assets/hero/dermacast-laila.mp4": {
+      "bytes": 2396816,
+      "sha256": "eb78d6f7c96dd76a9a32c12f838873203c8339bf53039f00d4f7f6f6227a1871"
+    },
+    "assets/hero/manifest.json": {
+      "bytes": 182,
+      "sha256": "d9a77c1706a5794543c66e441276ed3e498b4321ef1a9d5fa2965122f89038f0"
+    },
+    "assets/immersive-v31.js": {
+      "bytes": 17651,
+      "sha256": "7fb9a828ec22937c9ecc5675c57b0e4d714e8c19b3f31964ab47fc556dea191b"
+    },
+    "assets/immersive/immersive-v31.js": {
+      "bytes": 17651,
+      "sha256": "7fb9a828ec22937c9ecc5675c57b0e4d714e8c19b3f31964ab47fc556dea191b"
+    },
+    "assets/motion/adapters/css-native.js": {
+      "bytes": 2688,
+      "sha256": "b20cd97f5ad7ebad8fc6bf63ee4707a485d185d0063f50e163e128a32f10335c"
+    },
+    "assets/motion/adapters/gsap.js": {
+      "bytes": 8020,
+      "sha256": "677715458c03745e300eb794e34122705a271f1ff030bd5dd6d7029ca0c8b621"
+    },
+    "assets/motion/adapters/motion.js": {
+      "bytes": 4476,
+      "sha256": "2028370a827475472f5c452e505af93c99ab56230e099c3082af650f952a839b"
+    },
+    "assets/motion/adapters/three.js": {
+      "bytes": 4241,
+      "sha256": "c13ff0d0202ebf500b078618e12efc639f9507011c0db12360be12e37f5d5f32"
+    },
+    "assets/motion/motion-runtime.js": {
+      "bytes": 6961,
+      "sha256": "f2cbfd14d09401a2f95ba0348e9877bcf0837e7b627ffe25858fae594bf0b6bc"
+    },
+    "assets/motion/vendor/THIRD_PARTY_NOTICES.md": {
+      "bytes": 830,
+      "sha256": "5a50c43a08634d20f2e15a33340e1aa9d734fe3852c7559d40f732a5c6735df0"
+    },
+    "assets/motion/vendor/gsap/Flip.min.js": {
+      "bytes": 25534,
+      "sha256": "cbe3ca726350f8d230da38a14ce2384e7772e05a45cee6144dd7fe6dde868c2f"
+    },
+    "assets/motion/vendor/gsap/ScrollTrigger.min.js": {
+      "bytes": 44575,
+      "sha256": "b0b14d67b55b0c43c756ac0b106cfcb09d0879945f6ead64451065b0672916a2"
+    },
+    "assets/motion/vendor/gsap/SplitText.min.js": {
+      "bytes": 7732,
+      "sha256": "419f7027a5f086a12cb7988736d8fdd3a6ed2200229661de25b6628ca7ced344"
+    },
+    "assets/motion/vendor/gsap/gsap.min.js": {
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    "assets/motion/vendor/licenses/MOTION-LICENSE.md": {
+      "bytes": 1100,
+      "sha256": "1bf0dc3f7727723e5a032ed12164a47cf92c05204cb1a3485f123c24e2833ed1"
+    },
+    "assets/motion/vendor/licenses/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    "assets/motion/vendor/motion/motion.js": {
+      "bytes": 139606,
+      "sha256": "d8b344a48578cb8616dad0110658017a1434cdb99873adc96d0efe64abc07e8c"
+    },
+    "assets/motion/vendor/three/three.core.min.js": {
+      "bytes": 385390,
+      "sha256": "0e9dd2793e01d0d9eb4f2ab00b4ffcdd4488275ebebee5c31fa8d347bc29f0bf"
+    },
+    "assets/motion/vendor/three/three.module.min.js": {
+      "bytes": 365552,
+      "sha256": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6"
+    },
+    "assets/showcases/manifest.json": {
+      "bytes": 2281,
+      "sha256": "a00e788b3b9b0aacbd9afde1ec90cf141d7387f2b219073d0a13bb5d3b2d4d44"
+    },
+    "assets/showcases/proof/html5/index.html": {
+      "bytes": 1570,
+      "sha256": "4ed3640967c73221359735c680fb0b95d9994809c27339d7943a51b35d5da401"
+    },
+    "assets/showcases/proof/stage5-pdf-proof.pdf": {
+      "bytes": 4108,
+      "sha256": "bbe7b810c12359ee6c8ffe25fc09c9cb69e9b15c18e4a3aee65fada0761a7609"
+    },
+    "assets/showcases/proof/stage5-player-proof.mp4": {
+      "bytes": 201459,
+      "sha256": "d2bc3067b533cb4b449532f4113b5c46349bc57480188f2566cf172f793c9cd5"
+    },
+    "assets/showcases/proof/stage5-player-proof.webm": {
+      "bytes": 172389,
+      "sha256": "5ded0170d87c52fe43bc3742d7f8412f5d5b99cdb9c8a05ee25b400d9ca77390"
+    },
+    "assets/showcases/proof/stage5-poster.png": {
+      "bytes": 8900,
+      "sha256": "4d6a3c1069f72036478cff3bc629f757f3513734bcbb4d50590653c922ecc9fe"
+    },
+    "assets/site.css": {
+      "bytes": 364869,
+      "sha256": "73ac03f426d5afb3414c10168a355d93f9aa149be2a247e1dc1d0f5111fa3939"
+    },
+    "assets/site.js": {
+      "bytes": 571287,
+      "sha256": "fb287db3cf237eb0f5496b8f0f640c7c678d19cec60c30fba48dd1e87ac2f2c2"
+    },
+    "assets/themes/black-maca.css": {
+      "bytes": 8370,
+      "sha256": "2026d9412921b855a8569917ef5b4c49bac8f5c7cfda8efc5f1ffcaac7bfdcfd"
+    },
+    "assets/themes/branding.css": {
+      "bytes": 8525,
+      "sha256": "ba5f81014f37d56666aaaecc6a144f2ea2f1b8cc50a9f8f01f2ead5889c7be4a"
+    },
+    "assets/themes/discord.css": {
+      "bytes": 8209,
+      "sha256": "318920825486aa9c80f692004c5dad0153e5ec3040e9e54779c5be2b51a34713"
+    },
+    "assets/themes/dope-segurity.css": {
+      "bytes": 9015,
+      "sha256": "2c1f237a4444bc87aad917020016b9b29dd6b789703805c833bea3e9c9cd5e59"
+    },
+    "assets/themes/maca.css": {
+      "bytes": 7729,
+      "sha256": "7ea071b263f9c13b6bedf3293c813adf77cdd3f2699bcae6fbfd15e95c212399"
+    },
+    "assets/themes/mekaverse.css": {
+      "bytes": 7022,
+      "sha256": "d1dd1fbc62afa17754359cceb24a2d96b6da83c8736f5952f5d022af5954b68d"
+    },
+    "assets/themes/mercury.css": {
+      "bytes": 7737,
+      "sha256": "679ddd402bfb37536c3837b23c03d275c096d7f66fea093ec85a6ca30166aa85"
+    },
+    "assets/themes/neuralink.css": {
+      "bytes": 7807,
+      "sha256": "9916f2d33bbadeecff871e8b429d1ac058d256f55c47fe11b8a65e617a5aaeb8"
+    },
+    "assets/themes/oryzo-ai.css": {
+      "bytes": 8073,
+      "sha256": "47028e240678aea0209d962a176bb507e4cd8a2dae98f4854ed9797a72ca90ba"
+    },
+    "assets/themes/structured.css": {
+      "bytes": 7842,
+      "sha256": "04a7771776cf1fa5f5a2d8da20c1667c29aa9b4ee7041f9e0a662fd0bd28f70c"
+    },
+    "assets/themes/studio-oker.css": {
+      "bytes": 7399,
+      "sha256": "fc4583a4dfa0de2ca14816cac0607c2a3cdf3e4351c0456dd3110c875d0591ec"
+    },
+    "assets/themes/studioframe-default.css": {
+      "bytes": 8409,
+      "sha256": "c0f4d43ebba3ddc45d25530b849100b01a541cc3ed549a9a225833308d962297"
+    },
+    "assets/themes/theme-modules-v9.1.1.css": {
+      "bytes": 16011,
+      "sha256": "a94785663ef3413682189f4c7bcad37688af6a021a5dee538f12b4eb25120b9d"
+    },
+    "assets/themes/theme-overrides-v7.8.3.css": {
+      "bytes": 6139,
+      "sha256": "d9e0c66e5cf4d556f8197af92e87142e1f63f6f662d552771b2f92734fe8b6be"
+    },
+    "assets/themes/theme-runtime.js": {
+      "bytes": 20465,
+      "sha256": "86ebd2c72b7a62880287aa86cb0b8777e086ba0d17b5a7e3b3ada6f1b77a811c"
+    },
+    "assets/themes/workplace-neura.css": {
+      "bytes": 8078,
+      "sha256": "710dc660110bb265673110b57eb0f0b482a0d70ba8d90900c547cdb9f9af2a09"
+    },
+    "briefing/index.html": {
+      "bytes": 14681,
+      "sha256": "e7fd0b4db5f54356f28b9e3b5aef33021bc13bd29240fe60b2dac75c6688c46b"
+    },
+    "busca/index.html": {
+      "bytes": 14762,
+      "sha256": "0a74f51f161d71f8408e5c389560f77551e2d61f33424686aaaf6a606f40c8f7"
+    },
+    "clientes/index.html": {
+      "bytes": 14847,
+      "sha256": "90ac2de2d6e92a20e38a3303b553e3ec62d2d2a293e74e9d6b8b144f178bd175"
+    },
+    "contato/index.html": {
+      "bytes": 14776,
+      "sha256": "47df9de67392201fd5e659ec249b457a314b2ad9796583bde2730449678b7eba"
+    },
+    "data/asset-health.json": {
+      "bytes": 272,
+      "sha256": "dbf64b82a03aa055bf78eb8294192fdfc5f2572c7ae5b8f64767159cbd53f1cf"
+    },
+    "data/assets.json": {
+      "bytes": 224891,
+      "sha256": "866aa795f8c91e248ef92d68d8166425a80ace00f55145c9ca2540599a2dd4ea"
+    },
+    "data/forms-health.json": {
+      "bytes": 333,
+      "sha256": "536c0044931fa5b46bf8eb135de8f4213ecd7203b646868a59bf1d7d52fee274"
+    },
+    "data/forms.json": {
+      "bytes": 642,
+      "sha256": "b4cda6568e7effb649890796ee97659cdbb0757e5d29b3aaa79429ec4b5f341f"
+    },
+    "data/immersive-health.json": {
+      "bytes": 338,
+      "sha256": "628ef2a82407df2135aae71d3470d92c84b8ed3d5dcee1c2543143cc3cac7db5"
+    },
+    "data/immersive.json": {
+      "bytes": 1582,
+      "sha256": "210cf8d1a647b47f361d3cb473c90c48607c2a40db973cc4cc405cc110090bae"
+    },
+    "data/pages.json": {
+      "bytes": 689,
+      "sha256": "f1756a54e524f2fbf34005dbab3891b20d9ad71eaf3bf73fe7ac068111f4cf69"
+    },
+    "data/portfolio.json": {
+      "bytes": 4663147,
+      "sha256": "fe1d2fc0588a032924658e2751fa55c6e0d25b49fe0bb4b1d2e663ac902c40bf"
+    },
+    "data/projects.json": {
+      "bytes": 28172,
+      "sha256": "acf8e79f46c03eb4b97feb7af936d30860b29168fdb950638379a27b87ac3bda"
+    },
+    "data/routes.json": {
+      "bytes": 31237,
+      "sha256": "f703dbfccb1da340800a1eaaf768b0bbeea8cba8fef171560d6caa8b2eee2ce9"
+    },
+    "data/sections.json": {
+      "bytes": 4382,
+      "sha256": "706836a1598d6b4e3bd198b56550500a1eee90a6c5606b7b19c858a8d7da58fc"
+    },
+    "data/seo-report.json": {
+      "bytes": 49434,
+      "sha256": "32c4bdc4009bc8ba0f7d47fe33617cc8f8a42a61f4d0c8462af82d3aff9f8680"
+    },
+    "data/showcase-health.json": {
+      "bytes": 150,
+      "sha256": "8413fe99649d228c450e61a49043155b4115fb43daa538ea7bf47a43a0313d15"
+    },
+    "data/showcases.json": {
+      "bytes": 3057,
+      "sha256": "0956a1c5fec1581a5b20e7bce0c3a10dbace79162204504eb512d54990987e8c"
+    },
+    "index.html": {
+      "bytes": 3279981,
+      "sha256": "e2608b88878e74856b53009cddcd94eb8f95c755658e013663770e68bd8035d5"
+    },
+    "orcamento/index.html": {
+      "bytes": 14745,
+      "sha256": "37cc48f7ee13f4cf427075b3750c0ae3f3348822ae6061ef9a6161a8d527370c"
+    },
+    "projetos/banner-mobile/banner-bacio/index.html": {
+      "bytes": 15345,
+      "sha256": "efb41ed666e837da9ea34e7973b4c5444c1209b8aa377d6bb005870867e33ae6"
+    },
+    "projetos/banner-mobile/banner-da-evo/index.html": {
+      "bytes": 15360,
+      "sha256": "8e7d0f5137bd67f26cd08ece12c78863425ad18047e4724d627b3813c99ab84b"
+    },
+    "projetos/banner-mobile/banner-galderma/index.html": {
+      "bytes": 15390,
+      "sha256": "9c4370c5e05f262e8a24a5305c31eed49edfc64ea84a2491444d8d99f1a6027e"
+    },
+    "projetos/banner-mobile/banner-hydro/index.html": {
+      "bytes": 15345,
+      "sha256": "a13760b23e3e27b46d7389823ddefe963fc5de5ce3d09d7a810c710fb2307611"
+    },
+    "projetos/banner-mobile/banner-lancamento-bellarine/index.html": {
+      "bytes": 15577,
+      "sha256": "5b36aba2ce72d939e43665307545208de8056d217abdde2765e3df608ab113d8"
+    },
+    "projetos/banner-mobile/banner-lancamento-rennova/index.html": {
+      "bytes": 15547,
+      "sha256": "f4eace9625a4457f2c9b4ff774070e073b70fde12eb6b2a2ebdece3753c1faf5"
+    },
+    "projetos/banner-mobile/banner-mobile-allergan/index.html": {
+      "bytes": 15495,
+      "sha256": "4d91b01259806016f038f953dec02a8a8a8fb678ad0254512a738807200371dc"
+    },
+    "projetos/banner-mobile/banner-rennova-diamond/index.html": {
+      "bytes": 15495,
+      "sha256": "82997992f27ef2f34cac4d86ab91c8c68574c2ec0c43d917e8433b41de1612e1"
+    },
+    "projetos/banner-mobile/index.html": {
+      "bytes": 15078,
+      "sha256": "c6619586768a6fc143a8d783279c2a5660327ad60ef48609b9c443b655de842f"
+    },
+    "projetos/banners/banner-allergan/index.html": {
+      "bytes": 15330,
+      "sha256": "5ca4f2b1f5bfe584df97e2d5b11d388063f1a825e354d6c995d6abd2c2b339f6"
+    },
+    "projetos/banners/banner-bacio/index.html": {
+      "bytes": 15285,
+      "sha256": "0a56cff5ede6c9806a7ff0e5e9d392eb5c26f9e69afe6f1f66d877a6be9dd9ef"
+    },
+    "projetos/banners/banner-bellarine/index.html": {
+      "bytes": 15345,
+      "sha256": "840bb43d653bc263375cbbccaae45e8a3cf8e0ee44a78728ef83be58f8f78e1d"
+    },
+    "projetos/banners/banner-central-rejuvital-2/index.html": {
+      "bytes": 15481,
+      "sha256": "ccc7f4359621c3815a3c8dae5316721ec6c3b8b3b26f44c8ef7853e2dc010e33"
+    },
+    "projetos/banners/banner-central-rejuvital/index.html": {
+      "bytes": 15465,
+      "sha256": "66143794d75e1d47900df1eea4d215c9c0909ccf37d03884058d02c3fbc810c5"
+    },
+    "projetos/banners/banner-evo/index.html": {
+      "bytes": 15255,
+      "sha256": "3fa2d1589b56d0605eb3e5c140c70907b336bc1c8d9f9cf61c030e273573ebd6"
+    },
+    "projetos/banners/banner-lancamento/index.html": {
+      "bytes": 15367,
+      "sha256": "ad9a3882b7226ee4001692f420bc4afbfb3e188a7a40cb3527808ebc3ca2726c"
+    },
+    "projetos/banners/banner-rejuvital/index.html": {
+      "bytes": 15345,
+      "sha256": "375a4321a0bfea001b80fc57e4c8a45dcce629686affc768e8fb88c305774a54"
+    },
+    "projetos/banners/banner-rennova-club/index.html": {
+      "bytes": 15390,
+      "sha256": "3f32240fcfea802d030b57154ba1b10eeebfcdf32b291c4704fc340c4348fed4"
+    },
+    "projetos/banners/banner-rennova-diamond/index.html": {
+      "bytes": 15435,
+      "sha256": "04eb1d07d33a3154548f35976c59c555d1172ec89516cdda476c507e2648ff84"
+    },
+    "projetos/banners/banner-rennova-elleva/index.html": {
+      "bytes": 15420,
+      "sha256": "f7d070e59f157c22b1f83f9d070e0be10287437b551bc392c8d43bbbf263fa33"
+    },
+    "projetos/banners/banner-rennova-hydro/index.html": {
+      "bytes": 15405,
+      "sha256": "618251a65b984794d18f1b25e9683d280d8dad53704d5a0261a9bc66e75283de"
+    },
+    "projetos/banners/banner-shape-lido/index.html": {
+      "bytes": 15360,
+      "sha256": "5dd579c6b35033d6922acf57b2d50e4968058192748823ab772815085c819196"
+    },
+    "projetos/banners/banner-v-hacker/index.html": {
+      "bytes": 15330,
+      "sha256": "ce299e3f67588b4e0d5b411b5f878d8a1521f5ffafb16cae52f57b22b6e98bce"
+    },
+    "projetos/banners/banner-verve/index.html": {
+      "bytes": 15285,
+      "sha256": "e06d89b8b20dd47d8767d3924942cbaae36b99b6994f5ef0d1bc3b731b07f8d3"
+    },
+    "projetos/banners/index.html": {
+      "bytes": 14964,
+      "sha256": "efe843c252974153571086ffb06304ed8f7ea860ef9894eb8316879791696291"
+    },
+    "projetos/campanha-007-completa/banner-da-campanha/index.html": {
+      "bytes": 15515,
+      "sha256": "1d7f8755e42fda40bcdd441bbf8ef53abfea099527006d7861bee5014008fb9d"
+    },
+    "projetos/campanha-007-completa/card-de-storys-2/index.html": {
+      "bytes": 15485,
+      "sha256": "940d223ea95c14651226acb849bb0f367bca3a8cd3fcd598cdaeaf49b12304f5"
+    },
+    "projetos/campanha-007-completa/card-de-storys-3/index.html": {
+      "bytes": 15485,
+      "sha256": "3ee2814bf9136fb2e006103474b7746790ed2b185bef5183223290b5ddce34d9"
+    },
+    "projetos/campanha-007-completa/card-de-storys-4/index.html": {
+      "bytes": 15485,
+      "sha256": "dc656f1bcacdaeafc9408e448f104c5b786bd51acabbe275dcddd46a471e4738"
+    },
+    "projetos/campanha-007-completa/card-de-storys/index.html": {
+      "bytes": 15455,
+      "sha256": "091f0b73bac2197b050d25e1830bec6687da3f5729e08a8a3fc822506a4999de"
+    },
+    "projetos/campanha-007-completa/card-para-feed/index.html": {
+      "bytes": 15455,
+      "sha256": "070e07e0a5e94b74131e493c493e9464328a3362117e21c98f1a9ea2a4c53478"
+    },
+    "projetos/campanha-007-completa/index.html": {
+      "bytes": 15230,
+      "sha256": "d0c22b63f527eb1deac56dbee98c1a5e3e6ec13a743c176d1302eae2da42f2ce"
+    },
+    "projetos/campanha-007-completa/lamina-de-produtos-e-valores/index.html": {
+      "bytes": 15672,
+      "sha256": "82b05fbb9dbb5ec1673e46b90e225d21dd983c8845efa32103e6752ed993abc4"
+    },
+    "projetos/campanha-007-completa/lamina-precos-e-produtos-2/index.html": {
+      "bytes": 15635,
+      "sha256": "d4403db7df558d5cfbb6618da6f54818e12937cdcf0d7be22c3fe31646ac4ca0"
+    },
+    "projetos/campanha-007-completa/lamina-precos-e-produtos-3/index.html": {
+      "bytes": 15649,
+      "sha256": "4f97dafe6a4d54d284b871cf23a7cbc07ad24f34985b820931f26470f3b78d66"
+    },
+    "projetos/campanha-007-completa/lamina-precos-e-produtos/index.html": {
+      "bytes": 15619,
+      "sha256": "c9e171bfd2cdfb16dcba9c6fad2143faa234b1734527d687aa3036232ddb0d0e"
+    },
+    "projetos/campanha-007-completa/logo-para-campanha/index.html": {
+      "bytes": 15522,
+      "sha256": "3833d2afde9a9b6b5d410e7e499678fd35b1c6122409f17704bfd0c01c334e5d"
+    },
+    "projetos/campanha-007-completa/mobile/index.html": {
+      "bytes": 15335,
+      "sha256": "8af03efa367829222cfb21fc62f65666b41ec64b9df613c712dc5f9033e2d8da"
+    },
+    "projetos/campanha-007-completa/motion-com-spoiler-da-campanha/index.html": {
+      "bytes": 15702,
+      "sha256": "3ead6eacea30a76c8f2fabaff1b03ac143844b3e7766b663afce266414bfa78e"
+    },
+    "projetos/campanha-007-completa/storys-de-divulgacao/index.html": {
+      "bytes": 15559,
+      "sha256": "188b5586337f69242b1ef9fd89069b56448e9a43a98153b67519ac43a093781b"
+    },
+    "projetos/campanha-007-completa/video-de-divulgacao/index.html": {
+      "bytes": 15551,
+      "sha256": "8eef0214a68a77a1fb68590e75f091dc9592992c1aadced8c4162909595d2c14"
+    },
+    "projetos/carrossel/carrossel-bacio/index.html": {
+      "bytes": 15350,
+      "sha256": "0e4f21d24de1abef39de91019dd5a8dc32ca067f0ec2a55cc8bebcf198fb7ac1"
+    },
+    "projetos/carrossel/carrossel-evo/index.html": {
+      "bytes": 15320,
+      "sha256": "dab0c718648f3f07ecaec9281989a15b2199fb18a1196bbbb9c7bfdd56d261c6"
+    },
+    "projetos/carrossel/carrossel-img/index.html": {
+      "bytes": 15320,
+      "sha256": "b946f590f743c956a89ce10f49839991f3dcf4a1e0cdf0305d230e0c351d6c25"
+    },
+    "projetos/carrossel/carrossel-rennova/index.html": {
+      "bytes": 15380,
+      "sha256": "032bdc5164eac2adcf08770eb329041c8ca0eed551d310ccddf05a46b2beffc3"
+    },
+    "projetos/carrossel/carrossel-v-hacker/index.html": {
+      "bytes": 15395,
+      "sha256": "9e71a5257da397bf82340e4b49ec90c5f92204fba036882d1081bbec3330d953"
+    },
+    "projetos/carrossel/carrossel/index.html": {
+      "bytes": 15260,
+      "sha256": "35671a8c6da1a37e1862024bd69261b9565694b3605af7e4b6905008edb0e92b"
+    },
+    "projetos/carrossel/index.html": {
+      "bytes": 15002,
+      "sha256": "f315f8a1431e671fccc2de17ffb60b838cb494fec38c881d511970e3ede267e3"
+    },
+    "projetos/dermacast/cortes/index.html": {
+      "bytes": 15215,
+      "sha256": "b3b20c92533dd8acc33c5e8331b7147942235bfad698d41d55d7d273e80b13db"
+    },
+    "projetos/dermacast/episodio-completo/index.html": {
+      "bytes": 15380,
+      "sha256": "35c262a98dcd8c18da54d907edb95010fa58fe55982362b79ac8267e0b2b4a92"
+    },
+    "projetos/dermacast/index.html": {
+      "bytes": 15002,
+      "sha256": "f6266c5f337e6355915721be6257a65f59b9432f668282d75d25e7da08029bed"
+    },
+    "projetos/dia-da-velocidade/index.html": {
+      "bytes": 15154,
+      "sha256": "f23742a96267702f17d24bd03b1363736c596275c97b91cb15ad0a11cf7a05ec"
+    },
+    "projetos/dia-da-velocidade/spoiler-dia-d-9-9/index.html": {
+      "bytes": 15460,
+      "sha256": "0c9ecd54755f4e823096056202aa3767b28592fdf9542e5a26a449d6a3e6d3cf"
+    },
+    "projetos/dia-da-velocidade/video-final-dia-d-9-9/index.html": {
+      "bytes": 15527,
+      "sha256": "f75fd13569638b61176cec3a6d1191ae16e50c69af7785255bb6b3d484235b1b"
+    },
+    "projetos/edicao-de-videos/index.html": {
+      "bytes": 15168,
+      "sha256": "ec5ee7b4b2cde7d39dd60e86fe03bebf3dc608698c1c75e7586c8cf7f1357727"
+    },
+    "projetos/edicao-de-videos/videos-em-workshop/index.html": {
+      "bytes": 15475,
+      "sha256": "63f23c1201bf7edcb5a1ca27c4708bac61d33ab38cb9e60c7209a74b079e5784"
+    },
+    "projetos/edicao-de-videos/videos-para-allergan/index.html": {
+      "bytes": 15505,
+      "sha256": "f18bf7379fd89d3d8298efa90ef90d2aa24d56e561f5ebc7dbe1df29abb34e0e"
+    },
+    "projetos/edicao-de-videos/videos-para-rejuvital/index.html": {
+      "bytes": 15520,
+      "sha256": "061c424989fa07dc7dd78639c4f62821e5f6d83dfeac817cc52d4a27a554bbfe"
+    },
+    "projetos/laminas-para-divulgacao/divulgacao-de-produto/index.html": {
+      "bytes": 15597,
+      "sha256": "3cdd014e129afe993624bdf62df374e5130d9e67ebf8d8febb206e5b8fc5f7d6"
+    },
+    "projetos/laminas-para-divulgacao/divulgacao-para-workshop/index.html": {
+      "bytes": 15642,
+      "sha256": "cdde6c9598b4b43a84d431bc87505faf188af194972cdb57008437c3495634f9"
+    },
+    "projetos/laminas-para-divulgacao/index.html": {
+      "bytes": 15301,
+      "sha256": "9999ee66e4a13807f6b1fc48c297524e4d6b0adae033dac0a27e6e7e7dc5547f"
+    },
+    "projetos/lateral-banners/banner-belotero/index.html": {
+      "bytes": 15410,
+      "sha256": "8b5c5c7365f9014592b2c6402ead95f053d1dd2d1149a297d14cc9ea73972c63"
+    },
+    "projetos/lateral-banners/banner-diamond/index.html": {
+      "bytes": 15395,
+      "sha256": "60b80cf17dae003fc166671d50ff5f05d31342dd4f4d6299180a380aa8cbcb22"
+    },
+    "projetos/lateral-banners/banner-lift/index.html": {
+      "bytes": 15350,
+      "sha256": "9aa3e513462b05a15ca9a351847880e834dceac4155751da2b7534c01be3580b"
+    },
+    "projetos/lateral-banners/banner-restylane/index.html": {
+      "bytes": 15425,
+      "sha256": "78dfabdd3d0c6905a288e7dea30531750aa78af429c298db2a59927b8db0578a"
+    },
+    "projetos/lateral-banners/index.html": {
+      "bytes": 15116,
+      "sha256": "21918557a91efee46ea3e0b7569f37533ad94c581961f408c061099874ce6a5e"
+    },
+    "projetos/manual-da-marca/index.html": {
+      "bytes": 15116,
+      "sha256": "68b80833d2678b9d778943a5f09434527ebc4dfc14c439e88248796b69864f7a"
+    },
+    "projetos/manual-da-marca/ref-resumido/index.html": {
+      "bytes": 15386,
+      "sha256": "43142b6e5074593e7b96ad4b7be79bfdbdf0bae28bc2326c493a20e0c2ff1836"
+    },
+    "projetos/manual-da-marca/ref/index.html": {
+      "bytes": 15237,
+      "sha256": "c9588bfee21cfcf502f8496e78b258d227450da1eb0f820eeb524314ce26a51d"
+    },
+    "projetos/manual-da-marca/visual-branding-pasta/index.html": {
+      "bytes": 15500,
+      "sha256": "3a96ca5bfb18b0732f9b11234c3f6f02524081f619df5d9a79e5baa7e24437d1"
+    },
+    "projetos/manual-da-marca/visual-branding/index.html": {
+      "bytes": 15410,
+      "sha256": "a2720c74fde86ed3c3eb4f2e05ff06d33ed8ee6419523d79e5db4d42ea9bcf6e"
+    },
+    "projetos/motion/index.html": {
+      "bytes": 14945,
+      "sha256": "c7bd6e4b7e0f68fb85e2d5e41a18e37dbf85261b0396cc7475bd42ca5246660f"
+    },
+    "projetos/motion/motion-fundo-de-tela/index.html": {
+      "bytes": 15395,
+      "sha256": "dca61acd4be44d38d733788f6d698b5c9838330ad3a1cbf7f9f379db028f4650"
+    },
+    "projetos/motion/motion-para-podcast/index.html": {
+      "bytes": 15380,
+      "sha256": "1f2e1f01ee01e2c81084fed89b8bcf8338e891c3e4cfb5905c20d4e8dc44533e"
+    },
+    "projetos/motion/produto-com-ia/index.html": {
+      "bytes": 15305,
+      "sha256": "647b625da4bb8129bf63d79358d2ee95b963e211a64217aa4c475212b2a8dc2c"
+    },
+    "projetos/motion/reels-rejuvital/index.html": {
+      "bytes": 15320,
+      "sha256": "b56082f44ddb158fb1e3f0043b138c84c1fddb4850835a91b14ee8ada261c558"
+    },
+    "projetos/motion/rejuvital-pdrn/index.html": {
+      "bytes": 15305,
+      "sha256": "563cc02cdf3b33cb06ef702bf1c2fc1550dec16f10fc2d9636d1145a7f3c17df"
+    },
+    "projetos/motion/sculpt-galderma/index.html": {
+      "bytes": 15320,
+      "sha256": "0989957e12f37b1f41eba89dbb6422b88560b261488612772f22961e3ef7dbb9"
+    },
+    "projetos/motion/story-rejuvital/index.html": {
+      "bytes": 15320,
+      "sha256": "dd8828fe4f2fe7909fe5c6432a383195c50f35d424980a879994e344684501f9"
+    },
+    "robots.txt": {
+      "bytes": 75,
+      "sha256": "bff445912f08f4f49395bf74bc43762253d148329c4d344e113115c8be6e422b"
+    },
+    "servicos/animacao-de-logotipo/index.html": {
+      "bytes": 15338,
+      "sha256": "1e39d8cfcb9a9cea655e78fca8b5e2e196b58fed43ed33579c971aad6c12aeec"
+    },
+    "servicos/arte-avulsa-para-post-ou-story/index.html": {
+      "bytes": 15542,
+      "sha256": "0ed413cb6b4036465f80254200c7981df0bd2ddf917eb64baa2ccf0d32ef93e0"
+    },
+    "servicos/banner-para-loja-ou-colecao/index.html": {
+      "bytes": 15435,
+      "sha256": "6cf69dd8a9c2158b5e72d640d610553e9ffcc8e82f33feb0ecf0299e0e8659b2"
+    },
+    "servicos/captacao-essencial-de-ate-2-horas/index.html": {
+      "bytes": 15596,
+      "sha256": "b996392dd2f1bb7df98b0ad533e4f25b2897b83782f0f9d0cea9101c2ecb33b0"
+    },
+    "servicos/carrossel-com-ate-5-paginas/index.html": {
+      "bytes": 15411,
+      "sha256": "498ef75dc274a0b99d8cc8f1669097dabe8d9ba870ff50a175c6cf81ab93edfb"
+    },
+    "servicos/composicao-complexa/index.html": {
+      "bytes": 15347,
+      "sha256": "bb130521b26810409d7af54436a8dd0a2400a686548331d57777d51a0c1a75f0"
+    },
+    "servicos/composicao-e-vfx-por-cena/index.html": {
+      "bytes": 15413,
+      "sha256": "6436c69e4d3ac74d39969af5070ac05d772f22e9fbff7784cce7e2d59b45cf14"
+    },
+    "servicos/composicao-publicitaria/index.html": {
+      "bytes": 15406,
+      "sha256": "d355915d9c9947a799e895489884c339813b68948e06117d6532b4595acf90ac"
+    },
+    "servicos/correcao-basica/index.html": {
+      "bytes": 15218,
+      "sha256": "8a4e7a82e781f3c58d4c14ab1404257a8f7d7760818981e3ffa410419c79bf54"
+    },
+    "servicos/criacao-de-personagem/index.html": {
+      "bytes": 15405,
+      "sha256": "25b17c7fe53a35c14b40613963b86c857da11cadde671eed020441df5f220aa8"
+    },
+    "servicos/diaria-de-producao-audiovisual/index.html": {
+      "bytes": 15539,
+      "sha256": "499bc211bc708aa6346f3bd63a1d4a4d9217b0147dc2e15652c9ec8b30e1d163"
+    },
+    "servicos/direcao-de-arte/index.html": {
+      "bytes": 15295,
+      "sha256": "96c2ae372b8dfe502e4e52e8c70591a5ffd95d6d5576d5e9e680417cea1e5433"
+    },
+    "servicos/ilustracao-individual/index.html": {
+      "bytes": 15337,
+      "sha256": "6634cd99fe134656121ed10db755b999fd1e76142b6ab6d37b90a3f950ef3bad"
+    },
+    "servicos/imagem-tratada-de-produto/index.html": {
+      "bytes": 15407,
+      "sha256": "621ef9bfbbe3b789498b0374add094aa02d42271437432386bdc5519521268d6"
+    },
+    "servicos/index.html": {
+      "bytes": 15139,
+      "sha256": "3aefadfdab1033f8ab5fb702fe04c03b9a8a5dc708cb8cc516bb57c8ff1377d1"
+    },
+    "servicos/key-visual-de-campanha/index.html": {
+      "bytes": 15382,
+      "sha256": "fa2459d3978f72d93a7447818bfde625131a07446849669c1816b415e0798d51"
+    },
+    "servicos/kit-visual-para-marketplace/index.html": {
+      "bytes": 15449,
+      "sha256": "954a2b61bfa9f6e4fa37e2486f9d1ded4db1c9733e36ac1bb5d6fe66002975d3"
+    },
+    "servicos/manual-completo/index.html": {
+      "bytes": 15317,
+      "sha256": "5e7c8cf265fdef4602f8b438058ad3fbfcacab7a8abc4b5802b1b70ac52557fe"
+    },
+    "servicos/manual-essencial/index.html": {
+      "bytes": 15288,
+      "sha256": "92eb1d36b1dc27d711cf86705b2a99edb995c49e8ee86282194496bbad9b76b8"
+    },
+    "servicos/meia-diaria-de-producao/index.html": {
+      "bytes": 15426,
+      "sha256": "ce6f1b220ff7b038662f1ee2d6728fc49176882bc307f2ebe723cadb610317e2"
+    },
+    "servicos/montagem-simples/index.html": {
+      "bytes": 15236,
+      "sha256": "932de26de1d608372f8aab28de3970dcc73d1186aab1660d15f70f4ae50cde5a"
+    },
+    "servicos/motion-para-redes-sociais/index.html": {
+      "bytes": 15403,
+      "sha256": "f6d66d3f2776b830a67dfbcbd4532a92e48bf1e1e56c2642dc0bc28c16775dda"
+    },
+    "servicos/packshot-animado-de-produto/index.html": {
+      "bytes": 15405,
+      "sha256": "0f83ab7db48fda6ac9591c37a04cc304e2ef7634c01945b1bd496c5c7cb58d40"
+    },
+    "servicos/pacote-com-10-criativos/index.html": {
+      "bytes": 15345,
+      "sha256": "9014f98049e6a5fc29c19d80962ae5d4acfe1cbb887f96fe677327a3a81898bb"
+    },
+    "servicos/pacote-com-10-fotos/index.html": {
+      "bytes": 15261,
+      "sha256": "2b52cfcbf2c65cc0c2f845d7c40c73205530ffd3ad65abecaed4dd16bd8fbb62"
+    },
+    "servicos/pacote-com-10-imagens-de-produto/index.html": {
+      "bytes": 15464,
+      "sha256": "8d1b72eee270c0100e62b5ef0c6e37edb15f351ad982f72637f1caec69443cae"
+    },
+    "servicos/pacote-com-8-reels/index.html": {
+      "bytes": 15266,
+      "sha256": "3dfa38ab288f6fa3d41774e2fac27b2dda11ab9a0e06943d8b44a87127b99fba"
+    },
+    "servicos/pacote-visual-de-campanha/index.html": {
+      "bytes": 15423,
+      "sha256": "d5d7b59cc90dfc35f9da1919d5e14703604ec95dcb2b1ce54d19c6a049c1b335"
+    },
+    "servicos/reel-basico-de-ate-90-segundos/index.html": {
+      "bytes": 15512,
+      "sha256": "4251834d93de1fb5e78f56997ed3124bf45426762f3ae6ff8cdfbed94c00d611"
+    },
+    "servicos/reel-com-motion-legendas-e-efeitos/index.html": {
+      "bytes": 15553,
+      "sha256": "b490567da2433f923b03211027dde979b4d5b4c0f27988147edf28b0b7455766"
+    },
+    "servicos/retoque-avancado/index.html": {
+      "bytes": 15239,
+      "sha256": "15e3ae28a554b03d137385a5e1dbdc4ce2eb98cd22d091d0f9ed02946906f540"
+    },
+    "servicos/roteiro-curto-publicitario/index.html": {
+      "bytes": 15433,
+      "sha256": "79dda3045d6fddc7d274467672b3b98ab0d1fc32ff4683f02666ac505cc341f1"
+    },
+    "servicos/site-html-editor-studioframe/index.html": {
+      "bytes": 16066,
+      "sha256": "74643f9258fe99430ff51cf7ba67bcd29a90b099d8f4b0ff827f5c52304706d5"
+    },
+    "servicos/site-studioframe-manutencao-mensal/index.html": {
+      "bytes": 15894,
+      "sha256": "3b0217fd53826d23d5080c5d5befc240a87524e8e176d46edc5d664406f20119"
+    },
+    "servicos/storyboard-com-ate-8-quadros/index.html": {
+      "bytes": 15419,
+      "sha256": "a7e843fc1e3221e7de59d60fd18cdac7786256c59eb6973d7c488037e731cb2f"
+    },
+    "servicos/video-de-produto/index.html": {
+      "bytes": 15307,
+      "sha256": "963e148573bb462e5622b511ffa905de974e4376dd84cb4def4cf92655e7c68f"
+    },
+    "servicos/video-institucional-de-1-a-3-minutos/index.html": {
+      "bytes": 15571,
+      "sha256": "b7190571469ff71079825b579cc57997977017d4a902c67c2ee42949b45ce4fe"
+    },
+    "sitemap.xml": {
+      "bytes": 11103,
+      "sha256": "2afd701b460cb4800ebf9faa97621ec5debeccb0feb8859e85f9643a0a5886be"
+    },
+    "sobre/index.html": {
+      "bytes": 14696,
+      "sha256": "a164531e8db9329dac65672f277238d1f9c3616300004bc8b909dfeeeea343de"
+    }
+  },
+  "format": "studioframe-public-build-v2",
+  "home_block_ids": [
+    "core-hero",
+    "core-intro",
+    "core-lettering",
+    "block-mt7w7u6g-rltgl",
+    "core-projects-header",
+    "core-projects",
+    "block-mt7vxqnd-yp24f",
+    "youtube-showcase-main",
+    "block-mt7w4nzd-iqxso",
+    "block-mt7w65mq-gj3mf",
+    "block-mt7w1mxs-fz7yt",
+    "block-mt7w6ubb-x0xc9",
+    "block-mt7w5bn1-p6bcf",
+    "core-contact",
+    "core-about"
+  ],
+  "home_block_types": [
+    "hero",
+    "intro",
+    "lettering",
+    "text_motion",
+    "projects_header",
+    "projects",
+    "sliced_hero",
+    "youtube_showcase",
+    "dynamic_island",
+    "carousel_3d",
+    "quote_cta",
+    "logo_carousel",
+    "canvas_fractal_grid",
+    "contact",
+    "about"
+  ],
+  "motion_runtime": {
+    "category_counts": {
+      "background": 8,
+      "button": 10,
+      "hero": 10,
+      "section": 10,
+      "text": 8
+    },
+    "contract_version": "7.7",
+    "enabled": false,
+    "engines": [],
+    "fallback_rule": "motion failure never gates content/navigation/player/save/build/publish",
+    "progressive_enhancement": true,
+    "registry": {
+      "presets": {}
+    },
+    "registry_size": 46,
+    "runtime_dependencies": [],
+    "state_authority": false,
+    "system": {
+      "contract_version": "7.7",
+      "enabled": false,
+      "engine_policy": "auto",
+      "intensity": "normal",
+      "personality": "premium",
+      "reduced_motion": "system",
+      "tokens": {
+        "ease": [
+          0.4,
+          0,
+          0.2,
+          1
+        ],
+        "quick": 0.18,
+        "slow": 0.6,
+        "stagger": 0.06,
+        "standard": 0.36
+      }
+    },
+    "used_presets": []
+  },
+  "portfolio_bytes": 4663147,
+  "portfolio_sha256": "fe1d2fc0588a032924658e2751fa55c6e0d25b49fe0bb4b1d2e663ac902c40bf",
+  "poster_assets": {
+    "bytes": 0,
+    "failed": 0,
+    "hosted": 0,
+    "mode": "drive-public-readonly-no-github-media"
+  },
+  "revision": "1b5738da586bc7c80b73",
+  "runtime_dependencies": [],
+  "source_revision": "1b5738da586bc7c80b73",
+  "stats": {
+    "bytes": 22377504,
+    "files": 192,
+    "largest_file_bytes": 7163903,
+    "route_shells": 125
+  },
+  "theme_runtime": {
+    "active_theme": {
+      "builtin": true,
+      "fallback": "studioframe-default",
+      "id": "studioframe-default",
+      "immutable_base": true,
+      "name": "StudioFrame Default",
+      "preview": {
+        "accent": "appearance.accent_color",
+        "background": "appearance.background_color",
+        "colors": {
+          "accent": "#72F2A5",
+          "background": "#080C0E",
+          "muted": "#93A19D",
+          "surface": "#101719",
+          "text": "#F2F7F5"
+        },
+        "surface": "appearance.surface_color",
+        "text": "appearance.text_color"
+      },
+      "stylesheet": "assets/themes/studioframe-default.css",
+      "version": 1
+    },
+    "active_variant": {
+      "exclusive": true,
+      "id": "studioframe-default--base",
+      "key": "base",
+      "theme_id": "studioframe-default"
+    },
+    "authoring_contract": {
+      "base_immutable": true,
+      "content_authority": false,
+      "exclusive_variants": true,
+      "per_theme_snapshots_path": "custom_theme_metadata.override_snapshots",
+      "state_path": "settings.site_builder.theme",
+      "variant_path": "settings.site_builder.theme.theme_variant_id",
+      "version": "7.8.7"
+    },
+    "available_themes": [
+      {
+        "description": "Visual autoritativo herdado da V7.7, agora formalizado como tema base com tokens semânticos, preview e authoring bridge para os controles de aparência existentes.",
+        "id": "studioframe-default",
+        "name": "StudioFrame Default",
+        "preview": {
+          "accent": "appearance.accent_color",
+          "background": "appearance.background_color",
+          "colors": {
+            "accent": "#72F2A5",
+            "background": "#080C0E",
+            "muted": "#93A19D",
+            "surface": "#101719",
+            "text": "#F2F7F5"
+          },
+          "surface": "appearance.surface_color",
+          "text": "appearance.text_color"
+        },
+        "version": 1
+      },
+      {
+        "description": "Game world behind a chat bubble — cosmic blue, Blurple actions and immersive dark stages.",
+        "id": "discord",
+        "name": "Discord",
+        "preview": {
+          "body_font": "GG Sans",
+          "colors": {
+            "accent": "#5865f2",
+            "background": "#0e0f2d",
+            "muted": "#babcd9",
+            "surface": "#23272a",
+            "text": "#ffffff"
+          },
+          "display_font": "ABC Ginto Nord Discord",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Renaissance gallery on putty paper — editorial serif scale, warm neutrals and hairline structure.",
+        "id": "structured",
+        "name": "Structured",
+        "preview": {
+          "body_font": "Helvetica Now",
+          "colors": {
+            "accent": "#000000",
+            "background": "#c4c3b6",
+            "muted": "#595855",
+            "surface": "#e7e5e4",
+            "text": "#000000"
+          },
+          "display_font": "Davinci",
+          "mode": "light"
+        },
+        "version": 1
+      },
+      {
+        "description": "Darkroom product editorial — warm walnut canvas, cream type and rationed ember accents.",
+        "id": "oryzo-ai",
+        "name": "Oryzo AI",
+        "preview": {
+          "body_font": "Arial",
+          "colors": {
+            "accent": "#dc5000",
+            "background": "#100904",
+            "muted": "#6c5f51",
+            "surface": "#382416",
+            "text": "#ffedd7"
+          },
+          "display_font": "halyard-display-variable",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Premium financial dark interface — onyx canvas, graphite cards and precise cobalt actions.",
+        "id": "mercury",
+        "name": "Mercury",
+        "preview": {
+          "body_font": "arcadia",
+          "colors": {
+            "accent": "#5266eb",
+            "background": "#171721",
+            "muted": "#c3c3cc",
+            "surface": "#1e1e2a",
+            "text": "#ededf3"
+          },
+          "display_font": "arcadiaDisplay",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Monochrome digital collectible gallery — black void, stark white type and technical mono details.",
+        "id": "mekaverse",
+        "name": "Mekaverse",
+        "preview": {
+          "body_font": "GT America Mono Regular",
+          "colors": {
+            "accent": "#ffffff",
+            "background": "#000000",
+            "muted": "#b8bab9",
+            "surface": "#444345",
+            "text": "#ffffff"
+          },
+          "display_font": "Roobert",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "White room with a single blue switch — restrained product-first light design and generous spacing.",
+        "id": "maca",
+        "name": "Maça",
+        "preview": {
+          "body_font": "SF Pro Text",
+          "colors": {
+            "accent": "#0071e3",
+            "background": "#f5f5f7",
+            "muted": "#707070",
+            "surface": "#ffffff",
+            "text": "#1d1d1f"
+          },
+          "display_font": "SF Pro Display",
+          "mode": "light"
+        },
+        "version": 1
+      },
+      {
+        "description": "Black theater with luminous hardware — cinematic scale, monochrome surfaces and precise blue actions.",
+        "id": "black-maca",
+        "name": "Black Maça",
+        "preview": {
+          "body_font": "SF Pro Text",
+          "colors": {
+            "accent": "#0071e3",
+            "background": "#000000",
+            "muted": "#86868b",
+            "surface": "#1d1d1f",
+            "text": "#f5f5f7"
+          },
+          "display_font": "SF Pro Display",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Midnight terminal with violet beacons — near-black luxury, inktrap utility and signal-violet emphasis.",
+        "id": "dope-segurity",
+        "name": "Dope Segurity",
+        "preview": {
+          "body_font": "Whyte Inktrap",
+          "colors": {
+            "accent": "#af50ff",
+            "background": "#090909",
+            "muted": "#828384",
+            "surface": "#423738",
+            "text": "#f7f9fa"
+          },
+          "display_font": "GrandSlang",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Constellation on black velvet — weightless oversized type, electric iris actions and sparse surfaces.",
+        "id": "workplace-neura",
+        "name": "Workplace Neura",
+        "preview": {
+          "body_font": "PPNeueMontreal",
+          "colors": {
+            "accent": "#8052ff",
+            "background": "#000000",
+            "muted": "#9a9a9a",
+            "surface": "#000000",
+            "text": "#ffffff"
+          },
+          "display_font": "PPNeueMontreal",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Engineered monochrome restraint — black and paper geometry with a neurological violet spectrum accent.",
+        "id": "neuralink",
+        "name": "Neuralink",
+        "preview": {
+          "body_font": "UntitledSans",
+          "colors": {
+            "accent": "#6452d8",
+            "background": "#000000",
+            "muted": "#bababa",
+            "surface": "#000000",
+            "text": "#ffffff"
+          },
+          "display_font": "UntitledSans",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Darkened gallery with scarlet punctuation — portfolio silence, white type and one red signal.",
+        "id": "studio-oker",
+        "name": "Studio Oker",
+        "preview": {
+          "body_font": "NextBook",
+          "colors": {
+            "accent": "#e4002b",
+            "background": "#000000",
+            "muted": "#a0a0a0",
+            "surface": "#101010",
+            "text": "#ffffff"
+          },
+          "display_font": "NextBook",
+          "mode": "dark"
+        },
+        "version": 1
+      },
+      {
+        "description": "Black gallery wall with blood-red punctuation — oversized editorial type and sparse chrome.",
+        "id": "branding",
+        "name": "Branding",
+        "preview": {
+          "body_font": "Kmr Waldenburg",
+          "colors": {
+            "accent": "#fe1e34",
+            "background": "#080808",
+            "muted": "#d4d2d2",
+            "surface": "#171617",
+            "text": "#fcfcfc"
+          },
+          "display_font": "Editorialnew",
+          "mode": "dark"
+        },
+        "version": 1
+      }
+    ],
+    "available_variants": [
+      {
+        "exclusive": true,
+        "id": "studioframe-default--base",
+        "key": "base",
+        "theme_id": "studioframe-default",
+        "tokens": {}
+      },
+      {
+        "exclusive": true,
+        "id": "studioframe-default--soft",
+        "key": "soft",
+        "theme_id": "studioframe-default",
+        "tokens": {
+          "radius": {
+            "block": 20,
+            "button": 999,
+            "card": 20
+          },
+          "shadows": {
+            "strength": 20,
+            "style": "soft"
+          },
+          "surfaces": {
+            "opacity": 96,
+            "style": "soft"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "studioframe-default--editorial",
+        "key": "editorial",
+        "theme_id": "studioframe-default",
+        "tokens": {
+          "buttons": {
+            "style": "editorial"
+          },
+          "cards": {
+            "style": "flat"
+          },
+          "radius": {
+            "block": 2,
+            "button": 2,
+            "card": 2
+          },
+          "spacing": {
+            "card_padding_px": 28,
+            "element_gap_px": 18,
+            "section_px": 104
+          },
+          "typography": {
+            "heading_weight": 500,
+            "letter_spacing_em": -0.02
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "studioframe-default--sharp",
+        "key": "sharp",
+        "theme_id": "studioframe-default",
+        "tokens": {
+          "buttons": {
+            "style": "square"
+          },
+          "cards": {
+            "style": "outlined"
+          },
+          "radius": {
+            "block": 0,
+            "button": 2,
+            "card": 0
+          },
+          "shadows": {
+            "strength": 0,
+            "style": "none"
+          },
+          "surfaces": {
+            "opacity": 100,
+            "style": "solid"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "studioframe-default--glass",
+        "key": "glass",
+        "theme_id": "studioframe-default",
+        "tokens": {
+          "cards": {
+            "style": "glass"
+          },
+          "radius": {
+            "block": 22,
+            "button": 999,
+            "card": 22
+          },
+          "shadows": {
+            "strength": 28,
+            "style": "soft"
+          },
+          "surfaces": {
+            "opacity": 72,
+            "style": "glass"
+          }
+        }
+      },
+      {
+        "exclusive": true,
+        "id": "studioframe-default--cinematic",
+        "key": "cinematic",
+        "theme_id": "studioframe-default",
+        "tokens": {
+          "backgrounds": {
+            "intensity": 78,
+            "style": "luminous"
+          },
+          "motion": {
+            "preset": "cinematic"
+          },
+          "shadows": {
+            "strength": 42,
+            "style": "deep"
+          },
+          "spacing": {
+            "card_padding_px": 32,
+            "element_gap_px": 20,
+            "section_px": 128
+          }
+        }
+      }
+    ],
+    "component_motion_variation_count": 598,
+    "content_authority": false,
+    "custom_theme_metadata": {
+      "composer": {
+        "custom_id": "custom-mtjcx90v",
+        "enabled": true,
+        "module_sources": {
+          "background": "oryzo-ai",
+          "buttons": "oryzo-ai",
+          "cards": "oryzo-ai",
+          "components": "oryzo-ai",
+          "footer": "oryzo-ai",
+          "grid": "oryzo-ai",
+          "header": "oryzo-ai",
+          "hero": "oryzo-ai",
+          "image-treatment": "oryzo-ai",
+          "motion": "oryzo-ai",
+          "navigation": "oryzo-ai",
+          "shell": "oryzo-ai",
+          "spacing": "oryzo-ai",
+          "surface": "oryzo-ai",
+          "typography": "oryzo-ai"
+        },
+        "name": "Oryzo AI Custom",
+        "saved_modules": {},
+        "updated_at": ""
+      },
+      "override_snapshots": {
+        "black-maca": {},
+        "discord": {
+          "theme_overrides": {},
+          "theme_variant_id": "discord--base"
+        },
+        "mekaverse": {},
+        "mercury": {
+          "colors": {
+            "accent": "#FF00AA"
+          }
+        },
+        "oryzo-ai": {
+          "theme_overrides": {},
+          "theme_variant_id": "oryzo-ai--base"
+        },
+        "structured": {
+          "theme_overrides": {},
+          "theme_variant_id": "structured--base"
+        }
+      }
+    },
+    "editor_ui_isolated": true,
+    "font_policy": "theme font names are advisory; system fallback is mandatory unless licensed font assets are supplied",
+    "project_overrides": {},
+    "registry_version": "7.8.2",
+    "runtime_version": "7.8.7",
+    "theme_count": 13,
+    "token_contract": {
+      "fallback_policy": "studioframe-default",
+      "schema": "theme-token-schema-v1",
+      "unknown_tokens_preserved": true
+    },
+    "tokens": {
+      "backgrounds": {
+        "style": "glow",
+        "texture": "grid"
+      },
+      "borders": {
+        "style": "hairline"
+      },
+      "buttons": {
+        "cta_style": "solid",
+        "style": "rounded"
+      },
+      "cards": {
+        "grid_language": "balanced"
+      },
+      "colors": {
+        "accent": "#006B5B",
+        "background": "#F3F6FA",
+        "border": "currentColor",
+        "foreground": "#172033",
+        "muted": "#58697D",
+        "primary": "#006B5B",
+        "secondary": "#58697D",
+        "surface": "#FFFFFF"
+      },
+      "components": {},
+      "motion": {
+        "parallax": "off",
+        "preset": "subtle",
+        "reveal": "fade"
+      },
+      "radius": {
+        "block": 20
+      },
+      "shadows": {
+        "style": "soft"
+      },
+      "spacing": {
+        "blocks": "airy",
+        "container": "wide",
+        "section": "generous"
+      },
+      "surfaces": {
+        "style": "glass"
+      },
+      "typography": {
+        "body": "body",
+        "display": "display",
+        "preset": "humanist",
+        "tracking": 0.16,
+        "weight": "500"
+      }
+    },
+    "variant_count": 78,
+    "variant_tokens": {}
+  },
+  "video_assets": {
+    "bytes": 0,
+    "copied": 0,
+    "failed": 0,
+    "hosted": 0,
+    "items": [],
+    "mode": "drive-public-readonly-no-github-media",
+    "optimized": 0,
+    "reused": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "config_owner": "site_builder.services",
+      "enabled": true,
+      "endpoint": "/api/quote",
+      "home_visible": true,
+      "id": "quote",
+      "owner": "forms.quote",
+      "request_kind": "estimate_request",
+      "state": "studioframe.quote.v1"
+    },
+    {
+      "config_owner": "briefing",
+      "enabled": true,
+      "endpoint": "/api/briefings/start",
+      "home_visible": true,
+      "id": "briefing",
+      "owner": "forms.briefing",
+      "separate_from_quote": true,
+      "state": "studioframe.briefing"
+    }
+  ],
+  "owner": "forms.registry",
+  "schema_version": 1
+}
