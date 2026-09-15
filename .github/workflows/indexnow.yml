@@ -1,4 +1,5 @@
 name: IndexNow
+# Full sitemap refresh marker: 2026-09-15 SEO expansion
 
 on:
   push:
