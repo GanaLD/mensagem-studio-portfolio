@@ -89,18 +89,18 @@
     if (project.coverVideo) {
       return `<video muted autoplay loop playsinline preload="metadata" title="${esc(heroLabel)}" aria-label="${esc(heroLabel)}" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
     }
-    return `<img src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
+    return `<img decoding="async" fetchpriority="high" src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
   }
   function itemHTML(item, index) {
     const type = item.type === 'VIDEO' ? 'Vídeo' : item.type === 'MODEL' ? 'Modelo 3D' : 'Imagem';
     const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
     let visual='';
     if (item.type === 'VIDEO') {
-      visual=`<video controls muted autoplay loop playsinline preload="auto" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} src="${esc(item.url)}"></video>`;
+      visual=`<video controls muted loop playsinline preload="none" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} data-ms-lazy-video="${esc(item.url)}"></video>`;
     } else if (item.type === 'MODEL') {
       visual=`<model-viewer camera-controls autoplay shadow-intensity="1.1" shadow-softness=".85" exposure="1.05" environment-image="neutral" interaction-prompt="auto" touch-action="pan-y" loading="lazy" src="${esc(item.url)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} alt="${esc(mediaLabel)}"></model-viewer>`;
     } else {
-      visual=`<img loading="lazy" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
+      visual=`<img loading="lazy" decoding="async" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
     }
     const modelAction=item.type==='MODEL' ? `<a class="model-file-link" href="${esc(item.url)}" target="_blank" rel="noopener">ABRIR GLB ↗</a>` : '';
     const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><div class="caption-meta"><small>${type} · ${String(index+1).padStart(2,'0')}</small>${modelAction}</div></div>`;
@@ -166,6 +166,41 @@
   }
 
   wireVideoFallbacks(app);
+
+  // Heavy gallery videos hydrate only near the viewport and pause when off-screen.
+  const lazyGalleryVideos=[...app.querySelectorAll('video[data-ms-lazy-video]')];
+  const hydrateGalleryVideo=(video)=>{
+    if(!video || video.dataset.msHydrated==='1') return;
+    const src=video.dataset.msLazyVideo;
+    if(!src) return;
+    video.dataset.msHydrated='1';
+    video.dataset.msVideoSrc=src;
+    video.src=src;
+    wireVideoFallbacks(app);
+    try{video.load()}catch(_){}
+  };
+  const playGalleryVideo=(video)=>{
+    hydrateGalleryVideo(video);
+    const p=video.play();
+    if(p&&p.catch)p.catch(()=>{});
+  };
+  if(lazyGalleryVideos.length){
+    if(!('IntersectionObserver' in window)){
+      lazyGalleryVideos.forEach(playGalleryVideo);
+    }else{
+      const mediaIO=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          const video=entry.target;
+          if(entry.isIntersecting) playGalleryVideo(video);
+          else if(video.dataset.msHydrated==='1') video.pause();
+        });
+      },{rootMargin:'500px 0px',threshold:.01});
+      lazyGalleryVideos.forEach(video=>mediaIO.observe(video));
+    }
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) lazyGalleryVideos.forEach(video=>video.pause());
+    });
+  }
 
   const lightbox = document.querySelector('#lightbox');
   const lightboxImg = lightbox?.querySelector('img');
