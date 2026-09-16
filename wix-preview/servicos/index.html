@@ -2115,20 +2115,20 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <link rel="stylesheet" href="./catalog-motion.css?v=20260915-r1-motion">
 <script defer src="./catalog-motion.js?v=20260915-r1-motion"></script>
-<script id="services-section-scroll-sync-v2">
-/* SERVICES_SECTION_SCROLL_SYNC_V2
-   Fixed-on-scroll rail: deterministic fallback independent of CSS sticky. */
+<script id="services-section-scroll-sync-v3">
+/* SERVICES_SECTION_SCROLL_SYNC_V3
+   Rail follows the viewport with an immutable sentinel, layout spacer and sticky fallback. */
 (() => {
-  const STYLE_ID='services-section-scroll-sync-v2-style';
+  const STYLE_ID='services-section-scroll-sync-v3-style';
 
   function installStyle(){
     if(document.getElementById(STYLE_ID)) return;
     const style=document.createElement('style');
     style.id=STYLE_ID;
     style.textContent=[
-      '.filters-wrap{position:relative!important;top:auto!important;z-index:35!important;width:100%!important;}',
+      '.filters-wrap{position:sticky!important;top:var(--services-rail-top,74px)!important;z-index:100020!important;width:100%!important;}',
       '.filters-wrap.ms-rail-fixed{position:fixed!important;left:0!important;right:0!important;width:100%!important;z-index:100020!important;margin:0!important;}',
-      '.ms-services-rail-spacer{display:block;width:100%;height:0;pointer-events:none;}',
+      '.ms-services-rail-sentinel,.ms-services-rail-spacer{display:block;width:100%;height:0;pointer-events:none;}',
       '.filters{scroll-behavior:smooth;}',
       '@media(prefers-reduced-motion:reduce){.filters{scroll-behavior:auto;}}'
     ].join('');
@@ -2143,7 +2143,15 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
     const header=document.querySelector('.top');
     if(!wrap||!filters||!catalog) return;
 
-    let spacer=wrap.previousElementSibling;
+    let sentinel=wrap.previousElementSibling;
+    if(!sentinel || !sentinel.classList.contains('ms-services-rail-sentinel')){
+      sentinel=document.createElement('div');
+      sentinel.className='ms-services-rail-sentinel';
+      sentinel.setAttribute('aria-hidden','true');
+      wrap.parentNode.insertBefore(sentinel,wrap);
+    }
+
+    let spacer=sentinel.nextElementSibling;
     if(!spacer || !spacer.classList.contains('ms-services-rail-spacer')){
       spacer=document.createElement('div');
       spacer.className='ms-services-rail-spacer';
@@ -2155,39 +2163,42 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
     let raf=0;
     let lastCat='';
 
-    const headerHeight=()=>Math.max(0,Math.round(header?.getBoundingClientRect().height||0));
+    const headerHeight=()=>Math.max(0,Math.round(header?.getBoundingClientRect().height||74));
+
+    function updateRailTop(){
+      const top=headerHeight();
+      document.documentElement.style.setProperty('--services-rail-top',top+'px');
+      if(wrap.classList.contains('ms-rail-fixed')) wrap.style.top=top+'px';
+    }
+
+    function shouldFix(){
+      return sentinel.getBoundingClientRect().top<=headerHeight();
+    }
 
     function setFixed(fixed){
-      const h=Math.ceil(wrap.getBoundingClientRect().height||62);
+      const h=Math.max(1,Math.ceil(wrap.getBoundingClientRect().height||filters.getBoundingClientRect().height||62));
       if(fixed){
         spacer.style.height=h+'px';
         wrap.classList.add('ms-rail-fixed');
         wrap.style.top=headerHeight()+'px';
+        wrap.dataset.railState='fixed';
       }else{
         wrap.classList.remove('ms-rail-fixed');
         wrap.style.removeProperty('top');
         spacer.style.height='0px';
+        wrap.dataset.railState='sticky';
       }
-    }
-
-    function shouldFix(){
-      const top=headerHeight();
-      const anchorTop=spacer.getBoundingClientRect().top;
-      return anchorTop<=top;
     }
 
     function currentCategory(){
       const list=Array.from(catalog.querySelectorAll('.category[data-service-category]'));
       if(!list.length) return 'Todos';
-
       const probeY=headerHeight()+Math.ceil(wrap.getBoundingClientRect().height||62)+22;
       if(catalog.getBoundingClientRect().top>probeY) return 'Todos';
-
       let current=list[0].dataset.serviceCategory||'Todos';
       for(const section of list){
-        if(section.getBoundingClientRect().top<=probeY){
-          current=section.dataset.serviceCategory||current;
-        }else break;
+        if(section.getBoundingClientRect().top<=probeY) current=section.dataset.serviceCategory||current;
+        else break;
       }
       return current;
     }
@@ -2207,10 +2218,8 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
       for(const chip of chips){
         const on=chip.dataset.cat===cat;
         chip.classList.toggle('on',on);
-        if(on){
-          chip.setAttribute('aria-current','true');
-          selected=chip;
-        }else chip.removeAttribute('aria-current');
+        if(on){chip.setAttribute('aria-current','true');selected=chip}
+        else chip.removeAttribute('aria-current');
       }
       if(selected && cat!==lastCat) centerChip(selected);
       lastCat=cat;
@@ -2218,6 +2227,7 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 
     function paint(){
       raf=0;
+      updateRailTop();
       setFixed(shouldFix());
       syncChips(currentCategory());
     }
@@ -2248,15 +2258,15 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 
     schedule();
     setTimeout(schedule,60);
+    setTimeout(schedule,300);
   }
 
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',init,{once:true});
-  }else init();
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
 </script>
 <style id="services-responsive-stability-v2">
-html,body{max-width:100%;overflow-x:hidden}
+html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
 .nav,.filters{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
 .category h2,.card h3{overflow-wrap:anywhere;text-wrap:balance}
 @media(max-width:640px){
