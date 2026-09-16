@@ -180,6 +180,18 @@ footer{padding:32px var(--pad);border-top:1px solid var(--line);display:flex;jus
   .closing h2{font-size:clamp(54px,16vw,80px)}
   footer{flex-direction:column;padding:28px 18px 62px}
 }
+
+/* RESPONSIVE_STABILITY_V2 */
+.nav{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+@supports (height:100svh){.masthead{min-height:86svh}}
+@media(max-width:700px){
+  .nav{overflow-x:auto;scrollbar-width:none;width:100%}
+  .nav::-webkit-scrollbar{display:none}
+  .masthead-content{padding-top:max(92px,calc(76px + env(safe-area-inset-top)))}
+  .masthead-side{min-width:0}
+  .quote-side blockquote{max-width:18ch}
+  .skills span{max-width:100%}
+}
 </style>
 </head>
 <body>
