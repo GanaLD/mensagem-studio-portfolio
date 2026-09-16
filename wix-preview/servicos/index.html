@@ -2114,9 +2114,23 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 .ms-menu-overlay{position:fixed!important;z-index:100040!important}
 </style>
 <link rel="stylesheet" href="./catalog-motion.css?v=20260915-r1-motion">
-<script src="./catalog-motion.js?v=20260915-r1-motion"></script>
+<script defer src="./catalog-motion.js?v=20260915-r1-motion"></script>
 </head>
 <body data-page="servicos" data-version="v4">
+<script id="ms-services-stray-text-cleanup">
+(()=>{
+  const clean=()=>{
+    [...document.body.childNodes].forEach(node=>{
+      if(node.nodeType!==3)return;
+      const value=(node.textContent||'').trim();
+      if(/^(?:\\n)+$/.test(value))node.remove();
+    });
+  };
+  clean();
+  new MutationObserver(clean).observe(document.body,{childList:true});
+  requestAnimationFrame(clean);
+})();
+</script>
 <div class="ms-v3-progress" aria-hidden="true"></div>
 <header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a href="../portfolio/">Projetos</a><a class="active" href="./">Serviços</a><a href="../sobre/">Sobre</a></nav><button class="cart" id="cartBtn">Orçamento <b id="cartCount">0</b></button></header>
 <section class="hero">
@@ -2127,8 +2141,8 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
       </div>
       <div class="hero-copy hero-showcase" id="heroProjectShowcase">
         <div class="hero-showcase-media" aria-hidden="true">
-          <video class="hero-showcase-video is-active" id="heroProjectVideoA" muted playsinline preload="auto"></video>
-          <video class="hero-showcase-video" id="heroProjectVideoB" muted playsinline preload="auto"></video>
+          <video class="hero-showcase-video is-active" id="heroProjectVideoA" muted playsinline preload="none"></video>
+          <video class="hero-showcase-video" id="heroProjectVideoB" muted playsinline preload="none"></video>
           <iframe class="hero-showcase-youtube" id="heroProjectYoutube" title="Showcase de projetos no Hero" tabindex="-1" aria-hidden="true" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
           <div class="hero-showcase-shade"></div>
         </div>
