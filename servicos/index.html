@@ -2115,127 +2115,144 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 </style>
 <link rel="stylesheet" href="./catalog-motion.css?v=20260915-r1-motion">
 <script defer src="./catalog-motion.js?v=20260915-r1-motion"></script>
-<script id="services-section-scroll-sync-v1">
-/* SERVICES_SECTION_SCROLL_SYNC_V1
-   Keeps the services category rail sticky and synchronized with the visible catalog section. */
+<script id="services-section-scroll-sync-v2">
+/* SERVICES_SECTION_SCROLL_SYNC_V2
+   Fixed-on-scroll rail: deterministic fallback independent of CSS sticky. */
 (() => {
-  const STYLE_ID = 'services-section-scroll-sync-lock';
+  const STYLE_ID='services-section-scroll-sync-v2-style';
 
-  function ensureStickyStyle() {
-    if (document.getElementById(STYLE_ID)) return;
-    const style = document.createElement('style');
-    style.id = STYLE_ID;
-    style.textContent = [
-      '.filters-wrap{position:-webkit-sticky!important;position:sticky!important;top:72px!important;z-index:35!important;}',
+  function installStyle(){
+    if(document.getElementById(STYLE_ID)) return;
+    const style=document.createElement('style');
+    style.id=STYLE_ID;
+    style.textContent=[
+      '.filters-wrap{position:relative!important;top:auto!important;z-index:35!important;width:100%!important;}',
+      '.filters-wrap.ms-rail-fixed{position:fixed!important;left:0!important;right:0!important;width:100%!important;z-index:100020!important;margin:0!important;}',
+      '.ms-services-rail-spacer{display:block;width:100%;height:0;pointer-events:none;}',
       '.filters{scroll-behavior:smooth;}',
-      '@media(max-width:767px){.filters-wrap{top:64px!important;}}',
       '@media(prefers-reduced-motion:reduce){.filters{scroll-behavior:auto;}}'
     ].join('');
     document.head.appendChild(style);
   }
 
-  function init() {
-    ensureStickyStyle();
+  function init(){
+    installStyle();
+    const wrap=document.querySelector('.filters-wrap');
+    const filters=document.getElementById('filters');
+    const catalog=document.getElementById('catalog');
+    const header=document.querySelector('.top');
+    if(!wrap||!filters||!catalog) return;
 
-    const wrap = document.querySelector('.filters-wrap');
-    const filters = document.getElementById('filters');
-    const catalog = document.getElementById('catalog');
-    if (!wrap || !filters || !catalog) return;
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let raf = 0;
-    let lastCat = '';
-
-    function sections() {
-      return Array.from(catalog.querySelectorAll('.category[data-service-category]'));
+    let spacer=wrap.previousElementSibling;
+    if(!spacer || !spacer.classList.contains('ms-services-rail-spacer')){
+      spacer=document.createElement('div');
+      spacer.className='ms-services-rail-spacer';
+      spacer.setAttribute('aria-hidden','true');
+      wrap.parentNode.insertBefore(spacer,wrap);
     }
 
-    function visibleCategory() {
-      const list = sections();
-      if (!list.length) return 'Todos';
+    const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let raf=0;
+    let lastCat='';
 
-      const wrapRect = wrap.getBoundingClientRect();
-      const catalogRect = catalog.getBoundingClientRect();
-      const probeY = Math.max(wrapRect.bottom + 20, 96);
+    const headerHeight=()=>Math.max(0,Math.round(header?.getBoundingClientRect().height||0));
 
-      if (catalogRect.top > probeY) return 'Todos';
+    function setFixed(fixed){
+      const h=Math.ceil(wrap.getBoundingClientRect().height||62);
+      if(fixed){
+        spacer.style.height=h+'px';
+        wrap.classList.add('ms-rail-fixed');
+        wrap.style.top=headerHeight()+'px';
+      }else{
+        wrap.classList.remove('ms-rail-fixed');
+        wrap.style.removeProperty('top');
+        spacer.style.height='0px';
+      }
+    }
 
-      let current = list[0].dataset.serviceCategory || 'Todos';
-      for (const section of list) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= probeY) {
-          current = section.dataset.serviceCategory || current;
-        } else {
-          break;
-        }
+    function shouldFix(){
+      const top=headerHeight();
+      const anchorTop=spacer.getBoundingClientRect().top;
+      return anchorTop<=top;
+    }
+
+    function currentCategory(){
+      const list=Array.from(catalog.querySelectorAll('.category[data-service-category]'));
+      if(!list.length) return 'Todos';
+
+      const probeY=headerHeight()+Math.ceil(wrap.getBoundingClientRect().height||62)+22;
+      if(catalog.getBoundingClientRect().top>probeY) return 'Todos';
+
+      let current=list[0].dataset.serviceCategory||'Todos';
+      for(const section of list){
+        if(section.getBoundingClientRect().top<=probeY){
+          current=section.dataset.serviceCategory||current;
+        }else break;
       }
       return current;
     }
 
-    function centerChip(button) {
-      if (!button) return;
-      const targetLeft = button.offsetLeft - (filters.clientWidth - button.offsetWidth) / 2;
-      const maxLeft = Math.max(0, filters.scrollWidth - filters.clientWidth);
-      const left = Math.max(0, Math.min(maxLeft, targetLeft));
-      if (Math.abs(filters.scrollLeft - left) < 8) return;
-      filters.scrollTo({ left, behavior: reduceMotion ? 'auto' : 'smooth' });
+    function centerChip(button){
+      if(!button) return;
+      const target=button.offsetLeft-(filters.clientWidth-button.offsetWidth)/2;
+      const max=Math.max(0,filters.scrollWidth-filters.clientWidth);
+      const left=Math.max(0,Math.min(max,target));
+      if(Math.abs(filters.scrollLeft-left)<8) return;
+      filters.scrollTo({left,behavior:reduceMotion?'auto':'smooth'});
     }
 
-    function apply(cat) {
-      if (!cat) return;
-      const chips = Array.from(filters.querySelectorAll('.chip[data-cat]'));
-      if (!chips.length) return;
-
-      let selected = null;
-      chips.forEach(chip => {
-        const isCurrent = chip.dataset.cat === cat;
-        chip.classList.toggle('on', isCurrent);
-        if (isCurrent) {
-          chip.setAttribute('aria-current', 'true');
-          selected = chip;
-        } else {
-          chip.removeAttribute('aria-current');
-        }
-      });
-
-      if (selected && cat !== lastCat) centerChip(selected);
-      lastCat = cat;
+    function syncChips(cat){
+      const chips=Array.from(filters.querySelectorAll('.chip[data-cat]'));
+      let selected=null;
+      for(const chip of chips){
+        const on=chip.dataset.cat===cat;
+        chip.classList.toggle('on',on);
+        if(on){
+          chip.setAttribute('aria-current','true');
+          selected=chip;
+        }else chip.removeAttribute('aria-current');
+      }
+      if(selected && cat!==lastCat) centerChip(selected);
+      lastCat=cat;
     }
 
-    function paint() {
-      raf = 0;
-      apply(visibleCategory());
+    function paint(){
+      raf=0;
+      setFixed(shouldFix());
+      syncChips(currentCategory());
     }
 
-    function schedule() {
-      if (!raf) raf = requestAnimationFrame(paint);
+    function schedule(){
+      if(!raf) raf=requestAnimationFrame(paint);
     }
 
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule, { passive: true });
-    window.addEventListener('orientationchange', schedule, { passive: true });
-
-    filters.addEventListener('click', () => {
+    addEventListener('scroll',schedule,{passive:true});
+    addEventListener('resize',schedule,{passive:true});
+    addEventListener('orientationchange',schedule,{passive:true});
+    filters.addEventListener('click',()=>{
       schedule();
-      window.setTimeout(schedule, 120);
-      window.setTimeout(schedule, 520);
+      setTimeout(schedule,80);
+      setTimeout(schedule,450);
     });
 
-    if ('MutationObserver' in window) {
-      const observer = new MutationObserver(schedule);
-      observer.observe(catalog, { childList: true, subtree: false });
-      observer.observe(filters, { childList: true });
+    if('ResizeObserver' in window){
+      const ro=new ResizeObserver(schedule);
+      ro.observe(wrap);
+      if(header) ro.observe(header);
+    }
+    if('MutationObserver' in window){
+      const mo=new MutationObserver(schedule);
+      mo.observe(catalog,{childList:true});
+      mo.observe(filters,{childList:true});
     }
 
     schedule();
-    window.setTimeout(schedule, 80);
+    setTimeout(schedule,60);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init, { once: true });
-  } else {
-    init();
-  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init,{once:true});
+  }else init();
 })();
 </script>
 <style id="services-responsive-stability-v2">
