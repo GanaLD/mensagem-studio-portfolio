@@ -915,5 +915,80 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 
 
 
+<script id="home-hero-sticky-runtime-fallback-v1">
+/* HOME_HERO_STICKY_RUNTIME_FALLBACK_V1
+   Only activates if the browser fails to keep the Hero sticky at viewport top. */
+(() => {
+  const hero=document.getElementById('hero');
+  const sticky=hero?.querySelector('.hero-sticky');
+  if(!hero||!sticky) return;
+
+  let fallback=false;
+  let raf=0;
+
+  function bounds(){
+    const top=hero.offsetTop;
+    const end=Math.max(top,top+hero.offsetHeight-innerHeight);
+    return {top,end};
+  }
+
+  function applyFallback(y){
+    const {top,end}=bounds();
+    const within=y>=top && y<=end;
+
+    sticky.classList.toggle('ms-hero-fixed-fallback',within);
+    sticky.classList.toggle('ms-hero-fixed-fallback-end',y>end);
+
+    if(within){
+      sticky.style.setProperty('position','fixed','important');
+      sticky.style.setProperty('top','0','important');
+      sticky.style.setProperty('left','0','important');
+      sticky.style.setProperty('right','0','important');
+      sticky.style.setProperty('width','100%','important');
+      sticky.style.removeProperty('bottom');
+    }else if(y>end){
+      sticky.style.setProperty('position','absolute','important');
+      sticky.style.setProperty('top','auto','important');
+      sticky.style.setProperty('bottom','0','important');
+      sticky.style.setProperty('left','0','important');
+      sticky.style.setProperty('right','0','important');
+      sticky.style.setProperty('width','100%','important');
+    }else{
+      sticky.style.setProperty('position','absolute','important');
+      sticky.style.setProperty('top','0','important');
+      sticky.style.setProperty('bottom','auto','important');
+      sticky.style.setProperty('left','0','important');
+      sticky.style.setProperty('right','0','important');
+      sticky.style.setProperty('width','100%','important');
+    }
+  }
+
+  function check(){
+    raf=0;
+    const y=scrollY;
+    const {top,end}=bounds();
+
+    if(!fallback && y>top+8 && y<end-8){
+      const rect=sticky.getBoundingClientRect();
+      const pos=getComputedStyle(sticky).position;
+      if(pos!=='sticky' || Math.abs(rect.top)>3){
+        fallback=true;
+        document.documentElement.dataset.heroStickyFallback='true';
+      }
+    }
+
+    if(fallback) applyFallback(y);
+  }
+
+  function queue(){
+    if(!raf) raf=requestAnimationFrame(check);
+  }
+
+  addEventListener('scroll',queue,{passive:true});
+  addEventListener('resize',queue,{passive:true});
+  addEventListener('orientationchange',queue,{passive:true});
+  queue();
+})();
+</script>
 </body>
 </html>
