@@ -1,0 +1,80 @@
+name: Vendor Cyber Angel Security
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/vendor-cyber-angel-security.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vendor-cyber-angel-security
+  cancel-in-progress: false
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Vendor exact Cyber Angel document locally
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          SRC='https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/9269603f-6e14-4da8-a4d5-1adb49bb8358.html'
+          DST='assets/cyber-angel-bg-v2.html'
+          TMP="${DST}.tmp"
+
+          curl --fail --location --silent --show-error --retry 3 --retry-delay 2 "$SRC" -o "$TMP"
+          test -s "$TMP"
+          grep -q 'Cyber Angel Scroll V2.1.5 FINAL POUSO AJUSTADO' "$TMP"
+
+          mv "$TMP" "$DST"
+
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path("index.html")
+          s = p.read_text(encoding="utf-8")
+
+          remote = 'data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/9269603f-6e14-4da8-a4d5-1adb49bb8358.html"'
+          local = 'data-src="./assets/cyber-angel-bg-v2.html"'
+
+          if remote not in s and local not in s:
+              raise SystemExit("Cyber Angel source marker not found")
+
+          s = s.replace(remote, local)
+
+          marker = '<iframe id="cyberAngelBg" class="cyber-bg-frame is-active"'
+          secure = '<iframe id="cyberAngelBg" class="cyber-bg-frame is-active" sandbox="allow-scripts" referrerpolicy="no-referrer"'
+          if marker in s and 'id="cyberAngelBg" class="cyber-bg-frame is-active" sandbox=' not in s:
+              s = s.replace(marker, secure, 1)
+
+          p.write_text(s, encoding="utf-8")
+          PY
+
+          grep -q 'data-src="./assets/cyber-angel-bg-v2.html"' index.html
+          grep -q 'sandbox="allow-scripts"' index.html
+
+      - name: Commit local security copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/cyber-angel-bg-v2.html index.html
+          if git diff --cached --quiet; then
+            echo 'Already vendored.'
+            exit 0
+          fi
+          git commit -m 'Vendor Cyber Angel locally and sandbox iframe'
+          git pull --rebase origin main
+          git push
