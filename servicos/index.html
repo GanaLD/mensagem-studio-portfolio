@@ -2117,6 +2117,20 @@ h1,h2,h3,.brand{font-family:var(--v4-futura)}
 <script src="./catalog-motion.js?v=20260915-r1-motion"></script>
 </head>
 <body data-page="servicos" data-version="v4">
+<script id="ms-services-stray-text-cleanup">
+(()=>{
+  const clean=()=>{
+    [...document.body.childNodes].forEach(node=>{
+      if(node.nodeType!==3)return;
+      const value=(node.textContent||'').trim();
+      if(/^(?:\\n)+$/.test(value))node.remove();
+    });
+  };
+  clean();
+  new MutationObserver(clean).observe(document.body,{childList:true});
+  requestAnimationFrame(clean);
+})();
+</script>
 <div class="ms-v3-progress" aria-hidden="true"></div>
 <header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a href="../portfolio/">Projetos</a><a class="active" href="./">Serviços</a><a href="../sobre/">Sobre</a></nav><button class="cart" id="cartBtn">Orçamento <b id="cartCount">0</b></button></header>
 <section class="hero">
