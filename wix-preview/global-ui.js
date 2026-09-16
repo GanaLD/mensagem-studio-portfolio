@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260915-r17-quote-royal-compact';
+  const VERSION = '20260915-r18-quote-royal-glass';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -36,13 +36,13 @@
     .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
 
-    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(108,137,255,.76);border-radius:999px;background:linear-gradient(145deg,var(--ms-ui-royal),var(--ms-ui-royal-2));backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 28px rgba(36,87,255,.28),inset 0 1px rgba(255,255,255,.22);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-quote-fab .ms-quote-label{display:block;max-width:92px;opacity:1;white-space:nowrap;overflow:hidden;transition:max-width .28s cubic-bezier(.16,1,.3,1),opacity .18s ease,transform .28s cubic-bezier(.16,1,.3,1)}
     .ms-quote-fab .ms-quote-icon{width:18px;height:18px;display:grid;place-items:center;flex:0 0 18px;color:#fff}
     .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .ms-quote-fab.is-compact{width:46px;padding:0;border-radius:15px;gap:0}
     .ms-quote-fab.is-compact .ms-quote-label{max-width:0;opacity:0;transform:translateX(8px)}
-    .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(170,187,255,.96);background:linear-gradient(145deg,#2e63ff,#183fcf);box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 36px rgba(36,87,255,.38),inset 0 1px rgba(255,255,255,.28)}
+    .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(176,193,255,.90);background:linear-gradient(145deg,rgba(46,99,255,.46),rgba(24,63,207,.25) 58%,rgba(255,255,255,.075));box-shadow:0 16px 38px rgba(0,0,0,.34),0 0 38px rgba(36,87,255,.30),inset 0 1px 0 rgba(255,255,255,.36),inset 0 -1px 0 rgba(36,87,255,.22)}
     body[data-page="servicos"].ms-global-ui-mounted #cartBtn{visibility:hidden!important;pointer-events:none!important}
 
     .ms-sound-toggle{position:fixed;z-index:100030;left:16px;bottom:16px;min-width:50px;height:38px;padding:0 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(7,9,7,.46);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:9px;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 8px 28px rgba(0,0,0,.28);transition:.2s ease}
