@@ -522,6 +522,13 @@ html,body{max-width:100%;overflow-x:clip}
 @media(hover:none){
   #projects .project:hover,#projects .project:focus-visible{transform:none}
 }
+
+/* HOME_HERO_STICKY_COMPAT_V2 */
+html{overflow-x:clip!important}
+body{overflow-x:clip!important}
+#hero{overflow:visible!important;contain:none!important}
+#hero>.hero-sticky{position:-webkit-sticky!important;position:sticky!important;top:0!important;height:100vh!important;min-height:100vh!important;overflow:hidden!important}
+@supports (height:100dvh){#hero>.hero-sticky{height:100dvh!important;min-height:100dvh!important}}
 </style>
 </head>
 <body>
