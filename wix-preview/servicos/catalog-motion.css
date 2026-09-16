@@ -1,0 +1,36 @@
+/* PUBLISHED_SERVICES_CATALOG_REVEAL_V1 */
+html.ms-catalog-motion .ms-catalog-reveal{
+  --ms-catalog-x:0px;
+  --ms-catalog-delay:0ms;
+  will-change:transform,opacity,filter;
+}
+html.ms-catalog-motion .ms-catalog-reveal:not(.is-visible){
+  opacity:0;
+  filter:blur(10px);
+  transform:translate3d(var(--ms-catalog-x),14px,0) scale(.985);
+}
+html.ms-catalog-motion .ms-catalog-reveal.is-visible{
+  animation:msCatalogReveal .84s cubic-bezier(.16,1,.3,1) var(--ms-catalog-delay) both;
+}
+@keyframes msCatalogReveal{
+  from{
+    opacity:0;
+    filter:blur(10px);
+    transform:translate3d(var(--ms-catalog-x),14px,0) scale(.985);
+  }
+  to{
+    opacity:1;
+    filter:none;
+    transform:none;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html.ms-catalog-motion .ms-catalog-reveal,
+  html.ms-catalog-motion .ms-catalog-reveal:not(.is-visible),
+  html.ms-catalog-motion .ms-catalog-reveal.is-visible{
+    opacity:1!important;
+    filter:none!important;
+    transform:none!important;
+    animation:none!important;
+  }
+}
