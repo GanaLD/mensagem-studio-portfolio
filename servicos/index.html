@@ -2372,8 +2372,13 @@ if(quoteParams.get('orcamento')==='1'){
   let activeEl=null;
   let timer=0;
   let transitioning=false;
+  let started=false;
+  let heroVisible=true;
+  const heroSection=videoA.closest('.hero');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const HOLD_MS=9000;
+  const stopTimer=()=>{if(timer){clearInterval(timer);timer=0}};
+  const schedule=()=>{stopTimer();if(!reduce&&heroVisible&&!document.hidden)timer=setInterval(advance,HOLD_MS)};
 
   function youtubeSrc(id){
     return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&playsinline=1&loop=1&playlist='+encodeURIComponent(id)+'&enablejsapi=1';
@@ -2457,24 +2462,52 @@ if(quoteParams.get('orcamento')==='1'){
   }
 
   async function start(){
+    if(started)return;
+    started=true;
     for(let i=0;i<queue.length;i++){
       if(await showItem(i)){
         queueIndex=i;
         break;
       }
     }
-    if(!reduce)timer=setInterval(advance,HOLD_MS);
+    schedule();
+  }
+
+  const resume=async()=>{
+    if(!started){await start();return}
+    if(activeKind==='youtube'){
+      await showItem(queueIndex);
+    }else if(activeKind==='video'&&activeVideo){
+      activeVideo.play().catch(()=>{});
+    }
+    schedule();
+  };
+
+  const suspend=()=>{
+    stopTimer();
+    videos.forEach(v=>{try{v.pause()}catch(_){}});
+    if(activeKind==='youtube'&&youtube.getAttribute('src'))youtube.src='about:blank';
+  };
+
+  if(heroSection&&'IntersectionObserver' in window){
+    const heroIO=new IntersectionObserver(entries=>{
+      const entry=entries[0];
+      heroVisible=!!entry?.isIntersecting;
+      if(heroVisible&&!document.hidden)resume();
+      else suspend();
+    },{threshold:.03});
+    heroIO.observe(heroSection);
+  }else{
+    start();
   }
 
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){
-      videos.forEach(v=>{try{v.pause()}catch(_){}});
-    }else if(activeKind==='video'&&activeVideo){
-      activeVideo.play().catch(()=>{});
+      suspend();
+    }else if(heroVisible){
+      resume();
     }
   });
-
-  start();
 })();
 </script>
 <!-- SERVICES_HERO_PROJECT_REEL_V6_JS_END -->
