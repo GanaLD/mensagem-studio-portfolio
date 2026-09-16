@@ -1,6 +1,6 @@
 # MENSAGEM STUDIO
 
-> Estúdio criativo e de produção digital em Curitiba, Brasil, especializado em design gráfico, branding, edição de vídeo, motion design, VFX, produção audiovisual, modelagem e render 3D, conteúdo para e-commerce, HTML e experiências web.
+> Design studio, creative studio e estúdio criativo em Curitiba, Brasil, especializado em design gráfico, branding, direção de arte, art direction, produção de vídeos, video studio, motion design, VFX, inteligência artificial generativa, AI video, modelagem e render 3D, CGI, conteúdo para e-commerce, HTML e experiências web.
 
 Site oficial: https://mensagemstudio.shop/
 
@@ -23,6 +23,15 @@ Site oficial: https://mensagemstudio.shop/
 - Ilustração, Personagens e Storyboard: https://mensagemstudio.shop/servicos/ilustracao-personagens-storyboard/
 - Modelagem e Render 3D de Produto: https://mensagemstudio.shop/servicos/modelagem-3d-produto/
 - Sites em HTML e Experiências Web: https://mensagemstudio.shop/servicos/sites-html/
+
+## Temas e intenções de busca
+- Design Studio / Estúdio de Design / Creative Studio: https://mensagemstudio.shop/ e https://mensagemstudio.shop/sobre/
+- Branding / Brand Design: https://mensagemstudio.shop/servicos/identidade-visual-branding/
+- Art Studio / Art Direction / Creative Direction: https://mensagemstudio.shop/servicos/direcao-arte-campanhas/
+- Video Studio / Video Production / Edição de Vídeo: https://mensagemstudio.shop/servicos/edicao-video/ e https://mensagemstudio.shop/servicos/producao-audiovisual/
+- Vídeos com IA / AI Video / Creative AI: https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
+- AI Character Design / Personagens Consistentes com IA: https://mensagemstudio.shop/portfolio/personagens-consistentes-com-ia/
+- 3D Studio / CGI Studio / Product CGI: https://mensagemstudio.shop/servicos/modelagem-3d-produto/ e https://mensagemstudio.shop/portfolio/produto-3d-egeo/
 
 ## Projetos selecionados
 - https://mensagemstudio.shop/portfolio/produto-3d-egeo/
