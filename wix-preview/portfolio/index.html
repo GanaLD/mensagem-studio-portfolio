@@ -152,7 +152,26 @@ main>.wrap{position:relative;z-index:2}
 @media(prefers-reduced-motion:reduce){
   .projects-shader::before,.projects-filter-shell::before{animation:none!important}
 }
-</style></head>
+<style id="portfolio-responsive-stability-v2">
+.card,.media,.text{min-width:0}
+.text h2{overflow-wrap:anywhere;text-wrap:balance}
+.nav,.filters{overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar,.filters::-webkit-scrollbar{display:none}
+@media(max-width:650px){
+  .nav{max-width:calc(100vw - 28px);overflow-x:auto;scrollbar-width:none}
+  main{padding-top:52px}
+  h1{font-size:clamp(54px,20vw,92px);line-height:.86}
+  .lead{font-size:15px;line-height:1.55}
+  .text{padding:20px}
+  .text h2{font-size:clamp(26px,9vw,38px);line-height:1}
+  .media{aspect-ratio:4/3}
+  .card.featured .media{aspect-ratio:4/3}
+}
+@media(hover:none){
+  .card:hover{transform:none}
+  .card:hover img{transform:none}
+}
+</style></style></head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos.</h1><p class="lead">Projetos do Mensagem Studio organizados por frente de trabalho para facilitar a navegação entre design, motion, produto, 3D e audiovisual.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><div class="grid" id="grid">
 <article class="card featured" data-cat="3D" data-project-slug="produto-3d-egeo" data-cats="3D|Produto" data-preview-video="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/720p/mp4/file.mp4"><div class="media"><img loading="eager" decoding="async" fetchpriority="high" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"></div><div class="text"><small>3D / Produto</small><h2>Modelagem e Render 3D | EGEO</h2><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Social Media" data-project-slug="carrossel-banner-estetica" data-cats="Social Media|Design"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png" alt="Carrossel Estética"></div><div class="text"><small>Design / Social Media</small><h2>Design para Estética | Carrossel e Banner</h2><p>Design gráfico e social media para clínicas e marcas de estética, com carrosséis e banners para campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
