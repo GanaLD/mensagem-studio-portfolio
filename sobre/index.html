@@ -368,8 +368,8 @@ footer{padding:32px var(--pad);border-top:1px solid var(--line);display:flex;jus
 
 <section class="closing">
   <img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg" alt="">
-  <video autoplay muted loop playsinline preload="none" poster="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg">
-    <source src="https://video.wixstatic.com/video/ef8a3a_20f3e61f512e474ba48e61e8c19bc054/720p/mp4/file.mp4" type="video/mp4">
+  <video id="closingVideo" muted loop playsinline preload="none" poster="https://static.wixstatic.com/media/ef8a3a_20f3e61f512e474ba48e61e8c19bc054f002.jpg">
+    <source data-src="https://video.wixstatic.com/video/ef8a3a_20f3e61f512e474ba48e61e8c19bc054/720p/mp4/file.mp4" type="video/mp4">
   </video>
   <div class="closing-content">
     <div class="wrap">
@@ -392,24 +392,60 @@ footer{padding:32px var(--pad);border-top:1px solid var(--line);display:flex;jus
 
 <script>
 (function(){
-  const video=document.getElementById('dermacastBg');
-  if(video){
+  const mastheadVideo=document.getElementById('dermacastBg');
+  if(mastheadVideo){
     const START_AT=65;
     const seek=()=>{
-      if(Number.isFinite(video.duration)&&video.duration>START_AT+1&&video.currentTime<START_AT-.5){
-        video.currentTime=START_AT;
+      if(Number.isFinite(mastheadVideo.duration)&&mastheadVideo.duration>START_AT+1&&mastheadVideo.currentTime<START_AT-.5){
+        mastheadVideo.currentTime=START_AT;
       }
-      video.play().catch(()=>{});
+      if(!document.hidden) mastheadVideo.play().catch(()=>{});
     };
-    video.addEventListener('loadedmetadata',seek,{once:true});
-    video.addEventListener('canplay',seek,{once:true});
-    video.addEventListener('ended',()=>{
-      if(Number.isFinite(video.duration)&&video.duration>START_AT+1){
-        video.currentTime=START_AT;
-        video.play().catch(()=>{});
+    mastheadVideo.addEventListener('loadedmetadata',seek,{once:true});
+    mastheadVideo.addEventListener('canplay',seek,{once:true});
+    mastheadVideo.addEventListener('ended',()=>{
+      if(Number.isFinite(mastheadVideo.duration)&&mastheadVideo.duration>START_AT+1){
+        mastheadVideo.currentTime=START_AT;
+        if(!document.hidden) mastheadVideo.play().catch(()=>{});
       }
     });
-    document.addEventListener('visibilitychange',()=>{if(!document.hidden)seek()});
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) mastheadVideo.pause();
+      else seek();
+    });
+  }
+
+  const closingVideo=document.getElementById('closingVideo');
+  if(closingVideo){
+    const source=closingVideo.querySelector('source[data-src]');
+    let hydrated=false;
+    let visible=false;
+    const hydrate=()=>{
+      if(hydrated||!source?.dataset.src)return;
+      hydrated=true;
+      source.src=source.dataset.src;
+      closingVideo.load();
+    };
+    const play=()=>{
+      hydrate();
+      if(!document.hidden) closingVideo.play().catch(()=>{});
+    };
+    if(!('IntersectionObserver' in window)){
+      visible=true; play();
+    }else{
+      const io=new IntersectionObserver(entries=>{
+        const entry=entries[0];
+        if(!entry)return;
+        visible=entry.isIntersecting;
+        if(visible) play();
+        else if(hydrated) closingVideo.pause();
+      },{rootMargin:'500px 0px',threshold:.01});
+      io.observe(closingVideo);
+    }
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden) closingVideo.pause();
+      else if(visible) play();
+    });
   }
 })();
 </script>
