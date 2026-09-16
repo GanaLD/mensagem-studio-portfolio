@@ -9,12 +9,12 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260915-r16-quote-top-right';
+  const VERSION = '20260915-r17-quote-royal-compact';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
   style.textContent = `
-    :root{--ms-ui-lime:#c9ff36;--ms-ui-fg:#f4f5ef;--ms-ui-muted:#aab0a3;--ms-ui-glass:rgba(8,10,8,.48);--ms-ui-line:rgba(255,255,255,.16)}
+    :root{--ms-ui-lime:#c9ff36;--ms-ui-royal:#2457ff;--ms-ui-royal-2:#173dcc;--ms-ui-fg:#f4f5ef;--ms-ui-muted:#aab0a3;--ms-ui-glass:rgba(8,10,8,.48);--ms-ui-line:rgba(255,255,255,.16)}
     .ms-universal-menu-btn,.ms-sound-toggle,.ms-contact-close{font:inherit;color:var(--ms-ui-fg);appearance:none;-webkit-appearance:none}
     .ms-universal-menu-btn{position:fixed;z-index:100050;top:14px;left:14px;width:43px;height:43px;border:1px solid rgba(255,255,255,.20);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));backdrop-filter:blur(18px) saturate(125%);-webkit-backdrop-filter:blur(18px) saturate(125%);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 1px rgba(201,255,54,.035) inset,0 8px 34px rgba(0,0,0,.28);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease}
     .ms-universal-menu-btn:hover,.ms-universal-menu-btn:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.60);box-shadow:0 0 22px rgba(201,255,54,.13),0 8px 34px rgba(0,0,0,.32)}
@@ -36,9 +36,13 @@
     .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
 
-    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;min-height:46px;padding:0 16px;border:1px solid rgba(201,255,54,.48);border-radius:999px;background:linear-gradient(145deg,rgba(11,14,9,.78),rgba(201,255,54,.10));backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);display:inline-flex;align-items:center;justify-content:center;gap:10px;color:var(--ms-ui-fg);font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 24px rgba(201,255,54,.10),inset 0 1px rgba(255,255,255,.09);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
-    .ms-quote-fab b{color:var(--ms-ui-lime);font-size:13px;font-weight:700;line-height:1}
-    .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(201,255,54,.88);background:linear-gradient(145deg,rgba(18,23,13,.90),rgba(201,255,54,.15));box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 32px rgba(201,255,54,.18),inset 0 1px rgba(255,255,255,.12)}
+    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(108,137,255,.76);border-radius:999px;background:linear-gradient(145deg,var(--ms-ui-royal),var(--ms-ui-royal-2));backdrop-filter:blur(18px) saturate(130%);-webkit-backdrop-filter:blur(18px) saturate(130%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 28px rgba(36,87,255,.28),inset 0 1px rgba(255,255,255,.22);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab .ms-quote-label{display:block;max-width:92px;opacity:1;white-space:nowrap;overflow:hidden;transition:max-width .28s cubic-bezier(.16,1,.3,1),opacity .18s ease,transform .28s cubic-bezier(.16,1,.3,1)}
+    .ms-quote-fab .ms-quote-icon{width:18px;height:18px;display:grid;place-items:center;flex:0 0 18px;color:#fff}
+    .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .ms-quote-fab.is-compact{width:46px;padding:0;border-radius:15px;gap:0}
+    .ms-quote-fab.is-compact .ms-quote-label{max-width:0;opacity:0;transform:translateX(8px)}
+    .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(170,187,255,.96);background:linear-gradient(145deg,#2e63ff,#183fcf);box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 36px rgba(36,87,255,.38),inset 0 1px rgba(255,255,255,.28)}
     body[data-page="servicos"].ms-global-ui-mounted #cartBtn{visibility:hidden!important;pointer-events:none!important}
 
     .ms-sound-toggle{position:fixed;z-index:100030;left:16px;bottom:16px;min-width:50px;height:38px;padding:0 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(7,9,7,.46);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-size:9px;letter-spacing:.13em;text-transform:uppercase;box-shadow:0 8px 28px rgba(0,0,0,.28);transition:.2s ease}
@@ -99,7 +103,7 @@
       .ms-universal-menu-btn{top:10px;left:10px;width:40px;height:40px;border-radius:14px}
       .ms-menu-overlay{padding:60px 10px 10px}.ms-menu-panel{width:100%;border-radius:20px;padding:14px 15px}.ms-menu-link{font-size:clamp(38px,13vw,58px);padding:14px 4px 15px}.ms-menu-link:hover{padding-left:8px}
       .ms-sound-toggle{left:12px;bottom:12px;height:36px;padding:0 10px}.ms-sound-toggle .label{display:none}
-      .ms-quote-fab{right:10px;top:10px;bottom:auto;min-height:40px;padding:0 12px;font-size:8px}
+      .ms-quote-fab{right:10px;top:10px;bottom:auto;width:126px;height:40px;padding:0 11px;font-size:8px}.ms-quote-fab.is-compact{width:40px;height:40px;padding:0;border-radius:14px}.ms-quote-fab .ms-quote-icon,.ms-quote-fab .ms-quote-icon svg{width:17px;height:17px;flex-basis:17px}
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
@@ -130,7 +134,7 @@
         <a class="ms-menu-link ${active==='servicos'?'active':''}" href="${SERVICES_URL}"><span>SERVIÇOS</span></a>
         <a class="ms-menu-link ${active==='sobre'?'active':''}" href="${ABOUT_URL}"><span>SOBRE</span></a>
       </div>
-      <a class="ms-menu-quote ms-quote-link" href="${QUOTE_URL}"><span>ABRIR ORÇAMENTO</span><b aria-hidden="true">↗</b></a>
+      <a class="ms-menu-quote ms-quote-link" href="${QUOTE_URL}"><span>ABRIR ORÇAMENTO</span></a>
     </nav>`;
   document.body.append(menuBtn,menu);
 
@@ -138,8 +142,34 @@
   quoteFab.className = 'ms-quote-fab ms-quote-link';
   quoteFab.href = QUOTE_URL;
   quoteFab.setAttribute('aria-label','Abrir orçamento');
-  quoteFab.innerHTML = '<span>ORÇAMENTO</span><b aria-hidden="true">↗</b>';
+  quoteFab.innerHTML = '<span class="ms-quote-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7.2"/><circle cx="9.5" cy="19" r="1.25"/><circle cx="17.5" cy="19" r="1.25"/></svg></span><span class="ms-quote-label">ORÇAMENTO</span>';
   document.body.appendChild(quoteFab);
+
+  const updateQuoteFabState = () => {
+    const drawerOpen = Boolean(document.querySelector('.drawer.open'));
+    const atPageTop = window.scrollY <= 180;
+    const compact = drawerOpen || atPageTop;
+    quoteFab.classList.toggle('is-compact', compact);
+    quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
+  };
+
+  let quoteFabFrame = 0;
+  const requestQuoteFabState = () => {
+    if(quoteFabFrame) return;
+    quoteFabFrame = requestAnimationFrame(() => {
+      quoteFabFrame = 0;
+      updateQuoteFabState();
+    });
+  };
+
+  addEventListener('scroll', requestQuoteFabState, { passive:true });
+  addEventListener('resize', requestQuoteFabState, { passive:true });
+
+  const quoteDrawer = document.querySelector('.drawer');
+  if(quoteDrawer && 'MutationObserver' in window){
+    new MutationObserver(updateQuoteFabState).observe(quoteDrawer,{attributes:true,attributeFilter:['class']});
+  }
+  requestAnimationFrame(updateQuoteFabState);
 
   const openQuote = (event) => {
     if(active!=='servicos') return;
@@ -148,6 +178,7 @@
     event.preventDefault();
     closeMenu();
     cartBtn.click();
+    requestAnimationFrame(updateQuoteFabState);
     if(location.hash!=='#orcamento') history.replaceState(null,'',location.pathname+location.search+'#orcamento');
   };
   document.querySelectorAll('.ms-quote-link').forEach(link=>link.addEventListener('click',openQuote));
