@@ -1,6 +1,6 @@
 window.MENSAGEM_PROJECTS = [
   {
-    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Modelagem e Render 3D de Produto | EGEO', tag:'3D / Produto', description:"Modelagem e render 3D de produto para apresentar o perfume com controle de forma, material, luz e enquadramento.", details:[{label:'Serviço',text:'Modelagem 3D de produto · Render 3D'},{label:'Aplicações',text:'Publicidade · Campanhas · Conteúdo digital'}],
+    slug:'produto-3d-egeo', sourceSlug:'produto-3d-egeo', title:'Modelagem e Render 3D de Produto | EGEO', tag:'3D Studio / CGI', description:"Case de 3D studio e CGI de produto para apresentar o perfume com controle de forma, materiais, iluminação, render e enquadramento.", details:[{label:'Serviço',text:'Modelagem 3D de produto · Render 3D'},{label:'Aplicações',text:'Publicidade · Campanhas · Conteúdo digital'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_4c36901c2391413a94b821cb081437f9/720p/mp4/file.mp4',
     media:[
       {type:'VIDEO',title:'Render 3D do Perfume EGEO Blue',url:'https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/720p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551f000.jpg'},
@@ -35,7 +35,7 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Motion Design + IA para Campanhas', tag:'Motion / IA', description:'Criação de vídeos para campanhas com motion design, composição, direção de arte e inteligência artificial aplicada a produtos, anúncios e conteúdo para redes sociais.', details:[{label:'Serviço',text:'Motion design · Vídeo com IA · Composição'},{label:'Aplicações',text:'Campanhas · Anúncios · Produto · Social media'}],
+    slug:'motion-ia-video-campanhas', sourceSlug:'motion-ia-vídeo-para-campanhas', title:'Vídeos com IA + Motion Design para Campanhas', tag:'IA / Vídeo / Motion', description:'Criação de vídeos com IA, motion design, composição e direção de arte para campanhas, produtos, anúncios e conteúdo digital, incluindo fluxos de AI video e inteligência artificial generativa.', details:[{label:'Serviço',text:'Vídeo com IA · Motion design · Composição'},{label:'Aplicações',text:'Campanhas · Anúncios · Produto · Social media'}],
     cover:'https://static.wixstatic.com/media/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg/v1/fill/w_1080,h_1920,al_c/ef8a3a_51c4a1263379429fa544b7be7ae29d96f000.jpg', coverVideo:'https://video.wixstatic.com/video/ef8a3a_51c4a1263379429fa544b7be7ae29d96/1080p/mp4/file.mp4',
     media:[
       {type:'VIDEO',title:'Vídeo de Produto com IA — Campanha Publicitária',url:'https://video.wixstatic.com/video/ef8a3a_47db0d21af3542abb5e1af4992b47135/720p/mp4/file.mp4',poster:'https://static.wixstatic.com/media/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg/v1/fill/w_720,h_1280,al_c/ef8a3a_47db0d21af3542abb5e1af4992b47135f000.jpg'},
@@ -201,15 +201,37 @@ window.MENSAGEM_PROJECTS = [
 
 window.MENSAGEM_CASE_STUDIES = {
   "produto-3d-egeo": {
-    "intro": "Modelagem e render 3D de produto para apresentar o perfume com mais controle visual.",
+    "intro": "Projeto de 3D studio e CGI de produto para apresentar o perfume com mais controle visual, consistência e reutilização em campanhas.",
     "context": "Transformar o frasco em um ativo visual reutilizável para campanhas e conteúdo digital.",
     "objective": "Valorizar o produto e manter consistência entre imagens e animações.",
     "solution": "Modelagem fiel, materiais, iluminação e composição com foco no frasco.",
     "process": "Referência, modelagem, materiais, luz, render e finalização.",
     "tools": "Modelagem 3D, materiais, iluminação, render e composição.",
     "result": "Um ativo 3D pronto para diferentes cenas, vídeos e peças publicitárias.",
-    "serviceLabel": "Modelagem 3D de Produto",
+    "serviceLabel": "3D Studio · Modelagem de Produto",
     "serviceHref": "../../servicos/modelagem-3d-produto/"
+  },
+  "motion-ia-video-campanhas": {
+    "intro": "Vídeos com IA e motion design aplicados a campanhas, produtos e anúncios com direção visual controlada.",
+    "context": "Combinar inteligência artificial generativa, composição e motion sem perder consistência de marca e leitura publicitária.",
+    "objective": "Criar peças audiovisuais de alto impacto para campanhas digitais, produtos e social media.",
+    "solution": "Fluxo de AI video com direção de arte, seleção de cenas, composição, motion graphics e refinamento visual.",
+    "process": "Conceito, geração controlada, seleção, composição, animação, edição e finalização.",
+    "tools": "IA generativa, AI video, motion design, composição, edição e direção de arte.",
+    "result": "Vídeos de campanha com linguagem visual consistente e maior liberdade para criar cenas, produtos e movimentos.",
+    "serviceLabel": "Motion Design, VFX e Vídeos com IA",
+    "serviceHref": "../../servicos/motion-design-vfx/"
+  },
+  "personagens-consistentes-com-ia": {
+    "intro": "AI character design orientado por direção criativa para manter personagens reconhecíveis entre cenas, poses e contextos.",
+    "context": "Personagens gerados por IA tendem a variar rosto, roupa, proporção e estilo quando não existe uma estrutura visual persistente.",
+    "objective": "Construir personagens consistentes para campanhas, narrativas, storyboards e universos visuais proprietários.",
+    "solution": "Definição estrutural do personagem, referências fixas, persistência de prompt, controle de figurino e direção visual.",
+    "process": "Character bible, referências, geração controlada, comparação entre cenas, refinamento e validação de consistência.",
+    "tools": "IA generativa, AI character design, direção criativa, tratamento de imagem e storyboard.",
+    "result": "Personagens com maior continuidade visual, prontos para uso recorrente em campanhas e narrativa.",
+    "serviceLabel": "Ilustração, Personagens e Storyboard",
+    "serviceHref": "../../servicos/ilustracao-personagens-storyboard/"
   },
   "edicao-fantasia-photoshop": {
     "intro": "Manipulação e composição no Photoshop para integrar elementos em uma cena única.",
