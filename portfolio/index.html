@@ -171,8 +171,49 @@ main>.wrap{position:relative;z-index:2}
   .card:hover{transform:none}
   .card:hover img{transform:none}
 }
-</style></style></head>
-<body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos.</h1><p class="lead">Projetos do Mensagem Studio organizados por frente de trabalho para facilitar a navegação entre design, motion, produto, 3D e audiovisual.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><div class="grid" id="grid">
+</style></style>
+<style id="iphone-showcase-integration-v1">
+.iphone-showcase-shell{
+  position:relative;
+  width:100%;
+  height:clamp(640px,78vh,900px);
+  min-height:640px;
+  margin:0 0 68px;
+  background:transparent;
+  border:0;
+  overflow:visible;
+}
+.iphone-showcase-frame{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  outline:0;
+  background:transparent;
+  color-scheme:dark;
+}
+@media(max-width:980px){
+  .iphone-showcase-shell{
+    height:clamp(610px,76vh,780px);
+    min-height:610px;
+    margin-bottom:50px;
+  }
+}
+@media(max-width:650px){
+  .iphone-showcase-shell{
+    width:calc(100% + 8px);
+    height:680px;
+    min-height:620px;
+    margin:0 -4px 40px;
+  }
+}
+</style>
+</head>
+<body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos.</h1><p class="lead">Projetos do Mensagem Studio organizados por frente de trabalho para facilitar a navegação entre design, motion, produto, 3D e audiovisual.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
+<h2 class="sr-only">iPhone 18 — showcase 3D interativo</h2>
+<iframe id="iphoneShowcaseFrame" class="iphone-showcase-frame" title="Showcase 3D interativo do iPhone 18 — Mensagem Studio" data-src="./iphone-showcase/index.html?v=20260918-iphone-v1" loading="lazy" fetchpriority="low" allow="fullscreen"></iframe>
+</section>
+<div class="grid" id="grid">
 <article class="card featured" data-cat="3D" data-project-slug="produto-3d-egeo" data-cats="3D|Produto" data-preview-video="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/720p/mp4/file.mp4"><div class="media"><img loading="eager" decoding="async" fetchpriority="high" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" alt="Produto 3D EGEO"></div><div class="text"><small>3D / Produto</small><h2>Modelagem e Render 3D | EGEO</h2><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Social Media" data-project-slug="carrossel-banner-estetica" data-cats="Social Media|Design"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png/v1/fill/w_5400,h_1440,al_c/ef8a3a_2cf6ec34ee7a40b985768ee643210fed~mv2.png" alt="Carrossel Estética"></div><div class="text"><small>Design / Social Media</small><h2>Design para Estética | Carrossel e Banner</h2><p>Design gráfico e social media para clínicas e marcas de estética, com carrosséis e banners para campanhas.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Audiovisual" data-project-slug="edicao-podcast-workshop" data-cats="Audiovisual" data-preview-video="https://video.wixstatic.com/video/ef8a3a_9f378301d1d941d9894a82556f8e76a6/1080p/mp4/file.mp4"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" alt="Podcast Workshop"></div><div class="text"><small>Audiovisual / Edição</small><h2>Edição de Vídeo para Podcast e Workshop</h2><p>Edição e pós-produção para podcasts, workshops, cortes e conteúdo para redes sociais.</p><span class="badge">Mensagem Studio</span></div></article>
@@ -188,6 +229,67 @@ main>.wrap{position:relative;z-index:2}
 <article class="card" data-cat="Motion" data-project-slug="motion-design-cartaz-cinematografico" data-cats="Motion|Design" data-preview-video="https://video.wixstatic.com/video/ef8a3a_975bfc2b96794afbb2d9a300f25d5169/720p/mp4/file.mp4"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg/v1/fill/w_743,h_835,al_c/ef8a3a_e03a3aeee8954045898f5809894e4dca~mv2.jpeg" alt="Motion design para pôster e cartaz cinematográfico"></div><div class="text"><small>Motion / Cinema</small><h2>Motion Design para Pôster e Cartaz Cinematográfico</h2><p>Pôsteres animados com composição, tipografia, direção de arte e motion para campanhas e lançamentos.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="Social Media" data-project-slug="laminas-divulgacao-publicidade-story" data-cats="Social Media|Campanhas|Design"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png" alt="Lâminas de divulgação e stories publicitários"></div><div class="text"><small>Social Media / Publicidade</small><h2>Lâminas de Divulgação | Publicidade Story</h2><p>Stories publicitários e peças verticais para campanhas, WhatsApp e redes sociais.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="3D" data-project-slug="produtos-3d-codex-blender" data-cats="3D|Produto" data-preview-video="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/bc0c7c1e-70df-4081-95d7-268762fc9f64.mp4"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png" alt="Produtos 3D com Codex e Blender"></div><div class="text"><small>3D / Produto</small><h2>PRODUTOS 3D | CODEX + BLENDER</h2><p>Modelagem, animação, render e GLB interativo em um pipeline de produto 3D com Blender e Codex.</p><span class="badge">Mensagem Studio</span></div></article></div></div></main><footer><span>Mensagem Studio © 2026</span><a href="../servicos/">Conhecer serviços ↗</a></footer>
+
+<script id="iphone-showcase-loader-v1">
+(()=>{
+  const shell=document.getElementById('iphone3d');
+  const frame=document.getElementById('iphoneShowcaseFrame');
+  if(!shell||!frame)return;
+
+  let inView=false;
+  let hydrated=false;
+
+  const hydrate=()=>{
+    if(hydrated)return;
+    hydrated=true;
+    if(frame.dataset.src)frame.src=frame.dataset.src;
+  };
+
+  const sendVisibility=()=>{
+    if(!frame.contentWindow)return;
+    frame.contentWindow.postMessage({
+      type:'iphone-showcase-visibility',
+      visible:inView&&!document.hidden
+    },'*');
+  };
+
+  frame.addEventListener('load',sendVisibility);
+  addEventListener('message',event=>{
+    if(event.source===frame.contentWindow&&event.data?.type==='iphone-showcase-ready'){
+      sendVisibility();
+    }
+  });
+
+  if('IntersectionObserver' in window){
+    const preload=new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        hydrate();
+        preload.disconnect();
+      }
+    },{rootMargin:'1000px 0px',threshold:.01});
+    preload.observe(shell);
+
+    const visibility=new IntersectionObserver(entries=>{
+      const entry=entries[0];
+      if(!entry)return;
+      inView=entry.isIntersecting&&entry.intersectionRatio>=.08;
+      if(inView)hydrate();
+      sendVisibility();
+    },{threshold:[0,.08,.25,.5]});
+    visibility.observe(shell);
+  }else{
+    inView=true;
+    hydrate();
+  }
+
+  document.addEventListener('visibilitychange',sendVisibility);
+  addEventListener('pagehide',()=>{
+    inView=false;
+    sendVisibility();
+  },{once:true});
+})();
+</script>
+
 <script>
 const cards=[...document.querySelectorAll('.card')];
 const preferredCats=['3D','Social Media','Audiovisual','Motion','Campanhas','Produto','IA','E-commerce','Manipulação','Design'];

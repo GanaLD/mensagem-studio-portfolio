@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>iPhone 18 · Showcase 3D | Mensagem Studio</title>
+  <link rel="stylesheet" href="./studio.css?v=20260918-iphone-v1">
+  <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+</head>
+<body>
+  <main class="showcase" aria-label="Showcase 3D interativo do iPhone 18">
+    <div id="viewport" class="viewport" aria-label="Cena 3D do iPhone 18"></div>
+
+    <div id="loading" class="loading" role="status" aria-live="polite">
+      <span class="loading-line" aria-hidden="true"></span>
+      <span id="loadMessage">Preparando experiência 3D</span>
+      <button id="retry" type="button" hidden>Recarregar</button>
+    </div>
+
+    <nav class="camera-rail" aria-label="Enquadramentos da câmera">
+      <button type="button" class="glass camera-button selected" data-camera="cinematic" aria-pressed="true">CINE</button>
+      <button type="button" class="glass camera-button" data-camera="front" aria-pressed="false">TELA</button>
+      <button type="button" class="glass camera-button" data-camera="quarter" aria-pressed="false">3/4</button>
+      <button type="button" class="glass camera-button" data-camera="side" aria-pressed="false">LATERAL</button>
+      <button type="button" class="glass camera-button" data-camera="rear" aria-pressed="false">TRÁS</button>
+      <button type="button" class="glass camera-button" data-camera="macro" aria-pressed="false">LENTES</button>
+    </nav>
+
+    <div class="color-control control-cluster">
+      <button id="colorToggle" type="button" class="glass round-control" aria-expanded="false" aria-controls="colorPalette" aria-label="Escolher acabamento">
+        <span id="currentColor" class="current-color" style="--current:#431523"></span>
+      </button>
+      <div id="colorPalette" class="glass-popover color-palette" hidden>
+        <button type="button" class="swatch selected" data-color="#431523" data-name="Borgonha" style="--swatch:#431523" aria-label="Borgonha" aria-pressed="true"></button>
+        <button type="button" class="swatch" data-color="#83a6c5" data-name="Azul glacial" style="--swatch:#83a6c5" aria-label="Azul glacial" aria-pressed="false"></button>
+        <button type="button" class="swatch" data-color="#282b31" data-name="Grafite" style="--swatch:#282b31" aria-label="Grafite" aria-pressed="false"></button>
+        <button type="button" class="swatch" data-color="#bdc2c9" data-name="Prata" style="--swatch:#bdc2c9" aria-label="Prata" aria-pressed="false"></button>
+      </div>
+    </div>
+
+    <div class="screen-control control-cluster">
+      <button id="screenToggle" type="button" class="glass round-control screen-toggle" aria-expanded="false" aria-controls="screenMenu" aria-label="Configuração da tela">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="3"></rect><path d="M9 17h6"></path></svg>
+      </button>
+      <div id="screenMenu" class="glass-popover screen-menu" hidden>
+        <button type="button" class="screen-option selected" data-screen="art" aria-pressed="true">MENSAGEM STUDIO</button>
+        <button type="button" class="screen-option" data-screen="menu" aria-pressed="false">ACESA</button>
+        <button type="button" class="screen-option" data-screen="off" aria-pressed="false">APAGADA</button>
+      </div>
+    </div>
+
+    <footer class="transport" aria-label="Controles da animação">
+      <button id="play" type="button" class="glass play-button" disabled aria-label="Reproduzir animação"><span aria-hidden="true">▶</span></button>
+      <div class="timeline-wrap">
+        <label class="sr-only" for="scrub">Tempo da animação</label>
+        <input id="scrub" type="range" min="0" max="54" step="0.0333333333" value="0" disabled>
+      </div>
+      <output id="time" class="time">00:00 <span>/ 00:54</span></output>
+    </footer>
+
+    <div id="shotName" class="sr-only" aria-live="polite">Frente · Mensagem Studio</div>
+  </main>
+  <script type="module" src="./studio.js?v=20260918-iphone-v1"></script>
+</body>
+</html>
