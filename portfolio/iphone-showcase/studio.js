@@ -7,7 +7,7 @@ import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniform
 const $=id=>document.getElementById(id);
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const coarsePointer=matchMedia('(pointer: coarse)').matches||navigator.maxTouchPoints>0;
-const state={time:0,playing:false,camera:'cinematic',color:'#431523',screen:'art',loaded:false,hostVisible:window.parent===window,userPaused:false};
+const state={time:0,playing:false,speed:2,camera:'cinematic',color:'#431523',screen:'art',loaded:false,hostVisible:window.parent===window,userPaused:false};
 let model,mixer,action,phoneTilt,menu,art,timeline,filmCamera;
 let duration=54;
 const materials=new Map();
@@ -235,10 +235,23 @@ function playPause(){
   drawState();
 }
 
+function setSpeed(value){
+  const speed=Number(value);
+  if(speed!==1&&speed!==2)return;
+  state.speed=speed;
+  $('speedLabel').textContent=`${speed}×`;
+  document.querySelectorAll('[data-speed]').forEach(button=>{
+    const on=Number(button.dataset.speed)===speed;
+    button.classList.toggle('selected',on);
+    button.setAttribute('aria-pressed',String(on));
+  });
+}
+
 const closeMenus=except=>{
   if(except!=='camera'){$('cameraMenu').hidden=true;$('cameraToggle').setAttribute('aria-expanded','false');}
   if(except!=='color'){$('colorPalette').hidden=true;$('colorToggle').setAttribute('aria-expanded','false');}
   if(except!=='screen'){$('screenMenu').hidden=true;$('screenToggle').setAttribute('aria-expanded','false');}
+  if(except!=='speed'){$('speedMenu').hidden=true;$('speedToggle').setAttribute('aria-expanded','false');}
 };
 $('cameraToggle').addEventListener('click',event=>{
   event.stopPropagation();
@@ -261,11 +274,19 @@ $('screenToggle').addEventListener('click',event=>{
   $('screenMenu').hidden=!opening;
   $('screenToggle').setAttribute('aria-expanded',String(opening));
 });
+$('speedToggle').addEventListener('click',event=>{
+  event.stopPropagation();
+  const opening=$('speedMenu').hidden;
+  closeMenus('speed');
+  $('speedMenu').hidden=!opening;
+  $('speedToggle').setAttribute('aria-expanded',String(opening));
+});
 document.addEventListener('click',()=>closeMenus());
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenus();});
 document.querySelectorAll('[data-camera]').forEach(button=>button.addEventListener('click',()=>{setCamera(button.dataset.camera);closeMenus();}));
 document.querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{setColor(button.dataset.color);closeMenus();}));
 document.querySelectorAll('[data-screen]').forEach(button=>button.addEventListener('click',()=>{setScreen(button.dataset.screen);closeMenus();}));
+document.querySelectorAll('[data-speed]').forEach(button=>button.addEventListener('click',()=>{setSpeed(button.dataset.speed);closeMenus();}));
 $('play').addEventListener('click',playPause);
 $('scrub').addEventListener('input',event=>seek(event.target.value));
 $('retry').addEventListener('click',()=>location.reload());
@@ -294,7 +315,7 @@ renderer.setAnimationLoop(now=>{
   last=now;
   if(!state.hostVisible)return;
   if(state.loaded&&state.playing&&state.hostVisible&&!document.hidden){
-    state.time+=dt;
+    state.time+=dt*state.speed;
     if(state.time>=duration){
       state.time=0;
       state.playing=true;
@@ -362,6 +383,7 @@ async function load(){
     $('scrub').disabled=false;
     setColor(state.color);
     setScreen('art');
+    setSpeed(2);
     drawState();
     cameraStep(true);
     if(state.hostVisible&&!reducedMotion){state.playing=true;drawState();}
