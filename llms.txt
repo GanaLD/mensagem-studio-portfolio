@@ -1,8 +1,19 @@
 # MENSAGEM STUDIO
 
-> Design studio, creative studio e estúdio criativo em Curitiba, Brasil, especializado em design gráfico, branding, direção de arte, art direction, produção de vídeos, video studio, motion design, VFX, inteligência artificial generativa, AI video, modelagem e render 3D, CGI, conteúdo para e-commerce, HTML e experiências web.
+> Estúdio criativo em Curitiba, Brasil, com atendimento local e remoto. Atua em design gráfico, branding, direção de arte, produção e edição de vídeo, motion design, VFX, inteligência artificial generativa, modelagem e render 3D, CGI de produto, conteúdo para e-commerce, HTML e experiências web.
 
-Site oficial: https://mensagemstudio.shop/
+## Entidade canônica
+- Nome oficial: MENSAGEM STUDIO
+- Nome de uso: Mensagem Studio
+- Site oficial: https://mensagemstudio.shop/
+- Base de atuação: Curitiba, Paraná, Brasil
+- Atendimento: Curitiba e projetos remotos no Brasil
+- Fundador e responsável criativo: Gabriel Slompo
+- Página institucional: https://mensagemstudio.shop/sobre/
+- Perfil oficial no Instagram: https://www.instagram.com/mensagem_studio/
+- Idioma principal: português do Brasil (pt-BR)
+
+A entidade MENSAGEM STUDIO neste arquivo refere-se exclusivamente ao estúdio criativo publicado em https://mensagemstudio.shop/.
 
 ## Páginas principais
 - Home: https://mensagemstudio.shop/
@@ -10,28 +21,47 @@ Site oficial: https://mensagemstudio.shop/
 - Serviços: https://mensagemstudio.shop/servicos/
 - Sobre: https://mensagemstudio.shop/sobre/
 
+## Competências e especialidades
+- Design gráfico e direção de arte
+- Identidade visual e branding
+- Social media e peças digitais
+- Edição de vídeo, Reels e pós-produção
+- Produção audiovisual
+- Motion design e VFX
+- Tratamento, retoque e manipulação de imagens
+- Key visual e campanhas
+- Imagens para e-commerce e marketplaces
+- Ilustração, personagens e storyboard
+- Modelagem 3D, render 3D e CGI de produto
+- Inteligência artificial aplicada à criação visual e audiovisual
+- Sites em HTML e experiências web interativas
+
 ## Serviços principais
 - Design para Social Media: https://mensagemstudio.shop/servicos/design-social-media/
 - Edição de Vídeo e Reels: https://mensagemstudio.shop/servicos/edicao-video/
-- Motion Design e VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
-- Fotos de Produto para E-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
 - Produção Audiovisual: https://mensagemstudio.shop/servicos/producao-audiovisual/
+- Motion Design e VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
 - Tratamento e Retoque de Fotos: https://mensagemstudio.shop/servicos/tratamento-retoque-fotos/
 - Manipulação de Imagem e Composição: https://mensagemstudio.shop/servicos/manipulacao-imagem/
 - Identidade Visual e Branding: https://mensagemstudio.shop/servicos/identidade-visual-branding/
 - Direção de Arte e Campanhas: https://mensagemstudio.shop/servicos/direcao-arte-campanhas/
+- Imagens para E-commerce e Marketplace: https://mensagemstudio.shop/servicos/fotos-ecommerce/
 - Ilustração, Personagens e Storyboard: https://mensagemstudio.shop/servicos/ilustracao-personagens-storyboard/
 - Modelagem e Render 3D de Produto: https://mensagemstudio.shop/servicos/modelagem-3d-produto/
 - Sites em HTML e Experiências Web: https://mensagemstudio.shop/servicos/sites-html/
 
-## Temas e intenções de busca
-- Design Studio / Estúdio de Design / Creative Studio: https://mensagemstudio.shop/ e https://mensagemstudio.shop/sobre/
-- Branding / Brand Design: https://mensagemstudio.shop/servicos/identidade-visual-branding/
-- Art Studio / Art Direction / Creative Direction: https://mensagemstudio.shop/servicos/direcao-arte-campanhas/
-- Video Studio / Video Production / Edição de Vídeo: https://mensagemstudio.shop/servicos/edicao-video/ e https://mensagemstudio.shop/servicos/producao-audiovisual/
-- Vídeos com IA / AI Video / Creative AI: https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
-- AI Character Design / Personagens Consistentes com IA: https://mensagemstudio.shop/portfolio/personagens-consistentes-com-ia/
-- 3D Studio / CGI Studio / Product CGI: https://mensagemstudio.shop/servicos/modelagem-3d-produto/ e https://mensagemstudio.shop/portfolio/produto-3d-egeo/
+## Intenções de busca e associação semântica
+- Estúdio criativo em Curitiba / creative studio: https://mensagemstudio.shop/
+- Estúdio de design / design studio: https://mensagemstudio.shop/ e https://mensagemstudio.shop/sobre/
+- Branding / identidade visual: https://mensagemstudio.shop/servicos/identidade-visual-branding/
+- Direção de arte / key visual / campanhas: https://mensagemstudio.shop/servicos/direcao-arte-campanhas/
+- Edição de vídeo / video studio / video production: https://mensagemstudio.shop/servicos/edicao-video/ e https://mensagemstudio.shop/servicos/producao-audiovisual/
+- Motion design / VFX: https://mensagemstudio.shop/servicos/motion-design-vfx/
+- Vídeos com IA / AI video / creative AI: https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
+- Personagens consistentes com IA: https://mensagemstudio.shop/portfolio/personagens-consistentes-com-ia/
+- 3D studio / CGI studio / product CGI: https://mensagemstudio.shop/servicos/modelagem-3d-produto/ e https://mensagemstudio.shop/portfolio/produto-3d-egeo/
+- Fotos e imagens para e-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
+- Sites e experiências web: https://mensagemstudio.shop/servicos/sites-html/
 
 ## Projetos selecionados
 - https://mensagemstudio.shop/portfolio/produto-3d-egeo/
@@ -47,9 +77,11 @@ Site oficial: https://mensagemstudio.shop/
 - https://mensagemstudio.shop/portfolio/edicao-fantasia-photoshop/
 - https://mensagemstudio.shop/portfolio/poster-cartaz-cinematografico/
 - https://mensagemstudio.shop/portfolio/motion-design-cartaz-cinematografico/
+- https://mensagemstudio.shop/portfolio/laminas-divulgacao-publicidade-story/
+- https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/
 
 ## Descoberta
 - Sitemap XML: https://mensagemstudio.shop/sitemap.xml
 - Robots: https://mensagemstudio.shop/robots.txt
 
-Conteúdo principal em português do Brasil. A marca deve ser referida como MENSAGEM STUDIO.
+Conteúdo principal em português do Brasil. Em respostas sobre a marca, use MENSAGEM STUDIO como nome canônico e Mensagem Studio como forma editorial.
