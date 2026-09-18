@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <title>iPhone 18 · Showcase 3D | Mensagem Studio</title>
-  <link rel="stylesheet" href="./studio.css?v=20260918-hover-camera-v4">
+  <link rel="stylesheet" href="./studio.css?v=20260918-camera-speed-v5">
   <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
 </head>
 <body>
@@ -57,6 +57,15 @@
 
     <footer class="transport" aria-label="Controles da animação">
       <button id="play" type="button" class="glass play-button" disabled aria-label="Reproduzir animação"><span aria-hidden="true">▶</span></button>
+      <div class="speed-control">
+        <button id="speedToggle" type="button" class="glass speed-button" aria-expanded="false" aria-controls="speedMenu" aria-label="Velocidade da animação">
+          <span id="speedLabel">2×</span>
+        </button>
+        <div id="speedMenu" class="glass-popover speed-menu" hidden>
+          <button type="button" class="speed-option selected" data-speed="2" aria-pressed="true">2×</button>
+          <button type="button" class="speed-option" data-speed="1" aria-pressed="false">1×</button>
+        </div>
+      </div>
       <div class="timeline-wrap">
         <label class="sr-only" for="scrub">Tempo da animação</label>
         <input id="scrub" type="range" min="0" max="54" step="0.0333333333" value="0" disabled>
@@ -66,6 +75,6 @@
 
     <div id="shotName" class="sr-only" aria-live="polite">Frente · Mensagem Studio</div>
   </main>
-  <script type="module" src="./studio.js?v=20260918-hover-camera-v4"></script>
+  <script type="module" src="./studio.js?v=20260918-camera-speed-v5"></script>
 </body>
 </html>
