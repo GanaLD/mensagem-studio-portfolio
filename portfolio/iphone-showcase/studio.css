@@ -91,3 +91,25 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
   .glass,.swatch,.screen-option{transition:none}
   .loading-line,.color-palette,.screen-menu{animation:none}
 }
+
+/* MOBILE PAGE SCROLL RELEASE V2
+   The 3D canvas must never trap vertical page navigation on touch devices. */
+@media (hover:none), (pointer:coarse), (max-width:760px){
+  html,body,.showcase,.viewport{
+    overscroll-behavior-y:auto;
+  }
+  .viewport,
+  .viewport canvas{
+    touch-action:pan-y !important;
+  }
+  .viewport canvas{
+    -webkit-user-select:none;
+    user-select:none;
+  }
+  .camera-rail,
+  .color-control,
+  .screen-control,
+  .transport{
+    touch-action:auto;
+  }
+}
