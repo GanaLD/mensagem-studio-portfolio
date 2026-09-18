@@ -42,7 +42,7 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 .swatch{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:var(--swatch);box-shadow:inset 0 1px 3px rgba(255,255,255,.22);padding:0;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .swatch:hover{transform:scale(1.06)}
 .swatch.selected{border-color:rgba(255,255,255,.95);box-shadow:0 0 0 3px rgba(255,255,255,.11),0 0 18px rgba(255,255,255,.12),inset 0 1px 3px rgba(255,255,255,.25)}
-.screen-control{left:clamp(12px,2vw,30px);bottom:86px}
+.screen-control{left:clamp(12px,2vw,30px);bottom:21px}
 .screen-toggle svg{width:21px;height:21px;fill:none;stroke:rgba(255,255,255,.91);stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
 .screen-menu{left:0;bottom:58px;border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:174px;transform-origin:bottom left;animation:menuIn .18s ease both}
 .screen-option{border:0;background:transparent;color:rgba(255,255,255,.67);border-radius:12px;padding:10px 12px;font-size:10px;font-weight:750;letter-spacing:.055em;text-align:left;white-space:nowrap;transition:background .18s ease,color .18s ease}
