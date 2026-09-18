@@ -33,7 +33,10 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 .camera-toggle{width:48px;height:48px;border-radius:16px!important;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.15),inset 0 0 0 1px rgba(255,255,255,.02)}
 .camera-toggle:before{content:"";position:absolute;inset:1px;border-radius:14px;pointer-events:none;background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.12),transparent 34%);z-index:0}
 .camera-toggle svg{position:relative;z-index:1;width:24px;height:24px;fill:none;stroke:rgba(255,255,255,.92);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
-.camera-menu{left:58px;top:50%;transform:translateY(-50%);border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:122px;transform-origin:left center;animation:menuIn .18s ease both}
+.glass-popover.camera-menu{left:58px;top:50%;transform:translateY(-50%);width:124px;min-width:124px;padding:7px;border-radius:20px!important;overflow:hidden;isolation:isolate;display:grid;gap:4px;background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));box-shadow:0 16px 42px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 1px rgba(255,255,255,.025);transform-origin:left center;animation:menuIn .18s ease both}
+.glass-popover.camera-menu:before{content:"";position:absolute;inset:1px;border-radius:18px;pointer-events:none;background:linear-gradient(145deg,rgba(255,255,255,.04),transparent 36%);z-index:0}
+.glass-popover.camera-menu .camera-button{position:relative;z-index:1;width:100%;border-radius:12px;overflow:hidden}
+.glass-popover.camera-menu .camera-button.selected{box-shadow:none;background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.09))}
 .camera-menu[hidden],.color-palette[hidden],.screen-menu[hidden]{display:none}
 .camera-button{min-height:38px;padding:0 14px;border:0;border-radius:12px;background:transparent;color:rgba(255,255,255,.68);font-size:10px;font-weight:800;letter-spacing:.07em;text-align:center;white-space:nowrap;transition:background .18s ease,color .18s ease}
 .camera-button:hover,.camera-button.selected{background:rgba(255,255,255,.11);color:#fff;text-shadow:0 0 12px rgba(255,255,255,.16)}
@@ -82,7 +85,7 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 @media(max-width:760px){
   .showcase{min-height:600px}
   .camera-control{left:14px;top:88px;transform:none}
-  .camera-menu{left:52px;top:0;transform:none;min-width:112px}
+  .glass-popover.camera-menu{left:52px;top:0;transform:none;width:116px;min-width:116px;border-radius:18px!important}
   .camera-button{min-height:36px;padding:0 12px;font-size:9px}
   .color-control{right:14px;top:72px;transform:none}
   .round-control{width:44px;height:44px}
