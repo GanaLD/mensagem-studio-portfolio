@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <title>iPhone 18 · Showcase 3D | Mensagem Studio</title>
-  <link rel="stylesheet" href="./studio.css?v=20260918-spacing-player-v3">
+  <link rel="stylesheet" href="./studio.css?v=20260918-hover-camera-v4">
   <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
 </head>
 <body>
@@ -18,14 +18,19 @@
       <button id="retry" type="button" hidden>Recarregar</button>
     </div>
 
-    <nav class="camera-rail" aria-label="Enquadramentos da câmera">
-      <button type="button" class="glass camera-button selected" data-camera="cinematic" aria-pressed="true">CINE</button>
-      <button type="button" class="glass camera-button" data-camera="front" aria-pressed="false">TELA</button>
-      <button type="button" class="glass camera-button" data-camera="quarter" aria-pressed="false">3/4</button>
-      <button type="button" class="glass camera-button" data-camera="side" aria-pressed="false">LATERAL</button>
-      <button type="button" class="glass camera-button" data-camera="rear" aria-pressed="false">TRÁS</button>
-      <button type="button" class="glass camera-button" data-camera="macro" aria-pressed="false">LENTES</button>
-    </nav>
+    <div class="camera-control control-cluster">
+      <button id="cameraToggle" type="button" class="glass round-control camera-toggle" aria-expanded="false" aria-controls="cameraMenu" aria-label="Escolher câmera">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h7A2.5 2.5 0 0 1 16 8.5v7A2.5 2.5 0 0 1 13.5 18h-7A2.5 2.5 0 0 1 4 15.5z"></path><path d="m16 10 4-2.4v8.8L16 14"></path></svg>
+      </button>
+      <nav id="cameraMenu" class="glass-popover camera-menu" aria-label="Enquadramentos da câmera" hidden>
+        <button type="button" class="camera-button selected" data-camera="cinematic" aria-pressed="true">CINE</button>
+        <button type="button" class="camera-button" data-camera="front" aria-pressed="false">TELA</button>
+        <button type="button" class="camera-button" data-camera="quarter" aria-pressed="false">3/4</button>
+        <button type="button" class="camera-button" data-camera="side" aria-pressed="false">LATERAL</button>
+        <button type="button" class="camera-button" data-camera="rear" aria-pressed="false">TRÁS</button>
+        <button type="button" class="camera-button" data-camera="macro" aria-pressed="false">LENTES</button>
+      </nav>
+    </div>
 
     <div class="color-control control-cluster">
       <button id="colorToggle" type="button" class="glass round-control" aria-expanded="false" aria-controls="colorPalette" aria-label="Escolher acabamento">
@@ -61,6 +66,6 @@
 
     <div id="shotName" class="sr-only" aria-live="polite">Frente · Mensagem Studio</div>
   </main>
-  <script type="module" src="./studio.js?v=20260918-mobile-scroll-v2"></script>
+  <script type="module" src="./studio.js?v=20260918-hover-camera-v4"></script>
 </body>
 </html>
