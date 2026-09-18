@@ -30,7 +30,9 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 .glass{transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease,color .2s ease}
 .glass:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.26);box-shadow:0 14px 42px rgba(0,0,0,.22),0 0 24px rgba(255,255,255,.055),inset 0 1px 0 rgba(255,255,255,.12)}
 .camera-control{left:clamp(12px,2vw,30px);top:50%;transform:translateY(-50%)}
-.camera-toggle svg{width:24px;height:24px;fill:none;stroke:rgba(255,255,255,.92);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.camera-toggle{width:48px;height:48px;border-radius:16px!important;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.15),inset 0 0 0 1px rgba(255,255,255,.02)}
+.camera-toggle:before{content:"";position:absolute;inset:1px;border-radius:14px;pointer-events:none;background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.12),transparent 34%);z-index:0}
+.camera-toggle svg{position:relative;z-index:1;width:24px;height:24px;fill:none;stroke:rgba(255,255,255,.92);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
 .camera-menu{left:58px;top:50%;transform:translateY(-50%);border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:122px;transform-origin:left center;animation:menuIn .18s ease both}
 .camera-menu[hidden],.color-palette[hidden],.screen-menu[hidden]{display:none}
 .camera-button{min-height:38px;padding:0 14px;border:0;border-radius:12px;background:transparent;color:rgba(255,255,255,.68);font-size:10px;font-weight:800;letter-spacing:.07em;text-align:center;white-space:nowrap;transition:background .18s ease,color .18s ease}
@@ -49,9 +51,16 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 .screen-menu{left:58px;top:50%;bottom:auto;transform:translateY(-50%);border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:174px;transform-origin:left center;animation:menuIn .18s ease both}
 .screen-option{border:0;background:transparent;color:rgba(255,255,255,.67);border-radius:12px;padding:10px 12px;font-size:10px;font-weight:750;letter-spacing:.055em;text-align:left;white-space:nowrap;transition:background .18s ease,color .18s ease}
 .screen-option:hover,.screen-option.selected{background:rgba(255,255,255,.10);color:#fff;text-shadow:0 0 12px rgba(255,255,255,.16)}
-.transport{position:absolute;z-index:6;left:clamp(78px,8.5vw,132px);right:clamp(72px,7vw,112px);bottom:24px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease}
+.transport{position:absolute;z-index:6;left:clamp(78px,8.5vw,132px);right:clamp(72px,7vw,112px);bottom:24px;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:12px;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease}
 .showcase:hover .transport,.showcase:focus-within .transport,.transport:hover{opacity:1;pointer-events:auto;transform:none}
 .play-button{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:13px;line-height:1}
+.speed-control{position:relative;display:grid;place-items:center}
+.speed-button{min-width:46px;height:42px;padding:0 12px;border-radius:14px;font-size:10px;font-weight:850;letter-spacing:.04em}
+.speed-menu{left:50%;bottom:50px;transform:translateX(-50%);border-radius:16px;padding:6px;display:grid;gap:4px;min-width:68px;animation:menuIn .18s ease both}
+.speed-menu[hidden]{display:none}
+.speed-option{min-height:34px;padding:0 10px;border:0;border-radius:10px;background:transparent;color:rgba(255,255,255,.68);font-size:10px;font-weight:800;letter-spacing:.04em}
+.speed-option:hover,.speed-option.selected{background:rgba(255,255,255,.11);color:#fff}
+
 .play-button span{transform:translateX(1px)}
 .timeline-wrap{min-width:0}
 #scrub{--progress:0%;display:block;width:100%;height:24px;margin:0;appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer}
@@ -77,13 +86,16 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
   .camera-button{min-height:36px;padding:0 12px;font-size:9px}
   .color-control{right:14px;top:72px;transform:none}
   .round-control{width:44px;height:44px}
+  .camera-toggle{width:44px;height:44px;border-radius:15px!important}
   .current-color{width:18px;height:18px}
   .color-palette{top:52px}
   .swatch{width:29px;height:29px}
   .screen-control{left:14px;top:140px;bottom:auto;transform:none}
   .screen-menu{left:52px;top:0;bottom:auto;transform:none;min-width:160px}
-  .transport{left:14px;right:14px;bottom:18px;gap:10px}
+  .transport{left:14px;right:14px;bottom:18px;gap:8px}
   .play-button{width:38px;height:38px}
+  .speed-button{min-width:42px;height:38px;padding:0 10px}
+  .speed-menu{bottom:46px}
   .time{font-size:10px}
 }
 @media(max-width:430px){
