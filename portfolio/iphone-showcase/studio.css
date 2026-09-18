@@ -109,7 +109,7 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
     -webkit-user-select:none;
     user-select:none;
   }
-  .camera-rail,
+  .camera-control,
   .color-control,
   .screen-control,
   .transport{
