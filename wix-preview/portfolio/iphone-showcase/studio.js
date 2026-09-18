@@ -236,9 +236,17 @@ function playPause(){
 }
 
 const closeMenus=except=>{
+  if(except!=='camera'){$('cameraMenu').hidden=true;$('cameraToggle').setAttribute('aria-expanded','false');}
   if(except!=='color'){$('colorPalette').hidden=true;$('colorToggle').setAttribute('aria-expanded','false');}
   if(except!=='screen'){$('screenMenu').hidden=true;$('screenToggle').setAttribute('aria-expanded','false');}
 };
+$('cameraToggle').addEventListener('click',event=>{
+  event.stopPropagation();
+  const opening=$('cameraMenu').hidden;
+  closeMenus('camera');
+  $('cameraMenu').hidden=!opening;
+  $('cameraToggle').setAttribute('aria-expanded',String(opening));
+});
 $('colorToggle').addEventListener('click',event=>{
   event.stopPropagation();
   const opening=$('colorPalette').hidden;
@@ -255,7 +263,7 @@ $('screenToggle').addEventListener('click',event=>{
 });
 document.addEventListener('click',()=>closeMenus());
 document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenus();});
-document.querySelectorAll('[data-camera]').forEach(button=>button.addEventListener('click',()=>setCamera(button.dataset.camera)));
+document.querySelectorAll('[data-camera]').forEach(button=>button.addEventListener('click',()=>{setCamera(button.dataset.camera);closeMenus();}));
 document.querySelectorAll('[data-color]').forEach(button=>button.addEventListener('click',()=>{setColor(button.dataset.color);closeMenus();}));
 document.querySelectorAll('[data-screen]').forEach(button=>button.addEventListener('click',()=>{setScreen(button.dataset.screen);closeMenus();}));
 $('play').addEventListener('click',playPause);
@@ -268,14 +276,15 @@ window.addEventListener('message',event=>{
   state.hostVisible=Boolean(data.visible);
   if(!state.hostVisible){
     state.playing=false;
-  }else if(state.loaded&&!state.userPaused&&!reducedMotion&&state.time<duration){
+  }else if(state.loaded&&!state.userPaused&&!reducedMotion){
+    if(state.time>=duration)state.time=0;
     state.playing=true;
   }
   drawState();
 });
 document.addEventListener('visibilitychange',()=>{
   if(document.hidden)state.playing=false;
-  else if(state.hostVisible&&state.loaded&&!state.userPaused&&!reducedMotion&&state.time<duration)state.playing=true;
+  else if(state.hostVisible&&state.loaded&&!state.userPaused&&!reducedMotion){if(state.time>=duration)state.time=0;state.playing=true;}
   drawState();
 });
 
@@ -287,9 +296,9 @@ renderer.setAnimationLoop(now=>{
   if(state.loaded&&state.playing&&state.hostVisible&&!document.hidden){
     state.time+=dt;
     if(state.time>=duration){
-      state.time=duration;
-      state.playing=false;
-      state.userPaused=true;
+      state.time=0;
+      state.playing=true;
+      state.userPaused=false;
     }
     drawState();
   }
