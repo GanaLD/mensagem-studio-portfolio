@@ -6,6 +6,7 @@ import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniform
 
 const $=id=>document.getElementById(id);
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const coarsePointer=matchMedia('(pointer: coarse)').matches||navigator.maxTouchPoints>0;
 const state={time:0,playing:false,camera:'cinematic',color:'#431523',screen:'art',loaded:false,hostVisible:window.parent===window,userPaused:false};
 let model,mixer,action,phoneTilt,menu,art,timeline,filmCamera;
 let duration=54;
@@ -38,6 +39,14 @@ controls.dampingFactor=.1;
 controls.enablePan=false;
 controls.minDistance=.008;
 controls.maxDistance=.95;
+// MOBILE_PAGE_SCROLL_RELEASE_V2:
+// On phones/tablets the page owns one-finger vertical gestures.
+// Camera exploration remains available through CINE/TELA/3/4/LATERAL/TRÁS/LENTES
+// and the real timeline, so the 3D section can never imprison page scrolling.
+if(coarsePointer){
+  controls.enabled=false;
+  renderer.domElement.style.touchAction='pan-y';
+}
 controls.addEventListener('start',()=>{
   state.camera='free';
   state.playing=false;
