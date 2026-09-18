@@ -29,25 +29,28 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 }
 .glass{transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease,color .2s ease}
 .glass:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.26);box-shadow:0 14px 42px rgba(0,0,0,.22),0 0 24px rgba(255,255,255,.055),inset 0 1px 0 rgba(255,255,255,.12)}
-.camera-rail{position:absolute;z-index:5;left:clamp(12px,2vw,30px);top:50%;transform:translateY(-50%);display:grid;gap:10px;width:clamp(92px,8.5vw,128px)}
-.camera-button{min-height:46px;padding:0 16px;border-radius:999px;font-size:clamp(10px,.72vw,12px);font-weight:800;letter-spacing:.07em;text-align:center;white-space:nowrap}
-.camera-button.selected{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.42);color:#fff;box-shadow:0 14px 38px rgba(0,0,0,.18),0 0 26px rgba(255,255,255,.075),inset 0 1px 0 rgba(255,255,255,.22)}
+.camera-control{left:clamp(12px,2vw,30px);top:50%;transform:translateY(-50%)}
+.camera-toggle svg{width:24px;height:24px;fill:none;stroke:rgba(255,255,255,.92);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.camera-menu{left:58px;top:50%;transform:translateY(-50%);border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:122px;transform-origin:left center;animation:menuIn .18s ease both}
+.camera-menu[hidden],.color-palette[hidden],.screen-menu[hidden]{display:none}
+.camera-button{min-height:38px;padding:0 14px;border:0;border-radius:12px;background:transparent;color:rgba(255,255,255,.68);font-size:10px;font-weight:800;letter-spacing:.07em;text-align:center;white-space:nowrap;transition:background .18s ease,color .18s ease}
+.camera-button:hover,.camera-button.selected{background:rgba(255,255,255,.11);color:#fff;text-shadow:0 0 12px rgba(255,255,255,.16)}
 .control-cluster{position:absolute;z-index:7}
 .color-control{right:clamp(12px,2.5vw,38px);top:50%;transform:translateY(-50%)}
 .round-control{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;padding:0}
 .current-color{width:20px;height:20px;border-radius:50%;background:var(--current);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 2px rgba(255,255,255,.2),0 0 0 4px rgba(255,255,255,.035)}
 .glass-popover{position:absolute;border-radius:999px;padding:8px}
 .color-palette{right:0;top:58px;display:grid;gap:9px;transform-origin:top center;animation:paletteIn .18s ease both}
-.color-palette[hidden],.screen-menu[hidden]{display:none}
 .swatch{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:var(--swatch);box-shadow:inset 0 1px 3px rgba(255,255,255,.22);padding:0;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
 .swatch:hover{transform:scale(1.06)}
 .swatch.selected{border-color:rgba(255,255,255,.95);box-shadow:0 0 0 3px rgba(255,255,255,.11),0 0 18px rgba(255,255,255,.12),inset 0 1px 3px rgba(255,255,255,.25)}
-.screen-control{left:clamp(12px,2vw,30px);bottom:21px}
+.screen-control{left:clamp(12px,2vw,30px);top:calc(50% + 62px);bottom:auto;transform:translateY(-50%)}
 .screen-toggle svg{width:21px;height:21px;fill:none;stroke:rgba(255,255,255,.91);stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
-.screen-menu{left:0;bottom:58px;border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:174px;transform-origin:bottom left;animation:menuIn .18s ease both}
+.screen-menu{left:58px;top:50%;bottom:auto;transform:translateY(-50%);border-radius:18px;padding:7px;display:grid;gap:4px;width:max-content;min-width:174px;transform-origin:left center;animation:menuIn .18s ease both}
 .screen-option{border:0;background:transparent;color:rgba(255,255,255,.67);border-radius:12px;padding:10px 12px;font-size:10px;font-weight:750;letter-spacing:.055em;text-align:left;white-space:nowrap;transition:background .18s ease,color .18s ease}
 .screen-option:hover,.screen-option.selected{background:rgba(255,255,255,.10);color:#fff;text-shadow:0 0 12px rgba(255,255,255,.16)}
-.transport{position:absolute;z-index:6;left:clamp(78px,8.5vw,132px);right:clamp(72px,7vw,112px);bottom:24px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px}
+.transport{position:absolute;z-index:6;left:clamp(78px,8.5vw,132px);right:clamp(72px,7vw,112px);bottom:24px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease}
+.showcase:hover .transport,.showcase:focus-within .transport,.transport:hover{opacity:1;pointer-events:auto;transform:none}
 .play-button{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;padding:0;font-size:13px;line-height:1}
 .play-button span{transform:translateX(1px)}
 .timeline-wrap{min-width:0}
@@ -69,16 +72,16 @@ button:focus-visible,input:focus-visible{outline:2px solid rgba(255,255,255,.92)
 @keyframes menuIn{from{opacity:0;transform:translateY(6px) scale(.97)}to{opacity:1;transform:none}}
 @media(max-width:760px){
   .showcase{min-height:600px}
-  .camera-rail{left:14px;right:14px;top:14px;transform:none;width:auto;display:flex;gap:7px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none;overscroll-behavior-inline:contain}
-  .camera-rail::-webkit-scrollbar{display:none}
-  .camera-button{flex:0 0 auto;min-height:38px;padding:0 13px;font-size:9px}
+  .camera-control{left:14px;top:88px;transform:none}
+  .camera-menu{left:52px;top:0;transform:none;min-width:112px}
+  .camera-button{min-height:36px;padding:0 12px;font-size:9px}
   .color-control{right:14px;top:72px;transform:none}
   .round-control{width:44px;height:44px}
   .current-color{width:18px;height:18px}
   .color-palette{top:52px}
   .swatch{width:29px;height:29px}
-  .screen-control{left:14px;bottom:76px}
-  .screen-menu{bottom:52px;min-width:160px}
+  .screen-control{left:14px;top:140px;bottom:auto;transform:none}
+  .screen-menu{left:52px;top:0;bottom:auto;transform:none;min-width:160px}
   .transport{left:14px;right:14px;bottom:18px;gap:10px}
   .play-button{width:38px;height:38px}
   .time{font-size:10px}
