@@ -22,6 +22,7 @@ O estúdio trabalha com:
 
 ## Portfólio e serviços
 
+- Estúdio criativo em Curitiba: https://mensagemstudio.shop/curitiba/
 - Portfólio: https://mensagemstudio.shop/portfolio/
 - Serviços: https://mensagemstudio.shop/servicos/
 - Sobre: https://mensagemstudio.shop/sobre/

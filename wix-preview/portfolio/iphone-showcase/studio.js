@@ -141,7 +141,7 @@ function setCamera(name){
   state.camera=name;
   if(name==='cinematic'){
     state.userPaused=false;
-    if(state.loaded&&!reducedMotion)state.playing=true;
+    if(state.loaded)state.playing=true;
   }else{
     state.playing=false;
     state.userPaused=true;
@@ -223,6 +223,17 @@ function seek(value,pause=true){
   drawState();
   cameraStep(true);
 }
+function ensureAutoplay(reset=false){
+  if(!state.loaded)return;
+  if(reset||state.time>=duration)state.time=0;
+  state.camera='cinematic';
+  state.userPaused=false;
+  state.playing=true;
+  updateCameraButtons();
+  drawState();
+  cameraStep(true);
+}
+
 function playPause(){
   if(!state.loaded)return;
   if(state.time>=duration)state.time=0;
@@ -297,15 +308,14 @@ window.addEventListener('message',event=>{
   state.hostVisible=Boolean(data.visible);
   if(!state.hostVisible){
     state.playing=false;
-  }else if(state.loaded&&!state.userPaused&&!reducedMotion){
-    if(state.time>=duration)state.time=0;
-    state.playing=true;
+  }else if(state.loaded&&!state.userPaused){
+    ensureAutoplay(state.time>=duration);
   }
   drawState();
 });
 document.addEventListener('visibilitychange',()=>{
   if(document.hidden)state.playing=false;
-  else if(state.hostVisible&&state.loaded&&!state.userPaused&&!reducedMotion){if(state.time>=duration)state.time=0;state.playing=true;}
+  else if(state.hostVisible&&state.loaded&&!state.userPaused){ensureAutoplay(state.time>=duration);}
   drawState();
 });
 
@@ -384,9 +394,8 @@ async function load(){
     setColor(state.color);
     setScreen('art');
     setSpeed(2);
-    drawState();
-    cameraStep(true);
-    if(state.hostVisible&&!reducedMotion){state.playing=true;drawState();}
+    state.time=0;
+    ensureAutoplay(true);
     parent.postMessage({type:'iphone-showcase-ready'},'*');
   }catch(error){
     console.error('[iPhone showcase]',error);
