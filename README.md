@@ -39,6 +39,15 @@ Gabriel Slompo — designer gráfico e profissional de audiovisual.
 - Design e social media — Motors Vans: https://mensagemstudio.shop/portfolio/motors-vans/
 - Produtos 3D com Blender: https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/
 
+## Presença externa verificada
+
+- Instagram: https://www.instagram.com/mensagem_studio/
+- Behance: https://www.behance.net/gabrieldesigner42
+- LinkedIn — Gabriel Slompo: https://br.linkedin.com/in/gabriel-slompo-136531286
+- Google Business / Maps: Mensagem Design Studio — Curitiba, PR
+
+A denominação canônica atual é **MENSAGEM STUDIO**. A forma **Mensagem Design Studio** permanece como nome histórico/alternativo em algumas superfícies externas.
+
 ## Identidade oficial
 
 - Marca: **MENSAGEM STUDIO**
