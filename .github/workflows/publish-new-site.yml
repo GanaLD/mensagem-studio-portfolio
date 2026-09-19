@@ -117,13 +117,29 @@ jobs:
               aurora_css_dst.write_text(aurora_css_src.read_text(encoding="utf-8"), encoding="utf-8")
 
               text = portfolio_index.read_text(encoding="utf-8")
-              css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-v6-midnight-motion">'
-              script_tag = '<script src="./projects-aurora.js?v=20260919-v6-midnight-motion"></script>'
+              css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-preview-white-organic-v7">'
+              script_tag = '<script src="./projects-aurora.js?v=20260919-preview-white-organic-v7"></script>'
 
-              if './projects-aurora.css' not in text:
+              if './projects-aurora.css' in text:
+                  text = re.sub(
+                      r'<link[^>]+href=["\']\\./projects-aurora\\.css(?:\\?[^"\']*)?["\'][^>]*>',
+                      css_tag,
+                      text,
+                      count=1,
+                      flags=re.I,
+                  )
+              else:
                   text = text.replace('</head>', css_tag + '\n</head>', 1)
 
-              if './projects-aurora.js' not in text:
+              if './projects-aurora.js' in text:
+                  text = re.sub(
+                      r'<script[^>]+src=["\']\\./projects-aurora\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>',
+                      script_tag,
+                      text,
+                      count=1,
+                      flags=re.I,
+                  )
+              else:
                   anchor = '<script src="./project-data.js'
                   pos = text.find(anchor)
                   if pos >= 0:
