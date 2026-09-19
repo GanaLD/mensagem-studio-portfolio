@@ -117,8 +117,8 @@ jobs:
               aurora_css_dst.write_text(aurora_css_src.read_text(encoding="utf-8"), encoding="utf-8")
 
               text = portfolio_index.read_text(encoding="utf-8")
-              css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-preview-white-organic-v7">'
-              script_tag = '<script src="./projects-aurora.js?v=20260919-preview-white-organic-v7"></script>'
+              css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-preview-reference-aurora-v8">'
+              script_tag = '<script src="./projects-aurora.js?v=20260919-preview-reference-aurora-v8"></script>'
 
               def version_asset(source, asset, version):
                   pos = source.find(asset)
@@ -136,7 +136,7 @@ jobs:
                   text = version_asset(
                       text,
                       './projects-aurora.css',
-                      '20260919-preview-white-organic-v7',
+                      '20260919-preview-reference-aurora-v8',
                   )
               else:
                   text = text.replace('</head>', css_tag + '\n</head>', 1)
@@ -145,7 +145,7 @@ jobs:
                   text = version_asset(
                       text,
                       './projects-aurora.js',
-                      '20260919-preview-white-organic-v7',
+                      '20260919-preview-reference-aurora-v8',
                   )
               else:
                   anchor = '<script src="./project-data.js'
