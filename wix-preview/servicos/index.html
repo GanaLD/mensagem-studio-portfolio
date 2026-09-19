@@ -2301,6 +2301,32 @@ html,body{max-width:100%;overflow-x:clip}
 }
 </style>
 <!-- REMOVE_SERVICE_CATEGORY_SIDE_BARS_END -->
+
+<!-- BUDGET_DRAWER_PRIORITY_FIX_START -->
+<style id="budget-drawer-priority-fix">
+/* Open budget is the dominant UI state. */
+.shade{
+  z-index:200000 !important;
+}
+.drawer{
+  z-index:200001 !important;
+}
+body.budget-open #cartBtn{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+body.budget-open .filters-wrap,
+body.budget-open .filters-wrap.ms-rail-fixed,
+body.budget-open .top{
+  z-index:20 !important;
+}
+body.budget-open .filters-wrap,
+body.budget-open .filters-wrap.ms-rail-fixed{
+  pointer-events:none !important;
+}
+</style>
+<!-- BUDGET_DRAWER_PRIORITY_FIX_END -->
 </head>
 <body data-page="servicos" data-version="v4">
 <script id="ms-services-stray-text-cleanup">
@@ -2318,7 +2344,7 @@ html,body{max-width:100%;overflow-x:clip}
 })();
 </script>
 <div class="ms-v3-progress" aria-hidden="true"></div>
-<header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a href="../portfolio/">Projetos</a><a class="active" href="./">Serviços</a><a href="../sobre/">Sobre</a></nav><button class="cart" id="cartBtn">Orçamento <b id="cartCount">0</b></button></header>
+<header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a href="../portfolio/">Projetos</a><a class="active" href="./">Serviços</a><a href="../sobre/">Sobre</a></nav><button class="cart" id="cartBtn" aria-controls="drawer" aria-expanded="false">Orçamento <b id="cartCount">0</b></button></header>
 <section class="hero">
     <div class="hero-kicker">CATÁLOGO DE SERVIÇOS · MENSAGEM STUDIO</div>
     <div class="hero-grid">
@@ -2446,7 +2472,7 @@ const CAT_REFERENCE={
 const KEY='mensagem.quote.wix.v2',WA='5541999999937';let active='Todos',cart=JSON.parse(localStorage.getItem(KEY)||'[]');
 const filters=document.querySelector('#filters'),catalog=document.querySelector('#catalog'),drawer=document.querySelector('#drawer'),shade=document.querySelector('#shade'),items=document.querySelector('#items'),count=document.querySelector('#cartCount'),total=document.querySelector('#total');
 const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const starting=n=>'A partir de '+brl(n);const categories=CATS.slice(1);
-function save(){localStorage.setItem(KEY,JSON.stringify(cart))}function openDrawer(){drawer.classList.add('open');shade.classList.add('open');document.body.style.overflow='hidden'}function closeDrawer(){drawer.classList.remove('open');shade.classList.remove('open');document.body.style.overflow=''}
+function save(){localStorage.setItem(KEY,JSON.stringify(cart))}function openDrawer(){drawer.classList.add('open');shade.classList.add('open');document.body.classList.add('budget-open');document.body.style.overflow='hidden';cartBtn?.setAttribute('aria-expanded','true')}function closeDrawer(){drawer.classList.remove('open');shade.classList.remove('open');document.body.classList.remove('budget-open');document.body.style.overflow='';cartBtn?.setAttribute('aria-expanded','false')}
 function servicePrice(s){return s[0]==='E-commerce'?brl(s[2]):starting(s[2])}
 function priceHTML(s){if(s[0]!=='E-commerce')return starting(s[2]);return `<s>${brl(s[2]*2)}</s><span class="promo">${brl(s[2])}</span><span class="offer">Oferta E-commerce</span>`}
 function renderFilters(){filters.innerHTML=CATS.map(c=>`<button class="chip ${c===active?'on':''}" data-cat="${c}">${c}</button>`).join('')}
