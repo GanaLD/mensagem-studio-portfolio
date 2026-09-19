@@ -20,44 +20,42 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mobile = window.matchMedia('(max-width: 700px)').matches;
-  const fps = reduceMotion ? 20 : (mobile ? 30 : 42);
-  const frameInterval = 1000 / fps;
+  const targetFps = reduceMotion ? 20 : (mobile ? 30 : 42);
+  const frameInterval = 1000 / targetFps;
   const startTime = performance.now();
 
+  let raf = 0;
   let running = true;
   let visible = true;
-  let raf = 0;
   let lastFrame = 0;
+  let frameCount = 0;
   let cssWidth = 0;
   let cssHeight = 0;
   let dpr = 1;
-  let frameCount = 0;
 
   host.classList.add('aurora-ready');
-  host.dataset.shaderState = 'running-canvas2d';
-  host.dataset.auroraRenderer = 'canvas2d-organic-white';
+  host.dataset.shaderState = 'running-reference-aurora';
+  host.dataset.auroraRenderer = 'canvas2d-reference-white-ridge';
 
-  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
   function resize() {
-    const viewportWidth = window.visualViewport?.width || document.documentElement.clientWidth || window.innerWidth || 1440;
-    const viewportHeight = window.visualViewport?.height || document.documentElement.clientHeight || window.innerHeight || 900;
+    const vw = window.visualViewport?.width || document.documentElement.clientWidth || window.innerWidth || 1440;
+    const vh = window.visualViewport?.height || document.documentElement.clientHeight || window.innerHeight || 900;
 
-    cssWidth = clamp(host.clientWidth || viewportWidth, 320, 2560);
-    cssHeight = clamp(viewportHeight, 320, 1600);
-    dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.2);
+    cssWidth = clamp(host.clientWidth || vw, 320, 2560);
+    cssHeight = clamp(vh, 360, 1600);
+    dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.15);
 
-    const width = Math.round(cssWidth * dpr);
-    const height = Math.round(cssHeight * dpr);
+    const w = Math.round(cssWidth * dpr);
+    const h = Math.round(cssHeight * dpr);
 
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
       canvas.style.width = cssWidth + 'px';
       canvas.style.height = cssHeight + 'px';
     }
-
     positionCanvas();
   }
 
@@ -65,258 +63,304 @@
     const rect = section.getBoundingClientRect();
     const maxY = Math.max(0, rect.height - window.innerHeight);
     const y = clamp(-rect.top, 0, maxY);
-    canvas.style.transform = `translate3d(0,${Math.round(y)}px,0) scale(1.045)`;
+    canvas.style.transform = `translate3d(0,${Math.round(y)}px,0) scale(1.035)`;
   }
 
-  function baseBackground() {
-    const width = canvas.width;
-    const height = canvas.height;
+  function clearBase() {
+    const w = canvas.width;
+    const h = canvas.height;
 
-    const base = ctx.createLinearGradient(0, 0, 0, height);
-    base.addColorStop(0, '#02071a');
-    base.addColorStop(0.48, '#071730');
-    base.addColorStop(1, '#02071a');
+    const base = ctx.createLinearGradient(0, 0, 0, h);
+    base.addColorStop(0, '#02051a');
+    base.addColorStop(0.48, '#07163d');
+    base.addColorStop(1, '#02051a');
     ctx.fillStyle = base;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, w, h);
 
-    const glow = ctx.createRadialGradient(
-      width * 0.52, height * 0.40, 0,
-      width * 0.52, height * 0.40, Math.max(width, height) * 0.72
+    const centerGlow = ctx.createRadialGradient(
+      w * 0.58, h * 0.38, 0,
+      w * 0.58, h * 0.38, Math.max(w, h) * 0.62
     );
-    glow.addColorStop(0, 'rgba(70,112,180,0.10)');
-    glow.addColorStop(0.46, 'rgba(28,64,126,0.05)');
-    glow.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, width, height);
+    centerGlow.addColorStop(0, 'rgba(34,74,186,0.22)');
+    centerGlow.addColorStop(0.42, 'rgba(22,54,142,0.10)');
+    centerGlow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = centerGlow;
+    ctx.fillRect(0, 0, w, h);
   }
 
-  function drawSoftMass(mass, t) {
-    const width = canvas.width;
-    const height = canvas.height;
+  function drawCurtain(xNorm, widthNorm, t, phase, strength, tilt) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const x = (xNorm + Math.sin(t * 0.18 + phase) * 0.035) * w;
+    const span = widthNorm * w;
+    const top = h * 0.02;
+    const bottom = h * 0.90;
 
-    const x = (mass.x + Math.sin(t * mass.speed + mass.phase) * mass.dx) * width;
-    const y = (mass.y + Math.cos(t * mass.speed * 0.78 + mass.phase) * mass.dy) * height;
-    const rx = mass.rx * width;
-    const ry = mass.ry * height;
+    ctx.save();
+    ctx.translate(x, h * 0.48);
+    ctx.rotate(tilt + Math.sin(t * 0.12 + phase) * 0.04);
+    ctx.translate(-x, -h * 0.48);
+
+    const g = ctx.createLinearGradient(x - span, top, x + span, bottom);
+    g.addColorStop(0, 'rgba(255,255,255,0)');
+    g.addColorStop(0.36, `rgba(206,226,255,${0.045 * strength})`);
+    g.addColorStop(0.50, `rgba(245,250,255,${0.115 * strength})`);
+    g.addColorStop(0.64, `rgba(165,202,255,${0.045 * strength})`);
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+
+    ctx.globalCompositeOperation = 'screen';
+    ctx.filter = `blur(${34 * dpr}px)`;
+    ctx.fillStyle = g;
+    ctx.fillRect(x - span * 1.7, top, span * 3.4, bottom - top);
+    ctx.restore();
+  }
+
+  function ridgeY(nx, ridge, t) {
+    const peak = ridge.peakX + Math.sin(t * ridge.peakDrift + ridge.phase) * ridge.peakMotion;
+    const dx = nx - peak;
+    const gaussian = Math.exp(-(dx * dx) / ridge.spread);
+    const shoulder = Math.exp(-((nx - (peak - ridge.shoulderOffset)) ** 2) / ridge.shoulderSpread);
+    const undulation =
+      Math.sin(nx * ridge.waveFreq + t * ridge.waveSpeed + ridge.phase) * ridge.waveAmp +
+      Math.sin(nx * ridge.waveFreq2 - t * ridge.waveSpeed * 0.42 + ridge.phase * 1.9) * ridge.waveAmp2;
+
+    return ridge.baseY - gaussian * ridge.height - shoulder * ridge.shoulderHeight + undulation;
+  }
+
+  function buildRidgePath(ridge, t, closeToBottom = false) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const steps = mobile ? 42 : 64;
+
+    ctx.beginPath();
+
+    for (let i = 0; i <= steps; i++) {
+      const nx = i / steps;
+      const x = nx * w;
+      const y = ridgeY(nx, ridge, t) * h;
+      if (i === 0) ctx.moveTo(x, y);
+      else {
+        const prevNx = (i - 1) / steps;
+        const prevX = prevNx * w;
+        const prevY = ridgeY(prevNx, ridge, t) * h;
+        ctx.quadraticCurveTo((prevX + x) * 0.5, (prevY + y) * 0.5, x, y);
+      }
+    }
+
+    if (closeToBottom) {
+      ctx.lineTo(w, h * 1.08);
+      ctx.lineTo(0, h * 1.08);
+      ctx.closePath();
+    }
+  }
+
+  function drawRidgeFill(ridge, t, colors) {
+    const w = canvas.width;
+    const h = canvas.height;
+
+    buildRidgePath(ridge, t, true);
+
+    const fill = ctx.createLinearGradient(0, h * 0.18, 0, h);
+    fill.addColorStop(0, colors.top);
+    fill.addColorStop(0.36, colors.mid);
+    fill.addColorStop(1, colors.bottom);
+    ctx.fillStyle = fill;
+    ctx.fill();
+
+    const sideGlow = ctx.createRadialGradient(
+      w * ridge.peakX, h * 0.42, 0,
+      w * ridge.peakX, h * 0.42, Math.max(w, h) * 0.62
+    );
+    sideGlow.addColorStop(0, 'rgba(65,112,255,0.16)');
+    sideGlow.addColorStop(0.45, 'rgba(34,72,198,0.08)');
+    sideGlow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = sideGlow;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  function drawRidgeGlow(ridge, t, power = 1) {
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+
+    buildRidgePath(ridge, t, false);
+    ctx.filter = `blur(${30 * dpr}px)`;
+    ctx.strokeStyle = `rgba(220,235,255,${0.44 * power})`;
+    ctx.lineWidth = 52 * dpr;
+    ctx.stroke();
+
+    buildRidgePath(ridge, t, false);
+    ctx.filter = `blur(${13 * dpr}px)`;
+    ctx.strokeStyle = `rgba(245,250,255,${0.70 * power})`;
+    ctx.lineWidth = 19 * dpr;
+    ctx.stroke();
+
+    buildRidgePath(ridge, t, false);
+    ctx.filter = `blur(${3.5 * dpr}px)`;
+    ctx.strokeStyle = `rgba(255,255,255,${0.95 * power})`;
+    ctx.lineWidth = 4.2 * dpr;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  function drawMistBlob(xNorm, yNorm, rxNorm, ryNorm, t, phase, alpha) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const x = (xNorm + Math.sin(t * 0.20 + phase) * 0.035) * w;
+    const y = (yNorm + Math.cos(t * 0.16 + phase) * 0.025) * h;
+    const rx = rxNorm * w;
+    const ry = ryNorm * h;
 
     ctx.save();
     ctx.translate(x, y);
-    ctx.rotate(mass.rotation + Math.sin(t * mass.speed * 0.33 + mass.phase) * 0.12);
+    ctx.rotate(Math.sin(t * 0.10 + phase) * 0.22);
     ctx.scale(1, ry / Math.max(rx, 1));
 
-    const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
-    gradient.addColorStop(0, mass.c0);
-    gradient.addColorStop(0.28, mass.c1);
-    gradient.addColorStop(0.62, mass.c2);
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+    g.addColorStop(0, `rgba(244,249,255,${alpha})`);
+    g.addColorStop(0.35, `rgba(185,213,252,${alpha * 0.48})`);
+    g.addColorStop(0.70, `rgba(79,126,232,${alpha * 0.12})`);
+    g.addColorStop(1, 'rgba(255,255,255,0)');
 
     ctx.globalCompositeOperation = 'screen';
-    ctx.globalAlpha = mass.alpha;
-    ctx.fillStyle = gradient;
+    ctx.filter = `blur(${36 * dpr}px)`;
+    ctx.fillStyle = g;
     ctx.beginPath();
     ctx.arc(0, 0, rx, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
   }
 
-  function centreLine(nx, veil, t) {
-    const drift = nx + t * veil.travel;
-    const main = Math.sin(drift * veil.freq + t * veil.speed + veil.phase) * veil.amp;
-    const secondary = Math.sin(drift * veil.freq2 - t * veil.speed * 0.54 + veil.phase * 1.73) * veil.amp2;
-    const tertiary = Math.cos(drift * veil.freq3 + t * veil.speed * 0.21 + veil.phase * 2.1) * veil.amp3;
-    const broad = Math.sin(nx * Math.PI * 0.86 + veil.phase) * veil.broad;
-    return veil.y + main + secondary + tertiary + broad;
-  }
-
-  function thicknessAt(nx, veil, t) {
-    const a = 0.5 + 0.5 * Math.sin(nx * veil.thickFreq + t * veil.thickSpeed + veil.phase);
-    const b = 0.5 + 0.5 * Math.sin(nx * veil.thickFreq2 - t * veil.thickSpeed * 0.48 + veil.phase * 1.7);
-    return veil.thickness * (0.56 + a * 0.26 + b * 0.18);
-  }
-
-  function drawOrganicVeil(veil, t) {
-    const width = canvas.width;
-    const height = canvas.height;
-    const samples = mobile ? 34 : 46;
-    const angle = veil.angle + Math.sin(t * veil.angleSpeed + veil.phase) * veil.angleSwing;
-    const travelPx = Math.sin(t * veil.floatSpeed + veil.phase) * veil.floatX * width;
-
-    ctx.save();
-    ctx.translate(width * 0.5 + travelPx, height * 0.5);
-    ctx.rotate(angle);
-    ctx.translate(-width * 0.5, -height * 0.5);
-    ctx.globalCompositeOperation = 'screen';
-    ctx.globalAlpha = veil.alpha;
-
-    const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0.00, 'rgba(255,255,255,0)');
-    gradient.addColorStop(0.16, veil.c1);
-    gradient.addColorStop(0.42, veil.c2);
-    gradient.addColorStop(0.64, veil.c3);
-    gradient.addColorStop(0.84, veil.c4);
-    gradient.addColorStop(1.00, 'rgba(255,255,255,0)');
-    ctx.fillStyle = gradient;
-
-    ctx.beginPath();
-
-    for (let i = 0; i <= samples; i++) {
-      const nx = i / samples;
-      const x = lerp(-0.14 * width, 1.14 * width, nx);
-      const yNorm = centreLine(nx * 8.5, veil, t);
-      const y = yNorm * height;
-      const thickness = thicknessAt(nx * 9.0, veil, t) * height;
-      const fold = Math.sin(nx * Math.PI * veil.foldCount + t * veil.foldSpeed + veil.phase) * veil.foldAmp * height;
-      const yy = y + fold - thickness * 0.5;
-      if (i === 0) ctx.moveTo(x, yy);
-      else ctx.lineTo(x, yy);
-    }
-
-    for (let i = samples; i >= 0; i--) {
-      const nx = i / samples;
-      const x = lerp(-0.14 * width, 1.14 * width, nx);
-      const yNorm = centreLine(nx * 8.5, veil, t);
-      const y = yNorm * height;
-      const thickness = thicknessAt(nx * 9.0, veil, t) * height;
-      const fold = Math.sin(nx * Math.PI * veil.foldCount + t * veil.foldSpeed + veil.phase) * veil.foldAmp * height;
-      const edgeNoise = Math.sin(nx * 25.0 + t * 0.4 + veil.phase) * veil.edgeNoise * height;
-      ctx.lineTo(x, y + fold + thickness * 0.5 + edgeNoise);
-    }
-
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.globalAlpha = veil.alpha * 0.34;
-    ctx.strokeStyle = veil.edge;
-    ctx.lineWidth = Math.max(1, 1.6 * dpr);
-    ctx.beginPath();
-
-    for (let i = 0; i <= samples; i++) {
-      const nx = i / samples;
-      const x = lerp(-0.14 * width, 1.14 * width, nx);
-      const y = centreLine(nx * 8.5, veil, t) * height;
-      const fold = Math.sin(nx * Math.PI * veil.foldCount + t * veil.foldSpeed + veil.phase) * veil.foldAmp * height;
-      if (i === 0) ctx.moveTo(x, y + fold);
-      else ctx.lineTo(x, y + fold);
-    }
-
-    ctx.stroke();
-    ctx.restore();
-  }
-
   function draw(now) {
-    const width = canvas.width;
-    const height = canvas.height;
+    const w = canvas.width;
+    const h = canvas.height;
     const seconds = (now - startTime) / 1000;
-    const t = seconds * (reduceMotion ? 0.24 : 0.62);
+    const t = seconds * (reduceMotion ? 0.20 : 0.58);
 
     frameCount += 1;
     host.dataset.auroraFrame = String(frameCount);
     host.dataset.auroraTime = seconds.toFixed(2);
 
-    baseBackground();
+    clearBase();
 
-    const masses = [
-      {
-        x: 0.20, y: 0.28, rx: 0.34, ry: 0.18,
-        dx: 0.06, dy: 0.05, speed: 0.24, phase: 0.3, rotation: -0.30, alpha: 0.34,
-        c0: 'rgba(255,255,255,0.28)', c1: 'rgba(220,232,248,0.20)', c2: 'rgba(100,145,205,0.05)'
-      },
-      {
-        x: 0.62, y: 0.44, rx: 0.40, ry: 0.22,
-        dx: 0.07, dy: 0.04, speed: 0.19, phase: 2.0, rotation: 0.20, alpha: 0.30,
-        c0: 'rgba(248,251,255,0.24)', c1: 'rgba(205,222,245,0.18)', c2: 'rgba(88,134,198,0.04)'
-      },
-      {
-        x: 0.82, y: 0.72, rx: 0.30, ry: 0.20,
-        dx: 0.05, dy: 0.06, speed: 0.16, phase: 4.2, rotation: -0.12, alpha: 0.24,
-        c0: 'rgba(255,255,255,0.20)', c1: 'rgba(214,229,248,0.15)', c2: 'rgba(94,139,202,0.03)'
-      }
-    ];
+    drawCurtain(0.47, 0.20, t, 0.2, 1.0, -0.10);
+    drawCurtain(0.64, 0.16, t, 2.0, 0.85, 0.07);
+    drawCurtain(0.82, 0.18, t, 4.0, 0.72, -0.06);
 
-    ctx.save();
-    ctx.filter = `blur(${Math.max(24, 36 * dpr)}px)`;
-    masses.forEach(mass => drawSoftMass(mass, t));
-    ctx.restore();
+    drawMistBlob(0.72, 0.33, 0.26, 0.24, t, 0.4, 0.16);
+    drawMistBlob(0.48, 0.62, 0.30, 0.20, t, 2.1, 0.13);
+    drawMistBlob(0.92, 0.57, 0.24, 0.22, t, 4.7, 0.12);
 
-    const veils = [
-      {
-        y: 0.23, amp: 0.075, amp2: 0.034, amp3: 0.024, broad: 0.040,
-        freq: 0.72, freq2: 1.44, freq3: 2.32, speed: 0.30, travel: 0.030, phase: 0.2,
-        thickness: 0.16, thickFreq: 1.6, thickFreq2: 3.1, thickSpeed: 0.34,
-        foldCount: 3.2, foldSpeed: 0.28, foldAmp: 0.018, edgeNoise: 0.012,
-        angle: -0.20, angleSpeed: 0.12, angleSwing: 0.06,
-        floatSpeed: 0.16, floatX: 0.035, alpha: 0.36,
-        c1: 'rgba(210,226,248,0.14)', c2: 'rgba(255,255,255,0.34)',
-        c3: 'rgba(235,242,252,0.24)', c4: 'rgba(170,200,238,0.10)',
-        edge: 'rgba(255,255,255,0.11)'
-      },
-      {
-        y: 0.48, amp: 0.095, amp2: 0.046, amp3: 0.030, broad: 0.056,
-        freq: 0.56, freq2: 1.18, freq3: 1.96, speed: -0.24, travel: -0.024, phase: 2.4,
-        thickness: 0.21, thickFreq: 1.35, thickFreq2: 2.7, thickSpeed: 0.26,
-        foldCount: 4.1, foldSpeed: -0.22, foldAmp: 0.024, edgeNoise: 0.016,
-        angle: 0.16, angleSpeed: 0.10, angleSwing: 0.05,
-        floatSpeed: 0.13, floatX: 0.045, alpha: 0.40,
-        c1: 'rgba(194,217,244,0.12)', c2: 'rgba(255,255,255,0.31)',
-        c3: 'rgba(240,246,255,0.24)', c4: 'rgba(160,194,232,0.09)',
-        edge: 'rgba(250,252,255,0.10)'
-      },
-      {
-        y: 0.73, amp: 0.066, amp2: 0.032, amp3: 0.022, broad: 0.038,
-        freq: 0.84, freq2: 1.62, freq3: 2.55, speed: 0.22, travel: 0.020, phase: 4.6,
-        thickness: 0.15, thickFreq: 1.9, thickFreq2: 3.4, thickSpeed: 0.21,
-        foldCount: 3.6, foldSpeed: 0.20, foldAmp: 0.016, edgeNoise: 0.010,
-        angle: -0.10, angleSpeed: 0.08, angleSwing: 0.045,
-        floatSpeed: 0.11, floatX: 0.030, alpha: 0.29,
-        c1: 'rgba(205,224,248,0.10)', c2: 'rgba(250,253,255,0.25)',
-        c3: 'rgba(225,236,250,0.18)', c4: 'rgba(148,184,226,0.07)',
-        edge: 'rgba(245,250,255,0.08)'
-      }
-    ];
+    const rear = {
+      baseY: 0.79,
+      peakX: 0.30,
+      peakMotion: 0.020,
+      peakDrift: 0.16,
+      spread: 0.030,
+      height: 0.22,
+      shoulderOffset: 0.12,
+      shoulderSpread: 0.060,
+      shoulderHeight: 0.065,
+      waveFreq: 9.0,
+      waveFreq2: 16.0,
+      waveSpeed: 0.24,
+      waveAmp: 0.012,
+      waveAmp2: 0.006,
+      phase: 1.6
+    };
 
-    ctx.save();
-    ctx.filter = `blur(${Math.max(18, 26 * dpr)}px)`;
-    veils.forEach(veil => drawOrganicVeil(veil, t));
-    ctx.restore();
+    drawRidgeFill(rear, t, {
+      top: 'rgba(28,64,160,0.88)',
+      mid: 'rgba(10,30,92,0.96)',
+      bottom: 'rgba(2,8,28,1)'
+    });
+    drawRidgeGlow(rear, t, 0.46);
 
-    const movingGlowX = width * (0.50 + Math.sin(t * 0.22) * 0.30);
-    const movingGlowY = height * (0.46 + Math.cos(t * 0.17) * 0.16);
-    const shimmer = ctx.createRadialGradient(
-      movingGlowX, movingGlowY, 0,
-      movingGlowX, movingGlowY, Math.max(width, height) * 0.42
-    );
-    shimmer.addColorStop(0, 'rgba(255,255,255,0.075)');
-    shimmer.addColorStop(0.30, 'rgba(220,235,255,0.040)');
-    shimmer.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = shimmer;
-    ctx.fillRect(0, 0, width, height);
+    const hero = {
+      baseY: 0.83,
+      peakX: 0.64,
+      peakMotion: 0.030,
+      peakDrift: 0.14,
+      spread: 0.019,
+      height: 0.64,
+      shoulderOffset: 0.18,
+      shoulderSpread: 0.050,
+      shoulderHeight: 0.17,
+      waveFreq: 7.0,
+      waveFreq2: 13.0,
+      waveSpeed: 0.19,
+      waveAmp: 0.015,
+      waveAmp2: 0.008,
+      phase: 0.7
+    };
+
+    drawRidgeFill(hero, t, {
+      top: 'rgba(40,82,196,0.90)',
+      mid: 'rgba(14,40,122,0.98)',
+      bottom: 'rgba(2,8,32,1)'
+    });
+    drawRidgeGlow(hero, t, 1.0);
+
+    const front = {
+      baseY: 0.98,
+      peakX: 0.88,
+      peakMotion: 0.016,
+      peakDrift: 0.11,
+      spread: 0.050,
+      height: 0.24,
+      shoulderOffset: 0.10,
+      shoulderSpread: 0.060,
+      shoulderHeight: 0.08,
+      waveFreq: 8.0,
+      waveFreq2: 15.0,
+      waveSpeed: -0.14,
+      waveAmp: 0.010,
+      waveAmp2: 0.005,
+      phase: 3.6
+    };
+
+    drawRidgeFill(front, t, {
+      top: 'rgba(35,72,178,0.75)',
+      mid: 'rgba(9,27,86,0.92)',
+      bottom: 'rgba(2,7,26,1)'
+    });
+    drawRidgeGlow(front, t, 0.34);
+
+    const flareX = w * (0.61 + Math.sin(t * 0.17) * 0.025);
+    const flareY = h * (0.26 + Math.cos(t * 0.13) * 0.018);
+    const flare = ctx.createRadialGradient(flareX, flareY, 0, flareX, flareY, Math.max(w, h) * 0.22);
+    flare.addColorStop(0, 'rgba(255,255,255,0.18)');
+    flare.addColorStop(0.28, 'rgba(220,236,255,0.09)');
+    flare.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.globalCompositeOperation = 'screen';
+    ctx.fillStyle = flare;
+    ctx.fillRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'source-over';
 
     const vignette = ctx.createRadialGradient(
-      width * 0.5, height * 0.48, Math.min(width, height) * 0.16,
-      width * 0.5, height * 0.48, Math.max(width, height) * 0.76
+      w * 0.5, h * 0.47, Math.min(w, h) * 0.14,
+      w * 0.5, h * 0.47, Math.max(w, h) * 0.74
     );
     vignette.addColorStop(0, 'rgba(0,0,0,0)');
-    vignette.addColorStop(1, 'rgba(0,3,18,0.42)');
+    vignette.addColorStop(1, 'rgba(0,2,18,0.44)');
     ctx.fillStyle = vignette;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, w, h);
   }
 
   function frame(now) {
     if (!running) return;
-
     if (visible && !document.hidden && now - lastFrame >= frameInterval) {
       lastFrame = now;
       positionCanvas();
       draw(now);
     }
-
     raf = requestAnimationFrame(frame);
   }
 
   function start() {
     if (running && raf) return;
     running = true;
-    host.dataset.shaderState = 'running-canvas2d';
+    host.dataset.shaderState = 'running-reference-aurora';
     raf = requestAnimationFrame(frame);
   }
 
@@ -324,7 +368,7 @@
     running = false;
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
-    host.dataset.shaderState = 'paused-canvas2d';
+    host.dataset.shaderState = 'paused-reference-aurora';
   }
 
   const io = 'IntersectionObserver' in window
@@ -349,7 +393,7 @@
     pause,
     resize,
     state: () => ({
-      renderer: 'canvas2d-organic-white',
+      renderer: 'canvas2d-reference-white-ridge',
       running,
       visible,
       reducedMotion: reduceMotion
