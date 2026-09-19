@@ -31,6 +31,7 @@
   let cssWidth = 0;
   let cssHeight = 0;
   let dpr = 1;
+  let frameCount = 0;
 
   host.classList.add('aurora-ready');
   host.dataset.shaderState = 'running-canvas2d';
@@ -39,8 +40,11 @@
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
   function resize() {
-    cssWidth = Math.max(1, host.clientWidth || window.innerWidth);
-    cssHeight = Math.max(1, window.innerHeight);
+    const viewportWidth = window.visualViewport?.width || document.documentElement.clientWidth || window.innerWidth || 1440;
+    const viewportHeight = window.visualViewport?.height || document.documentElement.clientHeight || window.innerHeight || 900;
+
+    cssWidth = clamp(host.clientWidth || viewportWidth, 320, 2560);
+    cssHeight = clamp(viewportHeight, 320, 1600);
     dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.0 : 1.2);
 
     const width = Math.round(cssWidth * dpr);
@@ -132,9 +136,13 @@
     const seconds = (now - startTime) / 1000;
     const t = seconds * (reduceMotion ? 0.26 : 0.78);
 
+    frameCount += 1;
+    host.dataset.auroraFrame = String(frameCount);
+    host.dataset.auroraTime = seconds.toFixed(2);
+
     const base = ctx.createLinearGradient(0, 0, 0, height);
     base.addColorStop(0, '#020821');
-    base.addColorStop(0.48, '#041538');
+    base.addColorStop(0.48, '#061b45');
     base.addColorStop(1, '#020821');
     ctx.fillStyle = base;
     ctx.fillRect(0, 0, width, height);
