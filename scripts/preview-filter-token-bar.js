@@ -299,16 +299,12 @@
             return {...item, values: has ? item.values.filter(v => v !== value) : [...item.values,value]};
           });
           applyFilters();
+          render();
           if (op?.multi) {
-            const current = filters.find(f => f.id === filter.id);
-            renderList(panel, field.options || [], {
-              searchable:true,
-              selected:current?.values || [],
-              multi:true,
-              onPick:arguments.callee
+            requestAnimationFrame(() => {
+              const valueButton = root.querySelector('[data-filter-id="' + filter.id + '"] .ms-filter-value');
+              if (valueButton) openMenu(valueButton, {kind:'value', filterId:filter.id});
             });
-          } else {
-            render();
           }
         }
       });
