@@ -1,12 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const rootDir = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "."),
+      "@": rootDir,
     },
   },
   build: {
@@ -14,7 +16,7 @@ export default defineConfig({
     emptyOutDir: true,
     cssCodeSplit: false,
     lib: {
-      entry: path.resolve(__dirname, "main.tsx"),
+      entry: fileURLToPath(new URL("./main.tsx", import.meta.url)),
       name: "MSPreviewFilter",
       formats: ["es"],
       fileName: () => "filter-token-react.js",
