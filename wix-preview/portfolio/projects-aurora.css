@@ -1,0 +1,35 @@
+/* PREVIEW ONLY — persistent midnight-blue animated aurora */
+body{background:#020821!important}
+main{background:#020821!important}
+.projects-shader{
+  background:
+    radial-gradient(92% 76% at 16% 14%,rgba(16,54,138,.22) 0,rgba(5,23,70,.14) 43%,transparent 78%),
+    radial-gradient(82% 66% at 84% 42%,rgba(31,88,170,.11) 0,rgba(7,28,76,.08) 48%,transparent 82%),
+    linear-gradient(180deg,#020821 0%,#041538 52%,#020821 100%)!important;
+}
+.projects-shader::before,
+.projects-shader::after{display:none!important}
+.projects-aurora-canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  display:block;
+  width:100%;
+  height:100svh;
+  max-width:none;
+  pointer-events:none;
+  opacity:1;
+  filter:saturate(1.08) contrast(1.03);
+  will-change:transform;
+  transform-origin:center center;
+}
+main>.wrap{position:relative;z-index:2}
+@media(max-width:650px){
+  body,main{background:#020821!important}
+  .projects-shader{
+    background:
+      radial-gradient(96% 78% at 14% 16%,rgba(14,50,128,.22) 0,rgba(5,22,68,.13) 45%,transparent 80%),
+      linear-gradient(180deg,#020821 0%,#041333 54%,#020821 100%)!important;
+  }
+}
