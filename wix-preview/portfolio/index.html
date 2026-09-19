@@ -290,6 +290,47 @@ main>.wrap>.lead{
   .iphone-showcase-shell{margin-top:84px}
 }
 </style>
+
+<style id="projects-heated-shader-webgl-v1">
+/* PREVIEW ONLY — WebGL2 heated background for the Projects tab */
+.projects-shader{
+  background:
+    radial-gradient(72% 58% at 12% 18%,rgba(12,46,118,.68) 0,rgba(7,24,67,.36) 38%,transparent 74%),
+    radial-gradient(68% 54% at 88% 42%,rgba(37,118,55,.24) 0,rgba(8,47,41,.18) 40%,transparent 76%),
+    linear-gradient(180deg,#020711 0%,#050a18 52%,#020711 100%);
+}
+.projects-shader.webgl-ready::before{display:none!important}
+.projects-heated-canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  display:block;
+  width:100%;
+  height:100vh;
+  height:100svh;
+  max-width:none;
+  pointer-events:none;
+  opacity:0;
+  transform:translate3d(0,0,0);
+  will-change:transform;
+  transition:opacity .45s ease;
+}
+.projects-shader.webgl-ready .projects-heated-canvas{opacity:1}
+.projects-shader::after{
+  z-index:1;
+  background:
+    linear-gradient(180deg,rgba(2,7,17,.30) 0%,rgba(2,7,17,.08) 22%,rgba(2,7,17,.10) 72%,rgba(2,7,17,.42) 100%),
+    radial-gradient(circle at 50% 48%,transparent 0 48%,rgba(0,0,0,.14) 100%);
+}
+@media(max-width:650px){
+  .projects-heated-canvas{transition-duration:.25s}
+}
+@media(prefers-reduced-motion:reduce){
+  .projects-heated-canvas{transition:none}
+}
+</style>
+
 </head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="projects-hero-media" aria-hidden="true"><video id="projectsHeroVideo" class="projects-hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/688144e1-4fb7-4d05-86c3-3273e4238efc.mp4" type="video/mp4"></video></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos</h1><p class="lead">Explore projetos de design gráfico, branding, motion, edição de vídeo, audiovisual e 3D desenvolvidos pela Mensagem Studio, estúdio criativo em Curitiba. Navegue pelos cases e descubra soluções visuais para inspirar seu próximo projeto.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
 <h2 class="sr-only">iPhone 18 — showcase 3D interativo</h2>
@@ -421,7 +462,7 @@ filters.addEventListener('click',e=>{
   render();
 });
 render();
-</script><script src="./project-data.js?v=20260914-produtos-3d-codex-v1"></script>
+</script><script src="./projects-heated-shader.js?v=20260919-webgl-heated-v1"></script>\n<script src="./project-data.js?v=20260914-produtos-3d-codex-v1"></script>
 <script src="./portfolio-linker.js"></script>
 <script src="../global-ui.js?v=20260915-r18-quote-royal-glass"></script>
 
