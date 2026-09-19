@@ -2289,7 +2289,19 @@ html,body{max-width:100%;overflow-x:clip}
 @media(hover:none){
   .card:hover,.add:hover,.cart:hover{transform:none!important}
 }
-</style></head>
+</style>
+<!-- REMOVE_SERVICE_CATEGORY_SIDE_BARS_START -->
+<style id="remove-service-category-side-bars">
+.category-head{
+  border-left:0 !important;
+}
+.category-head::before{
+  content:none !important;
+  display:none !important;
+}
+</style>
+<!-- REMOVE_SERVICE_CATEGORY_SIDE_BARS_END -->
+</head>
 <body data-page="servicos" data-version="v4">
 <script id="ms-services-stray-text-cleanup">
 (()=>{
