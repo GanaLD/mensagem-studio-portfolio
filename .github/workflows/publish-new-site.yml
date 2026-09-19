@@ -122,8 +122,8 @@ jobs:
 
               if './projects-aurora.css' in text:
                   text = re.sub(
-                      r'<link[^>]+href=["\']\\./projects-aurora\\.css(?:\\?[^"\']*)?["\'][^>]*>',
-                      css_tag,
+                      r'\\./projects-aurora\\.css(?:\\?[^"\']*)?',
+                      './projects-aurora.css?v=20260919-preview-white-organic-v7',
                       text,
                       count=1,
                       flags=re.I,
@@ -133,8 +133,8 @@ jobs:
 
               if './projects-aurora.js' in text:
                   text = re.sub(
-                      r'<script[^>]+src=["\']\\./projects-aurora\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>',
-                      script_tag,
+                      r'\\./projects-aurora\\.js(?:\\?[^"\']*)?',
+                      './projects-aurora.js?v=20260919-preview-white-organic-v7',
                       text,
                       count=1,
                       flags=re.I,
