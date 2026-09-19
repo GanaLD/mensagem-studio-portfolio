@@ -158,7 +158,7 @@ jobs:
 
               portfolio_index.write_text(text, encoding="utf-8")
 
-          # Re-apply the supplied React/TypeScript token filter to PREVIEW only.
+          # Re-apply the supplied React/TypeScript token filter to PREVIEW only (built bundle).
           react_filter_dist = Path("preview-react-filter/dist")
           react_filter_dst = root / "portfolio" / "filter-token-react"
 
