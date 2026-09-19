@@ -41,14 +41,13 @@ main{
 .projects-shader::before{
   content:"";
   position:absolute;
-  inset:-18%;
+  inset:-16%;
   background:
-    radial-gradient(54% 38% at 22% 40%,rgba(37,92,188,.18),transparent 76%),
-    radial-gradient(58% 42% at 76% 58%,rgba(45,112,196,.12),transparent 78%),
-    radial-gradient(44% 34% at 48% 74%,rgba(24,72,154,.10),transparent 80%);
-  filter:blur(58px) saturate(1.02);
-  transform:translate3d(-5%,0,0) scale(1.04);
-  animation:projectsAuroraFallback 18s ease-in-out infinite alternate;
+    radial-gradient(36% 32% at 28% 42%,rgba(22,67,132,.34),transparent 72%),
+    radial-gradient(32% 28% at 72% 58%,rgba(7,88,63,.22),transparent 72%);
+  filter:blur(42px) saturate(1.06);
+  transform:translate3d(-2%,0,0) scale(1.02);
+  animation:projectsShaderDrift 26s ease-in-out infinite alternate;
 }
 .projects-shader::after{
   content:"";
@@ -59,10 +58,10 @@ main{
     radial-gradient(circle at 50% 48%,transparent 0 50%,rgba(0,0,0,.10) 100%);
 }
 main>.wrap{position:relative;z-index:2}
-@keyframes projectsAuroraFallback{
-  0%{transform:translate3d(-5%,-1%,0) scale(1.04)}
-  50%{transform:translate3d(4%,2%,0) scale(1.08)}
-  100%{transform:translate3d(8%,-2%,0) scale(1.05)}
+@keyframes projectsShaderDrift{
+  0%{transform:translate3d(-2%,0,0) scale(1.02)}
+  50%{transform:translate3d(2%,1.2%,0) scale(1.045)}
+  100%{transform:translate3d(0,-1.2%,0) scale(1.025)}
 }
 .projects-filter-shell{
   position:sticky;
@@ -291,47 +290,6 @@ main>.wrap>.lead{
   .iphone-showcase-shell{margin-top:84px}
 }
 </style>
-
-<style id="projects-heated-shader-webgl-v1">
-/* PREVIEW ONLY — WebGL2 heated background for the Projects tab */
-.projects-shader{
-  background:
-    radial-gradient(90% 70% at 16% 18%,rgba(18,48,116,.28) 0,rgba(6,20,58,.16) 42%,transparent 78%),
-    radial-gradient(82% 62% at 84% 38%,rgba(42,96,156,.10) 0,rgba(8,24,62,.08) 46%,transparent 80%),
-    linear-gradient(180deg,#020617 0%,#030a1a 54%,#020617 100%);
-}
-.projects-shader.webgl-ready::before{display:none!important}
-.projects-heated-canvas{
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:0;
-  display:block;
-  width:100%;
-  height:100vh;
-  height:100svh;
-  max-width:none;
-  pointer-events:none;
-  opacity:0;
-  transform:translate3d(0,0,0);
-  will-change:transform;
-  transition:opacity .45s ease;
-}
-.projects-shader.webgl-ready .projects-heated-canvas{opacity:1}
-.projects-shader::after{
-  z-index:1;
-  background:
-    linear-gradient(180deg,rgba(2,7,17,.30) 0%,rgba(2,7,17,.08) 22%,rgba(2,7,17,.10) 72%,rgba(2,7,17,.42) 100%),
-    radial-gradient(circle at 50% 48%,transparent 0 48%,rgba(0,0,0,.14) 100%);
-}
-@media(max-width:650px){
-  .projects-heated-canvas{transition-duration:.25s}
-}
-@media(prefers-reduced-motion:reduce){
-  .projects-heated-canvas{transition:none}
-}
-</style>
-
 </head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="projects-hero-media" aria-hidden="true"><video id="projectsHeroVideo" class="projects-hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/688144e1-4fb7-4d05-86c3-3273e4238efc.mp4" type="video/mp4"></video></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos</h1><p class="lead">Explore projetos de design gráfico, branding, motion, edição de vídeo, audiovisual e 3D desenvolvidos pela Mensagem Studio, estúdio criativo em Curitiba. Navegue pelos cases e descubra soluções visuais para inspirar seu próximo projeto.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
 <h2 class="sr-only">iPhone 18 — showcase 3D interativo</h2>
@@ -463,7 +421,7 @@ filters.addEventListener('click',e=>{
   render();
 });
 render();
-</script><script src="./projects-heated-shader.js?v=20260919-aurora-motion-v3"></script>\n<script src="./project-data.js?v=20260914-produtos-3d-codex-v1"></script>
+</script><script src="./project-data.js?v=20260914-produtos-3d-codex-v1"></script>
 <script src="./portfolio-linker.js"></script>
 <script src="../global-ui.js?v=20260915-r18-quote-royal-glass"></script>
 
