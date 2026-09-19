@@ -18,6 +18,7 @@ on:
       - 'servicos/**'
       - 'sobre/**'
       - 'assets/**'
+      - 'preview-react-filter/dist/**'
       - '.github/workflows/publish-new-site.yml'
   workflow_dispatch:
 
@@ -157,56 +158,49 @@ jobs:
 
               portfolio_index.write_text(text, encoding="utf-8")
 
-          # Re-apply the supplied token-filter experiment to PREVIEW only.
-          filter_js_src = Path("scripts/preview-filter-token-bar.js")
-          filter_css_src = Path("scripts/preview-filter-token-bar.css")
-          filter_js_dst = root / "portfolio" / "filter-token-bar.js"
-          filter_css_dst = root / "portfolio" / "filter-token-bar.css"
+          # Re-apply the supplied React/TypeScript token filter to PREVIEW only.
+          react_filter_dist = Path("preview-react-filter/dist")
+          react_filter_dst = root / "portfolio" / "filter-token-react"
 
-          if filter_js_src.exists() and filter_css_src.exists() and portfolio_index.exists():
-              filter_js_dst.write_text(filter_js_src.read_text(encoding="utf-8"), encoding="utf-8")
-              filter_css_dst.write_text(filter_css_src.read_text(encoding="utf-8"), encoding="utf-8")
+          if react_filter_dist.exists() and portfolio_index.exists():
+              import shutil
+
+              if react_filter_dst.exists():
+                  shutil.rmtree(react_filter_dst)
+              shutil.copytree(react_filter_dist, react_filter_dst)
 
               text = portfolio_index.read_text(encoding="utf-8")
-              filter_css_tag = '<link rel="stylesheet" href="./filter-token-bar.css?v=20260919-preview-filter-token-v1">'
-              filter_script_tag = '<script src="./filter-token-bar.js?v=20260919-preview-filter-token-v1"></script>'
 
-              def version_filter_asset(source, asset, version):
-                  pos = source.find(asset)
-                  if pos < 0:
-                      return source
-                  end = pos + len(asset)
-                  if source.startswith('?v=', end):
-                      qend = end
-                      while qend < len(source) and source[qend] not in ('"', "'"):
-                          qend += 1
-                      return source[:end] + '?v=' + version + source[qend:]
-                  return source[:end] + '?v=' + version + source[end:]
+              # Remove the previous vanilla preview experiment if it exists.
+              text = re.sub(
+                  r'<link[^>]+href=["\']\\./filter-token-bar\\.css(?:\\?[^"\']*)?["\'][^>]*>\\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+src=["\']\\./filter-token-bar\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>\\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
 
-              if './filter-token-bar.css' in text:
-                  text = version_filter_asset(
-                      text,
-                      './filter-token-bar.css',
-                      '20260919-preview-filter-token-v1',
-                  )
-              else:
-                  text = text.replace('</head>', filter_css_tag + '\n</head>', 1)
+              react_css = '<link rel="stylesheet" href="./filter-token-react/filter-token-react.css?v=20260919-react-v1">'
+              react_js = '<script type="module" src="./filter-token-react/filter-token-react.js?v=20260919-react-v1"></script>'
 
-              if './filter-token-bar.js' in text:
-                  text = version_filter_asset(
-                      text,
-                      './filter-token-bar.js',
-                      '20260919-preview-filter-token-v1',
-                  )
-              else:
+              if './filter-token-react/filter-token-react.css' not in text:
+                  text = text.replace('</head>', react_css + '\n</head>', 1)
+
+              if './filter-token-react/filter-token-react.js' not in text:
                   anchor = '<script src="./projects-aurora.js'
                   pos = text.find(anchor)
                   if pos >= 0:
-                      text = text[:pos] + filter_script_tag + '\n' + text[pos:]
+                      text = text[:pos] + react_js + '\n' + text[pos:]
                   else:
-                      text = text.replace('</body>', filter_script_tag + '\n</body>', 1)
+                      text = text.replace('</body>', react_js + '\n</body>', 1)
 
               portfolio_index.write_text(text, encoding="utf-8")
+
           PY
 
       - name: Commit backup snapshot
