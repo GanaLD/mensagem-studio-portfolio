@@ -185,8 +185,8 @@ jobs:
                   flags=re.I,
               )
 
-              react_css = '<link rel="stylesheet" href="./filter-token-react/filter-token-react.css?v=20260919-react-v1">'
-              react_js = '<script type="module" src="./filter-token-react/filter-token-react.js?v=20260919-react-v1"></script>'
+              react_css = '<link rel="stylesheet" href="./filter-token-react/filter-token-react.css?v=20260919-react-v2">'
+              react_js = '<script type="module" src="./filter-token-react/filter-token-react.js?v=20260919-react-v2"></script>'
 
               if './filter-token-react/filter-token-react.css' not in text:
                   text = text.replace('</head>', react_css + '\n</head>', 1)
