@@ -120,24 +120,32 @@ jobs:
               css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-preview-white-organic-v7">'
               script_tag = '<script src="./projects-aurora.js?v=20260919-preview-white-organic-v7"></script>'
 
+              def version_asset(source, asset, version):
+                  pos = source.find(asset)
+                  if pos < 0:
+                      return source
+                  end = pos + len(asset)
+                  if source.startswith('?v=', end):
+                      qend = end
+                      while qend < len(source) and source[qend] not in ('"', "'"):
+                          qend += 1
+                      return source[:end] + '?v=' + version + source[qend:]
+                  return source[:end] + '?v=' + version + source[end:]
+
               if './projects-aurora.css' in text:
-                  text = re.sub(
-                      r'\\./projects-aurora\\.css(?:\\?[^"\']*)?',
-                      './projects-aurora.css?v=20260919-preview-white-organic-v7',
+                  text = version_asset(
                       text,
-                      count=1,
-                      flags=re.I,
+                      './projects-aurora.css',
+                      '20260919-preview-white-organic-v7',
                   )
               else:
                   text = text.replace('</head>', css_tag + '\n</head>', 1)
 
               if './projects-aurora.js' in text:
-                  text = re.sub(
-                      r'\\./projects-aurora\\.js(?:\\?[^"\']*)?',
-                      './projects-aurora.js?v=20260919-preview-white-organic-v7',
+                  text = version_asset(
                       text,
-                      count=1,
-                      flags=re.I,
+                      './projects-aurora.js',
+                      '20260919-preview-white-organic-v7',
                   )
               else:
                   anchor = '<script src="./project-data.js'
