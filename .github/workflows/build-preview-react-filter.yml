@@ -57,13 +57,79 @@ jobs:
           test -s preview-react-filter/dist/filter-token-react.js
           test -s preview-react-filter/dist/filter-token-react.css
 
+      - name: Install bundle into wix-preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import shutil
+
+          source = Path("preview-react-filter/dist")
+          target = Path("wix-preview/portfolio/filter-token-react")
+          index = Path("wix-preview/portfolio/index.html")
+
+          if not source.exists() or not index.exists():
+              raise SystemExit("Required preview paths are missing.")
+
+          if target.exists():
+              shutil.rmtree(target)
+          shutil.copytree(source, target)
+
+          text = index.read_text(encoding="utf-8")
+          text = re.sub(
+              r'<link[^>]+href=["\']\\./filter-token-bar\\.css(?:\\?[^"\']*)?["\'][^>]*>\\s*',
+              '',
+              text,
+              flags=re.I,
+          )
+          text = re.sub(
+              r'<script[^>]+src=["\']\\./filter-token-bar\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>\\s*',
+              '',
+              text,
+              flags=re.I,
+          )
+
+          css_tag = '<link rel="stylesheet" href="./filter-token-react/filter-token-react.css?v=20260919-react-v2">'
+          js_tag = '<script type="module" src="./filter-token-react/filter-token-react.js?v=20260919-react-v2"></script>'
+
+          text = re.sub(
+              r'<link[^>]+href=["\']\\./filter-token-react/filter-token-react\\.css(?:\\?[^"\']*)?["\'][^>]*>',
+              css_tag,
+              text,
+              count=1,
+              flags=re.I,
+          )
+          text = re.sub(
+              r'<script[^>]+src=["\']\\./filter-token-react/filter-token-react\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>',
+              js_tag,
+              text,
+              count=1,
+              flags=re.I,
+          )
+
+          if './filter-token-react/filter-token-react.css' not in text:
+              text = text.replace('</head>', css_tag + '\n</head>', 1)
+
+          if './filter-token-react/filter-token-react.js' not in text:
+              anchor = '<script src="./projects-aurora.js'
+              pos = text.find(anchor)
+              if pos >= 0:
+                  text = text[:pos] + js_tag + '\n' + text[pos:]
+              else:
+                  text = text.replace('</body>', js_tag + '\n</body>', 1)
+
+          index.write_text(text, encoding="utf-8")
+          PY
+
       - name: Commit preview bundle
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A preview-react-filter/dist
+          git add -A preview-react-filter/dist wix-preview/portfolio
           if git diff --cached --quiet; then
             echo 'React preview bundle already current.'
             exit 0
