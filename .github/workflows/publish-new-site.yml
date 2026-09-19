@@ -42,8 +42,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Recreate the backup from scratch so preview-only experiments and
-          # stale files can never survive a production -> backup sync.
+          # Recreate the backup from scratch. Explicitly whitelisted preview
+          # overlays are re-applied after the production mirror is rebuilt.
           rm -rf wix-preview
           mkdir -p wix-preview
 
@@ -104,6 +104,67 @@ jobs:
               text = text.replace("src='/global-ui.js", "src='/wix-preview/global-ui.js")
 
               path.write_text(text, encoding="utf-8")
+
+          # Re-apply the explicit Projects aurora experiment to PREVIEW only.
+          aurora_src = Path("scripts/preview-projects-aurora.js")
+          portfolio_index = root / "portfolio" / "index.html"
+          aurora_dst = root / "portfolio" / "projects-aurora.js"
+
+          if aurora_src.exists() and portfolio_index.exists():
+              aurora_dst.write_text(aurora_src.read_text(encoding="utf-8"), encoding="utf-8")
+
+              text = portfolio_index.read_text(encoding="utf-8")
+              style = r'''<style id="projects-aurora-preview-v5">
+/* PREVIEW ONLY — persistent midnight-blue animated aurora */
+body{background:#020821!important}
+main{background:#020821!important}
+.projects-shader{
+  background:
+    radial-gradient(92% 76% at 16% 14%,rgba(16,54,138,.22) 0,rgba(5,23,70,.14) 43%,transparent 78%),
+    radial-gradient(82% 66% at 84% 42%,rgba(31,88,170,.11) 0,rgba(7,28,76,.08) 48%,transparent 82%),
+    linear-gradient(180deg,#020821 0%,#041538 52%,#020821 100%)!important;
+}
+.projects-shader::before,
+.projects-shader::after{display:none!important}
+.projects-aurora-canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  display:block;
+  width:100%;
+  height:100svh;
+  max-width:none;
+  pointer-events:none;
+  opacity:1;
+  filter:saturate(1.08) contrast(1.03);
+  will-change:transform;
+  transform-origin:center center;
+}
+main>.wrap{position:relative;z-index:2}
+@media(max-width:650px){
+  body,main{background:#020821!important}
+  .projects-shader{
+    background:
+      radial-gradient(96% 78% at 14% 16%,rgba(14,50,128,.22) 0,rgba(5,22,68,.13) 45%,transparent 80%),
+      linear-gradient(180deg,#020821 0%,#041333 54%,#020821 100%)!important;
+  }
+}
+</style>'''
+              script_tag = '<script src="./projects-aurora.js?v=20260919-v5-midnight-motion"></script>'
+
+              if 'projects-aurora-preview-v5' not in text:
+                  text = text.replace('</head>', style + '\n</head>', 1)
+
+              if './projects-aurora.js' not in text:
+                  anchor = '<script src="./project-data.js'
+                  pos = text.find(anchor)
+                  if pos >= 0:
+                      text = text[:pos] + script_tag + '\n' + text[pos:]
+                  else:
+                      text = text.replace('</body>', script_tag + '\n</body>', 1)
+
+              portfolio_index.write_text(text, encoding="utf-8")
           PY
 
       - name: Commit backup snapshot
