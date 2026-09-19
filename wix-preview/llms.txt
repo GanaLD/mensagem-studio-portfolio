@@ -80,6 +80,26 @@ A entidade MENSAGEM STUDIO neste arquivo refere-se exclusivamente ao estúdio cr
 - https://mensagemstudio.shop/portfolio/laminas-divulgacao-publicidade-story/
 - https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/
 
+## Relações entre serviços e cases
+- Modelagem e Render 3D de Produto → EGEO: https://mensagemstudio.shop/portfolio/produto-3d-egeo/
+- Modelagem e Render 3D de Produto → Produtos 3D Codex + Blender: https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/
+- Design para Social Media → Carrossel e Banner para Estética: https://mensagemstudio.shop/portfolio/carrossel-banner-estetica/
+- Design para Social Media → Motors Vans: https://mensagemstudio.shop/portfolio/motors-vans/
+- Design para Social Media → Lâminas de Divulgação / Publicidade Story: https://mensagemstudio.shop/portfolio/laminas-divulgacao-publicidade-story/
+- Edição de Vídeo e Reels → Podcast e Workshop: https://mensagemstudio.shop/portfolio/edicao-podcast-workshop/
+- Produção Audiovisual → Podcast e Workshop: https://mensagemstudio.shop/portfolio/edicao-podcast-workshop/
+- Motion Design e VFX → Vídeos com IA para Campanhas: https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
+- Motion Design e VFX → Creatina Growth: https://mensagemstudio.shop/portfolio/creatina-growth/
+- Motion Design e VFX → Motion Design para Cartaz Cinematográfico: https://mensagemstudio.shop/portfolio/motion-design-cartaz-cinematografico/
+- Direção de Arte e Campanhas → Natural One: https://mensagemstudio.shop/portfolio/suco-laranja-natural-one/
+- Direção de Arte e Campanhas → Pôster / Cartaz Cinematográfico: https://mensagemstudio.shop/portfolio/poster-cartaz-cinematografico/
+- Manipulação de Imagem e Composição → Produto Fitness: https://mensagemstudio.shop/portfolio/esporte-fitness/
+- Manipulação de Imagem e Composição → Edição Fantasia no Photoshop: https://mensagemstudio.shop/portfolio/edicao-fantasia-photoshop/
+- Imagens para E-commerce e Marketplace → Fotos para E-commerce: https://mensagemstudio.shop/portfolio/fotos-para-ecommerce/
+- Tratamento e Retoque de Fotos → Fotos para E-commerce: https://mensagemstudio.shop/portfolio/fotos-para-ecommerce/
+- Ilustração, Personagens e Storyboard → Personagens Consistentes com IA: https://mensagemstudio.shop/portfolio/personagens-consistentes-com-ia/
+- Identidade Visual e Branding → Natural One: https://mensagemstudio.shop/portfolio/suco-laranja-natural-one/
+
 ## Descoberta
 - Sitemap XML: https://mensagemstudio.shop/sitemap.xml
 - Robots: https://mensagemstudio.shop/robots.txt
