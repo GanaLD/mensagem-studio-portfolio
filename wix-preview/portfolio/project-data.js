@@ -196,6 +196,18 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Black Skull Creatine — Render de Produto 3D',description:'Render de produto 3D em cenário de ringue, com foco em embalagem, materiais e direção de arte esportiva.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/6ec3eed6-8862-4ef7-b5a4-493984e962b9.jpg'},
       {type:'MODEL',title:'Black Skull Creatine — GLB Interativo',description:'Modelo 3D interativo da creatina Black Skull com embalagem e materiais prontos para visualização web.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/6ec3eed6-8862-4ef7-b5a4-493984e962b9.jpg'}
     ]
+  },
+  {
+    slug:'cyber-ronin', sourceSlug:'cyber-ronin', title:'Cyber Ronin | HTML Interativo', tag:'Web / Experiência Interativa',
+    description:'Experiência web cyberpunk desenvolvida em HTML, CSS e JavaScript puro, com direção visual cinematográfica, spotlight reveal controlado por cursor, animações de entrada, microinterações e responsividade completa.',
+    details:[
+      {label:'Serviço',text:'Web Design · Front-end · Experiência Interativa'},
+      {label:'Stack',text:'HTML · CSS · JavaScript'}
+    ],
+    cover:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'Cyber Ronin — Interface Interativa',description:'Hero cyberpunk com spotlight reveal e motion responsivo.',url:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85'}
+    ]
   }
 ];
 
