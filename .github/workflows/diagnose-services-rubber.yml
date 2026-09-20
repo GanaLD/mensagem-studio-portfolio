@@ -25,6 +25,14 @@ jobs:
           echo "--- Rubber markers in rendered DOM ---"
           grep -o 'id="rubber-segment-services-root"' /tmp/dom.html | wc -l || true
           grep -o 'class="[^"]*rubber-segment[^"]*"' /tmp/dom.html | head -20 || true
+          echo "--- Root outer HTML excerpt ---"
+          python - <<'PY'
+          from pathlib import Path
+          text=Path('/tmp/dom.html').read_text(errors='replace')
+          key='id="rubber-segment-services-root"'
+          i=text.find(key)
+          print(text[max(0,i-300):i+5000] if i>=0 else 'ROOT NOT FOUND')
+          PY
           echo "--- Legacy hidden marker ---"
           grep -o 'ms-legacy-filters-hidden' /tmp/dom.html | head -10 || true
           echo "--- Chrome stderr ---"
