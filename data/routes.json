@@ -1,7 +1,7 @@
 {
   "version": 4,
   "base_url": "https://mensagemstudio.shop",
-  "generated_at": "2026-09-14",
+  "generated_at": "2026-09-20",
   "items": [
     {
       "canonical": "https://mensagemstudio.shop/",
@@ -29,6 +29,13 @@
       "index": true,
       "kind": "about",
       "path": "/sobre/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/curitiba/",
+      "index": true,
+      "kind": "local",
+      "path": "/curitiba/",
       "project_id": ""
     },
     {
@@ -71,6 +78,48 @@
       "index": true,
       "kind": "service",
       "path": "/servicos/sites-html/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/producao-audiovisual/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/producao-audiovisual/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/tratamento-retoque-fotos/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/tratamento-retoque-fotos/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/manipulacao-imagem/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/manipulacao-imagem/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/identidade-visual-branding/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/identidade-visual-branding/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/direcao-arte-campanhas/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/direcao-arte-campanhas/",
+      "project_id": ""
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/servicos/ilustracao-personagens-storyboard/",
+      "index": true,
+      "kind": "service",
+      "path": "/servicos/ilustracao-personagens-storyboard/",
       "project_id": ""
     },
     {
@@ -177,6 +226,13 @@
       "kind": "project",
       "path": "/portfolio/produtos-3d-codex-blender/",
       "project_id": "produtos-3d-codex-blender"
+    },
+    {
+      "canonical": "https://mensagemstudio.shop/portfolio/html-editavel-templates-web/",
+      "index": true,
+      "kind": "project",
+      "path": "/portfolio/html-editavel-templates-web/",
+      "project_id": "html-editavel-templates-web"
     }
   ]
 }
