@@ -18,3 +18,9 @@
   .media-item:hover img{transform:none}
   .project-link:hover{transform:none}
 }
+
+/* INTERACTIVE_TEMPLATE_EMBEDS_V1 */
+.media-item.embed .media-visual{aspect-ratio:16/9;min-height:min(78vh,860px);background:#080907}
+.media-visual .project-embed{display:block;width:100%;height:100%;min-height:min(78vh,860px);border:0;background:#080907}
+@media(max-width:900px){.media-item.embed .media-visual,.media-visual .project-embed{min-height:72svh;aspect-ratio:auto}}
+@media(max-width:650px){.media-item.embed .media-visual,.media-visual .project-embed{min-height:76svh}}

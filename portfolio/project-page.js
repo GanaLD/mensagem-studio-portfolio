@@ -15,6 +15,7 @@
   }
   function mediaClass(item) {
     if (item.type === 'MODEL') return 'wide model';
+    if (item.type === 'EMBED') return 'wide embed';
     const r = ratioFrom(item.type === 'VIDEO' ? (item.poster || '') : item.url);
     if (r >= 1.55) return 'wide';
     if (r <= .82) return 'portrait';
@@ -92,11 +93,13 @@
     return `<img decoding="async" fetchpriority="high" src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
   }
   function itemHTML(item, index) {
-    const type = item.type === 'VIDEO' ? 'Vídeo' : item.type === 'MODEL' ? 'Modelo 3D' : 'Imagem';
+    const type = item.type === 'VIDEO' ? 'Vídeo' : item.type === 'MODEL' ? 'Modelo 3D' : item.type === 'EMBED' ? 'Template interativo' : 'Imagem';
     const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
     let visual='';
     if (item.type === 'VIDEO') {
       visual=`<video controls muted loop playsinline preload="none" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} data-ms-lazy-video="${esc(item.url)}"></video>`;
+    } else if (item.type === 'EMBED') {
+      visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'MODEL') {
       visual=`<model-viewer camera-controls autoplay shadow-intensity="1.1" shadow-softness=".85" exposure="1.05" environment-image="neutral" interaction-prompt="auto" touch-action="pan-y" loading="lazy" src="${esc(item.url)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} alt="${esc(mediaLabel)}"></model-viewer>`;
     } else {

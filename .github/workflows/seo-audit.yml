@@ -52,7 +52,6 @@ jobs:
               "motion-design-cartaz-cinematografico",
               "laminas-divulgacao-publicidade-story",
               "produtos-3d-codex-blender",
-              "cyber-ronin",
               "html-editavel-templates-web",
           ]
           service_slugs = [

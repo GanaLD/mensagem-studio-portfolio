@@ -197,34 +197,35 @@ window.MENSAGEM_PROJECTS = [
       {type:'MODEL',title:'Black Skull Creatine — GLB Interativo',description:'Modelo 3D interativo da creatina Black Skull com embalagem e materiais prontos para visualização web.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/6ec3eed6-8862-4ef7-b5a4-493984e962b9.jpg'}
     ]
   },
+
   {
-    slug:'cyber-ronin', sourceSlug:'cyber-ronin', title:'Cyber Ronin | HTML Interativo', tag:'Web / Experiência Interativa',
-    description:'Experiência web cyberpunk desenvolvida em HTML, CSS e JavaScript puro, com direção visual cinematográfica, spotlight reveal controlado por cursor, animações de entrada, microinterações e responsividade completa.',
+    slug:'html-editavel-templates-web', sourceSlug:'html-editavel-templates-web', title:'HTML EDITÁVEL | TEMPLATES WEB', tag:'Web / Templates Interativos',
+    description:'Projeto de templates web editáveis reunindo duas experiências interativas no mesmo case: Cyber Ronin, com spotlight reveal e motion, e o template automotivo com hotspots, visualizações técnicas, pintura, rodas e comportamento responsivo.',
     details:[
-      {label:'Serviço',text:'Web Design · Front-end · Experiência Interativa'},
-      {label:'Stack',text:'HTML · CSS · JavaScript'}
+      {label:'Serviço',text:'Web Design · Front-end · Templates Interativos'},
+      {label:'Templates',text:'Cyber Ronin · Template Automotivo'},
+      {label:'Stack',text:'HTML · CSS · JavaScript · React · TypeScript · Vite'}
     ],
     cover:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85', coverVideo:'',
     media:[
-      {type:'IMAGE',title:'Cyber Ronin — Interface Interativa',description:'Hero cyberpunk com spotlight reveal e motion responsivo.',url:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85'}
-    ]
-  },
-  {
-    slug:'html-editavel-templates-web', sourceSlug:'html-editavel-templates-web', title:'HTML EDITÁVEL | TEMPLATES WEB', tag:'Web / Template Interativo',
-    description:'Template web interativo e editável com interface automotiva, hotspots, motion, configuração visual, navegação por estados e experiência responsiva em Português BR.',
-    details:[
-      {label:'Serviço',text:'Web Design · Front-end · Template Interativo'},
-      {label:'Stack',text:'React · Vite · TypeScript · CSS'}
-    ],
-    cover:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png', coverVideo:'/portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4',
-    media:[
-      {type:'IMAGE',title:'HTML EDITÁVEL | TEMPLATES WEB — Interface VEYRA',description:'Interface automotiva interativa com hotspots e configuração visual.',url:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png'},
-      {type:'VIDEO',title:'HTML EDITÁVEL | TEMPLATES WEB — Hover interativo',description:'Prévia de interação por hover integrada ao template.',url:'/portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4',poster:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png'}
+      {type:'EMBED',title:'Template 01 — Cyber Ronin',description:'Template HTML interativo com spotlight reveal, motion de entrada, microinterações e layout responsivo.',url:'../cyber-ronin/demo.html'},
+      {type:'EMBED',title:'Template 02 — Experiência Automotiva',description:'Template web automotivo editável com hotspots, transições, visualizações técnicas, opções de pintura e rodas.',url:'./demo/index.html'}
     ]
   }
 ];
 
 window.MENSAGEM_CASE_STUDIES = {
+  "html-editavel-templates-web": {
+    "intro": "Dois templates web interativos reunidos em um único projeto para demonstrar estruturas editáveis, motion, microinterações e experiências digitais responsivas.",
+    "context": "O projeto reúne duas linguagens distintas dentro da mesma categoria de template web: uma experiência cyberpunk e uma interface automotiva interativa.",
+    "objective": "Apresentar templates reutilizáveis que possam ser adaptados para produtos, campanhas, portfólios e experiências de marca.",
+    "solution": "Os dois templates foram mantidos funcionais dentro do próprio case, preservando suas interações e apresentados dentro do padrão visual do portfólio.",
+    "process": "Estrutura HTML e front-end, integração de assets, motion, estados interativos, responsividade, testes e incorporação no portfólio.",
+    "tools": "HTML, CSS, JavaScript, React, TypeScript, Vite e assets web.",
+    "result": "Um único case de templates web editáveis contendo Cyber Ronin e a experiência automotiva interativa.",
+    "serviceLabel": "Sites em HTML e Experiências Web",
+    "serviceHref": "../../servicos/sites-html/"
+  },
   "produto-3d-egeo": {
     "intro": "Projeto de 3D studio e CGI de produto para apresentar o perfume com mais controle visual, consistência e reutilização em campanhas.",
     "context": "Transformar o frasco em um ativo visual reutilizável para campanhas e conteúdo digital.",
