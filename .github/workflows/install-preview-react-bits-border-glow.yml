@@ -39,15 +39,21 @@ jobs:
         working-directory: preview-21st-shader
         run: npx shadcn@latest add @react-bits/BorderGlow-JS-CSS --yes
 
+      - name: Build real BorderGlow preview bundle
+        working-directory: preview-21st-shader
+        run: npm run build
+
       - name: Show generated files
         shell: bash
         run: |
           set -euo pipefail
           find preview-21st-shader/src -maxdepth 6 -type f | sort
+          echo '--- dist ---'
+          find preview-21st-shader/dist -maxdepth 2 -type f -print -exec wc -c {} \;
           echo '--- package.json ---'
           cat preview-21st-shader/package.json
 
-      - name: Commit BorderGlow source
+      - name: Commit BorderGlow source and built bundle
         shell: bash
         run: |
           set -euo pipefail
@@ -58,6 +64,6 @@ jobs:
             echo 'No generated changes to commit.'
             exit 0
           fi
-          git commit -m 'Install React Bits BorderGlow for preview'
+          git commit -m 'Build React Bits BorderGlow preview bundle'
           git pull --rebase origin main
           git push
