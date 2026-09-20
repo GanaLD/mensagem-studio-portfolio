@@ -158,6 +158,46 @@ jobs:
 
           home_index.write_text(text, encoding="utf-8")
 
+          # PREVIEW-only React Bits RubberSegment test on the Services category rail.
+          rubber_dist = Path("preview-21st-shader/dist-rubber")
+          rubber_target = root / "servicos" / "react-bits-rubber-segment"
+          services_index = root / "servicos" / "index.html"
+
+          rubber_js = rubber_dist / "rubber-segment-services.js"
+          rubber_css = rubber_dist / "rubber-segment-services.css"
+
+          if not rubber_js.exists() or not rubber_css.exists():
+              raise SystemExit("RubberSegment preview bundle is missing from preview-21st-shader/dist-rubber")
+
+          if rubber_target.exists():
+              shutil.rmtree(rubber_target)
+          rubber_target.mkdir(parents=True, exist_ok=True)
+          shutil.copy2(rubber_js, rubber_target / rubber_js.name)
+          shutil.copy2(rubber_css, rubber_target / rubber_css.name)
+
+          if services_index.exists():
+              text = services_index.read_text(encoding="utf-8")
+
+              text = re.sub(
+                  r'<link[^>]+href=["\']\./react-bits-rubber-segment/rubber-segment-services\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+src=["\']\./react-bits-rubber-segment/rubber-segment-services\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+
+              rubber_css_tag = '<link rel="stylesheet" href="./react-bits-rubber-segment/rubber-segment-services.css?v=20260920-rubber-segment-v1">'
+              rubber_js_tag = '<script type="module" src="./react-bits-rubber-segment/rubber-segment-services.js?v=20260920-rubber-segment-v1"></script>'
+
+              text = text.replace('</head>', rubber_css_tag + '\n</head>', 1)
+              text = text.replace('</body>', rubber_js_tag + '\n</body>', 1)
+              services_index.write_text(text, encoding="utf-8")
+
           # Portfolio remains LightRays-only. Never inject Plasma.
           portfolio_index = root / "portfolio" / "index.html"
           if portfolio_index.exists():
