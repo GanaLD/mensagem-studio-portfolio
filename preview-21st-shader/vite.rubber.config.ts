@@ -20,7 +20,7 @@ export default defineConfig({
     lib: {
       entry: fileURLToPath(new URL("./src/rubber-main.tsx", import.meta.url)),
       name: "MSReactBitsRubberSegment",
-      formats: ["es"],
+      formats: ["iife"],
       fileName: () => "rubber-segment-services.js",
     },
     rollupOptions: {
