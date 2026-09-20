@@ -64,7 +64,13 @@ A entidade MENSAGEM STUDIO neste arquivo refere-se exclusivamente ao estúdio cr
 - Fotos e imagens para e-commerce: https://mensagemstudio.shop/servicos/fotos-ecommerce/
 - Sites e experiências web: https://mensagemstudio.shop/servicos/sites-html/
 
+## HTML Customizado / Templates Web
+- Serviço: https://mensagemstudio.shop/servicos/sites-html/
+- Templates de referência e projeto comercial: https://mensagemstudio.shop/portfolio/html-editavel-templates-web/
+- Intenções: site HTML customizado, template HTML personalizado, landing page HTML, site sob medida, template web editável, site interativo, front-end responsivo.
+
 ## Projetos selecionados
+- https://mensagemstudio.shop/portfolio/html-editavel-templates-web/
 - https://mensagemstudio.shop/portfolio/produto-3d-egeo/
 - https://mensagemstudio.shop/portfolio/carrossel-banner-estetica/
 - https://mensagemstudio.shop/portfolio/edicao-podcast-workshop/
