@@ -24,3 +24,14 @@
 .media-visual .project-embed{display:block;width:100%;height:100%;min-height:min(78vh,860px);border:0;background:#080907}
 @media(max-width:900px){.media-item.embed .media-visual,.media-visual .project-embed{min-height:72svh;aspect-ratio:auto}}
 @media(max-width:650px){.media-item.embed .media-visual,.media-visual .project-embed{min-height:76svh}}
+
+/* HTML_TEMPLATE_RESERVED_SLOTS_V1 */
+.template-slot-card .media-visual{min-height:min(58vh,620px);display:grid;place-items:stretch}
+.template-slot{width:100%;min-height:min(58vh,620px);display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:clamp(22px,4vw,54px);padding:clamp(26px,4vw,56px);background:
+radial-gradient(circle at 82% 16%,rgba(201,255,54,.08),transparent 28%),
+linear-gradient(145deg,rgba(15,18,12,.96),rgba(7,8,6,.98));border:1px solid rgba(201,255,54,.12)}
+.template-slot-index{font-size:clamp(54px,9vw,130px);line-height:.8;font-weight:800;letter-spacing:-.07em;color:rgba(201,255,54,.2)}
+.template-slot small{display:block;color:var(--lime);font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.template-slot strong{display:block;font-size:clamp(28px,4.2vw,62px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase}
+.template-slot p{margin:14px 0 0;max-width:52ch;color:var(--muted);font-size:clamp(13px,1vw,16px);line-height:1.55}
+@media(max-width:650px){.template-slot{grid-template-columns:1fr;align-content:end}.template-slot-index{font-size:72px}.template-slot-card .media-visual,.template-slot{min-height:52svh}}
