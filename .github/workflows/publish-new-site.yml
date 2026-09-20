@@ -18,7 +18,6 @@ on:
       - 'servicos/**'
       - 'sobre/**'
       - 'assets/**'
-      - 'preview-react-filter/dist/**'
       - '.github/workflows/publish-new-site.yml'
   workflow_dispatch:
 
@@ -157,50 +156,6 @@ jobs:
                       text = text.replace('</body>', script_tag + '\n</body>', 1)
 
               portfolio_index.write_text(text, encoding="utf-8")
-
-          # Re-apply the supplied React/TypeScript token filter to PREVIEW only (built bundle).
-          react_filter_dist = Path("preview-react-filter/dist")
-          react_filter_dst = root / "portfolio" / "filter-token-react"
-
-          if react_filter_dist.exists() and portfolio_index.exists():
-              import shutil
-
-              if react_filter_dst.exists():
-                  shutil.rmtree(react_filter_dst)
-              shutil.copytree(react_filter_dist, react_filter_dst)
-
-              text = portfolio_index.read_text(encoding="utf-8")
-
-              # Remove the previous vanilla preview experiment if it exists.
-              text = re.sub(
-                  r'<link[^>]+href=["\']\\./filter-token-bar\\.css(?:\\?[^"\']*)?["\'][^>]*>\\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-              text = re.sub(
-                  r'<script[^>]+src=["\']\\./filter-token-bar\\.js(?:\\?[^"\']*)?["\'][^>]*><\\/script>\\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-
-              react_css = '<link rel="stylesheet" href="./filter-token-react/filter-token-react.css?v=20260919-react-v2">'
-              react_js = '<script type="module" src="./filter-token-react/filter-token-react.js?v=20260919-react-v2"></script>'
-
-              if './filter-token-react/filter-token-react.css' not in text:
-                  text = text.replace('</head>', react_css + '\n</head>', 1)
-
-              if './filter-token-react/filter-token-react.js' not in text:
-                  anchor = '<script src="./projects-aurora.js'
-                  pos = text.find(anchor)
-                  if pos >= 0:
-                      text = text[:pos] + react_js + '\n' + text[pos:]
-                  else:
-                      text = text.replace('</body>', react_js + '\n</body>', 1)
-
-              portfolio_index.write_text(text, encoding="utf-8")
-
           PY
 
       - name: Commit backup snapshot
