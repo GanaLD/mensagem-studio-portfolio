@@ -146,6 +146,7 @@ export const Plasma = ({
     canvas.style.display = 'block';
     canvas.style.width = '100%';
     canvas.style.height = '100%';
+    // Rendering at renderScale internally, CSS stretches it back up.
     containerEl.appendChild(canvas);
 
     const geometry = new Triangle(gl);
@@ -175,6 +176,7 @@ export const Plasma = ({
     const handleMouseMove = e => {
       if (!mouseInteractive) return;
       const rect = containerEl.getBoundingClientRect();
+      // Store the latest position but don't touch GL state here, the rAF loop picks it up once per rendered frame instead of once per mouse event.
       pendingMouse.current = {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
@@ -192,6 +194,7 @@ export const Plasma = ({
       const height = Math.max(1, Math.floor(rect.height * renderScale));
       renderer.setSize(width, height);
 
+      // renderer.setSize also sets canvas.style.width/height to match the (scaled-down) drawing buffer - override that so the canvas still stretches to fill its container via CSS while the buffer stays small.
       canvas.style.width = '100%';
       canvas.style.height = '100%';
 
@@ -201,6 +204,7 @@ export const Plasma = ({
     };
 
     const ro = new ResizeObserver(() => {
+      // Batch rapid resize events (ex. during a window drag) into one setSize per frame.
       if (resizePending) return;
       resizePending = true;
       requestAnimationFrame(() => {
@@ -295,6 +299,7 @@ export const Plasma = ({
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
+    // Respect prefers-reduced-motion: paint one frame and stop, rather than running a perpetual animation loop for users who've asked not to see motion.
     if (prefersReducedMotion) {
       renderStaticFrame();
     } else {
