@@ -1,4 +1,4 @@
-name: Build PREVIEW React Bits Plasma
+name: Build PREVIEW React Bits BorderGlow
 
 on:
   push:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-preview-react-bits-plasma
+  group: build-preview-react-bits-border-glow
   cancel-in-progress: true
 
 jobs:
@@ -38,9 +38,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: preview-21st-shader
-        run: npm install --no-package-lock --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
-      - name: Build React Bits Plasma
+      - name: Build React Bits BorderGlow
         working-directory: preview-21st-shader
         run: npm run build
 
@@ -48,89 +48,23 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf /tmp/plasma-dist
-          cp -R preview-21st-shader/dist /tmp/plasma-dist
+          rm -rf /tmp/border-glow-dist
+          cp -R preview-21st-shader/dist /tmp/border-glow-dist
           git fetch origin main
           git reset --hard origin/main
           rm -rf preview-21st-shader/dist
-          cp -R /tmp/plasma-dist preview-21st-shader/dist
+          cp -R /tmp/border-glow-dist preview-21st-shader/dist
 
-      - name: Install bundle in preview
-        shell: bash
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          import shutil
-
-          dist = Path("preview-21st-shader/dist")
-          target = Path("wix-preview/portfolio/plasma-react-bits")
-          index = Path("wix-preview/portfolio/index.html")
-
-          if not (dist / "plasma-background.js").exists():
-              raise SystemExit("Missing plasma-background.js")
-          if not (dist / "plasma-background.css").exists():
-              raise SystemExit("Missing plasma-background.css")
-          if not index.exists():
-              raise SystemExit("Missing preview portfolio index")
-
-          if target.exists():
-              shutil.rmtree(target)
-          shutil.copytree(dist, target)
-
-          text = index.read_text(encoding="utf-8")
-
-          text = re.sub(
-              r'<link[^>]+href=["\']\./projects-aurora\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
-              '',
-              text,
-              flags=re.I,
-          )
-          text = re.sub(
-              r'<script[^>]+src=["\']\./projects-aurora\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
-              '',
-              text,
-              flags=re.I,
-          )
-          text = re.sub(
-              r'<link[^>]+href=["\']\./shader-21st/shader-background\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
-              '',
-              text,
-              flags=re.I,
-          )
-          text = re.sub(
-              r'<script[^>]+src=["\']\./shader-21st/shader-background\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
-              '',
-              text,
-              flags=re.I,
-          )
-
-          css_tag = '<link rel="stylesheet" href="./plasma-react-bits/plasma-background.css?v=20260920-react-bits-plasma-v1">'
-          js_tag = '<script type="module" src="./plasma-react-bits/plasma-background.js?v=20260920-react-bits-plasma-v1"></script>'
-
-          text = text.replace('</head>', css_tag + '\n</head>', 1)
-
-          anchor = '<script src="./project-data.js'
-          pos = text.find(anchor)
-          if pos >= 0:
-              text = text[:pos] + js_tag + '\n' + text[pos:]
-          else:
-              text = text.replace('</body>', js_tag + '\n</body>', 1)
-
-          index.write_text(text, encoding="utf-8")
-          PY
-
-      - name: Commit built preview Plasma assets cleanly
+      - name: Commit built BorderGlow assets
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A preview-21st-shader/dist wix-preview/portfolio
+          git add -A preview-21st-shader/dist
           if git diff --cached --quiet; then
-            echo 'Plasma bundle already current.'
+            echo 'BorderGlow bundle already current.'
             exit 0
           fi
-          git commit -m 'Build preview React Bits Plasma background'
+          git commit -m 'Build preview React Bits BorderGlow'
           git push origin HEAD:main
