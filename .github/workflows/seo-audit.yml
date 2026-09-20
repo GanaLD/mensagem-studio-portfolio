@@ -52,6 +52,8 @@ jobs:
               "motion-design-cartaz-cinematografico",
               "laminas-divulgacao-publicidade-story",
               "produtos-3d-codex-blender",
+              "cyber-ronin",
+              "html-editavel-templates-web",
           ]
           service_slugs = [
               "design-social-media",
@@ -85,6 +87,7 @@ jobs:
               "portfolio/index.html": base + "portfolio/",
               "servicos/index.html": base + "servicos/",
               "sobre/index.html": base + "sobre/",
+              "curitiba/index.html": base + "curitiba/",
           }
           pages.update({
               f"portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
@@ -152,6 +155,7 @@ jobs:
               "wix-preview/portfolio/index.html": base + "portfolio/",
               "wix-preview/servicos/index.html": base + "servicos/",
               "wix-preview/sobre/index.html": base + "sobre/",
+              "wix-preview/curitiba/index.html": base + "curitiba/",
           }
           backup_pages.update({
               f"wix-preview/portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
