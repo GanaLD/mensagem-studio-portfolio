@@ -294,6 +294,120 @@ main>.wrap>.lead{
 <link rel="stylesheet" href="./light-rays-react-bits/light-rays-background.css?v=20260919-react-bits-light-rays-v1">
 
 
+
+<style id="sentinel-core-site-style-v1">
+/* Sentinel Core Eye — no eyelids, isolated after the project grid */
+.sentinel-core-site-shell{
+  position:relative;
+  width:100%;
+  min-height:clamp(500px,52vw,700px);
+  margin-top:clamp(84px,8vw,140px);
+  padding:clamp(44px,6vw,90px) 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;
+  background:transparent;
+  pointer-events:none;
+}
+.sentinel-core-site{
+  position:relative;
+  width:400px;
+  height:400px;
+  flex:0 0 auto;
+}
+.sentinel-core-site .eyeball{
+  background:radial-gradient(circle at 40% 40%,rgb(240,246,252),rgb(170,186,201));
+  border:2px solid rgb(48,54,61);
+  border-radius:50%;
+  width:300px;
+  height:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:rgba(0,0,0,.5) 0 0 50px inset,rgba(88,166,255,.3) 0 0 20px;
+}
+.sentinel-core-site .iris{
+  background:radial-gradient(circle,rgb(88,166,255) 10%,rgb(0,123,255) 40%,rgb(12,45,94) 90%);
+  border-radius:50%;
+  width:150px;
+  height:150px;
+  transition:transform .1s ease-out;
+  animation:sentinelSitePulse 4s ease infinite;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:rgba(0,0,0,.7) 0 0 20px inset,rgb(88,166,255) 0 0 30px;
+  will-change:transform;
+}
+.sentinel-core-site .pupil{
+  background:#000;
+  border-radius:50%;
+  width:60px;
+  height:60px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:#000 0 0 10px;
+  overflow:hidden;
+}
+.sentinel-core-site .scan-line{
+  background:rgba(127,255,212,.7);
+  width:2px;
+  height:100%;
+  animation:sentinelSiteScan 3s linear infinite;
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%);
+}
+.sentinel-core-site .details{
+  pointer-events:none;
+  width:100%;
+  height:100%;
+  position:absolute;
+  inset:0;
+}
+.sentinel-core-site .details .circuit{
+  border:1px solid rgba(88,166,255,.5);
+  border-radius:20px;
+  width:100px;
+  height:100px;
+  position:absolute;
+}
+.sentinel-core-site .details .circuit.c1{top:20px;left:20px}
+.sentinel-core-site .details .circuit.c2{right:20px;bottom:20px}
+@keyframes sentinelSiteScan{
+  0%,100%{opacity:0;transform:translateY(-100%)}
+  10%,90%{opacity:1;transform:translateY(0)}
+  50%{opacity:0;transform:translateY(100%)}
+}
+@keyframes sentinelSitePulse{
+  50%{opacity:.5}
+}
+@media(max-width:650px){
+  .sentinel-core-site-shell{
+    min-height:420px;
+    margin-top:58px;
+    padding:32px 0 50px;
+  }
+  .sentinel-core-site{
+    transform:scale(.76);
+    transform-origin:center center;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .sentinel-core-site .iris,
+  .sentinel-core-site .scan-line{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
 </head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="projects-hero-media" aria-hidden="true"><video id="projectsHeroVideo" class="projects-hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/688144e1-4fb7-4d05-86c3-3273e4238efc.mp4" type="video/mp4"></video></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos</h1><p class="lead">Explore projetos de design gráfico, branding, motion, edição de vídeo, audiovisual e 3D desenvolvidos pela Mensagem Studio, estúdio criativo em Curitiba. Navegue pelos cases e descubra soluções visuais para inspirar seu próximo projeto.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
 <h2 class="sr-only">iPhone 18 — showcase 3D interativo</h2>
@@ -317,7 +431,23 @@ main>.wrap>.lead{
 <article class="card" data-cat="Social Media" data-project-slug="laminas-divulgacao-publicidade-story" data-cats="Social Media|Campanhas|Design"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://static.wixstatic.com/media/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png/v1/fill/w_1080,h_1920,al_c/ef8a3a_134747fa85f746c4aae9752bb0c62e6b~mv2.png" alt="Lâminas de divulgação e stories publicitários"></div><div class="text"><small>Social Media / Publicidade</small><h2>Lâminas de Divulgação | Publicidade Story</h2><p>Stories publicitários e peças verticais para campanhas, WhatsApp e redes sociais.</p><span class="badge">Mensagem Studio</span></div></article>
 <article class="card" data-cat="3D" data-project-slug="produtos-3d-codex-blender" data-cats="3D|Produto" data-preview-video="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/bc0c7c1e-70df-4081-95d7-268762fc9f64.mp4"><div class="media"><img loading="lazy" decoding="async" fetchpriority="low" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/24b66843-132a-443d-bd65-0348071de425.png" alt="Produtos 3D com Codex e Blender"></div><div class="text"><small>3D / Produto</small><h2>PRODUTOS 3D | CODEX + BLENDER</h2><p>Modelagem, animação, render e GLB interativo em um pipeline de produto 3D com Blender e Codex.</p><span class="badge">Mensagem Studio</span></div></article>
 </div>
-</div></main><footer><span>Mensagem Studio © 2026</span><a href="../servicos/">Conhecer serviços ↗</a></footer>
+</div>
+<section class="sentinel-core-site-shell" aria-label="Sentinel Core Eye">
+  <div class="sentinel-core-site">
+    <div class="eyeball">
+      <div class="iris">
+        <div class="pupil">
+          <div class="scan-line"></div>
+        </div>
+      </div>
+    </div>
+    <div class="details">
+      <div class="circuit c1"></div>
+      <div class="circuit c2"></div>
+    </div>
+  </div>
+</section>
+</main><footer><span>Mensagem Studio © 2026</span><a href="../servicos/">Conhecer serviços ↗</a></footer>
 
 
 <script id="projects-hero-video-runtime-v1">
@@ -434,5 +564,43 @@ render();
 <script src="../global-ui.js?v=20260915-r18-quote-royal-glass"></script>
 
 <script src="./project-video-preview.js?v=20260911-explicit-video1"></script>\n
+
+
+<script id="sentinel-core-site-runtime-v1">
+(()=>{
+  const iris=document.querySelector('.sentinel-core-site .iris');
+  if(!iris)return;
+  const eyeball=iris.parentElement;
+  let raf=0;
+  let x=0,y=0;
+
+  const render=()=>{
+    raf=0;
+    const rect=eyeball.getBoundingClientRect();
+    const cx=rect.left+rect.width/2;
+    const cy=rect.top+rect.height/2;
+    const dx=x-cx;
+    const dy=y-cy;
+    const maxDistance=rect.width/4;
+    const angle=Math.atan2(dy,dx);
+    const distance=Math.min(Math.hypot(dx,dy),maxDistance);
+    const moveX=Math.cos(angle)*distance;
+    const moveY=Math.sin(angle)*distance;
+    iris.style.transform=`translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+  };
+
+  const onMove=(event)=>{
+    x=event.clientX;
+    y=event.clientY;
+    if(!raf)raf=requestAnimationFrame(render);
+  };
+
+  window.addEventListener('mousemove',onMove,{passive:true});
+  window.addEventListener('pagehide',()=>{
+    window.removeEventListener('mousemove',onMove);
+    if(raf)cancelAnimationFrame(raf);
+  },{once:true});
+})();
+</script>
 
 </body></html>
