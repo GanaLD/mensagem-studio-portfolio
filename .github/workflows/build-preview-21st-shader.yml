@@ -110,7 +110,7 @@ jobs:
           index.write_text(text, encoding="utf-8")
           PY
 
-      - name: Commit built preview Plasma
+      - name: Commit built preview Plasma assets
         shell: bash
         run: |
           set -euo pipefail
