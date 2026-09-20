@@ -42,31 +42,36 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Recreate the backup from scratch. Explicitly whitelisted preview
-          # overlays are re-applied after the production mirror is rebuilt.
           rm -rf wix-preview
           mkdir -p wix-preview
 
-          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='wix-preview/'             --exclude='scripts/'             --exclude='docs/'             --exclude='review-priority6/'             --exclude='preview-21st-shader/'             --exclude='preview-*.html'             --exclude='CNAME'             ./ wix-preview/
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='wix-preview/' \
+            --exclude='scripts/' \
+            --exclude='docs/' \
+            --exclude='review-priority6/' \
+            --exclude='preview-21st-shader/' \
+            --exclude='preview-*.html' \
+            --exclude='CNAME' \
+            ./ wix-preview/
 
           python - <<'PY'
           from pathlib import Path
           import re
+          import shutil
 
           root = Path("wix-preview")
 
-          # Keep global navigation inside the backup tree.
           gui = root / "global-ui.js"
           if gui.exists():
               text = gui.read_text(encoding="utf-8")
               text = text.replace("const ROOT = '/';", "const ROOT = '/wix-preview/';")
               gui.write_text(text, encoding="utf-8")
 
-          # Preview HTML should mirror production content while remaining
-          # excluded from indexing. Do NOT rewrite relative asset/script paths:
-          # the mirrored directory structure already resolves them correctly.
-          for path in root.rglob("*.html"):
-              text = path.read_text(encoding="utf-8")
+          for html in root.rglob("*.html"):
+              text = html.read_text(encoding="utf-8")
 
               text = re.sub(
                   r'<meta name="robots" content="[^"]*">',
@@ -94,28 +99,93 @@ jobs:
                       flags=re.I,
                   )
 
-              # Repair legacy duplicated paths without touching correct relative refs.
               text = text.replace('./wix-preview/global-ui.js', './global-ui.js')
               text = text.replace('../wix-preview/global-ui.js', '../global-ui.js')
               text = text.replace('../../wix-preview/global-ui.js', '../../global-ui.js')
-
-              # Root-absolute references must stay inside the backup tree.
               text = text.replace('src="/global-ui.js', 'src="/wix-preview/global-ui.js')
               text = text.replace("src='/global-ui.js", "src='/wix-preview/global-ui.js")
 
-              path.write_text(text, encoding="utf-8")
+              html.write_text(text, encoding="utf-8")
 
-          # PREVIEW mirrors production. The portfolio background is LightRays only.
-          # Do not inject Plasma or any alternate background during backup sync.          PY
+          # PREVIEW-only React Bits BorderGlow test on the HOME service cards.
+          dist = Path("preview-21st-shader/dist")
+          target = root / "react-bits-border-glow"
+          home_index = root / "index.html"
+
+          js = dist / "border-glow-service-cards.js"
+          css = dist / "border-glow-service-cards.css"
+
+          if not js.exists() or not css.exists():
+              raise SystemExit("BorderGlow preview bundle is missing from preview-21st-shader/dist")
+
+          if target.exists():
+              shutil.rmtree(target)
+          target.mkdir(parents=True, exist_ok=True)
+          shutil.copy2(js, target / js.name)
+          shutil.copy2(css, target / css.name)
+
+          text = home_index.read_text(encoding="utf-8")
+
+          # Remove older preview-only attempts before inserting the real component bundle.
+          text = re.sub(
+              r'<link[^>]+href=["\']\./react-bits-border-glow/border-glow-service-cards\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
+              '',
+              text,
+              flags=re.I,
+          )
+          text = re.sub(
+              r'<script[^>]+src=["\']\./react-bits-border-glow/border-glow-service-cards\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
+              '',
+              text,
+              flags=re.I,
+          )
+
+          css_tag = '<link rel="stylesheet" href="./react-bits-border-glow/border-glow-service-cards.css?v=20260920-react-bits-border-glow-v2">'
+          js_tag = '<script type="module" src="./react-bits-border-glow/border-glow-service-cards.js?v=20260920-react-bits-border-glow-v2"></script>'
+
+          text = text.replace('</head>', css_tag + '\n</head>', 1)
+
+          runtime_match = re.search(
+              r'<script src="\./home-runtime\.js\?v=[^"]+"></script>',
+              text,
+              flags=re.I,
+          )
+          if runtime_match:
+              pos = runtime_match.end()
+              text = text[:pos] + '\n' + js_tag + text[pos:]
+          else:
+              text = text.replace('</body>', js_tag + '\n</body>', 1)
+
+          home_index.write_text(text, encoding="utf-8")
+
+          # Portfolio remains LightRays-only. Never inject Plasma.
+          portfolio_index = root / "portfolio" / "index.html"
+          if portfolio_index.exists():
+              text = portfolio_index.read_text(encoding="utf-8")
+              text = re.sub(
+                  r'<link[^>]+href=["\']\./plasma-react-bits/[^"\']+["\'][^>]*>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+src=["\']\./plasma-react-bits/[^"\']+["\'][^>]*><\/script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              portfolio_index.write_text(text, encoding="utf-8")
+          PY
 
       - name: Commit backup snapshot
         shell: bash
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A wix-preview
           if git diff --cached --quiet; then
-            echo 'Preview backup already matches production.'
+            echo 'Preview backup already matches production plus approved preview overlays.'
             exit 0
           fi
           git commit -m 'Sync wix-preview backup from production'
