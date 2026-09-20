@@ -199,31 +199,32 @@ window.MENSAGEM_PROJECTS = [
   },
 
   {
-    slug:'html-editavel-templates-web', sourceSlug:'html-editavel-templates-web', title:'HTML EDITÁVEL | TEMPLATES WEB', tag:'Web / Templates Interativos',
-    description:'Projeto de templates web editáveis reunindo duas experiências interativas no mesmo case: Cyber Ronin, com spotlight reveal e motion, e o template automotivo com hotspots, visualizações técnicas, pintura, rodas e comportamento responsivo.',
+    slug:'html-editavel-templates-web', sourceSlug:'html-editavel-templates-web', title:'HTML EDITÁVEL | TEMPLATES WEB', tag:'Web / HTML Customizado',
+    description:'Venda de sites HTML customizados a partir de templates de referência. Escolha Cyber Ronin, Experiência Automotiva ou LTX e personalize identidade visual, textos, imagens, vídeos, motion, interações e estrutura responsiva para sua marca.',
     details:[
-      {label:'Serviço',text:'Web Design · Front-end · Templates Interativos'},
-      {label:'Templates',text:'Cyber Ronin · Template Automotivo'},
-      {label:'Stack',text:'HTML · CSS · JavaScript · React · TypeScript · Vite'}
+      {label:'Serviço',text:'Site HTML Customizado · Landing Page · Experiência Web'},
+      {label:'Personalização',text:'Layout · Cores · Tipografia · Conteúdo · Motion · Interações'},
+      {label:'Entrega',text:'HTML/CSS/JS · Código editável · Desktop · Tablet · Mobile'}
     ],
     cover:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85', coverVideo:'',
     media:[
-      {type:'EMBED',title:'Template 01 — Cyber Ronin',description:'Template HTML interativo com spotlight reveal, motion de entrada, microinterações e layout responsivo.',url:'../cyber-ronin/demo.html'},
-      {type:'EMBED',title:'Template 02 — Experiência Automotiva',description:'Template web automotivo editável com hotspots, transições, visualizações técnicas, opções de pintura e rodas.',url:'./demo/index.html'}
+      {type:'EMBED',title:'Template 01 — Cyber Ronin',description:'Referência para site HTML customizado com visual cinematográfico, motion, microinterações e adaptação completa de marca e conteúdo.',url:'../cyber-ronin/demo.html'},
+      {type:'EMBED',title:'Template 02 — Experiência Automotiva',description:'Referência para páginas de produto, catálogos e lançamentos com hotspots, variações e exploração interativa customizável.',url:'./demo/index.html'},
+      {type:'EMBED',title:'Template 03 — LTX: O modelo de mundo',description:'Referência para experiências audiovisuais, campanhas e apresentações com interface glass, cenas em tela cheia e narrativa interativa.',url:'https://raw.githack.com/GanaLD/LTXhtml/main/index.html'}
     ]
   }
 ];
 
 window.MENSAGEM_CASE_STUDIES = {
   "html-editavel-templates-web": {
-    "intro": "Dois templates web interativos reunidos em um único projeto para demonstrar estruturas editáveis, motion, microinterações e experiências digitais responsivas.",
-    "context": "O projeto reúne duas linguagens distintas dentro da mesma categoria de template web: uma experiência cyberpunk e uma interface automotiva interativa.",
-    "objective": "Apresentar templates reutilizáveis que possam ser adaptados para produtos, campanhas, portfólios e experiências de marca.",
-    "solution": "Os dois templates foram mantidos funcionais dentro do próprio case, preservando suas interações e apresentados dentro do padrão visual do portfólio.",
-    "process": "Estrutura HTML e front-end, integração de assets, motion, estados interativos, responsividade, testes e incorporação no portfólio.",
-    "tools": "HTML, CSS, JavaScript, React, TypeScript, Vite e assets web.",
-    "result": "Um único case de templates web editáveis contendo Cyber Ronin e a experiência automotiva interativa.",
-    "serviceLabel": "Sites em HTML e Experiências Web",
+    "intro": "Sites HTML customizados vendidos a partir de templates de referência que aceleram a definição visual sem limitar a personalização final.",
+    "context": "O cliente pode partir de Cyber Ronin, Experiência Automotiva ou LTX como referência de linguagem, interação e estrutura para construir uma presença web própria.",
+    "objective": "Transformar uma referência visual em um site HTML personalizado para marca, produto, campanha, portfólio ou landing page.",
+    "solution": "A estrutura escolhida é adaptada com identidade visual, tipografia, cores, conteúdo, mídia, seções, CTAs, motion e interações de acordo com o objetivo comercial.",
+    "process": "Escolha da referência, briefing, customização visual e de conteúdo, desenvolvimento front-end, responsividade, testes e preparação da entrega ou publicação.",
+    "tools": "HTML, CSS, JavaScript e tecnologias front-end selecionadas conforme a referência e a necessidade do projeto.",
+    "result": "Um site HTML customizado e responsivo, com código editável e experiência visual alinhada à marca do cliente.",
+    "serviceLabel": "Sites HTML Customizados e Experiências Web",
     "serviceHref": "../../servicos/sites-html/"
   },
   "produto-3d-egeo": {
