@@ -371,35 +371,6 @@ main>.wrap>.lead{
   left:50%;
   transform:translate(-50%);
 }
-.sentinel-core-original .eyelid{
-  position:absolute;
-  left:50%;
-  width:400px;
-  height:200px;
-  transform:translateX(-50%);
-  border-radius:50%;
-  overflow:hidden;
-  background:transparent;
-  animation:sentinelOriginalBlink 5s ease infinite;
-}
-.sentinel-core-original .eyelid::before{
-  content:"";
-  position:absolute;
-  inset:-260px;
-  background:
-    radial-gradient(72% 58% at 12% 18%,rgba(10,34,82,.72) 0,rgba(8,25,58,.40) 34%,transparent 72%),
-    radial-gradient(68% 52% at 88% 34%,rgba(5,70,52,.38) 0,rgba(4,42,34,.22) 38%,transparent 74%),
-    linear-gradient(180deg,#050706 0%,#07111d 50%,#050806 100%);
-  background-attachment:fixed;
-}
-.sentinel-core-original .eyelid.top{
-  top:-100px;
-  border-bottom:1px solid rgba(48,54,61,.8);
-}
-.sentinel-core-original .eyelid.bottom{
-  bottom:-100px;
-  border-top:1px solid rgba(48,54,61,.8);
-}
 .sentinel-core-original .details{
   pointer-events:none;
   width:100%;
@@ -420,8 +391,6 @@ main>.wrap>.lead{
   10%,90%{opacity:1;transform:translateY(0)}
   50%{opacity:0;transform:translateY(100%)}
 }
-@keyframes sentinelOriginalBlink{
-  0%,95%,100%{transform:scaleY(1) translate(-50%)}
   97.5%{transform:scaleY(.1) translate(-50%)}
 }
 @keyframes sentinelOriginalPulse{
@@ -437,11 +406,7 @@ main>.wrap>.lead{
 @media(prefers-reduced-motion:reduce){
   .sentinel-core-original .iris,
   .sentinel-core-original .scan-line,
-  .sentinel-core-original .eyelid{
-    animation:none!important;
-    transition:none!important;
   }
-}
 </style>
 
 </head>
@@ -471,16 +436,14 @@ main>.wrap>.lead{
 <section class="sentinel-core-preview-shell" aria-label="Sentinel Core Eye">
   <div class="sentinel-core-original">
     <div class="eye-container">
-      <div class="eyelid top"></div>
-      <div class="eyeball">
+<div class="eyeball">
         <div class="iris">
           <div class="pupil">
             <div class="scan-line"></div>
           </div>
         </div>
       </div>
-      <div class="eyelid bottom"></div>
-      <div class="details">
+<div class="details">
         <div class="circuit c1"></div>
         <div class="circuit c2"></div>
       </div>
