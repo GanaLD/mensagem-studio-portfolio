@@ -18,7 +18,6 @@ on:
       - 'servicos/**'
       - 'sobre/**'
       - 'assets/**'
-      - 'preview-21st-shader/dist/**'
       - '.github/workflows/publish-new-site.yml'
   workflow_dispatch:
 
