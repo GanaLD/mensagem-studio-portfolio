@@ -216,10 +216,10 @@ window.MENSAGEM_PROJECTS = [
       {label:'Serviço',text:'Web Design · Front-end · Template Interativo'},
       {label:'Stack',text:'React · Vite · TypeScript · CSS'}
     ],
-    cover:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png', coverVideo:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/hood-hover-forward.mp4',
+    cover:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png', coverVideo:'/portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4',
     media:[
-      {type:'IMAGE',title:'HTML EDITÁVEL | TEMPLATES WEB — Interface VEYRA',description:'Interface automotiva interativa com hotspots e configuração visual.',url:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png'},
-      {type:'VIDEO',title:'HTML EDITÁVEL | TEMPLATES WEB — Hover interativo',description:'Prévia de interação por hover integrada ao template.',url:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/hood-hover-forward.mp4',poster:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png'}
+      {type:'IMAGE',title:'HTML EDITÁVEL | TEMPLATES WEB — Interface VEYRA',description:'Interface automotiva interativa com hotspots e configuração visual.',url:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png'},
+      {type:'VIDEO',title:'HTML EDITÁVEL | TEMPLATES WEB — Hover interativo',description:'Prévia de interação por hover integrada ao template.',url:'/portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4',poster:'/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png'}
     ]
   }
 ];
