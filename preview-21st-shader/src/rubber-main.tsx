@@ -25,7 +25,7 @@ function bootRubberSegment() {
   const catalog = document.getElementById("catalog");
   const header = document.querySelector<HTMLElement>(".top");
 
-  if (!wrap || !legacy || !catalog || document.getElementById("rubber-segment-services-root")) return;
+  if (!wrap || !legacy || !catalog) return;
 
   const items = Array.from(legacy.querySelectorAll<HTMLElement>("[data-cat]"))
     .map((el) => el.dataset.cat || el.textContent?.trim() || "")
@@ -33,12 +33,29 @@ function bootRubberSegment() {
 
   const categories = items.length ? items : FALLBACK_ITEMS;
 
-  const host = document.createElement("div");
-  host.id = "rubber-segment-services-root";
-  host.setAttribute("aria-label", "Categorias de serviços");
+  // The server-rendered catalog predates the data attribute used by the
+  // scroll-sync logic. Normalize it once so the active segment always tracks
+  // the visible section even before a category is clicked.
+  Array.from(catalog.querySelectorAll<HTMLElement>(".category")).forEach((section, index) => {
+    if (!section.dataset.serviceCategory) {
+      const category = categories[index + 1];
+      if (category) section.dataset.serviceCategory = category;
+    }
+  });
+
+  let host = document.getElementById("rubber-segment-services-root") as HTMLElement | null;
+  if (host?.dataset.rubberMounted === "1") return;
+
+  if (!host) {
+    host = document.createElement("div");
+    host.id = "rubber-segment-services-root";
+    host.setAttribute("aria-label", "Categorias de serviços");
+    wrap.appendChild(host);
+  }
+
+  host.dataset.rubberMounted = "1";
   legacy.classList.add("ms-legacy-filters-hidden");
   legacy.setAttribute("aria-hidden", "true");
-  wrap.appendChild(host);
 
   let currentValue = "Todos";
   let setReactValue: ((value: string) => void) | null = null;
@@ -47,6 +64,75 @@ function bootRubberSegment() {
   let clickHoldUntil = 0;
 
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function fallbackMarkup() {
+    const buttons = categories
+      .map(
+        (item, index) =>
+          `<button type="button" role="radio" aria-checked="${index === 0 ? "true" : "false"}" tabindex="${index === 0 ? "0" : "-1"}" class="rubber-segment__item" data-rubber-value="${item.replace(/"/g, "&quot;")}">${item}</button>`
+      )
+      .join("");
+
+    const copies = categories
+      .map(
+        (item) =>
+          `<span class="rubber-segment__item rubber-segment__copy">${item}</span>`
+      )
+      .join("");
+
+    host.innerHTML =
+      '<div class="ms-rubber-segment-scroll">' +
+      '<div role="radiogroup" aria-label="Categorias de serviços" data-draggable class="rubber-segment ms-services-rubber-segment" style="--rs-track:rgba(8, 12, 14, 0.88);--rs-thumb:#35D39A;--rs-ink:#E7ECEA;--rs-ink-active:#04130D;--rs-radius:20px;--rs-inset:4px;--rs-thumb-radius:16px;--rs-h:36px;--rs-font:13px;--rs-pad:14px;--rs-min:44px">' +
+      buttons +
+      '<div class="rubber-segment__thumb" aria-hidden="true">' +
+      copies +
+      "</div></div></div>";
+  }
+
+  function syncFallbackUi(value: string) {
+    const track = host.querySelector<HTMLElement>(".rubber-segment");
+    if (!track) return;
+
+    const buttons = Array.from(
+      host.querySelectorAll<HTMLButtonElement>(".rubber-segment__item[data-rubber-value]")
+    );
+    const selected = buttons.find((button) => button.dataset.rubberValue === value) || buttons[0];
+    if (!selected) return;
+
+    buttons.forEach((button) => {
+      const on = button === selected;
+      button.setAttribute("aria-checked", String(on));
+      button.tabIndex = on ? 0 : -1;
+    });
+
+    requestAnimationFrame(() => {
+      const thumb = host.querySelector<HTMLElement>(".rubber-segment__thumb");
+      if (!thumb) return;
+
+      const trackRect = track.getBoundingClientRect();
+      const selectedRect = selected.getBoundingClientRect();
+      const inset = 4;
+      const left = Math.max(0, selectedRect.left - trackRect.left - inset);
+      const right = Math.max(
+        0,
+        trackRect.width - inset * 2 - (selectedRect.right - trackRect.left - inset)
+      );
+      thumb.style.clipPath = `inset(0 ${right}px 0 ${left}px round 16px)`;
+    });
+  }
+
+  function wireFallback() {
+    fallbackMarkup();
+
+    host.querySelectorAll<HTMLButtonElement>("[data-rubber-value]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const value = button.dataset.rubberValue || "Todos";
+        selectLegacyCategory(value);
+      });
+    });
+
+    syncFallbackUi(currentValue);
+  }
 
   const headerHeight = () =>
     Math.max(0, Math.round(header?.getBoundingClientRect().height || 74));
@@ -126,6 +212,7 @@ function bootRubberSegment() {
     if (!next || !categories.includes(next)) return;
     currentValue = next;
     setReactValue?.(next);
+    syncFallbackUi(next);
     if (center) centerActive();
   }
 
@@ -215,8 +302,23 @@ function bootRubberSegment() {
     );
   }
 
-  const root = createRoot(host);
+  // Render a real RubberSegment immediately. If React/motion fails for any
+  // browser-specific reason, the same installed component structure remains
+  // visible and functional instead of falling back to the legacy chips.
+  wireFallback();
+
+  const root = createRoot(host, {
+    onUncaughtError(error) {
+      console.error("[RubberSegment] React mount failed; keeping component fallback.", error);
+      wireFallback();
+    },
+  });
+
   root.render(<ServicesRubberSegment />);
+
+  window.setTimeout(() => {
+    if (!host.querySelector(".rubber-segment")) wireFallback();
+  }, 700);
 
   addEventListener("scroll", () => scheduleSync(false), { passive: true });
   addEventListener("resize", () => scheduleSync(true), { passive: true });
