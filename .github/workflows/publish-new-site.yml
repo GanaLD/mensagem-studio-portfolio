@@ -18,6 +18,7 @@ on:
       - 'servicos/**'
       - 'sobre/**'
       - 'assets/**'
+      - 'preview-21st-shader/dist/**'
       - '.github/workflows/publish-new-site.yml'
   workflow_dispatch:
 
@@ -47,7 +48,7 @@ jobs:
           rm -rf wix-preview
           mkdir -p wix-preview
 
-          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='wix-preview/'             --exclude='scripts/'             --exclude='docs/'             --exclude='review-priority6/'             --exclude='preview-*.html'             --exclude='CNAME'             ./ wix-preview/
+          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='wix-preview/'             --exclude='scripts/'             --exclude='docs/'             --exclude='review-priority6/'             --exclude='preview-21st-shader/'             --exclude='preview-*.html'             --exclude='CNAME'             ./ wix-preview/
 
           python - <<'PY'
           from pathlib import Path
@@ -105,55 +106,59 @@ jobs:
 
               path.write_text(text, encoding="utf-8")
 
-          # Re-apply the explicit Projects aurora experiment to PREVIEW only.
-          aurora_js_src = Path("scripts/preview-projects-aurora.js")
-          aurora_css_src = Path("scripts/preview-projects-aurora.css")
+          # Re-apply the supplied 21st.dev Mesh drift shader to PREVIEW only.
+          shader_dist = Path("preview-21st-shader/dist")
           portfolio_index = root / "portfolio" / "index.html"
-          aurora_js_dst = root / "portfolio" / "projects-aurora.js"
-          aurora_css_dst = root / "portfolio" / "projects-aurora.css"
+          shader_dst = root / "portfolio" / "shader-21st"
 
-          if aurora_js_src.exists() and aurora_css_src.exists() and portfolio_index.exists():
-              aurora_js_dst.write_text(aurora_js_src.read_text(encoding="utf-8"), encoding="utf-8")
-              aurora_css_dst.write_text(aurora_css_src.read_text(encoding="utf-8"), encoding="utf-8")
+          if shader_dist.exists() and portfolio_index.exists():
+              import shutil
+
+              if shader_dst.exists():
+                  shutil.rmtree(shader_dst)
+              shutil.copytree(shader_dist, shader_dst)
 
               text = portfolio_index.read_text(encoding="utf-8")
-              css_tag = '<link rel="stylesheet" href="./projects-aurora.css?v=20260919-preview-reference-aurora-v8">'
-              script_tag = '<script src="./projects-aurora.js?v=20260919-preview-reference-aurora-v8"></script>'
 
-              def version_asset(source, asset, version):
-                  pos = source.find(asset)
-                  if pos < 0:
-                      return source
-                  end = pos + len(asset)
-                  if source.startswith('?v=', end):
-                      qend = end
-                      while qend < len(source) and source[qend] not in ('"', "'"):
-                          qend += 1
-                      return source[:end] + '?v=' + version + source[qend:]
-                  return source[:end] + '?v=' + version + source[end:]
+              # Remove the previous preview aurora implementation.
+              text = re.sub(
+                  r'<link[^>]+href=["\']\./projects-aurora\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+src=["\']\./projects-aurora\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
 
-              if './projects-aurora.css' in text:
-                  text = version_asset(
-                      text,
-                      './projects-aurora.css',
-                      '20260919-preview-reference-aurora-v8',
-                  )
+              # Normalize the 21st shader asset tags on every rebuild.
+              text = re.sub(
+                  r'<link[^>]+href=["\']\./shader-21st/shader-background\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+src=["\']\./shader-21st/shader-background\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+
+              css_tag = '<link rel="stylesheet" href="./shader-21st/shader-background.css?v=20260920-21st-mesh-drift-v1">'
+              script_tag = '<script type="module" src="./shader-21st/shader-background.js?v=20260920-21st-mesh-drift-v1"></script>'
+
+              text = text.replace('</head>', css_tag + '\n</head>', 1)
+
+              anchor = '<script src="./project-data.js'
+              pos = text.find(anchor)
+              if pos >= 0:
+                  text = text[:pos] + script_tag + '\n' + text[pos:]
               else:
-                  text = text.replace('</head>', css_tag + '\n</head>', 1)
-
-              if './projects-aurora.js' in text:
-                  text = version_asset(
-                      text,
-                      './projects-aurora.js',
-                      '20260919-preview-reference-aurora-v8',
-                  )
-              else:
-                  anchor = '<script src="./project-data.js'
-                  pos = text.find(anchor)
-                  if pos >= 0:
-                      text = text[:pos] + script_tag + '\n' + text[pos:]
-                  else:
-                      text = text.replace('</body>', script_tag + '\n</body>', 1)
+                  text = text.replace('</body>', script_tag + '\n</body>', 1)
 
               portfolio_index.write_text(text, encoding="utf-8")
           PY
