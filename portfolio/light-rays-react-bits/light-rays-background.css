@@ -1,0 +1,55 @@
+/* React Bits LightRays integration for the static portfolio preview.
+   The official component CSS is kept in LightRays.css. */
+
+.projects-shader.light-rays-react-bits-active{
+  overflow:visible;
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(0,255,255,.055),transparent 64%),
+    linear-gradient(180deg,#050706 0%,#061016 48%,#050806 100%);
+}
+
+.projects-shader.light-rays-react-bits-active::before{
+  opacity:0;
+  animation:none!important;
+}
+
+.projects-shader.light-rays-react-bits-active::after{
+  z-index:5;
+  background:
+    linear-gradient(180deg,rgba(2,5,7,.08) 0%,rgba(2,5,7,.02) 38%,rgba(2,5,7,.18) 100%),
+    radial-gradient(circle at 50% 42%,transparent 0 48%,rgba(0,0,0,.18) 100%);
+}
+
+#projects-light-rays-root{
+  position:sticky;
+  top:0;
+  z-index:3;
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:600px;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+#projects-light-rays-root .light-rays-container{
+  width:100%;
+  height:100%;
+  position:relative;
+  pointer-events:none;
+  z-index:3;
+  overflow:hidden;
+}
+
+#projects-light-rays-root canvas{
+  display:block;
+  width:100%!important;
+  height:100%!important;
+  pointer-events:none;
+}
+
+@media(max-width:650px){
+  #projects-light-rays-root{
+    min-height:600px;
+  }
+}
