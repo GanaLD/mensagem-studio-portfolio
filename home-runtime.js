@@ -110,12 +110,10 @@ function upgradeServices(){
   const intro=section.querySelector('.section-head p');
   if(intro) intro.textContent='Explore as 12 áreas do catálogo em uma vitrine 3D. Cada card leva diretamente para a página de Serviços.';
   oldGrid.insertAdjacentHTML('afterend',`<div class="ms3d-shell" id="msServices3dShell" aria-label="Carrossel 3D das áreas de serviços">
-    <button class="ms3d-edge prev" id="ms3dPrev" type="button" aria-label="Serviço anterior">←</button>
     <div class="ms3d-stage" id="msServicesStage"><div class="ms3d-deck" id="msServicesDeck">${AREAS.map(([n,title,desc],i)=>`<a class="ms3d-card" href="${SERVICES_URL}" data-index="${i}" aria-label="Abrir página de Serviços"><div class="ms3d-inner"><div class="ms3d-top"><span class="ms3d-arrow">↗</span></div><div class="ms3d-copy"><h3>${title}</h3><p>${desc}</p></div><div class="ms3d-foot"><span>Explorar os serviços</span></div></div></a>`).join('')}</div></div>
-    <button class="ms3d-edge next" id="ms3dNext" type="button" aria-label="Próximo serviço">→</button>
     <div class="ms3d-meta"><span>arraste · swipe · rotação automática</span></div>
   </div>`);
-  const shell=document.querySelector('#msServices3dShell'),stage=document.querySelector('#msServicesStage'),deck=document.querySelector('#msServicesDeck'),prev=document.querySelector('#ms3dPrev'),next=document.querySelector('#ms3dNext');
+  const shell=document.querySelector('#msServices3dShell'),stage=document.querySelector('#msServicesStage'),deck=document.querySelector('#msServicesDeck');
   const cards=[...deck.querySelectorAll('.ms3d-card')],count=cards.length,step=360/count,reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rotation=0,targetRotation=0,velocity=0,dragging=false,pointerId=null,startX=0,startRotation=0,lastX=0,lastT=0,suppressClick=false,lastInteraction=performance.now(),previousFrame=performance.now(),radius=520;
   const normalize=a=>((a%360)+360)%360;
@@ -153,7 +151,6 @@ function upgradeServices(){
   }
   function snapTo(index){const desired=-(index*step),turns=Math.round((rotation-desired)/360);targetRotation=desired+turns*360;for(const alt of [targetRotation+360,targetRotation-360])if(Math.abs(alt-rotation)<Math.abs(targetRotation-rotation))targetRotation=alt;lastInteraction=performance.now()}
   function stepRelative(dir){snapTo((activeIndex()+dir+count)%count)}
-  prev.addEventListener('click',()=>stepRelative(-1));next.addEventListener('click',()=>stepRelative(1));
   stage.addEventListener('pointerdown',e=>{dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
   stage.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;const now=performance.now(),dx=e.clientX-startX,localDx=e.clientX-lastX,dt=Math.max(8,now-lastT),sensitivity=innerWidth<760?.28:.20;rotation=startRotation+dx*sensitivity;targetRotation=rotation;velocity=(localDx*sensitivity)/dt;if(Math.abs(dx)>7)suppressClick=true;lastX=e.clientX;lastT=now;render()});
   function endDrag(e){if(!dragging||(e&&e.pointerId!==pointerId))return;dragging=false;stage.classList.remove('is-dragging');try{stage.releasePointerCapture(pointerId)}catch{}pointerId=null;targetRotation=rotation+velocity*360;lastInteraction=performance.now()}
