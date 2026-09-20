@@ -2,15 +2,15 @@
   "version": 4,
   "owner": "site_builder.seo",
   "base_url": "https://mensagemstudio.shop",
-  "generated_at": "2026-09-14",
+  "generated_at": "2026-09-20",
   "summary": {
-    "routes": 25,
-    "indexable": 25,
+    "routes": 33,
+    "indexable": 33,
     "noindex": 0,
     "warnings": 0,
     "info": 0,
-    "with_social_image": 25,
-    "with_breadcrumbs": 21
+    "with_social_image": 33,
+    "with_breadcrumbs": 29
   },
   "diagnostics": [],
   "routes": [
@@ -37,6 +37,22 @@
       "index": true,
       "robots": "index,follow",
       "schema_type": "CollectionPage"
+    },
+    {
+      "path": "sobre",
+      "kind": "about",
+      "canonical": "https://mensagemstudio.shop/sobre/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "AboutPage"
+    },
+    {
+      "path": "curitiba",
+      "kind": "local",
+      "canonical": "https://mensagemstudio.shop/curitiba/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "WebPage"
     },
     {
       "path": "servicos/design-social-media",
@@ -87,12 +103,52 @@
       "schema_type": "Service"
     },
     {
-      "path": "sobre",
-      "kind": "about",
-      "canonical": "https://mensagemstudio.shop/sobre/",
+      "path": "servicos/producao-audiovisual",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/producao-audiovisual/",
       "index": true,
       "robots": "index,follow",
-      "schema_type": "AboutPage"
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/tratamento-retoque-fotos",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/tratamento-retoque-fotos/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/manipulacao-imagem",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/manipulacao-imagem/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/identidade-visual-branding",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/identidade-visual-branding/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/direcao-arte-campanhas",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/direcao-arte-campanhas/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
+    },
+    {
+      "path": "servicos/ilustracao-personagens-storyboard",
+      "kind": "service",
+      "canonical": "https://mensagemstudio.shop/servicos/ilustracao-personagens-storyboard/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "Service"
     },
     {
       "path": "portfolio/produto-3d-egeo",
@@ -210,6 +266,14 @@
       "path": "portfolio/produtos-3d-codex-blender",
       "kind": "project",
       "canonical": "https://mensagemstudio.shop/portfolio/produtos-3d-codex-blender/",
+      "index": true,
+      "robots": "index,follow",
+      "schema_type": "CreativeWork"
+    },
+    {
+      "path": "portfolio/html-editavel-templates-web",
+      "kind": "project",
+      "canonical": "https://mensagemstudio.shop/portfolio/html-editavel-templates-web/",
       "index": true,
       "robots": "index,follow",
       "schema_type": "CreativeWork"
