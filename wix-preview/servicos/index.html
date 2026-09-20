@@ -2302,6 +2302,33 @@ html,body{max-width:100%;overflow-x:clip}
 </style>
 <!-- REMOVE_SERVICE_CATEGORY_SIDE_BARS_END -->
 
+<!-- SERVICES_MOBILE_BUTTONS_FIX_V1_START -->
+<style id="services-mobile-buttons-fix-v1">
+@media(max-width:767px){
+  /* Mobile only: category buttons keep their full label and scroll horizontally. */
+  .filters{
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    gap:8px !important;
+    scroll-padding-inline:16px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .filters .chip{
+    flex:0 0 auto !important;
+    width:max-content !important;
+    min-width:max-content !important;
+    max-width:none !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    padding-inline:16px !important;
+    min-height:44px !important;
+  }
+}
+</style>
+<!-- SERVICES_MOBILE_BUTTONS_FIX_V1_END -->
+
 <!-- BUDGET_DRAWER_PRIORITY_FIX_START -->
 <style id="budget-drawer-priority-fix">
 /* Open budget is the dominant UI state. */
