@@ -1,36 +1,83 @@
 import * as React from "react";
-import { createRoot } from "react-dom/client";
-import Plasma from "@/components/ui/Plasma";
+import { createRoot, type Root } from "react-dom/client";
+import BorderGlow from "@/components/BorderGlow";
 import "@/index.css";
 
-const layer = document.querySelector<HTMLElement>(".projects-shader");
+type MountedCard = {
+  root: Root;
+  host: HTMLElement;
+};
 
-if (layer && layer.dataset.plasmaMounted !== "1") {
-  layer.dataset.plasmaMounted = "1";
-  layer.classList.add("plasma-react-bits-active");
+const mounted = new Map<HTMLElement, MountedCard>();
 
-  layer.querySelectorAll(".projects-aurora-canvas,.projects-heated-canvas,.projects-21st-shader-canvas,#projects-21st-shader-root").forEach((node) => node.remove());
-
-  const host = document.createElement("div");
-  host.id = "projects-plasma-root";
-  host.setAttribute("aria-hidden", "true");
-  layer.prepend(host);
-
-  const root = createRoot(host);
-  root.render(
-    <Plasma
-      color="#011dc4"
-      speed={0.5}
-      direction="forward"
-      scale={1.2}
-      opacity={0.8}
-      mouseInteractive
-      renderScale={0.55}
-      maxDpr={2}
-      targetFps={60}
-      iterations={65}
-    />
+function mountBorderGlowCards() {
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>("#msServicesDeck .ms3d-card")
   );
 
-  window.addEventListener("pagehide", () => root.unmount(), { once: true });
+  for (const card of cards) {
+    if (mounted.has(card) || card.dataset.reactBitsBorderGlow === "1") continue;
+
+    const originalInner = card.querySelector<HTMLElement>(":scope > .ms3d-inner");
+    if (!originalInner) continue;
+
+    const originalHtml = originalInner.innerHTML;
+    originalInner.remove();
+
+    card.dataset.reactBitsBorderGlow = "1";
+    card.classList.add("ms-react-bits-border-glow-card");
+
+    const host = document.createElement("div");
+    host.className = "ms-react-bits-border-glow-host";
+    card.appendChild(host);
+
+    const root = createRoot(host);
+    root.render(
+      <BorderGlow
+        className="ms-react-bits-border-glow"
+        edgeSensitivity={28}
+        glowColor="48 90 86"
+        backgroundColor="rgba(7, 12, 20, 0.28)"
+        borderRadius={22}
+        glowRadius={38}
+        glowIntensity={0.82}
+        coneSpread={24}
+        colors={["#f6f1d9", "#4169e1", "#c9ff36"]}
+        fillOpacity={0.18}
+      >
+        <div
+          className="ms3d-inner"
+          dangerouslySetInnerHTML={{ __html: originalHtml }}
+        />
+      </BorderGlow>
+    );
+
+    mounted.set(card, { root, host });
+  }
+}
+
+function boot() {
+  mountBorderGlowCards();
+
+  const observer = new MutationObserver(() => mountBorderGlowCards());
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
+
+  window.addEventListener(
+    "pagehide",
+    () => {
+      observer.disconnect();
+      for (const { root } of mounted.values()) root.unmount();
+      mounted.clear();
+    },
+    { once: true }
+  );
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot, { once: true });
+} else {
+  boot();
 }
