@@ -1,0 +1,62 @@
+name: Install PREVIEW 21st Shader
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'preview-21st-shader/**'
+      - '.github/workflows/install-preview-21st-shader.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: install-preview-21st-shader
+  cancel-in-progress: true
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    env:
+      CI: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install project dependencies
+        working-directory: preview-21st-shader
+        run: npm install --no-audit --no-fund
+
+      - name: Add 21st component
+        working-directory: preview-21st-shader
+        run: npx @21st-dev/cli add juaox/test
+
+      - name: Show installed files
+        shell: bash
+        run: |
+          set -euo pipefail
+          find preview-21st-shader -maxdepth 5 -type f | sort
+
+      - name: Commit installed source
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A preview-21st-shader
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Install 21st shader component juaox/test'
+          git pull --rebase origin main
+          git push
