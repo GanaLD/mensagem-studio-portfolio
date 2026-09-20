@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Cyber Angel V3 Preview</title>
+<style>
+:root{--scene-scroll-vh:760;--bg-width:100vw;--stage-bg:#030607}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--stage-bg);color:#fff}
+html{scroll-behavior:auto}
+body{font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+#cyber-scene{position:relative;height:calc(var(--scene-scroll-vh)*1vh);min-height:100vh}
+#cyber-stage{position:sticky;top:0;width:100%;height:100svh;min-height:100vh;overflow:hidden;background:#030607;isolation:isolate}
+#ambient-bg{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:blur(28px) brightness(.38) saturate(.85);transform:scale(1.08);z-index:0;pointer-events:none}
+#world-bg{position:absolute;left:0;top:0;width:100vw;height:auto;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none;z-index:1;will-change:transform}
+#stage-vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.12),transparent 18%,transparent 82%,rgba(0,0,0,.16)),radial-gradient(circle at center,transparent 48%,rgba(0,0,0,.22) 100%)}
+#angel{position:absolute;left:0;top:0;z-index:5;pointer-events:none;user-select:none;-webkit-user-drag:none;max-width:none;height:auto;will-change:left,top,width,transform,opacity;filter:drop-shadow(0 10px 18px rgba(0,0,0,.34))}
+#page-content{position:absolute;inset:0;z-index:10;pointer-events:none}
+#page-content>*{pointer-events:auto}
+#debug-hud{position:fixed;left:12px;bottom:12px;z-index:9999;display:none;padding:9px 11px;border:1px solid rgba(255,255,255,.22);border-radius:10px;background:rgba(0,0,0,.62);backdrop-filter:blur(8px);color:#fff;font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre;pointer-events:none}
+#landing-marker{position:absolute;z-index:20;width:18px;height:18px;margin:-9px 0 0 -9px;border:2px solid #ff2a2a;border-radius:50%;display:none;pointer-events:none}
+#landing-marker::before,#landing-marker::after{content:"";position:absolute;background:#ff2a2a}
+#landing-marker::before{left:7px;top:-10px;width:2px;height:34px}
+#landing-marker::after{top:7px;left:-10px;width:34px;height:2px}
+@media(prefers-reduced-motion:reduce){#angel{transition:none}}
+</style>
+</head>
+<body>
+<section id="cyber-scene" aria-label="Cyber Angel Scroll">
+  <div id="cyber-stage">
+    <img id="ambient-bg" src="assets/background.jpg" alt="" aria-hidden="true">
+    <img id="world-bg" src="assets/background.jpg" alt="" aria-hidden="true">
+    <div id="stage-vignette"></div>
+    <img id="angel" src="assets/flight/01_anjo_esquerda.png" alt="" aria-hidden="true">
+    <div id="landing-marker"></div>
+    <div id="page-content"></div>
+  </div>
+</section>
+<div id="debug-hud"></div>
+<script>
+(()=>{
+"use strict";
+const CONFIG={
+source:{width:768,height:2048},
+scroll:{sceneVh:760,smoothing:.115},
+background:{finalTargetViewportY:.58},
+phases:{flightEnd:.835,approachEnd:.915,landingEnd:1},
+landingTarget:{x:.5,y:.791015625},
+angel:{flightWidthRelativeToBg:.1275,landingWidthRelativeToBg:.1375,minWidth:59,maxFlightWidth:180,maxLandingWidth:195,flightAnchorX:.5,flightAnchorY:.51,landingAnchorX:.5,landingAnchorY:1,landingContactOffsetPx:24,landingDropViewport:.24},
+viewportPath:[
+{t:0,x:.52,y:.18,scale:.78,rot:-2},{t:.11,x:.45,y:.24,scale:.82,rot:-4},{t:.23,x:.48,y:.31,scale:.86,rot:1},{t:.36,x:.58,y:.38,scale:.9,rot:5},{t:.49,x:.64,y:.45,scale:.94,rot:4},{t:.62,x:.57,y:.51,scale:.98,rot:-2},{t:.74,x:.47,y:.55,scale:1,rot:-5},{t:.84,x:.41,y:.57,scale:1.02,rot:-4},{t:.92,x:.44,y:.56,scale:1.03,rot:1},{t:1,x:.48,y:.54,scale:1.04,rot:0}],
+flightFrames:["assets/flight/01_anjo_esquerda.png","assets/flight/02_anjo_centro_esquerda.png","assets/flight/03_anjo_centro_direita.png","assets/flight/04_anjo_direita.png"],
+flightCycle:[0,1,2,3,3,2,1,0],
+landingFrames:["assets/landing/pouso_02_descida.png","assets/landing/pouso_03_toque_no_chao.png","assets/landing/pouso_04_pouso_final.png"]
+};
+const scene=document.getElementById("cyber-scene"),stage=document.getElementById("cyber-stage"),worldBg=document.getElementById("world-bg"),ambientBg=document.getElementById("ambient-bg"),angel=document.getElementById("angel"),debugHud=document.getElementById("debug-hud"),landingMarker=document.getElementById("landing-marker");
+const DEBUG=new URLSearchParams(location.search).get("debug")==="1";
+if(DEBUG){debugHud.style.display="block";landingMarker.style.display="block"}
+scene.style.setProperty("--scene-scroll-vh",CONFIG.scroll.sceneVh);
+[...CONFIG.flightFrames,...CONFIG.landingFrames,"assets/landing/pouso_01_em_pe.png","assets/background.jpg"].forEach(src=>{const i=new Image();i.decoding="async";i.src=src});
+let metrics=null,targetProgress=0,currentProgress=0,lastSrc="",raf=0,elapsedMs=0;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,invLerp=(a,b,v)=>clamp((v-a)/(b-a),0,1),smoothstep=t=>t*t*(3-2*t),easeInOutCubic=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function resize(){const vw=stage.clientWidth,vh=stage.clientHeight,aspect=CONFIG.source.width/CONFIG.source.height,renderW=vw,renderH=renderW/aspect,safeRenderH=Math.max(renderH,vh),safeRenderW=safeRenderH*aspect;let finalBgTop=CONFIG.background.finalTargetViewportY*vh-CONFIG.landingTarget.y*safeRenderH;const minBgTop=vh-safeRenderH;finalBgTop=clamp(finalBgTop,minBgTop,0);metrics={vw,vh,renderW:safeRenderW,renderH:safeRenderH,left:(vw-safeRenderW)*.5,finalBgTop,minBgTop};worldBg.style.width=safeRenderW+"px";worldBg.style.left=metrics.left+"px";ambientBg.style.objectPosition="50% 50%";updateTargetProgress();render(currentProgress,true)}
+function updateTargetProgress(){const rect=scene.getBoundingClientRect(),scrollable=Math.max(1,scene.offsetHeight-stage.clientHeight);targetProgress=clamp((-rect.top)/scrollable,0,1)}
+function pathSample(t){const pts=CONFIG.viewportPath;t=clamp(t,0,1);for(let i=0;i<pts.length-1;i++){const a=pts[i],b=pts[i+1];if(t>=a.t&&t<=b.t){const u=smoothstep(invLerp(a.t,b.t,t));return{x:lerp(a.x,b.x,u),y:lerp(a.y,b.y,u),scale:lerp(a.scale,b.scale,u),rot:lerp(a.rot,b.rot,u)}}}return{...pts[pts.length-1]}}
+function setAngelSource(src){if(src!==lastSrc){lastSrc=src;angel.src=src}}
+function imagePointToViewport(xNorm,yNorm,bgTop){return{x:metrics.left+xNorm*metrics.renderW,y:bgTop+yNorm*metrics.renderH}}
+function placeAngel({x,y,width,scale=1,rot=0,anchorX=.5,anchorY=.5,opacity=1}){angel.style.width=width+"px";angel.style.left=x+"px";angel.style.top=y+"px";angel.style.opacity=opacity;angel.style.transformOrigin=`${anchorX*100}% ${anchorY*100}%`;angel.style.transform=`translate(${-anchorX*100}%, ${-anchorY*100}%) rotate(${rot}deg) scale(${scale})`}
+function flightFrameFor(timeMs){const flapFps=7.8,idx=Math.floor(timeMs/1000*flapFps),cycleIndex=CONFIG.flightCycle[((idx%CONFIG.flightCycle.length)+CONFIG.flightCycle.length)%CONFIG.flightCycle.length];return CONFIG.flightFrames[cycleIndex]}
+function landingFrameFor(lp){if(lp<.36)return CONFIG.landingFrames[0];if(lp<.70)return CONFIG.landingFrames[1];return CONFIG.landingFrames[2]}
+function render(p,force=false,timeMs=elapsedMs){if(!metrics)return;const{vh,renderW}=metrics,bgEase=easeInOutCubic(p),bgTop=lerp(0,metrics.finalBgTop,bgEase);worldBg.style.transform=`translate3d(0, ${bgTop}px, 0)`;const portalRaw=imagePointToViewport(CONFIG.landingTarget.x,CONFIG.landingTarget.y,bgTop),portal={x:portalRaw.x,y:portalRaw.y+CONFIG.angel.landingContactOffsetPx};if(DEBUG){landingMarker.style.left=portal.x+"px";landingMarker.style.top=portal.y+"px"}const flightEnd=CONFIG.phases.flightEnd,approachEnd=CONFIG.phases.approachEnd;let state="FLIGHT";if(p<approachEnd){state=p<flightEnd?"FLIGHT":"APPROACH";const local=invLerp(0,approachEnd,p),pt=pathSample(local),flightWidth=clamp(renderW*CONFIG.angel.flightWidthRelativeToBg,CONFIG.angel.minWidth,CONFIG.angel.maxFlightWidth),baseX=pt.x*metrics.vw,baseY=pt.y*vh,ap=invLerp(flightEnd,approachEnd,p),settle=smoothstep(ap),landingStartY=portal.y-CONFIG.angel.landingDropViewport*vh,landingStartX=portal.x-renderW*.012,bob=Math.sin(timeMs/1000*4.2)*Math.min(7,vh*.006);let x=lerp(baseX,landingStartX,settle),y=lerp(baseY+bob*(1-settle),landingStartY,settle);const halfW=flightWidth*.52,halfH=flightWidth*.48;x=clamp(x,halfW*.55,metrics.vw-halfW*.55);y=clamp(y,halfH*.65,vh-halfH*.65);setAngelSource(flightFrameFor(timeMs));placeAngel({x,y,width:flightWidth,scale:pt.scale*lerp(1,.98,settle),rot:lerp(pt.rot,0,settle),anchorX:CONFIG.angel.flightAnchorX,anchorY:CONFIG.angel.flightAnchorY})}else{state="LANDING";const lp=invLerp(approachEnd,CONFIG.phases.landingEnd,p),eased=easeInOutCubic(lp),landingWidth=clamp(renderW*CONFIG.angel.landingWidthRelativeToBg,CONFIG.angel.minWidth,CONFIG.angel.maxLandingWidth),drop=CONFIG.angel.landingDropViewport*vh,startY=portal.y-drop,y=lerp(startY,portal.y,eased),x=portal.x+(1-eased)*(renderW*-.012);setAngelSource(landingFrameFor(lp));placeAngel({x,y,width:landingWidth,scale:lerp(.94,1,eased),rot:lerp(-1.5,0,eased),anchorX:CONFIG.angel.landingAnchorX,anchorY:CONFIG.angel.landingAnchorY});if(lp>=.985){state="LANDED";setAngelSource(CONFIG.landingFrames[2]);placeAngel({x:portal.x,y:portal.y,width:landingWidth,scale:1,rot:0,anchorX:CONFIG.angel.landingAnchorX,anchorY:CONFIG.angel.landingAnchorY})}}if(DEBUG){debugHud.textContent=`CYBER ANGEL V3 PREVIEW\nprogress : ${p.toFixed(4)}\nstate    : ${state}\nbgTop    : ${bgTop.toFixed(1)}px\nportal   : ${portal.x.toFixed(1)}, ${portal.y.toFixed(1)}\nviewport : ${metrics.vw} × ${metrics.vh}`}}
+function tick(now){elapsedMs=Number.isFinite(now)?now:performance.now();const delta=targetProgress-currentProgress;currentProgress+=delta*CONFIG.scroll.smoothing;if(Math.abs(delta)<.00008)currentProgress=targetProgress;render(currentProgress,false,elapsedMs);raf=requestAnimationFrame(tick)}
+function onScroll(){updateTargetProgress()}
+addEventListener("scroll",onScroll,{passive:true});addEventListener("resize",resize,{passive:true});addEventListener("orientationchange",resize,{passive:true});worldBg.addEventListener("load",resize,{once:true});if(worldBg.complete)resize();updateTargetProgress();raf=requestAnimationFrame(tick);
+window.CyberAngelV2={config:CONFIG,getProgress:()=>currentProgress,setDebugLandingTarget(x,y){CONFIG.landingTarget.x=clamp(Number(x),0,1);CONFIG.landingTarget.y=clamp(Number(y),0,1);resize()},destroy(){cancelAnimationFrame(raf);removeEventListener("scroll",onScroll);removeEventListener("resize",resize);removeEventListener("orientationchange",resize)}}
+})();
+</script>
+</body>
+</html>
