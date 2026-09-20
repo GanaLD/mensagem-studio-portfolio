@@ -44,6 +44,17 @@ jobs:
         working-directory: preview-21st-shader
         run: npm run build
 
+      - name: Rebase generated bundle onto latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/plasma-dist
+          cp -R preview-21st-shader/dist /tmp/plasma-dist
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf preview-21st-shader/dist
+          cp -R /tmp/plasma-dist preview-21st-shader/dist
+
       - name: Install bundle in preview
         shell: bash
         run: |
@@ -122,5 +133,4 @@ jobs:
             exit 0
           fi
           git commit -m 'Build preview React Bits Plasma background'
-          git pull --rebase origin main
-          git push
+          git push origin HEAD:main
