@@ -191,8 +191,8 @@ jobs:
                   flags=re.I,
               )
 
-              rubber_css_tag = '<link rel="stylesheet" href="./react-bits-rubber-segment/rubber-segment-services.css?v=20260920-rubber-segment-v2">'
-              rubber_js_tag = '<script type="module" src="./react-bits-rubber-segment/rubber-segment-services.js?v=20260920-rubber-segment-v2"></script>'
+              rubber_css_tag = '<link rel="stylesheet" href="./react-bits-rubber-segment/rubber-segment-services.css?v=20260920-rubber-segment-v3">'
+              rubber_js_tag = '<script defer src="./react-bits-rubber-segment/rubber-segment-services.js?v=20260920-rubber-segment-v3"></script>'
 
               text = text.replace('</head>', rubber_css_tag + '\n</head>', 1)
               text = text.replace('</body>', rubber_js_tag + '\n</body>', 1)
