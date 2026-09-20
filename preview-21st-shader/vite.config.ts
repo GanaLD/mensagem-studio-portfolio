@@ -2,8 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "node:url";
 
-const rootDir = fileURLToPath(new URL(".", import.meta.url));
-
 export default defineConfig({
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
@@ -21,15 +19,15 @@ export default defineConfig({
     minify: "esbuild",
     lib: {
       entry: fileURLToPath(new URL("./src/main.tsx", import.meta.url)),
-      name: "MSReactBitsPlasma",
+      name: "MSReactBitsBorderGlow",
       formats: ["es"],
-      fileName: () => "plasma-background.js",
+      fileName: () => "border-glow-service-cards.js",
     },
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) =>
           assetInfo.name?.endsWith(".css")
-            ? "plasma-background.css"
+            ? "border-glow-service-cards.css"
             : "[name][extname]",
       },
     },
