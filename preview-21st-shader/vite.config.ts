@@ -21,15 +21,15 @@ export default defineConfig({
     minify: "esbuild",
     lib: {
       entry: fileURLToPath(new URL("./src/main.tsx", import.meta.url)),
-      name: "MS21stShaderBackground",
+      name: "MSReactBitsPlasma",
       formats: ["es"],
-      fileName: () => "shader-background.js",
+      fileName: () => "plasma-background.js",
     },
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) =>
           assetInfo.name?.endsWith(".css")
-            ? "shader-background.css"
+            ? "plasma-background.css"
             : "[name][extname]",
       },
     },
