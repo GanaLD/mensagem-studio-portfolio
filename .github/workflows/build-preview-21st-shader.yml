@@ -110,7 +110,7 @@ jobs:
           index.write_text(text, encoding="utf-8")
           PY
 
-      - name: Commit built preview shader
+      - name: Commit built preview Plasma
         shell: bash
         run: |
           set -euo pipefail
