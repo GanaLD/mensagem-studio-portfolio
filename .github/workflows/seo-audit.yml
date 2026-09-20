@@ -133,8 +133,8 @@ jobs:
               ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
               urls = [x.text.strip() for x in root.findall("sm:url/sm:loc", ns) if x.text]
               expected = list(pages.values())
-              if len(urls) != 31:
-                  errors.append(f"sitemap.xml: expected 31 URLs, got {len(urls)}")
+              if len(urls) != len(expected):
+                  errors.append(f"sitemap.xml: expected {len(expected)} URLs, got {len(urls)}")
               if len(urls) != len(set(urls)):
                   errors.append("sitemap.xml: duplicate URLs")
               if set(urls) != set(expected):
@@ -186,6 +186,6 @@ jobs:
 
           print(f"SEO PASS: {len(pages)} indexable pages validated.")
           print("Canonical domain: https://mensagemstudio.shop/")
-          print("Sitemap: 31/31 URLs.")
+          print(f"Sitemap: {len(expected)}/{len(expected)} URLs.")
           print("Preview backup: noindex,follow with production canonicals.")
           PY
