@@ -297,7 +297,7 @@ function upgradeServicesBorderGlowPreview(){
 
   const style=document.createElement('style');
   style.id='ms-preview-border-glow-style';
-  style.textContent=\`
+  style.textContent=`
   /* PREVIEW ONLY — React Bits BorderGlow adapted to the existing 3D service cards. */
   .ms3d-card.ms-border-glow-preview{
     --edge-proximity:0;
@@ -437,7 +437,7 @@ function upgradeServicesBorderGlowPreview(){
     .ms3d-card.ms-border-glow-preview::before,
     .ms3d-card.ms-border-glow-preview::after,
     .ms3d-card.ms-border-glow-preview > .ms-border-edge-light{transition:none!important}
-  }\`;
+  }`;
   document.head.appendChild(style);
 
   const setFromPointer=(card,e)=>{
