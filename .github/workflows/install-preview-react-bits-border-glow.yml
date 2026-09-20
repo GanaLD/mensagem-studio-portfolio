@@ -33,7 +33,7 @@ jobs:
 
       - name: Install project dependencies
         working-directory: preview-21st-shader
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
       - name: Install React Bits BorderGlow with shadcn
         working-directory: preview-21st-shader
