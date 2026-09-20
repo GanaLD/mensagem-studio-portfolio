@@ -208,6 +208,19 @@ window.MENSAGEM_PROJECTS = [
     media:[
       {type:'IMAGE',title:'Cyber Ronin — Interface Interativa',description:'Hero cyberpunk com spotlight reveal e motion responsivo.',url:'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260831_115955_2a9adb39-5e9b-4ced-96e2-6900eabe3de9.png&w=1920&q=85'}
     ]
+  },
+  {
+    slug:'html-editavel-templates-web', sourceSlug:'html-editavel-templates-web', title:'HTML EDITÁVEL | TEMPLATES WEB', tag:'Web / Template Interativo',
+    description:'Template web interativo e editável com interface automotiva, hotspots, motion, configuração visual, navegação por estados e experiência responsiva em Português BR.',
+    details:[
+      {label:'Serviço',text:'Web Design · Front-end · Template Interativo'},
+      {label:'Stack',text:'React · Vite · TypeScript · CSS'}
+    ],
+    cover:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png', coverVideo:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/hood-hover-forward.mp4',
+    media:[
+      {type:'IMAGE',title:'HTML EDITÁVEL | TEMPLATES WEB — Interface VEYRA',description:'Interface automotiva interativa com hotspots e configuração visual.',url:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png'},
+      {type:'VIDEO',title:'HTML EDITÁVEL | TEMPLATES WEB — Hover interativo',description:'Prévia de interação por hover integrada ao template.',url:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/hood-hover-forward.mp4',poster:'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509/media/exterior-polished.png'}
+    ]
   }
 ];
 
