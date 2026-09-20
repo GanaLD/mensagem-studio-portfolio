@@ -133,7 +133,7 @@ jobs:
                   flags=re.I,
               )
 
-              # Normalize the 21st shader asset tags on every rebuild.
+              # Normalize previous shader tags and the Plasma asset tags on every rebuild.
               text = re.sub(
                   r'<link[^>]+href=["\']\./shader-21st/shader-background\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
                   '',
@@ -159,7 +159,7 @@ jobs:
                   flags=re.I,
               )
 
-              css_tag = '<link rel="stylesheet" href="./shader-21st/shader-background.css?v=20260920-21st-mesh-drift-v1">'
+              css_tag = '<link rel="stylesheet" href="./plasma-react-bits/plasma-background.css?v=20260920-react-bits-plasma-v1">'
               script_tag = '<script type="module" src="./plasma-react-bits/plasma-background.js?v=20260920-react-bits-plasma-v1"></script>'
 
               text = text.replace('</head>', css_tag + '\n</head>', 1)
