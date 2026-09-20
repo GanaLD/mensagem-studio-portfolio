@@ -17659,127 +17659,92 @@ const I3 = [
   "Web / HTML"
 ];
 function Rp() {
-  const a=document.querySelector(".filters-wrap"),l=document.getElementById("filters"),o=document.getElementById("catalog"),r=document.querySelector(".top");
-  if(!a||!l||!o||document.getElementById("rubber-segment-services-root"))return;
-  const c=Array.from(l.querySelectorAll("[data-cat]")).map(E=>E.dataset.cat||E.textContent?.trim()||"").filter(Boolean),
-  d=c.length?c:["Todos","Social Media","Vídeo","Produção","Motion e VFX","Fotos","Manipulação","Identidade","Campanhas","E-commerce","Narrativa Visual","3D","Web / HTML"],
-  h=document.createElement("div");
-  h.id="rubber-segment-services-root";
-  h.setAttribute("aria-label","Categorias de serviços");
-  l.classList.add("ms-legacy-filters-hidden");
-  l.setAttribute("aria-hidden","true");
-  a.appendChild(h);
-
-  let y="Todos",v=null,S=0,p=0,H=0;
-  const R=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const A=()=>Math.max(0,Math.round(r?.getBoundingClientRect().height||74));
-  const C=()=>Math.max(0,Math.round(a.getBoundingClientRect().height||62));
-  const P=()=>A()+C()+20;
-  const G=()=>Array.from(o.querySelectorAll(".category[data-service-category]"));
-
-  const b=()=>{
-    const E=G();
-    if(!E.length)return y||"Todos";
-    if(E.length===1)return E[0].dataset.serviceCategory||y||"Todos";
-    const T=P();
-    if(E[0].getBoundingClientRect().top>T)return"Todos";
-    let N=E[0].dataset.serviceCategory||"Todos",D=1/0;
-    for(const q of E){
-      const F=q.getBoundingClientRect(),M=q.dataset.serviceCategory||N;
-      if(F.top<=T&&F.bottom>T)return M;
-      const I=Math.abs(F.top-T);
-      if(F.top<=T&&I<D){D=I;N=M}
-    }
-    return N;
-  };
-
-  const _=()=>{
-    requestAnimationFrame(()=>{
-      const E=h.querySelector('.rubber-segment__item[aria-checked="true"]'),
-      T=h.querySelector(".ms-rubber-segment-scroll");
-      if(!E||!T)return;
-      const N=E.getBoundingClientRect(),D=T.getBoundingClientRect(),
-      q=N.left+N.width/2-(D.left+D.width/2);
-      Math.abs(q)>=6&&T.scrollTo({left:Math.max(0,T.scrollLeft+q),behavior:R?"auto":"smooth"});
+  const a = document.querySelector(".filters-wrap"), l = document.getElementById("filters"), o = document.getElementById("catalog"), r = document.querySelector(".top");
+  if (!a || !l || !o || document.getElementById("rubber-segment-services-root")) return;
+  const c = Array.from(l.querySelectorAll("[data-cat]")).map((B) => B.dataset.cat || B.textContent?.trim() || "").filter(Boolean), d = c.length ? c : I3, h = document.createElement("div");
+  h.id = "rubber-segment-services-root", h.setAttribute("aria-label", "Categorias de serviços"), l.classList.add("ms-legacy-filters-hidden"), l.setAttribute("aria-hidden", "true"), a.appendChild(h);
+  let y = "Todos", v = null, S = 0, p = 0;
+  const g = () => {
+    const B = Math.max(0, Math.round(r?.getBoundingClientRect().height || 74)), k = Math.max(0, Math.round(a.getBoundingClientRect().height || 62));
+    return B + k + 18;
+  }, b = () => {
+    const B = Array.from(
+      o.querySelectorAll(".category[data-service-category]")
+    );
+    if (!B.length) return y;
+    if (B.length === 1)
+      return B[0].dataset.serviceCategory || y;
+    const k = g();
+    if (o.getBoundingClientRect().top > k) return "Todos";
+    let Z = "Todos";
+    for (const q of B)
+      if (q.getBoundingClientRect().top <= k)
+        Z = q.dataset.serviceCategory || Z;
+      else
+        break;
+    return Z;
+  }, _ = () => {
+    requestAnimationFrame(() => {
+      h.querySelector(
+        '.rubber-segment__item[aria-checked="true"]'
+      )?.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "nearest",
+        inline: "center"
+      });
     });
+  }, z = () => {
+    S = 0;
+    const B = b();
+    !B || B === y || (y = B, v?.(B), _());
+  }, w = () => {
+    S || (S = requestAnimationFrame(z));
+  }, U = (B) => {
+    y = B, v?.(B), Array.from(
+      l.querySelectorAll("[data-cat]")
+    ).find((ot) => ot.dataset.cat === B)?.click(), clearTimeout(p), p = window.setTimeout(() => {
+      w(), _();
+    }, 120);
   };
-
-  const X=(E,T=!0)=>{
-    !E||!d.includes(E)||(y=E,v?.(E),T&&_());
-  };
-
-  const z=(E=!1)=>{
-    S=0;
-    if(!E&&performance.now()<H)return;
-    const T=b();
-    T&&T!==y&&X(T);
-  };
-
-  const w=(E=!1)=>{
-    E?(S&&cancelAnimationFrame(S),S=requestAnimationFrame(()=>z(!0))):S||(S=requestAnimationFrame(()=>z(!1)));
-  };
-
-  const O=E=>Array.from(l.querySelectorAll("[data-cat]")).find(T=>T.dataset.cat===E);
-
-  const U=E=>{
-    if(!d.includes(E))return;
-    X(E);
-    H=performance.now()+650;
-    O(E)?.click();
-    clearTimeout(p);
-    p=window.setTimeout(()=>{
-      X(b());
-      w(!0);
-    },90);
-  };
-
-  function L(){
-    const[B,k]=it.useState(()=>b());
-    return it.useEffect(()=>(y=B,v=k,_(),()=>{v===k&&(v=null)}),[B]),
-    zn.jsx("div",{className:"ms-rubber-segment-scroll",children:zn.jsx(W3,{
-      items:d,
-      value:B,
-      onChange:E=>U(String(E)),
-      trackColor:"rgba(8, 12, 14, 0.88)",
-      thumbColor:"#35D39A",
-      textColor:"#E7ECEA",
-      activeTextColor:"#04130D",
-      size:"md",
-      radius:20,
-      inset:4,
-      equalSlots:!1,
-      stretch:100,
-      squash:4,
-      speed:1,
-      glide:75,
-      draggable:!0,
-      "aria-label":"Categorias de serviços",
-      className:"ms-services-rubber-segment"
-    })});
+  function L() {
+    const [B, k] = it.useState(() => b());
+    return it.useEffect(() => (y = B, v = k, _(), () => {
+      v === k && (v = null);
+    }), [B]), /* @__PURE__ */ zn.jsx("div", { className: "ms-rubber-segment-scroll", children: /* @__PURE__ */ zn.jsx(
+      W3,
+      {
+        items: d,
+        value: B,
+        onChange: (ot) => U(String(ot)),
+        trackColor: "rgba(9, 13, 15, 0.88)",
+        thumbColor: "#35D39A",
+        textColor: "#F4F4EF",
+        activeTextColor: "#04130D",
+        size: "md",
+        radius: 18,
+        inset: 4,
+        equalSlots: !1,
+        stretch: 100,
+        squash: 4,
+        speed: 1,
+        glide: 75,
+        draggable: !0,
+        "aria-label": "Categorias de serviços",
+        className: "ms-services-rubber-segment"
+      }
+    ) });
   }
-
-  const j=Rb.createRoot(h);
-  j.render(zn.jsx(L,{}));
-  addEventListener("scroll",()=>w(!1),{passive:!0});
-  addEventListener("resize",()=>w(!0),{passive:!0});
-  addEventListener("orientationchange",()=>w(!0),{passive:!0});
-
-  const Q=new MutationObserver(()=>{
-    clearTimeout(p);
-    p=window.setTimeout(()=>{
-      X(b());
-      w(!0);
-    },30);
+  const j = Rb.createRoot(h);
+  j.render(/* @__PURE__ */ zn.jsx(L, {})), addEventListener("scroll", w, { passive: !0 }), addEventListener("resize", w, { passive: !0 }), addEventListener("orientationchange", w, { passive: !0 });
+  const Q = new MutationObserver(() => {
+    clearTimeout(p), p = window.setTimeout(w, 30);
   });
-  Q.observe(o,{childList:!0});
-  Q.observe(l,{childList:!0});
-  w(!0);
-
-  window.addEventListener("pagehide",()=>{
-    Q.disconnect();
-    clearTimeout(p);
-    S&&cancelAnimationFrame(S);
-    j.unmount();
-  },{once:!0});
+  Q.observe(o, { childList: !0, subtree: !1 }), Q.observe(l, { childList: !0 }), w(), window.addEventListener(
+    "pagehide",
+    () => {
+      Q.disconnect(), clearTimeout(p), j.unmount();
+    },
+    { once: !0 }
+  );
 }
-document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Rp,{once:!0}):Rp();
+document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", Rp, { once: !0 }) : Rp();
