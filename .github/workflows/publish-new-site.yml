@@ -105,74 +105,8 @@ jobs:
 
               path.write_text(text, encoding="utf-8")
 
-          # Re-apply the supplied React Bits Plasma shader to PREVIEW only.
-          shader_dist = Path("preview-21st-shader/dist")
-          portfolio_index = root / "portfolio" / "index.html"
-          shader_dst = root / "portfolio" / "plasma-react-bits"
-
-          if shader_dist.exists() and portfolio_index.exists():
-              import shutil
-
-              if shader_dst.exists():
-                  shutil.rmtree(shader_dst)
-              shutil.copytree(shader_dist, shader_dst)
-
-              text = portfolio_index.read_text(encoding="utf-8")
-
-              # Remove the previous preview aurora implementation.
-              text = re.sub(
-                  r'<link[^>]+href=["\']\./projects-aurora\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-              text = re.sub(
-                  r'<script[^>]+src=["\']\./projects-aurora\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-
-              # Normalize previous shader tags and the Plasma asset tags on every rebuild.
-              text = re.sub(
-                  r'<link[^>]+href=["\']\./shader-21st/shader-background\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-              text = re.sub(
-                  r'<script[^>]+src=["\']\./shader-21st/shader-background\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-              text = re.sub(
-                  r'<link[^>]+href=["\']\./plasma-react-bits/plasma-background\.css(?:\?[^"\']*)?["\'][^>]*>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-              text = re.sub(
-                  r'<script[^>]+src=["\']\./plasma-react-bits/plasma-background\.js(?:\?[^"\']*)?["\'][^>]*><\/script>\s*',
-                  '',
-                  text,
-                  flags=re.I,
-              )
-
-              css_tag = '<link rel="stylesheet" href="./plasma-react-bits/plasma-background.css?v=20260920-react-bits-plasma-v1">'
-              script_tag = '<script type="module" src="./plasma-react-bits/plasma-background.js?v=20260920-react-bits-plasma-v1"></script>'
-
-              text = text.replace('</head>', css_tag + '\n</head>', 1)
-
-              anchor = '<script src="./project-data.js'
-              pos = text.find(anchor)
-              if pos >= 0:
-                  text = text[:pos] + script_tag + '\n' + text[pos:]
-              else:
-                  text = text.replace('</body>', script_tag + '\n</body>', 1)
-
-              portfolio_index.write_text(text, encoding="utf-8")
-          PY
+          # PREVIEW mirrors production. The portfolio background is LightRays only.
+          # Do not inject Plasma or any alternate background during backup sync.          PY
 
       - name: Commit backup snapshot
         shell: bash
