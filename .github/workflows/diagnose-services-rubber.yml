@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/diagnose-services-rubber.yml'
+      - 'servicos/index.html'
   workflow_dispatch:
 
 jobs:
