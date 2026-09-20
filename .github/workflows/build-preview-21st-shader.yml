@@ -38,7 +38,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: preview-21st-shader
-        run: npm install --no-audit --no-fund
+        run: npm install --no-package-lock --no-audit --no-fund
 
       - name: Build React Bits Plasma
         working-directory: preview-21st-shader
@@ -110,7 +110,7 @@ jobs:
           index.write_text(text, encoding="utf-8")
           PY
 
-      - name: Commit built preview Plasma assets
+      - name: Commit built preview Plasma assets cleanly
         shell: bash
         run: |
           set -euo pipefail
