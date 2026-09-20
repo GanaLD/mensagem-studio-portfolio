@@ -1,4 +1,4 @@
-name: Build PREVIEW 21st Shader
+name: Build PREVIEW React Bits Plasma
 
 on:
   push:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: build-preview-21st-shader
+  group: build-preview-react-bits-plasma
   cancel-in-progress: true
 
 jobs:
@@ -38,9 +38,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: preview-21st-shader
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
-      - name: Build supplied 21st shader
+      - name: Build React Bits Plasma
         working-directory: preview-21st-shader
         run: npm run build
 
@@ -54,13 +54,13 @@ jobs:
           import shutil
 
           dist = Path("preview-21st-shader/dist")
-          target = Path("wix-preview/portfolio/shader-21st")
+          target = Path("wix-preview/portfolio/plasma-react-bits")
           index = Path("wix-preview/portfolio/index.html")
 
-          if not (dist / "shader-background.js").exists():
-              raise SystemExit("Missing shader-background.js")
-          if not (dist / "shader-background.css").exists():
-              raise SystemExit("Missing shader-background.css")
+          if not (dist / "plasma-background.js").exists():
+              raise SystemExit("Missing plasma-background.js")
+          if not (dist / "plasma-background.css").exists():
+              raise SystemExit("Missing plasma-background.css")
           if not index.exists():
               raise SystemExit("Missing preview portfolio index")
 
@@ -95,8 +95,8 @@ jobs:
               flags=re.I,
           )
 
-          css_tag = '<link rel="stylesheet" href="./shader-21st/shader-background.css?v=20260920-21st-mesh-drift-v1">'
-          js_tag = '<script type="module" src="./shader-21st/shader-background.js?v=20260920-21st-mesh-drift-v1"></script>'
+          css_tag = '<link rel="stylesheet" href="./plasma-react-bits/plasma-background.css?v=20260920-react-bits-plasma-v1">'
+          js_tag = '<script type="module" src="./plasma-react-bits/plasma-background.js?v=20260920-react-bits-plasma-v1"></script>'
 
           text = text.replace('</head>', css_tag + '\n</head>', 1)
 
@@ -118,9 +118,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A preview-21st-shader/dist wix-preview/portfolio
           if git diff --cached --quiet; then
-            echo 'Shader bundle already current.'
+            echo 'Plasma bundle already current.'
             exit 0
           fi
-          git commit -m 'Build preview 21st Mesh drift shader'
+          git commit -m 'Build preview React Bits Plasma background'
           git pull --rebase origin main
           git push
