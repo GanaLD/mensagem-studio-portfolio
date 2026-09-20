@@ -1,0 +1,33 @@
+name: Diagnose Services RubberSegment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-services-rubber.yml'
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect live page with Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME" ]; then
+            echo "No Chrome binary on runner"
+            exit 1
+          fi
+          echo "Chrome: $CHROME"
+          "$CHROME" --headless --no-sandbox --disable-gpu --virtual-time-budget=5000 --dump-dom "https://mensagemstudio.shop/servicos/?rubber_diag=${GITHUB_RUN_ID}" > /tmp/dom.html 2>/tmp/chrome.err || true
+          echo "--- Rubber markers in rendered DOM ---"
+          grep -o 'id="rubber-segment-services-root"' /tmp/dom.html | wc -l || true
+          grep -o 'class="[^"]*rubber-segment[^"]*"' /tmp/dom.html | head -20 || true
+          echo "--- Legacy hidden marker ---"
+          grep -o 'ms-legacy-filters-hidden' /tmp/dom.html | head -10 || true
+          echo "--- Chrome stderr ---"
+          cat /tmp/chrome.err || true
+          echo "--- End of page ---"
+          tail -c 3000 /tmp/dom.html || true
