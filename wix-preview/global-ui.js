@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r22-liquid-glass-buttons';
+  const VERSION = '20260921-r23-shader-lens-glass-buttons';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -107,94 +107,131 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* PREVIEW V22 — liquid glass action system, adapted from the supplied lens button */
+    /* PREVIEW V23 — shader-lens glass, faithful to supplied reference.
+       Optical model kept: nearly-clear fill, 2px backdrop diffusion, dark internal caustic,
+       diagonal blurred perimeter sheen, inset bevels, mouse-position lens response. */
     :root{
-      --ms-lg-radius:999px;
-      --ms-lg-border:rgba(255,255,255,.20);
-      --ms-lg-fill:rgba(255,255,255,.035);
+      --ms-lg-radius:9999px;
       --ms-lg-text:#f6f7f3;
-      --ms-lg-caustic:rgba(255,255,255,.62);
-      --ms-lg-shadow:rgba(0,0,0,.30);
     }
     .ms-liquid-glass{
-      --ms-lg-tr:16%;
+      --ms-lg-tr:15%;
+      --ms-lg-x:50%;
+      --ms-lg-y:50%;
       position:relative!important;
       isolation:isolate!important;
       overflow:hidden!important;
-      border:1px double var(--ms-lg-border)!important;
+      border:1px double rgba(255,255,255,.13)!important;
       border-radius:var(--ms-lg-radius)!important;
-      background:var(--ms-lg-fill)!important;
+      background:
+        radial-gradient(
+          ellipse at var(--ms-lg-x) var(--ms-lg-y),
+          rgba(255,255,255,.030) 0%,
+          rgba(255,255,255,.010) 34%,
+          rgba(0,0,0,.014) 58%,
+          transparent 76%
+        ),
+        rgba(0,0,0,.02)!important;
       color:var(--ms-lg-text)!important;
-      -webkit-backdrop-filter:blur(10px) saturate(145%) brightness(1.08)!important;
-      backdrop-filter:blur(10px) saturate(145%) brightness(1.08)!important;
+      -webkit-backdrop-filter:blur(2px) saturate(112%) contrast(1.08)!important;
+      backdrop-filter:blur(2px) saturate(112%) contrast(1.08)!important;
       box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.36),
-        inset -2px 2px 1px -1px rgba(255,255,255,.30),
-        inset 6px -6px 1px -6px rgba(255,255,255,.42),
-        inset -6px 6px 1px -6px rgba(255,255,255,.28),
-        inset 0 0 2px rgba(0,0,0,.72),
-        0 8px 20px rgba(0,0,0,.22)!important;
-      text-shadow:0 1px 12px rgba(0,0,0,.28)!important;
+        inset 2px -2px 1px -1px rgba(255,255,255,.72),
+        inset -2px 2px 1px -1px rgba(255,255,255,.60),
+        inset 6px -6px 1px -6px rgba(255,255,255,.46),
+        inset -6px 6px 1px -6px rgba(255,255,255,.42),
+        inset 0 0 2px rgba(0,0,0,.82),
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 4px 8px rgba(0,0,0,.22)!important;
+      text-shadow:0 1px 10px rgba(0,0,0,.22)!important;
       transition:
-        transform .25s cubic-bezier(.2,.8,.2,1),
+        transform .25s ease,
         border-color .25s ease,
         box-shadow .25s ease,
         background .25s ease!important;
       user-select:none;
       -webkit-user-select:none;
+      transform:translateZ(0);
     }
     .ms-liquid-glass::before{
       content:""!important;
       position:absolute!important;
-      z-index:-1!important;
-      top:34%!important;
+      z-index:0!important;
+      top:35%!important;
       left:50%!important;
-      width:calc(100% - 14px)!important;
-      height:calc(100% - 14px)!important;
       transform:translateX(-50%)!important;
-      border:1px solid rgba(0,0,0,.58)!important;
+      width:calc(100% - 16px)!important;
+      height:calc(100% - 16px)!important;
       border-radius:inherit!important;
+      border:1px solid rgba(0,0,0,.90)!important;
+      background:transparent!important;
       filter:blur(8px)!important;
-      opacity:.72!important;
+      opacity:.82!important;
       pointer-events:none!important;
     }
     .ms-liquid-glass::after{
       content:""!important;
       position:absolute!important;
-      z-index:-1!important;
-      inset:-4px!important;
+      z-index:1!important;
+      inset:0!important;
+      width:100%!important;
+      height:100%!important;
       border-radius:inherit!important;
       background:linear-gradient(
         45deg,
-        rgba(255,255,255,.72) 0%,
+        rgba(255,255,255,.80) 0%,
         transparent var(--ms-lg-tr),
         transparent calc(100% - var(--ms-lg-tr)),
-        rgba(255,255,255,.66) 100%
+        rgba(255,255,255,.80) 100%
       )!important;
-      filter:blur(7px)!important;
-      opacity:.48!important;
+      filter:blur(7px) contrast(3)!important;
+      opacity:.28!important;
+      mix-blend-mode:screen!important;
       pointer-events:none!important;
     }
-    .ms-liquid-glass > *{position:relative;z-index:2}
+    .ms-liquid-glass > *{
+      position:relative;
+      z-index:3;
+    }
     .ms-liquid-glass .ms-liquid-glass-arrow{display:none!important}
     .ms-liquid-glass:hover,
     .ms-liquid-glass:focus-visible{
       outline:none!important;
       transform:translateY(-3px)!important;
-      border-color:rgba(255,255,255,.42)!important;
-      background:rgba(255,255,255,.055)!important;
+      border-color:rgba(255,255,255,.24)!important;
+      background:
+        radial-gradient(
+          ellipse at var(--ms-lg-x) var(--ms-lg-y),
+          rgba(255,255,255,.045) 0%,
+          rgba(255,255,255,.014) 34%,
+          rgba(0,0,0,.010) 58%,
+          transparent 76%
+        ),
+        rgba(0,0,0,0)!important;
       box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.52),
-        inset -2px 2px 1px -1px rgba(255,255,255,.42),
-        inset 0 0 2px rgba(0,0,0,.66),
-        0 12px 30px rgba(0,0,0,.26),
-        0 0 26px rgba(255,255,255,.08)!important;
+        inset 2px -2px 1px -1px rgba(255,255,255,.86),
+        inset -2px 2px 1px -1px rgba(255,255,255,.72),
+        inset 6px -6px 1px -6px rgba(255,255,255,.56),
+        inset -6px 6px 1px -6px rgba(255,255,255,.50),
+        inset 0 0 2px rgba(0,0,0,.80),
+        inset 0 0 0 1px rgba(255,255,255,.11),
+        0 7px 13px rgba(0,0,0,.24)!important;
     }
-    .ms-liquid-glass:active{transform:scale(.96)!important}
+    .ms-liquid-glass:hover::after,
+    .ms-liquid-glass:focus-visible::after{opacity:.42!important}
+    .ms-liquid-glass:active{transform:scale(.94)!important}
     .ms-liquid-glass.primary,
     .ms-liquid-glass.is-primary{
-      background:rgba(255,255,255,.065)!important;
-      border-color:rgba(255,255,255,.28)!important;
+      background:
+        radial-gradient(
+          ellipse at var(--ms-lg-x) var(--ms-lg-y),
+          rgba(255,255,255,.040) 0%,
+          rgba(255,255,255,.012) 36%,
+          rgba(0,0,0,.010) 60%,
+          transparent 78%
+        ),
+        rgba(0,0,0,.018)!important;
+      border-color:rgba(255,255,255,.16)!important;
       color:#fff!important;
     }
     .ms-liquid-glass[disabled],
@@ -203,8 +240,8 @@
       .ms-liquid-glass{
         min-height:46px!important;
         max-width:100%;
-        -webkit-backdrop-filter:blur(8px) saturate(135%) brightness(1.06)!important;
-        backdrop-filter:blur(8px) saturate(135%) brightness(1.06)!important;
+        -webkit-backdrop-filter:blur(2px) saturate(108%) contrast(1.06)!important;
+        backdrop-filter:blur(2px) saturate(108%) contrast(1.06)!important;
       }
       .cta-row .ms-liquid-glass,
       .ms-brief-actions .ms-liquid-glass,
@@ -318,6 +355,24 @@
       if(el.classList.contains('ms-universal-menu-btn') || el.classList.contains('ms-contact-close') || el.classList.contains('ms-sound-toggle') || el.classList.contains('ms3d-edge')) return;
 
       el.classList.add('ms-liquid-glass');
+
+      if(el.dataset.msGlassLensBound!=='1'){
+        el.dataset.msGlassLensBound='1';
+        const setLensPoint = event => {
+          const rect=el.getBoundingClientRect();
+          if(!rect.width||!rect.height)return;
+          const x=Math.max(0,Math.min(100,((event.clientX-rect.left)/rect.width)*100));
+          const y=Math.max(0,Math.min(100,((event.clientY-rect.top)/rect.height)*100));
+          el.style.setProperty('--ms-lg-x',x.toFixed(2)+'%');
+          el.style.setProperty('--ms-lg-y',y.toFixed(2)+'%');
+        };
+        const resetLensPoint = () => {
+          el.style.setProperty('--ms-lg-x','50%');
+          el.style.setProperty('--ms-lg-y','50%');
+        };
+        el.addEventListener('pointermove',setLensPoint,{passive:true});
+        el.addEventListener('pointerleave',resetLensPoint,{passive:true});
+      }
 
       // The new glass language intentionally has no arrow glyphs.
       [...el.childNodes].forEach(node=>{
