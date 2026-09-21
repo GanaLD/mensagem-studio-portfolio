@@ -34,7 +34,7 @@ jobs:
           from pathlib import Path
           import re
 
-          VERSION = "20260920-r19-unified-top-nav"
+          VERSION = "20260920-r20-real-rubber-topnav"
           changed = []
 
           for path in Path(".").rglob("*.html"):
@@ -63,8 +63,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -q 'UNIFIED_TOP_NAV_V1' global-ui.js
-          grep -q "20260920-r19-unified-top-nav" global-ui.js
+          grep -q 'react-bits-rubber-topnav' global-ui.js
+          grep -q "20260920-r20-real-rubber-topnav" global-ui.js
 
       - name: Commit if needed
         shell: bash
@@ -74,9 +74,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           if git diff --cached --quiet; then
-            echo "All pages already use the unified top bar."
+            echo "All pages already use the real RubberSegment top bar."
             exit 0
           fi
-          git commit -m 'Apply unified top navigation to all pages'
+          git commit -m 'Apply real RubberSegment top navigation to all pages'
           git pull --rebase origin main
           git push origin HEAD:main
