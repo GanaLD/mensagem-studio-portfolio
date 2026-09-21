@@ -1,0 +1,72 @@
+name: Build React Bits RubberSegment Top Nav
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'preview-21st-shader/package.json'
+      - 'preview-21st-shader/package-lock.json'
+      - 'preview-21st-shader/tsconfig.json'
+      - 'preview-21st-shader/vite.topnav.config.ts'
+      - 'preview-21st-shader/src/topnav-main.tsx'
+      - 'preview-21st-shader/src/topnav-index.css'
+      - 'preview-21st-shader/src/components/RubberSegment.jsx'
+      - 'preview-21st-shader/src/components/RubberSegment.css'
+      - '.github/workflows/build-rubber-topnav.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-react-bits-rubber-topnav
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: preview-21st-shader/package-lock.json
+
+      - name: Install dependencies
+        working-directory: preview-21st-shader
+        run: npm install --no-audit --no-fund
+
+      - name: Build actual React Bits RubberSegment top nav
+        working-directory: preview-21st-shader
+        run: npx vite build --config vite.topnav.config.ts
+
+      - name: Publish built top-nav assets into site assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf assets/react-bits-rubber-topnav
+          mkdir -p assets/react-bits-rubber-topnav
+          cp preview-21st-shader/dist-topnav/rubber-segment-topnav.js assets/react-bits-rubber-topnav/
+          cp preview-21st-shader/dist-topnav/rubber-segment-topnav.css assets/react-bits-rubber-topnav/
+
+      - name: Commit built bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add preview-21st-shader/dist-topnav assets/react-bits-rubber-topnav
+          if git diff --cached --quiet; then
+            echo 'RubberSegment top nav bundle already current.'
+            exit 0
+          fi
+          git commit -m 'Build actual React Bits RubberSegment top navigation'
+          git pull --rebase origin main
+          git push origin HEAD:main
