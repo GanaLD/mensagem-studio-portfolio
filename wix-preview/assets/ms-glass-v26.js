@@ -35,9 +35,57 @@
 
   const isArrowOnly=v=>/^[\s↗↘↙↖↑↓→←⟶⟵›»]+$/.test((v||'').trim());
 
+  function bindInstalledLight(el){
+    if(el.dataset.msInstalledLight==='1') return;
+    el.dataset.msInstalledLight='1';
+
+    if(!el.querySelector(':scope > .ms-glass-light-fill')){
+      const fill=document.createElement('span');
+      fill.className='ms-glass-light-fill';
+      fill.setAttribute('aria-hidden','true');
+      el.prepend(fill);
+    }
+    if(!el.querySelector(':scope > .ms-glass-edge-light')){
+      const edge=document.createElement('span');
+      edge.className='ms-glass-edge-light';
+      edge.setAttribute('aria-hidden','true');
+      el.prepend(edge);
+    }
+
+    const update=event=>{
+      const rect=el.getBoundingClientRect();
+      if(!rect.width||!rect.height)return;
+      const x=event.clientX-rect.left;
+      const y=event.clientY-rect.top;
+      const cx=rect.width/2;
+      const cy=rect.height/2;
+      const dx=x-cx;
+      const dy=y-cy;
+
+      let horizontal=Infinity;
+      let vertical=Infinity;
+      if(dx!==0) horizontal=cx/Math.abs(dx);
+      if(dy!==0) vertical=cy/Math.abs(dy);
+      const proximity=Math.min(Math.max(1/Math.min(horizontal,vertical),0),1);
+
+      let angle=0;
+      if(dx!==0||dy!==0){
+        angle=Math.atan2(dy,dx)*(180/Math.PI)+90;
+        if(angle<0)angle+=360;
+      }
+      el.style.setProperty('--edge-proximity',(proximity*100).toFixed(3));
+      el.style.setProperty('--cursor-angle',angle.toFixed(3)+'deg');
+    };
+
+    const clear=()=>el.style.setProperty('--edge-proximity','0');
+    el.addEventListener('pointermove',update,{passive:true});
+    el.addEventListener('pointerleave',clear,{passive:true});
+  }
+
   function styleOne(el){
     if(!el||isProtected(el)) return;
     el.classList.add('ms-glass-v26');
+    bindInstalledLight(el);
     [...el.childNodes].forEach(node=>{
       if(node.nodeType===Node.TEXT_NODE && /[↗↘↙↖↑↓→←⟶⟵]/.test(node.nodeValue||'')){
         node.nodeValue=(node.nodeValue||'').replace(/[↗↘↙↖↑↓→←⟶⟵]/g,'').replace(/\s{2,}/g,' ');
@@ -75,6 +123,7 @@
     btn.style.setProperty('opacity','1','important');
     btn.classList.remove('is-compact');
     btn.classList.add('ms-glass-v26');
+    bindInstalledLight(btn);
 
     if(btn.dataset.msCriticalQuoteBound!=='1'){
       btn.dataset.msCriticalQuoteBound='1';
