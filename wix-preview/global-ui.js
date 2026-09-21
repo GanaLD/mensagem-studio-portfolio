@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260920-r20-real-rubber-topnav';
+  const VERSION = '20260921-r21-fixed-three-item-topnav';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -107,6 +107,19 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
+    /* PREVIEW V21 — one fixed site-wide header; About stays only inside the universal menu */
+    body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header,
+    body.ms-global-ui-mounted header.top.ms-rubber-topnav-header{
+      position:fixed!important;
+      top:0!important;
+      left:0!important;
+      right:0!important;
+      width:100%!important;
+      z-index:100020!important;
+    }
+    html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
+      opacity:0!important;
+    }
     @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-menu-quote,.ms-quote-fab,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -114,11 +127,12 @@
 
   const path = location.pathname.replace(/\/+$/, '/') || '/';
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
+  if(active==='sobre') document.documentElement.classList.add('ms-topnav-no-active');
 
   // Actual React Bits RubberSegment top navigation.
   // This loads the bundle built from the installed @react-bits/RubberSegment-JS-CSS component.
-  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260920-r20';
-  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260920-r20';
+  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260921-r21';
+  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260921-r21';
 
   if(!document.querySelector('link[data-ms-rubber-topnav]')){
     const topNavCss = document.createElement('link');
