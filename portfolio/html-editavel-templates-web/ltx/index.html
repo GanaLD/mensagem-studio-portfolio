@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>LTX — O modelo de mundo</title>
+<title>Template HTML — Interativo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,11 +33,11 @@ button{font-family:'Manrope',system-ui,sans-serif;color:inherit}
 
 header{position:absolute;top:0;left:0;width:100%;z-index:30;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:calc(58px + env(safe-area-inset-top)) 40px 40px;text-shadow:0 1px 6px rgb(0 0 0 / .18)}
 .brand-wrap{display:flex;align-items:center;min-width:0}
-.brand{display:inline-flex;align-items:center;color:#fff}
+.brand{display:inline-flex;align-items:center;color:#fff}.brand-text{font-size:24px;font-weight:700;line-height:1;letter-spacing:.055em;white-space:nowrap}
 .brand svg{display:block;height:24px;width:auto}
 .meta{margin-left:clamp(48px,5vw,70px);display:flex;gap:clamp(28px,3vw,44px);font-size:18px;line-height:1.2;letter-spacing:-.04em;white-space:nowrap}
 .try{width:152px;height:38px;border-radius:999px;border:1px solid rgb(255 255 255 / .75);background:transparent;color:#fff;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;font-size:18px;line-height:1;transition:color 300ms ease,background 300ms ease,border-color 300ms ease;position:relative}
-.try:hover,.try:focus-visible{background:#fff;color:#0b1a26;border-color:#fff}
+
 
 .controller{position:absolute;top:46.78%;left:50%;transform:translateX(-50%);width:min(880px,calc(100vw - 48px));height:72px;z-index:20;--glass-x:24%;--glass-y:8%;--cap-left:-5px;--cap-width:calc(20% + 5px)}
 .track,.capsule{position:absolute;border-radius:999px}
@@ -85,7 +85,7 @@ button.cell:disabled{cursor:default}
 }
 @media (max-width:700px){
   header{padding-left:18px;padding-right:18px}
-  .brand svg{height:21px}
+  .brand svg{height:21px}.brand-text{font-size:18px}
   .meta{font-size:12px}
   .meta .smart{display:none}
   .try{width:92px;height:34px;font-size:13px}
@@ -144,8 +144,8 @@ button.cell:disabled{cursor:default}
   <video id="v4r" class="media" src="https://pub-86dc5b5484314368ac5436a674b0d919.r2.dev/designs/video-4-reverse.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
 
   <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title"><span>O</span> <span>modelo</span> <span>de mundo</span></h1>
-    <p>A LTX cria modelos de mundo aberto que oferecem controle total — de vídeos com qualidade de produção a sistemas que compreendem e operam no mundo físico.</p>
+    <h1 id="hero-title"><span>Template</span> <span>HTML</span></h1>
+    <p>Template HTML interativo e responsivo com transições de cena, iluminação, vestuário e elenco em uma interface de vidro.</p>
   </section>
 
   <div class="controller" id="controller" role="group" aria-label="Controlador de estado da cena">
@@ -162,17 +162,11 @@ button.cell:disabled{cursor:default}
 
   <header>
     <div class="brand-wrap">
-      <a class="brand" href="https://ltx.io/" aria-label="Página inicial da LTX">
-        <svg viewBox="0 0 75 32" role="img" aria-hidden="true" focusable="false">
-          <path fill="#fff" d="M0 3h6v21h15v5H0V3z"/>
-          <path fill="#fff" d="M24 3h26v5H40v21h-6V8H24V3z"/>
-          <path fill="#fff" d="M51 3h7.2l5.3 8.1L68.8 3H75l-8.2 12.2L75 29h-7.1l-5-8.8-5.6 8.8H51l8.5-13.2L51 3z"/>
-        </svg>
-      </a>
-      <div class="meta"><span>LTX-2.5 chegou</span><span class="smart">Mais inteligente. Mais rápido</span></div>
+      <span class="brand" aria-label="Template HTML"><span class="brand-text">TEMPLATE HTML</span></span>
+      <div class="meta"><span>Template HTML</span><span class="smart">Interativo. Responsivo. Editável.</span></div>
     </div>
     <span aria-hidden="true"></span>
-    <a class="try" href="https://app.ltx.io/" target="_blank" rel="noopener noreferrer">Testar agora</a>
+    <span class="try" aria-label="Template HTML">TEMPLATE HTML</span>
   </header>
 
   <div id="status" class="live" role="status" aria-live="polite" aria-atomic="true">Carregando cena.</div>
