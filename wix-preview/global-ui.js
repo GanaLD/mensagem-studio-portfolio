@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260915-r18-quote-royal-glass';
+  const VERSION = '20260920-r19-unified-top-nav';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -107,6 +107,170 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
+    /* UNIFIED_TOP_NAV_V1 — service-page header language on every page */
+    body.ms-global-ui-mounted header.content-layer,
+    body.ms-global-ui-mounted header.top{
+      display:grid!important;
+      grid-template-columns:1fr auto 1fr!important;
+      align-items:center!important;
+      gap:18px!important;
+      min-height:72px!important;
+      height:72px!important;
+      padding:0 clamp(20px,4vw,64px)!important;
+      background:rgba(6,7,6,.58)!important;
+      border-bottom:1px solid rgba(255,255,255,.06)!important;
+      -webkit-backdrop-filter:blur(18px) saturate(118%)!important;
+      backdrop-filter:blur(18px) saturate(118%)!important;
+      box-shadow:none!important;
+      overflow:visible!important;
+    }
+    body.ms-global-ui-mounted header.content-layer.is-scrolled,
+    body.ms-global-ui-mounted header.top.is-scrolled{
+      background:rgba(6,7,6,.88)!important;
+      border-bottom-color:rgba(255,255,255,.09)!important;
+    }
+    body.ms-global-ui-mounted header .brand,
+    body.ms-global-ui-mounted .top .brand{
+      justify-self:start!important;
+      color:#F4F4EF!important;
+      font-size:11px!important;
+      line-height:1!important;
+      letter-spacing:.16em!important;
+      font-weight:700!important;
+      white-space:nowrap!important;
+    }
+    body.ms-global-ui-mounted header .nav,
+    body.ms-global-ui-mounted .top .nav{
+      grid-column:2!important;
+      justify-self:center!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      gap:4px!important;
+      width:max-content!important;
+      max-width:none!important;
+      margin:0!important;
+      padding:0!important;
+      overflow:visible!important;
+      transform:none!important;
+    }
+    body.ms-global-ui-mounted header .nav a,
+    body.ms-global-ui-mounted .top .nav a{
+      position:relative!important;
+      display:inline-flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      min-height:72px!important;
+      padding:26px 14px 22px!important;
+      border:0!important;
+      border-radius:0!important;
+      background:none!important;
+      box-shadow:none!important;
+      color:#A8AAA5!important;
+      font-size:11px!important;
+      line-height:1!important;
+      font-weight:500!important;
+      letter-spacing:.02em!important;
+      text-transform:none!important;
+      white-space:nowrap!important;
+      transform:none!important;
+      transition:color .2s ease!important;
+    }
+    body.ms-global-ui-mounted header .nav a::before,
+    body.ms-global-ui-mounted .top .nav a::before{display:none!important}
+    body.ms-global-ui-mounted header .nav a::after,
+    body.ms-global-ui-mounted .top .nav a::after{
+      content:""!important;
+      position:absolute!important;
+      left:14px!important;
+      right:14px!important;
+      bottom:15px!important;
+      width:auto!important;
+      height:1px!important;
+      border:0!important;
+      border-radius:0!important;
+      background:transparent!important;
+      opacity:1!important;
+      transform:scaleX(.35)!important;
+      transform-origin:center!important;
+      transition:background .22s ease,transform .22s ease!important;
+    }
+    body.ms-global-ui-mounted header .nav a:hover,
+    body.ms-global-ui-mounted header .nav a:focus-visible,
+    body.ms-global-ui-mounted .top .nav a:hover,
+    body.ms-global-ui-mounted .top .nav a:focus-visible{
+      color:#fff!important;
+      background:none!important;
+      border:0!important;
+      box-shadow:none!important;
+      outline:none!important;
+    }
+    body.ms-global-ui-mounted header .nav a.active,
+    body.ms-global-ui-mounted header .nav a.on,
+    body.ms-global-ui-mounted header .nav a[aria-current="page"],
+    body.ms-global-ui-mounted .top .nav a.active,
+    body.ms-global-ui-mounted .top .nav a.on,
+    body.ms-global-ui-mounted .top .nav a[aria-current="page"]{
+      color:#fff!important;
+      background:none!important;
+      border:0!important;
+      box-shadow:none!important;
+    }
+    body.ms-global-ui-mounted header .nav a.active::after,
+    body.ms-global-ui-mounted header .nav a.on::after,
+    body.ms-global-ui-mounted header .nav a[aria-current="page"]::after,
+    body.ms-global-ui-mounted .top .nav a.active::after,
+    body.ms-global-ui-mounted .top .nav a.on::after,
+    body.ms-global-ui-mounted .top .nav a[aria-current="page"]::after{
+      background:#35D39A!important;
+      transform:scaleX(1)!important;
+    }
+    body.ms-global-ui-mounted header .right,
+    body.ms-global-ui-mounted header .location,
+    body.ms-global-ui-mounted .top .right,
+    body.ms-global-ui-mounted .top .location{
+      display:none!important;
+    }
+    @media(max-width:760px){
+      body.ms-global-ui-mounted header.content-layer,
+      body.ms-global-ui-mounted header.top{
+        min-height:64px!important;
+        height:64px!important;
+        padding:0 56px!important;
+        grid-template-columns:1fr!important;
+      }
+      body.ms-global-ui-mounted header .brand,
+      body.ms-global-ui-mounted .top .brand{
+        display:none!important;
+      }
+      body.ms-global-ui-mounted header .nav,
+      body.ms-global-ui-mounted .top .nav{
+        grid-column:1!important;
+        width:100%!important;
+        max-width:100%!important;
+        justify-content:flex-start!important;
+        overflow-x:auto!important;
+        overflow-y:hidden!important;
+        scrollbar-width:none!important;
+        -webkit-overflow-scrolling:touch!important;
+      }
+      body.ms-global-ui-mounted header .nav::-webkit-scrollbar,
+      body.ms-global-ui-mounted .top .nav::-webkit-scrollbar{display:none!important}
+      body.ms-global-ui-mounted header .nav a,
+      body.ms-global-ui-mounted .top .nav a{
+        flex:0 0 auto!important;
+        min-height:64px!important;
+        padding:22px 11px 18px!important;
+        font-size:10px!important;
+      }
+      body.ms-global-ui-mounted header .nav a::after,
+      body.ms-global-ui-mounted .top .nav a::after{
+        left:11px!important;
+        right:11px!important;
+        bottom:12px!important;
+      }
+    }
+
     @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-menu-quote,.ms-quote-fab,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -114,6 +278,30 @@
 
   const path = location.pathname.replace(/\/+$/, '/') || '/';
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
+
+  // Keep the visible page header identical everywhere, using the Services
+  // navigation pattern as the single source of truth.
+  const pageHeader = document.querySelector('header.content-layer, header.top, body > header');
+  const pageNav = pageHeader?.querySelector('.nav');
+  if(pageNav){
+    const labels = {home:'Home',projetos:'Projetos',servicos:'Serviços',sobre:'Sobre'};
+    [...pageNav.querySelectorAll('a')].forEach(link=>{
+      const href = link.getAttribute('href') || '';
+      let key = '';
+      if(/servicos/i.test(href)) key='servicos';
+      else if(/portfolio|projetos/i.test(href)) key='projetos';
+      else if(/sobre/i.test(href)) key='sobre';
+      else key='home';
+
+      link.textContent = labels[key];
+      link.classList.remove('active','on');
+      link.removeAttribute('aria-current');
+      if(key===active){
+        link.classList.add('active');
+        link.setAttribute('aria-current','page');
+      }
+    });
+  }
 
   const menuBtn = document.createElement('button');
   menuBtn.className = 'ms-universal-menu-btn';
