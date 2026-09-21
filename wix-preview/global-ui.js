@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r24-reference-glass-restore-budget';
+  const VERSION = '20260921-r25-budget-glass-visible';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
