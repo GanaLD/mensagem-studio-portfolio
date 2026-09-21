@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r23-shader-lens-glass-buttons';
+  const VERSION = '20260921-r24-reference-glass-restore-budget';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -36,7 +36,7 @@
     .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
 
-    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab{position:fixed!important;display:inline-flex!important;visibility:visible!important;opacity:1!important;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-quote-fab .ms-quote-label{display:block;max-width:92px;opacity:1;white-space:nowrap;overflow:hidden;transition:max-width .28s cubic-bezier(.16,1,.3,1),opacity .18s ease,transform .28s cubic-bezier(.16,1,.3,1)}
     .ms-quote-fab .ms-quote-icon{width:18px;height:18px;display:grid;place-items:center;flex:0 0 18px;color:#fff}
     .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -107,51 +107,37 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* PREVIEW V23 — shader-lens glass, faithful to supplied reference.
-       Optical model kept: nearly-clear fill, 2px backdrop diffusion, dark internal caustic,
-       diagonal blurred perimeter sheen, inset bevels, mouse-position lens response. */
+    /* PREVIEW V24 — supplied reference translated literally to live DOM buttons.
+       Geometry/shadows/blur follow the reference; no colored fake fill. */
     :root{
       --ms-lg-radius:9999px;
-      --ms-lg-text:#f6f7f3;
+      --ms-lg-tr:15%;
+      --ms-lg-text:#f5f5f5;
     }
     .ms-liquid-glass{
-      --ms-lg-tr:15%;
       --ms-lg-x:50%;
       --ms-lg-y:50%;
       position:relative!important;
       isolation:isolate!important;
       overflow:hidden!important;
-      border:1px double rgba(255,255,255,.13)!important;
       border-radius:var(--ms-lg-radius)!important;
-      background:
-        radial-gradient(
-          ellipse at var(--ms-lg-x) var(--ms-lg-y),
-          rgba(255,255,255,.030) 0%,
-          rgba(255,255,255,.010) 34%,
-          rgba(0,0,0,.014) 58%,
-          transparent 76%
-        ),
-        rgba(0,0,0,.02)!important;
+      border:1px double rgba(255,255,255,.16)!important;
+      background:rgba(0,0,0,.02)!important;
       color:var(--ms-lg-text)!important;
-      -webkit-backdrop-filter:blur(2px) saturate(112%) contrast(1.08)!important;
-      backdrop-filter:blur(2px) saturate(112%) contrast(1.08)!important;
+      -webkit-backdrop-filter:blur(2px)!important;
+      backdrop-filter:blur(2px)!important;
       box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.72),
-        inset -2px 2px 1px -1px rgba(255,255,255,.60),
-        inset 6px -6px 1px -6px rgba(255,255,255,.46),
-        inset -6px 6px 1px -6px rgba(255,255,255,.42),
-        inset 0 0 2px rgba(0,0,0,.82),
-        inset 0 0 0 1px rgba(255,255,255,.08),
-        0 4px 8px rgba(0,0,0,.22)!important;
-      text-shadow:0 1px 10px rgba(0,0,0,.22)!important;
-      transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease!important;
+        inset 2px -2px 1px -1px rgba(255,255,255,.90),
+        inset -2px 2px 1px -1px rgba(255,255,255,.90),
+        inset 6px -6px 1px -6px rgba(255,255,255,.55),
+        inset -6px 6px 1px -6px rgba(255,255,255,.55),
+        inset 0 0 2px rgba(0,0,0,.80),
+        0 4px 8px rgba(0,0,0,.20)!important;
+      filter:brightness(.92);
+      text-shadow:0 1px 10px rgba(0,0,0,.26)!important;
       user-select:none;
       -webkit-user-select:none;
-      transform:translateZ(0);
+      transition:transform .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease!important;
     }
     .ms-liquid-glass::before{
       content:""!important;
@@ -166,7 +152,6 @@
       border:1px solid rgba(0,0,0,.90)!important;
       background:transparent!important;
       filter:blur(8px)!important;
-      opacity:.82!important;
       pointer-events:none!important;
     }
     .ms-liquid-glass::after{
@@ -185,64 +170,59 @@
         rgba(255,255,255,.80) 100%
       )!important;
       filter:blur(7px) contrast(3)!important;
-      opacity:.28!important;
-      mix-blend-mode:screen!important;
+      opacity:.30!important;
       pointer-events:none!important;
     }
-    .ms-liquid-glass > *{
-      position:relative;
-      z-index:3;
-    }
+    .ms-liquid-glass > *{position:relative;z-index:3}
     .ms-liquid-glass .ms-liquid-glass-arrow{display:none!important}
     .ms-liquid-glass:hover,
     .ms-liquid-glass:focus-visible{
       outline:none!important;
+      background:rgba(0,0,0,0)!important;
       transform:translateY(-3px)!important;
-      border-color:rgba(255,255,255,.24)!important;
-      background:
-        radial-gradient(
-          ellipse at var(--ms-lg-x) var(--ms-lg-y),
-          rgba(255,255,255,.045) 0%,
-          rgba(255,255,255,.014) 34%,
-          rgba(0,0,0,.010) 58%,
-          transparent 76%
-        ),
-        rgba(0,0,0,0)!important;
+      border-color:rgba(255,255,255,.28)!important;
       box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.86),
-        inset -2px 2px 1px -1px rgba(255,255,255,.72),
-        inset 6px -6px 1px -6px rgba(255,255,255,.56),
-        inset -6px 6px 1px -6px rgba(255,255,255,.50),
-        inset 0 0 2px rgba(0,0,0,.80),
-        inset 0 0 0 1px rgba(255,255,255,.11),
-        0 7px 13px rgba(0,0,0,.24)!important;
+        inset 2px -2px 1px -1px rgba(255,255,255,.96),
+        inset -2px 2px 1px -1px rgba(255,255,255,.96),
+        inset 6px -6px 1px -6px rgba(255,255,255,.62),
+        inset -6px 6px 1px -6px rgba(255,255,255,.62),
+        inset 0 0 2px rgba(0,0,0,.84),
+        0 6px 12px rgba(0,0,0,.24)!important;
     }
     .ms-liquid-glass:hover::after,
     .ms-liquid-glass:focus-visible::after{opacity:.42!important}
     .ms-liquid-glass:active{transform:scale(.94)!important}
     .ms-liquid-glass.primary,
     .ms-liquid-glass.is-primary{
-      background:
-        radial-gradient(
-          ellipse at var(--ms-lg-x) var(--ms-lg-y),
-          rgba(255,255,255,.040) 0%,
-          rgba(255,255,255,.012) 36%,
-          rgba(0,0,0,.010) 60%,
-          transparent 78%
-        ),
-        rgba(0,0,0,.018)!important;
-      border-color:rgba(255,255,255,.16)!important;
+      background:rgba(0,0,0,.02)!important;
+      border-color:rgba(255,255,255,.18)!important;
       color:#fff!important;
     }
+
+    /* ORÇAMENTO stays present and uses the same real-glass construction,
+       retaining only its approved royal-blue identity as an edge accent. */
+    .ms-quote-fab.ms-liquid-glass{
+      background:rgba(0,0,0,.02)!important;
+      border-color:rgba(100,132,255,.62)!important;
+      box-shadow:
+        inset 2px -2px 1px -1px rgba(255,255,255,.90),
+        inset -2px 2px 1px -1px rgba(255,255,255,.86),
+        inset 6px -6px 1px -6px rgba(255,255,255,.50),
+        inset -6px 6px 1px -6px rgba(255,255,255,.48),
+        inset 0 0 2px rgba(0,0,0,.82),
+        0 4px 8px rgba(0,0,0,.22),
+        0 0 18px rgba(36,87,255,.16)!important;
+    }
+    .ms-quote-fab.ms-liquid-glass:hover,
+    .ms-quote-fab.ms-liquid-glass:focus-visible{
+      border-color:rgba(145,166,255,.88)!important;
+      background:rgba(0,0,0,0)!important;
+    }
+
     .ms-liquid-glass[disabled],
     .ms-liquid-glass[aria-disabled="true"]{opacity:.48!important;pointer-events:none!important}
     @media(max-width:760px){
-      .ms-liquid-glass{
-        min-height:46px!important;
-        max-width:100%;
-        -webkit-backdrop-filter:blur(2px) saturate(108%) contrast(1.06)!important;
-        backdrop-filter:blur(2px) saturate(108%) contrast(1.06)!important;
-      }
+      .ms-liquid-glass{min-height:46px!important;max-width:100%}
       .cta-row .ms-liquid-glass,
       .ms-brief-actions .ms-liquid-glass,
       .ms-footer-links .ms-liquid-glass{min-width:0!important}
@@ -356,24 +336,6 @@
 
       el.classList.add('ms-liquid-glass');
 
-      if(el.dataset.msGlassLensBound!=='1'){
-        el.dataset.msGlassLensBound='1';
-        const setLensPoint = event => {
-          const rect=el.getBoundingClientRect();
-          if(!rect.width||!rect.height)return;
-          const x=Math.max(0,Math.min(100,((event.clientX-rect.left)/rect.width)*100));
-          const y=Math.max(0,Math.min(100,((event.clientY-rect.top)/rect.height)*100));
-          el.style.setProperty('--ms-lg-x',x.toFixed(2)+'%');
-          el.style.setProperty('--ms-lg-y',y.toFixed(2)+'%');
-        };
-        const resetLensPoint = () => {
-          el.style.setProperty('--ms-lg-x','50%');
-          el.style.setProperty('--ms-lg-y','50%');
-        };
-        el.addEventListener('pointermove',setLensPoint,{passive:true});
-        el.addEventListener('pointerleave',resetLensPoint,{passive:true});
-      }
-
       // The new glass language intentionally has no arrow glyphs.
       [...el.childNodes].forEach(node=>{
         if(node.nodeType===Node.TEXT_NODE && /[↗↘↙↖↑↓→←⟶⟵]/.test(node.nodeValue || '')){
@@ -427,11 +389,6 @@
   quoteFab.setAttribute('aria-label','Abrir orçamento');
   quoteFab.innerHTML = '<span class="ms-quote-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7.2"/><circle cx="9.5" cy="19" r="1.25"/><circle cx="17.5" cy="19" r="1.25"/></svg></span><span class="ms-quote-label">ORÇAMENTO</span>';
   document.body.appendChild(quoteFab);
-  if(active==='servicos'){
-    quoteFab.hidden=true;
-    quoteFab.setAttribute('aria-hidden','true');
-  }
-
   const updateQuoteFabState = () => {
     const drawerOpen = Boolean(document.querySelector('.drawer.open'));
     const compact = drawerOpen;
