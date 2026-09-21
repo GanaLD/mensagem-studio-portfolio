@@ -210,6 +210,25 @@
       .ms-brief-actions .ms-liquid-glass,
       .ms-footer-links .ms-liquid-glass{min-width:0!important}
     }
+    /* PROTECTED UI — original Home lateral section rail must remain untouched */
+    #msSectionNav .ms-liquid-glass,
+    #msSectionNav.ms-liquid-glass,
+    #msSectionNav .ms-section-nav-btn{
+      border-radius:0!important;
+      background:transparent!important;
+      box-shadow:none!important;
+      -webkit-backdrop-filter:none!important;
+      backdrop-filter:none!important;
+      text-shadow:none!important;
+      transform:none!important;
+    }
+    #msSectionNav .ms-liquid-glass::before,
+    #msSectionNav .ms-liquid-glass::after,
+    #msSectionNav.ms-liquid-glass::before,
+    #msSectionNav.ms-liquid-glass::after{
+      content:none!important;
+      display:none!important;
+    }
     /* PREVIEW V21 — one fixed site-wide header; About stays only inside the universal menu */
     body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header,
     body.ms-global-ui-mounted header.top.ms-rubber-topnav-header{
@@ -283,8 +302,7 @@
     '.ms-glass-cta',
     '.send',
     'button[type="submit"]',
-    '.stage-side button',
-    'button:not(.rubber-segment__item):not(.ms-universal-menu-btn):not(.ms-contact-close):not(.ms-sound-toggle):not(.ms3d-edge)'
+    '.stage-side button'
   ].join(',');
 
   const isArrowOnly = value => /^[\\s↗↘↙↖↑↓→←⟶⟵›»]+$/.test((value || '').trim());
@@ -296,6 +314,7 @@
 
     nodes.forEach(el=>{
       if(el.closest('#ms-rubber-topnav-root')) return;
+      if(el.closest('#msSectionNav')) return; // protected lateral site rail: never restyle
       if(el.classList.contains('ms-universal-menu-btn') || el.classList.contains('ms-contact-close') || el.classList.contains('ms-sound-toggle') || el.classList.contains('ms3d-edge')) return;
 
       el.classList.add('ms-liquid-glass');
@@ -360,8 +379,7 @@
 
   const updateQuoteFabState = () => {
     const drawerOpen = Boolean(document.querySelector('.drawer.open'));
-    const atPageTop = window.scrollY <= 180;
-    const compact = drawerOpen || atPageTop;
+    const compact = drawerOpen;
     quoteFab.classList.toggle('is-compact', compact);
     quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
   };
