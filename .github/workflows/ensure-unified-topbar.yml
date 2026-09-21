@@ -1,0 +1,82 @@
+name: Ensure Unified Top Bar
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'global-ui.js'
+      - '**/*.html'
+      - '.github/workflows/ensure-unified-topbar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ensure-unified-topbar
+  cancel-in-progress: true
+
+jobs:
+  ensure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pin all pages to the unified global navigation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          VERSION = "20260920-r19-unified-top-nav"
+          changed = []
+
+          for path in Path(".").rglob("*.html"):
+              if ".git" in path.parts:
+                  continue
+              text = path.read_text(encoding="utf-8", errors="ignore")
+              if "global-ui.js" not in text:
+                  continue
+
+              updated = re.sub(
+                  r'(global-ui\.js\?v=)[^"\']+',
+                  r'\g<1>' + VERSION,
+                  text,
+              )
+
+              if updated != text:
+                  path.write_text(updated, encoding="utf-8")
+                  changed.append(str(path))
+
+          print("Updated pages:", len(changed))
+          for item in changed:
+              print(item)
+          PY
+
+      - name: Verify shared nav source
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'UNIFIED_TOP_NAV_V1' global-ui.js
+          grep -q "20260920-r19-unified-top-nav" global-ui.js
+
+      - name: Commit if needed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo "All pages already use the unified top bar."
+            exit 0
+          fi
+          git commit -m 'Apply unified top navigation to all pages'
+          git pull --rebase origin main
+          git push origin HEAD:main
