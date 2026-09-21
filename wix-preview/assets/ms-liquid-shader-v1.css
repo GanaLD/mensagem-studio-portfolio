@@ -1,0 +1,80 @@
+/* PREVIEW — TRUE LIQUID GLASS SHADER V1
+   WebGL glass layer based on the supplied "Liquid Glass Shader" reference.
+   This replaces the fake CSS glass surface; the installed 3D edge-light stays separate. */
+
+html body .ms-glass-v26.ms-liquid-shader{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+  background:rgba(0,0,0,.015)!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  filter:none!important;
+}
+
+html body .ms-glass-v26.ms-liquid-shader::before,
+html body .ms-glass-v26.ms-liquid-shader::after{
+  content:none!important;
+  display:none!important;
+}
+
+html body .ms-liquid-shader-canvas{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  z-index:0!important;
+  border-radius:inherit!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  opacity:1!important;
+}
+
+html body .ms-glass-v26.ms-liquid-shader > :not(.ms-liquid-shader-canvas):not(.ms-glass-light-fill):not(.ms-glass-edge-light){
+  position:relative!important;
+  z-index:3!important;
+}
+
+html body .ms-glass-v26.ms-liquid-shader > .ms-glass-light-fill{z-index:2!important}
+html body .ms-glass-v26.ms-liquid-shader > .ms-glass-edge-light{z-index:4!important}
+
+html.no-ms-liquid-webgl body .ms-glass-v26.ms-liquid-shader{
+  background:rgba(255,255,255,.035)!important;
+  -webkit-backdrop-filter:blur(7px) saturate(120%)!important;
+  backdrop-filter:blur(7px) saturate(120%)!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.42),
+    inset 0 -1px rgba(0,0,0,.32),
+    0 6px 18px rgba(0,0,0,.20)!important;
+}
+
+#msServicesDeck .border-glow-inner.ms-liquid-shader-card{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:rgba(0,0,0,.015)!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  box-shadow:none!important;
+}
+#msServicesDeck .border-glow-inner.ms-liquid-shader-card::before,
+#msServicesDeck .border-glow-inner.ms-liquid-shader-card::after{
+  content:none!important;
+  display:none!important;
+}
+#msServicesDeck .border-glow-inner.ms-liquid-shader-card > .ms-liquid-shader-canvas{
+  z-index:0!important;
+}
+#msServicesDeck .border-glow-inner.ms-liquid-shader-card > .ms3d-inner{
+  position:relative!important;
+  z-index:2!important;
+}
+
+#msSectionNav .ms-liquid-shader-canvas,
+#ms-rubber-topnav-root .ms-liquid-shader-canvas,
+.rubber-segment .ms-liquid-shader-canvas{display:none!important}
+
+@media(prefers-reduced-motion:reduce){
+  html body .ms-liquid-shader-canvas{transition:none!important}
+}
