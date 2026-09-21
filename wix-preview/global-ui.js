@@ -220,6 +220,17 @@
       width:100%!important;
       z-index:100020!important;
     }
+    /* HOME: header starts above the hero and scrolls away with the page.
+       It must never sit over the hero/video while the immersive scroll is running. */
+    html[data-ms-page="home"] body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header{
+      position:relative!important;
+      top:auto!important;
+      left:auto!important;
+      right:auto!important;
+      width:100%!important;
+      z-index:100020!important;
+      flex:0 0 auto!important;
+    }
     html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
       opacity:0!important;
     }
@@ -230,6 +241,7 @@
 
   const path = location.pathname.replace(/\/+$/, '/') || '/';
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
+  document.documentElement.dataset.msPage = active;
   if(active==='sobre') document.documentElement.classList.add('ms-topnav-no-active');
 
   // Actual React Bits RubberSegment top navigation.
