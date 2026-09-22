@@ -1,0 +1,191 @@
+/* PREVIEW — BUTTONS INSPIRED BY THE EXISTING 3D CAROUSEL GLASS/GLOW
+   IMPORTANT: this file styles ONLY previously indicated action buttons.
+   It contains NO selector that changes #msServicesDeck or its cards. */
+
+:root{
+  --ms-btn-yellow:#ffd84d;
+  --ms-btn-yellow-rgb:255,216,77;
+  --ms-btn-blue:#4169e1;
+  --ms-btn-blue-rgb:65,105,225;
+  --ms-btn-radius:10px;
+}
+
+.ms-carousel-glass-btn{
+  --ms-btn-x:50%;
+  --ms-btn-y:50%;
+  --ms-btn-angle:45deg;
+  --ms-btn-glow:0;
+
+  position:relative!important;
+  isolation:isolate!important;
+
+  /* Preserve the element's ORIGINAL display, width, height, padding and layout.
+     Only the visual skin is replaced. */
+  border-radius:var(--ms-btn-radius)!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+
+  background:
+    radial-gradient(
+      circle at var(--ms-btn-x) var(--ms-btn-y),
+      rgba(var(--ms-btn-yellow-rgb),calc(.035 + var(--ms-btn-glow) * .12)),
+      rgba(var(--ms-btn-blue-rgb),calc(.025 + var(--ms-btn-glow) * .09)) 28%,
+      transparent 58%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.105),
+      rgba(255,255,255,.035) 30%,
+      rgba(22,20,12,.24) 58%,
+      rgba(var(--ms-btn-blue-rgb),.065)
+    )!important;
+
+  -webkit-backdrop-filter:blur(22px) saturate(145%) contrast(1.03)!important;
+  backdrop-filter:blur(22px) saturate(145%) contrast(1.03)!important;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.26),
+    0 0 calc(8px + var(--ms-btn-glow) * 26px) rgba(var(--ms-btn-blue-rgb),calc(.07 + var(--ms-btn-glow) * .24)),
+    0 0 calc(5px + var(--ms-btn-glow) * 18px) rgba(var(--ms-btn-yellow-rgb),calc(.035 + var(--ms-btn-glow) * .15)),
+    inset 0 1px 0 rgba(255,255,255,.20),
+    inset 0 -1px 0 rgba(var(--ms-btn-blue-rgb),.10)!important;
+
+  color:#f4f5ef!important;
+  overflow:hidden!important;
+
+  transition:
+    border-color .18s linear,
+    box-shadow .18s linear,
+    background .18s linear,
+    transform .18s ease,
+    opacity .18s ease!important;
+}
+
+/* Moving glass sheen, copied conceptually from the carousel card surface. */
+.ms-carousel-glass-btn::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:-40%!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+
+  background:
+    radial-gradient(
+      circle at var(--ms-btn-x) var(--ms-btn-y),
+      rgba(var(--ms-btn-blue-rgb),calc(.10 + var(--ms-btn-glow) * .28)),
+      transparent 27%
+    ),
+    linear-gradient(
+      112deg,
+      transparent 30%,
+      rgba(255,255,255,calc(.07 + var(--ms-btn-glow) * .14)) 47%,
+      transparent 63%
+    )!important;
+
+  transform:translate3d(
+    calc((var(--ms-btn-x) - 50%) * .08),
+    calc((var(--ms-btn-y) - 50%) * .08),
+    0
+  )!important;
+  opacity:calc(.62 + var(--ms-btn-glow) * .38)!important;
+}
+
+/* Cursor-facing border light, using the same yellow/blue family as the carousel. */
+.ms-carousel-glass-btn::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:-1px!important;
+  border-radius:inherit!important;
+  padding:1px!important;
+  pointer-events:none!important;
+
+  background:
+    conic-gradient(
+      from var(--ms-btn-angle) at center,
+      rgba(var(--ms-btn-yellow-rgb),.98),
+      rgba(255,255,255,.70) 7%,
+      transparent 18%,
+      transparent 72%,
+      rgba(var(--ms-btn-blue-rgb),.92) 91%,
+      rgba(var(--ms-btn-yellow-rgb),.98)
+    )!important;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite:xor!important;
+  mask-composite:exclude!important;
+
+  opacity:calc(.18 + var(--ms-btn-glow) * .82)!important;
+  filter:
+    drop-shadow(0 0 calc(2px + var(--ms-btn-glow) * 7px) rgba(var(--ms-btn-yellow-rgb),.48))
+    drop-shadow(0 0 calc(2px + var(--ms-btn-glow) * 10px) rgba(var(--ms-btn-blue-rgb),.42))!important;
+}
+
+/* Existing text/icons stay above the glass layers. */
+.ms-carousel-glass-btn > *{
+  position:relative!important;
+  z-index:2!important;
+}
+
+.ms-carousel-glass-btn:hover,
+.ms-carousel-glass-btn:focus-visible{
+  outline:none!important;
+  --ms-btn-glow:1;
+  border-color:rgba(var(--ms-btn-blue-rgb),.88)!important;
+}
+
+.ms-carousel-glass-btn:active{
+  transform:scale(.97)!important;
+}
+
+/* Remove only arrow glyphs previously rejected by the user. */
+.ms-carousel-glass-btn .ms-carousel-glass-arrow-hidden{
+  display:none!important;
+}
+
+/* Selected/toggled buttons keep their state/function without reverting to old white fills. */
+#pdfTabs > .ms-carousel-glass-btn.active,
+#modelTabs > .ms-carousel-glass-btn.active,
+#ytTabs > .ms-carousel-glass-btn.active,
+.ms-carousel-glass-btn.on{
+  background:
+    radial-gradient(circle at var(--ms-btn-x) var(--ms-btn-y),rgba(var(--ms-btn-yellow-rgb),.13),rgba(var(--ms-btn-blue-rgb),.10) 32%,transparent 62%),
+    linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.04) 30%,rgba(22,20,12,.22) 58%,rgba(var(--ms-btn-blue-rgb),.09))!important;
+  color:#fff!important;
+}
+
+/* ORÇAMENTO: keep original sizing + old compact behavior, change visual skin only. */
+.ms-quote-fab.ms-carousel-glass-btn{
+  border-radius:var(--ms-btn-radius)!important;
+}
+.ms-quote-fab.ms-carousel-glass-btn.is-compact{
+  border-radius:12px!important;
+}
+
+/* Preserve original footer disposition. No width/flex changes here. */
+.ms-site-footer .ms-footer-link.ms-carousel-glass-btn,
+.ms-site-footer #backgroundSwitcher.ms-carousel-glass-btn{
+  width:auto!important;
+}
+
+/* HARD PROTECTION — these are NOT part of this button skin. */
+#msSectionNav .ms-carousel-glass-btn,
+#ms-rubber-topnav-root .ms-carousel-glass-btn,
+.rubber-segment .ms-carousel-glass-btn,
+#msServicesDeck .ms-carousel-glass-btn,
+#msServicesDeck.ms-carousel-glass-btn{
+  all:revert!important;
+}
+
+@media(hover:none),(pointer:coarse){
+  .ms-carousel-glass-btn{
+    --ms-btn-glow:.38;
+  }
+}
+
+@media(max-width:760px){
+  :root{--ms-btn-radius:9px}
+  .ms-quote-fab.ms-carousel-glass-btn.is-compact{border-radius:10px!important}
+}
