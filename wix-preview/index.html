@@ -989,5 +989,42 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   queue();
 })();
 </script>
+
+<style id="home-brief-action-label-fix-v1">
+/* PREVIEW hotfix: preserve the existing liquid-glass buttons and keep their labels readable/centered. */
+#brief .ms-brief-action{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  color:#f5f5f5!important;
+}
+#brief .ms-brief-action > span:not(.ms-glass-v26-arrow){
+  display:block!important;
+  position:relative!important;
+  z-index:4!important;
+  width:100%!important;
+  margin:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  color:#f5f5f5!important;
+  text-align:center!important;
+  font-size:clamp(18px,1.6vw,28px)!important;
+  font-weight:850!important;
+  line-height:1.05!important;
+  letter-spacing:-.025em!important;
+  text-transform:uppercase!important;
+  pointer-events:none!important;
+}
+#brief .ms-brief-action > span + span,
+#brief .ms-brief-action > .ms-glass-v26-arrow{
+  display:none!important;
+}
+@media(max-width:760px){
+  #brief .ms-brief-action > span:not(.ms-glass-v26-arrow){
+    font-size:clamp(17px,5.4vw,23px)!important;
+  }
+}
+</style>
 </body>
 </html>
