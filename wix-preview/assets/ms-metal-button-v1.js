@@ -1,24 +1,11 @@
-import {
-  createInstance,
-  destroyInstance,
-  updateInstance,
-  setSharedPreset
-} from "https://cdn.jsdelivr.net/npm/metal-fx@1.0.4/+esm";
+import React, { useLayoutEffect, useRef } from "https://esm.sh/react@18.3.1";
+import { createRoot } from "https://esm.sh/react-dom@18.3.1/client";
+import { MetalFx } from "https://esm.sh/metal-fx@1.0.4?deps=react@18.3.1,react-dom@18.3.1";
 
 (()=>{
-  if(window.__MS_METAL_BUTTON_V2__) return;
-  window.__MS_METAL_BUTTON_V2__=true;
+  if(window.__MS_REAL_METAL_BUTTON_ADAPTER__) return;
+  window.__MS_REAL_METAL_BUTTON_ADAPTER__=true;
 
-  /* Supplied component defaults:
-     variant="button", preset="chromatic", strength=1.
-     The site surface is dark, so use the dark tuning of the same preset. */
-  setSharedPreset("chromatic","dark");
-
-  const instances=new Map();
-
-  /* Only the action controls indicated by the user.
-     Do not broaden this to generic buttons: nav rails, RubberSegments and
-     the 3D service carousel are intentionally excluded. */
   const selector=[
     ".cta-row .btn",
     "#pdfTabs > button",
@@ -32,9 +19,12 @@ import {
     ".ms-quote-fab",
     ".ms-glass-cta",
     ".send",
+    ".cristo-v4-btn",
     "button[type='submit']",
     "[data-ms-metal-target='1']"
   ].join(",");
+
+  const mounted=new WeakMap();
 
   const protectedControl=el=>!!(
     el.closest("#msSectionNav")||
@@ -47,21 +37,25 @@ import {
     el.classList.contains("ms3d-edge")
   );
 
+  const isFullWidth=el=>!!(
+    el.matches("#pdfTabs > button,#modelTabs > button,#ytTabs > button,.add,.ms-brief-action,.ms-menu-quote,.ms-footer-link")
+  );
+
   const arrowOnly=value=>/^[\s↗↘↙↖↑↓→←⟶⟵↔›»]+$/.test((value||"").trim());
 
-  function stripLegacyButtonEffects(el){
+  function cleanHost(el){
     el.classList.remove(
       "ms-glass-v26",
       "ms-liquid-glass",
       "ms-liquid-shader",
-      "ms-liquid-shader-card"
+      "ms-liquid-shader-card",
+      "ms-metal-button"
     );
-    el.querySelectorAll(
-      ":scope > .ms-glass-light-fill,:scope > .ms-glass-edge-light,:scope > .ms-liquid-shader-canvas"
-    ).forEach(node=>node.remove());
-  }
 
-  function stripArrowGlyphs(el){
+    el.querySelectorAll(
+      ":scope > .ms-glass-light-fill,:scope > .ms-glass-edge-light,:scope > .ms-liquid-shader-canvas,:scope > .ms-metal-fx-canvas"
+    ).forEach(node=>node.remove());
+
     [...el.childNodes].forEach(node=>{
       if(node.nodeType===Node.TEXT_NODE&&/[↗↘↙↖↑↓→←⟶⟵↔]/.test(node.nodeValue||"")){
         node.nodeValue=(node.nodeValue||"")
@@ -76,91 +70,54 @@ import {
         child.setAttribute("aria-hidden","true");
       }
     });
+
+    el.classList.add("ms-metal-host");
+    el.dataset.msMetalAdopted="1";
   }
 
-  function measure(el){
-    const rect=el.getBoundingClientRect();
-    const cssWidth=Math.max(1,rect.width);
-    const cssHeight=Math.max(1,rect.height);
-    return {
-      cssWidth,
-      cssHeight,
-      cornerRadius:Math.min(cssHeight/2,cssWidth/2)
-    };
+  function AdoptExistingControl({element}){
+    const holderRef=useRef(null);
+
+    useLayoutEffect(()=>{
+      const holder=holderRef.current;
+      if(!holder) return;
+      holder.appendChild(element);
+    },[element]);
+
+    return React.createElement(
+      MetalFx,
+      {
+        variant:"button",
+        preset:"chromatic",
+        theme:"dark",
+        strength:1,
+        paused:false,
+        normalizeHostStyles:true,
+        className:"ms-metal-wrapper"
+      },
+      React.createElement("span",{
+        ref:holderRef,
+        className:"ms-metal-holder"
+      })
+    );
   }
 
   function mount(el){
-    if(!el||protectedControl(el)||instances.has(el)) return;
+    if(!el||protectedControl(el)||mounted.has(el)||el.dataset.msMetalAdopted==="1") return;
 
-    stripLegacyButtonEffects(el);
-    stripArrowGlyphs(el);
+    cleanHost(el);
 
-    el.classList.add("ms-metal-button");
-    el.dataset.msMetalButton="1";
+    const mount=document.createElement("span");
+    mount.className="ms-metal-react-mount";
+    if(isFullWidth(el)) mount.classList.add("is-full");
+    if(el.classList.contains("ms-quote-fab")) mount.classList.add("is-quote");
 
-    /* Internal overlay required by metal-fx. This is not a replacement button:
-       the original <a>/<button> remains the interactive element. */
-    const canvas=document.createElement("canvas");
-    canvas.className="ms-metal-fx-canvas";
-    canvas.setAttribute("aria-hidden","true");
-    el.prepend(canvas);
+    el.before(mount);
 
-    const initial=measure(el);
+    const root=createRoot(mount);
+    root.render(React.createElement(AdoptExistingControl,{element:el}));
 
-    let instance;
-    try{
-      instance=createInstance({
-        hostCanvas:canvas,
-        cssWidth:initial.cssWidth,
-        cssHeight:initial.cssHeight,
-        cornerRadius:initial.cornerRadius,
-        kind:"pill",
-        shaderScale:1.6,
-        ringCssPx:1,
-        opacityMul:1,
-        paused:false,
-        scale:1
-      });
-    }catch(error){
-      console.error("[Mensagem Studio / MetalButton]",error);
-      canvas.remove();
-      el.classList.add("ms-metal-fallback");
-      return;
-    }
-
-    const state={
-      instance,
-      canvas,
-      resizeObserver:null,
-      intersectionObserver:null
-    };
-    instances.set(el,state);
-
-    const resizeObserver=new ResizeObserver(()=>{
-      const next=measure(el);
-      updateInstance(instance,{
-        cssWidth:next.cssWidth,
-        cssHeight:next.cssHeight,
-        cornerRadius:next.cornerRadius,
-        kind:"pill",
-        shaderScale:1.6,
-        ringCssPx:1,
-        opacityMul:1,
-        scale:1
-      });
-    });
-    resizeObserver.observe(el);
-    state.resizeObserver=resizeObserver;
-
-    /* Same offscreen pause behavior described in the supplied component. */
-    if("IntersectionObserver" in window){
-      const intersectionObserver=new IntersectionObserver(entries=>{
-        const visible=entries.some(entry=>entry.isIntersecting);
-        updateInstance(instance,{paused:!visible});
-      },{rootMargin:"64px"});
-      intersectionObserver.observe(el);
-      state.intersectionObserver=intersectionObserver;
-    }
+    mounted.set(el,{root,mount});
   }
 
   function scan(root=document){
@@ -168,41 +125,21 @@ import {
     root.querySelectorAll?.(selector).forEach(mount);
   }
 
-  function cleanupRemoved(){
-    for(const [el,state] of instances){
-      if(el.isConnected) continue;
-      state.resizeObserver?.disconnect();
-      state.intersectionObserver?.disconnect();
-      try{destroyInstance(state.instance)}catch(_){}
-      instances.delete(el);
-    }
-  }
-
   scan();
 
   const observer=new MutationObserver(records=>{
-    let shouldCleanup=false;
     for(const record of records){
       for(const node of record.addedNodes){
-        if(node.nodeType===Node.ELEMENT_NODE) scan(node);
+        if(node.nodeType===Node.ELEMENT_NODE && !node.closest?.(".metal-fx-root")){
+          scan(node);
+        }
       }
-      if(record.removedNodes.length) shouldCleanup=true;
     }
-    if(shouldCleanup) cleanupRemoved();
   });
 
-  observer.observe(document.documentElement,{
-    childList:true,
-    subtree:true
-  });
+  observer.observe(document.documentElement,{childList:true,subtree:true});
 
   addEventListener("pagehide",()=>{
     observer.disconnect();
-    for(const state of instances.values()){
-      state.resizeObserver?.disconnect();
-      state.intersectionObserver?.disconnect();
-      try{destroyInstance(state.instance)}catch(_){}
-    }
-    instances.clear();
   },{once:true});
 })();
