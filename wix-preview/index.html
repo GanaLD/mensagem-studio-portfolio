@@ -114,7 +114,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   backface-visibility:hidden;
 }
 .word-case-media{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;object-position:50% 50%;background:#080907;pointer-events:none}
-.word-case-youtube-poster{z-index:1;opacity:1;transition:opacity .16s linear;object-fit:cover;object-position:50% 50%}
+.word-case-youtube-poster{z-index:1;opacity:1;transition:opacity .16s linear;object-fit:cover;object-position:50% 50%;transform:scale(1.42);transform-origin:center center}
 .word-case-panel[data-word-case="1"]{background:#080907}
 .word-case-panel[data-word-case="1"] .word-case-youtube{
   z-index:2;
@@ -126,7 +126,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   height:max(100vh,56.25vw);
   max-width:none;
   max-height:none;
-  transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%) scale(1.42);
   transform-origin:center center;
   opacity:0;
 }
@@ -1010,7 +1010,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-preview-gsap-horizontal-pin-v5 -->
+<!-- HOME_BUILD: 20260922-preview-gsap-case2-zoom-cover-v6 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
