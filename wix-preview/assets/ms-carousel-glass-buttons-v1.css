@@ -170,15 +170,6 @@
   width:auto!important;
 }
 
-/* HARD PROTECTION — these are NOT part of this button skin. */
-#msSectionNav .ms-carousel-glass-btn,
-#ms-rubber-topnav-root .ms-carousel-glass-btn,
-.rubber-segment .ms-carousel-glass-btn,
-#msServicesDeck .ms-carousel-glass-btn,
-#msServicesDeck.ms-carousel-glass-btn{
-  all:revert!important;
-}
-
 @media(hover:none),(pointer:coarse){
   .ms-carousel-glass-btn{
     --ms-btn-glow:.38;
