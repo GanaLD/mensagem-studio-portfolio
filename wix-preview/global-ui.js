@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r36-carousel-glass-buttons';
+  const VERSION = '20260922-r37-restore-carousel-budget';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -36,7 +36,7 @@
     .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
 
-    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab{position:fixed!important;z-index:100055!important;right:14px!important;top:14px!important;bottom:auto!important;width:136px;height:46px;padding:0 14px;display:inline-flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-quote-fab .ms-quote-label{display:block;max-width:92px;opacity:1;white-space:nowrap;overflow:hidden;transition:max-width .28s cubic-bezier(.16,1,.3,1),opacity .18s ease,transform .28s cubic-bezier(.16,1,.3,1)}
     .ms-quote-fab .ms-quote-icon{width:18px;height:18px;display:grid;place-items:center;flex:0 0 18px;color:#fff}
     .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -169,13 +169,13 @@
   if(!document.querySelector('link[data-ms-carousel-glass-buttons]')){
     const buttonCss=document.createElement('link');
     buttonCss.rel='stylesheet';
-    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v1.css?v=20260922-r36';
+    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v1.css?v=20260922-r37';
     buttonCss.dataset.msCarouselGlassButtons='1';
     document.head.appendChild(buttonCss);
   }
   if(!document.querySelector('script[data-ms-carousel-glass-buttons]')){
     const buttonJs=document.createElement('script');
-    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v1.js?v=20260922-r36';
+    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v1.js?v=20260922-r37';
     buttonJs.defer=true;
     buttonJs.dataset.msCarouselGlassButtons='1';
     document.head.appendChild(buttonJs);
@@ -216,6 +216,9 @@
     const drawerOpen = Boolean(document.querySelector('#drawer.open'));
     const atPageTop = window.scrollY <= 180;
     const compact = drawerOpen || atPageTop;
+    quoteFab.hidden = false;
+    quoteFab.removeAttribute('hidden');
+    quoteFab.removeAttribute('aria-hidden');
     quoteFab.classList.toggle('is-compact', compact);
     quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
   };
