@@ -95,12 +95,12 @@ function addStyles(){
   @media(max-width:760px){.ms-footer-links .bg-switcher{grid-column:1/-1!important;margin:0!important;width:100%!important}.ms-footer-links .bg-switcher button{width:100%!important;min-width:0!important}}
   .ms-footer-meta{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;color:#73796f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
   .ms-footer-copy{min-width:0}
-  .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:6px solid #ffd400;background:rgba(0,0,0,.22);display:grid;place-items:center;isolation:isolate;box-shadow:0 0 34px rgba(255,212,0,.06),inset 0 0 42px rgba(0,0,0,.2);touch-action:pan-y}
-  .ms-footer-particle-stage:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.035),transparent 62%);z-index:0}
+  .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:0;background:transparent;display:grid;place-items:center;isolation:isolate;box-shadow:none;touch-action:pan-y}
+  .ms-footer-particle-stage:before{content:none}
   .ms-footer-particle-canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;pointer-events:auto}
   .ms-footer-particle-fallback{position:relative;z-index:0;margin:0;color:#f6f7f2;font-size:clamp(46px,6vw,104px);font-weight:800;letter-spacing:-.055em;line-height:.9;text-transform:none;opacity:0;pointer-events:none}
   @media(min-width:900px){.ms-footer-inner{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(440px,.94fr);column-gap:clamp(42px,5.5vw,92px);row-gap:0;align-items:center}.ms-footer-copy{align-self:center}.ms-footer-particle-stage{align-self:stretch}.ms-footer-meta{grid-column:1/-1}}
-  @media(max-width:899px){.ms-footer-inner{display:block}.ms-footer-particle-stage{width:100%;min-height:280px;margin-top:42px;border-width:4px}.ms-footer-meta{margin-top:42px}}
+  @media(max-width:899px){.ms-footer-inner{display:block}.ms-footer-particle-stage{width:100%;min-height:280px;margin-top:42px}.ms-footer-meta{margin-top:42px}}
   @media(max-width:560px){.ms-footer-particle-stage{min-height:230px;margin-top:32px}.ms-footer-particle-fallback{font-size:clamp(42px,15vw,72px)}}
   @media(prefers-reduced-motion:reduce){.ms-footer-particle-canvas{pointer-events:none}}
   #msHomeWhatsapp{width:58px!important;height:58px!important;min-height:58px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#25D366!important;color:#fff!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 28px rgba(37,211,102,.24)!important;font-size:0!important}
