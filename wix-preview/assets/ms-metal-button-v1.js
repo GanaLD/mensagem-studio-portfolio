@@ -3,9 +3,11 @@ import { createRoot } from "https://esm.sh/react-dom@18.3.1/client";
 import { MetalFx } from "https://esm.sh/metal-fx@1.0.4?deps=react@18.3.1,react-dom@18.3.1";
 
 (()=>{
-  if(window.__MS_REAL_METAL_BUTTON_ADAPTER__) return;
-  window.__MS_REAL_METAL_BUTTON_ADAPTER__=true;
+  if(window.__MS_METAL_BUTTON_V33__) return;
+  window.__MS_METAL_BUTTON_V33__=true;
 
+  /* Only the controls explicitly indicated by the user.
+     The 3D carousel (#msServicesDeck) is a hard exclusion. */
   const selector=[
     ".cta-row .btn",
     "#pdfTabs > button",
@@ -92,6 +94,7 @@ import { MetalFx } from "https://esm.sh/metal-fx@1.0.4?deps=react@18.3.1,react-d
         theme:"dark",
         strength:1,
         paused:false,
+        borderRadius:10,
         normalizeHostStyles:true,
         className:"ms-metal-wrapper"
       },
@@ -139,7 +142,5 @@ import { MetalFx } from "https://esm.sh/metal-fx@1.0.4?deps=react@18.3.1,react-d
 
   observer.observe(document.documentElement,{childList:true,subtree:true});
 
-  addEventListener("pagehide",()=>{
-    observer.disconnect();
-  },{once:true});
+  addEventListener("pagehide",()=>observer.disconnect(),{once:true});
 })();
