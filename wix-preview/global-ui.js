@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r28-metal-button-3d-safe';
+  const VERSION = '20260921-r29-metal-button-faithful';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -168,14 +168,14 @@
   if(!document.querySelector('link[data-ms-metal-button]')){
     const metalCss=document.createElement('link');
     metalCss.rel='stylesheet';
-    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260921-3d-safe-3';
+    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260921-metal-faithful-1';
     metalCss.dataset.msMetalButton='1';
     document.head.appendChild(metalCss);
   }
   if(!document.querySelector('script[data-ms-metal-button]')){
     const metalJs=document.createElement('script');
     metalJs.type='module';
-    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260921-3d-safe-3';
+    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260921-metal-faithful-1';
     metalJs.dataset.msMetalButton='1';
     document.head.appendChild(metalJs);
   }
