@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r35-footer-layout-restore';
+  const VERSION = '20260922-r36-carousel-glass-buttons';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -164,21 +164,21 @@
   }
 
 
-  // PREVIEW ONLY — Spectrum UI MetalButton / metal-fx.
-  // Restored after the production-mirror workflow removed the preview assets.
-  if(!document.querySelector('link[data-ms-metal-button]')){
-    const metalCss=document.createElement('link');
-    metalCss.rel='stylesheet';
-    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260922-v35';
-    metalCss.dataset.msMetalButton='1';
-    document.head.appendChild(metalCss);
+  // PREVIEW ONLY — glass/glow skin inspired by the existing 3D carousel.
+  // This styles only the already-indicated action buttons and NEVER touches #msServicesDeck.
+  if(!document.querySelector('link[data-ms-carousel-glass-buttons]')){
+    const buttonCss=document.createElement('link');
+    buttonCss.rel='stylesheet';
+    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v1.css?v=20260922-r36';
+    buttonCss.dataset.msCarouselGlassButtons='1';
+    document.head.appendChild(buttonCss);
   }
-  if(!document.querySelector('script[data-ms-metal-button]')){
-    const metalJs=document.createElement('script');
-    metalJs.type='module';
-    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260922-v35';
-    metalJs.dataset.msMetalButton='1';
-    document.head.appendChild(metalJs);
+  if(!document.querySelector('script[data-ms-carousel-glass-buttons]')){
+    const buttonJs=document.createElement('script');
+    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v1.js?v=20260922-r36';
+    buttonJs.defer=true;
+    buttonJs.dataset.msCarouselGlassButtons='1';
+    document.head.appendChild(buttonJs);
   }
 
   const menuBtn = document.createElement('button');
