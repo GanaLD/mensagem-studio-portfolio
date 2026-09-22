@@ -1,0 +1,117 @@
+/* MENSAGEM STUDIO PREVIEW — METAL BUTTON V1
+   Faithful visual surface for Spectrum UI MetalButton / metal-fx.
+   The effect is painted INSIDE the existing action element; no substitute
+   glass cards, no changes to the 3D services carousel. */
+
+.ms-metal-button{
+  position:relative!important;
+  isolation:isolate!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:9999px!important;
+  background:#272727!important;
+  color:#f8f8f8!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  filter:none!important;
+  transition:
+    transform .20s ease-out,
+    background-color .20s ease-out,
+    opacity .20s ease-out!important;
+  overflow:visible!important;
+}
+
+/* Same clean core used by MetalFx. */
+.ms-metal-button::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  z-index:1!important;
+  box-shadow:inset 0 0 50px 0 rgba(255,255,255,.02)!important;
+}
+
+/* Same 1px dark-theme inner rim. */
+.ms-metal-button::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  z-index:3!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)!important;
+}
+
+.ms-metal-button > .ms-metal-fx-canvas{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  z-index:2!important;
+}
+
+/* Existing child elements sit above the metal ring. */
+.ms-metal-button > span,
+.ms-metal-button > b,
+.ms-metal-button > i,
+.ms-metal-button > svg{
+  position:relative!important;
+  z-index:4!important;
+}
+
+/* Provided MetalButton interaction contract. */
+.ms-metal-button:hover{opacity:.80!important}
+.ms-metal-button:active{transform:scale(.97)!important}
+.ms-metal-button:focus-visible{outline:0!important}
+.ms-metal-button:disabled,
+.ms-metal-button[aria-disabled="true"]{
+  pointer-events:none!important;
+  opacity:.60!important;
+}
+
+/* Existing active tabs stay readable; only their old white fill is removed. */
+.ms-metal-button.active,
+.ms-metal-button.on{
+  background:#272727!important;
+  color:#fff!important;
+}
+
+/* Remove legacy arrow-only affordances from action buttons. */
+.ms-metal-button .ms-metal-arrow-hidden{display:none!important}
+
+/* Wide action groups keep their existing layout width. */
+#pdfTabs > .ms-metal-button,
+#modelTabs > .ms-metal-button,
+#ytTabs > .ms-metal-button,
+.ms-brief-actions > .ms-metal-button,
+.add.ms-metal-button{
+  width:100%!important;
+}
+
+/* Keep ORÇAMENTO geometry/function owned by global-ui; only its surface changes. */
+.ms-quote-fab.ms-metal-button{
+  background:#272727!important;
+  color:#fff!important;
+}
+.ms-quote-fab.ms-metal-button.is-drawer-open{
+  opacity:0!important;
+}
+
+/* Never apply this visual system to protected navigation / 3D carousel UI. */
+#msSectionNav .ms-metal-button,
+#ms-rubber-topnav-root .ms-metal-button,
+.rubber-segment .ms-metal-button,
+#msServicesDeck .ms-metal-button{
+  all:revert!important;
+}
+
+@media(max-width:760px){
+  .ms-metal-button{
+    max-width:100%;
+  }
+}
