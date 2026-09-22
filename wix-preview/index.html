@@ -901,7 +901,11 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   gsap.set(copies.slice(1),{autoAlpha:0});
 
   const sticky=section.querySelector('.word-sticky');
-  const horizontalDistance=()=>Math.max(1,track.scrollWidth-window.innerWidth);
+  // Use the four viewport panels themselves as the travel distance.
+  // Do not use track.scrollWidth here because oversized media inside a panel
+  // (especially the zoomed YouTube case) can inflate scrollWidth and overshoot
+  // the final case, exposing black space on the right.
+  const horizontalDistance=()=>Math.max(1,(panels.length-1)*sticky.clientWidth);
 
   const tl=gsap.timeline({
     defaults:{ease:'power3.inOut'},
@@ -1126,7 +1130,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-preview-floating-angel-position-v3 -->
+<!-- HOME_BUILD: 20260922-preview-gsap-final-card-fit-v7 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
