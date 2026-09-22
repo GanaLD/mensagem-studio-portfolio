@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r26-button-glass-only';
+  const VERSION = '20260921-r27-canonical-liquid-glass';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -184,18 +184,18 @@
 
   // Single source of truth for glass buttons across PREVIEW.
   // This styles existing buttons only; it creates no canvases, cards or substitute controls.
-  if(!document.querySelector('link[data-ms-button-glass-v3]')){
+  if(!document.querySelector('link[data-ms-button-glass-v4]')){
     const glassCss=document.createElement('link');
     glassCss.rel='stylesheet';
-    glassCss.href=ROOT+'assets/ms-glass-v26.css?v=3';
-    glassCss.dataset.msButtonGlassV3='1';
+    glassCss.href=ROOT+'assets/ms-glass-v26.css?v=4';
+    glassCss.dataset.msButtonGlassV4='1';
     document.head.appendChild(glassCss);
   }
-  if(!document.querySelector('script[data-ms-button-glass-v3]')){
+  if(!document.querySelector('script[data-ms-button-glass-v4]')){
     const glassJs=document.createElement('script');
-    glassJs.src=ROOT+'assets/ms-glass-v26.js?v=3';
+    glassJs.src=ROOT+'assets/ms-glass-v26.js?v=4';
     glassJs.defer=true;
-    glassJs.dataset.msButtonGlassV3='1';
+    glassJs.dataset.msButtonGlassV4='1';
     document.head.appendChild(glassJs);
   }
 
