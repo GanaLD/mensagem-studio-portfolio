@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r31-real-react-metalbutton';
+  const VERSION = '20260920-r20-real-rubber-topnav';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -36,13 +36,12 @@
     .ms-menu-quote{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:14px 16px;border:1px solid rgba(201,255,54,.34);border-radius:16px;background:linear-gradient(145deg,rgba(201,255,54,.11),rgba(255,255,255,.025));color:var(--ms-ui-lime);font-size:10px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 0 22px rgba(201,255,54,.07),inset 0 1px rgba(255,255,255,.07);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-menu-quote:hover,.ms-menu-quote:focus-visible{outline:none;transform:translateY(-1px);border-color:rgba(201,255,54,.76);background:linear-gradient(145deg,rgba(201,255,54,.17),rgba(255,255,255,.035));box-shadow:0 0 30px rgba(201,255,54,.14),inset 0 1px rgba(255,255,255,.09)}
 
-    .ms-quote-fab{position:fixed!important;display:inline-flex!important;visibility:visible!important;opacity:1!important;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    .ms-quote-fab{position:fixed;z-index:100055;right:14px;top:14px;bottom:auto;width:136px;height:46px;padding:0 14px;border:1px solid rgba(118,148,255,.62);border-radius:999px;background:linear-gradient(145deg,rgba(36,87,255,.34),rgba(23,61,204,.18) 58%,rgba(255,255,255,.055));backdrop-filter:blur(22px) saturate(155%);-webkit-backdrop-filter:blur(22px) saturate(155%);display:inline-flex;align-items:center;justify-content:center;gap:9px;overflow:hidden;color:#fff;font-size:9px;letter-spacing:.14em;font-weight:850;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.28),0 0 30px rgba(36,87,255,.22),inset 0 1px 0 rgba(255,255,255,.30),inset 0 -1px 0 rgba(36,87,255,.18);transition:width .32s cubic-bezier(.16,1,.3,1),padding .32s cubic-bezier(.16,1,.3,1),border-radius .32s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
     .ms-quote-fab .ms-quote-label{display:block;max-width:92px;opacity:1;white-space:nowrap;overflow:hidden;transition:max-width .28s cubic-bezier(.16,1,.3,1),opacity .18s ease,transform .28s cubic-bezier(.16,1,.3,1)}
     .ms-quote-fab .ms-quote-icon{width:18px;height:18px;display:grid;place-items:center;flex:0 0 18px;color:#fff}
     .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .ms-quote-fab.is-compact{width:46px;padding:0;border-radius:15px;gap:0}
     .ms-quote-fab.is-compact .ms-quote-label{max-width:0;opacity:0;transform:translateX(8px)}
-    .ms-quote-fab.is-drawer-open{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:scale(.94)!important}
     .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(176,193,255,.90);background:linear-gradient(145deg,rgba(46,99,255,.46),rgba(24,63,207,.25) 58%,rgba(255,255,255,.075));box-shadow:0 16px 38px rgba(0,0,0,.34),0 0 38px rgba(36,87,255,.30),inset 0 1px 0 rgba(255,255,255,.36),inset 0 -1px 0 rgba(36,87,255,.22)}
     body[data-page="servicos"].ms-global-ui-mounted #cartBtn{visibility:hidden!important;pointer-events:none!important}
 
@@ -108,30 +107,6 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* PREVIEW V21 — one fixed site-wide header; About stays only inside the universal menu */
-    body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header,
-    body.ms-global-ui-mounted header.top.ms-rubber-topnav-header{
-      position:fixed!important;
-      top:0!important;
-      left:0!important;
-      right:0!important;
-      width:100%!important;
-      z-index:100020!important;
-    }
-    /* HOME: header starts above the hero and scrolls away with the page.
-       It must never sit over the hero/video while the immersive scroll is running. */
-    html[data-ms-page="home"] body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header{
-      position:relative!important;
-      top:auto!important;
-      left:auto!important;
-      right:auto!important;
-      width:100%!important;
-      z-index:100020!important;
-      flex:0 0 auto!important;
-    }
-    html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
-      opacity:0!important;
-    }
     @media(prefers-reduced-motion:reduce){.ms-universal-menu-btn,.ms-menu-overlay,.ms-menu-panel,.ms-menu-link,.ms-menu-quote,.ms-quote-fab,.ms-contact-overlay,.ms-contact-card,.ms-glass-cta,.ms-glass-cta:before{transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -139,13 +114,11 @@
 
   const path = location.pathname.replace(/\/+$/, '/') || '/';
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
-  document.documentElement.dataset.msPage = active;
-  if(active==='sobre') document.documentElement.classList.add('ms-topnav-no-active');
 
   // Actual React Bits RubberSegment top navigation.
   // This loads the bundle built from the installed @react-bits/RubberSegment-JS-CSS component.
-  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260921-r21';
-  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260921-r21';
+  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260920-r20';
+  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260920-r20';
 
   if(!document.querySelector('link[data-ms-rubber-topnav]')){
     const topNavCss = document.createElement('link');
@@ -162,24 +135,6 @@
     topNavJs.dataset.msRubberTopnav = '1';
     document.head.appendChild(topNavJs);
   }
-
-  // Spectrum UI MetalButton / metal-fx — PREVIEW only.
-  // Uses the real metal-fx shared WebGL renderer on the EXISTING action elements.
-  if(!document.querySelector('link[data-ms-metal-button]')){
-    const metalCss=document.createElement('link');
-    metalCss.rel='stylesheet';
-    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260922-react-metal-1';
-    metalCss.dataset.msMetalButton='1';
-    document.head.appendChild(metalCss);
-  }
-  if(!document.querySelector('script[data-ms-metal-button]')){
-    const metalJs=document.createElement('script');
-    metalJs.type='module';
-    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260922-react-metal-1';
-    metalJs.dataset.msMetalButton='1';
-    document.head.appendChild(metalJs);
-  }
-
 
   const menuBtn = document.createElement('button');
   menuBtn.className = 'ms-universal-menu-btn';
@@ -207,17 +162,19 @@
   const quoteFab = document.createElement('a');
   quoteFab.className = 'ms-quote-fab ms-quote-link';
   quoteFab.href = QUOTE_URL;
-  quoteFab.hidden = false;
-  quoteFab.removeAttribute('aria-hidden');
   quoteFab.setAttribute('aria-label','Abrir orçamento');
   quoteFab.innerHTML = '<span class="ms-quote-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7.2"/><circle cx="9.5" cy="19" r="1.25"/><circle cx="17.5" cy="19" r="1.25"/></svg></span><span class="ms-quote-label">ORÇAMENTO</span>';
   document.body.appendChild(quoteFab);
+  if(active==='servicos'){
+    quoteFab.hidden=true;
+    quoteFab.setAttribute('aria-hidden','true');
+  }
+
   const updateQuoteFabState = () => {
-    const drawerOpen = Boolean(document.querySelector('#drawer.open'));
+    const drawerOpen = Boolean(document.querySelector('.drawer.open'));
     const atPageTop = window.scrollY <= 180;
     const compact = drawerOpen || atPageTop;
     quoteFab.classList.toggle('is-compact', compact);
-    quoteFab.classList.remove('is-drawer-open');
     quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
   };
 
