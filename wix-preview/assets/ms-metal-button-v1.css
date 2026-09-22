@@ -3,7 +3,7 @@
    The effect is painted INSIDE the existing action element; no substitute
    glass cards, no changes to the 3D services carousel. */
 
-.ms-metal-button{
+html body .ms-metal-button[data-ms-metal-button="1"]{
   position:relative!important;
   isolation:isolate!important;
   border:0!important;
@@ -20,10 +20,17 @@
     background-color .20s ease-out,
     opacity .20s ease-out!important;
   overflow:visible!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  text-align:center!important;
+  font-weight:500!important;
+  letter-spacing:-.01em!important;
 }
 
 /* Same clean core used by MetalFx. */
-.ms-metal-button::before{
+html body .ms-metal-button[data-ms-metal-button="1"]::before{
   content:""!important;
   position:absolute!important;
   inset:0!important;
@@ -34,7 +41,7 @@
 }
 
 /* Same 1px dark-theme inner rim. */
-.ms-metal-button::after{
+html body .ms-metal-button[data-ms-metal-button="1"]::after{
   content:""!important;
   position:absolute!important;
   inset:0!important;
@@ -44,7 +51,7 @@
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)!important;
 }
 
-.ms-metal-button > .ms-metal-fx-canvas{
+html body .ms-metal-button[data-ms-metal-button="1"] > .ms-metal-fx-canvas{
   position:absolute!important;
   inset:0!important;
   width:100%!important;
@@ -56,49 +63,49 @@
 }
 
 /* Existing child elements sit above the metal ring. */
-.ms-metal-button > span,
-.ms-metal-button > b,
-.ms-metal-button > i,
-.ms-metal-button > svg{
+html body .ms-metal-button[data-ms-metal-button="1"] > span,
+html body .ms-metal-button[data-ms-metal-button="1"] > b,
+html body .ms-metal-button[data-ms-metal-button="1"] > i,
+html body .ms-metal-button[data-ms-metal-button="1"] > svg{
   position:relative!important;
   z-index:4!important;
 }
 
 /* Provided MetalButton interaction contract. */
-.ms-metal-button:hover{opacity:.80!important}
-.ms-metal-button:active{transform:scale(.97)!important}
-.ms-metal-button:focus-visible{outline:0!important}
-.ms-metal-button:disabled,
-.ms-metal-button[aria-disabled="true"]{
+html body .ms-metal-button[data-ms-metal-button="1"]:hover{opacity:.80!important}
+html body .ms-metal-button[data-ms-metal-button="1"]:active{transform:scale(.97)!important}
+html body .ms-metal-button[data-ms-metal-button="1"]:focus-visible{outline:0!important}
+html body .ms-metal-button[data-ms-metal-button="1"]:disabled,
+html body .ms-metal-button[data-ms-metal-button="1"][aria-disabled="true"]{
   pointer-events:none!important;
   opacity:.60!important;
 }
 
 /* Existing active tabs stay readable; only their old white fill is removed. */
-.ms-metal-button.active,
-.ms-metal-button.on{
+html body .ms-metal-button[data-ms-metal-button="1"].active,
+html body .ms-metal-button[data-ms-metal-button="1"].on{
   background:#272727!important;
   color:#fff!important;
 }
 
 /* Remove legacy arrow-only affordances from action buttons. */
-.ms-metal-button .ms-metal-arrow-hidden{display:none!important}
+html body .ms-metal-button[data-ms-metal-button="1"] .ms-metal-arrow-hidden{display:none!important}
 
 /* Wide action groups keep their existing layout width. */
 #pdfTabs > .ms-metal-button,
 #modelTabs > .ms-metal-button,
 #ytTabs > .ms-metal-button,
 .ms-brief-actions > .ms-metal-button,
-.add.ms-metal-button{
+.addhtml body .ms-metal-button[data-ms-metal-button="1"]{
   width:100%!important;
 }
 
 /* Keep ORÇAMENTO geometry/function owned by global-ui; only its surface changes. */
-.ms-quote-fab.ms-metal-button{
+.ms-quote-fabhtml body .ms-metal-button[data-ms-metal-button="1"]{
   background:#272727!important;
   color:#fff!important;
 }
-.ms-quote-fab.ms-metal-button.is-drawer-open{
+html body .ms-quote-fab.ms-metal-button[data-ms-metal-button="1"].is-drawer-open{
   opacity:0!important;
 }
 
@@ -106,12 +113,12 @@
 #msSectionNav .ms-metal-button,
 #ms-rubber-topnav-root .ms-metal-button,
 .rubber-segment .ms-metal-button,
-#msServicesDeck .ms-metal-button{
+#msServicesDeck html body .ms-metal-button[data-ms-metal-button="1"]{
   all:revert!important;
 }
 
 @media(max-width:760px){
-  .ms-metal-button{
+  html body .ms-metal-button[data-ms-metal-button="1"]{
     max-width:100%;
   }
 }
