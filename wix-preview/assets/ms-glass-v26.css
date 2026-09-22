@@ -1,17 +1,19 @@
-/* MENSAGEM STUDIO PREVIEW — GLASS V26
-   Faithful DOM translation of the supplied reference:
-   transparent base, 2px backdrop blur, six inset bevel layers,
-   8px internal caustic and 7px diagonal glare. */
+/* MENSAGEM STUDIO PREVIEW — BUTTON GLASS V3
+   Applies the supplied glass treatment directly to the EXISTING button.
+   No canvas, no extra glass object, no card replacement. */
+
 html body .ms-glass-v26{
   --ms-g-tr:15%;
+  --ms-light-x:50%;
+  --ms-light-y:50%;
   position:relative!important;
   isolation:isolate!important;
-  overflow:hidden!important;
-  border-radius:9999px!important;
-  border:1px double rgba(255,255,255,.18)!important;
-  background:rgba(0,0,0,.02)!important;
+  background:
+    radial-gradient(circle at var(--ms-light-x) var(--ms-light-y),rgba(255,255,255,.055),transparent 42%),
+    rgba(0,0,0,.02)!important;
   -webkit-backdrop-filter:blur(2px)!important;
   backdrop-filter:blur(2px)!important;
+  border-color:rgba(255,255,255,.18)!important;
   box-shadow:
     inset 2px -2px 1px -1px rgba(255,255,255,.90),
     inset -2px 2px 1px -1px rgba(255,255,255,.90),
@@ -23,8 +25,14 @@ html body .ms-glass-v26{
   color:#f5f5f5!important;
   user-select:none!important;
   -webkit-user-select:none!important;
-  transition:transform .25s ease,background .25s ease,box-shadow .25s ease,border-color .25s ease!important;
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease!important;
 }
+
+/* Internal dark caustic from the supplied reference. */
 html body .ms-glass-v26::before{
   content:""!important;
   position:absolute!important;
@@ -36,228 +44,80 @@ html body .ms-glass-v26::before{
   height:calc(100% - 16px)!important;
   border-radius:inherit!important;
   border:1px solid rgba(0,0,0,.90)!important;
-  background:transparent!important;
   filter:blur(8px)!important;
+  opacity:.78!important;
   pointer-events:none!important;
 }
+
+/* Diagonal perimeter sheen from the supplied reference.
+   It stays inside the existing button — no separate element is created. */
 html body .ms-glass-v26::after{
   content:""!important;
   position:absolute!important;
-  z-index:1!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  border-radius:inherit!important;
-  background:linear-gradient(45deg,rgba(255,255,255,.80) 0%,transparent var(--ms-g-tr),transparent calc(100% - var(--ms-g-tr)),rgba(255,255,255,.80) 100%)!important;
-  filter:blur(7px) contrast(3)!important;
-  opacity:.34!important;
-  pointer-events:none!important;
-}
-html body .ms-glass-v26>*{position:relative!important;z-index:3!important}
-html body .ms-glass-v26:hover,
-html body .ms-glass-v26:focus-visible{
-  outline:none!important;
-  background:rgba(0,0,0,0)!important;
-  transform:translateY(-3px)!important;
-  border-color:rgba(255,255,255,.34)!important;
-}
-html body .ms-glass-v26:active{transform:scale(.94)!important}
-html body .ms-glass-v26 .ms-glass-v26-arrow{display:none!important}
-
-/* Budget is always visible. It keeps the approved royal-blue edge only. */
-html body .ms-quote-fab.ms-glass-v26,
-html body #msQuoteFabCritical.ms-glass-v26{
-  position:fixed!important;
-  display:inline-flex!important;
-  visibility:visible!important;
-  opacity:1!important;
-  pointer-events:auto!important;
-  z-index:2147483000!important;
-  top:14px!important;
-  right:14px!important;
-  left:auto!important;
-  bottom:auto!important;
-  width:136px!important;
-  min-width:136px!important;
-  height:46px!important;
-  min-height:46px!important;
-  padding:0 14px!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:9px!important;
-  border-color:rgba(100,132,255,.72)!important;
-  color:#fff!important;
-  text-decoration:none!important;
-  font:850 9px/1 Inter,Arial,sans-serif!important;
-  letter-spacing:.14em!important;
-  text-transform:uppercase!important;
-}
-html body .ms-quote-fab.ms-glass-v26[hidden],
-html body #msQuoteFabCritical.ms-glass-v26[hidden]{display:inline-flex!important}
-html body .ms-quote-fab.ms-glass-v26 .ms-quote-icon,
-html body #msQuoteFabCritical .ms-quote-icon{width:18px!important;height:18px!important;display:grid!important;place-items:center!important;flex:0 0 18px!important}
-html body .ms-quote-fab.ms-glass-v26 .ms-quote-icon svg,
-html body #msQuoteFabCritical .ms-quote-icon svg{width:18px!important;height:18px!important;display:block!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-html body .ms-quote-fab.ms-glass-v26 .ms-quote-label,
-html body #msQuoteFabCritical .ms-quote-label{display:block!important;max-width:none!important;opacity:1!important;transform:none!important;white-space:nowrap!important}
-
-/* Protected controls: never convert them to glass. */
-#msSectionNav .ms-glass-v26,
-#ms-rubber-topnav-root .ms-glass-v26,
-.rubber-segment .ms-glass-v26{all:revert!important}
-
-@media(max-width:760px){
-  html body .ms-glass-v26{min-height:46px!important;max-width:100%}
-  html body .ms-quote-fab.ms-glass-v26,
-  html body #msQuoteFabCritical.ms-glass-v26{
-    top:10px!important;right:10px!important;width:126px!important;min-width:126px!important;height:40px!important;min-height:40px!important;padding:0 11px!important;font-size:8px!important;
-  }
-}
-
-
-/* MS GLASS V26 — 3D CARD LIGHT PORT
-   Same cursor-reactive light language already installed on the 3D service cards.
-   These are overlay-only layers: button geometry/background/layout remain untouched. */
-.ms-glass-v26{
-  --edge-proximity:0;
-  --cursor-angle:45deg;
-  --edge-sensitivity:28;
-  --color-sensitivity:48;
-  --glow-padding:26px;
-  --cone-spread:24;
-  --glow-color:hsl(48deg 90% 86% / 100%);
-  --glow-color-60:hsl(48deg 90% 86% / 60%);
-  --glow-color-50:hsl(48deg 90% 86% / 50%);
-  --glow-color-40:hsl(48deg 90% 86% / 40%);
-  --glow-color-30:hsl(48deg 90% 86% / 30%);
-  --glow-color-20:hsl(48deg 90% 86% / 20%);
-  --glow-color-10:hsl(48deg 90% 86% / 10%);
-  --gradient-one:radial-gradient(at 80% 55%,#f6f1d9 0px,transparent 50%);
-  --gradient-two:radial-gradient(at 69% 34%,#4169e1 0px,transparent 50%);
-  --gradient-three:radial-gradient(at 8% 6%,#c9ff36 0px,transparent 50%);
-  --gradient-four:radial-gradient(at 41% 38%,#f6f1d9 0px,transparent 50%);
-  --gradient-five:radial-gradient(at 86% 85%,#4169e1 0px,transparent 50%);
-  --gradient-six:radial-gradient(at 82% 18%,#c9ff36 0px,transparent 50%);
-  --gradient-seven:radial-gradient(at 51% 4%,#4169e1 0px,transparent 50%);
-}
-.ms-glass-v26>.ms-glass-light-fill,
-.ms-glass-v26>.ms-glass-edge-light{
-  position:absolute!important;
-  inset:0!important;
-  border-radius:inherit!important;
-  pointer-events:none!important;
-  transition:opacity .25s ease-out!important;
-}
-.ms-glass-v26>.ms-glass-light-fill{
-  z-index:2!important;
-  border:1px solid transparent!important;
-  background:
-    var(--gradient-one) padding-box,
-    var(--gradient-two) padding-box,
-    var(--gradient-three) padding-box,
-    var(--gradient-four) padding-box,
-    var(--gradient-five) padding-box,
-    var(--gradient-six) padding-box,
-    var(--gradient-seven) padding-box!important;
-  -webkit-mask-image:
-    linear-gradient(to bottom,#000,#000),
-    radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),
-    radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),
-    conic-gradient(from var(--cursor-angle) at center,transparent 5%,black 15%,black 85%,transparent 95%)!important;
-  mask-image:
-    linear-gradient(to bottom,#000,#000),
-    radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),
-    radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),
-    radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),
-    conic-gradient(from var(--cursor-angle) at center,transparent 5%,black 15%,black 85%,transparent 95%)!important;
-  -webkit-mask-composite:source-out,source-over,source-over,source-over,source-over,source-over!important;
-  mask-composite:subtract,add,add,add,add,add!important;
-  opacity:calc(.18 * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)))!important;
-  mix-blend-mode:soft-light!important;
-}
-.ms-glass-v26>.ms-glass-edge-light{
-  inset:calc(var(--glow-padding) * -1)!important;
-  z-index:4!important;
-  -webkit-mask-image:conic-gradient(from var(--cursor-angle) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%)!important;
-  mask-image:conic-gradient(from var(--cursor-angle) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%)!important;
-  opacity:calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)))!important;
-  mix-blend-mode:plus-lighter!important;
-}
-.ms-glass-v26>.ms-glass-edge-light::before{
-  content:""!important;
-  position:absolute!important;
-  inset:var(--glow-padding)!important;
-  border-radius:inherit!important;
-  box-shadow:
-    inset 0 0 0 1px var(--glow-color),
-    inset 0 0 1px 0 var(--glow-color-60),
-    inset 0 0 3px 0 var(--glow-color-50),
-    inset 0 0 6px 0 var(--glow-color-40),
-    inset 0 0 15px 0 var(--glow-color-30),
-    inset 0 0 25px 2px var(--glow-color-20),
-    inset 0 0 50px 2px var(--glow-color-10),
-    0 0 1px 0 var(--glow-color-60),
-    0 0 3px 0 var(--glow-color-50),
-    0 0 6px 0 var(--glow-color-40),
-    0 0 15px 0 var(--glow-color-30),
-    0 0 25px 2px var(--glow-color-20),
-    0 0 50px 2px var(--glow-color-10)!important;
-}
-@media(hover:hover) and (pointer:fine){
-  .ms-glass-v26:not(:hover)>.ms-glass-light-fill,
-  .ms-glass-v26:not(:hover)>.ms-glass-edge-light{
-    opacity:0!important;
-    transition:opacity .75s ease-in-out!important;
-  }
-}
-
-/* Add the NEW V26 glass optics to the existing 3D service cards.
-   The installed React Bits border-glow stays intact; this only changes the inner optical glass. */
-#msServicesDeck .ms-react-bits-border-glow-host .border-glow-inner{
-  position:relative!important;
-  isolation:isolate!important;
-  background:rgba(0,0,0,.02)!important;
-  -webkit-backdrop-filter:blur(2px)!important;
-  backdrop-filter:blur(2px)!important;
-  box-shadow:
-    inset 2px -2px 1px -1px rgba(255,255,255,.90),
-    inset -2px 2px 1px -1px rgba(255,255,255,.90),
-    inset 6px -6px 1px -6px rgba(255,255,255,.55),
-    inset -6px 6px 1px -6px rgba(255,255,255,.55),
-    inset 0 0 2px rgba(0,0,0,.80)!important;
-}
-#msServicesDeck .ms-react-bits-border-glow-host .border-glow-inner::before{
-  content:""!important;
-  position:absolute!important;
   z-index:0!important;
-  top:35%!important;
-  left:50%!important;
-  transform:translateX(-50%)!important;
-  width:calc(100% - 16px)!important;
-  height:calc(100% - 16px)!important;
-  border-radius:inherit!important;
-  border:1px solid rgba(0,0,0,.90)!important;
-  background:transparent!important;
-  filter:blur(8px)!important;
-  pointer-events:none!important;
-}
-#msServicesDeck .ms-react-bits-border-glow-host .border-glow-inner::after{
-  content:""!important;
-  position:absolute!important;
-  z-index:1!important;
   inset:0!important;
   border-radius:inherit!important;
-  background:linear-gradient(45deg,rgba(255,255,255,.80) 0%,transparent 15%,transparent 85%,rgba(255,255,255,.80) 100%)!important;
+  background:
+    radial-gradient(circle at var(--ms-light-x) var(--ms-light-y),rgba(246,241,217,.22),rgba(65,105,225,.10) 22%,rgba(201,255,54,.06) 38%,transparent 58%),
+    linear-gradient(
+      45deg,
+      rgba(255,255,255,.80) 0%,
+      transparent var(--ms-g-tr),
+      transparent calc(100% - var(--ms-g-tr)),
+      rgba(255,255,255,.80) 100%
+    )!important;
   filter:blur(7px) contrast(3)!important;
   opacity:.30!important;
   pointer-events:none!important;
 }
-#msServicesDeck .ms-react-bits-border-glow-host .border-glow-inner>.ms3d-inner{
+
+/* Existing content stays readable above the optical layers. */
+html body .ms-glass-v26 > *{
   position:relative!important;
   z-index:2!important;
+}
+
+html body .ms-glass-v26:hover,
+html body .ms-glass-v26:focus-visible{
+  outline:none!important;
+  background:
+    radial-gradient(circle at var(--ms-light-x) var(--ms-light-y),rgba(255,255,255,.075),transparent 44%),
+    rgba(0,0,0,0)!important;
+  transform:translateY(-3px)!important;
+  border-color:rgba(255,255,255,.30)!important;
+}
+html body .ms-glass-v26:hover::after,
+html body .ms-glass-v26:focus-visible::after{opacity:.44!important}
+html body .ms-glass-v26:active{transform:scale(.94)!important}
+html body .ms-glass-v26 .ms-glass-v26-arrow{display:none!important}
+
+/* ORÇAMENTO keeps its blue identity, but sizing/compact behavior remains owned by global-ui.js. */
+html body .ms-quote-fab.ms-glass-v26{
+  border-color:rgba(100,132,255,.72)!important;
+  color:#fff!important;
+}
+html body .ms-quote-fab.ms-glass-v26:hover,
+html body .ms-quote-fab.ms-glass-v26:focus-visible{
+  border-color:rgba(145,166,255,.90)!important;
+}
+
+/* Never touch approved navigation systems. */
+#msSectionNav.ms-glass-v26,
+#msSectionNav .ms-glass-v26,
+#ms-rubber-topnav-root .ms-glass-v26,
+.rubber-segment .ms-glass-v26{
+  background:revert!important;
+  -webkit-backdrop-filter:revert!important;
+  backdrop-filter:revert!important;
+  box-shadow:revert!important;
+  filter:revert!important;
+}
+#msSectionNav .ms-glass-v26::before,
+#msSectionNav .ms-glass-v26::after,
+#ms-rubber-topnav-root .ms-glass-v26::before,
+#ms-rubber-topnav-root .ms-glass-v26::after,
+.rubber-segment .ms-glass-v26::before,
+.rubber-segment .ms-glass-v26::after{
+  content:none!important;
+  display:none!important;
 }
