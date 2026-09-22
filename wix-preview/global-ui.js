@@ -168,14 +168,14 @@
   if(!document.querySelector('link[data-ms-metal-button]')){
     const metalCss=document.createElement('link');
     metalCss.rel='stylesheet';
-    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260921-1';
+    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260921-2';
     metalCss.dataset.msMetalButton='1';
     document.head.appendChild(metalCss);
   }
   if(!document.querySelector('script[data-ms-metal-button]')){
     const metalJs=document.createElement('script');
     metalJs.type='module';
-    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260921-1';
+    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260921-2';
     metalJs.dataset.msMetalButton='1';
     document.head.appendChild(metalJs);
   }
