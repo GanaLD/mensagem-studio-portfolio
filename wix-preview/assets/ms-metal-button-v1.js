@@ -40,7 +40,7 @@ import { MetalFx } from "https://esm.sh/metal-fx@1.0.4?deps=react@18.3.1,react-d
   );
 
   const isFullWidth=el=>!!(
-    el.matches("#pdfTabs > button,#modelTabs > button,#ytTabs > button,.add,.ms-brief-action,.ms-menu-quote,.ms-footer-link")
+    el.matches("#pdfTabs > button,#modelTabs > button,#ytTabs > button,.add,.ms-brief-action,.ms-menu-quote")
   );
 
   const arrowOnly=value=>/^[\s↗↘↙↖↑↓→←⟶⟵↔›»]+$/.test((value||"").trim());
