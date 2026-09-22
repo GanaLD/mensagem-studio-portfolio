@@ -108,126 +108,6 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* PREVIEW V24 — supplied reference translated literally to live DOM buttons.
-       Geometry/shadows/blur follow the reference; no colored fake fill. */
-    :root{
-      --ms-lg-radius:9999px;
-      --ms-lg-tr:15%;
-      --ms-lg-text:#f5f5f5;
-    }
-    .ms-liquid-glass{
-      --ms-lg-x:50%;
-      --ms-lg-y:50%;
-      position:relative!important;
-      isolation:isolate!important;
-      overflow:hidden!important;
-      border-radius:var(--ms-lg-radius)!important;
-      border:1px double rgba(255,255,255,.16)!important;
-      background:rgba(0,0,0,.02)!important;
-      color:var(--ms-lg-text)!important;
-      -webkit-backdrop-filter:blur(2px)!important;
-      backdrop-filter:blur(2px)!important;
-      box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.90),
-        inset -2px 2px 1px -1px rgba(255,255,255,.90),
-        inset 6px -6px 1px -6px rgba(255,255,255,.55),
-        inset -6px 6px 1px -6px rgba(255,255,255,.55),
-        inset 0 0 2px rgba(0,0,0,.80),
-        0 4px 8px rgba(0,0,0,.20)!important;
-      filter:brightness(.92);
-      text-shadow:0 1px 10px rgba(0,0,0,.26)!important;
-      user-select:none;
-      -webkit-user-select:none;
-      transition:transform .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease!important;
-    }
-    .ms-liquid-glass::before{
-      content:""!important;
-      position:absolute!important;
-      z-index:0!important;
-      top:35%!important;
-      left:50%!important;
-      transform:translateX(-50%)!important;
-      width:calc(100% - 16px)!important;
-      height:calc(100% - 16px)!important;
-      border-radius:inherit!important;
-      border:1px solid rgba(0,0,0,.90)!important;
-      background:transparent!important;
-      filter:blur(8px)!important;
-      pointer-events:none!important;
-    }
-    .ms-liquid-glass::after{
-      content:""!important;
-      position:absolute!important;
-      z-index:1!important;
-      inset:0!important;
-      width:100%!important;
-      height:100%!important;
-      border-radius:inherit!important;
-      background:linear-gradient(
-        45deg,
-        rgba(255,255,255,.80) 0%,
-        transparent var(--ms-lg-tr),
-        transparent calc(100% - var(--ms-lg-tr)),
-        rgba(255,255,255,.80) 100%
-      )!important;
-      filter:blur(7px) contrast(3)!important;
-      opacity:.30!important;
-      pointer-events:none!important;
-    }
-    .ms-liquid-glass > *{position:relative;z-index:3}
-    .ms-liquid-glass .ms-liquid-glass-arrow{display:none!important}
-    .ms-liquid-glass:hover,
-    .ms-liquid-glass:focus-visible{
-      outline:none!important;
-      background:rgba(0,0,0,0)!important;
-      transform:translateY(-3px)!important;
-      border-color:rgba(255,255,255,.28)!important;
-      box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.96),
-        inset -2px 2px 1px -1px rgba(255,255,255,.96),
-        inset 6px -6px 1px -6px rgba(255,255,255,.62),
-        inset -6px 6px 1px -6px rgba(255,255,255,.62),
-        inset 0 0 2px rgba(0,0,0,.84),
-        0 6px 12px rgba(0,0,0,.24)!important;
-    }
-    .ms-liquid-glass:hover::after,
-    .ms-liquid-glass:focus-visible::after{opacity:.42!important}
-    .ms-liquid-glass:active{transform:scale(.94)!important}
-    .ms-liquid-glass.primary,
-    .ms-liquid-glass.is-primary{
-      background:rgba(0,0,0,.02)!important;
-      border-color:rgba(255,255,255,.18)!important;
-      color:#fff!important;
-    }
-
-    /* ORÇAMENTO stays present and uses the same real-glass construction,
-       retaining only its approved royal-blue identity as an edge accent. */
-    .ms-quote-fab.ms-liquid-glass{
-      background:rgba(0,0,0,.02)!important;
-      border-color:rgba(100,132,255,.62)!important;
-      box-shadow:
-        inset 2px -2px 1px -1px rgba(255,255,255,.90),
-        inset -2px 2px 1px -1px rgba(255,255,255,.86),
-        inset 6px -6px 1px -6px rgba(255,255,255,.50),
-        inset -6px 6px 1px -6px rgba(255,255,255,.48),
-        inset 0 0 2px rgba(0,0,0,.82),
-        0 4px 8px rgba(0,0,0,.22),
-        0 0 18px rgba(36,87,255,.16)!important;
-    }
-    .ms-quote-fab.ms-liquid-glass:hover,
-    .ms-quote-fab.ms-liquid-glass:focus-visible{
-      border-color:rgba(145,166,255,.88)!important;
-      background:rgba(0,0,0,0)!important;
-    }
-
-    .ms-liquid-glass[disabled],
-    .ms-liquid-glass[aria-disabled="true"]{opacity:.48!important;pointer-events:none!important}
-    @media(max-width:760px){
-      .ms-liquid-glass{min-height:46px!important;max-width:100%}
-      .cta-row .ms-liquid-glass,
-      .ms-brief-actions .ms-liquid-glass,
-      .ms-footer-links .ms-liquid-glass{min-width:0!important}
-    }
     /* PROTECTED UI — original Home lateral section rail must remain untouched */
     #msSectionNav .ms-liquid-glass,
     #msSectionNav.ms-liquid-glass,
@@ -302,64 +182,23 @@
     document.head.appendChild(topNavJs);
   }
 
-
-  // Liquid-glass buttons are preview-only and applied to existing + dynamically-created actions.
-  const LIQUID_GLASS_SELECTOR = [
-    '.cta-row .btn',
-    '.btn',
-    '.cart',
-    '.add',
-    '.chip',
-    '.filter',
-    '.cristo-v4-btn',
-    '.ms-brief-action',
-    '.ms-footer-link',
-    '.ms-footer-links .bg-switcher button',
-    '.ms-quote-fab',
-    '.ms-menu-quote',
-    '.ms-glass-cta',
-    '.send',
-    'button[type="submit"]',
-    '.stage-side button'
-  ].join(',');
-
-  const isArrowOnly = value => /^[\\s↗↘↙↖↑↓→←⟶⟵›»]+$/.test((value || '').trim());
-
-  function makeLiquidGlass(root=document){
-    const nodes = [];
-    if(root?.matches?.(LIQUID_GLASS_SELECTOR)) nodes.push(root);
-    root?.querySelectorAll?.(LIQUID_GLASS_SELECTOR).forEach(el=>nodes.push(el));
-
-    nodes.forEach(el=>{
-      if(el.closest('#ms-rubber-topnav-root')) return;
-      if(el.closest('#msSectionNav')) return; // protected lateral site rail: never restyle
-      if(el.classList.contains('ms-universal-menu-btn') || el.classList.contains('ms-contact-close') || el.classList.contains('ms-sound-toggle') || el.classList.contains('ms3d-edge')) return;
-
-      el.classList.add('ms-liquid-glass');
-
-      // The new glass language intentionally has no arrow glyphs.
-      [...el.childNodes].forEach(node=>{
-        if(node.nodeType===Node.TEXT_NODE && /[↗↘↙↖↑↓→←⟶⟵]/.test(node.nodeValue || '')){
-          node.nodeValue=(node.nodeValue || '').replace(/[↗↘↙↖↑↓→←⟶⟵]/g,'').replace(/\\s{2,}/g,' ');
-        }
-      });
-      el.querySelectorAll('b,span,i').forEach(child=>{
-        if(isArrowOnly(child.textContent)){
-          child.classList.add('ms-liquid-glass-arrow');
-          child.setAttribute('aria-hidden','true');
-        }
-      });
-    });
+  // Single source of truth for glass buttons across PREVIEW.
+  // This styles existing buttons only; it creates no canvases, cards or substitute controls.
+  if(!document.querySelector('link[data-ms-button-glass-v3]')){
+    const glassCss=document.createElement('link');
+    glassCss.rel='stylesheet';
+    glassCss.href=ROOT+'assets/ms-glass-v26.css?v=3';
+    glassCss.dataset.msButtonGlassV3='1';
+    document.head.appendChild(glassCss);
+  }
+  if(!document.querySelector('script[data-ms-button-glass-v3]')){
+    const glassJs=document.createElement('script');
+    glassJs.src=ROOT+'assets/ms-glass-v26.js?v=3';
+    glassJs.defer=true;
+    glassJs.dataset.msButtonGlassV3='1';
+    document.head.appendChild(glassJs);
   }
 
-  makeLiquidGlass();
-  const liquidGlassObserver = new MutationObserver(records=>{
-    records.forEach(record=>record.addedNodes.forEach(node=>{
-      if(node.nodeType===Node.ELEMENT_NODE) makeLiquidGlass(node);
-    }));
-  });
-  liquidGlassObserver.observe(document.documentElement,{childList:true,subtree:true});
-  addEventListener('pagehide',()=>liquidGlassObserver.disconnect(),{once:true});
 
   const menuBtn = document.createElement('button');
   menuBtn.className = 'ms-universal-menu-btn';
