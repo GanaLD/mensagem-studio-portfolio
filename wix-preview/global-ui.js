@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r40-budget-position-carousel-palette';
+  const VERSION = '20260922-r41-home-nav-after-hero';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -107,10 +107,9 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* Preview navigation:
-       - inner pages remain fixed;
-       - HOME stays in normal document flow ABOVE the Hero and scrolls away.
-       This prevents the navigation bar from covering any Hero media. */
+    /* PREVIEW: inner-page navigation stays fixed.
+       On HOME the same fixed bar is hidden for the entire HeroScroll and
+       only appears after the hero animation has fully completed. */
     body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header,
     body.ms-global-ui-mounted header.top.ms-rubber-topnav-header{
       position:fixed!important;
@@ -121,13 +120,24 @@
       z-index:100020!important;
     }
     html[data-ms-page="home"] body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header{
-      position:relative!important;
-      top:auto!important;
-      left:auto!important;
-      right:auto!important;
+      position:fixed!important;
+      top:0!important;
+      left:0!important;
+      right:0!important;
       width:100%!important;
       z-index:100020!important;
-      flex:0 0 auto!important;
+      opacity:0!important;
+      visibility:hidden!important;
+      pointer-events:none!important;
+      transform:translateY(-100%)!important;
+      transition:opacity .22s ease,transform .28s cubic-bezier(.16,1,.3,1),visibility 0s linear .28s!important;
+    }
+    html[data-ms-page="home"] body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header.ms-home-nav-visible{
+      opacity:1!important;
+      visibility:visible!important;
+      pointer-events:auto!important;
+      transform:translateY(0)!important;
+      transition:opacity .22s ease,transform .28s cubic-bezier(.16,1,.3,1),visibility 0s linear 0s!important;
     }
     html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
       opacity:0!important;
@@ -141,6 +151,29 @@
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
   document.documentElement.dataset.msPage = active;
   if(active==='sobre') document.documentElement.classList.add('ms-topnav-no-active');
+
+  // PREVIEW HOME: reveal the fixed site header only after HeroScroll reaches 100%.
+  // When the user scrolls back into the hero, hide it again so it never overlays the hero.
+  if(active==='home'){
+    const homeHeader=document.querySelector('header.content-layer');
+    const homeHero=document.getElementById('hero');
+    if(homeHeader&&homeHero){
+      let homeNavFrame=0;
+      const syncHomeNavAfterHero=()=>{
+        homeNavFrame=0;
+        const heroEndScroll=Math.max(0,homeHero.offsetTop+homeHero.offsetHeight-window.innerHeight);
+        const heroComplete=window.scrollY>=heroEndScroll-1;
+        homeHeader.classList.toggle('ms-home-nav-visible',heroComplete);
+      };
+      const requestHomeNavSync=()=>{
+        if(homeNavFrame)return;
+        homeNavFrame=requestAnimationFrame(syncHomeNavAfterHero);
+      };
+      addEventListener('scroll',requestHomeNavSync,{passive:true});
+      addEventListener('resize',requestHomeNavSync,{passive:true});
+      requestAnimationFrame(syncHomeNavAfterHero);
+    }
+  }
 
   // Actual React Bits RubberSegment top navigation.
   // This loads the bundle built from the installed @react-bits/RubberSegment-JS-CSS component.
