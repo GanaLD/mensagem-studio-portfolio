@@ -63,6 +63,11 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   border-radius:0!important;
   background:transparent!important;
   box-shadow:none!important;
+}
+.hero-art.is-immersive{
+  overflow:hidden!important;
+}
+.hero-art.is-model-3d{
   overflow:visible!important;
 }
 .hero-art.is-immersive .hero-immersive-frame,
@@ -74,8 +79,10 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   z-index:2;
   left:50%;
   top:50%;
-  width:min(92%,680px);
-  height:92%;
+  width:min(88%,620px);
+  height:auto;
+  max-width:88%;
+  max-height:88%;
   object-fit:contain;
   object-position:50% 50%;
   transform:translate(-50%,-50%);
@@ -1119,7 +1126,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-preview-direct-floating-angel-v2 -->
+<!-- HOME_BUILD: 20260922-preview-floating-angel-position-v3 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
