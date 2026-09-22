@@ -479,6 +479,7 @@ main>.wrap>.lead{
     --rs-min:44px!important;
   }
 }
+#grid,.sentinel-core-site-shell{overflow-anchor:none!important}
 </style>
 </head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="projects-hero-media" aria-hidden="true"><video id="projectsHeroVideo" class="projects-hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/688144e1-4fb7-4d05-86c3-3273e4238efc.mp4" type="video/mp4"></video></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos</h1><p class="lead">Explore projetos de design gráfico, branding, motion, edição de vídeo, audiovisual e 3D desenvolvidos pela Mensagem Studio, estúdio criativo em Curitiba. Navegue pelos cases e descubra soluções visuais para inspirar seu próximo projeto.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
@@ -660,7 +661,7 @@ function buildProjectRubberSegment(){
         const sr=scroll.getBoundingClientRect();
         const delta=box.left+box.width/2-(sr.left+sr.width/2);
         if(Math.abs(delta)>8){
-          scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),behavior:reduce?'auto':'smooth'});
+          scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),top:scroll.scrollTop,behavior:reduce?'auto':'smooth'});
         }
       }
     });
@@ -668,12 +669,31 @@ function buildProjectRubberSegment(){
 
   function activate(cat,{focus=false,center=true}={}){
     if(!cats.includes(cat))return;
+
+    const rootRectBefore=root.getBoundingClientRect();
+    const viewportTopBefore=rootRectBefore.top;
+    const rootPageTopBefore=rootRectBefore.top+window.scrollY;
+
     active=cat;
     renderCards();
     syncThumb(center);
-    if(focus){
-      items.find(item=>item.dataset.projectFilter===active)?.focus({preventScroll:true});
-    }
+
+    requestAnimationFrame(()=>{
+      const maxScroll=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+      let targetScroll=rootPageTopBefore-viewportTopBefore;
+
+      if(targetScroll>maxScroll){
+        targetScroll=Math.max(0,rootPageTopBefore-96);
+      }
+
+      targetScroll=Math.min(maxScroll,Math.max(0,targetScroll));
+      window.scrollTo({top:targetScroll,left:window.scrollX,behavior:'auto'});
+
+      if(focus){
+        items.find(item=>item.dataset.projectFilter===active)?.focus({preventScroll:true});
+      }
+    });
+
     filters.dispatchEvent(new CustomEvent('projectfilterchange',{bubbles:true,detail:{category:active}}));
   }
 
