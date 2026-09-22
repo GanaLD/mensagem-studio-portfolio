@@ -136,98 +136,124 @@
     el.dataset.msLiquidShader='1';
     if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 
-    const canvas=document.createElement('canvas');
-    canvas.className='ms-liquid-glass-shader';
-    canvas.setAttribute('aria-hidden','true');
-    el.insertBefore(canvas,el.firstChild);
+    // IMPORTANT: use ONE shared WebGL context for the whole page.
+    // model-viewer also needs WebGL; one context per button can exhaust the browser limit
+    // and make the Home 3D assets disappear.
+    const state=window.__MS_SHARED_LIQUID_GLASS__||(window.__MS_SHARED_LIQUID_GLASS__={
+      canvas:null,gl:null,program:null,buffer:null,position:-1,
+      uResolution:null,uTime:null,uMouse:null,uTint:null,
+      target:null,raf:0,start:performance.now(),mouse:[0,0],width:0,height:0
+    });
 
-    const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true});
-    if(!gl){canvas.remove();return;}
+    function ensureRenderer(){
+      if(state.gl&&state.canvas)return true;
+      const canvas=document.createElement('canvas');
+      canvas.className='ms-liquid-glass-shader';
+      canvas.setAttribute('aria-hidden','true');
+      const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true});
+      if(!gl)return false;
 
-    const vs=compile(gl,gl.VERTEX_SHADER,VERT);
-    const fs=compile(gl,gl.FRAGMENT_SHADER,FRAG);
-    if(!vs||!fs){canvas.remove();return;}
+      const vs=compile(gl,gl.VERTEX_SHADER,VERT);
+      const fs=compile(gl,gl.FRAGMENT_SHADER,FRAG);
+      if(!vs||!fs)return false;
 
-    const program=gl.createProgram();
-    gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);
-    if(!gl.getProgramParameter(program,gl.LINK_STATUS)){canvas.remove();return;}
-    gl.useProgram(program);
+      const program=gl.createProgram();
+      gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);
+      if(!gl.getProgramParameter(program,gl.LINK_STATUS))return false;
+      gl.useProgram(program);
 
-    const buffer=gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
-    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-    const position=gl.getAttribLocation(program,'position');
-    gl.enableVertexAttribArray(position);
-    gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
+      const buffer=gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER,buffer);
+      gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+      const position=gl.getAttribLocation(program,'position');
+      gl.enableVertexAttribArray(position);
+      gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
 
-    const uResolution=gl.getUniformLocation(program,'iResolution');
-    const uTime=gl.getUniformLocation(program,'iTime');
-    const uMouse=gl.getUniformLocation(program,'iMouse');
-    const uTint=gl.getUniformLocation(program,'iTint');
-
-    let mouse=[0,0];
-    let hovering=false;
-    let raf=0;
-    let width=0,height=0;
-    const start=performance.now();
-
-    function resize(){
-      const r=el.getBoundingClientRect();
-      const dpr=Math.min(devicePixelRatio||1,2);
-      const w=Math.max(1,Math.round(r.width*dpr));
-      const h=Math.max(1,Math.round(r.height*dpr));
-      if(w===width&&h===height)return;
-      width=w;height=h;
-      canvas.width=w;canvas.height=h;
-      gl.viewport(0,0,w,h);
-      if(!mouse[0]&&!mouse[1])mouse=[w*.5,h*.5];
+      state.canvas=canvas;
+      state.gl=gl;
+      state.program=program;
+      state.buffer=buffer;
+      state.position=position;
+      state.uResolution=gl.getUniformLocation(program,'iResolution');
+      state.uTime=gl.getUniformLocation(program,'iTime');
+      state.uMouse=gl.getUniformLocation(program,'iMouse');
+      state.uTint=gl.getUniformLocation(program,'iTint');
+      return true;
     }
 
-    function tint(){
-      const s=getComputedStyle(el);
+    function tint(target){
+      const s=getComputedStyle(target);
       const r=Number(s.getPropertyValue('--ms-glass-tint-r'))||255;
       const g=Number(s.getPropertyValue('--ms-glass-tint-g'))||255;
       const b=Number(s.getPropertyValue('--ms-glass-tint-b'))||255;
       return [r/255,g/255,b/255];
     }
 
-    function draw(){
-      raf=0;resize();
-      const t=(performance.now()-start)/1000;
-      const tc=tint();
-      gl.clearColor(0,0,0,0);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.uniform3f(uResolution,width,height,1);
-      gl.uniform1f(uTime,t);
-      gl.uniform4f(uMouse,mouse[0],mouse[1],0,0);
-      gl.uniform3f(uTint,tc[0],tc[1],tc[2]);
-      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-      if(hovering)raf=requestAnimationFrame(draw);
+    function resize(){
+      const target=state.target;
+      if(!target||!state.canvas||!state.gl)return;
+      const r=target.getBoundingClientRect();
+      const dpr=Math.min(devicePixelRatio||1,2);
+      const w=Math.max(1,Math.round(r.width*dpr));
+      const h=Math.max(1,Math.round(r.height*dpr));
+      if(w===state.width&&h===state.height)return;
+      state.width=w;state.height=h;
+      state.canvas.width=w;state.canvas.height=h;
+      state.gl.viewport(0,0,w,h);
+      state.mouse=[w*.5,h*.5];
     }
 
-    const move=e=>{
-      const r=el.getBoundingClientRect();
-      const dpr=Math.min(devicePixelRatio||1,2);
-      mouse=[
-        Math.max(0,Math.min(r.width,e.clientX-r.left))*dpr,
-        Math.max(0,Math.min(r.height,r.bottom-e.clientY))*dpr
-      ];
-      if(!raf)raf=requestAnimationFrame(draw);
-    };
-    const enter=e=>{hovering=true;move(e)};
-    const leave=()=>{
-      hovering=false;
-      mouse=[width*.5,height*.5];
-      if(!raf)raf=requestAnimationFrame(draw);
-    };
+    function draw(){
+      state.raf=0;
+      if(!state.target||!state.canvas||!state.gl)return;
+      resize();
+      const gl=state.gl;
+      const tc=tint(state.target);
+      const t=(performance.now()-state.start)/1000;
+      gl.useProgram(state.program);
+      gl.clearColor(0,0,0,0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform3f(state.uResolution,state.width,state.height,1);
+      gl.uniform1f(state.uTime,t);
+      gl.uniform4f(state.uMouse,state.mouse[0],state.mouse[1],0,0);
+      gl.uniform3f(state.uTint,tc[0],tc[1],tc[2]);
+      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+    }
 
-    el.addEventListener('pointerenter',enter,{passive:true});
-    el.addEventListener('pointermove',move,{passive:true});
-    el.addEventListener('pointerleave',leave,{passive:true});
-    addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(draw)},{passive:true});
-    requestAnimationFrame(draw);
+    function mount(target,event){
+      if(!ensureRenderer())return;
+      if(state.target!==target){
+        state.target=target;
+        state.width=0;state.height=0;
+        target.insertBefore(state.canvas,target.firstChild);
+      }
+      if(event&&Number.isFinite(event.clientX)){
+        const r=target.getBoundingClientRect();
+        const dpr=Math.min(devicePixelRatio||1,2);
+        state.mouse=[
+          Math.max(0,Math.min(r.width,event.clientX-r.left))*dpr,
+          Math.max(0,Math.min(r.height,r.bottom-event.clientY))*dpr
+        ];
+      }
+      if(!state.raf)state.raf=requestAnimationFrame(draw);
+    }
+
+    function unmount(target){
+      if(state.target!==target)return;
+      if(target.matches(':focus-visible'))return;
+      state.target=null;
+      if(state.canvas?.parentNode)state.canvas.remove();
+    }
+
+    el.addEventListener('pointerenter',event=>mount(el,event),{passive:true});
+    el.addEventListener('pointermove',event=>{
+      if(state.target===el)mount(el,event);
+    },{passive:true});
+    el.addEventListener('pointerleave',()=>unmount(el),{passive:true});
+    el.addEventListener('pointerdown',event=>mount(el,event),{passive:true});
+    el.addEventListener('focus',()=>mount(el),{passive:true});
+    el.addEventListener('blur',()=>unmount(el),{passive:true});
   }
-
   function apply(el){
     if(!el||protectedControl(el))return;
     el.classList.add('ms-glass-v26');
