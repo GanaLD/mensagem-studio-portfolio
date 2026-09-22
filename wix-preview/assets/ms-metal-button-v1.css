@@ -1,14 +1,69 @@
-/* PREVIEW — REAL SPECTRUM UI METALBUTTON ADAPTER
-   Uses the real React <MetalFx> wrapper from metal-fx@1.0.4 around the EXISTING controls.
-   Existing DOM nodes are adopted into the wrapper, so links/click handlers/data attributes remain intact.
-   The 3D services carousel is explicitly excluded. */
+/* PREVIEW — MENSAGEM STUDIO METALBUTTON V33
+   Real Spectrum UI / metal-fx wrapper applied ONLY to the indicated action controls.
+   Shape: rectangular button with small rounded corners.
+   Glow palette references the existing 3D carousel only: #ffd84d + #4169e1.
+   The 3D carousel itself is NOT modified. */
 
+:root{
+  --ms-metal-radius:10px;
+  --ms-metal-yellow:#ffd84d;
+  --ms-metal-yellow-rgb:255,216,77;
+  --ms-metal-blue:#4169e1;
+  --ms-metal-blue-rgb:65,105,225;
+}
+
+/* Generated wrapper around the existing live control. */
 .ms-metal-react-mount{
+  position:relative;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   vertical-align:middle;
   max-width:100%;
+  border-radius:var(--ms-metal-radius);
+  isolation:isolate;
+}
+
+/* Brand-color light borrowed from the 3D carousel palette.
+   It is only a glow around the MetalFx button; no carousel selectors are touched. */
+.ms-metal-react-mount::before{
+  content:"";
+  position:absolute;
+  z-index:-2;
+  inset:-7px;
+  border-radius:calc(var(--ms-metal-radius) + 7px);
+  pointer-events:none;
+  opacity:.22;
+  filter:blur(12px);
+  background:
+    radial-gradient(circle at 18% 18%,rgba(var(--ms-metal-yellow-rgb),.78),transparent 34%),
+    radial-gradient(circle at 82% 82%,rgba(var(--ms-metal-blue-rgb),.72),transparent 38%),
+    linear-gradient(120deg,rgba(var(--ms-metal-yellow-rgb),.22),rgba(var(--ms-metal-blue-rgb),.22));
+  transition:opacity .24s ease,filter .24s ease,transform .24s ease;
+}
+
+.ms-metal-react-mount:hover::before,
+.ms-metal-react-mount:focus-within::before{
+  opacity:.72;
+  filter:blur(15px);
+  transform:scale(1.015);
+}
+
+.ms-metal-react-mount::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-1px;
+  border-radius:calc(var(--ms-metal-radius) + 1px);
+  pointer-events:none;
+  opacity:.48;
+  background:linear-gradient(
+    120deg,
+    rgba(var(--ms-metal-yellow-rgb),.44),
+    rgba(255,255,255,.10) 38%,
+    rgba(var(--ms-metal-blue-rgb),.48)
+  );
+  filter:blur(.7px);
 }
 
 .ms-metal-react-mount.is-full{
@@ -30,16 +85,24 @@
   z-index:100055!important;
 }
 
-/* MetalFx itself injects its canonical .metal-fx-root/.canvas/.inner/.content styles.
-   These rules only adapt the existing site control to the supplied MetalButton child. */
+/* MetalFx itself paints the liquid-metal ring.
+   Keep every nested layer on the same small-radius rectangle. */
+.ms-metal-react-mount > .metal-fx-root,
+.ms-metal-react-mount .metal-fx-canvas,
+.ms-metal-react-mount .metal-fx-inner,
+.ms-metal-react-mount .metal-fx-content,
+.ms-metal-react-mount .ms-metal-holder{
+  border-radius:var(--ms-metal-radius)!important;
+}
+
 .ms-metal-holder{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  border-radius:9999px;
   max-width:100%;
 }
 
+/* Existing link/button — function, href, data attributes and listeners stay intact. */
 .ms-metal-host{
   position:relative!important;
   display:inline-flex!important;
@@ -53,20 +116,22 @@
 
   border:0!important;
   outline:0!important;
-  border-radius:9999px!important;
+  border-radius:var(--ms-metal-radius)!important;
   background:transparent!important;
+  background-color:transparent!important;
   background-image:none!important;
   box-shadow:none!important;
   -webkit-backdrop-filter:none!important;
   backdrop-filter:none!important;
+  clip-path:none!important;
+  -webkit-clip-path:none!important;
 
   color:#fff!important;
   font-family:inherit!important;
   font-size:15px!important;
-  font-weight:500!important;
+  font-weight:600!important;
   line-height:1!important;
   letter-spacing:-.01em!important;
-  text-transform:none!important;
   text-align:center!important;
   white-space:nowrap!important;
 
@@ -76,7 +141,6 @@
 
   transition:
     transform .20s ease-out,
-    background-color .20s ease-out,
     opacity .20s ease-out!important;
 }
 
@@ -86,7 +150,7 @@
   display:none!important;
 }
 
-.ms-metal-host:hover{opacity:.80!important}
+.ms-metal-host:hover{opacity:.88!important}
 .ms-metal-host:active{transform:scale(.97)!important}
 .ms-metal-host:focus-visible{outline:0!important}
 .ms-metal-host:disabled,
@@ -99,7 +163,7 @@
   display:none!important;
 }
 
-/* Full-width list/action variants from the screenshots. */
+/* Full-width controls from the supplied screenshots. */
 .ms-metal-react-mount.is-full .ms-metal-host{
   width:100%!important;
 }
@@ -133,9 +197,18 @@
   padding-inline:20px!important;
 }
 
-/* ORÇAMENTO — OLD BEHAVIOUR, NEW VISUAL.
-   The fixed position moves to the MetalFx mount; the original element keeps the
-   exact old width/label-collapse state driven by global-ui.js. */
+/* Selected tabs keep their logic; they do NOT go back to the old white rectangle. */
+#pdfTabs .ms-metal-host.active,
+#modelTabs .ms-metal-host.active,
+#ytTabs .ms-metal-host.active,
+.ms-metal-host.on{
+  background:transparent!important;
+  color:#fff!important;
+  opacity:1!important;
+}
+
+/* ORÇAMENTO — old behaviour, new rectangular MetalButton visual.
+   global-ui.js still controls is-compact at top / drawer open. */
 .ms-metal-react-mount.is-quote .ms-quote-fab{
   position:relative!important;
   top:auto!important;
@@ -155,7 +228,7 @@
   gap:9px!important;
 
   border:0!important;
-  border-radius:9999px!important;
+  border-radius:var(--ms-metal-radius)!important;
   background:transparent!important;
   background-image:none!important;
   box-shadow:none!important;
@@ -177,8 +250,7 @@
 
 .ms-metal-react-mount.is-quote .ms-quote-fab:hover{
   transform:none!important;
-  background:transparent!important;
-  box-shadow:none!important;
+  opacity:.90!important;
 }
 
 .ms-metal-react-mount.is-quote .ms-quote-fab.is-compact{
@@ -186,7 +258,16 @@
   height:46px!important;
   padding:0!important;
   gap:0!important;
-  border-radius:50%!important;
+  border-radius:12px!important;
+}
+
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact),
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact) > .metal-fx-root,
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact) .metal-fx-canvas,
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact) .metal-fx-inner,
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact) .metal-fx-content,
+.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-compact) .ms-metal-holder{
+  border-radius:12px!important;
 }
 
 .ms-metal-react-mount.is-quote .ms-quote-fab.is-compact .ms-quote-label{
@@ -215,24 +296,15 @@
   stroke-linejoin:round!important;
 }
 
-/* Active tabs keep state through text only; the MetalFx frame remains the same component. */
-#pdfTabs .ms-metal-host.active,
-#modelTabs .ms-metal-host.active,
-#ytTabs .ms-metal-host.active,
-.ms-metal-host.on{
-  color:#fff!important;
-  opacity:1!important;
-}
-
-/* HARD PROTECTION — never adopt these systems. */
-#msSectionNav .ms-metal-react-mount,
-#ms-rubber-topnav-root .ms-metal-react-mount,
-.rubber-segment .ms-metal-react-mount,
-#msServicesDeck .ms-metal-react-mount{
+/* Absolute protection: visual reference only, never modify the 3D carousel. */
+#msServicesDeck .ms-metal-react-mount,
+#msServicesDeck.ms-metal-react-mount{
   display:none!important;
 }
 
 @media(max-width:760px){
+  :root{--ms-metal-radius:9px}
+
   .ms-metal-host{
     min-height:44px!important;
     height:44px!important;
@@ -264,5 +336,6 @@
     width:40px!important;
     height:40px!important;
     padding:0!important;
+    border-radius:10px!important;
   }
 }
