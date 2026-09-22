@@ -35,7 +35,7 @@ jobs:
           import re
 
           PROD_VERSION = "20260920-r20-real-rubber-topnav"
-          PREVIEW_VERSION = "20260922-r34-home-topnav-outside-hero"
+          PREVIEW_VERSION = "20260922-r35-footer-layout-restore"
           changed = []
 
           for path in Path(".").rglob("*.html"):
@@ -67,7 +67,7 @@ jobs:
           set -euo pipefail
           grep -q 'react-bits-rubber-topnav' global-ui.js
           grep -q "20260920-r20-real-rubber-topnav" global-ui.js
-          grep -q "20260922-r34-home-topnav-outside-hero" wix-preview/global-ui.js
+          grep -q "20260922-r35-footer-layout-restore" wix-preview/global-ui.js
 
       - name: Commit if needed
         shell: bash
