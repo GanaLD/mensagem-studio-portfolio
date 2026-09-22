@@ -3,7 +3,7 @@ import {
   destroyInstance,
   updateInstance,
   setSharedPreset
-} from "https://esm.sh/metal-fx@1.0.4?bundle&deps=react@18.3.1,react-dom@18.3.1";
+} from "https://cdn.jsdelivr.net/npm/metal-fx@1.0.4/+esm";
 
 (()=>{
   if(window.__MS_METAL_BUTTON_V1__) return;
