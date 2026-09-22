@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r25-budget-glass-visible';
+  const VERSION = '20260921-r26-button-glass-only';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -42,6 +42,7 @@
     .ms-quote-fab .ms-quote-icon svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .ms-quote-fab.is-compact{width:46px;padding:0;border-radius:15px;gap:0}
     .ms-quote-fab.is-compact .ms-quote-label{max-width:0;opacity:0;transform:translateX(8px)}
+    .ms-quote-fab.is-drawer-open{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:scale(.94)!important}
     .ms-quote-fab:hover,.ms-quote-fab:focus-visible{outline:none;transform:translateY(-2px);border-color:rgba(176,193,255,.90);background:linear-gradient(145deg,rgba(46,99,255,.46),rgba(24,63,207,.25) 58%,rgba(255,255,255,.075));box-shadow:0 16px 38px rgba(0,0,0,.34),0 0 38px rgba(36,87,255,.30),inset 0 1px 0 rgba(255,255,255,.36),inset 0 -1px 0 rgba(36,87,255,.22)}
     body[data-page="servicos"].ms-global-ui-mounted #cartBtn{visibility:hidden!important;pointer-events:none!important}
 
@@ -384,7 +385,7 @@
   document.body.append(menuBtn,menu);
 
   const quoteFab = document.createElement('a');
-  quoteFab.className = 'ms-quote-fab ms-quote-link ms-liquid-glass';
+  quoteFab.className = 'ms-quote-fab ms-quote-link';
   quoteFab.href = QUOTE_URL;
   quoteFab.hidden = false;
   quoteFab.removeAttribute('aria-hidden');
@@ -393,8 +394,9 @@
   document.body.appendChild(quoteFab);
   const updateQuoteFabState = () => {
     const drawerOpen = Boolean(document.querySelector('.drawer.open'));
-    const compact = drawerOpen;
-    quoteFab.classList.toggle('is-compact', compact);
+    const atPageTop = window.scrollY <= 180;
+    quoteFab.classList.toggle('is-compact', atPageTop && !drawerOpen);
+    quoteFab.classList.toggle('is-drawer-open', drawerOpen);
     quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
   };
 
