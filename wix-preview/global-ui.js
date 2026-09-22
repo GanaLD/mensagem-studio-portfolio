@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r38-services-button-standard';
+  const VERSION = '20260922-r39-direct-button-assets-v2';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -166,18 +166,18 @@
 
   // PREVIEW ONLY — glass/glow skin inspired by the existing 3D carousel.
   // This styles only the already-indicated action buttons and NEVER touches #msServicesDeck.
-  if(!document.querySelector('link[data-ms-carousel-glass-buttons]')){
+  if(!document.querySelector('link[data-ms-carousel-glass-buttons-v2]')){
     const buttonCss=document.createElement('link');
     buttonCss.rel='stylesheet';
-    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v1.css?v=20260922-r38';
-    buttonCss.dataset.msCarouselGlassButtons='1';
+    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v2.css?v=20260922-r39';
+    buttonCss.dataset.msCarouselGlassButtonsV2='1';
     document.head.appendChild(buttonCss);
   }
-  if(!document.querySelector('script[data-ms-carousel-glass-buttons]')){
+  if(!document.querySelector('script[data-ms-carousel-glass-buttons-v2]')){
     const buttonJs=document.createElement('script');
-    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v1.js?v=20260922-r38';
+    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v2.js?v=20260922-r39';
     buttonJs.defer=true;
-    buttonJs.dataset.msCarouselGlassButtons='1';
+    buttonJs.dataset.msCarouselGlassButtonsV2='1';
     document.head.appendChild(buttonJs);
   }
 
