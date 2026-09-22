@@ -94,6 +94,15 @@ function addStyles(){
   .ms-footer-links .bg-switcher button:hover,.ms-footer-links .bg-switcher button:focus-visible{outline:none!important;border-color:var(--lime)!important;box-shadow:0 0 28px rgba(201,255,54,.18)!important}
   @media(max-width:760px){.ms-footer-links .bg-switcher{grid-column:1/-1!important;margin:0!important;width:100%!important}.ms-footer-links .bg-switcher button{width:100%!important;min-width:0!important}}
   .ms-footer-meta{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;color:#73796f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+  .ms-footer-copy{min-width:0}
+  .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:6px solid #ffd400;background:rgba(0,0,0,.22);display:grid;place-items:center;isolation:isolate;box-shadow:0 0 34px rgba(255,212,0,.06),inset 0 0 42px rgba(0,0,0,.2);touch-action:pan-y}
+  .ms-footer-particle-stage:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.035),transparent 62%);z-index:0}
+  .ms-footer-particle-canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;pointer-events:auto}
+  .ms-footer-particle-fallback{position:relative;z-index:0;margin:0;color:#f6f7f2;font-size:clamp(46px,6vw,104px);font-weight:800;letter-spacing:-.055em;line-height:.9;text-transform:none;opacity:0;pointer-events:none}
+  @media(min-width:900px){.ms-footer-inner{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(440px,.94fr);column-gap:clamp(42px,5.5vw,92px);row-gap:0;align-items:center}.ms-footer-copy{align-self:center}.ms-footer-particle-stage{align-self:stretch}.ms-footer-meta{grid-column:1/-1}}
+  @media(max-width:899px){.ms-footer-inner{display:block}.ms-footer-particle-stage{width:100%;min-height:280px;margin-top:42px;border-width:4px}.ms-footer-meta{margin-top:42px}}
+  @media(max-width:560px){.ms-footer-particle-stage{min-height:230px;margin-top:32px}.ms-footer-particle-fallback{font-size:clamp(42px,15vw,72px)}}
+  @media(prefers-reduced-motion:reduce){.ms-footer-particle-canvas{pointer-events:none}}
   #msHomeWhatsapp{width:58px!important;height:58px!important;min-height:58px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#25D366!important;color:#fff!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 28px rgba(37,211,102,.24)!important;font-size:0!important}
   #msHomeWhatsapp i{display:none!important}#msHomeWhatsapp svg{width:30px;height:30px;display:block;fill:currentColor}
   @media(max-width:1024px){.ms3d-shell{min-height:570px;perspective:1450px}.ms3d-stage{height:410px}.ms3d-card{width:181px;height:240px;margin-left:-90.5px;margin-top:-120px}.ms3d-inner{padding:17px}.ms3d-edge{width:52px;height:52px}.brief-grid{grid-template-columns:1fr!important}}
@@ -277,15 +286,152 @@ function upgradeFooter(){
   const footer=document.querySelector('footer');if(!footer)return;
   const existingSwitcher=document.querySelector('.bg-switcher');
   footer.classList.add('ms-site-footer');
-  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
+  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><div id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="Design" role="img" aria-label="Tipografia interativa de partículas: Design"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">Design</span></div><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
   if(existingSwitcher){
     existingSwitcher.classList.add('ms-footer-bg-switcher');
     const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.remove();
     const button=existingSwitcher.querySelector('#backgroundSwitcher');if(button)button.textContent='TROCAR FUNDO';
     const links=footer.querySelector('.ms-footer-links');if(links)links.appendChild(existingSwitcher);
   }
+  initFooterParticleTypography();
 }
 
+function initFooterParticleTypography(){
+  const stage=document.querySelector('#msFooterParticleStage');
+  const canvas=document.querySelector('#msFooterParticleCanvas');
+  if(!stage||!canvas||stage.dataset.particlesReady==='1')return;
+  stage.dataset.particlesReady='1';
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  if(!ctx)return;
+  const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const particleText=stage.dataset.text||'Design';
+  let particles=[];
+  let raf=0;
+  let width=0,height=0,dpr=1;
+  let mouseX=-1000,mouseY=-1000;
+  let active=true;
+
+  class FooterParticle{
+    constructor(x,y,size,color,dispersion,returnSpeed){
+      this.x=x+(Math.random()-.5)*10;
+      this.y=y+(Math.random()-.5)*10;
+      this.originX=x;this.originY=y;
+      this.vx=(Math.random()-.5)*5;this.vy=(Math.random()-.5)*5;
+      this.size=size;this.color=color;this.dispersion=dispersion;this.returnSpeed=returnSpeed;
+    }
+    update(mx,my){
+      const dx=mx-this.x,dy=my-this.y;
+      const distance=Math.sqrt(dx*dx+dy*dy);
+      const radius=120;
+      if(distance>0&&distance<radius&&mx!==-1000&&my!==-1000){
+        const force=(radius-distance)/radius;
+        this.vx-=(dx/distance)*force*this.dispersion;
+        this.vy-=(dy/distance)*force*this.dispersion;
+      }
+      this.vx+=(this.originX-this.x)*this.returnSpeed;
+      this.vy+=(this.originY-this.y)*this.returnSpeed;
+      this.vx*=.85;this.vy*=.85;
+      const ox=this.x-this.originX,oy=this.y-this.originY;
+      if(Math.sqrt(ox*ox+oy*oy)<1&&Math.random()>.95){this.vx+=(Math.random()-.5)*.2;this.vy+=(Math.random()-.5)*.2}
+      this.x+=this.vx;this.y+=this.vy;
+    }
+    draw(){ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill()}
+  }
+
+  function fontFamily(){
+    const title=document.querySelector('.ms-footer-title');
+    return title?getComputedStyle(title).fontFamily:'Arial Black, Inter, sans-serif';
+  }
+
+  function configureCanvas(){
+    width=Math.max(1,stage.clientWidth);
+    height=Math.max(1,stage.clientHeight);
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.max(1,Math.floor(width*dpr));
+    canvas.height=Math.max(1,Math.floor(height*dpr));
+    canvas.style.width=width+'px';
+    canvas.style.height=height+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function drawStatic(){
+    configureCanvas();
+    ctx.clearRect(0,0,width,height);
+    const size=Math.min(160,width*.15);
+    ctx.fillStyle='#f6f7f2';
+    ctx.font='800 '+size+'px '+fontFamily();
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(particleText,width/2,height/2);
+  }
+
+  function initParticles(){
+    configureCanvas();
+    ctx.clearRect(0,0,width,height);
+    const size=Math.min(160,width*.15);
+    const color='#f6f7f2';
+    ctx.fillStyle=color;
+    ctx.font='800 '+size+'px '+fontFamily();
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(particleText,width/2,height/2);
+    const pixels=ctx.getImageData(0,0,canvas.width,canvas.height);
+    particles=[];
+    const step=Math.max(1,Math.floor(5*dpr));
+    for(let y=0;y<pixels.height;y+=step){
+      for(let x=0;x<pixels.width;x+=step){
+        const alpha=pixels.data[(y*pixels.width+x)*4+3]||0;
+        if(alpha>128)particles.push(new FooterParticle(x/dpr,y/dpr,1.5,color,20,.08));
+      }
+    }
+    ctx.clearRect(0,0,width,height);
+  }
+
+  function animate(){
+    if(reduceMotion||!active){raf=0;return}
+    ctx.clearRect(0,0,width,height);
+    for(const particle of particles){particle.update(mouseX,mouseY);particle.draw()}
+    raf=requestAnimationFrame(animate);
+  }
+
+  function restart(){
+    if(reduceMotion){drawStatic();return}
+    initParticles();
+    if(!raf&&active)raf=requestAnimationFrame(animate);
+  }
+
+  function onPointerMove(event){
+    if(event.pointerType==='touch')return;
+    const rect=canvas.getBoundingClientRect();
+    mouseX=event.clientX-rect.left;mouseY=event.clientY-rect.top;
+  }
+  function onPointerLeave(){mouseX=-1000;mouseY=-1000}
+
+  const resizeObserver=new ResizeObserver(()=>restart());
+  resizeObserver.observe(stage);
+  canvas.addEventListener('pointermove',onPointerMove,{passive:true});
+  canvas.addEventListener('pointerleave',onPointerLeave,{passive:true});
+
+  let intersectionObserver=null;
+  if('IntersectionObserver'in window&&!reduceMotion){
+    intersectionObserver=new IntersectionObserver(entries=>{
+      active=Boolean(entries[0]&&entries[0].isIntersecting);
+      if(active&&!raf)raf=requestAnimationFrame(animate);
+      else if(!active&&raf){cancelAnimationFrame(raf);raf=0}
+    },{rootMargin:'160px 0px'});
+    intersectionObserver.observe(stage);
+  }
+
+  const cleanup=()=>{
+    if(raf)cancelAnimationFrame(raf);raf=0;
+    resizeObserver.disconnect();
+    if(intersectionObserver)intersectionObserver.disconnect();
+    canvas.removeEventListener('pointermove',onPointerMove);
+    canvas.removeEventListener('pointerleave',onPointerLeave);
+  };
+  window.addEventListener('pagehide',cleanup,{once:true});
+
+  setTimeout(restart,80);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(restart).catch(()=>{});
+}
 function upgradeWhatsapp(){
   const a=document.querySelector('#msHomeWhatsapp');if(!a)return;a.href=WHATSAPP_URL;a.setAttribute('aria-label','Falar com a Mensagem Studio pelo WhatsApp');a.innerHTML=`<svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.99c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.055 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.69 1.448h.005c6.558 0 11.893-5.335 11.896-11.893a11.821 11.821 0 0 0-3.489-8.413Z"/></svg>`;
 }
