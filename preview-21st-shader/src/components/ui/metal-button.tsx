@@ -17,7 +17,7 @@ export interface MetalButtonProps
   theme?: SurfaceTheme;
   /** Ring intensity 0–1. Default 1 */
   strength?: number;
-  /** Pill height and type size. Default "md" */
+  /** Button height and type size. Default "md" */
   size?: "sm" | "md" | "lg";
   /** Freeze the shader on its current frame */
   paused?: boolean;
@@ -54,12 +54,13 @@ export function MetalButton({
       theme={resolved}
       strength={strength}
       paused={paused}
+      borderRadius={10}
       className={cn("inline-flex", wrapperClassName)}
     >
       <button
         type={type}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[-0.01em] transition-[transform,background-color] duration-200 ease-out",
+          "inline-flex items-center justify-center gap-2 rounded-[10px] font-medium tracking-[-0.01em] transition-[transform,background-color] duration-200 ease-out",
           "text-neutral-900 hover:opacity-80 active:scale-[0.97] dark:text-white",
           "focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-60",
           SIZE[size],
