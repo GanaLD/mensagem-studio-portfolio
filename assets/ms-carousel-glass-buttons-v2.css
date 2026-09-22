@@ -1,0 +1,261 @@
+/* PREVIEW — GLASS BUTTONS V40
+   Visual reference: the EXISTING 3D carousel BorderGlow.
+   Exact carousel palette used here:
+   warm cream #f6f1d9 · royal blue #4169e1 · lime #c9ff36
+   glow hsl(48deg 90% 86%)
+   This stylesheet does not target or alter the carousel itself. */
+
+:root{
+  --ms-btn-cream:#f6f1d9;
+  --ms-btn-blue:#4169e1;
+  --ms-btn-lime:#c9ff36;
+  --ms-btn-glow:hsl(48deg 90% 86%);
+  --ms-btn-radius:10px;
+}
+
+.ms-carousel-glass-btn{
+  --ms-btn-x:50%;
+  --ms-btn-y:50%;
+  --ms-btn-angle:45deg;
+
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+
+  border:1px solid #ffffff2b!important;
+  border-radius:var(--ms-btn-radius)!important;
+
+  /* Same glass surface values used by the installed 3D BorderGlow host. */
+  background:
+    linear-gradient(145deg,#ffffff1b,#ffffff0a 34%,#18253c29 68%,#4169e111),
+    #070c1442!important;
+  -webkit-backdrop-filter:blur(28px) saturate(145%) contrast(1.03)!important;
+  backdrop-filter:blur(28px) saturate(145%) contrast(1.03)!important;
+
+  box-shadow:
+    inset 0 1px #ffffff38,
+    inset 0 -1px #ffffff09,
+    0 12px 38px #0000004d!important;
+
+  color:#f7f7f3!important;
+  filter:none!important;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    opacity .18s ease!important;
+}
+
+/* Same three colors and seven gradient positions used by the carousel BorderGlow. */
+.ms-carousel-glass-btn::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:0!important;
+  inset:0!important;
+  border-radius:inherit!important;
+  pointer-events:none!important;
+  border:1px solid transparent!important;
+
+  background:
+    radial-gradient(at 80% 55%,#f6f1d9 0px,transparent 50%) padding-box,
+    radial-gradient(at 69% 34%,#4169e1 0px,transparent 50%) padding-box,
+    radial-gradient(at 8% 6%,#c9ff36 0px,transparent 50%) padding-box,
+    radial-gradient(at 41% 38%,#f6f1d9 0px,transparent 50%) padding-box,
+    radial-gradient(at 86% 85%,#4169e1 0px,transparent 50%) padding-box,
+    radial-gradient(at 82% 18%,#c9ff36 0px,transparent 50%) padding-box,
+    radial-gradient(at 51% 4%,#4169e1 0px,transparent 50%) padding-box!important;
+
+  -webkit-mask-image:
+    linear-gradient(to bottom,#000,#000),
+    radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),
+    radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),
+    conic-gradient(from var(--ms-btn-angle) at center,transparent 5%,black 15%,black 85%,transparent 95%)!important;
+  mask-image:
+    linear-gradient(to bottom,#000,#000),
+    radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),
+    radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),
+    radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),
+    conic-gradient(from var(--ms-btn-angle) at center,transparent 5%,black 15%,black 85%,transparent 95%)!important;
+  -webkit-mask-composite:source-out,source-over,source-over,source-over,source-over,source-over!important;
+  mask-composite:subtract,add,add,add,add,add!important;
+
+  opacity:.10!important;
+  mix-blend-mode:soft-light!important;
+  transition:opacity .20s ease-out!important;
+}
+
+/* Cursor-facing edge glow using the exact warm glow tone + royal/lime accents. */
+.ms-carousel-glass-btn::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:-1px!important;
+  border-radius:inherit!important;
+  padding:1px!important;
+  pointer-events:none!important;
+
+  background:conic-gradient(
+    from var(--ms-btn-angle) at center,
+    var(--ms-btn-glow) 0%,
+    rgba(246,241,217,.82) 6%,
+    transparent 16%,
+    transparent 78%,
+    rgba(65,105,225,.88) 90%,
+    rgba(201,255,54,.72) 96%,
+    var(--ms-btn-glow) 100%
+  )!important;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0)!important;
+  -webkit-mask-composite:xor!important;
+  mask-composite:exclude!important;
+
+  opacity:.28!important;
+  filter:
+    drop-shadow(0 0 3px hsl(48deg 90% 86% / 36%))
+    drop-shadow(0 0 7px rgba(65,105,225,.24))
+    drop-shadow(0 0 6px rgba(201,255,54,.18))!important;
+  transition:opacity .18s ease,filter .18s ease!important;
+}
+
+.ms-carousel-glass-btn > *{
+  position:relative!important;
+  z-index:2!important;
+}
+
+.ms-carousel-glass-btn:hover,
+.ms-carousel-glass-btn:focus-visible{
+  outline:none!important;
+  border-color:hsl(48deg 90% 86% / 62%)!important;
+  box-shadow:
+    inset 0 1px #ffffff42,
+    inset 0 -1px #ffffff0d,
+    0 12px 38px #00000055,
+    0 0 8px hsl(48deg 90% 86% / 40%),
+    0 0 17px rgba(65,105,225,.30),
+    0 0 14px rgba(201,255,54,.22)!important;
+}
+
+.ms-carousel-glass-btn:hover::before,
+.ms-carousel-glass-btn:focus-visible::before{
+  opacity:.18!important;
+}
+
+.ms-carousel-glass-btn:hover::after,
+.ms-carousel-glass-btn:focus-visible::after{
+  opacity:1!important;
+  filter:
+    drop-shadow(0 0 5px hsl(48deg 90% 86% / 70%))
+    drop-shadow(0 0 12px rgba(65,105,225,.48))
+    drop-shadow(0 0 10px rgba(201,255,54,.32))!important;
+}
+
+.ms-carousel-glass-btn:active{
+  transform:scale(.97)!important;
+}
+
+.ms-carousel-glass-btn .ms-carousel-glass-arrow-hidden{
+  display:none!important;
+}
+
+/* Selected/toggled action buttons remain in the same glass family. */
+#pdfTabs > .ms-carousel-glass-btn.active,
+#modelTabs > .ms-carousel-glass-btn.active,
+#ytTabs > .ms-carousel-glass-btn.active,
+.ms-carousel-glass-btn.on{
+  color:#fff!important;
+  border-color:hsl(48deg 90% 86% / 50%)!important;
+  background:
+    linear-gradient(145deg,#ffffff20,#ffffff0c 34%,#18253c30 68%,#4169e119),
+    #070c1452!important;
+}
+
+/* Services action controls — same visual, original functions/layout preserved. */
+body[data-page="servicos"] .add.ms-carousel-glass-btn{
+  width:100%!important;
+  min-height:44px!important;
+  padding:0 16px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .send.ms-carousel-glass-btn{
+  width:100%!important;
+  min-height:48px!important;
+  padding:0 18px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .close.ms-carousel-glass-btn{
+  min-width:44px!important;
+  min-height:44px!important;
+  padding:0 14px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .qty .ms-carousel-glass-btn{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px!important;
+  min-height:32px!important;
+  padding:0!important;
+  border-radius:8px!important;
+}
+
+body[data-page="servicos"] .category-case.ms-carousel-glass-btn{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  min-height:40px!important;
+  padding:0 14px!important;
+  border-radius:9px!important;
+  text-decoration:none!important;
+}
+
+/* ORÇAMENTO — restore its approved fixed top-right position.
+   Old compact/expand behavior remains owned by global-ui.js. */
+.ms-quote-fab.ms-carousel-glass-btn{
+  position:fixed!important;
+  z-index:100055!important;
+  top:14px!important;
+  right:14px!important;
+  left:auto!important;
+  bottom:auto!important;
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  border-radius:10px!important;
+}
+
+.ms-quote-fab.ms-carousel-glass-btn.is-compact{
+  border-radius:12px!important;
+}
+
+/* Footer disposition remains as approved. */
+.ms-site-footer .ms-footer-link.ms-carousel-glass-btn,
+.ms-site-footer #backgroundSwitcher.ms-carousel-glass-btn{
+  width:auto!important;
+}
+
+@media(hover:none),(pointer:coarse){
+  .ms-carousel-glass-btn::after{opacity:.50!important}
+  .ms-carousel-glass-btn::before{opacity:.14!important}
+}
+
+@media(max-width:760px){
+  :root{--ms-btn-radius:9px}
+  .ms-quote-fab.ms-carousel-glass-btn{
+    top:10px!important;
+    right:10px!important;
+  }
+  .ms-quote-fab.ms-carousel-glass-btn.is-compact{border-radius:10px!important}
+}
