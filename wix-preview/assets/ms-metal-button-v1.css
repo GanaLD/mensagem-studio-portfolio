@@ -6,30 +6,34 @@
 html body .ms-metal-button[data-ms-metal-button="1"]{
   position:relative!important;
   isolation:isolate!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  text-align:center!important;
+
   border:0!important;
   outline:0!important;
   border-radius:9999px!important;
+
   background:#272727!important;
   color:#f8f8f8!important;
   box-shadow:none!important;
   -webkit-backdrop-filter:none!important;
   backdrop-filter:none!important;
   filter:none!important;
+
+  font-weight:500!important;
+  letter-spacing:-.01em!important;
+
   transition:
     transform .20s ease-out,
     background-color .20s ease-out,
     opacity .20s ease-out!important;
+
   overflow:visible!important;
-  display:inline-flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:8px!important;
-  text-align:center!important;
-  font-weight:500!important;
-  letter-spacing:-.01em!important;
 }
 
-/* Same clean core used by MetalFx. */
 html body .ms-metal-button[data-ms-metal-button="1"]::before{
   content:""!important;
   position:absolute!important;
@@ -40,7 +44,6 @@ html body .ms-metal-button[data-ms-metal-button="1"]::before{
   box-shadow:inset 0 0 50px 0 rgba(255,255,255,.02)!important;
 }
 
-/* Same 1px dark-theme inner rim. */
 html body .ms-metal-button[data-ms-metal-button="1"]::after{
   content:""!important;
   position:absolute!important;
@@ -62,7 +65,6 @@ html body .ms-metal-button[data-ms-metal-button="1"] > .ms-metal-fx-canvas{
   z-index:2!important;
 }
 
-/* Existing child elements sit above the metal ring. */
 html body .ms-metal-button[data-ms-metal-button="1"] > span,
 html body .ms-metal-button[data-ms-metal-button="1"] > b,
 html body .ms-metal-button[data-ms-metal-button="1"] > i,
@@ -71,54 +73,66 @@ html body .ms-metal-button[data-ms-metal-button="1"] > svg{
   z-index:4!important;
 }
 
-/* Provided MetalButton interaction contract. */
-html body .ms-metal-button[data-ms-metal-button="1"]:hover{opacity:.80!important}
-html body .ms-metal-button[data-ms-metal-button="1"]:active{transform:scale(.97)!important}
-html body .ms-metal-button[data-ms-metal-button="1"]:focus-visible{outline:0!important}
+html body .ms-metal-button[data-ms-metal-button="1"]:hover{
+  opacity:.80!important;
+}
+
+html body .ms-metal-button[data-ms-metal-button="1"]:active{
+  transform:scale(.97)!important;
+}
+
+html body .ms-metal-button[data-ms-metal-button="1"]:focus-visible{
+  outline:0!important;
+}
+
 html body .ms-metal-button[data-ms-metal-button="1"]:disabled,
 html body .ms-metal-button[data-ms-metal-button="1"][aria-disabled="true"]{
   pointer-events:none!important;
   opacity:.60!important;
 }
 
-/* Existing active tabs stay readable; only their old white fill is removed. */
+/* Selected tabs keep only state semantics, not the old white surface. */
 html body .ms-metal-button[data-ms-metal-button="1"].active,
 html body .ms-metal-button[data-ms-metal-button="1"].on{
   background:#272727!important;
   color:#fff!important;
 }
 
-/* Remove legacy arrow-only affordances from action buttons. */
-html body .ms-metal-button[data-ms-metal-button="1"] .ms-metal-arrow-hidden{display:none!important}
-
-/* Wide action groups keep their existing layout width. */
-#pdfTabs > .ms-metal-button,
-#modelTabs > .ms-metal-button,
-#ytTabs > .ms-metal-button,
-.ms-brief-actions > .ms-metal-button,
-.addhtml body .ms-metal-button[data-ms-metal-button="1"]{
-  width:100%!important;
+/* Arrow-only children are removed exactly as requested. */
+html body .ms-metal-button[data-ms-metal-button="1"] .ms-metal-arrow-hidden{
+  display:none!important;
 }
 
-/* Keep ORÇAMENTO geometry/function owned by global-ui; only its surface changes. */
-.ms-quote-fabhtml body .ms-metal-button[data-ms-metal-button="1"]{
+/* Wide action groups keep their existing width and become centered pills. */
+html body #pdfTabs > .ms-metal-button[data-ms-metal-button="1"],
+html body #modelTabs > .ms-metal-button[data-ms-metal-button="1"],
+html body #ytTabs > .ms-metal-button[data-ms-metal-button="1"],
+html body .ms-brief-actions > .ms-metal-button[data-ms-metal-button="1"],
+html body .add.ms-metal-button[data-ms-metal-button="1"]{
+  width:100%!important;
+  display:flex!important;
+}
+
+/* ORÇAMENTO keeps its old size / compact / drawer behavior from global-ui.js. */
+html body .ms-quote-fab.ms-metal-button[data-ms-metal-button="1"]{
   background:#272727!important;
   color:#fff!important;
 }
+
 html body .ms-quote-fab.ms-metal-button[data-ms-metal-button="1"].is-drawer-open{
   opacity:0!important;
 }
 
-/* Never apply this visual system to protected navigation / 3D carousel UI. */
-#msSectionNav .ms-metal-button,
-#ms-rubber-topnav-root .ms-metal-button,
-.rubber-segment .ms-metal-button,
-#msServicesDeck html body .ms-metal-button[data-ms-metal-button="1"]{
+/* Do not restyle protected controls or the 3D services carousel. */
+html body #msSectionNav .ms-metal-button[data-ms-metal-button="1"],
+html body #ms-rubber-topnav-root .ms-metal-button[data-ms-metal-button="1"],
+html body .rubber-segment .ms-metal-button[data-ms-metal-button="1"],
+html body #msServicesDeck .ms-metal-button[data-ms-metal-button="1"]{
   all:revert!important;
 }
 
 @media(max-width:760px){
   html body .ms-metal-button[data-ms-metal-button="1"]{
-    max-width:100%;
+    max-width:100%!important;
   }
 }
