@@ -1,23 +1,27 @@
-/* MENSAGEM STUDIO PREVIEW — METAL BUTTON V1
-   Faithful visual surface for Spectrum UI MetalButton / metal-fx.
-   The effect is painted INSIDE the existing action element; no substitute
-   glass cards, no changes to the 3D services carousel. */
+/* MENSAGEM STUDIO PREVIEW — SPECTRUM UI METALBUTTON
+   Faithful runtime adapter for the supplied MetalButton component.
+   Uses the real metal-fx WebGL ring. The existing element remains the button/link.
+   NO changes are applied to the 3D services carousel. */
 
 html body .ms-metal-button[data-ms-metal-button="1"]{
   position:relative!important;
   isolation:isolate!important;
+
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
   gap:8px!important;
-  text-align:center!important;
 
   border:0!important;
   outline:0!important;
   border-radius:9999px!important;
 
-  background:#272727!important;
-  color:#f8f8f8!important;
+  /* Tailwind preflight leaves the MetalButton child transparent.
+     Keep it transparent so metal-fx frames the page surface exactly as intended. */
+  background:transparent!important;
+  background-image:none!important;
+  color:#fff!important;
+
   box-shadow:none!important;
   -webkit-backdrop-filter:none!important;
   backdrop-filter:none!important;
@@ -25,35 +29,20 @@ html body .ms-metal-button[data-ms-metal-button="1"]{
 
   font-weight:500!important;
   letter-spacing:-.01em!important;
+  text-align:center!important;
+
+  overflow:visible!important;
+  cursor:pointer!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
 
   transition:
     transform .20s ease-out,
     background-color .20s ease-out,
     opacity .20s ease-out!important;
-
-  overflow:visible!important;
 }
 
-html body .ms-metal-button[data-ms-metal-button="1"]::before{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  border-radius:inherit!important;
-  pointer-events:none!important;
-  z-index:1!important;
-  box-shadow:inset 0 0 50px 0 rgba(255,255,255,.02)!important;
-}
-
-html body .ms-metal-button[data-ms-metal-button="1"]::after{
-  content:""!important;
-  position:absolute!important;
-  inset:0!important;
-  border-radius:inherit!important;
-  pointer-events:none!important;
-  z-index:3!important;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10)!important;
-}
-
+/* metal-fx's actual 1px liquid-metal ring. */
 html body .ms-metal-button[data-ms-metal-button="1"] > .ms-metal-fx-canvas{
   position:absolute!important;
   inset:0!important;
@@ -62,77 +51,122 @@ html body .ms-metal-button[data-ms-metal-button="1"] > .ms-metal-fx-canvas{
   display:block!important;
   border-radius:inherit!important;
   pointer-events:none!important;
-  z-index:2!important;
+  z-index:1!important;
+  overflow:visible!important;
 }
 
-html body .ms-metal-button[data-ms-metal-button="1"] > span,
-html body .ms-metal-button[data-ms-metal-button="1"] > b,
-html body .ms-metal-button[data-ms-metal-button="1"] > i,
-html body .ms-metal-button[data-ms-metal-button="1"] > svg{
+/* Keep the original label/icon DOM above the WebGL ring. */
+html body .ms-metal-button[data-ms-metal-button="1"] > :not(.ms-metal-fx-canvas){
   position:relative!important;
-  z-index:4!important;
+  z-index:2!important;
 }
 
 html body .ms-metal-button[data-ms-metal-button="1"]:hover{
   opacity:.80!important;
 }
-
 html body .ms-metal-button[data-ms-metal-button="1"]:active{
   transform:scale(.97)!important;
 }
-
 html body .ms-metal-button[data-ms-metal-button="1"]:focus-visible{
   outline:0!important;
 }
-
 html body .ms-metal-button[data-ms-metal-button="1"]:disabled,
 html body .ms-metal-button[data-ms-metal-button="1"][aria-disabled="true"]{
   pointer-events:none!important;
   opacity:.60!important;
 }
 
-/* Selected tabs keep only state semantics, not the old white surface. */
-html body .ms-metal-button[data-ms-metal-button="1"].active,
+/* Remove legacy selected-state white fills without changing selection logic. */
+html body #pdfTabs > .ms-metal-button[data-ms-metal-button="1"].active,
+html body #modelTabs > .ms-metal-button[data-ms-metal-button="1"].active,
+html body #ytTabs > .ms-metal-button[data-ms-metal-button="1"].active,
 html body .ms-metal-button[data-ms-metal-button="1"].on{
-  background:#272727!important;
+  background:transparent!important;
   color:#fff!important;
 }
 
-/* Arrow-only children are removed exactly as requested. */
+/* The user explicitly rejected arrow glyphs in action buttons. */
 html body .ms-metal-button[data-ms-metal-button="1"] .ms-metal-arrow-hidden{
   display:none!important;
 }
 
-/* Wide action groups keep their existing width and become centered pills. */
+/* Component size equivalents, applied only where the existing layout needs them. */
+html body .cta-row > .ms-metal-button[data-ms-metal-button="1"]{
+  min-height:44px!important;
+  padding-inline:20px!important;
+}
+
 html body #pdfTabs > .ms-metal-button[data-ms-metal-button="1"],
 html body #modelTabs > .ms-metal-button[data-ms-metal-button="1"],
-html body #ytTabs > .ms-metal-button[data-ms-metal-button="1"],
-html body .ms-brief-actions > .ms-metal-button[data-ms-metal-button="1"],
+html body #ytTabs > .ms-metal-button[data-ms-metal-button="1"]{
+  width:100%!important;
+  min-height:44px!important;
+  padding-inline:20px!important;
+}
+
+html body .ms-brief-action.ms-metal-button[data-ms-metal-button="1"]{
+  width:100%!important;
+  min-height:52px!important;
+  padding-inline:28px!important;
+}
+
 html body .add.ms-metal-button[data-ms-metal-button="1"]{
   width:100%!important;
-  display:flex!important;
+  min-height:36px!important;
+  padding-inline:16px!important;
 }
 
-/* ORÇAMENTO keeps its old size / compact / drawer behavior from global-ui.js. */
+html body .ms-footer-link.ms-metal-button[data-ms-metal-button="1"],
+html body .ms-menu-quote.ms-metal-button[data-ms-metal-button="1"]{
+  min-height:36px!important;
+  padding-inline:16px!important;
+}
+
+html body .ms-menu-quote.ms-metal-button[data-ms-metal-button="1"]{
+  width:100%!important;
+}
+
+html body #backgroundSwitcher.ms-metal-button[data-ms-metal-button="1"]{
+  min-height:44px!important;
+  padding-inline:20px!important;
+}
+
+/* ORÇAMENTO: metal ring only. Width, label collapse and drawer behavior remain
+   fully controlled by global-ui.js, so functionality is not changed. */
 html body .ms-quote-fab.ms-metal-button[data-ms-metal-button="1"]{
-  background:#272727!important;
   color:#fff!important;
+  background:transparent!important;
 }
-
 html body .ms-quote-fab.ms-metal-button[data-ms-metal-button="1"].is-drawer-open{
   opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
 }
 
-/* Do not restyle protected controls or the 3D services carousel. */
+/* Plain-child fallback only if WebGL/metal-fx cannot initialize. */
+html body .ms-metal-button.ms-metal-fallback[data-ms-metal-button="1"]{
+  border:1px solid rgba(255,255,255,.24)!important;
+}
+
+/* HARD PROTECTION: the user explicitly prohibited changes to these systems. */
 html body #msSectionNav .ms-metal-button[data-ms-metal-button="1"],
 html body #ms-rubber-topnav-root .ms-metal-button[data-ms-metal-button="1"],
 html body .rubber-segment .ms-metal-button[data-ms-metal-button="1"],
-html body #msServicesDeck .ms-metal-button[data-ms-metal-button="1"]{
+html body #msServicesDeck .ms-metal-button[data-ms-metal-button="1"],
+html body #msServicesDeck.ms-metal-button[data-ms-metal-button="1"]{
   all:revert!important;
 }
 
 @media(max-width:760px){
   html body .ms-metal-button[data-ms-metal-button="1"]{
     max-width:100%!important;
+  }
+
+  html body #pdfTabs > .ms-metal-button[data-ms-metal-button="1"],
+  html body #modelTabs > .ms-metal-button[data-ms-metal-button="1"],
+  html body #ytTabs > .ms-metal-button[data-ms-metal-button="1"],
+  html body .ms-brief-action.ms-metal-button[data-ms-metal-button="1"],
+  html body .add.ms-metal-button[data-ms-metal-button="1"]{
+    width:100%!important;
   }
 }
