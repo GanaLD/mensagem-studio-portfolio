@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r33-square-metalbutton-brand-glow';
+  const VERSION = '20260922-r34-home-topnav-outside-hero';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -107,7 +107,10 @@
       .ms-contact-actions{grid-template-columns:1fr}.ms-contact-card{border-radius:22px;padding:32px 22px 24px}.ms-contact-card h2{font-size:clamp(32px,10.2vw,46px);line-height:.94;max-width:12.6ch;padding-right:42px;margin-bottom:18px}.ms-contact-card p{font-size:13px;line-height:1.58;margin-bottom:22px;max-width:100%}.ms-glass-cta{min-height:56px}
       body.ms-global-ui-mounted header .brand,body.ms-global-ui-mounted .top .brand{margin-left:44px}
     }
-    /* Approved preview navigation: fixed site-wide; About remains in the universal menu only */
+    /* Preview navigation:
+       - inner pages remain fixed;
+       - HOME stays in normal document flow ABOVE the Hero and scrolls away.
+       This prevents the navigation bar from covering any Hero media. */
     body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header,
     body.ms-global-ui-mounted header.top.ms-rubber-topnav-header{
       position:fixed!important;
@@ -116,6 +119,15 @@
       right:0!important;
       width:100%!important;
       z-index:100020!important;
+    }
+    html[data-ms-page="home"] body.ms-global-ui-mounted header.content-layer.ms-rubber-topnav-header{
+      position:relative!important;
+      top:auto!important;
+      left:auto!important;
+      right:auto!important;
+      width:100%!important;
+      z-index:100020!important;
+      flex:0 0 auto!important;
     }
     html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
       opacity:0!important;
@@ -127,6 +139,7 @@
 
   const path = location.pathname.replace(/\/+$/, '/') || '/';
   const active = path.includes('/servicos/') ? 'servicos' : path.includes('/portfolio/') ? 'projetos' : path.includes('/sobre/') ? 'sobre' : 'home';
+  document.documentElement.dataset.msPage = active;
   if(active==='sobre') document.documentElement.classList.add('ms-topnav-no-active');
 
   // Actual React Bits RubberSegment top navigation.
