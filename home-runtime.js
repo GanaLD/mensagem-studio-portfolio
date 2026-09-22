@@ -95,7 +95,7 @@ function addStyles(){
   @media(max-width:760px){.ms-footer-links .bg-switcher{grid-column:1/-1!important;margin:0!important;width:100%!important}.ms-footer-links .bg-switcher button{width:100%!important;min-width:0!important}}
   .ms-footer-meta{margin-top:56px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:20px;color:#73796f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
   .ms-footer-copy{min-width:0}
-  .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:0;background:transparent;display:grid;place-items:center;isolation:isolate;box-shadow:none;touch-action:pan-y}
+  .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:0;background:transparent;display:grid;place-items:center;isolation:isolate;box-shadow:none;touch-action:pan-y;text-decoration:none;color:inherit;cursor:pointer}
   .ms-footer-particle-stage:before{content:none}
   .ms-footer-particle-canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;pointer-events:auto}
   .ms-footer-particle-fallback{position:relative;z-index:0;margin:0;color:#f6f7f2;font-size:clamp(46px,6vw,104px);font-weight:800;letter-spacing:-.055em;line-height:.9;text-transform:none;opacity:0;pointer-events:none}
@@ -286,7 +286,7 @@ function upgradeFooter(){
   const footer=document.querySelector('footer');if(!footer)return;
   const existingSwitcher=document.querySelector('.bg-switcher');
   footer.classList.add('ms-site-footer');
-  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><div id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="Design" role="img" aria-label="Tipografia interativa de partículas: Design"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">Design</span></div><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
+  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><a id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="PROJETOS" href="/portfolio/" aria-label="Abrir a página de projetos"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">PROJETOS</span></a><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
   if(existingSwitcher){
     existingSwitcher.classList.add('ms-footer-bg-switcher');
     const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.remove();
@@ -304,7 +304,7 @@ function initFooterParticleTypography(){
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
   if(!ctx)return;
   const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const particleText=stage.dataset.text||'Design';
+  const particleText=stage.dataset.text||'PROJETOS';
   let particles=[];
   let raf=0;
   let width=0,height=0,dpr=1;
@@ -354,10 +354,17 @@ function initFooterParticleTypography(){
     ctx.setTransform(dpr,0,0,dpr,0,0);
   }
 
+  function particleFontSize(){
+    const base=Math.min(160,width*.15);
+    ctx.font='800 '+base+'px '+fontFamily();
+    const measured=Math.max(1,ctx.measureText(particleText).width);
+    return measured>width*.92?base*((width*.92)/measured):base;
+  }
+
   function drawStatic(){
     configureCanvas();
     ctx.clearRect(0,0,width,height);
-    const size=Math.min(160,width*.15);
+    const size=particleFontSize();
     ctx.fillStyle='#f6f7f2';
     ctx.font='800 '+size+'px '+fontFamily();
     ctx.textAlign='center';ctx.textBaseline='middle';
@@ -367,7 +374,7 @@ function initFooterParticleTypography(){
   function initParticles(){
     configureCanvas();
     ctx.clearRect(0,0,width,height);
-    const size=Math.min(160,width*.15);
+    const size=particleFontSize();
     const color='#f6f7f2';
     ctx.fillStyle=color;
     ctx.font='800 '+size+'px '+fontFamily();
