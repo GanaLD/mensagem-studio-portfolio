@@ -6,15 +6,19 @@ import {
 } from "https://cdn.jsdelivr.net/npm/metal-fx@1.0.4/+esm";
 
 (()=>{
-  if(window.__MS_METAL_BUTTON_V1__) return;
-  window.__MS_METAL_BUTTON_V1__=true;
+  if(window.__MS_METAL_BUTTON_V2__) return;
+  window.__MS_METAL_BUTTON_V2__=true;
 
-  // Exact MetalButton defaults requested by the user:
-  // variant="button" -> kind="pill", preset="chromatic", strength=1.
+  /* Supplied component defaults:
+     variant="button", preset="chromatic", strength=1.
+     The site surface is dark, so use the dark tuning of the same preset. */
   setSharedPreset("chromatic","dark");
 
   const instances=new Map();
 
+  /* Only the action controls indicated by the user.
+     Do not broaden this to generic buttons: nav rails, RubberSegments and
+     the 3D service carousel are intentionally excluded. */
   const selector=[
     ".cta-row .btn",
     "#pdfTabs > button",
@@ -28,7 +32,8 @@ import {
     ".ms-quote-fab",
     ".ms-glass-cta",
     ".send",
-    "button[type='submit']"
+    "button[type='submit']",
+    "[data-ms-metal-target='1']"
   ].join(",");
 
   const protectedControl=el=>!!(
@@ -44,7 +49,7 @@ import {
 
   const arrowOnly=value=>/^[\s↗↘↙↖↑↓→←⟶⟵↔›»]+$/.test((value||"").trim());
 
-  function removeLegacyGlass(el){
+  function stripLegacyButtonEffects(el){
     el.classList.remove(
       "ms-glass-v26",
       "ms-liquid-glass",
@@ -64,7 +69,8 @@ import {
           .replace(/\s{2,}/g," ");
       }
     });
-    el.querySelectorAll(":scope > b,:scope > span,:scope > i").forEach(child=>{
+
+    el.querySelectorAll("b,span,i").forEach(child=>{
       if(arrowOnly(child.textContent)){
         child.classList.add("ms-metal-arrow-hidden");
         child.setAttribute("aria-hidden","true");
@@ -74,20 +80,26 @@ import {
 
   function measure(el){
     const rect=el.getBoundingClientRect();
-    const cssWidth=Math.max(1,Math.round(rect.width));
-    const cssHeight=Math.max(1,Math.round(rect.height));
-    const cornerRadius=Math.min(cssHeight/2,cssWidth/2);
-    return {cssWidth,cssHeight,cornerRadius};
+    const cssWidth=Math.max(1,rect.width);
+    const cssHeight=Math.max(1,rect.height);
+    return {
+      cssWidth,
+      cssHeight,
+      cornerRadius:Math.min(cssHeight/2,cssWidth/2)
+    };
   }
 
   function mount(el){
     if(!el||protectedControl(el)||instances.has(el)) return;
 
-    removeLegacyGlass(el);
+    stripLegacyButtonEffects(el);
     stripArrowGlyphs(el);
+
     el.classList.add("ms-metal-button");
     el.dataset.msMetalButton="1";
 
+    /* Internal overlay required by metal-fx. This is not a replacement button:
+       the original <a>/<button> remains the interactive element. */
     const canvas=document.createElement("canvas");
     canvas.className="ms-metal-fx-canvas";
     canvas.setAttribute("aria-hidden","true");
@@ -110,12 +122,18 @@ import {
         scale:1
       });
     }catch(error){
-      console.error("[Mensagem Studio / MetalButton] metal-fx unavailable",error);
+      console.error("[Mensagem Studio / MetalButton]",error);
       canvas.remove();
+      el.classList.add("ms-metal-fallback");
       return;
     }
 
-    const state={instance,canvas,resizeObserver:null,intersectionObserver:null};
+    const state={
+      instance,
+      canvas,
+      resizeObserver:null,
+      intersectionObserver:null
+    };
     instances.set(el,state);
 
     const resizeObserver=new ResizeObserver(()=>{
@@ -134,6 +152,7 @@ import {
     resizeObserver.observe(el);
     state.resizeObserver=resizeObserver;
 
+    /* Same offscreen pause behavior described in the supplied component. */
     if("IntersectionObserver" in window){
       const intersectionObserver=new IntersectionObserver(entries=>{
         const visible=entries.some(entry=>entry.isIntersecting);
@@ -163,15 +182,19 @@ import {
 
   const observer=new MutationObserver(records=>{
     let shouldCleanup=false;
-    records.forEach(record=>{
-      record.addedNodes.forEach(node=>{
+    for(const record of records){
+      for(const node of record.addedNodes){
         if(node.nodeType===Node.ELEMENT_NODE) scan(node);
-      });
+      }
       if(record.removedNodes.length) shouldCleanup=true;
-    });
+    }
     if(shouldCleanup) cleanupRemoved();
   });
-  observer.observe(document.documentElement,{childList:true,subtree:true});
+
+  observer.observe(document.documentElement,{
+    childList:true,
+    subtree:true
+  });
 
   addEventListener("pagehide",()=>{
     observer.disconnect();
