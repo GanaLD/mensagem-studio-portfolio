@@ -180,3 +180,53 @@
   :root{--ms-btn-radius:9px}
   .ms-quote-fab.ms-carousel-glass-btn.is-compact{border-radius:10px!important}
 }
+
+
+/* V38 — SERVICES PAGE STANDARD
+   Same glass/glow treatment for Services actions, with original layout preserved.
+   Filter chips and navigation are not included. */
+body[data-page="servicos"] .add.ms-carousel-glass-btn{
+  width:100%!important;
+  min-height:44px!important;
+  padding:0 16px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .send.ms-carousel-glass-btn{
+  width:100%!important;
+  min-height:48px!important;
+  padding:0 18px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .close.ms-carousel-glass-btn{
+  min-width:44px!important;
+  min-height:44px!important;
+  padding:0 14px!important;
+  border-radius:10px!important;
+}
+
+body[data-page="servicos"] .qty .ms-carousel-glass-btn{
+  width:32px!important;
+  height:32px!important;
+  min-width:32px!important;
+  min-height:32px!important;
+  padding:0!important;
+  border-radius:8px!important;
+}
+
+body[data-page="servicos"] .category-case.ms-carousel-glass-btn{
+  width:max-content!important;
+  max-width:100%!important;
+  min-height:40px!important;
+  padding:0 14px!important;
+  border-radius:9px!important;
+  text-decoration:none!important;
+}
+
+/* Keep Services filter rail and top navigation exactly as they are. */
+body[data-page="servicos"] .filters .chip,
+body[data-page="servicos"] #ms-rubber-topnav-root button,
+body[data-page="servicos"] .rubber-segment button{
+  --ms-btn-glow:initial;
+}
