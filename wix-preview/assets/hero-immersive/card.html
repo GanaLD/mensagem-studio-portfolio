@@ -63,7 +63,16 @@ async function inflatePng(file){
     const isBg=idx=>{
       const o=idx*4,r=d[o],g=d[o+1],b=d[o+2],a=d[o+3];
       const max=Math.max(r,g,b),min=Math.min(r,g,b);
-      return a>0 && max<48 && (max-min)<22;
+
+      // Transparent border pixels must participate in the flood-fill.
+      // Otherwise a transparent outer margin can isolate the dark rectangle
+      // and leave the visible black block intact.
+      if(a<12)return true;
+
+      // Remove only dark, low-saturation pixels that are connected to an edge.
+      // Interior black details on the character remain protected because they
+      // are not edge-connected.
+      return max<104 && (max-min)<38;
     };
     const push=idx=>{
       if(idx<0||idx>=total||seen[idx]||!isBg(idx))return;
