@@ -203,21 +203,82 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
     linear-gradient(0deg,rgba(5,6,5,.38),transparent 58%,rgba(5,6,5,.10));
   pointer-events:none;
 }
-.word-case-copy{position:absolute;z-index:4;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none;perspective:1200px;opacity:0;visibility:hidden}
+.word-case-copy{
+  position:absolute;
+  z-index:4;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  text-align:left;
+  padding:clamp(92px,10vh,118px) var(--pad) clamp(68px,8vh,96px);
+  pointer-events:none;
+  perspective:1200px;
+  opacity:0;
+  visibility:hidden
+}
 .word-case-copy.is-active{opacity:1;visibility:visible}
-.word-stack{position:relative;z-index:4;width:min(1500px,92vw);text-align:center;perspective:1200px}
-.word-main{font-size:clamp(54px,9vw,168px);line-height:.82;letter-spacing:-.068em;font-weight:900;text-transform:uppercase;margin:0 auto;max-width:11ch;text-wrap:balance;will-change:transform,opacity;transform-style:preserve-3d;text-shadow:0 8px 42px rgba(0,0,0,.42)}
-.word-top-label{position:absolute;z-index:5;left:50%;top:clamp(92px,10vh,118px);transform:translateX(-50%);margin:0;max-width:min(78vw,760px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;font-size:clamp(9px,.72vw,12px);letter-spacing:.16em;text-shadow:0 0 18px rgba(201,255,54,.30)}
-.word-case-desc{position:absolute;z-index:5;left:50%;bottom:clamp(36px,6vh,74px);transform:translateX(-50%);width:min(760px,78vw);margin:0;color:#eef0e8;font-size:clamp(13px,1.05vw,17px);line-height:1.5;text-align:center;text-wrap:balance;text-shadow:0 4px 28px rgba(0,0,0,.58)}
+.word-stack{
+  position:relative;
+  z-index:4;
+  width:min(760px,58vw);
+  text-align:left;
+  perspective:1200px
+}
+.word-main{
+  font-size:clamp(54px,8vw,148px);
+  line-height:.84;
+  letter-spacing:-.064em;
+  font-weight:900;
+  text-transform:uppercase;
+  margin:0;
+  max-width:9ch;
+  text-wrap:balance;
+  will-change:transform,opacity;
+  transform-style:preserve-3d;
+  text-shadow:0 8px 42px rgba(0,0,0,.42)
+}
+.word-top-label{
+  position:relative;
+  z-index:5;
+  left:auto;
+  top:auto;
+  transform:none;
+  margin:0 0 18px;
+  max-width:min(620px,54vw);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left;
+  font-size:clamp(9px,.72vw,12px);
+  letter-spacing:.16em;
+  text-shadow:0 0 18px rgba(201,255,54,.30)
+}
+.word-case-desc{
+  position:relative;
+  z-index:5;
+  left:auto;
+  bottom:auto;
+  transform:none;
+  width:min(560px,46vw);
+  margin:22px 0 0;
+  color:#eef0e8;
+  font-size:clamp(13px,1.05vw,17px);
+  line-height:1.5;
+  text-align:left;
+  text-wrap:balance;
+  text-shadow:0 4px 28px rgba(0,0,0,.58)
+}
 .word-dots{position:absolute;z-index:7;left:clamp(20px,2.5vw,46px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:15px;pointer-events:none}
 .word-dots i{display:block;width:9px;height:9px;border-radius:50%;background:rgba(201,255,54,.22);border:1px solid rgba(201,255,54,.34);box-shadow:0 0 0 rgba(201,255,54,0);transform:scale(.82);transition:background .22s ease,box-shadow .22s ease,transform .22s ease,opacity .22s ease;opacity:.48}
 .word-dots i.on{background:var(--lime);border-color:var(--lime);box-shadow:0 0 10px rgba(201,255,54,.96),0 0 24px rgba(201,255,54,.55);transform:scale(1.22);opacity:1}
 @media(max-width:760px){
-  .word-main{font-size:clamp(40px,13vw,72px);line-height:.86;max-width:12ch}
-  .word-top-label{top:78px;font-size:9px}
-  .word-case-desc{bottom:max(58px,calc(44px + env(safe-area-inset-bottom)));width:min(86vw,580px);font-size:12px}
-  .word-dots{left:14px;gap:12px}
-  .word-dots i{width:7px;height:7px}
+  .word-case-copy{padding:74px 18px max(64px,calc(50px + env(safe-area-inset-bottom)))}
+  .word-stack{width:min(88vw,620px)}
+  .word-main{font-size:clamp(40px,13vw,72px);line-height:.86;max-width:11ch}
+  .word-top-label{margin-bottom:14px;max-width:84vw;font-size:9px}
+  .word-case-desc{width:min(86vw,580px);margin-top:18px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){
   .word-case-visuals{transform:none!important}
@@ -708,7 +769,7 @@ body{overflow-x:clip!important}
       <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
     </div>
 
-    <div class="word-dots" id="wordDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    
   </div>
 </section>
 <main id="afterWord" class="after-word">
@@ -1106,7 +1167,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-production-angel-transparent-gsap-cases-v1 -->
+<!-- HOME_BUILD: 20260922-production-gsap-copy-left-v2 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
