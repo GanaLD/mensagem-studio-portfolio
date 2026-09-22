@@ -34,7 +34,7 @@ jobs:
           from pathlib import Path
           import re
 
-          PROD_VERSION = "20260922-r41-carousel-glass-buttons-published"
+          PROD_VERSION = "20260922-r42-home-topnav-outside-hero-published"
           PREVIEW_VERSION = "20260922-r40-budget-position-carousel-palette"
           changed = []
 
@@ -66,7 +66,7 @@ jobs:
         run: |
           set -euo pipefail
           grep -q 'react-bits-rubber-topnav' global-ui.js
-          grep -q "20260922-r41-carousel-glass-buttons-published" global-ui.js
+          grep -q "20260922-r42-home-topnav-outside-hero-published" global-ui.js
           grep -q 'react-bits-rubber-topnav' wix-preview/global-ui.js
           grep -q "20260922-r40-budget-position-carousel-palette" wix-preview/global-ui.js
 
