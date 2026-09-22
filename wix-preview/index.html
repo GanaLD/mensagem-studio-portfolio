@@ -157,7 +157,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 .word-case-copy.is-active{opacity:1;visibility:visible}
 .word-stack{position:relative;z-index:4;width:min(1500px,92vw);text-align:center;perspective:1200px}
 .word-main{font-size:clamp(54px,9vw,168px);line-height:.82;letter-spacing:-.068em;font-weight:900;text-transform:uppercase;margin:0 auto;max-width:11ch;text-wrap:balance;will-change:transform,opacity;transform-style:preserve-3d;text-shadow:0 8px 42px rgba(0,0,0,.42)}
-.word-top-label{position:absolute;z-index:5;left:50%;top:clamp(92px,10vh,118px);transform:translateX(-50%);margin:0;white-space:nowrap;text-shadow:0 0 18px rgba(201,255,54,.30)}
+.word-top-label{position:absolute;z-index:5;left:50%;top:clamp(92px,10vh,118px);transform:translateX(-50%);margin:0;max-width:min(78vw,760px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;font-size:clamp(9px,.72vw,12px);letter-spacing:.16em;text-shadow:0 0 18px rgba(201,255,54,.30)}
 .word-case-desc{position:absolute;z-index:5;left:50%;bottom:clamp(36px,6vh,74px);transform:translateX(-50%);width:min(760px,78vw);margin:0;color:#eef0e8;font-size:clamp(13px,1.05vw,17px);line-height:1.5;text-align:center;text-wrap:balance;text-shadow:0 4px 28px rgba(0,0,0,.58)}
 .word-dots{position:absolute;z-index:7;left:clamp(20px,2.5vw,46px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:15px;pointer-events:none}
 .word-dots i{display:block;width:9px;height:9px;border-radius:50%;background:rgba(201,255,54,.22);border:1px solid rgba(201,255,54,.34);box-shadow:0 0 0 rgba(201,255,54,0);transform:scale(.82);transition:background .22s ease,box-shadow .22s ease,transform .22s ease,opacity .22s ease;opacity:.48}
@@ -639,23 +639,23 @@ body{overflow-x:clip!important}
     <div class="word-shade"></div>
 
     <div class="word-case-copy is-active" data-word-copy="0">
-      <div class="kicker word-top-label">VÍDEO / VFX</div>
-      <div class="word-stack"><h2 id="wordMain" class="word-main">EDIÇÃO DE VÍDEO E VFX</h2></div>
+      <div class="kicker word-top-label">PODCAST</div>
+      <div class="word-stack"><h2 id="wordMain" class="word-main">VIDEO E VFX</h2></div>
       <p class="word-case-desc">Edição, composição e efeitos visuais para transformar cenas em vídeos com ritmo, impacto e acabamento cinematográfico.</p>
     </div>
     <div class="word-case-copy" data-word-copy="1">
-      <div class="kicker word-top-label">MANIPULAÇÃO DE IMAGEM</div>
-      <div class="word-stack"><h2 class="word-main">FOTOS, TRATAMENTO E MONTAGEM</h2></div>
+      <div class="kicker word-top-label">FOTOS, TRATAMENTO E MONTAGEM</div>
+      <div class="word-stack"><h2 class="word-main">MANIPULAÇÃO DE IMAGEM</h2></div>
       <p class="word-case-desc">Tratamento padronizado para lojas, e-commerce, marketplaces e catálogos.</p>
     </div>
     <div class="word-case-copy" data-word-copy="2">
-      <div class="kicker word-top-label">SOCIAL MEDIA</div>
-      <div class="word-stack"><h2 class="word-main">BANNER POST E CARROSSEL</h2></div>
+      <div class="kicker word-top-label">BANNER POST E CARROSSEL</div>
+      <div class="word-stack"><h2 class="word-main">SOCIAL MEDIA</h2></div>
       <p class="word-case-desc">Conteúdo visual estratégico para redes sociais, campanhas e marcas que precisam comunicar com consistência e impacto.</p>
     </div>
     <div class="word-case-copy" data-word-copy="3">
-      <div class="kicker word-top-label">KEY VISUAL</div>
-      <div class="word-stack"><h2 class="word-main">CAMPANHAS COMPLETAS</h2></div>
+      <div class="kicker word-top-label">CAMPANHAS COMPLETAS</div>
+      <div class="word-stack"><h2 class="word-main">KEY VISUAL</h2></div>
       <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
     </div>
 
@@ -1022,7 +1022,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-preview-floating-hero-3d-v1 -->
+<!-- HOME_BUILD: 20260922-preview-case-copy-hierarchy-v1 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
