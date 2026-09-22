@@ -1,24 +1,8 @@
 name: Sync PREVIEW Backup
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'index.html'
-      - '404.html'
-      - '404/**'
-      - '*.js'
-      - '*.txt'
-      - '.nojekyll'
-      - 'robots.txt'
-      - 'sitemap.xml'
-      - 'data/**'
-      - 'portfolio/**'
-      - 'servicos/**'
-      - 'sobre/**'
-      - 'assets/**'
-      - '.github/workflows/publish-new-site.yml'
+  # PREVIEW REFORM LOCK:
+  # do not overwrite wix-preview automatically from production while visual work is being approved.
   workflow_dispatch:
 
 permissions:
