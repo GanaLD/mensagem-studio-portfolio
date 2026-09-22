@@ -195,12 +195,6 @@
   transform:translateX(8px)!important;
 }
 
-.ms-metal-react-mount.is-quote:has(.ms-quote-fab.is-drawer-open){
-  opacity:0!important;
-  visibility:hidden!important;
-  pointer-events:none!important;
-}
-
 .ms-metal-react-mount.is-quote .ms-quote-icon{
   width:18px!important;
   height:18px!important;
