@@ -34,7 +34,7 @@ jobs:
           from pathlib import Path
           import re
 
-          PREVIEW_VERSION = "20260922-r39-direct-button-assets-v2"
+          PREVIEW_VERSION = "20260922-r40-budget-position-carousel-palette"
           changed = []
 
           for path in Path("wix-preview").rglob("*.html"):
@@ -64,7 +64,7 @@ jobs:
         run: |
           set -euo pipefail
           grep -q 'react-bits-rubber-topnav' wix-preview/global-ui.js
-          grep -q "20260922-r39-direct-button-assets-v2" wix-preview/global-ui.js
+          grep -q "20260922-r40-budget-position-carousel-palette" wix-preview/global-ui.js
 
       - name: Commit if needed
         shell: bash
