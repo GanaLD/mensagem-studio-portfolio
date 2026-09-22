@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260921-r30-metal-pill-shape';
+  const VERSION = '20260922-r31-real-react-metalbutton';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -168,14 +168,14 @@
   if(!document.querySelector('link[data-ms-metal-button]')){
     const metalCss=document.createElement('link');
     metalCss.rel='stylesheet';
-    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260921-metal-pill-2';
+    metalCss.href=ROOT+'assets/ms-metal-button-v1.css?v=20260922-react-metal-1';
     metalCss.dataset.msMetalButton='1';
     document.head.appendChild(metalCss);
   }
   if(!document.querySelector('script[data-ms-metal-button]')){
     const metalJs=document.createElement('script');
     metalJs.type='module';
-    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260921-metal-pill-2';
+    metalJs.src=ROOT+'assets/ms-metal-button-v1.js?v=20260922-react-metal-1';
     metalJs.dataset.msMetalButton='1';
     document.head.appendChild(metalJs);
   }
@@ -213,10 +213,11 @@
   quoteFab.innerHTML = '<span class="ms-quote-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 8H7.2"/><circle cx="9.5" cy="19" r="1.25"/><circle cx="17.5" cy="19" r="1.25"/></svg></span><span class="ms-quote-label">ORÇAMENTO</span>';
   document.body.appendChild(quoteFab);
   const updateQuoteFabState = () => {
-    const drawerOpen = Boolean(document.querySelector('.drawer.open'));
+    const drawerOpen = Boolean(document.querySelector('#drawer.open'));
     const atPageTop = window.scrollY <= 180;
-    quoteFab.classList.toggle('is-compact', atPageTop && !drawerOpen);
-    quoteFab.classList.toggle('is-drawer-open', drawerOpen);
+    const compact = drawerOpen || atPageTop;
+    quoteFab.classList.toggle('is-compact', compact);
+    quoteFab.classList.remove('is-drawer-open');
     quoteFab.setAttribute('aria-label', drawerOpen ? 'Orçamento aberto' : 'Abrir orçamento');
   };
 
