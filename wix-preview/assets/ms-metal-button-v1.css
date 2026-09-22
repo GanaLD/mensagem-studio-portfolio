@@ -339,3 +339,54 @@
     border-radius:10px!important;
   }
 }
+
+
+/* V34 — FOOTER LAYOUT RESTORE
+   Preserve the approved original disposition: footer action buttons stay inline,
+   side-by-side. Only their visual skin remains MetalButton. */
+html body .ms-site-footer .ms-footer-links{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:center!important;
+  gap:8px!important;
+  width:auto!important;
+}
+
+html body .ms-site-footer .ms-footer-links > .ms-metal-react-mount{
+  display:inline-flex!important;
+  width:auto!important;
+  flex:0 0 auto!important;
+}
+
+html body .ms-site-footer .ms-footer-links > .ms-metal-react-mount > .metal-fx-root,
+html body .ms-site-footer .ms-footer-links > .ms-metal-react-mount .ms-metal-holder{
+  width:auto!important;
+}
+
+html body .ms-site-footer .ms-footer-link.ms-metal-host{
+  width:auto!important;
+  min-width:0!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+
+html body .ms-site-footer .ms-footer-bg-switcher{
+  display:inline-flex!important;
+  width:auto!important;
+  flex:0 0 auto!important;
+}
+
+html body .ms-site-footer #backgroundSwitcher.ms-metal-host{
+  width:auto!important;
+  min-width:180px!important;
+}
+
+@media(max-width:760px){
+  html body .ms-site-footer .ms-footer-links{
+    gap:7px!important;
+  }
+  html body .ms-site-footer .ms-footer-link.ms-metal-host{
+    width:auto!important;
+    min-width:0!important;
+  }
+}
