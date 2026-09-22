@@ -408,6 +408,78 @@ main>.wrap>.lead{
 }
 </style>
 
+<link rel="stylesheet" href="../servicos/react-bits-rubber-segment/rubber-segment-services.css?v=20260921-projects-rubber-v1">
+
+<style id="projects-rubber-segment-v1">
+/* PREVIEW — Projects uses the same RubberSegment language as Top + Services */
+.projects-filter-shell{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+.projects-filter-shell::before{display:none!important}
+.projects-filter-shell #filters{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+}
+#rubber-segment-projects-root{
+  width:100%;
+  min-width:0;
+}
+#rubber-segment-projects-root .ms-rubber-segment-scroll{
+  display:flex;
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-inline:contain;
+  scroll-padding-inline:14px;
+  padding:2px 0 4px;
+}
+#rubber-segment-projects-root .ms-rubber-segment-scroll::-webkit-scrollbar{display:none}
+#rubber-segment-projects-root .ms-projects-rubber-segment{
+  flex:0 0 auto;
+  width:max-content;
+  min-width:max-content;
+  margin-inline:auto;
+  border:1px solid rgba(255,255,255,.10)!important;
+  background:linear-gradient(180deg,#ffffff09,#ffffff04),#060a0cdb!important;
+  box-shadow:inset 0 1px #ffffff14,0 10px 34px #00000038!important;
+  -webkit-backdrop-filter:blur(18px) saturate(132%)!important;
+  backdrop-filter:blur(18px) saturate(132%)!important;
+}
+#rubber-segment-projects-root .ms-projects-rubber-segment .rubber-segment__item{
+  font-family:var(--font-gotham,"Gotham","Montserrat",Inter,Arial,sans-serif);
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+#rubber-segment-projects-root .ms-projects-rubber-segment .rubber-segment__thumb{
+  background:linear-gradient(180deg,#54e3ae,#35d39a)!important;
+  box-shadow:inset 0 1px #fff6,0 0 0 1px #35d39a3d,0 6px 22px #35d39a2e,0 0 28px #35d39a14!important;
+  transition:clip-path .30s cubic-bezier(.23,1,.32,1);
+}
+@media(max-width:900px){
+  #rubber-segment-projects-root .ms-projects-rubber-segment{margin-inline:0}
+}
+@media(max-width:650px){
+  .projects-filter-shell{border-radius:0!important}
+  #rubber-segment-projects-root .ms-rubber-segment-scroll{padding-inline:0}
+  #rubber-segment-projects-root .ms-projects-rubber-segment{
+    --rs-h:44px!important;
+    --rs-font:12px!important;
+    --rs-pad:14px!important;
+    --rs-min:44px!important;
+  }
+}
+</style>
 </head>
 <body><header class="top"><a class="brand" href="../">MENSAGEM STUDIO</a><nav class="nav"><a href="../">Home</a><a class="on" href="./">Projetos</a><a href="../servicos/">Serviços</a><a href="../sobre/">Sobre</a></nav><span class="right">Portfólio selecionado</span></header><main><div class="projects-shader" aria-hidden="true"></div><div class="projects-hero-media" aria-hidden="true"><video id="projectsHeroVideo" class="projects-hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/688144e1-4fb7-4d05-86c3-3273e4238efc.mp4" type="video/mp4"></video></div><div class="wrap"><div class="kicker">PORTFÓLIO</div><h1><span class="sr-only">Portfólio de Design, Branding, Vídeo, Motion e 3D — </span>Projetos</h1><p class="lead">Explore projetos de design gráfico, branding, motion, edição de vídeo, audiovisual e 3D desenvolvidos pela Mensagem Studio, estúdio criativo em Curitiba. Navegue pelos cases e descubra soluções visuais para inspirar seu próximo projeto.</p><div class="projects-filter-shell" aria-label="Filtros de projetos"><div class="filters" id="filters"></div></div><section id="iphone3d" class="iphone-showcase-shell" aria-label="iPhone 18 — showcase 3D interativo">
 <h2 class="sr-only">iPhone 18 — showcase 3D interativo</h2>
@@ -537,7 +609,7 @@ main>.wrap>.lead{
 </script>
 
 <script>
-const cards=[...document.querySelectorAll('.card')];
+const cards=[...document.querySelectorAll('#grid .card')];
 const preferredCats=['3D','Web','Social Media','Audiovisual','Motion','Campanhas','Produto','IA','E-commerce','Manipulação','Design'];
 const available=new Set(cards.flatMap(card=>(card.dataset.cats||card.dataset.cat||'').split('|').map(v=>v.trim()).filter(Boolean)));
 const cats=['Todos',...preferredCats.filter(cat=>available.has(cat)),...[...available].filter(cat=>!preferredCats.includes(cat))];
@@ -547,21 +619,108 @@ let active='Todos';
 function cardCategories(card){
   return (card.dataset.cats||card.dataset.cat||'').split('|').map(v=>v.trim()).filter(Boolean);
 }
-function render(){
-  filters.innerHTML=cats.map(cat=>`<button type="button" class="filter ${cat===active?'on':''}" data-filter-cat="${cat}" aria-pressed="${cat===active?'true':'false'}">${cat}</button>`).join('');
-  cards.forEach(card=>{card.hidden=active!=='Todos'&&!cardCategories(card).includes(active)});
+function renderCards(){
+  cards.forEach(card=>{
+    const visible=active==='Todos'||cardCategories(card).includes(active);
+    card.hidden=!visible;
+    card.setAttribute('aria-hidden',String(!visible));
+  });
 }
-filters.addEventListener('click',e=>{
-  const button=e.target.closest('[data-filter-cat]');
-  if(!button)return;
-  active=button.dataset.filterCat;
-  render();
-});
-render();
+function buildProjectRubberSegment(){
+  if(!filters||!cards.length)return;
+  const escapeAttr=value=>String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const buttons=cats.map((cat,index)=>`<button type="button" role="radio" aria-checked="${index===0?'true':'false'}" tabindex="${index===0?'0':'-1'}" class="rubber-segment__item" data-project-filter="${escapeAttr(cat)}">${cat}</button>`).join('');
+  const copies=cats.map(cat=>`<span class="rubber-segment__item rubber-segment__copy">${cat}</span>`).join('');
+  filters.innerHTML=`<div id="rubber-segment-projects-root" aria-label="Filtros de projetos"><div class="ms-rubber-segment-scroll"><div role="radiogroup" aria-label="Filtros de projetos" class="rubber-segment ms-services-rubber-segment ms-projects-rubber-segment" style="--rs-track:rgba(8,12,14,.88);--rs-thumb:#35D39A;--rs-ink:#E7ECEA;--rs-ink-active:#04130D;--rs-radius:20px;--rs-inset:4px;--rs-thumb-radius:16px;--rs-h:36px;--rs-font:13px;--rs-pad:14px;--rs-min:44px">${buttons}<div class="rubber-segment__thumb" aria-hidden="true">${copies}</div></div></div></div>`;
+
+  const root=document.getElementById('rubber-segment-projects-root');
+  const segment=root?.querySelector('.rubber-segment');
+  const scroll=root?.querySelector('.ms-rubber-segment-scroll');
+  const items=[...(root?.querySelectorAll('[data-project-filter]')||[])];
+  const thumb=root?.querySelector('.rubber-segment__thumb');
+  if(!segment||!scroll||!thumb||!items.length)return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function syncThumb(centerActive=false){
+    const selected=items.find(item=>item.dataset.projectFilter===active)||items[0];
+    items.forEach(item=>{
+      const on=item===selected;
+      item.setAttribute('aria-checked',String(on));
+      item.tabIndex=on?0:-1;
+    });
+    requestAnimationFrame(()=>{
+      const track=segment.getBoundingClientRect();
+      const box=selected.getBoundingClientRect();
+      if(!track.width||!box.width)return;
+      const inset=4;
+      const left=Math.max(0,box.left-track.left-inset);
+      const right=Math.max(0,track.width-inset*2-(box.right-track.left-inset));
+      thumb.style.clipPath=`inset(0 ${right}px 0 ${left}px round 16px)`;
+      if(centerActive){
+        const sr=scroll.getBoundingClientRect();
+        const delta=box.left+box.width/2-(sr.left+sr.width/2);
+        if(Math.abs(delta)>8){
+          scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),behavior:reduce?'auto':'smooth'});
+        }
+      }
+    });
+  }
+
+  function activate(cat,{focus=false,center=true}={}){
+    if(!cats.includes(cat))return;
+    active=cat;
+    renderCards();
+    syncThumb(center);
+    if(focus){
+      items.find(item=>item.dataset.projectFilter===active)?.focus({preventScroll:true});
+    }
+    filters.dispatchEvent(new CustomEvent('projectfilterchange',{bubbles:true,detail:{category:active}}));
+  }
+
+  segment.addEventListener('click',event=>{
+    const item=event.target.closest('[data-project-filter]');
+    if(!item||!segment.contains(item))return;
+    event.preventDefault();
+    activate(item.dataset.projectFilter||'Todos',{center:true});
+  });
+
+  segment.addEventListener('keydown',event=>{
+    const current=event.target.closest('[data-project-filter]');
+    if(!current)return;
+    const index=items.indexOf(current);
+    let next=null;
+    if(event.key==='ArrowRight'||event.key==='ArrowDown')next=(index+1)%items.length;
+    else if(event.key==='ArrowLeft'||event.key==='ArrowUp')next=(index-1+items.length)%items.length;
+    else if(event.key==='Home')next=0;
+    else if(event.key==='End')next=items.length-1;
+    else if(event.key==='Enter'||event.key===' '){
+      event.preventDefault();
+      activate(current.dataset.projectFilter||'Todos',{focus:true,center:true});
+      return;
+    }
+    if(next===null)return;
+    event.preventDefault();
+    activate(items[next].dataset.projectFilter||'Todos',{focus:true,center:true});
+  });
+
+  const sync=()=>syncThumb(false);
+  if('ResizeObserver' in window){
+    const resizeObserver=new ResizeObserver(sync);
+    resizeObserver.observe(segment);
+    addEventListener('pagehide',()=>resizeObserver.disconnect(),{once:true});
+  }else{
+    addEventListener('resize',sync,{passive:true});
+  }
+  if(document.fonts?.ready)document.fonts.ready.then(sync).catch(()=>{});
+
+  renderCards();
+  syncThumb(false);
+}
+buildProjectRubberSegment();
 </script><script type="module" src="./light-rays-react-bits/light-rays-background.js?v=20260919-react-bits-light-rays-v1"></script>
 <script src="./project-data.js?v=20260919-cyber-ronin-v1"></script>
 <script src="./portfolio-linker.js?v=20260919-slug-link-v2"></script>
-<script src="../global-ui.js?v=20260920-r20-real-rubber-topnav"></script>
+<script src="../global-ui.js?v=20260922-approved-preview-sync-v1"></script>
 
 <script src="./project-video-preview.js?v=20260911-explicit-video1"></script>\n
 
