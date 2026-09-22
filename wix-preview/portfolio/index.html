@@ -609,7 +609,7 @@ main>.wrap>.lead{
 </script>
 
 <script>
-const cards=[...document.querySelectorAll('.card')];
+const cards=[...document.querySelectorAll('#grid .card')];
 const preferredCats=['3D','Web','Social Media','Audiovisual','Motion','Campanhas','Produto','IA','E-commerce','Manipulação','Design'];
 const available=new Set(cards.flatMap(card=>(card.dataset.cats||card.dataset.cat||'').split('|').map(v=>v.trim()).filter(Boolean)));
 const cats=['Todos',...preferredCats.filter(cat=>available.has(cat)),...[...available].filter(cat=>!preferredCats.includes(cat))];
@@ -620,23 +620,26 @@ function cardCategories(card){
   return (card.dataset.cats||card.dataset.cat||'').split('|').map(v=>v.trim()).filter(Boolean);
 }
 function renderCards(){
-  cards.forEach(card=>{card.hidden=active!=='Todos'&&!cardCategories(card).includes(active)});
+  cards.forEach(card=>{
+    const visible=active==='Todos'||cardCategories(card).includes(active);
+    card.hidden=!visible;
+    card.setAttribute('aria-hidden',String(!visible));
+  });
 }
 function buildProjectRubberSegment(){
-  const buttons=cats.map((cat,index)=>`<button type="button" role="radio" aria-checked="${index===0?'true':'false'}" tabindex="${index===0?'0':'-1'}" class="rubber-segment__item" data-project-filter="${cat.replace(/"/g,'&quot;')}">${cat}</button>`).join('');
+  if(!filters||!cards.length)return;
+  const escapeAttr=value=>String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const buttons=cats.map((cat,index)=>`<button type="button" role="radio" aria-checked="${index===0?'true':'false'}" tabindex="${index===0?'0':'-1'}" class="rubber-segment__item" data-project-filter="${escapeAttr(cat)}">${cat}</button>`).join('');
   const copies=cats.map(cat=>`<span class="rubber-segment__item rubber-segment__copy">${cat}</span>`).join('');
-  filters.innerHTML=`<div id="rubber-segment-projects-root" aria-label="Filtros de projetos"><div class="ms-rubber-segment-scroll"><div role="radiogroup" aria-label="Filtros de projetos" data-draggable class="rubber-segment ms-services-rubber-segment ms-projects-rubber-segment" style="--rs-track:rgba(8,12,14,.88);--rs-thumb:#35D39A;--rs-ink:#E7ECEA;--rs-ink-active:#04130D;--rs-radius:20px;--rs-inset:4px;--rs-thumb-radius:16px;--rs-h:36px;--rs-font:13px;--rs-pad:14px;--rs-min:44px">${buttons}<div class="rubber-segment__thumb" aria-hidden="true">${copies}</div></div></div></div>`;
+  filters.innerHTML=`<div id="rubber-segment-projects-root" aria-label="Filtros de projetos"><div class="ms-rubber-segment-scroll"><div role="radiogroup" aria-label="Filtros de projetos" class="rubber-segment ms-services-rubber-segment ms-projects-rubber-segment" style="--rs-track:rgba(8,12,14,.88);--rs-thumb:#35D39A;--rs-ink:#E7ECEA;--rs-ink-active:#04130D;--rs-radius:20px;--rs-inset:4px;--rs-thumb-radius:16px;--rs-h:36px;--rs-font:13px;--rs-pad:14px;--rs-min:44px">${buttons}<div class="rubber-segment__thumb" aria-hidden="true">${copies}</div></div></div></div>`;
 
   const root=document.getElementById('rubber-segment-projects-root');
-  const segment=root.querySelector('.rubber-segment');
-  const scroll=root.querySelector('.ms-rubber-segment-scroll');
-  const items=[...root.querySelectorAll('[data-project-filter]')];
-  const thumb=root.querySelector('.rubber-segment__thumb');
+  const segment=root?.querySelector('.rubber-segment');
+  const scroll=root?.querySelector('.ms-rubber-segment-scroll');
+  const items=[...(root?.querySelectorAll('[data-project-filter]')||[])];
+  const thumb=root?.querySelector('.rubber-segment__thumb');
+  if(!segment||!scroll||!thumb||!items.length)return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let dragging=false;
-  let moved=false;
-  let pointerId=null;
-  let startX=0;
 
   function syncThumb(centerActive=false){
     const selected=items.find(item=>item.dataset.projectFilter===active)||items[0];
@@ -648,15 +651,17 @@ function buildProjectRubberSegment(){
     requestAnimationFrame(()=>{
       const track=segment.getBoundingClientRect();
       const box=selected.getBoundingClientRect();
+      if(!track.width||!box.width)return;
       const inset=4;
       const left=Math.max(0,box.left-track.left-inset);
       const right=Math.max(0,track.width-inset*2-(box.right-track.left-inset));
       thumb.style.clipPath=`inset(0 ${right}px 0 ${left}px round 16px)`;
-
       if(centerActive){
         const sr=scroll.getBoundingClientRect();
         const delta=box.left+box.width/2-(sr.left+sr.width/2);
-        if(Math.abs(delta)>8) scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),behavior:reduce?'auto':'smooth'});
+        if(Math.abs(delta)>8){
+          scroll.scrollTo({left:Math.max(0,scroll.scrollLeft+delta),behavior:reduce?'auto':'smooth'});
+        }
       }
     });
   }
@@ -667,66 +672,46 @@ function buildProjectRubberSegment(){
     renderCards();
     syncThumb(center);
     if(focus){
-      const selected=items.find(item=>item.dataset.projectFilter===active);
-      selected?.focus({preventScroll:true});
+      items.find(item=>item.dataset.projectFilter===active)?.focus({preventScroll:true});
     }
+    filters.dispatchEvent(new CustomEvent('projectfilterchange',{bubbles:true,detail:{category:active}}));
   }
 
-  items.forEach((item,index)=>{
-    item.addEventListener('click',()=>{
-      if(moved){moved=false;return}
-      activate(item.dataset.projectFilter||'Todos',{center:true});
-    });
-    item.addEventListener('keydown',event=>{
-      let next=null;
-      if(event.key==='ArrowRight'||event.key==='ArrowDown')next=Math.min(items.length-1,index+1);
-      else if(event.key==='ArrowLeft'||event.key==='ArrowUp')next=Math.max(0,index-1);
-      else if(event.key==='Home')next=0;
-      else if(event.key==='End')next=items.length-1;
-      if(next===null)return;
+  segment.addEventListener('click',event=>{
+    const item=event.target.closest('[data-project-filter]');
+    if(!item||!segment.contains(item))return;
+    event.preventDefault();
+    activate(item.dataset.projectFilter||'Todos',{center:true});
+  });
+
+  segment.addEventListener('keydown',event=>{
+    const current=event.target.closest('[data-project-filter]');
+    if(!current)return;
+    const index=items.indexOf(current);
+    let next=null;
+    if(event.key==='ArrowRight'||event.key==='ArrowDown')next=(index+1)%items.length;
+    else if(event.key==='ArrowLeft'||event.key==='ArrowUp')next=(index-1+items.length)%items.length;
+    else if(event.key==='Home')next=0;
+    else if(event.key==='End')next=items.length-1;
+    else if(event.key==='Enter'||event.key===' '){
       event.preventDefault();
-      activate(items[next].dataset.projectFilter||'Todos',{focus:true,center:true});
-    });
+      activate(current.dataset.projectFilter||'Todos',{focus:true,center:true});
+      return;
+    }
+    if(next===null)return;
+    event.preventDefault();
+    activate(items[next].dataset.projectFilter||'Todos',{focus:true,center:true});
   });
 
-  const nearestFromX=x=>{
-    let best=0,dist=Infinity;
-    items.forEach((item,index)=>{
-      const r=item.getBoundingClientRect();
-      const d=Math.abs((r.left+r.right)/2-x);
-      if(d<dist){dist=d;best=index}
-    });
-    return best;
-  };
-
-  segment.addEventListener('pointerdown',event=>{
-    if(event.button!==0)return;
-    dragging=true;moved=false;pointerId=event.pointerId;startX=event.clientX;
-    try{segment.setPointerCapture(pointerId)}catch(_){}
-  });
-  segment.addEventListener('pointermove',event=>{
-    if(!dragging||event.pointerId!==pointerId)return;
-    if(Math.abs(event.clientX-startX)<5)return;
-    moved=true;
-    const index=nearestFromX(event.clientX);
-    activate(items[index].dataset.projectFilter||'Todos',{center:false});
-  });
-  const endDrag=event=>{
-    if(!dragging||(event&&event.pointerId!==pointerId))return;
-    dragging=false;
-    try{segment.releasePointerCapture(pointerId)}catch(_){}
-    pointerId=null;
-    syncThumb(true);
-    setTimeout(()=>{moved=false},0);
-  };
-  segment.addEventListener('pointerup',endDrag);
-  segment.addEventListener('pointercancel',endDrag);
-  segment.addEventListener('lostpointercapture',()=>{dragging=false;pointerId=null});
-
-  const resizeObserver=new ResizeObserver(()=>syncThumb(false));
-  resizeObserver.observe(segment);
-  if(document.fonts?.ready)document.fonts.ready.then(()=>syncThumb(false));
-  addEventListener('pagehide',()=>resizeObserver.disconnect(),{once:true});
+  const sync=()=>syncThumb(false);
+  if('ResizeObserver' in window){
+    const resizeObserver=new ResizeObserver(sync);
+    resizeObserver.observe(segment);
+    addEventListener('pagehide',()=>resizeObserver.disconnect(),{once:true});
+  }else{
+    addEventListener('resize',sync,{passive:true});
+  }
+  if(document.fonts?.ready)document.fonts.ready.then(sync).catch(()=>{});
 
   renderCards();
   syncThumb(false);
