@@ -203,10 +203,24 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
     linear-gradient(0deg,rgba(5,6,5,.38),transparent 58%,rgba(5,6,5,.10));
   pointer-events:none;
 }
-.word-case-copy{
+.word-copy-track{
   position:absolute;
+  left:0;
+  top:0;
   z-index:4;
-  inset:0;
+  width:400vw;
+  height:100%;
+  display:flex;
+  overflow:visible;
+  pointer-events:none;
+  will-change:transform;
+  transform:translate3d(0,0,0)
+}
+.word-case-copy{
+  position:relative;
+  flex:0 0 100vw;
+  width:100vw;
+  height:100%;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -215,8 +229,8 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   padding:clamp(92px,10vh,118px) var(--pad) clamp(68px,8vh,96px);
   pointer-events:none;
   perspective:1200px;
-  opacity:0;
-  visibility:hidden
+  opacity:1;
+  visibility:visible
 }
 .word-case-copy.is-active{opacity:1;visibility:visible}
 .word-stack{
@@ -281,7 +295,7 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   .word-case-desc{width:min(86vw,580px);margin-top:18px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){
-  .word-case-visuals{transform:none!important}
+  .word-case-visuals,.word-copy-track{transform:none!important}
   .word-case-panel,.word-main,.word-top-label,.word-case-desc{transition:none!important}
 }
 /* DOWNSTREAM SURFACES — BACKGROUND MUST REMAIN VISIBLE */
@@ -781,25 +795,27 @@ body{overflow-x:clip!important}
     </div>
     <div class="word-shade"></div>
 
-    <div class="word-case-copy is-active" data-word-copy="0">
-      <div class="kicker word-top-label">PODCAST</div>
-      <div class="word-stack"><h2 id="wordMain" class="word-main">VIDEO E VFX</h2></div>
-      <p class="word-case-desc">Edição, composição e efeitos visuais para transformar cenas em vídeos com ritmo, impacto e acabamento cinematográfico.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="1">
-      <div class="kicker word-top-label">FOTOS, TRATAMENTO E MONTAGEM</div>
-      <div class="word-stack"><h2 class="word-main">MANIPULAÇÃO DE IMAGEM</h2></div>
-      <p class="word-case-desc">Tratamento padronizado para lojas, e-commerce, marketplaces e catálogos.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="2">
-      <div class="kicker word-top-label">BANNER POST E CARROSSEL</div>
-      <div class="word-stack"><h2 class="word-main">SOCIAL MEDIA</h2></div>
-      <p class="word-case-desc">Conteúdo visual estratégico para redes sociais, campanhas e marcas que precisam comunicar com consistência e impacto.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="3">
-      <div class="kicker word-top-label">CAMPANHAS COMPLETAS</div>
-      <div class="word-stack"><h2 class="word-main">KEY VISUAL</h2></div>
-      <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
+    <div class="word-copy-track" id="wordCopyTrack" aria-hidden="true">
+      <div class="word-case-copy is-active" data-word-copy="0">
+        <div class="kicker word-top-label">PODCAST</div>
+        <div class="word-stack"><h2 id="wordMain" class="word-main">VIDEO E VFX</h2></div>
+        <p class="word-case-desc">Edição, composição e efeitos visuais para transformar cenas em vídeos com ritmo, impacto e acabamento cinematográfico.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="1">
+        <div class="kicker word-top-label">FOTOS, TRATAMENTO E MONTAGEM</div>
+        <div class="word-stack"><h2 class="word-main">MANIPULAÇÃO DE IMAGEM</h2></div>
+        <p class="word-case-desc">Tratamento padronizado para lojas, e-commerce, marketplaces e catálogos.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="2">
+        <div class="kicker word-top-label">BANNER POST E CARROSSEL</div>
+        <div class="word-stack"><h2 class="word-main">SOCIAL MEDIA</h2></div>
+        <p class="word-case-desc">Conteúdo visual estratégico para redes sociais, campanhas e marcas que precisam comunicar com consistência e impacto.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="3">
+        <div class="kicker word-top-label">CAMPANHAS COMPLETAS</div>
+        <div class="word-stack"><h2 class="word-main">KEY VISUAL</h2></div>
+        <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
+      </div>
     </div>
 
     
@@ -888,10 +904,11 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 (()=>{
   const section=document.getElementById('word');
   const track=document.getElementById('wordCaseVisuals');
+  const copyTrack=document.getElementById('wordCopyTrack');
   const panels=[...document.querySelectorAll('#word .word-case-panel')];
   const copies=[...document.querySelectorAll('#word .word-case-copy')];
   const dots=[...document.querySelectorAll('#wordDots i')];
-  if(!section||!track||panels.length!==4||copies.length!==4||!window.gsap||!window.ScrollTrigger)return;
+  if(!section||!track||!copyTrack||panels.length!==4||copies.length!==4||!window.gsap||!window.ScrollTrigger)return;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -965,10 +982,9 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
     dots.forEach((dot,i)=>dot.classList.toggle('on',i===index));
   };
 
-  gsap.set(track,{xPercent:0});
+  gsap.set([track,copyTrack],{xPercent:0});
   gsap.set(panels,{rotationY:0,scale:1,opacity:1,transformOrigin:'left center',transformPerspective:1500});
-  gsap.set(copies[0],{autoAlpha:1});
-  gsap.set(copies.slice(1),{autoAlpha:0});
+  gsap.set(copies,{autoAlpha:1});
 
   const sticky=section.querySelector('.word-sticky');
   // Use the four viewport panels themselves as the travel distance.
@@ -1005,33 +1021,15 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 
   // Canonical GSAP horizontal scroll: wheel/trackpad scroll pins the section
   // and moves the 4-screen strip continuously from left to right.
-  tl.to(track,{x:()=>-horizontalDistance(),duration:3,ease:'none'},0);
+  tl.to([track,copyTrack],{x:()=>-horizontalDistance(),duration:3,ease:'none'},0);
 
   for(let i=0;i<3;i++){
     const currentPanel=panels[i];
     const nextPanel=panels[i+1];
-    const currentCopy=copies[i];
-    const nextCopy=copies[i+1];
-    const currentTitle=currentCopy.querySelector('.word-main');
-    const nextTitle=nextCopy.querySelector('.word-main');
-    const currentCat=currentCopy.querySelector('.word-top-label');
-    const nextCat=nextCopy.querySelector('.word-top-label');
-    const currentDesc=currentCopy.querySelector('.word-case-desc');
-    const nextDesc=nextCopy.querySelector('.word-case-desc');
     const t=i;
 
     tl.to(currentPanel,{rotationY:4,scale:.985,duration:.84,ease:'power2.inOut'},t)
-      .fromTo(nextPanel,{rotationY:-7,scale:1.025},{rotationY:0,scale:1,duration:.84,ease:'power2.out'},t+.10)
-      // Keep the current title during most of the horizontal travel.
-      // The incoming title uses the same 3D pass language only near panel lock.
-      .to(currentTitle,{rotationX:-68,z:115,y:-36,scale:.9,opacity:0,duration:.20,ease:'power2.in'},t+.58)
-      .to(currentCat,{y:-16,opacity:0,duration:.18},t+.58)
-      .to(currentDesc,{y:16,opacity:0,duration:.18},t+.58)
-      .set(currentCopy,{autoAlpha:0},t+.78)
-      .set(nextCopy,{autoAlpha:1},t+.72)
-      .fromTo(nextTitle,{rotationX:72,z:125,y:42,scale:.91,opacity:0},{rotationX:0,z:0,y:0,scale:1,opacity:1,duration:.28,ease:'power3.out'},t+.72)
-      .fromTo(nextCat,{y:-18,opacity:0},{y:0,opacity:1,duration:.24,ease:'power2.out'},t+.74)
-      .fromTo(nextDesc,{y:18,opacity:0},{y:0,opacity:1,duration:.24,ease:'power2.out'},t+.74);
+      .fromTo(nextPanel,{rotationY:-7,scale:1.025},{rotationY:0,scale:1,duration:.84,ease:'power2.out'},t+.10);
   }
 
   const near=new IntersectionObserver(entries=>{
