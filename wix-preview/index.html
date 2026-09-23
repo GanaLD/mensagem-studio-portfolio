@@ -203,24 +203,99 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
     linear-gradient(0deg,rgba(5,6,5,.38),transparent 58%,rgba(5,6,5,.10));
   pointer-events:none;
 }
-.word-case-copy{position:absolute;z-index:4;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none;perspective:1200px;opacity:0;visibility:hidden}
+.word-copy-track{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:4;
+  width:400vw;
+  height:100%;
+  display:flex;
+  overflow:visible;
+  pointer-events:none;
+  will-change:transform;
+  transform:translate3d(0,0,0)
+}
+.word-case-copy{
+  position:relative;
+  flex:0 0 100vw;
+  width:100vw;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  text-align:left;
+  padding:clamp(92px,10vh,118px) var(--pad) clamp(68px,8vh,96px);
+  pointer-events:none;
+  perspective:1200px;
+  opacity:1;
+  visibility:visible
+}
 .word-case-copy.is-active{opacity:1;visibility:visible}
-.word-stack{position:relative;z-index:4;width:min(1500px,92vw);text-align:center;perspective:1200px}
-.word-main{font-size:clamp(54px,9vw,168px);line-height:.82;letter-spacing:-.068em;font-weight:900;text-transform:uppercase;margin:0 auto;max-width:11ch;text-wrap:balance;will-change:transform,opacity;transform-style:preserve-3d;text-shadow:0 8px 42px rgba(0,0,0,.42)}
-.word-top-label{position:absolute;z-index:5;left:50%;top:clamp(92px,10vh,118px);transform:translateX(-50%);margin:0;max-width:min(78vw,760px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;font-size:clamp(9px,.72vw,12px);letter-spacing:.16em;text-shadow:0 0 18px rgba(201,255,54,.30)}
-.word-case-desc{position:absolute;z-index:5;left:50%;bottom:clamp(36px,6vh,74px);transform:translateX(-50%);width:min(760px,78vw);margin:0;color:#eef0e8;font-size:clamp(13px,1.05vw,17px);line-height:1.5;text-align:center;text-wrap:balance;text-shadow:0 4px 28px rgba(0,0,0,.58)}
+.word-stack{
+  position:relative;
+  z-index:4;
+  width:min(760px,58vw);
+  text-align:left;
+  perspective:1200px
+}
+.word-main{
+  font-size:clamp(54px,8vw,148px);
+  line-height:.84;
+  letter-spacing:-.064em;
+  font-weight:900;
+  text-transform:uppercase;
+  margin:0;
+  max-width:9ch;
+  text-wrap:balance;
+  will-change:transform,opacity;
+  transform-style:preserve-3d;
+  text-shadow:0 8px 42px rgba(0,0,0,.42)
+}
+.word-top-label{
+  position:relative;
+  z-index:5;
+  left:auto;
+  top:auto;
+  transform:none;
+  margin:0 0 18px;
+  max-width:min(620px,54vw);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left;
+  font-size:clamp(9px,.72vw,12px);
+  letter-spacing:.16em;
+  text-shadow:0 0 18px rgba(201,255,54,.30)
+}
+.word-case-desc{
+  position:relative;
+  z-index:5;
+  left:auto;
+  bottom:auto;
+  transform:none;
+  width:min(560px,46vw);
+  margin:22px 0 0;
+  color:#eef0e8;
+  font-size:clamp(13px,1.05vw,17px);
+  line-height:1.5;
+  text-align:left;
+  text-wrap:balance;
+  text-shadow:0 4px 28px rgba(0,0,0,.58)
+}
 .word-dots{position:absolute;z-index:7;left:clamp(20px,2.5vw,46px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:15px;pointer-events:none}
 .word-dots i{display:block;width:9px;height:9px;border-radius:50%;background:rgba(201,255,54,.22);border:1px solid rgba(201,255,54,.34);box-shadow:0 0 0 rgba(201,255,54,0);transform:scale(.82);transition:background .22s ease,box-shadow .22s ease,transform .22s ease,opacity .22s ease;opacity:.48}
 .word-dots i.on{background:var(--lime);border-color:var(--lime);box-shadow:0 0 10px rgba(201,255,54,.96),0 0 24px rgba(201,255,54,.55);transform:scale(1.22);opacity:1}
 @media(max-width:760px){
-  .word-main{font-size:clamp(40px,13vw,72px);line-height:.86;max-width:12ch}
-  .word-top-label{top:78px;font-size:9px}
-  .word-case-desc{bottom:max(58px,calc(44px + env(safe-area-inset-bottom)));width:min(86vw,580px);font-size:12px}
-  .word-dots{left:14px;gap:12px}
-  .word-dots i{width:7px;height:7px}
+  .word-case-copy{padding:74px 18px max(64px,calc(50px + env(safe-area-inset-bottom)))}
+  .word-stack{width:min(88vw,620px)}
+  .word-main{font-size:clamp(40px,13vw,72px);line-height:.86;max-width:11ch}
+  .word-top-label{margin-bottom:14px;max-width:84vw;font-size:9px}
+  .word-case-desc{width:min(86vw,580px);margin-top:18px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){
-  .word-case-visuals{transform:none!important}
+  .word-case-visuals,.word-copy-track{transform:none!important}
   .word-case-panel,.word-main,.word-top-label,.word-case-desc{transition:none!important}
 }
 /* DOWNSTREAM SURFACES — BACKGROUND MUST REMAIN VISIBLE */
@@ -995,28 +1070,30 @@ body{overflow-x:clip!important}
     </div>
     <div class="word-shade"></div>
 
-    <div class="word-case-copy is-active" data-word-copy="0">
-      <div class="kicker word-top-label">PODCAST</div>
-      <div class="word-stack"><h2 id="wordMain" class="word-main">VIDEO E VFX</h2></div>
-      <p class="word-case-desc">Edição, composição e efeitos visuais para transformar cenas em vídeos com ritmo, impacto e acabamento cinematográfico.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="1">
-      <div class="kicker word-top-label">FOTOS, TRATAMENTO E MONTAGEM</div>
-      <div class="word-stack"><h2 class="word-main">MANIPULAÇÃO DE IMAGEM</h2></div>
-      <p class="word-case-desc">Tratamento padronizado para lojas, e-commerce, marketplaces e catálogos.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="2">
-      <div class="kicker word-top-label">BANNER POST E CARROSSEL</div>
-      <div class="word-stack"><h2 class="word-main">SOCIAL MEDIA</h2></div>
-      <p class="word-case-desc">Conteúdo visual estratégico para redes sociais, campanhas e marcas que precisam comunicar com consistência e impacto.</p>
-    </div>
-    <div class="word-case-copy" data-word-copy="3">
-      <div class="kicker word-top-label">CAMPANHAS COMPLETAS</div>
-      <div class="word-stack"><h2 class="word-main">KEY VISUAL</h2></div>
-      <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
+    <div class="word-copy-track" id="wordCopyTrack">
+      <div class="word-case-copy is-active" data-word-copy="0">
+        <div class="kicker word-top-label">PODCAST</div>
+        <div class="word-stack"><h2 id="wordMain" class="word-main">VIDEO E VFX</h2></div>
+        <p class="word-case-desc">Edição, composição e efeitos visuais para transformar cenas em vídeos com ritmo, impacto e acabamento cinematográfico.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="1">
+        <div class="kicker word-top-label">FOTOS, TRATAMENTO E MONTAGEM</div>
+        <div class="word-stack"><h2 class="word-main">MANIPULAÇÃO DE IMAGEM</h2></div>
+        <p class="word-case-desc">Tratamento padronizado para lojas, e-commerce, marketplaces e catálogos.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="2">
+        <div class="kicker word-top-label">BANNER POST E CARROSSEL</div>
+        <div class="word-stack"><h2 class="word-main">SOCIAL MEDIA</h2></div>
+        <p class="word-case-desc">Conteúdo visual estratégico para redes sociais, campanhas e marcas que precisam comunicar com consistência e impacto.</p>
+      </div>
+      <div class="word-case-copy" data-word-copy="3">
+        <div class="kicker word-top-label">CAMPANHAS COMPLETAS</div>
+        <div class="word-stack"><h2 class="word-main">KEY VISUAL</h2></div>
+        <p class="word-case-desc">Branding, percepção de marca e direção de arte conectados em campanhas completas para produto, posicionamento e comunicação visual.</p>
+      </div>
     </div>
 
-    <div class="word-dots" id="wordDots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    
   </div>
 </section>
 <main id="afterWord" class="after-word">
@@ -1098,14 +1175,15 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script id="ms-word-cases-gsap-preview-v4">
+<script id="ms-word-cases-gsap-preview-v5">
 (()=>{
   const section=document.getElementById('word');
   const track=document.getElementById('wordCaseVisuals');
+  const copyTrack=document.getElementById('wordCopyTrack');
   const panels=[...document.querySelectorAll('#word .word-case-panel')];
   const copies=[...document.querySelectorAll('#word .word-case-copy')];
   const dots=[...document.querySelectorAll('#wordDots i')];
-  if(!section||!track||panels.length!==4||copies.length!==4||!window.gsap||!window.ScrollTrigger)return;
+  if(!section||!track||!copyTrack||panels.length!==4||copies.length!==4||!window.gsap||!window.ScrollTrigger)return;
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -1179,10 +1257,10 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
     dots.forEach((dot,i)=>dot.classList.toggle('on',i===index));
   };
 
-  gsap.set(track,{xPercent:0});
-  gsap.set(panels,{rotationY:0,scale:1,opacity:1,transformOrigin:'left center',transformPerspective:1500});
+  gsap.set([track,copyTrack],{xPercent:0});
+  gsap.set(panels,{rotationY:0,scale:1,opacity:1});
+  gsap.set(copies,{autoAlpha:0});
   gsap.set(copies[0],{autoAlpha:1});
-  gsap.set(copies.slice(1),{autoAlpha:0});
 
   const sticky=section.querySelector('.word-sticky');
   // Use the four viewport panels themselves as the travel distance.
@@ -1219,33 +1297,14 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 
   // Canonical GSAP horizontal scroll: wheel/trackpad scroll pins the section
   // and moves the 4-screen strip continuously from left to right.
-  tl.to(track,{x:()=>-horizontalDistance(),duration:3,ease:'none'},0);
+  tl.to([track,copyTrack],{x:()=>-horizontalDistance(),duration:3,ease:'none'},0);
 
+  // The cases now stay completely flat while the horizontal track moves.
+  // Only the incoming text block fades in near the moment its case locks into view.
   for(let i=0;i<3;i++){
-    const currentPanel=panels[i];
-    const nextPanel=panels[i+1];
-    const currentCopy=copies[i];
     const nextCopy=copies[i+1];
-    const currentTitle=currentCopy.querySelector('.word-main');
-    const nextTitle=nextCopy.querySelector('.word-main');
-    const currentCat=currentCopy.querySelector('.word-top-label');
-    const nextCat=nextCopy.querySelector('.word-top-label');
-    const currentDesc=currentCopy.querySelector('.word-case-desc');
-    const nextDesc=nextCopy.querySelector('.word-case-desc');
     const t=i;
-
-    tl.to(currentPanel,{rotationY:4,scale:.985,duration:.84,ease:'power2.inOut'},t)
-      .fromTo(nextPanel,{rotationY:-7,scale:1.025},{rotationY:0,scale:1,duration:.84,ease:'power2.out'},t+.10)
-      // Keep the current title during most of the horizontal travel.
-      // The incoming title uses the same 3D pass language only near panel lock.
-      .to(currentTitle,{rotationX:-68,z:115,y:-36,scale:.9,opacity:0,duration:.20,ease:'power2.in'},t+.58)
-      .to(currentCat,{y:-16,opacity:0,duration:.18},t+.58)
-      .to(currentDesc,{y:16,opacity:0,duration:.18},t+.58)
-      .set(currentCopy,{autoAlpha:0},t+.78)
-      .set(nextCopy,{autoAlpha:1},t+.72)
-      .fromTo(nextTitle,{rotationX:72,z:125,y:42,scale:.91,opacity:0},{rotationX:0,z:0,y:0,scale:1,opacity:1,duration:.28,ease:'power3.out'},t+.72)
-      .fromTo(nextCat,{y:-18,opacity:0},{y:0,opacity:1,duration:.24,ease:'power2.out'},t+.74)
-      .fromTo(nextDesc,{y:18,opacity:0},{y:0,opacity:1,duration:.24,ease:'power2.out'},t+.74);
+    tl.to(nextCopy,{autoAlpha:1,duration:.24,ease:'power2.out'},t+.72);
   }
 
   const near=new IntersectionObserver(entries=>{
@@ -1414,7 +1473,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-preview-angel-transparent-original-position-v6 -->
+<!-- HOME_BUILD: 20260923-preview-mobile-parity-flat-gsap-v2 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
