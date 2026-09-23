@@ -1039,6 +1039,51 @@ body{overflow-x:clip!important}
 }
 </style>
 
+
+<style id="ms-mobile-recovery-20260923">
+@media(max-width:760px){
+  /* Keep the GSAP case canvas fully painted on mobile, especially case 02. */
+  #word .word-case-panel[data-word-case="1"]{background:#050605!important}
+  #word .word-case-panel[data-word-case="1"] .word-case-mago{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    min-width:100%!important;
+    min-height:100%!important;
+    object-fit:cover!important;
+    object-position:50% 50%!important;
+    opacity:1!important;
+    visibility:visible!important;
+    background:#050605!important;
+    transform:none!important;
+  }
+
+  /* Guarantee the mobile service-card rail remains visible even if the 3D runtime
+     upgrades/hides the original desktop grid. */
+  #services>.wrap{position:relative!important;z-index:4!important}
+  #services #msServicesMobileFallback{
+    display:block!important;
+    position:relative!important;
+    z-index:20!important;
+    min-height:336px!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+  }
+  #services #msServicesMobileFallback .ms-mobile-services-rail{
+    display:flex!important;
+    min-height:326px!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+  }
+  #services #msServicesMobileFallback .ms-mobile-service-card{
+    display:flex!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
@@ -1059,7 +1104,7 @@ body{overflow-x:clip!important}
         <video class="word-case-media word-case-video" muted playsinline preload="metadata" data-src="https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4" data-start="65" data-end="78"></video>
       </article>
       <article class="word-case-panel" data-word-case="1">
-        <video class="word-case-media word-case-video" muted loop playsinline preload="metadata" data-src="/assets/mago-gsap-10s.mp4"></video>
+        <video class="word-case-media word-case-video word-case-mago" muted loop playsinline webkit-playsinline preload="auto" src="/assets/mago-gsap-10s.mp4" data-src="/assets/mago-gsap-10s.mp4"></video>
       </article>
       <article class="word-case-panel" data-word-case="2">
         <img class="word-case-media" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png" alt="">
@@ -1247,7 +1292,9 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
         if(Number.isFinite(start)&&video.readyState>=1){
           try{video.currentTime=start}catch(_){}
         }
-        const p=video.play();if(p&&p.catch)p.catch(()=>{});
+        video.defaultMuted=true;video.muted=true;video.playsInline=true;
+        const tryPlay=()=>{if(Number(video.closest('.word-case-panel')?.dataset.wordCase)!==activeIndex)return;const p=video.play();if(p&&p.catch)p.catch(()=>{})};
+        if(video.readyState>=2)tryPlay();else video.addEventListener('canplay',tryPlay,{once:true});
       }else{
         video.pause();
       }
@@ -1473,7 +1520,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260923-preview-mobile-parity-flat-gsap-v2 -->
+<!-- HOME_BUILD: 20260923-preview-mobile-recovery-services-gsap2-v1 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
@@ -1725,5 +1772,34 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 })();
 </script>
 <script src="./assets/ms-carousel-glass-buttons-v2.js?v=20260923-r43"></script>
+
+<script id="ms-mobile-services-recovery-20260923">
+(()=>{
+  const apply=()=>{
+    if(!matchMedia('(max-width:760px)').matches)return;
+    const fallback=document.getElementById('msServicesMobileFallback');
+    if(!fallback)return;
+    fallback.style.setProperty('display','block','important');
+    fallback.style.setProperty('visibility','visible','important');
+    fallback.style.setProperty('opacity','1','important');
+    fallback.style.setProperty('min-height','336px','important');
+    const rail=fallback.querySelector('.ms-mobile-services-rail');
+    if(rail){
+      rail.style.setProperty('display','flex','important');
+      rail.style.setProperty('visibility','visible','important');
+      rail.style.setProperty('opacity','1','important');
+      rail.style.setProperty('min-height','326px','important');
+    }
+    fallback.querySelectorAll('.ms-mobile-service-card').forEach(card=>{
+      card.style.setProperty('display','flex','important');
+      card.style.setProperty('visibility','visible','important');
+      card.style.setProperty('opacity','1','important');
+    });
+  };
+  apply();
+  addEventListener('pageshow',apply,{once:true});
+  addEventListener('resize',apply,{passive:true});
+})();
+</script>
 </body>
 </html>
