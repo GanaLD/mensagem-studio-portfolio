@@ -9,7 +9,7 @@
   const ABOUT_URL = ROOT + 'sobre/';
   const QUOTE_URL = SERVICES_URL + '#orcamento';
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
-  const VERSION = '20260922-r41-home-nav-after-hero';
+  const VERSION = '20260923-r43-mobile-parity-preview';
 
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
@@ -177,8 +177,8 @@
 
   // Actual React Bits RubberSegment top navigation.
   // This loads the bundle built from the installed @react-bits/RubberSegment-JS-CSS component.
-  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260922-approved-preview-sync-v1';
-  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260922-approved-preview-sync-v1';
+  const topNavCssHref = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.css?v=20260923-r43';
+  const topNavJsSrc = ROOT + 'assets/react-bits-rubber-topnav/rubber-segment-topnav.js?v=20260923-r43';
 
   if(!document.querySelector('link[data-ms-rubber-topnav]')){
     const topNavCss = document.createElement('link');
@@ -202,13 +202,13 @@
   if(!document.querySelector('link[data-ms-carousel-glass-buttons-v2],link[href*="ms-carousel-glass-buttons-v2.css"]')){
     const buttonCss=document.createElement('link');
     buttonCss.rel='stylesheet';
-    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v2.css?v=20260922-r40';
+    buttonCss.href=ROOT+'assets/ms-carousel-glass-buttons-v2.css?v=20260923-r43';
     buttonCss.dataset.msCarouselGlassButtonsV2='1';
     document.head.appendChild(buttonCss);
   }
   if(!document.querySelector('script[data-ms-carousel-glass-buttons-v2],script[src*="ms-carousel-glass-buttons-v2.js"]')){
     const buttonJs=document.createElement('script');
-    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v2.js?v=20260922-r40';
+    buttonJs.src=ROOT+'assets/ms-carousel-glass-buttons-v2.js?v=20260923-r43';
     buttonJs.defer=true;
     buttonJs.dataset.msCarouselGlassButtonsV2='1';
     document.head.appendChild(buttonJs);
