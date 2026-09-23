@@ -849,6 +849,121 @@ body{overflow-x:clip!important}
   #hero .hero-copy p{font-size:12px!important}
 }
 </style>
+
+<style id="ms-services-mobile-fallback-style">
+#msServicesMobileFallback{display:none}
+@media(max-width:760px){
+  #services{position:relative;z-index:3;overflow:visible!important}
+  #services #msServices3dShell{display:none!important}
+  #services.ms-services-upgraded .services-grid{display:none!important}
+  #msServicesMobileFallback{
+    display:block!important;
+    width:100vw;
+    margin-left:calc(50% - 50vw);
+    overflow:hidden;
+    padding:4px 0 10px;
+  }
+  #msServicesMobileFallback .ms-mobile-services-rail{
+    display:flex;
+    gap:14px;
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:10px 18px 26px;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:18px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    overscroll-behavior-inline:contain;
+  }
+  #msServicesMobileFallback .ms-mobile-services-rail::-webkit-scrollbar{display:none}
+  #msServicesMobileFallback .ms-mobile-service-card{
+    --card-blue:65,105,225;
+    position:relative;
+    flex:0 0 min(78vw,280px);
+    min-height:300px;
+    scroll-snap-align:center;
+    border:1px solid rgba(255,255,255,.24);
+    border-radius:22px;
+    overflow:hidden;
+    isolation:isolate;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    color:#f4f5ef;
+    background:
+      radial-gradient(circle at 20% 12%,rgba(var(--card-blue),.23),transparent 34%),
+      linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025) 35%,rgba(8,10,14,.68) 100%);
+    -webkit-backdrop-filter:blur(24px) saturate(145%);
+    backdrop-filter:blur(24px) saturate(145%);
+    box-shadow:
+      0 24px 62px rgba(0,0,0,.34),
+      0 0 28px rgba(var(--card-blue),.16),
+      inset 0 1px 0 rgba(255,255,255,.20);
+    transform:perspective(900px) rotateY(-4deg);
+    transform-origin:center;
+  }
+  #msServicesMobileFallback .ms-mobile-service-card:nth-child(even){
+    transform:perspective(900px) rotateY(4deg);
+  }
+  #msServicesMobileFallback .ms-mobile-service-card::before{
+    content:"";
+    position:absolute;
+    inset:-30%;
+    z-index:0;
+    pointer-events:none;
+    background:linear-gradient(112deg,transparent 30%,rgba(255,255,255,.15) 47%,transparent 63%);
+    transform:translateX(-36%);
+  }
+  #msServicesMobileFallback .ms-mobile-service-card::after{
+    content:"";
+    position:absolute;
+    right:-64px;
+    bottom:-72px;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:rgba(var(--card-blue),.24);
+    filter:blur(42px);
+    z-index:0;
+    pointer-events:none;
+  }
+  #msServicesMobileFallback .ms-mobile-service-card>*{position:relative;z-index:1}
+  #msServicesMobileFallback .ms-mobile-service-kicker{
+    margin:0 0 30px;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#8ea8ff;
+  }
+  #msServicesMobileFallback .ms-mobile-service-card h3{
+    margin:0 0 12px;
+    font-size:clamp(28px,8.3vw,36px);
+    line-height:.94;
+    letter-spacing:-.045em;
+    max-width:10ch;
+  }
+  #msServicesMobileFallback .ms-mobile-service-card p{
+    margin:0;
+    color:#b9bcaf;
+    font-size:12px;
+    line-height:1.48;
+    max-width:30ch;
+  }
+  #msServicesMobileFallback .ms-mobile-service-foot{
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,.14);
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:#eef1ff;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- HOME_SECTION_NAV_HTML_START -->
@@ -861,7 +976,7 @@ body{overflow-x:clip!important}
 <div id="sfGlobalMediaCanvas" data-background="01" aria-hidden="true"><div id="cyberAngelSlot" data-asset="cyber-angel-scroll"><iframe id="cyberAngelBg" class="cyber-bg-frame is-active" sandbox="allow-scripts" referrerpolicy="no-referrer" data-src="./assets/cyber-angel-bg-v2.html" title="Cyber Angel V2.1.5 global scroll background" tabindex="-1" loading="lazy"></iframe><iframe id="cyberAngelLegacy" class="cyber-bg-frame" data-src="./assets/cyber-angel-bg.html" title="Cyber Angel legacy global scroll background" tabindex="-1" loading="lazy"></iframe></div></div>
 <header class="content-layer"><div class="brand">MENSAGEM STUDIO</div><nav class="nav"><a href="./">HOME</a><a href="./portfolio/">PROJETOS</a><a href="./servicos/">SERVIÇOS</a><a href="./sobre/">SOBRE</a></nav></header><h1 class="sr-only">Estúdio Criativo em Curitiba para Design, Vídeo, Branding e 3D</h1>
 <section id="hero" class="content-layer"><div class="hero-sticky"><video id="heroVideo" class="hero-video" muted playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=hero"></video><div id="heroFullMedia" class="hero-full-media" aria-hidden="true"><img id="heroFullImage" alt=""><video id="heroFullVideo" muted loop playsinline preload="metadata"></video><iframe id="heroFullYouTube" class="hero-full-youtube" title="Showcase audiovisual" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><span id="heroFullBadge" class="hero-full-badge"><i></i><b>PODCAST</b></span></div><div class="hero-shade"></div><div id="heroCaseStage" class="hero-case-stage"><div class="wrap hero-grid"><div class="hero-copy"><div class="kicker" id="heroCat">HTML</div><h1 id="heroTitle">IMERSÃO COMPLETA</h1><p id="heroDesc">esse HTML é um projeto imersivo e um serviço contratável para sua empresa.</p><div class="cta-row"><a class="btn primary ms-carousel-glass-btn" href="#projects">Ver projeto <b>↗</b></a><a class="btn ms-carousel-glass-btn" href="#services">Serviços <b>↓</b></a></div></div><div class="hero-art is-immersive"><img id="heroArt" alt="Projeto em destaque" src="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc"><div id="heroImmersiveWrap" class="hero-immersive-wrap" aria-hidden="true"><img id="heroImmersiveAngel" class="hero-immersive-angel" alt="" draggable="false"></div><video id="heroCardVideo" class="hero-card-video" muted loop playsinline preload="metadata" src="./assets/hero/dermacast-laila.mp4"></video><model-viewer id="heroModel3D" class="hero-model-3d" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" alt="Objeto 3D Arma Cyberpunk" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="none" shadow-intensity="1.15" shadow-softness="0.8" exposure="1.05" environment-image="neutral" camera-target="auto auto auto" camera-orbit="0deg 75deg 103%" field-of-view="28deg" loading="eager"></model-viewer><span class="hero-3d-interaction" aria-hidden="true"><i></i><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></span><span class="hero-podcast-badge" aria-hidden="true"><i></i><span><b>PODCAST</b></span></span></div><span class="hero-card-continue" aria-hidden="true"><span class="hero-card-continue-label">CONTINUE</span><span class="hero-card-continue-mouse"><span class="hero-card-continue-wheel"></span></span><span class="hero-card-continue-arrow"></span></span></div></div><div class="hero-progress" id="heroProgress"><i class="on"></i><i></i></div><div class="hero-scroll-cue" aria-hidden="true"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div><div class="video-scroll-label">Role para controlar o filme · depois entram os cases</div><div class="video-scroll-meter"><i></i></div></div></section>
-<section id="services" class="section content-layer"><div class="wrap"><div class="section-head"><div><div class="kicker">SERVIÇOS</div><h2>Do conceito à entrega.</h2></div><p>Uma frente integrada de design studio e creative studio para branding, direção de arte, vídeos, IA, 3D, web e experiências digitais.</p></div><div class="services-grid"><a class="service" href="./servicos/identidade-visual-branding/"><span class="num">01</span><div><h3>Branding</h3><p>Identidade visual, direção de arte, sistemas gráficos e posicionamento.</p></div></a><a class="service" href="./servicos/direcao-arte-campanhas/"><span class="num">02</span><div><h3>Imagem & KV</h3><p>Campanhas, peças publicitárias, manipulação, composição e key visuals.</p></div></a><a class="service" href="./servicos/fotos-ecommerce/"><span class="num">03</span><div><h3>E-commerce</h3><p>Tratamento, padronização e direção visual de produto para marketplaces e lojas online.</p></div></a><a class="service" href="./servicos/motion-design-vfx/"><span class="num">04</span><div><h3>Motion & Vídeo</h3><p>Motion design, VFX, animação e peças audiovisuais para campanhas e lançamentos.</p></div></a><a class="service" href="./servicos/modelagem-3d-produto/"><span class="num">05</span><div><h3>3D / CGI</h3><p>Modelagem, materiais, render, animação e experiências de produto em 3D.</p></div></a><a class="service" href="./servicos/sites-html/"><span class="num">06</span><div><h3>Web & Experiências</h3><p>HTML, páginas imersivas, publicação e experiências digitais sob medida.</p></div></a></div></div></section>
+<section id="services" class="section content-layer"><div class="wrap"><div class="section-head"><div><div class="kicker">SERVIÇOS</div><h2>Do conceito à entrega.</h2></div><p>Uma frente integrada de design studio e creative studio para branding, direção de arte, vídeos, IA, 3D, web e experiências digitais.</p></div><div class="services-grid"><a class="service" href="./servicos/identidade-visual-branding/"><span class="num">01</span><div><h3>Branding</h3><p>Identidade visual, direção de arte, sistemas gráficos e posicionamento.</p></div></a><a class="service" href="./servicos/direcao-arte-campanhas/"><span class="num">02</span><div><h3>Imagem & KV</h3><p>Campanhas, peças publicitárias, manipulação, composição e key visuals.</p></div></a><a class="service" href="./servicos/fotos-ecommerce/"><span class="num">03</span><div><h3>E-commerce</h3><p>Tratamento, padronização e direção visual de produto para marketplaces e lojas online.</p></div></a><a class="service" href="./servicos/motion-design-vfx/"><span class="num">04</span><div><h3>Motion & Vídeo</h3><p>Motion design, VFX, animação e peças audiovisuais para campanhas e lançamentos.</p></div></a><a class="service" href="./servicos/modelagem-3d-produto/"><span class="num">05</span><div><h3>3D / CGI</h3><p>Modelagem, materiais, render, animação e experiências de produto em 3D.</p></div></a><a class="service" href="./servicos/sites-html/"><span class="num">06</span><div><h3>Web & Experiências</h3><p>HTML, páginas imersivas, publicação e experiências digitais sob medida.</p></div></a></div><div id="msServicesMobileFallback" aria-label="Serviços em cards 3D para mobile"><div class="ms-mobile-services-rail"><a class="ms-mobile-service-card" href="/servicos/" aria-label="Social Media"><span class="ms-mobile-service-kicker">01</span><h3>Social Media</h3><p>Posts, stories, carrosséis e pacotes de criativos.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Vídeo"><span class="ms-mobile-service-kicker">02</span><h3>Vídeo</h3><p>Reels, edição com motion, legendas, efeitos e vídeo PRO.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Produção"><span class="ms-mobile-service-kicker">03</span><h3>Produção</h3><p>Diária de serviços para captação e produção audiovisual.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Motion e VFX"><span class="ms-mobile-service-kicker">04</span><h3>Motion e VFX</h3><p>Animação de logotipo, motion design, VFX e packs de vídeo.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Fotos"><span class="ms-mobile-service-kicker">05</span><h3>Fotos</h3><p>Correção, retoque avançado e pacotes de fotografia.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Manipulação"><span class="ms-mobile-service-kicker">06</span><h3>Manipulação</h3><p>Montagem, composição publicitária e composição complexa.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Identidade"><span class="ms-mobile-service-kicker">07</span><h3>Identidade</h3><p>Manuais de identidade visual essenciais e completos.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Campanhas"><span class="ms-mobile-service-kicker">08</span><h3>Campanhas</h3><p>Key visual, pacotes visuais e direção de arte.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="E-commerce"><span class="ms-mobile-service-kicker">09</span><h3>E-commerce</h3><p>Imagens de produto, kits de marketplace e banners comerciais.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Narrativa Visual"><span class="ms-mobile-service-kicker">10</span><h3>Narrativa Visual</h3><p>Ilustração, personagens, roteiro publicitário e storyboard.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="3D"><span class="ms-mobile-service-kicker">11</span><h3>3D</h3><p>Modelagem de produto, render animado e ambientes 3D.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Web / HTML"><span class="ms-mobile-service-kicker">12</span><h3>Web / HTML</h3><p>HTML, editor independente e publicação com domínio.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a></div></div></div></section>
 <section id="word" class="content-layer word-case-showcase" aria-label="Cases em destaque">
   <div class="word-sticky">
     <div class="word-case-visuals" id="wordCaseVisuals" aria-hidden="true">
