@@ -171,6 +171,9 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   height:100%;
   overflow:hidden;
   background:#080907;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   transform-origin:left center;
   will-change:transform,opacity;
   backface-visibility:hidden;
@@ -1099,17 +1102,17 @@ body{overflow-x:clip!important}
 <section id="word" class="content-layer word-case-showcase" aria-label="Cases em destaque">
   <div class="word-sticky">
     <div class="word-case-visuals" id="wordCaseVisuals" aria-hidden="true">
-      <article class="word-case-panel is-active" data-word-case="0">
-        <video class="word-case-media word-case-video" muted playsinline preload="metadata" data-src="https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4" data-start="65" data-end="78"></video>
+      <article class="word-case-panel is-active" data-word-case="0" style="background-image:url('https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg')">
+        <video class="word-case-media word-case-video" muted playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4" data-start="65" data-end="78"></video>
       </article>
-      <article class="word-case-panel" data-word-case="1">
-        <video class="word-case-media word-case-video word-case-mago" muted loop playsinline webkit-playsinline preload="auto" src="/assets/mago-gsap-10s.mp4" data-src="/assets/mago-gsap-10s.mp4"></video>
+      <article class="word-case-panel" data-word-case="1" style="background-image:url('https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg')">
+        <video class="word-case-media word-case-video word-case-mago" muted loop playsinline webkit-playsinline preload="auto" poster="https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg" src="/assets/mago-gsap-10s.mp4" data-src="/assets/mago-gsap-10s.mp4"></video>
       </article>
-      <article class="word-case-panel" data-word-case="2">
-        <img class="word-case-media" loading="lazy" decoding="async" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png" alt="">
+      <article class="word-case-panel" data-word-case="2" style="background-image:url('https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png')">
+        <img class="word-case-media" loading="eager" decoding="async" fetchpriority="high" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png" alt="">
       </article>
-      <article class="word-case-panel" data-word-case="3">
-        <video class="word-case-media word-case-video" muted loop playsinline preload="metadata" data-src="https://video.wixstatic.com/video/ef8a3a_f57409b1be21499eba6d825c07371206/file"></video>
+      <article class="word-case-panel" data-word-case="3" style="background-image:url('https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg')">
+        <video class="word-case-media word-case-video" muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_f57409b1be21499eba6d825c07371206/file"></video>
       </article>
     </div>
     <div class="word-shade"></div>
@@ -1232,6 +1235,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   gsap.registerPlugin(ScrollTrigger);
 
   const videos=[...section.querySelectorAll('.word-case-video')];
+  const images=[...section.querySelectorAll('.word-case-panel img.word-case-media')];
   const youtube=section.querySelector('.word-case-youtube');
   const youtubePanel=youtube?.closest('.word-case-panel')||null;
   const youtubeBase=youtube?.dataset.src||'';
@@ -1243,8 +1247,12 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
         video.load();
       }
     });
-    // YouTube intentionally stays unloaded here.
-    // It only starts when case 02 is fully centered in the viewport.
+    images.forEach(img=>{
+      try{img.loading='eager';img.fetchPriority='high'}catch(_){}
+      if(img.decode)img.decode().catch(()=>{});
+    });
+    // Prepaint every case before it enters the viewport so horizontal travel
+    // never exposes the dark section background between media loads.
   };
 
   const prepareSegmentVideo=video=>{
@@ -1355,7 +1363,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 
   const near=new IntersectionObserver(entries=>{
     if(entries.some(entry=>entry.isIntersecting))hydrateMedia();
-  },{rootMargin:'800px 0px',threshold:.01});
+  },{rootMargin:'1800px 0px',threshold:.01});
   near.observe(section);
 
   requestAnimationFrame(()=>requestAnimationFrame(()=>ScrollTrigger.refresh()));
@@ -1519,7 +1527,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260923-mobile-recovery-services-gsap2-v1 -->
+<!-- HOME_BUILD: 20260923-gsap-no-black-frame-v1 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
