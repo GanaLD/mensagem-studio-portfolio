@@ -983,8 +983,9 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   };
 
   gsap.set([track,copyTrack],{xPercent:0});
-  gsap.set(panels,{rotationY:0,scale:1,opacity:1,transformOrigin:'left center',transformPerspective:1500});
-  gsap.set(copies,{autoAlpha:1});
+  gsap.set(panels,{rotationY:0,scale:1,opacity:1});
+  gsap.set(copies,{autoAlpha:0});
+  gsap.set(copies[0],{autoAlpha:1});
 
   const sticky=section.querySelector('.word-sticky');
   // Use the four viewport panels themselves as the travel distance.
@@ -1023,13 +1024,12 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   // and moves the 4-screen strip continuously from left to right.
   tl.to([track,copyTrack],{x:()=>-horizontalDistance(),duration:3,ease:'none'},0);
 
+  // The cases now stay completely flat while the horizontal track moves.
+  // Only the incoming text block fades in near the moment its case locks into view.
   for(let i=0;i<3;i++){
-    const currentPanel=panels[i];
-    const nextPanel=panels[i+1];
+    const nextCopy=copies[i+1];
     const t=i;
-
-    tl.to(currentPanel,{rotationY:4,scale:.985,duration:.84,ease:'power2.inOut'},t)
-      .fromTo(nextPanel,{rotationY:-7,scale:1.025},{rotationY:0,scale:1,duration:.84,ease:'power2.out'},t+.10);
+    tl.to(nextCopy,{autoAlpha:1,duration:.24,ease:'power2.out'},t+.72);
   }
 
   const near=new IntersectionObserver(entries=>{
@@ -1198,7 +1198,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260922-production-gsap-copy-left-v2 -->
+<!-- HOME_BUILD: 20260923-gsap-flat-cases-text-fade-v1 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
