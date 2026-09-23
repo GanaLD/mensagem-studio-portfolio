@@ -29,7 +29,7 @@ function addStyles(){
   style.id='ms-home-runtime-style';
   style.textContent=`
   #services{overflow:visible}
-  #services .services-grid{display:none!important}
+  #services.ms-services-upgraded .services-grid{display:none!important}
   #services .section-head{margin-bottom:20px}
   #services .section-head p{max-width:50ch}
   .ms3d-shell{--ms3d-yellow:#ffd84d;--ms3d-yellow-rgb:255,216,77;--ms3d-card-blue:#4169e1;--ms3d-card-blue-rgb:65,105,225;position:relative;width:100vw;margin-left:calc(50% - 50vw);min-height:620px;display:grid;align-items:center;perspective:1700px;perspective-origin:50% 43%;overflow:hidden;touch-action:pan-y;user-select:none}
@@ -98,7 +98,7 @@ function addStyles(){
   .ms-footer-particle-stage{position:relative;min-width:0;min-height:clamp(300px,23vw,410px);overflow:hidden;border:0;background:transparent;display:grid;place-items:center;isolation:isolate;box-shadow:none;touch-action:pan-y;text-decoration:none;color:inherit;cursor:pointer}
   .ms-footer-particle-stage:before{content:none}
   .ms-footer-particle-canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;pointer-events:auto}
-  .ms-footer-particle-fallback{position:relative;z-index:0;margin:0;color:#f6f7f2;font-size:clamp(46px,6vw,104px);font-weight:800;letter-spacing:-.055em;line-height:.9;text-transform:none;opacity:0;pointer-events:none}
+  .ms-footer-particle-fallback{position:relative;z-index:0;margin:0;color:#f6f7f2;font-size:clamp(46px,6vw,104px);font-weight:800;letter-spacing:-.055em;line-height:.9;text-transform:none;opacity:0;pointer-events:none}\n  .ms-footer-particle-stage.is-static .ms-footer-particle-fallback{opacity:1}\n  .ms-footer-particle-hint{position:absolute;z-index:3;left:50%;bottom:14%;transform:translateX(-50%);color:#f6f7f2;font-size:clamp(8px,.8vw,11px);font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;opacity:.72;text-shadow:0 0 12px rgba(255,255,255,.18);pointer-events:none}\n  @media(max-width:560px){.ms-footer-particle-hint{bottom:10%;font-size:8px;letter-spacing:.16em}}
   @media(min-width:900px){.ms-footer-inner{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(440px,.94fr);column-gap:clamp(42px,5.5vw,92px);row-gap:0;align-items:center}.ms-footer-copy{align-self:center}.ms-footer-particle-stage{align-self:stretch}.ms-footer-meta{grid-column:1/-1}}
   @media(max-width:899px){.ms-footer-inner{display:block}.ms-footer-particle-stage{width:100%;min-height:280px;margin-top:42px}.ms-footer-meta{margin-top:42px}}
   @media(max-width:560px){.ms-footer-particle-stage{min-height:230px;margin-top:32px}.ms-footer-particle-fallback{font-size:clamp(42px,15vw,72px)}}
@@ -107,6 +107,17 @@ function addStyles(){
   #msHomeWhatsapp i{display:none!important}#msHomeWhatsapp svg{width:30px;height:30px;display:block;fill:currentColor}
   @media(max-width:1024px){.ms3d-shell{min-height:570px;perspective:1450px}.ms3d-stage{height:410px}.ms3d-card{width:181px;height:240px;margin-left:-90.5px;margin-top:-120px}.ms3d-inner{padding:17px}.ms3d-edge{width:52px;height:52px}.brief-grid{grid-template-columns:1fr!important}}
   @media(max-width:760px){.ms3d-shell{min-height:520px;perspective:none}.ms3d-shell:after{background:linear-gradient(90deg,#070806 0,transparent 4%,transparent 96%,#070806 100%)}.ms3d-stage{height:370px;transform-style:flat;overflow:visible}.ms3d-deck{transform-style:flat!important;transform:none!important}.ms3d-card{width:min(72vw,250px);height:300px;margin-left:calc(min(72vw,250px)/-2);margin-top:-150px;border-radius:21px;transform-style:flat!important;backface-visibility:visible!important}.ms3d-card.is-mobile-active{visibility:visible!important}.ms3d-inner{padding:18px;transform:none}.ms3d-copy{margin-top:26px;gap:9px}.ms3d-copy h3{font-size:27px;max-width:11ch}.ms3d-copy p{font-size:11px;line-height:1.42}.ms3d-foot{padding-top:12px;font-size:8px}.ms3d-edge{width:44px;height:44px;font-size:24px}.ms3d-edge.prev{left:8px}.ms3d-edge.next{right:8px}.ms3d-meta{bottom:4px;font-size:8px}.video-scroll-label{left:16px!important;right:16px;bottom:38px!important;font-size:10.5px!important;line-height:1.35}.video-scroll-meter{left:16px!important;right:16px!important}.ms-brief-action{min-height:72px;padding:0 18px}.ms-footer-links{display:grid;grid-template-columns:1fr 1fr}.ms-footer-link{width:100%}.ms-footer-meta{flex-direction:column}.stage-side{max-width:calc(100vw - 32px);overflow:auto}#motion .stage-side{left:16px;right:16px}#motion .stage-note{right:16px}#msHomeWhatsapp{width:54px!important;height:54px!important;min-height:54px!important;right:16px!important;bottom:16px!important}}
+  /* MOBILE SERVICES: native horizontal rail. Keeps the content visible even if the 3D carousel engine is unavailable. */
+  @media(max-width:760px){
+    .ms3d-shell{min-height:0!important;width:100%!important;margin-left:0!important;display:block!important;overflow:visible!important;perspective:none!important;touch-action:auto!important}
+    .ms3d-shell:before,.ms3d-shell:after{display:none!important}
+    .ms3d-stage{height:auto!important;min-height:320px!important;display:block!important;overflow-x:auto!important;overflow-y:hidden!important;padding:8px 16px 22px!important;scroll-snap-type:x mandatory;scroll-padding-inline:16px;touch-action:pan-x pan-y!important;cursor:auto!important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ms3d-stage::-webkit-scrollbar{display:none}
+    .ms3d-deck{position:relative!important;inset:auto!important;display:flex!important;gap:14px!important;width:max-content!important;height:auto!important;transform:none!important}
+    .ms3d-card{position:relative!important;left:auto!important;top:auto!important;flex:0 0 min(78vw,280px)!important;width:min(78vw,280px)!important;height:300px!important;margin:0!important;transform:none!important;opacity:1!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;scroll-snap-align:center!important}
+    .ms3d-card.is-mobile-active{visibility:visible!important}
+    .ms3d-edge,.ms3d-meta{display:none!important}
+  }
   @media(prefers-reduced-motion:reduce){.video-scroll-label,.video-scroll-meter i:after,.ms3d-card:before,.ms3d-card:after,.ms3d-shell:before{animation:none!important}.ms3d-card,.ms3d-edge,.ms-brief-action{transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -123,6 +134,8 @@ function upgradeServices(){
     
   </div>`);
   const shell=document.querySelector('#msServices3dShell'),stage=document.querySelector('#msServicesStage'),deck=document.querySelector('#msServicesDeck');
+  if(!shell||!stage||!deck)return;
+  section.classList.add('ms-services-upgraded');
   const cards=[...deck.querySelectorAll('.ms3d-card')],count=cards.length,step=360/count,reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let rotation=0,targetRotation=0,velocity=0,dragging=false,pointerId=null,startX=0,startRotation=0,lastX=0,lastT=0,suppressClick=false,lastInteraction=performance.now(),previousFrame=performance.now(),radius=520;
   const normalize=a=>((a%360)+360)%360;
@@ -134,17 +147,13 @@ function upgradeServices(){
     cards.forEach((card,i)=>{
       const world=signed(i*step+rotation);
       if(mobile){
-        const slot=world/step,absSlot=Math.abs(slot);
-        const focus=Math.max(0,1-Math.min(1,absSlot*.72));
-        const scale=Math.max(.72,1-Math.min(1.4,absSlot)*.18);
-        const x=slot*72;
-        card.style.setProperty('--focus',focus.toFixed(3));
-        card.style.transform=`translate3d(${x}vw,0,0) scale(${scale})`;
-        card.style.opacity=String(absSlot<=.62?1:absSlot<=1.35?Math.max(.18,.48-(absSlot-.62)*.36):0);
-        card.style.filter=`brightness(${(.72+focus*.28).toFixed(3)}) saturate(${(.84+focus*.20).toFixed(3)})`;
-        card.style.zIndex=String(Math.max(1,100-Math.round(absSlot*40)));
-        card.style.pointerEvents=absSlot<=.62?'auto':'none';
-        card.classList.toggle('is-mobile-active',absSlot<=.62);
+        card.style.setProperty('--focus','.35');
+        card.style.removeProperty('transform');
+        card.style.removeProperty('opacity');
+        card.style.removeProperty('filter');
+        card.style.removeProperty('z-index');
+        card.style.removeProperty('pointer-events');
+        card.classList.add('is-mobile-active');
       }else{
         const rad=world*Math.PI/180,facing=Math.cos(rad),focus=Math.max(0,Math.min(1,(facing+.12)/1.12)),scale=.82+focus*.18,lift=Math.sin(Math.abs(rad))*-14;
         card.style.setProperty('--focus',focus.toFixed(3));
@@ -160,7 +169,7 @@ function upgradeServices(){
   }
   function snapTo(index){const desired=-(index*step),turns=Math.round((rotation-desired)/360);targetRotation=desired+turns*360;for(const alt of [targetRotation+360,targetRotation-360])if(Math.abs(alt-rotation)<Math.abs(targetRotation-rotation))targetRotation=alt;lastInteraction=performance.now()}
   function stepRelative(dir){snapTo((activeIndex()+dir+count)%count)}
-  stage.addEventListener('pointerdown',e=>{dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
+  stage.addEventListener('pointerdown',e=>{if(innerWidth<=760)return;dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
   stage.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;const now=performance.now(),dx=e.clientX-startX,localDx=e.clientX-lastX,dt=Math.max(8,now-lastT),sensitivity=innerWidth<760?.28:.20;rotation=startRotation+dx*sensitivity;targetRotation=rotation;velocity=(localDx*sensitivity)/dt;if(Math.abs(dx)>7)suppressClick=true;lastX=e.clientX;lastT=now;render()});
   function endDrag(e){if(!dragging||(e&&e.pointerId!==pointerId))return;dragging=false;stage.classList.remove('is-dragging');try{stage.releasePointerCapture(pointerId)}catch{}pointerId=null;targetRotation=rotation+velocity*360;lastInteraction=performance.now()}
   stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);
@@ -169,12 +178,13 @@ function upgradeServices(){
   function tick(now){
     carouselRaf=0;
     if(!carouselVisible||document.hidden)return;
+    if(innerWidth<=760){render();return}
     const dt=Math.min(40,now-previousFrame);previousFrame=now;
     if(!dragging){if(!reduceMotion&&now-lastInteraction>1200)targetRotation-=dt*.0032;rotation+=(targetRotation-rotation)*Math.min(.12,dt*.0065);velocity*=.92}
     render();
     carouselRaf=requestAnimationFrame(tick);
   }
-  function startCarousel(){if(carouselVisible&&!document.hidden&&!carouselRaf){previousFrame=performance.now();carouselRaf=requestAnimationFrame(tick)}}
+  function startCarousel(){if(innerWidth<=760){render();return}if(carouselVisible&&!document.hidden&&!carouselRaf){previousFrame=performance.now();carouselRaf=requestAnimationFrame(tick)}}
   if('IntersectionObserver' in window){
     const io=new IntersectionObserver(entries=>{carouselVisible=entries.some(e=>e.isIntersecting);if(carouselVisible)startCarousel()},{rootMargin:'240px 0px',threshold:.01});
     io.observe(shell);
@@ -286,7 +296,7 @@ function upgradeFooter(){
   const footer=document.querySelector('footer');if(!footer)return;
   const existingSwitcher=document.querySelector('.bg-switcher');
   footer.classList.add('ms-site-footer');
-  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><a id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="PROJETOS" href="/portfolio/" aria-label="Abrir a página de projetos"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">PROJETOS</span></a><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
+  footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><a id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="PROJETOS" href="/portfolio/" aria-label="Abrir a página de projetos"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">PROJETOS</span><span class="ms-footer-particle-hint" aria-hidden="true">CLIQUE AQUI</span></a><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
   if(existingSwitcher){
     existingSwitcher.classList.add('ms-footer-bg-switcher');
     const label=existingSwitcher.querySelector('.bg-switcher-label');if(label)label.remove();
@@ -302,7 +312,7 @@ function initFooterParticleTypography(){
   if(!stage||!canvas||stage.dataset.particlesReady==='1')return;
   stage.dataset.particlesReady='1';
   const ctx=canvas.getContext('2d',{willReadFrequently:true});
-  if(!ctx)return;
+  if(!ctx){stage.classList.add('is-static');return;}
   const reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const particleText=stage.dataset.text||'PROJETOS';
   let particles=[];
@@ -443,5 +453,5 @@ function upgradeWhatsapp(){
   const a=document.querySelector('#msHomeWhatsapp');if(!a)return;a.href=WHATSAPP_URL;a.setAttribute('aria-label','Falar com a Mensagem Studio pelo WhatsApp');a.innerHTML=`<svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.99c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.055 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.69 1.448h.005c6.558 0 11.893-5.335 11.896-11.893a11.821 11.821 0 0 0-3.489-8.413Z"/></svg>`;
 }
 
-function init(){addStyles();upgradeServices();upgradeMotion();upgradeBrief();upgradeFooter();upgradeWhatsapp()}
+function safeUpgrade(name,fn){try{fn()}catch(err){console.error('[Mensagem Studio home runtime] '+name,err)}}\nfunction init(){safeUpgrade('styles',addStyles);safeUpgrade('services',upgradeServices);safeUpgrade('motion',upgradeMotion);safeUpgrade('brief',upgradeBrief);safeUpgrade('footer',upgradeFooter);safeUpgrade('whatsapp',upgradeWhatsapp)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
