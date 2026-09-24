@@ -110,6 +110,13 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   visibility:visible!important;
   mix-blend-mode:normal!important;
 }
+@media(min-width:761px){
+  /* Desktop alignment: keep the approved angel size/rotation, only raise its
+     visual slot slightly so it aligns vertically with the left hero copy. */
+  .hero-art.is-immersive .hero-immersive-wrap{
+    transform:translateY(-5%);
+  }
+}
 @media(max-width:600px){
   .hero-immersive-wrap{padding:2%}
   .hero-art.is-immersive .hero-immersive-wrap img.hero-immersive-angel{
@@ -1527,7 +1534,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   });
 })();;
 </script>
-<!-- HOME_BUILD: 20260923-gsap-no-black-frame-v1 -->
+<!-- HOME_BUILD: 20260924-hero-immersive-alignment-v1 -->
 
 <script>
 /* MS THREE CONTROLS V11 PER-ASSET FRAMING */
