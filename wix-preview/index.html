@@ -1826,6 +1826,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 <script id="ms-mobile-services-recovery-20260923">
 (()=>{
   const apply=()=>{
+    if(document.readyState==='loading')return;
     if(!matchMedia('(max-width:760px)').matches)return;
     const fallback=document.getElementById('msServicesMobileFallback');
     if(!fallback)return;
@@ -1853,7 +1854,8 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
       card.style.setProperty('opacity','1','important');
     });
   };
-  apply();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});
+  else apply();
   addEventListener('pageshow',apply,{once:true});
   addEventListener('resize',apply,{passive:true});
 })();
