@@ -92,7 +92,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   scene.background = null;
 
   const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
-  camera.position.set(0, 0, 9.6);
+  camera.position.set(0, 0, 12.2);
 
   const orbitGroup = new THREE.Group();
   scene.add(orbitGroup);
@@ -103,7 +103,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   const lime = 0xc9ff36;
   const aqua = 0x7effe3;
 
-  const outerGeometry = new THREE.SphereGeometry(4.65, 44, 30);
+  const outerGeometry = new THREE.SphereGeometry(3.18, 38, 26);
   const outerMaterial = new THREE.MeshBasicMaterial({
     color: lime,
     transparent: true,
@@ -115,7 +115,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   const outerSphere = new THREE.Mesh(outerGeometry, outerMaterial);
   globeGroup.add(outerSphere);
 
-  const innerGeometry = new THREE.SphereGeometry(4.42, 36, 24);
+  const innerGeometry = new THREE.SphereGeometry(3.04, 28, 18);
   const innerMaterial = new THREE.MeshBasicMaterial({
     color: aqua,
     transparent: true,
@@ -128,7 +128,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   innerSphere.rotation.set(0.18, 0.34, 0.08);
   globeGroup.add(innerSphere);
 
-  const shellGeometry = new THREE.SphereGeometry(4.55, 54, 36);
+  const shellGeometry = new THREE.SphereGeometry(3.12, 48, 32);
   const shellMaterial = new THREE.MeshBasicMaterial({
     color: lime,
     transparent: true,
@@ -167,21 +167,21 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     ringMeshes.push(ring);
   };
 
-  makeRing(4.96, [Math.PI / 2, 0, 0], lime, 0.35);
-  makeRing(5.02, [0.2, Math.PI / 2, 0.55], aqua, 0.23);
-  makeRing(5.12, [0.78, 0.18, 0.05], lime, 0.17);
-  makeRing(3.95, [0.28, 0.04, Math.PI / 2], aqua, 0.15);
+  makeRing(3.32, [Math.PI / 2, 0, 0], lime, 0.32);
+  makeRing(3.35, [0.2, Math.PI / 2, 0.55], aqua, 0.20);
+  makeRing(3.42, [0.78, 0.18, 0.05], lime, 0.14);
+  makeRing(2.55, [0.28, 0.04, Math.PI / 2], aqua, 0.13);
 
   const cardObjects = [];
   const basePositions = [];
-  const radius = 7.35;
+  const radius = 5.0;
   const goldenAngle = Math.PI * (3 - Math.sqrt(5));
 
   projects.forEach((_, index) => {
     const yNorm = 1 - 2 * ((index + 0.5) / projects.length);
     const ringRadius = Math.sqrt(Math.max(0, 1 - yNorm * yNorm));
     const theta = index * goldenAngle + 0.56;
-    const verticalSpread = window.innerWidth < 620 ? 0.44 : window.innerWidth < 900 ? 0.48 : 0.52;
+    const verticalSpread = 0.78;
     const base = new THREE.Vector3(
       Math.cos(theta) * ringRadius * radius,
       yNorm * radius * verticalSpread,
@@ -228,7 +228,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    sceneScale = width < 620 ? 0.84 : width < 900 ? 0.94 : 1.06;
+    sceneScale = width < 620 ? 0.70 : width < 900 ? 0.84 : 1;
     orbitGroup.scale.setScalar(sceneScale);
   }
 
@@ -250,7 +250,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
 
       const localDepth = tempWorld.z / Math.max(0.001, radius * sceneScale);
       const depth01 = clamp((localDepth + 1) * 0.5, 0, 1);
-      const scale = 0.84 + depth01 * 0.50;
+      const scale = 0.66 + depth01 * 0.46;
       const opacity = 0.34 + depth01 * 0.66;
       const behind = depth01 < 0.26;
 
@@ -258,7 +258,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
 
       // Keep the entire card inside the visible interaction area while rotating.
       // This prevents clipping at the top/bottom/left/right edges even at max scale.
-      const safeMargin = width < 620 ? 12 : 20;
+      const safeMargin = width < 620 ? 10 : 16;
       const halfCardW = Math.min(width * 0.46, (el.offsetWidth * scale) * 0.5 + safeMargin);
       const halfCardH = Math.min(height * 0.46, (el.offsetHeight * scale) * 0.5 + safeMargin);
       const x = clamp(projectedX, halfCardW, Math.max(halfCardW, width - halfCardW));
