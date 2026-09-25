@@ -11,10 +11,10 @@
 .ms-holo-projects{
   position:relative;
   width:100%;
-  height:clamp(860px,96vh,1280px);
-  min-height:860px;
+  height:clamp(920px,102vh,1380px);
+  min-height:920px;
   margin-top:clamp(18px,3vw,44px);
-  overflow:hidden;
+  overflow:visible;
   background:transparent;
   border:0;
   border-radius:0;
@@ -22,10 +22,10 @@
   user-select:none;
   -webkit-user-select:none;
 }
-.ms-holo-projects__viewport{
+ .ms-holo-projects__viewport{
   position:absolute;
-  inset:0;
-  overflow:hidden;
+  inset:-72px 0 -92px 0;
+  overflow:visible;
   background:transparent;
   cursor:grab;
   touch-action:pan-y;
@@ -166,6 +166,11 @@
 .ms-holo-card[aria-hidden="true"]{
   pointer-events:none;
 }
+#projects,
+#projects > .wrap,
+.ms-holo-projects__cards{
+  overflow:visible!important;
+}
 html.ms-holo-grid-ready #projects .projects-grid{
   display:none!important;
 }
@@ -183,8 +188,8 @@ html.ms-holo-grid-ready #projects .projects-grid{
   .ms-holo-projects{
     width:calc(100% + 18px);
     margin-left:-9px;
-    height:clamp(700px,86svh,920px);
-    min-height:700px;
+    height:clamp(760px,92svh,980px);
+    min-height:760px;
     margin-top:8px;
   }
   .ms-holo-card{
