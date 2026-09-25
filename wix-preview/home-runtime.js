@@ -79,7 +79,7 @@ function addStyles(){
   .ms-brief-action span:last-child{font-size:20px;color:var(--lime)}
   .ms-brief-action:hover,.ms-brief-action:focus-visible{outline:none;border-color:var(--lime);background:rgba(201,255,54,.08);transform:translateX(4px)}
   .final-cta{display:none!important}
-  footer.ms-site-footer{display:block!important;padding:clamp(54px,7vw,110px) var(--pad) 32px!important;color:var(--fg)!important;background:linear-gradient(180deg,rgba(7,8,6,.18),rgba(7,8,6,.94) 28%,#070806 100%)!important;border-top:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(10px)!important}
+  footer.ms-site-footer{display:block!important;position:relative!important;z-index:30!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;overflow:visible!important;padding:clamp(54px,7vw,110px) var(--pad) 32px!important;color:var(--fg)!important;background:linear-gradient(180deg,rgba(7,8,6,.18),rgba(7,8,6,.94) 28%,#070806 100%)!important;border-top:1px solid rgba(255,255,255,.12)!important;backdrop-filter:blur(10px)!important}
   .ms-footer-inner{width:min(1600px,100%);margin:0 auto}.ms-footer-kicker{color:var(--lime);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
   .ms-footer-title{font-size:clamp(44px,7vw,116px);line-height:.86;letter-spacing:-.06em;text-transform:uppercase;margin:0;max-width:12ch}
   .ms-footer-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:42px;align-items:center}.ms-footer-link{min-height:48px;padding:0 17px;border:1px solid rgba(255,255,255,.17);background:rgba(8,9,7,.5);display:inline-flex;align-items:center;justify-content:space-between;gap:24px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;transition:.2s ease}.ms-footer-link:hover,.ms-footer-link:focus-visible{outline:none;border-color:var(--lime);color:var(--lime);background:rgba(201,255,54,.04)}
@@ -106,15 +106,15 @@ function addStyles(){
   #msHomeWhatsapp{width:58px!important;height:58px!important;min-height:58px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important;background:#25D366!important;color:#fff!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 28px rgba(37,211,102,.24)!important;font-size:0!important}
   #msHomeWhatsapp i{display:none!important}#msHomeWhatsapp svg{width:30px;height:30px;display:block;fill:currentColor}
   @media(max-width:1024px){.ms3d-shell{min-height:570px;perspective:1450px}.ms3d-stage{height:410px}.ms3d-card{width:181px;height:240px;margin-left:-90.5px;margin-top:-120px}.ms3d-inner{padding:17px}.ms3d-edge{width:52px;height:52px}.brief-grid{grid-template-columns:1fr!important}}
-  @media(max-width:760px){.ms3d-shell{min-height:520px;perspective:none}.ms3d-shell:after{background:linear-gradient(90deg,#070806 0,transparent 4%,transparent 96%,#070806 100%)}.ms3d-stage{height:370px;transform-style:flat;overflow:visible}.ms3d-deck{transform-style:flat!important;transform:none!important}.ms3d-card{width:min(72vw,250px);height:300px;margin-left:calc(min(72vw,250px)/-2);margin-top:-150px;border-radius:21px;transform-style:flat!important;backface-visibility:visible!important}.ms3d-card.is-mobile-active{visibility:visible!important}.ms3d-inner{padding:18px;transform:none}.ms3d-copy{margin-top:26px;gap:9px}.ms3d-copy h3{font-size:27px;max-width:11ch}.ms3d-copy p{font-size:11px;line-height:1.42}.ms3d-foot{padding-top:12px;font-size:8px}.ms3d-edge{width:44px;height:44px;font-size:24px}.ms3d-edge.prev{left:8px}.ms3d-edge.next{right:8px}.ms3d-meta{bottom:4px;font-size:8px}.video-scroll-label{left:16px!important;right:16px;bottom:38px!important;font-size:10.5px!important;line-height:1.35}.video-scroll-meter{left:16px!important;right:16px!important}.ms-brief-action{min-height:72px;padding:0 18px}.ms-footer-links{display:grid;grid-template-columns:1fr 1fr}.ms-footer-link{width:100%}.ms-footer-meta{flex-direction:column}.stage-side{max-width:calc(100vw - 32px);overflow:auto}#motion .stage-side{left:16px;right:16px}#motion .stage-note{right:16px}#msHomeWhatsapp{width:54px!important;height:54px!important;min-height:54px!important;right:16px!important;bottom:16px!important}}
+  @media(max-width:760px){.ms3d-shell{min-height:520px;perspective:1100px;perspective-origin:50% 45%}.ms3d-shell:after{background:linear-gradient(90deg,#070806 0,transparent 4%,transparent 96%,#070806 100%)}.ms3d-stage{height:370px;transform-style:preserve-3d;overflow:visible}.ms3d-deck{transform-style:preserve-3d!important;transform:none!important}.ms3d-card{width:min(72vw,250px);height:300px;margin-left:calc(min(72vw,250px)/-2);margin-top:-150px;border-radius:21px;transform-style:preserve-3d!important;backface-visibility:hidden!important}.ms3d-card.is-mobile-active{visibility:visible!important}.ms3d-inner{padding:18px;transform:translateZ(22px)}.ms3d-copy{margin-top:26px;gap:9px}.ms3d-copy h3{font-size:27px;max-width:11ch}.ms3d-copy p{font-size:11px;line-height:1.42}.ms3d-foot{padding-top:12px;font-size:8px}.ms3d-edge{width:44px;height:44px;font-size:24px}.ms3d-edge.prev{left:8px}.ms3d-edge.next{right:8px}.ms3d-meta{bottom:4px;font-size:8px}.video-scroll-label{left:16px!important;right:16px;bottom:38px!important;font-size:10.5px!important;line-height:1.35}.video-scroll-meter{left:16px!important;right:16px!important}.ms-brief-action{min-height:72px;padding:0 18px}.ms-footer-links{display:grid;grid-template-columns:1fr 1fr}.ms-footer-link{width:100%}.ms-footer-meta{flex-direction:column}.stage-side{max-width:calc(100vw - 32px);overflow:auto}#motion .stage-side{left:16px;right:16px}#motion .stage-note{right:16px}#msHomeWhatsapp{width:54px!important;height:54px!important;min-height:54px!important;right:16px!important;bottom:16px!important}}
   /* MOBILE SERVICES: native horizontal rail. Keeps the content visible even if the 3D carousel engine is unavailable. */
   @media(max-width:760px){
-    .ms3d-shell{min-height:0!important;width:100%!important;margin-left:0!important;display:block!important;overflow:visible!important;perspective:none!important;touch-action:auto!important}
+    .ms3d-shell{min-height:0!important;width:100%!important;margin-left:0!important;display:block!important;overflow:visible!important;perspective:1100px!important;perspective-origin:50% 45%!important;touch-action:auto!important}
     .ms3d-shell:before,.ms3d-shell:after{display:none!important}
-    .ms3d-stage{height:auto!important;min-height:320px!important;display:block!important;overflow-x:auto!important;overflow-y:hidden!important;padding:8px 16px 22px!important;scroll-snap-type:x mandatory;scroll-padding-inline:16px;touch-action:pan-x pan-y!important;cursor:auto!important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .ms3d-stage{height:auto!important;min-height:320px!important;display:block!important;perspective:1000px!important;transform-style:preserve-3d!important;overflow-x:auto!important;overflow-y:hidden!important;padding:8px 16px 22px!important;scroll-snap-type:x mandatory;scroll-padding-inline:16px;touch-action:pan-x pan-y!important;cursor:auto!important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
     .ms3d-stage::-webkit-scrollbar{display:none}
-    .ms3d-deck{position:relative!important;inset:auto!important;display:flex!important;gap:14px!important;width:max-content!important;height:auto!important;transform:none!important}
-    .ms3d-card{position:relative!important;left:auto!important;top:auto!important;flex:0 0 min(78vw,280px)!important;width:min(78vw,280px)!important;height:300px!important;margin:0!important;transform:none!important;opacity:1!important;filter:none!important;visibility:visible!important;pointer-events:auto!important;scroll-snap-align:center!important}
+    .ms3d-deck{position:relative!important;inset:auto!important;display:flex!important;gap:14px!important;width:max-content!important;height:auto!important;transform:none!important;transform-style:preserve-3d!important}
+    .ms3d-card{position:relative!important;left:auto!important;top:auto!important;flex:0 0 min(78vw,280px)!important;width:min(78vw,280px)!important;height:300px!important;margin:0!important;transform-style:preserve-3d!important;backface-visibility:hidden!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;scroll-snap-align:center!important}
     .ms3d-card.is-mobile-active{visibility:visible!important}
     .ms3d-edge,.ms3d-meta{display:none!important}
   }
@@ -147,12 +147,18 @@ function upgradeServices(){
     cards.forEach((card,i)=>{
       const world=signed(i*step+rotation);
       if(mobile){
-        card.style.setProperty('--focus','.35');
-        card.style.removeProperty('transform');
-        card.style.removeProperty('opacity');
-        card.style.removeProperty('filter');
-        card.style.removeProperty('z-index');
-        card.style.removeProperty('pointer-events');
+        const stageCenter=stage.scrollLeft+stage.clientWidth/2;
+        const cardCenter=card.offsetLeft+card.offsetWidth/2;
+        const relative=Math.max(-1,Math.min(1,(cardCenter-stageCenter)/Math.max(1,stage.clientWidth*.68)));
+        const focus=1-Math.abs(relative)*.48;
+        const yaw=-relative*16;
+        const scale=.94+focus*.06;
+        card.style.setProperty('--focus',focus.toFixed(3));
+        card.style.transform=`rotateY(${yaw.toFixed(2)}deg) rotateX(2deg) translateZ(${(focus*24).toFixed(1)}px) scale(${scale.toFixed(3)})`;
+        card.style.opacity='1';
+        card.style.filter=`brightness(${(.82+focus*.18).toFixed(3)}) saturate(${(.88+focus*.18).toFixed(3)})`;
+        card.style.zIndex=String(Math.round(focus*20));
+        card.style.pointerEvents='auto';
         card.classList.add('is-mobile-active');
       }else{
         const rad=world*Math.PI/180,facing=Math.cos(rad),focus=Math.max(0,Math.min(1,(facing+.12)/1.12)),scale=.82+focus*.18,lift=Math.sin(Math.abs(rad))*-14;
@@ -172,7 +178,7 @@ function upgradeServices(){
   stage.addEventListener('pointerdown',e=>{if(innerWidth<=760)return;dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
   stage.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;const now=performance.now(),dx=e.clientX-startX,localDx=e.clientX-lastX,dt=Math.max(8,now-lastT),sensitivity=innerWidth<760?.28:.20;rotation=startRotation+dx*sensitivity;targetRotation=rotation;velocity=(localDx*sensitivity)/dt;if(Math.abs(dx)>7)suppressClick=true;lastX=e.clientX;lastT=now;render()});
   function endDrag(e){if(!dragging||(e&&e.pointerId!==pointerId))return;dragging=false;stage.classList.remove('is-dragging');try{stage.releasePointerCapture(pointerId)}catch{}pointerId=null;targetRotation=rotation+velocity*360;lastInteraction=performance.now()}
-  stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);
+  stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);let mobileDepthRaf=0;stage.addEventListener('scroll',()=>{if(innerWidth>760)return;if(!mobileDepthRaf)mobileDepthRaf=requestAnimationFrame(()=>{mobileDepthRaf=0;render()})},{passive:true});
   cards.forEach((card,i)=>{card.addEventListener('click',e=>{if(suppressClick){e.preventDefault();suppressClick=false;return}e.preventDefault();window.location.assign(SERVICES_URL)});card.addEventListener('mouseenter',()=>lastInteraction=performance.now());card.addEventListener('focus',()=>snapTo(i))});
   let carouselVisible=false,carouselRaf=0;
   function tick(now){
@@ -295,7 +301,7 @@ function upgradeFooter(){
   const finalCta=document.querySelector('.final-cta');if(finalCta)finalCta.setAttribute('aria-hidden','true');
   const footer=document.querySelector('footer');if(!footer)return;
   const existingSwitcher=document.querySelector('.bg-switcher');
-  footer.classList.add('ms-site-footer');
+  footer.classList.remove('ms-reveal','ms-reveal-left','ms-reveal-right','ms-reveal-scale');delete footer.dataset.msRevealBound;footer.classList.add('ms-site-footer','is-visible');footer.style.opacity='1';footer.style.visibility='visible';footer.style.transform='none';footer.style.filter='none';
   footer.innerHTML=`<div class="ms-footer-inner"><div class="ms-footer-copy"><div class="ms-footer-kicker">MENSAGEM STUDIO</div><h2 class="ms-footer-title">TRANSFORME SUA IDEIA EM REALIDADE</h2><nav class="ms-footer-links" aria-label="Links do rodapé"><a class="ms-footer-link" href="#hero"><span>VOLTAR AO TOPO</span><b>↑</b></a><a class="ms-footer-link" href="${INSTAGRAM_URL}" target="_blank" rel="noopener"><span>INSTAGRAM</span><b>↗</b></a><a class="ms-footer-link" href="${BEHANCE_URL}" target="_blank" rel="noopener"><span>BEHANCE</span><b>↗</b></a><a class="ms-footer-link" href="${LINKEDIN_URL}" target="_blank" rel="noopener"><span>LINKEDIN</span><b>↗</b></a></nav></div><a id="msFooterParticleStage" class="ms-footer-particle-stage" data-text="PROJETOS" href="/portfolio/" aria-label="Abrir a página de projetos"><canvas id="msFooterParticleCanvas" class="ms-footer-particle-canvas" aria-hidden="true"></canvas><span class="ms-footer-particle-fallback" aria-hidden="true">PROJETOS</span><span class="ms-footer-particle-hint" aria-hidden="true">CLIQUE AQUI</span></a><div class="ms-footer-meta"><span>Mensagem Studio · Curitiba · PR</span><span>Design · Motion · 3D · Web</span></div></div>`;
   if(existingSwitcher){
     existingSwitcher.classList.add('ms-footer-bg-switcher');
