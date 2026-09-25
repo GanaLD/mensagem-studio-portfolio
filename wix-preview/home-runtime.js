@@ -118,6 +118,21 @@ function addStyles(){
     .ms3d-card.is-mobile-active{visibility:visible!important}
     .ms3d-edge,.ms3d-meta{display:none!important}
   }
+  /* MOBILE TRUE 3D RING — the services carousel keeps real Z depth on phones. */
+  @media(max-width:760px){
+    #msServicesMobileFallback{display:none!important;visibility:hidden!important;opacity:0!important}
+    #msServices3dShell{width:100vw!important;margin-left:calc(50% - 50vw)!important;min-height:500px!important;display:grid!important;align-items:center!important;overflow:hidden!important;perspective:980px!important;perspective-origin:50% 44%!important;touch-action:pan-y!important}
+    #msServices3dShell:before{display:block!important;bottom:54px!important;width:88vw!important;height:112px!important}
+    #msServices3dShell:after{display:block!important;background:linear-gradient(90deg,#070806 0,transparent 5%,transparent 95%,#070806 100%)!important}
+    #msServicesStage{position:relative!important;height:390px!important;min-height:390px!important;display:grid!important;place-items:center!important;overflow:visible!important;padding:0!important;perspective:980px!important;transform-style:preserve-3d!important;touch-action:pan-y!important}
+    #msServicesDeck{position:absolute!important;inset:0!important;display:block!important;width:auto!important;height:auto!important;transform-style:preserve-3d!important;will-change:transform!important}
+    #msServicesDeck .ms3d-card{position:absolute!important;left:50%!important;top:50%!important;flex:none!important;width:min(46vw,184px)!important;height:252px!important;margin-left:calc(min(46vw,184px)/-2)!important;margin-top:-126px!important;border-radius:20px!important;scroll-snap-align:none!important;transform-style:preserve-3d!important;backface-visibility:hidden!important;will-change:transform,opacity,filter!important}
+    #msServicesDeck .ms3d-inner{padding:17px!important;transform:translateZ(26px)!important;transform-style:preserve-3d!important}
+    #msServicesDeck .ms3d-copy{margin-top:22px!important}
+    #msServicesDeck .ms3d-copy h3{font-size:clamp(22px,7vw,29px)!important}
+    #msServicesDeck .ms3d-copy p{font-size:10.5px!important;line-height:1.42!important}
+    #msServicesDeck .ms3d-foot{font-size:7.5px!important}
+  }
   @media(prefers-reduced-motion:reduce){.video-scroll-label,.video-scroll-meter i:after,.ms3d-card:before,.ms3d-card:after,.ms3d-shell:before{animation:none!important}.ms3d-card,.ms3d-edge,.ms-brief-action{transition:none!important}}
   `;
   document.head.appendChild(style);
@@ -144,38 +159,27 @@ function upgradeServices(){
   function activeIndex(){let best=0,bestAbs=Infinity;cards.forEach((card,i)=>{const abs=Math.abs(signed(i*step+rotation));if(abs<bestAbs){bestAbs=abs;best=i}});return best}
   function render(){
     const mobile=innerWidth<=760;
+    const ringRadius=mobile?Math.min(270,Math.max(225,shell.clientWidth*.64)):radius;
     cards.forEach((card,i)=>{
       const world=signed(i*step+rotation);
-      if(mobile){
-        const stageCenter=stage.scrollLeft+stage.clientWidth/2;
-        const cardCenter=card.offsetLeft+card.offsetWidth/2;
-        const relative=Math.max(-1,Math.min(1,(cardCenter-stageCenter)/Math.max(1,stage.clientWidth*.68)));
-        const focus=1-Math.abs(relative)*.48;
-        const yaw=-relative*16;
-        const scale=.94+focus*.06;
-        card.style.setProperty('--focus',focus.toFixed(3));
-        card.style.transform=`rotateY(${yaw.toFixed(2)}deg) rotateX(2deg) translateZ(${(focus*24).toFixed(1)}px) scale(${scale.toFixed(3)})`;
-        card.style.opacity='1';
-        card.style.filter=`brightness(${(.82+focus*.18).toFixed(3)}) saturate(${(.88+focus*.18).toFixed(3)})`;
-        card.style.zIndex=String(Math.round(focus*20));
-        card.style.pointerEvents='auto';
-        card.classList.add('is-mobile-active');
-      }else{
-        const rad=world*Math.PI/180,facing=Math.cos(rad),focus=Math.max(0,Math.min(1,(facing+.12)/1.12)),scale=.82+focus*.18,lift=Math.sin(Math.abs(rad))*-14;
-        card.style.setProperty('--focus',focus.toFixed(3));
-        card.style.transform=`rotateY(${i*step}deg) translateZ(${radius}px) translateY(${lift}px) scale(${scale})`;
-        card.style.opacity=String(Math.max(.06,.16+focus*.84));
-        card.style.filter=`brightness(${(.56+focus*.44).toFixed(3)}) saturate(${(.74+focus*.32).toFixed(3)})`;
-        card.style.zIndex=String(Math.round(focus*100));
-        card.style.pointerEvents=facing<-.18?'none':'auto';
-        card.classList.remove('is-mobile-active');
-      }
+      const rad=world*Math.PI/180;
+      const facing=Math.cos(rad);
+      const focus=Math.max(0,Math.min(1,(facing+.12)/1.12));
+      const scale=(mobile?.78:.82)+focus*(mobile?.22:.18);
+      const lift=Math.sin(Math.abs(rad))*(mobile?-9:-14);
+      card.style.setProperty('--focus',focus.toFixed(3));
+      card.style.transform=`rotateY(${i*step}deg) translateZ(${ringRadius}px) translateY(${lift}px) scale(${scale})`;
+      card.style.opacity=String(Math.max(mobile?.10:.06,(mobile?.20:.16)+focus*(mobile?.80:.84)));
+      card.style.filter=`brightness(${((mobile?.60:.56)+focus*(mobile?.40:.44)).toFixed(3)}) saturate(${((mobile?.78:.74)+focus*(mobile?.28:.32)).toFixed(3)})`;
+      card.style.zIndex=String(Math.round(focus*100));
+      card.style.pointerEvents=facing<-.28?'none':'auto';
+      card.classList.toggle('is-mobile-active',mobile&&facing>-.28);
     });
-    deck.style.transform=mobile?'none':`rotateY(${rotation}deg)`;
+    deck.style.transform=`rotateY(${rotation}deg)`;
   }
   function snapTo(index){const desired=-(index*step),turns=Math.round((rotation-desired)/360);targetRotation=desired+turns*360;for(const alt of [targetRotation+360,targetRotation-360])if(Math.abs(alt-rotation)<Math.abs(targetRotation-rotation))targetRotation=alt;lastInteraction=performance.now()}
   function stepRelative(dir){snapTo((activeIndex()+dir+count)%count)}
-  stage.addEventListener('pointerdown',e=>{if(innerWidth<=760)return;dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
+  stage.addEventListener('pointerdown',e=>{dragging=true;pointerId=e.pointerId;stage.setPointerCapture(pointerId);stage.classList.add('is-dragging');startX=lastX=e.clientX;startRotation=rotation;lastT=performance.now();velocity=0;suppressClick=false;lastInteraction=performance.now()});
   stage.addEventListener('pointermove',e=>{if(!dragging||e.pointerId!==pointerId)return;const now=performance.now(),dx=e.clientX-startX,localDx=e.clientX-lastX,dt=Math.max(8,now-lastT),sensitivity=innerWidth<760?.28:.20;rotation=startRotation+dx*sensitivity;targetRotation=rotation;velocity=(localDx*sensitivity)/dt;if(Math.abs(dx)>7)suppressClick=true;lastX=e.clientX;lastT=now;render()});
   function endDrag(e){if(!dragging||(e&&e.pointerId!==pointerId))return;dragging=false;stage.classList.remove('is-dragging');try{stage.releasePointerCapture(pointerId)}catch{}pointerId=null;targetRotation=rotation+velocity*360;lastInteraction=performance.now()}
   stage.addEventListener('pointerup',endDrag);stage.addEventListener('pointercancel',endDrag);let mobileDepthRaf=0;stage.addEventListener('scroll',()=>{if(innerWidth>760)return;if(!mobileDepthRaf)mobileDepthRaf=requestAnimationFrame(()=>{mobileDepthRaf=0;render()})},{passive:true});
@@ -184,19 +188,18 @@ function upgradeServices(){
   function tick(now){
     carouselRaf=0;
     if(!carouselVisible||document.hidden)return;
-    if(innerWidth<=760){render();return}
     const dt=Math.min(40,now-previousFrame);previousFrame=now;
-    if(!dragging){if(!reduceMotion&&now-lastInteraction>1200)targetRotation-=dt*.0032;rotation+=(targetRotation-rotation)*Math.min(.12,dt*.0065);velocity*=.92}
+    if(!dragging){if(!reduceMotion&&now-lastInteraction>1200)targetRotation-=dt*(innerWidth<=760?.0018:.0032);rotation+=(targetRotation-rotation)*Math.min(.12,dt*.0065);velocity*=.92}
     render();
     carouselRaf=requestAnimationFrame(tick);
   }
-  function startCarousel(){if(innerWidth<=760){render();return}if(carouselVisible&&!document.hidden&&!carouselRaf){previousFrame=performance.now();carouselRaf=requestAnimationFrame(tick)}}
+  function startCarousel(){if(carouselVisible&&!document.hidden&&!carouselRaf){previousFrame=performance.now();carouselRaf=requestAnimationFrame(tick)}}
   if('IntersectionObserver' in window){
     const io=new IntersectionObserver(entries=>{carouselVisible=entries.some(e=>e.isIntersecting);if(carouselVisible)startCarousel()},{rootMargin:'240px 0px',threshold:.01});
     io.observe(shell);
   }else carouselVisible=true;
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)startCarousel()});
-  addEventListener('resize',()=>{computeRadius();render();if(innerWidth<=760)startCarousel()},{passive:true});computeRadius();render();startCarousel();
+  addEventListener('resize',()=>{computeRadius();render();startCarousel()},{passive:true});computeRadius();render();startCarousel();
 }
 
 function ytSrc(id,autoplay=false){return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&enablejsapi=1&playsinline=1&mute=1${autoplay?'&autoplay=1':''}`}
