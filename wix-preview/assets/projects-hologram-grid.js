@@ -92,7 +92,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   scene.background = null;
 
   const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
-  camera.position.set(0, 0, 8.4);
+  camera.position.set(0, 0, 9.0);
 
   const orbitGroup = new THREE.Group();
   scene.add(orbitGroup);
@@ -174,16 +174,17 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
 
   const cardObjects = [];
   const basePositions = [];
-  const radius = 8.35;
+  const radius = 8.05;
   const goldenAngle = Math.PI * (3 - Math.sqrt(5));
 
   projects.forEach((_, index) => {
     const yNorm = 1 - 2 * ((index + 0.5) / projects.length);
     const ringRadius = Math.sqrt(Math.max(0, 1 - yNorm * yNorm));
     const theta = index * goldenAngle + 0.56;
+    const verticalSpread = window.innerWidth < 620 ? 0.46 : window.innerWidth < 900 ? 0.50 : 0.56;
     const base = new THREE.Vector3(
       Math.cos(theta) * ringRadius * radius,
-      yNorm * radius * 0.78,
+      yNorm * radius * verticalSpread,
       Math.sin(theta) * ringRadius * radius
     );
     const object = new THREE.Object3D();
@@ -227,7 +228,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    sceneScale = width < 620 ? 0.94 : width < 900 ? 1.08 : 1.30;
+    sceneScale = width < 620 ? 0.90 : width < 900 ? 1.02 : 1.18;
     orbitGroup.scale.setScalar(sceneScale);
   }
 
@@ -244,16 +245,25 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
 
       tempProjected.copy(tempWorld).project(camera);
 
-      const x = (tempProjected.x * 0.5 + 0.5) * width;
-      const y = (-tempProjected.y * 0.5 + 0.5) * height;
+      const projectedX = (tempProjected.x * 0.5 + 0.5) * width;
+      const projectedY = (-tempProjected.y * 0.5 + 0.5) * height;
 
       const localDepth = tempWorld.z / Math.max(0.001, radius * sceneScale);
       const depth01 = clamp((localDepth + 1) * 0.5, 0, 1);
-      const scale = 0.96 + depth01 * 0.68;
+      const scale = 0.92 + depth01 * 0.62;
       const opacity = 0.34 + depth01 * 0.66;
       const behind = depth01 < 0.26;
 
       const el = cardElements[index];
+
+      // Keep the entire card inside the visible interaction area while rotating.
+      // This prevents clipping at the top/bottom/left/right edges even at max scale.
+      const safeMargin = width < 620 ? 14 : 26;
+      const halfCardW = Math.min(width * 0.46, (el.offsetWidth * scale) * 0.5 + safeMargin);
+      const halfCardH = Math.min(height * 0.46, (el.offsetHeight * scale) * 0.5 + safeMargin);
+      const x = clamp(projectedX, halfCardW, Math.max(halfCardW, width - halfCardW));
+      const y = clamp(projectedY, halfCardH, Math.max(halfCardH, height - halfCardH));
+
       el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(-50%,-50%) scale(${scale.toFixed(3)})`;
       el.style.setProperty("--ms-card-opacity", opacity.toFixed(3));
       el.style.zIndex = String(20 + Math.round(depth01 * 80));
