@@ -92,7 +92,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   scene.background = null;
 
   const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 100);
-  camera.position.set(0, 0, 9.6);
+  camera.position.set(0, 0, 8.4);
 
   const orbitGroup = new THREE.Group();
   scene.add(orbitGroup);
@@ -103,7 +103,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   const lime = 0xc9ff36;
   const aqua = 0x7effe3;
 
-  const outerGeometry = new THREE.SphereGeometry(4.45, 42, 30);
+  const outerGeometry = new THREE.SphereGeometry(5.35, 46, 32);
   const outerMaterial = new THREE.MeshBasicMaterial({
     color: lime,
     transparent: true,
@@ -115,7 +115,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   const outerSphere = new THREE.Mesh(outerGeometry, outerMaterial);
   globeGroup.add(outerSphere);
 
-  const innerGeometry = new THREE.SphereGeometry(4.22, 34, 22);
+  const innerGeometry = new THREE.SphereGeometry(5.08, 38, 24);
   const innerMaterial = new THREE.MeshBasicMaterial({
     color: aqua,
     transparent: true,
@@ -128,7 +128,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
   innerSphere.rotation.set(0.18, 0.34, 0.08);
   globeGroup.add(innerSphere);
 
-  const shellGeometry = new THREE.SphereGeometry(4.34, 52, 36);
+  const shellGeometry = new THREE.SphereGeometry(5.22, 56, 38);
   const shellMaterial = new THREE.MeshBasicMaterial({
     color: lime,
     transparent: true,
@@ -167,14 +167,14 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     ringMeshes.push(ring);
   };
 
-  makeRing(4.72, [Math.PI / 2, 0, 0], lime, 0.34);
-  makeRing(4.78, [0.2, Math.PI / 2, 0.55], aqua, 0.22);
-  makeRing(4.88, [0.78, 0.18, 0.05], lime, 0.16);
-  makeRing(3.72, [0.28, 0.04, Math.PI / 2], aqua, 0.14);
+  makeRing(5.68, [Math.PI / 2, 0, 0], lime, 0.36);
+  makeRing(5.76, [0.2, Math.PI / 2, 0.55], aqua, 0.24);
+  makeRing(5.88, [0.78, 0.18, 0.05], lime, 0.18);
+  makeRing(4.48, [0.28, 0.04, Math.PI / 2], aqua, 0.16);
 
   const cardObjects = [];
   const basePositions = [];
-  const radius = 7.1;
+  const radius = 8.35;
   const goldenAngle = Math.PI * (3 - Math.sqrt(5));
 
   projects.forEach((_, index) => {
@@ -227,7 +227,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 
-    sceneScale = width < 620 ? 0.82 : width < 900 ? 0.96 : 1.12;
+    sceneScale = width < 620 ? 0.94 : width < 900 ? 1.08 : 1.30;
     orbitGroup.scale.setScalar(sceneScale);
   }
 
@@ -249,7 +249,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
 
       const localDepth = tempWorld.z / Math.max(0.001, radius * sceneScale);
       const depth01 = clamp((localDepth + 1) * 0.5, 0, 1);
-      const scale = 0.84 + depth01 * 0.56;
+      const scale = 0.96 + depth01 * 0.68;
       const opacity = 0.34 + depth01 * 0.66;
       const behind = depth01 < 0.26;
 
