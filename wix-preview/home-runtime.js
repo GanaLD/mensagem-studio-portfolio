@@ -168,14 +168,14 @@ function upgradeServices(){
       const scale=(mobile?.78:.82)+focus*(mobile?.22:.18);
       const lift=Math.sin(Math.abs(rad))*(mobile?-9:-14);
       card.style.setProperty('--focus',focus.toFixed(3));
-      card.style.transform=`rotateY(${i*step}deg) translateZ(${ringRadius}px) translateY(${lift}px) scale(${scale})`;
-      card.style.opacity=String(Math.max(mobile?.10:.06,(mobile?.20:.16)+focus*(mobile?.80:.84)));
-      card.style.filter=`brightness(${((mobile?.60:.56)+focus*(mobile?.40:.44)).toFixed(3)}) saturate(${((mobile?.78:.74)+focus*(mobile?.28:.32)).toFixed(3)})`;
+      card.style.setProperty('transform',`rotateY(${i*step}deg) translateZ(${ringRadius}px) translateY(${lift}px) scale(${scale})`,'important');
+      card.style.setProperty('opacity',String(Math.max(mobile?.10:.06,(mobile?.20:.16)+focus*(mobile?.80:.84))),'important');
+      card.style.setProperty('filter',`brightness(${((mobile?.60:.56)+focus*(mobile?.40:.44)).toFixed(3)}) saturate(${((mobile?.78:.74)+focus*(mobile?.28:.32)).toFixed(3)})`,'important');
       card.style.zIndex=String(Math.round(focus*100));
-      card.style.pointerEvents=facing<-.28?'none':'auto';
+      card.style.setProperty('pointer-events',facing<-.28?'none':'auto','important');
       card.classList.toggle('is-mobile-active',mobile&&facing>-.28);
     });
-    deck.style.transform=`rotateY(${rotation}deg)`;
+    deck.style.setProperty('transform',`rotateY(${rotation}deg)`,'important');
   }
   function snapTo(index){const desired=-(index*step),turns=Math.round((rotation-desired)/360);targetRotation=desired+turns*360;for(const alt of [targetRotation+360,targetRotation-360])if(Math.abs(alt-rotation)<Math.abs(targetRotation-rotation))targetRotation=alt;lastInteraction=performance.now()}
   function stepRelative(dir){snapTo((activeIndex()+dir+count)%count)}
