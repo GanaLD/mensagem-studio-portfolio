@@ -9,7 +9,7 @@
 
   const style = document.createElement('style');
   style.id = 'project-particle-matrix-style-v1';
-  style.textContent = \`
+  style.textContent = `
     .media{isolation:isolate}
     .project-particle-matrix-canvas{
       position:absolute;
@@ -34,7 +34,7 @@
       .project-particle-matrix-canvas{display:none!important}
       .card .media > img:not(.hover-preview-image){opacity:1!important}
     }
-  \`;
+  `;
   document.head.appendChild(style);
 
   if (reduceMotion) return;
@@ -105,7 +105,7 @@
     return program;
   }
 
-  const VERTEX_SHADER = \`
+  const VERTEX_SHADER = `
     precision highp float;
     attribute vec2 aTarget;
     attribute vec3 aScatter;
@@ -151,9 +151,9 @@
       vDepth = depth;
       vSeed = aSeed;
     }
-  \`;
+  `;
 
-  const FRAGMENT_SHADER = \`
+  const FRAGMENT_SHADER = `
     precision highp float;
     uniform sampler2D uTexture;
     uniform vec2 uUvStep;
@@ -182,7 +182,7 @@
       if(color.a < 0.025) discard;
       gl_FragColor = color;
     }
-  \`;
+  `;
 
   class ParticleMatrixCard {
     constructor(card) {
