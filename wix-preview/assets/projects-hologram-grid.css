@@ -11,8 +11,8 @@
 .ms-holo-projects{
   position:relative;
   width:100%;
-  height:clamp(760px,88vh,1100px);
-  min-height:760px;
+  height:clamp(860px,96vh,1280px);
+  min-height:860px;
   margin-top:clamp(18px,3vw,44px);
   overflow:hidden;
   background:transparent;
@@ -54,7 +54,7 @@
   position:absolute;
   left:0;
   top:0;
-  width:clamp(180px,15vw,248px);
+  width:clamp(220px,18vw,320px);
   color:#f4f5ef;
   text-decoration:none;
   opacity:var(--ms-card-opacity);
@@ -172,23 +172,23 @@ html.ms-holo-grid-ready #projects .projects-grid{
 
 @media(max-width:900px){
   .ms-holo-projects{
-    height:clamp(680px,80vh,920px);
-    min-height:680px;
+    height:clamp(760px,90vh,1040px);
+    min-height:760px;
   }
   .ms-holo-card{
-    width:clamp(150px,24vw,210px);
+    width:clamp(180px,28vw,250px);
   }
 }
 @media(max-width:620px){
   .ms-holo-projects{
     width:calc(100% + 18px);
     margin-left:-9px;
-    height:clamp(620px,78svh,820px);
-    min-height:620px;
+    height:clamp(700px,86svh,920px);
+    min-height:700px;
     margin-top:8px;
   }
   .ms-holo-card{
-    width:144px;
+    width:168px;
   }
   .ms-holo-card__glass{
     gap:7px;
