@@ -7,11 +7,12 @@
   const isSmall = window.matchMedia('(max-width: 700px)').matches;
 
   const style = document.createElement('style');
-  style.id = 'project-full-card-particle-build-v2';
+  style.id = 'project-full-card-particle-build-v3';
   style.textContent = `
     #grid{
       position:relative!important;
-      overflow:visible!important;
+      overflow:clip!important;
+      overflow-clip-margin:0!important;
       isolation:isolate;
     }
     .project-card-particle-stage{
@@ -22,6 +23,10 @@
       perspective:1000px;
       transform-style:preserve-3d;
       contain:layout style;
+    }
+    .project-card-particle-stage[data-particle-clip-hidden="true"]{
+      visibility:hidden!important;
+      opacity:0!important;
     }
     .project-card-fragment{
       position:absolute;
@@ -154,6 +159,7 @@
       const stage = document.createElement('div');
       stage.className = 'project-card-particle-stage';
       stage.setAttribute('aria-hidden', 'true');
+      stage.setAttribute('data-particle-clip-hidden', 'true');
       grid.appendChild(stage);
       this.stage = stage;
 
@@ -234,16 +240,16 @@
           const nx = (x + 0.5) / cols - 0.5;
           const ny = (y + 0.5) / rows - 0.5;
           const radial = Math.hypot(nx, ny);
-          const angle = Math.atan2(ny, nx) + (rand() - 0.5) * 1.25;
-          const distance = (isSmall ? 60 : 92) + rand() * (isSmall ? 130 : 240) + radial * (isSmall ? 100 : 180);
-          const scatterX = Math.cos(angle) * distance + (rand() - 0.5) * 70;
-          const scatterY = Math.sin(angle) * distance + (rand() - 0.5) * 70;
-          const scatterZ = (rand() - 0.5) * (isSmall ? 170 : 320);
-          const rotateX = (rand() - 0.5) * (isSmall ? 18 : 34);
-          const rotateY = (rand() - 0.5) * (isSmall ? 22 : 42);
-          const rotateZ = (rand() - 0.5) * (isSmall ? 14 : 24);
-          const delay = rand() * 0.18;
-          const startScale = 0.72 + rand() * 0.18;
+          const angle = Math.atan2(ny, nx) + (rand() - 0.5) * 1.05;
+          const distance = (isSmall ? 56 : 82) + rand() * (isSmall ? 105 : 190) + radial * (isSmall ? 82 : 145);
+          const scatterX = Math.cos(angle) * distance + (rand() - 0.5) * 52;
+          const scatterY = Math.sin(angle) * distance + (rand() - 0.5) * 52;
+          const scatterZ = (rand() - 0.5) * (isSmall ? 150 : 260);
+          const rotateX = (rand() - 0.5) * (isSmall ? 16 : 30);
+          const rotateY = (rand() - 0.5) * (isSmall ? 18 : 36);
+          const rotateZ = (rand() - 0.5) * (isSmall ? 12 : 20);
+          const delay = rand() * 0.16;
+          const startScale = 0.76 + rand() * 0.16;
 
           this.stage.appendChild(fragment);
           this.fragments.push({
@@ -286,9 +292,17 @@
       if (this.stage) this.stage.style.display = '';
 
       this.layoutStage();
+      const rect = this.card.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
       const p = this.getProgress();
       if (!force && Math.abs(p - this.progress) < 0.0015) return;
       this.progress = p;
+
+      const inActivationZone = p > 0.006 && rect.top <= vh * 0.965 && rect.bottom >= -vh * 0.30;
+      if (this.stage) {
+        if (inActivationZone && p < 0.9995) this.stage.removeAttribute('data-particle-clip-hidden');
+        else this.stage.setAttribute('data-particle-clip-hidden', 'true');
+      }
 
       const realAlpha = smoothstep(0.865, 0.995, p);
       const fragmentFade = 1 - smoothstep(0.90, 0.998, p);
@@ -308,15 +322,11 @@
         const ry = item.rotateY * inv;
         const rz = item.rotateZ * inv;
         const scale = item.startScale + (1 - item.startScale) * e;
-        const born = 0.22 + 0.78 * smoothstep(0.0, 0.42, local);
+        const born = smoothstep(0.0, 0.24, local);
         const opacity = clamp(born * fragmentFade, 0, 1);
 
         item.el.style.opacity = String(opacity);
         item.el.style.transform = `translate3d(${tx}px,${ty}px,${tz}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${scale})`;
-      }
-
-      if (this.stage) {
-        this.stage.style.visibility = p >= 0.9995 ? 'hidden' : 'visible';
       }
     }
 
@@ -356,7 +366,7 @@
             instance.update(true);
           }
         }
-      }, { rootMargin: isSmall ? '720px 0px' : '1200px 0px', threshold: 0.001 })
+      }, { rootMargin: isSmall ? '220px 0px' : '360px 0px', threshold: 0.001 })
     : null;
 
   cards.forEach(card => {
@@ -366,9 +376,14 @@
 
   const onFilterChange = () => {
     requestAnimationFrame(() => {
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
       instances.forEach(instance => {
-        if (!instance.card.hidden && !instance.ready) instance.build();
-        instance.update(true);
+        if (!instance.card.hidden && !instance.ready) {
+          const rect = instance.card.getBoundingClientRect();
+          const nearViewport = rect.top < vh * 1.25 && rect.bottom > -vh * 0.25;
+          if (nearViewport) instance.build();
+        }
+        if (instance.ready) instance.update(true);
       });
     });
   };
