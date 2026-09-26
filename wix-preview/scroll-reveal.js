@@ -1,2 +1,3 @@
+(()=>{const viewer=document.getElementById('modelViewer3D');if(viewer){try{viewer.pause?.()}catch(_){}viewer.style.visibility='hidden';viewer.removeAttribute('src');if(viewer.dataset)viewer.dataset.src='';}})();
 import('https://cdn.jsdelivr.net/gh/GanaLD/mensagem-studio-portfolio@backup-wix-preview-before-fone-menu-20260926/wix-preview/scroll-reveal.js').catch(error=>console.error('[Scroll reveal preview]',error));
-import('./fone-3d-entry.js?v=20260926-fone-first-creatine-front-v4').catch(error=>console.error('[Fone 3D preview bootstrap v4]',error));
+import('./fone-3d-entry.js?v=20260926-isolated-viewer-v5').catch(error=>console.error('[3D preview bootstrap v5]',error));
