@@ -128,3 +128,17 @@
     card.addEventListener('blur', stop, true);
   });
 })();
+
+(() => {
+  const load = (src, id) => {
+    if (document.getElementById(id)) return;
+    const script = document.createElement('script');
+    script.id = id;
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
+  };
+
+  load('./project-particle-matrix.js?v=20260926-production-v1', 'projects-particle-production-v1');
+  load('./projects-services-footer.js?v=20260926-production-v1', 'projects-services-footer-production-v1');
+})();
