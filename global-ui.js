@@ -11,6 +11,120 @@
   const WHATSAPP_URL = 'https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto.';
   const VERSION = '20260923-r43-mobile-parity';
 
+
+  // MS_SITE_TYPOGRAPHY_V1 — shared identity across every Mensagem Studio page.
+  const msTypographyFontHref = 'https://fonts.googleapis.com/css2?family=Fugaz+One&family=Work+Sans:ital,wght@0,300..900;1,300..900&display=swap';
+  if (!document.querySelector('link[data-ms-site-typography-fonts]')) {
+    const preconnectGoogle = document.createElement('link');
+    preconnectGoogle.rel = 'preconnect';
+    preconnectGoogle.href = 'https://fonts.googleapis.com';
+    preconnectGoogle.setAttribute('data-ms-site-typography-fonts', 'preconnect');
+    document.head.appendChild(preconnectGoogle);
+
+    const preconnectGstatic = document.createElement('link');
+    preconnectGstatic.rel = 'preconnect';
+    preconnectGstatic.href = 'https://fonts.gstatic.com';
+    preconnectGstatic.crossOrigin = 'anonymous';
+    preconnectGstatic.setAttribute('data-ms-site-typography-fonts', 'preconnect-static');
+    document.head.appendChild(preconnectGstatic);
+
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = msTypographyFontHref;
+    fontLink.setAttribute('data-ms-site-typography-fonts', 'stylesheet');
+    document.head.appendChild(fontLink);
+  }
+
+  if (!document.getElementById('ms-site-typography-style')) {
+    const typographyStyle = document.createElement('style');
+    typographyStyle.id = 'ms-site-typography-style';
+    typographyStyle.textContent = `
+      :root{
+        --ms-font-display:'Fugaz One',Impact,'Arial Black',sans-serif;
+        --ms-font-body:'Work Sans',Arial,Helvetica,sans-serif;
+        --font-futura:'Fugaz One',Impact,'Arial Black',sans-serif!important;
+        --font-gotham:'Work Sans',Arial,Helvetica,sans-serif!important;
+        --font-courier:'Work Sans',Arial,Helvetica,sans-serif!important;
+        --v4-futura:'Fugaz One',Impact,'Arial Black',sans-serif!important;
+        --v4-gotham:'Work Sans',Arial,Helvetica,sans-serif!important;
+        --v4-mono:'Work Sans',Arial,Helvetica,sans-serif!important;
+      }
+
+      html,body,
+      button,input,textarea,select,option{
+        font-family:var(--ms-font-body)!important;
+      }
+
+      p,li,label,small,figcaption,
+      .lead,.description,.muted,.kicker,.eyebrow,.cat,.price,.note,
+      .nav,.nav a,.right,.filter,.filters,.chip,.btn,.add,.close,.send,
+      .detail,.detail span,.detail a,.caption,.caption p,.caption small,
+      .hero-label,.model-file-link,.conversion-btn,.conversion-ref,
+      .case-study-card p,.case-study-service small,.project-link small,
+      .ms-menu-head,.ms-menu-link small,.ms-menu-quote,
+      .ms-sound-toggle,.ms-glass-cta,.ms-quote-fab,
+      .text,.text p,.text small,.location,.actions,
+      .masthead-lead,.profile-intro p,.profile-body p,
+      footer,.footer{
+        font-family:var(--ms-font-body)!important;
+      }
+
+      h1,h2,h3,h4,h5,h6,
+      .brand,
+      .hero-title,
+      .section-title,
+      .project-title,
+      .card-title,
+      .display,
+      .section-head h2,
+      .category h2,
+      .card h3,
+      .hero-copy h1,
+      .masthead h1,
+      .profile-intro h2,
+      .profile-name strong,
+      .conversion-copy h2,
+      .project-link strong,
+      .case-study-head h2,
+      .ms-menu-link,
+      .ms-contact-card h2,
+      .text h2{
+        font-family:var(--ms-font-display)!important;
+        font-weight:400!important;
+        font-synthesis:none;
+        overflow-wrap:normal;
+        word-break:normal;
+        hyphens:none;
+      }
+
+      h1 *,h2 *,h3 *,h4 *,h5 *,h6 *,
+      .hero-title *,
+      .section-title *,
+      .project-title *,
+      .card-title *,
+      .display *,
+      .ms-menu-link *{
+        font-family:inherit!important;
+        font-weight:inherit!important;
+      }
+
+      h1,h2,h3,
+      .hero-title,.section-title,.project-title,.card-title,.display,
+      .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
+      .conversion-copy h2,.project-link strong,.case-study-head h2,
+      .ms-menu-link,.ms-contact-card h2,.text h2{
+        letter-spacing:-.018em!important;
+      }
+
+      .brand{letter-spacing:.045em!important;white-space:nowrap}
+      .nav a,.filter,.chip,.btn,.add,.close,.send,
+      .conversion-btn,.ms-menu-quote,.ms-glass-cta,.ms-quote-fab{
+        letter-spacing:.07em!important;
+      }
+    `;
+    document.head.appendChild(typographyStyle);
+  }
+
   const style = document.createElement('style');
   style.id = 'ms-global-ui-style';
   style.textContent = `
