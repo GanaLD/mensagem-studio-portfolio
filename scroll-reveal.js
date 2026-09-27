@@ -220,3 +220,8 @@
     });
   });
 })();
+
+// Production promotion of the validated V7 3D controller.
+// Keeps the published Home on the same tested implementation as the approved preview.
+import('./wix-preview/fone-3d-entry.js?v=20260926-front-player-black-blue-v7-production')
+  .catch(error => console.error('[3D production V7]', error));
