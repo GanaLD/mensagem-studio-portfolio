@@ -1097,9 +1097,11 @@ body{overflow-x:clip!important}
 
 <!-- CENA_HERO_1_PREVIEW_CSS_START -->
 <style id="cena-hero-1-preview-css">
-#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:#171917;overflow:visible;isolation:isolate}
-#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917}
+#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:transparent;overflow:visible;isolation:isolate;pointer-events:none}
+#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible}
+#cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0;visibility:hidden}
 #cenaHero1Frame{display:block;width:100%;height:100%;border:0;background:#171917;pointer-events:none}
+#hero{margin-top:-100vh}
 @supports(height:100dvh){#cenaHero1 .cena-hero-1-sticky{height:100dvh;min-height:100dvh}}
 @media(max-width:760px){
   #cenaHero1{height:360svh}
@@ -1866,6 +1868,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
     const range=Math.max(1,section.offsetHeight-innerHeight);
     const passed=Math.min(range,Math.max(0,-section.getBoundingClientRect().top));
     const progress=reduced.matches?0:passed/range;
+    section.classList.toggle('is-handoff', progress>=0.9995);
     if(Math.abs(progress-last)<0.00025 && last>=0) return;
     last=progress;
     if(frame.contentWindow){
