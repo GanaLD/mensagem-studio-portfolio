@@ -1,0 +1,77 @@
+name: Fix CENA HERO 1 continuous handoff in preview
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-cena-hero-1-continuity-preview.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fix-cena-hero-1-continuity-preview
+  cancel-in-progress: false
+
+jobs:
+  fix-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove rolling gap and make HERO 1 -> HERO 2 a frame-continuous handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('wix-preview/index.html')
+          html=p.read_text(encoding='utf-8')
+
+          old_css='''#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:#171917;overflow:visible;isolation:isolate}\n#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917}\n#cenaHero1Frame{display:block;width:100%;height:100%;border:0;background:#171917;pointer-events:none}'''
+          new_css='''#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:transparent;overflow:visible;isolation:isolate;pointer-events:none}\n#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible}\n#cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0;visibility:hidden}\n#cenaHero1Frame{display:block;width:100%;height:100%;border:0;background:#171917;pointer-events:none}\n#hero{margin-top:-100vh}'''
+          if old_css in html:
+              html=html.replace(old_css,new_css,1)
+          elif '#hero{margin-top:-100vh}' not in html:
+              raise SystemExit('Expected CENA HERO 1 CSS block not found; refusing unsafe patch')
+
+          old='''              const progress=reduced.matches?0:passed/range;\n              if(Math.abs(progress-last)<0.00025 && last>=0) return;\n              last=progress;'''
+          new='''              const progress=reduced.matches?0:passed/range;\n              section.classList.toggle('is-handoff', progress>=0.9995);\n              if(Math.abs(progress-last)<0.00025 && last>=0) return;\n              last=progress;'''
+          if old in html:
+              html=html.replace(old,new,1)
+          elif "section.classList.toggle('is-handoff'" not in html:
+              raise SystemExit('Expected bridge progress block not found; refusing unsafe patch')
+
+          p.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Verify continuity contract and production isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
+          grep -q "section.classList.toggle('is-handoff', progress>=0.9995)" wix-preview/index.html
+          grep -q '#cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0;visibility:hidden}' wix-preview/index.html
+          ! grep -q 'cenaHero1' index.html
+          python - <<'PY'
+          from pathlib import Path
+          h=Path('wix-preview/index.html').read_text(encoding='utf-8')
+          assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
+          print('PASS: no rolling spacer; HERO 2 overlaps exactly one viewport and takes over at HERO 1 final frame.')
+          PY
+
+      - name: Commit preview-only continuity fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wix-preview/index.html
+          if git diff --cached --quiet; then
+            echo 'No changes.'
+            exit 0
+          fi
+          git commit -m 'Fix continuous CENA HERO 1 to HeroScroll handoff [skip ci]'
+          git push
