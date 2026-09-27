@@ -23,75 +23,10 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re
-
+          import re, base64
           VERSION = '20260927-published-type-v2'
-          css = r'''@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Work+Sans:ital,wght@0,300..900;1,300..900&display=swap');
-
-:root{
-  --ms-font-display:'Fugaz One',Impact,'Arial Black',sans-serif;
-  --ms-font-body:'Work Sans',Arial,Helvetica,sans-serif;
-}
-
-html,body,button,input,textarea,select,option{
-  font-family:var(--ms-font-body)!important;
-  font-optical-sizing:auto;
-}
-
-body :where(p,a,span,small,button,input,textarea,select,option,label,li,dt,dd,figcaption){
-  font-family:var(--ms-font-body)!important;
-}
-
-body :where(
-  h1,h2,h3,h4,h5,h6,
-  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
-  .word-main,.projects-heading,.projects-title,
-  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
-  .profile-intro h2,.profile-name strong,.conversion-copy h2,
-  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
-){
-  font-family:var(--ms-font-display)!important;
-  font-weight:400!important;
-  font-synthesis:none!important;
-  overflow-wrap:normal;
-  word-break:normal;
-  hyphens:none;
-  letter-spacing:-.018em!important;
-}
-
-body :where(
-  h1,h2,h3,h4,h5,h6,
-  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
-  .word-main,.projects-heading,.projects-title,
-  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
-  .profile-intro h2,.profile-name strong,.conversion-copy h2,
-  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
-) *{
-  font-family:inherit!important;
-  font-weight:inherit!important;
-}
-
-.kicker,.eyebrow,.cat,.price,.note,.nav,.nav a,.right,.filter,.filters,
-.chip,.btn,.add,.close,.send,.detail,.caption,.hero-label,.model-file-link,
-.conversion-btn,.conversion-ref,.ms-menu-head,.ms-menu-link small,.ms-menu-quote,
-.ms-sound-toggle,.ms-glass-cta,.ms-quote-fab,.location,.actions,
-.word-top-label,.word-case-desc,footer,.footer{
-  font-family:var(--ms-font-body)!important;
-}
-
-.word-top-label{
-  font-weight:650!important;
-  letter-spacing:.14em!important;
-}
-.word-case-desc{
-  font-weight:400!important;
-  letter-spacing:0!important;
-}
-.brand{letter-spacing:.045em!important;white-space:nowrap}
-.nav a,.filter,.chip,.btn,.add,.close,.send,.conversion-btn,
-.ms-menu-quote,.ms-glass-cta,.ms-quote-fab{letter-spacing:.07em!important}
-'''
-          Path('site-typography-v2.css').write_text(css, encoding='utf-8')
+          CSS_B64 = 'QGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9RnVnYXorT25lJmZhbWlseT1Xb3JrK1NhbnM6aXRhbCx3Z2h0QDAsMzAwLi45MDA7MSwzMDAuLjkwMCZkaXNwbGF5PXN3YXAnKTsKCjpyb290ewogIC0tbXMtZm9udC1kaXNwbGF5OidGdWdheiBPbmUnLEltcGFjdCwnQXJpYWwgQmxhY2snLHNhbnMtc2VyaWY7CiAgLS1tcy1mb250LWJvZHk6J1dvcmsgU2FucycsQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7Cn0KCmh0bWwsYm9keSxidXR0b24saW5wdXQsdGV4dGFyZWEsc2VsZWN0LG9wdGlvbnsKICBmb250LWZhbWlseTp2YXIoLS1tcy1mb250LWJvZHkpIWltcG9ydGFudDsKICBmb250LW9wdGljYWwtc2l6aW5nOmF1dG87Cn0KCmJvZHkgOndoZXJlKHAsYSxzcGFuLHNtYWxsLGJ1dHRvbixpbnB1dCx0ZXh0YXJlYSxzZWxlY3Qsb3B0aW9uLGxhYmVsLGxpLGR0LGRkLGZpZ2NhcHRpb24pewogIGZvbnQtZmFtaWx5OnZhcigtLW1zLWZvbnQtYm9keSkhaW1wb3J0YW50Owp9Cgpib2R5IDp3aGVyZSgKICBoMSxoMixoMyxoNCxoNSxoNiwKICAuYnJhbmQsLmRpc3BsYXksLnRpdGxlLC5oZXJvLXRpdGxlLC5zZWN0aW9uLXRpdGxlLC5wcm9qZWN0LXRpdGxlLC5jYXJkLXRpdGxlLAogIC53b3JkLW1haW4sLnByb2plY3RzLWhlYWRpbmcsLnByb2plY3RzLXRpdGxlLAogIC5zZWN0aW9uLWhlYWQgaDIsLmNhdGVnb3J5IGgyLC5jYXJkIGgzLC5oZXJvLWNvcHkgaDEsLm1hc3RoZWFkIGgxLAogIC5wcm9maWxlLWludHJvIGgyLC5wcm9maWxlLW5hbWUgc3Ryb25nLC5jb252ZXJzaW9uLWNvcHkgaDIsCiAgLnByb2plY3QtbGluayBzdHJvbmcsLmNhc2Utc3R1ZHktaGVhZCBoMiwubXMtbWVudS1saW5rLC5tcy1jb250YWN0LWNhcmQgaDIsLnRleHQgaDIKKXsKICBmb250LWZhbWlseTp2YXIoLS1tcy1mb250LWRpc3BsYXkpIWltcG9ydGFudDsKICBmb250LXdlaWdodDo0MDAhaW1wb3J0YW50OwogIGZvbnQtc3ludGhlc2lzOm5vbmUhaW1wb3J0YW50OwogIG92ZXJmbG93LXdyYXA6bm9ybWFsOwogIHdvcmQtYnJlYWs6bm9ybWFsOwogIGh5cGhlbnM6bm9uZTsKICBsZXR0ZXItc3BhY2luZzotLjAxOGVtIWltcG9ydGFudDsKfQoKYm9keSA6d2hlcmUoCiAgaDEsaDIsaDMsaDQsaDUsaDYsCiAgLmJyYW5kLC5kaXNwbGF5LC50aXRsZSwuaGVyby10aXRsZSwuc2VjdGlvbi10aXRsZSwucHJvamVjdC10aXRsZSwuY2FyZC10aXRsZSwKICAud29yZC1tYWluLC5wcm9qZWN0cy1oZWFkaW5nLC5wcm9qZWN0cy10aXRsZSwKICAuc2VjdGlvbi1oZWFkIGgyLC5jYXRlZ29yeSBoMiwuY2FyZCBoMywuaGVyby1jb3B5IGgxLC5tYXN0aGVhZCBoMSwKICAucHJvZmlsZS1pbnRybyBoMiwucHJvZmlsZS1uYW1lIHN0cm9uZywuY29udmVyc2lvbi1jb3B5IGgyLAogIC5wcm9qZWN0LWxpbmsgc3Ryb25nLC5jYXNlLXN0dWR5LWhlYWQgaDIsLm1zLW1lbnUtbGluaywubXMtY29udGFjdC1jYXJkIGgyLC50ZXh0IGgyCikgKnsKICBmb250LWZhbWlseTppbmhlcml0IWltcG9ydGFudDsKICBmb250LXdlaWdodDppbmhlcml0IWltcG9ydGFudDsKfQoKLmtpY2tlciwuZXllYnJvdywuY2F0LC5wcmljZSwubm90ZSwubmF2LC5uYXYgYSwucmlnaHQsLmZpbHRlciwuZmlsdGVycywKLmNoaXAsLmJ0biwuYWRkLC5jbG9zZSwuc2VuZCwuZGV0YWlsLC5jYXB0aW9uLC5oZXJvLWxhYmVsLC5tb2RlbC1maWxlLWxpbmssCi5jb252ZXJzaW9uLWJ0biwuY29udmVyc2lvbi1yZWYsLm1zLW1lbnUtaGVhZCwubXMtbWVudS1saW5rIHNtYWxsLC5tcy1tZW51LXF1b3RlLAoubXMtc291bmQtdG9nZ2xlLC5tcy1nbGFzcy1jdGEsLm1zLXF1b3RlLWZhYiwubG9jYXRpb24sLmFjdGlvbnMsCi53b3JkLXRvcC1sYWJlbCwud29yZC1jYXNlLWRlc2MsZm9vdGVyLC5mb290ZXJ7CiAgZm9udC1mYW1pbHk6dmFyKC0tbXMtZm9udC1ib2R5KSFpbXBvcnRhbnQ7Cn0KCi53b3JkLXRvcC1sYWJlbHsKICBmb250LXdlaWdodDo2NTAhaW1wb3J0YW50OwogIGxldHRlci1zcGFjaW5nOi4xNGVtIWltcG9ydGFudDsKfQoud29yZC1jYXNlLWRlc2N7CiAgZm9udC13ZWlnaHQ6NDAwIWltcG9ydGFudDsKICBsZXR0ZXItc3BhY2luZzowIWltcG9ydGFudDsKfQouYnJhbmR7bGV0dGVyLXNwYWNpbmc6LjA0NWVtIWltcG9ydGFudDt3aGl0ZS1zcGFjZTpub3dyYXB9Ci5uYXYgYSwuZmlsdGVyLC5jaGlwLC5idG4sLmFkZCwuY2xvc2UsLnNlbmQsLmNvbnZlcnNpb24tYnRuLAoubXMtbWVudS1xdW90ZSwubXMtZ2xhc3MtY3RhLC5tcy1xdW90ZS1mYWJ7bGV0dGVyLXNwYWNpbmc6LjA3ZW0haW1wb3J0YW50fQo='
+          Path('site-typography-v2.css').write_bytes(base64.b64decode(CSS_B64))
 
           marker = f'<link rel="stylesheet" href="/site-typography-v2.css?v={VERSION}">'
           touched = 0
@@ -117,28 +52,14 @@ body :where(
 
           home = Path('index.html')
           text = home.read_text(encoding='utf-8')
-
-          # Match the spacing already approved in preview for the hero copy.
           if '.hero-copy>.kicker{display:block;margin-bottom:14px}' not in text:
-              text = text.replace(
-                  '.hero-copy{align-self:center;max-width:720px}',
-                  '.hero-copy{align-self:center;max-width:720px}.hero-copy>.kicker{display:block;margin-bottom:14px}',
-                  1
-              )
-          text = text.replace(
-              '.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 24px;text-transform:uppercase;max-width:8ch}',
-              '.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 14px;text-transform:uppercase;max-width:8ch}',
-              1
-          )
-
-          # WordScroll: Fugaz One has different vertical metrics, so rebalance the visual gaps.
+              text = text.replace('.hero-copy{align-self:center;max-width:720px}', '.hero-copy{align-self:center;max-width:720px}.hero-copy>.kicker{display:block;margin-bottom:14px}', 1)
+          text = text.replace('.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 24px;text-transform:uppercase;max-width:8ch}', '.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 14px;text-transform:uppercase;max-width:8ch}', 1)
           text = text.replace('  margin:0 0 18px;\n  max-width:min(620px,54vw);', '  margin:0 0 26px;\n  max-width:min(620px,54vw);', 1)
           text = text.replace('  margin:22px 0 0;\n  color:#eef0e8;', '  margin:14px 0 0;\n  color:#eef0e8;', 1)
           text = text.replace('.word-top-label{margin-bottom:14px;max-width:84vw;font-size:9px}', '.word-top-label{margin-bottom:18px;max-width:84vw;font-size:9px}', 1)
           text = text.replace('.word-case-desc{width:min(86vw,580px);margin-top:18px;font-size:12px}', '.word-case-desc{width:min(86vw,580px);margin-top:12px;font-size:12px}', 1)
-
           home.write_text(text, encoding='utf-8')
-          print('published home spacing corrected')
           PY
 
       - name: Commit published typography correction
