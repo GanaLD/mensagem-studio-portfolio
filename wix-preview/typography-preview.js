@@ -103,14 +103,63 @@
       letter-spacing:.07em!important;
     }
 
+    /* WordScroll: Fugaz is much wider than the former typeface. Keep line breaks only
+       between words and reduce this display title so words are never cut in half. */
+    .word-main{
+      font-family:var(--ms-font-display)!important;
+      font-weight:400!important;
+      font-size:clamp(48px,6vw,104px)!important;
+      line-height:.88!important;
+      letter-spacing:-.012em!important;
+      max-width:none!important;
+      overflow-wrap:normal!important;
+      word-break:normal!important;
+      hyphens:none!important;
+      text-wrap:balance;
+    }
+    .word-case-desc{
+      font-family:var(--ms-font-body)!important;
+      overflow-wrap:normal!important;
+      word-break:normal!important;
+      hyphens:none!important;
+    }
+
     @media(max-width:760px){
       h1,h2,h3,.hero-title,.section-title,.project-title,.card-title,.display{
         overflow-wrap:anywhere;
+      }
+      .word-main{
+        font-size:clamp(38px,11.5vw,58px)!important;
+        line-height:.9!important;
+        max-width:none!important;
+        overflow-wrap:normal!important;
+        word-break:normal!important;
+        hyphens:none!important;
+      }
+      .word-case-desc{
+        overflow-wrap:normal!important;
+        word-break:normal!important;
+        hyphens:none!important;
       }
     }
   `;
   document.head.appendChild(style);
   document.documentElement.classList.add('ms-typography-fugaz-work');
+
+  const protectWordScrollTerms = () => {
+    document.querySelectorAll('.word-case-desc').forEach(el => {
+      [...el.childNodes].forEach(node => {
+        if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue) return;
+        node.nodeValue = node.nodeValue.replace(/e-commerce/g, 'e\u2011commerce');
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', protectWordScrollTerms, { once:true });
+  } else {
+    protectWordScrollTerms();
+  }
 
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {
