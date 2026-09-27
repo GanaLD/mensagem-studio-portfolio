@@ -1,0 +1,73 @@
+name: Build PREVIEW React Bits RubberSegment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'preview-21st-shader/package.json'
+      - 'preview-21st-shader/package-lock.json'
+      - 'preview-21st-shader/tsconfig.json'
+      - 'preview-21st-shader/vite.rubber.config.ts'
+      - 'preview-21st-shader/src/rubber-main.tsx'
+      - 'preview-21st-shader/src/rubber-index.css'
+      - 'preview-21st-shader/src/components/RubberSegment.jsx'
+      - 'preview-21st-shader/src/components/RubberSegment.css'
+      - '.github/workflows/build-preview-rubber-segment.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-preview-react-bits-rubber-segment
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: preview-21st-shader/package-lock.json
+
+      - name: Install dependencies
+        working-directory: preview-21st-shader
+        run: npm install --no-audit --no-fund
+
+      - name: Build React Bits RubberSegment
+        working-directory: preview-21st-shader
+        run: npx vite build --config vite.rubber.config.ts
+
+      - name: Rebase generated bundle onto latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/rubber-dist
+          cp -R preview-21st-shader/dist-rubber /tmp/rubber-dist
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf preview-21st-shader/dist-rubber
+          cp -R /tmp/rubber-dist preview-21st-shader/dist-rubber
+
+      - name: Commit RubberSegment bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A preview-21st-shader/dist-rubber
+          if git diff --cached --quiet; then
+            echo 'RubberSegment bundle already current.'
+            exit 0
+          fi
+          git commit -m 'Build preview React Bits RubberSegment'
+          git push origin HEAD:main

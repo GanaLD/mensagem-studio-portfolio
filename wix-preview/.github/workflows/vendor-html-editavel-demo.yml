@@ -1,0 +1,120 @@
+name: Vendor HTML EDITÁVEL car template
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vendor-html-editavel-demo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vendor-html-editavel-demo
+  cancel-in-progress: true
+
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch compiled car template
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/htmlcar
+          git clone --depth 1 --branch preview https://github.com/GanaLD/HTMLcarSITE.git /tmp/htmlcar
+
+          rm -rf portfolio/html-editavel-templates-web/demo
+          mkdir -p portfolio/html-editavel-templates-web/demo
+          rsync -a --exclude='.git/' /tmp/htmlcar/ portfolio/html-editavel-templates-web/demo/
+
+          test -f portfolio/html-editavel-templates-web/demo/index.html
+          test -d portfolio/html-editavel-templates-web/demo/assets
+          test -f portfolio/html-editavel-templates-web/demo/media/exterior-polished.png
+          test -f portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4
+          test -f portfolio/html-editavel-templates-web/demo/media/battery-hover-forward.mp4
+
+      - name: Point the portfolio case to the local template
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          external_base = 'https://rawcdn.githack.com/GanaLD/HTMLcarSITE/3a2cc8c83c8d5181409706460dfa9393020ab509'
+          local_cover = './html-editavel-templates-web/demo/media/exterior-polished.png'
+          local_hover = './html-editavel-templates-web/demo/media/hood-hover-forward.mp4'
+
+          page = Path('portfolio/html-editavel-templates-web/index.html')
+          text = page.read_text(encoding='utf-8')
+          text = text.replace(
+              external_base + '/index.html',
+              './demo/index.html'
+          )
+          text = text.replace(
+              external_base + '/media/exterior-polished.png',
+              './demo/media/exterior-polished.png'
+          )
+          text = text.replace(
+              external_base + '/media/hood-hover-forward.mp4',
+              './demo/media/hood-hover-forward.mp4'
+          )
+          page.write_text(text, encoding='utf-8')
+
+          index = Path('portfolio/index.html')
+          text = index.read_text(encoding='utf-8')
+          text = text.replace(
+              external_base + '/media/exterior-polished.png',
+              local_cover
+          )
+          text = text.replace(
+              external_base + '/media/hood-hover-forward.mp4',
+              local_hover
+          )
+          index.write_text(text, encoding='utf-8')
+
+          data = Path('portfolio/project-data.js')
+          text = data.read_text(encoding='utf-8')
+          text = text.replace(
+              external_base + '/media/exterior-polished.png',
+              '/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png'
+          )
+          text = text.replace(
+              external_base + '/media/hood-hover-forward.mp4',
+              '/portfolio/html-editavel-templates-web/demo/media/hood-hover-forward.mp4'
+          )
+          data.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Verify local integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'src="./demo/index.html"' portfolio/html-editavel-templates-web/index.html
+          grep -q './html-editavel-templates-web/demo/media/exterior-polished.png' portfolio/index.html
+          grep -q '/portfolio/html-editavel-templates-web/demo/media/exterior-polished.png' portfolio/project-data.js
+          if grep -R 'rawcdn.githack.com/GanaLD/HTMLcarSITE' portfolio/html-editavel-templates-web/index.html portfolio/index.html portfolio/project-data.js; then
+            echo "External demo reference still present"
+            exit 1
+          fi
+
+      - name: Commit vendored template
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add portfolio/html-editavel-templates-web portfolio/index.html portfolio/project-data.js
+          if git diff --cached --quiet; then
+            echo 'Template already vendored.'
+            exit 0
+          fi
+          git commit -m 'Incorporar template do carro no HTML EDITÁVEL'
+          git pull --rebase origin main
+          git push

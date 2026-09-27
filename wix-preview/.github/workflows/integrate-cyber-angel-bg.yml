@@ -1,0 +1,17 @@
+name: Legacy Cyber Angel Integration — disabled
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  legacy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Preview is backup-only
+        run: |
+          echo "This legacy preview integration is disabled."
+          echo "Production root is authoritative."
+          echo "wix-preview is synchronized automatically from production and must not be used as an editing or publishing source."

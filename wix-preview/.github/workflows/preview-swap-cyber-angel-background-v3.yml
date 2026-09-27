@@ -1,0 +1,107 @@
+name: PREVIEW Swap Cyber Angel Background V3
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/preview-swap-cyber-angel-background-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: preview-swap-cyber-angel-background-v3
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    env:
+      NEW_BG_URL: 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/700691fe-ab16-4f8c-a766-963dfd3e4a7b.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMDkzYmM5YWU2M2NkZjhlZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDAzMzE5OH0.IOlFltnoCZBeB8TE2R0UDIsa36bsmhrEJ33UsmjH7Ck'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download approved background
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 "$NEW_BG_URL" -o /tmp/new-cyber-bg.png
+          file /tmp/new-cyber-bg.png
+          test -s /tmp/new-cyber-bg.png
+
+      - name: Replace only background image sources in PREVIEW
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64, re, hashlib
+
+          target = Path("wix-preview/assets/cyber-angel-bg-v2.html")
+          original = target.read_text(encoding="utf-8")
+          before_hash = hashlib.sha256(original.encode("utf-8")).hexdigest()
+
+          bg = Path("/tmp/new-cyber-bg.png").read_bytes()
+          data_uri = "data:image/png;base64," + base64.b64encode(bg).decode("ascii")
+
+          def replace_img_src(text, element_id):
+              pattern = re.compile(
+                  r'(<img\b(?=[^>]*\bid=["\']' + re.escape(element_id) + r'["\'])[^>]*?\bsrc=["\'])([^"\']+)(["\'])',
+                  re.I
+              )
+              matches = list(pattern.finditer(text))
+              if len(matches) != 1:
+                  raise SystemExit(f"{element_id}: expected exactly 1 img src, found {len(matches)}")
+              return pattern.sub(lambda m: m.group(1) + data_uri + m.group(3), text, count=1)
+
+          patched = replace_img_src(original, "ambient-bg")
+          patched = replace_img_src(patched, "world-bg")
+
+          # Guardrail: animation/integration code must remain byte-for-byte identical
+          # outside the two src attribute values.
+          def scrub_bg_sources(text):
+              for element_id in ("ambient-bg", "world-bg"):
+                  pattern = re.compile(
+                      r'(<img\b(?=[^>]*\bid=["\']' + re.escape(element_id) + r'["\'])[^>]*?\bsrc=["\'])([^"\']+)(["\'])',
+                      re.I
+                  )
+                  text = pattern.sub(lambda m: m.group(1) + "__BACKGROUND_ONLY__" + m.group(3), text, count=1)
+              return text
+
+          if scrub_bg_sources(original) != scrub_bg_sources(patched):
+              raise SystemExit("Guardrail failed: content other than background src changed.")
+
+          required = [
+              "cyber-angel-progress",
+              "requestAnimationFrame",
+              "flightFrames",
+              "landingFrames"
+          ]
+          missing = [token for token in required if token not in patched]
+          if missing:
+              raise SystemExit("Animation guardrail failed, missing: " + ", ".join(missing))
+
+          target.write_text(patched, encoding="utf-8")
+          after_hash = hashlib.sha256(patched.encode("utf-8")).hexdigest()
+          print("Background-only patch OK")
+          print("before", before_hash)
+          print("after ", after_hash)
+          print("new background bytes", len(bg))
+          PY
+
+      - name: Commit PREVIEW-only background swap
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wix-preview/assets/cyber-angel-bg-v2.html
+          git diff --cached --stat
+          git commit -m 'Preview only: replace Cyber Angel background image'
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -1,0 +1,70 @@
+name: Build PREVIEW React Bits BorderGlow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'preview-21st-shader/package.json'
+      - 'preview-21st-shader/package-lock.json'
+      - 'preview-21st-shader/tsconfig.json'
+      - 'preview-21st-shader/vite.config.ts'
+      - 'preview-21st-shader/src/**'
+      - '.github/workflows/build-preview-21st-shader.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-preview-react-bits-border-glow
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: preview-21st-shader/package-lock.json
+
+      - name: Install dependencies
+        working-directory: preview-21st-shader
+        run: npm install --no-audit --no-fund
+
+      - name: Build React Bits BorderGlow
+        working-directory: preview-21st-shader
+        run: npm run build
+
+      - name: Rebase generated bundle onto latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/border-glow-dist
+          cp -R preview-21st-shader/dist /tmp/border-glow-dist
+          git fetch origin main
+          git reset --hard origin/main
+          rm -rf preview-21st-shader/dist
+          cp -R /tmp/border-glow-dist preview-21st-shader/dist
+
+      - name: Commit built BorderGlow assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A preview-21st-shader/dist
+          if git diff --cached --quiet; then
+            echo 'BorderGlow bundle already current.'
+            exit 0
+          fi
+          git commit -m 'Build preview React Bits BorderGlow'
+          git push origin HEAD:main

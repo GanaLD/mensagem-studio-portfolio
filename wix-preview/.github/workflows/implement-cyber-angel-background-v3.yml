@@ -1,0 +1,116 @@
+name: Implement Cyber Angel Background V3
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/implement-cyber-angel-background-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: implement-cyber-angel-background-v3
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy ONLY the approved preview background sources into production
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re, hashlib
+
+          source = Path("wix-preview/assets/cyber-angel-bg-v2.html")
+          target = Path("assets/cyber-angel-bg-v2.html")
+
+          preview = source.read_text(encoding="utf-8")
+          original = target.read_text(encoding="utf-8")
+
+          def get_img_src(text, element_id):
+              pattern = re.compile(
+                  r'<img\b(?=[^>]*\bid=["\']' + re.escape(element_id) + r'["\'])[^>]*?\bsrc=["\']([^"\']+)["\']',
+                  re.I
+              )
+              matches = pattern.findall(text)
+              if len(matches) != 1:
+                  raise SystemExit(f"{element_id}: expected exactly 1 src in preview, found {len(matches)}")
+              return matches[0]
+
+          ambient_src = get_img_src(preview, "ambient-bg")
+          world_src = get_img_src(preview, "world-bg")
+
+          if ambient_src != world_src:
+              raise SystemExit("Preview background sources differ; refusing production patch.")
+          if not ambient_src.startswith("data:image/png;base64,"):
+              raise SystemExit("Approved preview background is not the expected embedded PNG data URI.")
+
+          def replace_img_src(text, element_id, new_src):
+              pattern = re.compile(
+                  r'(<img\b(?=[^>]*\bid=["\']' + re.escape(element_id) + r'["\'])[^>]*?\bsrc=["\'])([^"\']+)(["\'])',
+                  re.I
+              )
+              matches = list(pattern.finditer(text))
+              if len(matches) != 1:
+                  raise SystemExit(f"{element_id}: expected exactly 1 production img src, found {len(matches)}")
+              return pattern.sub(lambda m: m.group(1) + new_src + m.group(3), text, count=1)
+
+          patched = replace_img_src(original, "ambient-bg", ambient_src)
+          patched = replace_img_src(patched, "world-bg", world_src)
+
+          # Hard guardrail: only the two background src attribute values may change.
+          def scrub_bg_sources(text):
+              for element_id in ("ambient-bg", "world-bg"):
+                  pattern = re.compile(
+                      r'(<img\b(?=[^>]*\bid=["\']' + re.escape(element_id) + r'["\'])[^>]*?\bsrc=["\'])([^"\']+)(["\'])',
+                      re.I
+                  )
+                  text = pattern.sub(lambda m: m.group(1) + "__BACKGROUND_ONLY__" + m.group(3), text, count=1)
+              return text
+
+          if scrub_bg_sources(original) != scrub_bg_sources(patched):
+              raise SystemExit("GUARDRAIL FAILED: something other than the two background src values changed.")
+
+          required = [
+              "cyber-angel-progress",
+              "requestAnimationFrame",
+              "flightFrames",
+              "landingFrames"
+          ]
+          missing = [token for token in required if token not in patched]
+          if missing:
+              raise SystemExit("Animation guardrail failed, missing: " + ", ".join(missing))
+
+          if patched == original:
+              raise SystemExit("Production already contains the approved preview background; nothing to change.")
+
+          target.write_text(patched, encoding="utf-8")
+          print("Approved preview background copied to production.")
+          print("Original SHA256:", hashlib.sha256(original.encode("utf-8")).hexdigest())
+          print("Patched  SHA256:", hashlib.sha256(patched.encode("utf-8")).hexdigest())
+          print("Embedded background characters:", len(ambient_src))
+          PY
+
+      - name: Commit production background-only change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/cyber-angel-bg-v2.html
+          git diff --cached --stat
+          git diff --cached --numstat
+          git commit -m 'Implement approved Cyber Angel background'
+          git pull --rebase origin main
+          git push origin HEAD:main

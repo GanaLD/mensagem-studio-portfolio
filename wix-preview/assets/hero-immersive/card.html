@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta name="ms-backup-source" content="production-mirror"><meta name="robots" content="noindex,follow">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Cyber Angel — Hero Immersive</title>
 <style>
-:root{color-scheme:dark;--bg:transparent}
+:root{color-scheme:dark;--bg:#07090c}
 *{box-sizing:border-box}
-html,body{width:100%;height:100%;margin:0;overflow:hidden;background:transparent}
-body{font-family:Arial,Helvetica,sans-serif;background:transparent}
-.stage{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:transparent}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--bg)}
+body{font-family:Arial,Helvetica,sans-serif}
+.stage{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.055),transparent 37%),#07090c}
 .angel-wrap{position:absolute;inset:0;display:grid;place-items:center;padding:4%;transform:translateZ(0)}
 #angel{display:block;width:min(88%,620px);height:auto;max-width:88%;max-height:88%;object-fit:contain;object-position:50% 50%;user-select:none;-webkit-user-drag:none;pointer-events:none;transform:translateZ(0)}
 @media(max-width:600px){.angel-wrap{padding:2%}#angel{width:min(92%,520px);max-width:92%;max-height:92%}}
@@ -37,67 +37,7 @@ async function inflatePng(file){
   const compressed=await r.arrayBuffer();
   const stream=new Blob([compressed]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
   const raw=await new Response(stream).arrayBuffer();
-  const pngBlob=new Blob([raw],{type:'image/png'});
-
-  // Remove only the dark background connected to the image edges.
-  // The original frame dimensions stay untouched, so position/scale remain exactly as before.
-  const src=URL.createObjectURL(pngBlob);
-  try{
-    const source=await new Promise((resolve,reject)=>{
-      const im=new Image();
-      im.onload=()=>resolve(im);
-      im.onerror=()=>reject(new Error('frame image decode failed'));
-      im.src=src;
-    });
-    const canvas=document.createElement('canvas');
-    canvas.width=source.naturalWidth;
-    canvas.height=source.naturalHeight;
-    const ctx=canvas.getContext('2d',{willReadFrequently:true});
-    ctx.drawImage(source,0,0);
-    const frame=ctx.getImageData(0,0,canvas.width,canvas.height);
-    const d=frame.data,w=canvas.width,h=canvas.height,total=w*h;
-    const seen=new Uint8Array(total);
-    const queue=new Int32Array(total);
-    let head=0,tail=0;
-
-    const isBg=idx=>{
-      const o=idx*4,r=d[o],g=d[o+1],b=d[o+2],a=d[o+3];
-      const max=Math.max(r,g,b),min=Math.min(r,g,b);
-
-      // Transparent border pixels must participate in the flood-fill.
-      // Otherwise a transparent outer margin can isolate the dark rectangle
-      // and leave the visible black block intact.
-      if(a<12)return true;
-
-      // Remove only dark, low-saturation pixels that are connected to an edge.
-      // Interior black details on the character remain protected because they
-      // are not edge-connected.
-      return max<104 && (max-min)<38;
-    };
-    const push=idx=>{
-      if(idx<0||idx>=total||seen[idx]||!isBg(idx))return;
-      seen[idx]=1;
-      queue[tail++]=idx;
-    };
-
-    for(let x=0;x<w;x++){push(x);push((h-1)*w+x)}
-    for(let y=0;y<h;y++){push(y*w);push(y*w+w-1)}
-
-    while(head<tail){
-      const idx=queue[head++],x=idx%w,y=(idx/w)|0,o=idx*4;
-      d[o+3]=0;
-      if(x>0)push(idx-1);
-      if(x<w-1)push(idx+1);
-      if(y>0)push(idx-w);
-      if(y<h-1)push(idx+w);
-    }
-
-    ctx.putImageData(frame,0,0);
-    const out=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('frame encode failed')),'image/png'));
-    return URL.createObjectURL(out);
-  }finally{
-    URL.revokeObjectURL(src);
-  }
+  return URL.createObjectURL(new Blob([raw],{type:'image/png'}));
 }
 function render(p){
   progress=clamp(p);

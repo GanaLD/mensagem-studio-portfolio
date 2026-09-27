@@ -1,0 +1,43 @@
+name: Diagnose Services RubberSegment
+# verification: v5
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-services-rubber.yml'
+      - 'servicos/index.html'
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect live page with Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME" ]; then
+            echo "No Chrome binary on runner"
+            exit 1
+          fi
+          echo "Chrome: $CHROME"
+          "$CHROME" --headless --no-sandbox --disable-gpu --virtual-time-budget=5000 --dump-dom "https://mensagemstudio.shop/servicos/?rubber_diag=${GITHUB_RUN_ID}" > /tmp/dom.html 2>/tmp/chrome.err || true
+          echo "--- Rubber markers in rendered DOM ---"
+          grep -o 'id="rubber-segment-services-root"' /tmp/dom.html | wc -l || true
+          grep -o 'class="[^"]*rubber-segment[^"]*"' /tmp/dom.html | head -20 || true
+          echo "--- Root outer HTML excerpt ---"
+          python - <<'PY'
+          from pathlib import Path
+          text=Path('/tmp/dom.html').read_text(errors='replace')
+          key='id="rubber-segment-services-root"'
+          i=text.find(key)
+          print(text[max(0,i-300):i+5000] if i>=0 else 'ROOT NOT FOUND')
+          PY
+          echo "--- Legacy hidden marker ---"
+          grep -o 'ms-legacy-filters-hidden' /tmp/dom.html | head -10 || true
+          echo "--- Chrome stderr ---"
+          cat /tmp/chrome.err || true
+          echo "--- End of page ---"
+          tail -c 3000 /tmp/dom.html || true

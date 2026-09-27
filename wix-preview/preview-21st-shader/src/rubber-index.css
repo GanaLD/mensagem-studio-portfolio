@@ -1,0 +1,101 @@
+/*
+ * PREVIEW ONLY — actual React Bits RubberSegment.
+ * The original filter rail remains the behavioral bridge for the catalog,
+ * while RubberSegment is the only visible category control.
+ */
+
+.filters-wrap:has(#rubber-segment-services-root) {
+  display: block !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  background:
+    linear-gradient(180deg, rgba(5, 8, 9, .94), rgba(5, 8, 9, .88)) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(128%) !important;
+  backdrop-filter: blur(18px) saturate(128%) !important;
+  border-top: 1px solid rgba(255,255,255,.035);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+#filters.ms-legacy-filters-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#rubber-segment-services-root {
+  width: min(100%, 1460px);
+  margin: 0 auto;
+  padding: 10px var(--pad, clamp(20px,4vw,64px)) 12px;
+  box-sizing: border-box;
+}
+
+.ms-rubber-segment-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 16px;
+}
+
+.ms-rubber-segment-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.ms-services-rubber-segment.rubber-segment {
+  min-width: max-content;
+  width: max-content;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)),
+    rgba(6,10,12,.86) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 10px 34px rgba(0,0,0,.22);
+  -webkit-backdrop-filter: blur(18px) saturate(132%);
+  backdrop-filter: blur(18px) saturate(132%);
+}
+
+.ms-services-rubber-segment .rubber-segment__item {
+  font-family: var(--font-gotham, "Gotham", "Montserrat", sans-serif);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.ms-services-rubber-segment .rubber-segment__thumb {
+  background:
+    linear-gradient(180deg, #54E3AE 0%, #35D39A 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.40),
+    0 0 0 1px rgba(53,211,154,.24),
+    0 6px 22px rgba(53,211,154,.18),
+    0 0 28px rgba(53,211,154,.08);
+}
+
+/* Keep the complete rail following the viewport exactly as the old rail did. */
+.filters-wrap.ms-rail-fixed:has(#rubber-segment-services-root) {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+@media (max-width: 767px) {
+  #rubber-segment-services-root {
+    padding-inline: 14px;
+  }
+
+  .ms-services-rubber-segment.rubber-segment {
+    --rs-h: 44px;
+    --rs-font: 12px;
+    --rs-pad: 14px;
+    --rs-min: 44px;
+  }
+}

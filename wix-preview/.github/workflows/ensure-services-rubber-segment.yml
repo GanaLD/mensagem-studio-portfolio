@@ -1,0 +1,117 @@
+name: Ensure Services RubberSegment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'servicos/index.html'
+      - 'preview-21st-shader/dist-rubber/rubber-segment-services.js'
+      - 'preview-21st-shader/dist-rubber/rubber-segment-services.css'
+      - '.github/workflows/ensure-services-rubber-segment.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ensure-services-rubber-segment
+  cancel-in-progress: true
+
+jobs:
+  ensure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Keep React Bits RubberSegment external
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re, shutil
+
+          source_css = Path("preview-21st-shader/dist-rubber/rubber-segment-services.css")
+          source_js = Path("preview-21st-shader/dist-rubber/rubber-segment-services.js")
+          if not source_css.exists() or not source_js.exists():
+              raise SystemExit("RubberSegment bundle missing.")
+
+          for base in (
+              Path("servicos/react-bits-rubber-segment"),
+              Path("wix-preview/servicos/react-bits-rubber-segment"),
+          ):
+              base.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(source_css, base / "rubber-segment-services.css")
+              shutil.copy2(source_js, base / "rubber-segment-services.js")
+
+          targets = [Path("servicos/index.html"), Path("wix-preview/servicos/index.html")]
+
+          css_tag = '<link rel="stylesheet" href="./react-bits-rubber-segment/rubber-segment-services.css?v=20260921-rubber-external-v7">'
+          js_tag = '<script defer src="./react-bits-rubber-segment/rubber-segment-services.js?v=20260921-rubber-external-v7"></script>'
+
+          for target in targets:
+              text = target.read_text(encoding="utf-8")
+
+              # Never inline React again. Inline bundles were exposed as visible text.
+              text = re.sub(
+                  r'<style id="ms-rubber-segment-inline-v\d+">[\s\S]*?</style>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script id="ms-rubber-segment-runtime-v\d+">[\s\S]*?</script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<link[^>]+react-bits-rubber-segment/rubber-segment-services\.css[^>]*>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+              text = re.sub(
+                  r'<script[^>]+react-bits-rubber-segment/rubber-segment-services\.js[^>]*></script>\s*',
+                  '',
+                  text,
+                  flags=re.I,
+              )
+
+              if '</head>' not in text or '</body>' not in text:
+                  raise SystemExit(f"{target}: malformed HTML")
+
+              text = text.replace('</head>', css_tag + '\n</head>', 1)
+              text = text.replace('</body>', js_tag + '\n</body>', 1)
+
+              if "REACT_DEVTOOLS_GLOBAL_HOOK__" in text:
+                  raise SystemExit(f"{target}: embedded React bundle detected")
+              if re.search(r'ms-rubber-segment-runtime-v\d+', text, re.I):
+                  raise SystemExit(f"{target}: inline RubberSegment runtime detected")
+
+              target.write_text(text, encoding="utf-8")
+              print(f"{target}: external RubberSegment verified")
+          PY
+
+      - name: Commit if needed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            servicos/index.html \
+            wix-preview/servicos/index.html \
+            servicos/react-bits-rubber-segment \
+            wix-preview/servicos/react-bits-rubber-segment
+          if git diff --cached --quiet; then
+            echo "External RubberSegment already current."
+            exit 0
+          fi
+          git commit -m 'Keep Services RubberSegment external'
+          git pull --rebase origin main
+          git push origin HEAD:main

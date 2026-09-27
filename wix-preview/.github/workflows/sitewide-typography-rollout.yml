@@ -1,0 +1,35 @@
+name: Sitewide Typography Rollout
+
+on:
+  push:
+    paths:
+      - '.github/workflows/sitewide-typography-rollout.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rollout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply typography identity everywhere
+        run: python scripts/sitewide_typography_rollout.py
+
+      - name: Commit rollout
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "Mensagem Studio Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Apply sitewide typography identity and hero spacing"
+          git push

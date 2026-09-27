@@ -1,0 +1,61 @@
+name: Stage PREVIEW Cyber Angel V3 Assets
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/stage-preview-cyber-angel-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stage-preview-cyber-angel-v3
+  cancel-in-progress: true
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download approved V3 preview assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="wix-preview/assets/cyber-angel-v3-preview/assets"
+          mkdir -p "$base/flight" "$base/landing"
+
+          curl -L --fail --retry 3 -o "$base/background.jpg" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/a276ef2d-0456-4b28-968b-e90218080821.jpg?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMWQxNjdmMTcxNGUzMjY5OCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA2MTU5MX0.F4ZxmdClSzJjD8z8rQI9Vgp9rl0_Z2vd-EIJQGZonFw'
+          curl -L --fail --retry 3 -o "$base/flight/01_anjo_esquerda.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/34651b10-ad4a-4680-994c-68b4602ae359.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNjU3YmMyOWEwMjEyNjM0ZCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA0NjM2Mn0.sBMI1fE0zjjTl8wfuq_aNXyOR9OuGVyj9MZlNrKuITY'
+          curl -L --fail --retry 3 -o "$base/flight/02_anjo_centro_esquerda.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/b6825800-ca91-465f-96cd-94384a7d865b.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNWJlNzMxYjBjNDg5NmZiMSIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDAxODk5Mn0.tZpXrh9tpZ1R97miFVI7pfP8NpzcA339CXGWqLHRqBY'
+          curl -L --fail --retry 3 -o "$base/flight/03_anjo_centro_direita.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/1ec6aeab-f3c0-4ce4-95a9-2f5a0ab80448.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiNDEwNTBjMDY5MGMwZWU5MCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA4NDk5OH0.fB1xB15Cu4AuqQwRhW6PD67NCsUyqm8kmxsXb8GXrcE'
+          curl -L --fail --retry 3 -o "$base/flight/04_anjo_direita.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/ce0cc11b-5a09-4347-9d82-239035482573.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZGRmOWZiNmY2ZDdiZTY0MCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA4MzU2N30.UWPAf630wt4Yq3143pJl50KnAWhp2fl3R7vkcc0-tu4'
+          curl -L --fail --retry 3 -o "$base/landing/pouso_01_em_pe.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/0ad0f263-cc4c-4dca-8f8f-54c64dda40fb.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2YxOTMwYjkzYjEzMDY2MyIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA0MDUwNX0.7J29-MTStqF8kl3JcIhWfIma6Z0E-oXiMMNS_junCv4'
+          curl -L --fail --retry 3 -o "$base/landing/pouso_02_descida.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/4d9a0f92-daea-4002-9d28-269a0f68a77f.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZWE1ZDhkNDVmMzFhNDcyZCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA1NzE1N30.UFMZRQboWWt-ATerW-lVkPuaQtaxcWiJrh8poOCBgDU'
+          curl -L --fail --retry 3 -o "$base/landing/pouso_03_toque_no_chao.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/e9957657-67f7-4825-a97a-5c390283f154.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjViOWQxYjhlNTlhYjcxZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA1NDk2OH0.0vQoSRl3AdGmUTQjyDBEkOAxwChOzcTdq8gG3iedj2M'
+          curl -L --fail --retry 3 -o "$base/landing/pouso_04_pouso_final.png" 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/5bbd577d-4852-4240-9b8a-74196cea02d8.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiYWRkZmVmNjBhMTg5NTAzNCIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA0NjE3Nn0.LxZBtlT1vbPjrMI_HRTPeV6iSC3omdJmaxRs-tFuupE'
+
+          test -s "$base/background.jpg"
+          test -s "$base/flight/01_anjo_esquerda.png"
+          test -s "$base/landing/pouso_04_pouso_final.png"
+
+      - name: Commit preview assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wix-preview/assets/cyber-angel-v3-preview/assets
+          if git diff --cached --quiet; then
+            echo 'Preview V3 assets already staged.'
+            exit 0
+          fi
+          git commit -m 'Stage Cyber Angel V3 assets in preview only'
+          git pull --rebase origin main
+          git push

@@ -1,5 +1,20 @@
 // HERO hotfix — card 03 Dermacast >1min + card 04 Mago showcase.
 (() => {
+  // Desktop hero alignment: keep the approved size/rotation and lower only the
+  // immersive angel slot so the character aligns vertically with the hero copy.
+  if (!document.getElementById('ms-hero-immersive-alignment-v2')) {
+    const style = document.createElement('style');
+    style.id = 'ms-hero-immersive-alignment-v2';
+    style.textContent = `
+      @media (min-width: 761px) {
+        #hero .hero-art.is-immersive .hero-immersive-wrap {
+          transform: translateY(5%) !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   const num = document.querySelector('#heroNum');
   const fullMedia = document.querySelector('#heroFullMedia');
   const fullVideo = document.querySelector('#heroFullVideo');

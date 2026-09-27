@@ -1,0 +1,194 @@
+name: SEO Audit — mensagemstudio.shop
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wix-preview/**'
+      - 'index.html'
+      - 'portfolio/**'
+      - 'servicos/**'
+      - 'sobre/**'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'llms.txt'
+      - '.github/workflows/seo-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate SEO surface
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+
+          base = "https://mensagemstudio.shop/"
+          slugs = [
+              "produto-3d-egeo",
+              "carrossel-banner-estetica",
+              "edicao-podcast-workshop",
+              "motion-ia-video-campanhas",
+              "suco-laranja-natural-one",
+              "esporte-fitness",
+              "creatina-growth",
+              "personagens-consistentes-com-ia",
+              "fotos-para-ecommerce",
+              "motors-vans",
+              "edicao-fantasia-photoshop",
+              "poster-cartaz-cinematografico",
+              "motion-design-cartaz-cinematografico",
+              "laminas-divulgacao-publicidade-story",
+              "produtos-3d-codex-blender",
+              "html-editavel-templates-web",
+          ]
+          service_slugs = [
+              "design-social-media",
+              "edicao-video",
+              "producao-audiovisual",
+              "motion-design-vfx",
+              "tratamento-retoque-fotos",
+              "manipulacao-imagem",
+              "identidade-visual-branding",
+              "direcao-arte-campanhas",
+              "fotos-ecommerce",
+              "ilustracao-personagens-storyboard",
+              "modelagem-3d-produto",
+              "sites-html",
+          ]
+          video_slugs = [
+              "produto-3d-egeo",
+              "edicao-podcast-workshop",
+              "motion-ia-video-campanhas",
+              "suco-laranja-natural-one",
+              "esporte-fitness",
+              "creatina-growth",
+              "personagens-consistentes-com-ia",
+              "motors-vans",
+              "edicao-fantasia-photoshop",
+              "motion-design-cartaz-cinematografico",
+              "produtos-3d-codex-blender",
+          ]
+          pages = {
+              "index.html": base,
+              "portfolio/index.html": base + "portfolio/",
+              "servicos/index.html": base + "servicos/",
+              "sobre/index.html": base + "sobre/",
+              "curitiba/index.html": base + "curitiba/",
+          }
+          pages.update({
+              f"portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
+              for slug in slugs
+          })
+          pages.update({
+              f"servicos/{slug}/index.html": base + f"servicos/{slug}/"
+              for slug in service_slugs
+          })
+
+          errors = []
+          for path, canonical in pages.items():
+              p = Path(path)
+              if not p.exists():
+                  errors.append(f"MISSING PAGE: {path}")
+                  continue
+              html = p.read_text(encoding="utf-8")
+              checks = {
+                  "title": r"<title>[^<]{8,}</title>",
+                  "description": r'<meta\s+name=["\']description["\'][^>]+content=["\'][^"\']{60,}["\']',
+                  "robots": r'<meta\s+name=["\']robots["\'][^>]+content=["\'][^"\']*index[^"\']*follow',
+                  "canonical": re.escape(f'rel="canonical" href="{canonical}"'),
+                  "og:title": r'property=["\']og:title["\']',
+                  "og:description": r'property=["\']og:description["\']',
+                  "og:image": r'property=["\']og:image["\']',
+                  "jsonld": r'application/ld\+json',
+              }
+              for label, pattern in checks.items():
+                  if not re.search(pattern, html, flags=re.I | re.S):
+                      errors.append(f"{path}: missing/invalid {label}")
+              if "Wix Preview" in html:
+                  errors.append(f"{path}: homologation title/text leaked into SEO")
+              if 'canonical" href="https://mensagemstudio.shop/wix-preview/' in html:
+                  errors.append(f"{path}: canonical points to wix-preview")
+
+              if path.startswith("portfolio/") and path != "portfolio/index.html":
+                  slug = path.split("/")[1]
+                  if slug in video_slugs and '"@type":"VideoObject"' not in html:
+                      errors.append(f"{path}: video project missing VideoObject schema")
+
+          sitemap = Path("sitemap.xml")
+          if not sitemap.exists():
+              errors.append("MISSING sitemap.xml")
+          else:
+              root = ET.fromstring(sitemap.read_text(encoding="utf-8"))
+              ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+              urls = [x.text.strip() for x in root.findall("sm:url/sm:loc", ns) if x.text]
+              expected = list(pages.values())
+              if len(urls) != len(expected):
+                  errors.append(f"sitemap.xml: expected {len(expected)} URLs, got {len(urls)}")
+              if len(urls) != len(set(urls)):
+                  errors.append("sitemap.xml: duplicate URLs")
+              if set(urls) != set(expected):
+                  errors.append("sitemap.xml: URL set does not match the new site")
+              if any("/wix-preview/" in u or "/projetos/" in u for u in urls):
+                  errors.append("sitemap.xml: legacy/source URL present")
+
+          robots = Path("robots.txt").read_text(encoding="utf-8") if Path("robots.txt").exists() else ""
+          if "Sitemap: https://mensagemstudio.shop/sitemap.xml" not in robots:
+              errors.append("robots.txt: sitemap declaration missing")
+          # Preview is a backup mirror: crawlers may read it so they can see noindex/canonical.
+          # It must never appear in the sitemap or be indexable.
+          backup_pages = {
+              "wix-preview/index.html": base,
+              "wix-preview/portfolio/index.html": base + "portfolio/",
+              "wix-preview/servicos/index.html": base + "servicos/",
+              "wix-preview/sobre/index.html": base + "sobre/",
+              "wix-preview/curitiba/index.html": base + "curitiba/",
+          }
+          backup_pages.update({
+              f"wix-preview/portfolio/{slug}/index.html": base + f"portfolio/{slug}/"
+              for slug in slugs
+          })
+          backup_pages.update({
+              f"wix-preview/servicos/{slug}/index.html": base + f"servicos/{slug}/"
+              for slug in service_slugs
+          })
+          for path, canonical in backup_pages.items():
+              p = Path(path)
+              if not p.exists():
+                  errors.append(f"MISSING BACKUP PAGE: {path}")
+                  continue
+              html = p.read_text(encoding="utf-8")
+              if not re.search(
+                  r'<meta\s+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex[^"\']*follow',
+                  html,
+                  flags=re.I | re.S,
+              ):
+                  errors.append(f"{path}: backup must be noindex,follow")
+              if not re.search(re.escape(f'rel="canonical" href="{canonical}"'), html, flags=re.I | re.S):
+                  errors.append(f"{path}: backup canonical must point to production")
+
+          pjs = Path("portfolio/project-page.js")
+          if not pjs.exists() or "<h1>" not in pjs.read_text(encoding="utf-8"):
+              errors.append("project renderer: H1 not found")
+
+          if errors:
+              print("\n".join("ERROR: " + e for e in errors))
+              sys.exit(1)
+
+          print(f"SEO PASS: {len(pages)} indexable pages validated.")
+          print("Canonical domain: https://mensagemstudio.shop/")
+          print(f"Sitemap: {len(expected)}/{len(expected)} URLs.")
+          print("Preview backup: noindex,follow with production canonicals.")
+          PY

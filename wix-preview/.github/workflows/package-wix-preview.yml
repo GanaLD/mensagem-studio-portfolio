@@ -1,0 +1,57 @@
+name: Package Wix Preview
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/package-wix-preview.yml'
+      - 'docs/MENSAGEM_STUDIO_SITE_MAP.md'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build package
+        shell: bash
+        run: |
+          set -euo pipefail
+          COMMIT="$(git rev-parse HEAD)"
+          rm -rf MENSAGEM_STUDIO_SITE_PACKAGE
+          mkdir -p MENSAGEM_STUDIO_SITE_PACKAGE/SITE
+          mkdir -p MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO
+          cp -a wix-preview MENSAGEM_STUDIO_SITE_PACKAGE/SITE/
+          cp docs/MENSAGEM_STUDIO_SITE_MAP.md MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO/
+          {
+            echo "COMMIT=$COMMIT"
+            echo
+            find wix-preview -type f -print | sort
+          } > MENSAGEM_STUDIO_SITE_PACKAGE/DOCUMENTACAO/MANIFESTO_ARQUIVOS.txt
+          {
+            echo "MENSAGEM STUDIO - PACOTE DO SITE"
+            echo "Snapshot: $COMMIT"
+            echo
+            echo "Codigo: SITE/wix-preview/"
+            echo "Documentacao: DOCUMENTACAO/MENSAGEM_STUDIO_SITE_MAP.md"
+            echo "Manifesto: DOCUMENTACAO/MANIFESTO_ARQUIVOS.txt"
+            echo
+            echo "Teste local:"
+            echo "python -m http.server 8080"
+            echo "http://localhost:8080/MENSAGEM_STUDIO_SITE_PACKAGE/SITE/wix-preview/"
+            echo
+            echo "Observacao: parte das midias continua externa e exige internet."
+          } > MENSAGEM_STUDIO_SITE_PACKAGE/README_PACKAGE.txt
+          zip -r -9 MENSAGEM_STUDIO_SITE_PACKAGE.zip MENSAGEM_STUDIO_SITE_PACKAGE >/dev/null
+          test -s MENSAGEM_STUDIO_SITE_PACKAGE.zip
+
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: MENSAGEM_STUDIO_SITE_PACKAGE
+          path: MENSAGEM_STUDIO_SITE_PACKAGE.zip
+          if-no-files-found: error
+          compression-level: 0

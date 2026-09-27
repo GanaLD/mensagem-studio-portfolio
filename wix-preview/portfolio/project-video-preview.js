@@ -1,12 +1,4 @@
 (() => {
-  if (!window.__MS_FUGAZ_WORK_PREVIEW_LOADER__) {
-    window.__MS_FUGAZ_WORK_PREVIEW_LOADER__ = true;
-    const s = document.createElement('script');
-    s.src = '/wix-preview/typography-preview.js?v=20260926-fugaz-work-v1';
-    s.defer = true;
-    document.head.appendChild(s);
-  }
-
   const cards = [...document.querySelectorAll('#grid .card')];
   const projects = Array.isArray(window.MENSAGEM_PROJECTS) ? window.MENSAGEM_PROJECTS : [];
   const bySlug = new Map(projects.map(project => [project.slug, project]));
@@ -135,4 +127,18 @@
     card.addEventListener('mouseleave', stop);
     card.addEventListener('blur', stop, true);
   });
+})();
+
+(() => {
+  const load = (src, id) => {
+    if (document.getElementById(id)) return;
+    const script = document.createElement('script');
+    script.id = id;
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
+  };
+
+  load('./project-particle-matrix.js?v=20260926-production-v1', 'projects-particle-production-v1');
+  load('./projects-services-footer.js?v=20260926-production-v1', 'projects-services-footer-production-v1');
 })();

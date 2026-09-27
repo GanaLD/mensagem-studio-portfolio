@@ -1,0 +1,47 @@
+name: Diagnose RubberSegment Top Nav
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-rubber-topnav.yml'
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify rendered top nav on all main pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME"
+
+          urls=(
+            "https://mensagemstudio.shop/?topnav_diag=${GITHUB_RUN_ID}"
+            "https://mensagemstudio.shop/portfolio/?topnav_diag=${GITHUB_RUN_ID}"
+            "https://mensagemstudio.shop/servicos/?topnav_diag=${GITHUB_RUN_ID}"
+            "https://mensagemstudio.shop/sobre/?topnav_diag=${GITHUB_RUN_ID}"
+          )
+
+          failed=0
+          for url in "${urls[@]}"; do
+            file="/tmp/dom-$(echo "$url" | tr '/:?=&' '_').html"
+            "$CHROME" --headless --no-sandbox --disable-gpu --virtual-time-budget=7000 --dump-dom "$url" > "$file" 2>/dev/null || true
+
+            root_count=$(grep -o 'id="ms-rubber-topnav-root"' "$file" | wc -l || true)
+            segment_count=$(grep -o 'ms-topnav-rubber-segment' "$file" | wc -l || true)
+            legacy_count=$(grep -o 'ms-rubber-topnav-legacy' "$file" | wc -l || true)
+            thumb_count=$(grep -o 'rubber-segment__thumb' "$file" | wc -l || true)
+
+            echo "URL: $url"
+            echo "root=$root_count segment=$segment_count legacy=$legacy_count thumb=$thumb_count"
+
+            if [ "$root_count" -lt 1 ] || [ "$segment_count" -lt 1 ] || [ "$legacy_count" -lt 1 ] || [ "$thumb_count" -lt 1 ]; then
+              echo "FAILED: RubberSegment top nav not fully rendered on $url"
+              failed=1
+            fi
+          done
+
+          exit "$failed"
