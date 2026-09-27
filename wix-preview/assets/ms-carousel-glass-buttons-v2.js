@@ -1,4 +1,12 @@
 (()=>{
+  if(!window.__MS_FUGAZ_WORK_PREVIEW_LOADER__){
+    window.__MS_FUGAZ_WORK_PREVIEW_LOADER__=true;
+    const s=document.createElement('script');
+    s.src='/wix-preview/typography-preview.js?v=20260926-fugaz-work-v1';
+    s.defer=true;
+    document.head.appendChild(s);
+  }
+
   if(window.__MS_CAROUSEL_GLASS_BUTTONS_V2__) return;
   window.__MS_CAROUSEL_GLASS_BUTTONS_V2__=true;
 
