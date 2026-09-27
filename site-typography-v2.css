@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Work+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+  --ms-font-display:'Fugaz One',Impact,'Arial Black',sans-serif;
+  --ms-font-body:'Work Sans',Arial,Helvetica,sans-serif;
+}
+
+html,body,button,input,textarea,select,option{
+  font-family:var(--ms-font-body)!important;
+  font-optical-sizing:auto;
+}
+
+body :where(p,a,span,small,button,input,textarea,select,option,label,li,dt,dd,figcaption){
+  font-family:var(--ms-font-body)!important;
+}
+
+body :where(
+  h1,h2,h3,h4,h5,h6,
+  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
+  .word-main,.projects-heading,.projects-title,
+  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
+  .profile-intro h2,.profile-name strong,.conversion-copy h2,
+  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
+){
+  font-family:var(--ms-font-display)!important;
+  font-weight:400!important;
+  font-synthesis:none!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+  letter-spacing:-.018em!important;
+}
+
+body :where(
+  h1,h2,h3,h4,h5,h6,
+  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
+  .word-main,.projects-heading,.projects-title,
+  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
+  .profile-intro h2,.profile-name strong,.conversion-copy h2,
+  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
+) *{
+  font-family:inherit!important;
+  font-weight:inherit!important;
+}
+
+.kicker,.eyebrow,.cat,.price,.note,.nav,.nav a,.right,.filter,.filters,
+.chip,.btn,.add,.close,.send,.detail,.caption,.hero-label,.model-file-link,
+.conversion-btn,.conversion-ref,.ms-menu-head,.ms-menu-link small,.ms-menu-quote,
+.ms-sound-toggle,.ms-glass-cta,.ms-quote-fab,.location,.actions,
+.word-top-label,.word-case-desc,footer,.footer{
+  font-family:var(--ms-font-body)!important;
+}
+
+.word-top-label{
+  font-weight:650!important;
+  letter-spacing:.14em!important;
+}
+.word-case-desc{
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.brand{letter-spacing:.045em!important;white-space:nowrap}
+.nav a,.filter,.chip,.btn,.add,.close,.send,.conversion-btn,
+.ms-menu-quote,.ms-glass-cta,.ms-quote-fab{letter-spacing:.07em!important}
