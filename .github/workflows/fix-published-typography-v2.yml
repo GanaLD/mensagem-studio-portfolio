@@ -1,0 +1,155 @@
+name: Fix Published Typography V2
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-published-typography-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rollout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply approved typography identity to published site
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          VERSION = '20260927-published-type-v2'
+          css = r'''@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Work+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+  --ms-font-display:'Fugaz One',Impact,'Arial Black',sans-serif;
+  --ms-font-body:'Work Sans',Arial,Helvetica,sans-serif;
+}
+
+html,body,button,input,textarea,select,option{
+  font-family:var(--ms-font-body)!important;
+  font-optical-sizing:auto;
+}
+
+body :where(p,a,span,small,button,input,textarea,select,option,label,li,dt,dd,figcaption){
+  font-family:var(--ms-font-body)!important;
+}
+
+body :where(
+  h1,h2,h3,h4,h5,h6,
+  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
+  .word-main,.projects-heading,.projects-title,
+  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
+  .profile-intro h2,.profile-name strong,.conversion-copy h2,
+  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
+){
+  font-family:var(--ms-font-display)!important;
+  font-weight:400!important;
+  font-synthesis:none!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  hyphens:none;
+  letter-spacing:-.018em!important;
+}
+
+body :where(
+  h1,h2,h3,h4,h5,h6,
+  .brand,.display,.title,.hero-title,.section-title,.project-title,.card-title,
+  .word-main,.projects-heading,.projects-title,
+  .section-head h2,.category h2,.card h3,.hero-copy h1,.masthead h1,
+  .profile-intro h2,.profile-name strong,.conversion-copy h2,
+  .project-link strong,.case-study-head h2,.ms-menu-link,.ms-contact-card h2,.text h2
+) *{
+  font-family:inherit!important;
+  font-weight:inherit!important;
+}
+
+.kicker,.eyebrow,.cat,.price,.note,.nav,.nav a,.right,.filter,.filters,
+.chip,.btn,.add,.close,.send,.detail,.caption,.hero-label,.model-file-link,
+.conversion-btn,.conversion-ref,.ms-menu-head,.ms-menu-link small,.ms-menu-quote,
+.ms-sound-toggle,.ms-glass-cta,.ms-quote-fab,.location,.actions,
+.word-top-label,.word-case-desc,footer,.footer{
+  font-family:var(--ms-font-body)!important;
+}
+
+.word-top-label{
+  font-weight:650!important;
+  letter-spacing:.14em!important;
+}
+.word-case-desc{
+  font-weight:400!important;
+  letter-spacing:0!important;
+}
+.brand{letter-spacing:.045em!important;white-space:nowrap}
+.nav a,.filter,.chip,.btn,.add,.close,.send,.conversion-btn,
+.ms-menu-quote,.ms-glass-cta,.ms-quote-fab{letter-spacing:.07em!important}
+'''
+          Path('site-typography-v2.css').write_text(css, encoding='utf-8')
+
+          marker = f'<link rel="stylesheet" href="/site-typography-v2.css?v={VERSION}">'
+          touched = 0
+          for path in Path('.').rglob('*.html'):
+              s = str(path).replace('\\','/')
+              if s.startswith('wix-preview/') or '/wix-preview/' in s:
+                  continue
+              if any(part in s for part in ['/node_modules/','/vendor/','/dist/']):
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              if 'global-ui.js' not in text:
+                  continue
+              new = re.sub(r'<link rel="stylesheet" href="/site-typography-v2\.css\?v=[^"]+">', marker, text)
+              if 'site-typography-v2.css' not in new:
+                  pos = new.lower().rfind('</head>')
+                  if pos == -1:
+                      continue
+                  new = new[:pos] + marker + '\n' + new[pos:]
+              if new != text:
+                  path.write_text(new, encoding='utf-8')
+                  touched += 1
+          print('published HTML pages linked:', touched)
+
+          home = Path('index.html')
+          text = home.read_text(encoding='utf-8')
+
+          # Match the spacing already approved in preview for the hero copy.
+          if '.hero-copy>.kicker{display:block;margin-bottom:14px}' not in text:
+              text = text.replace(
+                  '.hero-copy{align-self:center;max-width:720px}',
+                  '.hero-copy{align-self:center;max-width:720px}.hero-copy>.kicker{display:block;margin-bottom:14px}',
+                  1
+              )
+          text = text.replace(
+              '.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 24px;text-transform:uppercase;max-width:8ch}',
+              '.hero-copy h1{font-size:clamp(54px,7.4vw,126px);line-height:.82;letter-spacing:-.065em;margin:0 0 14px;text-transform:uppercase;max-width:8ch}',
+              1
+          )
+
+          # WordScroll: Fugaz One has different vertical metrics, so rebalance the visual gaps.
+          text = text.replace('  margin:0 0 18px;\n  max-width:min(620px,54vw);', '  margin:0 0 26px;\n  max-width:min(620px,54vw);', 1)
+          text = text.replace('  margin:22px 0 0;\n  color:#eef0e8;', '  margin:14px 0 0;\n  color:#eef0e8;', 1)
+          text = text.replace('.word-top-label{margin-bottom:14px;max-width:84vw;font-size:9px}', '.word-top-label{margin-bottom:18px;max-width:84vw;font-size:9px}', 1)
+          text = text.replace('.word-case-desc{width:min(86vw,580px);margin-top:18px;font-size:12px}', '.word-case-desc{width:min(86vw,580px);margin-top:12px;font-size:12px}', 1)
+
+          home.write_text(text, encoding='utf-8')
+          print('published home spacing corrected')
+          PY
+
+      - name: Commit published typography correction
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "Mensagem Studio Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix published site typography and spacing"
+          git push
