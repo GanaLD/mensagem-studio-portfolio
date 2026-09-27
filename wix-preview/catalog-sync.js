@@ -6,6 +6,7 @@
 // SERVICES_URL+'#cat-12'
 // window.location.assign(card.href)
 // home-runtime.js is loaded once by index.html; do not import it again here.
+import './typography-preview.js?v=20260926-fugaz-work-v1';
 import './home-round2.js?v=20260911-r3-grid-hero-3d';
 import './home-round2d.js?v=20260911-r3-grid-hero-3d';
 import './hero-hotfix.js?v=20260913-r1-mago-dermacast';
