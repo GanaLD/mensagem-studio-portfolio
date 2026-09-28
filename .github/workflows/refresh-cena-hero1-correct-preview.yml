@@ -1,0 +1,202 @@
+name: Refresh corrected CENA HERO 1 preview
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-cena-hero1-correct-preview.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-correct-cena-hero1-preview
+  cancel-in-progress: false
+
+jobs:
+  refresh-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download corrected self-contained viewer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet 'gdown>=5.2,<6'
+          mkdir -p wix-preview/assets/cena-hero-1
+          gdown --id 1I2wB8ZlY_-nVSck9HBvXwXQJLYKstd_- -O wix-preview/assets/cena-hero-1/visualizador.html
+          test -s wix-preview/assets/cena-hero-1/visualizador.html
+          bytes=$(wc -c < wix-preview/assets/cena-hero-1/visualizador.html)
+          echo "Corrected viewer bytes: ${bytes}"
+          test "$bytes" -gt 45000000
+
+      - name: Adapt corrected viewer for embedded parent scroll
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('wix-preview/assets/cena-hero-1/visualizador.html')
+          html=p.read_text(encoding='utf-8')
+          if 'MS_CENA_HERO_EMBED_V2' not in html:
+              head=r'''
+          <!-- MS_CENA_HERO_EMBED_V2 -->
+          <style id="ms-cena-hero-embed-v2">
+          html,body{width:100%;height:100%;min-height:100%!important;margin:0!important;overflow:hidden!important;overscroll-behavior:none!important;background:#050605!important}
+          body>header,.controls,aside,#downloads,#hint{display:none!important}
+          .experience{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#050605!important}
+          #stage{position:absolute!important;left:50%!important;top:50%!important;width:100vw!important;height:100vh!important;max-width:none!important;aspect-ratio:auto!important;border-radius:0!important;outline:0!important;box-shadow:none!important;transform:translate(-50%,-50%) scale(1.055)!important;transform-origin:center center!important;background:#050605!important}
+          #canvas,#hero{width:100%!important;height:100%!important}
+          #loading{z-index:8!important;background:#050605!important}
+          @supports(height:100dvh){#stage{height:100dvh!important}}
+          </style>
+          '''
+              body=r'''
+          <script id="ms-cena-hero-embed-bridge-v2">
+          (()=>{
+            const TYPE='MS_CENA_HERO_PROGRESS';
+            let pending=0,announced=false;
+            const clamp=n=>Math.max(0,Math.min(1,Number(n)||0));
+            const apply=()=>{
+              const api=window.sceneReview;
+              if(!api||typeof api.setProgress!=='function') return false;
+              api.setProgress(clamp(pending));
+              if(!announced){announced=true;try{parent.postMessage({type:'MS_CENA_HERO_READY'},'*')}catch(_){}}
+              return true;
+            };
+            addEventListener('message',event=>{
+              const data=event.data;
+              if(!data||data.type!==TYPE)return;
+              pending=clamp(data.progress);
+              apply();
+            });
+            const timer=setInterval(()=>{if(apply())clearInterval(timer)},50);
+            setTimeout(()=>clearInterval(timer),30000);
+            addEventListener('load',apply,{once:true});
+            try{parent.postMessage({type:'MS_CENA_HERO_BOOT'},'*')}catch(_){}
+          })();
+          </script>
+          '''
+              if '</head>' not in html or '</body>' not in html: raise SystemExit('Viewer markers missing')
+              html=html.replace('</head>',head+'\n</head>',1)
+              html=html.replace('</body>',body+'\n</body>',1)
+          p.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Patch preview continuity and shared scroll UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('wix-preview/index.html')
+          html=p.read_text(encoding='utf-8')
+
+          # Remove previous V2 block if rerun.
+          a='<!-- CENA_HERO_1_V2_START -->'; b='<!-- CENA_HERO_1_V2_END -->'
+          if a in html and b in html:
+              s=html.index(a); e=html.index(b,s)+len(b)
+              html=html[:s]+html[e:]
+
+          # Inject exact same scroll cue/label/meter structure used by HeroScroll.
+          marker='''      tabindex="-1"></iframe>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
+          overlay='''      tabindex="-1"></iframe>\n    <div class="cena-hero-shared-ui" aria-hidden="true">\n      <div class="hero-scroll-cue"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div>\n      <div class="video-scroll-label">Role para controlar o filme · depois entram os cases</div>\n      <div class="video-scroll-meter cena-hero-meter"><i></i></div>\n    </div>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
+          if 'cena-hero-shared-ui' not in html:
+              if marker not in html: raise SystemExit('CENA HERO 1 section marker not found')
+              html=html.replace(marker,overlay,1)
+
+          style=r'''
+          <!-- CENA_HERO_1_V2_START -->
+          <style id="cena-hero-1-v2-style">
+          #cenaHero1{background:#050605!important}
+          #cenaHero1 .cena-hero-1-sticky{background:#050605!important;opacity:1!important;visibility:visible!important}
+          #cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0!important;visibility:hidden!important}
+          #cenaHero1Frame{position:absolute!important;inset:0!important;z-index:1!important;background:#050605!important}
+          #cenaHero1 .cena-hero-shared-ui{position:absolute;inset:0;z-index:18;pointer-events:none;opacity:1;visibility:visible}
+          #cenaHero1 .cena-hero-shared-ui .hero-scroll-cue,
+          #cenaHero1 .cena-hero-shared-ui .video-scroll-label,
+          #cenaHero1 .cena-hero-shared-ui .video-scroll-meter{display:flex!important;visibility:visible!important;opacity:1!important}
+          #cenaHero1 .cena-hero-meter i{transform-origin:left center;transform:scaleX(var(--cena-hero-progress,0));width:100%!important;transition:none!important}
+          #cenaHero1.is-handoff .cena-hero-shared-ui{visibility:hidden!important}
+          </style>
+          <script id="cena-hero-1-v2-bridge">
+          (()=>{
+            const section=document.getElementById('cenaHero1');
+            const frame=document.getElementById('cenaHero1Frame');
+            if(!section||!frame)return;
+            let raf=0,last=-1;
+            const clamp=n=>Math.max(0,Math.min(1,n));
+            const update=()=>{
+              raf=0;
+              const range=Math.max(1,section.offsetHeight-innerHeight);
+              const passed=Math.min(range,Math.max(0,-section.getBoundingClientRect().top));
+              const pageProgress=clamp(passed/range);
+              // Reach the exact final frame slightly before the physical handoff, then hold it.
+              const sceneProgress=clamp(pageProgress/0.9975);
+              section.style.setProperty('--cena-hero-progress',String(sceneProgress));
+              // Swap only at the exact end. HERO 2 is already at its first frame underneath.
+              section.classList.toggle('is-handoff',pageProgress>=0.999999);
+              if(Math.abs(sceneProgress-last)>.00015||last<0){
+                last=sceneProgress;
+                try{frame.contentWindow&&frame.contentWindow.postMessage({type:'MS_CENA_HERO_PROGRESS',progress:sceneProgress},'*')}catch(_){}
+              }
+            };
+            const schedule=()=>{if(!raf)raf=requestAnimationFrame(update)};
+            addEventListener('scroll',schedule,{passive:true});
+            addEventListener('resize',schedule,{passive:true});
+            frame.addEventListener('load',()=>{last=-1;schedule()});
+            addEventListener('message',event=>{if(event.source===frame.contentWindow){last=-1;schedule()}});
+            schedule();
+          })();
+          </script>
+          <!-- CENA_HERO_1_V2_END -->
+          '''
+          if '</body>' not in html: raise SystemExit('No body end')
+          html=html.replace('</body>',style+'\n</body>',1)
+
+          # Disable the older bridge to avoid two competing progress writers.
+          html=html.replace("<script id=\"cena-hero-1-preview-bridge\">","<script id=\"cena-hero-1-preview-bridge-disabled\" type=\"application/x-disabled\">",1)
+
+          # Exact one-viewport overlap: final CENA frame and first HeroScroll frame occupy the same pixels.
+          if '#hero{margin-top:-100vh}' not in html:
+              html=html.replace('</head>','<style>#hero{margin-top:-100vh}</style>\n</head>',1)
+
+          p.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Validate preview only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'MS_CENA_HERO_EMBED_V2' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'cena-hero-shared-ui' wix-preview/index.html
+          grep -q 'pageProgress>=0.999999' wix-preview/index.html
+          grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
+          ! grep -q 'cenaHero1' index.html
+          python - <<'PY'
+          from pathlib import Path
+          v=Path('wix-preview/assets/cena-hero-1/visualizador.html')
+          h=Path('wix-preview/index.html').read_text(encoding='utf-8')
+          assert v.stat().st_size > 45_000_000
+          assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
+          print('PASS: corrected asset, shared scroll UI, exact frame handoff, preview only')
+          PY
+
+      - name: Commit corrected preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wix-preview/index.html wix-preview/assets/cena-hero-1/visualizador.html
+          if git diff --cached --quiet; then
+            echo 'No changes.'
+            exit 0
+          fi
+          git commit -m 'Preview: use corrected CENA HERO 1 and seamless handoff [skip ci]'
+          git push
