@@ -34,7 +34,7 @@ jobs:
           echo "Corrected viewer bytes: ${bytes}"
           test "$bytes" -gt 45000000
 
-      - name: Adapt corrected viewer for embedded parent scroll
+      - name: Adapt corrected viewer for exact full-screen mobile handoff
         shell: bash
         run: |
           set -euo pipefail
@@ -42,21 +42,22 @@ jobs:
           from pathlib import Path
           p=Path('wix-preview/assets/cena-hero-1/visualizador.html')
           html=p.read_text(encoding='utf-8')
-          if 'MS_CENA_HERO_EMBED_V2' not in html:
+          if 'MS_CENA_HERO_EMBED_V3' not in html:
               head=r'''
-          <!-- MS_CENA_HERO_EMBED_V2 -->
-          <style id="ms-cena-hero-embed-v2">
+          <!-- MS_CENA_HERO_EMBED_V3 -->
+          <style id="ms-cena-hero-embed-v3">
           html,body{width:100%;height:100%;min-height:100%!important;margin:0!important;overflow:hidden!important;overscroll-behavior:none!important;background:#050605!important}
           body>header,.controls,aside,#downloads,#hint{display:none!important}
-          .experience{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#050605!important}
-          #stage{position:absolute!important;left:50%!important;top:50%!important;width:100vw!important;height:100vh!important;max-width:none!important;aspect-ratio:auto!important;border-radius:0!important;outline:0!important;box-shadow:none!important;transform:translate(-50%,-50%) scale(1.055)!important;transform-origin:center center!important;background:#050605!important}
+          .experience{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;background:#050605!important;overflow:hidden!important}
+          #stage{position:absolute!important;left:50%!important;top:50%!important;width:100vw!important;height:100vh!important;max-width:none!important;aspect-ratio:auto!important;border-radius:0!important;outline:0!important;box-shadow:none!important;transform:translate(-50%,-50%)!important;transform-origin:center center!important;background:#050605!important}
           #canvas,#hero{width:100%!important;height:100%!important}
+          #hero{object-fit:cover!important;object-position:50% 50%!important}
           #loading{z-index:8!important;background:#050605!important}
           @supports(height:100dvh){#stage{height:100dvh!important}}
           </style>
           '''
               body=r'''
-          <script id="ms-cena-hero-embed-bridge-v2">
+          <script id="ms-cena-hero-embed-bridge-v3">
           (()=>{
             const TYPE='MS_CENA_HERO_PROGRESS';
             let pending=0,announced=false;
@@ -87,7 +88,7 @@ jobs:
           p.write_text(html,encoding='utf-8')
           PY
 
-      - name: Patch preview continuity and shared scroll UI
+      - name: Patch exact HERO 1 to HeroScroll handoff and shared UI
         shell: bash
         run: |
           set -euo pipefail
@@ -96,13 +97,16 @@ jobs:
           p=Path('wix-preview/index.html')
           html=p.read_text(encoding='utf-8')
 
-          # Remove previous V2 block if rerun.
-          a='<!-- CENA_HERO_1_V2_START -->'; b='<!-- CENA_HERO_1_V2_END -->'
-          if a in html and b in html:
-              s=html.index(a); e=html.index(b,s)+len(b)
-              html=html[:s]+html[e:]
+          # Remove previous custom handoff block if rerun.
+          for a,b in [
+              ('<!-- CENA_HERO_1_V2_START -->','<!-- CENA_HERO_1_V2_END -->'),
+              ('<!-- CENA_HERO_1_V3_START -->','<!-- CENA_HERO_1_V3_END -->')
+          ]:
+              if a in html and b in html:
+                  s=html.index(a); e=html.index(b,s)+len(b)
+                  html=html[:s]+html[e:]
 
-          # Inject exact same scroll cue/label/meter structure used by HeroScroll.
+          # Keep one copy of the same cue/label/meter used by HeroScroll on HERO 1.
           marker='''      tabindex="-1"></iframe>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
           overlay='''      tabindex="-1"></iframe>\n    <div class="cena-hero-shared-ui" aria-hidden="true">\n      <div class="hero-scroll-cue"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div>\n      <div class="video-scroll-label">Role para controlar o filme · depois entram os cases</div>\n      <div class="video-scroll-meter cena-hero-meter"><i></i></div>\n    </div>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
           if 'cena-hero-shared-ui' not in html:
@@ -110,10 +114,10 @@ jobs:
               html=html.replace(marker,overlay,1)
 
           style=r'''
-          <!-- CENA_HERO_1_V2_START -->
-          <style id="cena-hero-1-v2-style">
+          <!-- CENA_HERO_1_V3_START -->
+          <style id="cena-hero-1-v3-style">
           #cenaHero1{background:#050605!important}
-          #cenaHero1 .cena-hero-1-sticky{background:#050605!important;opacity:1!important;visibility:visible!important}
+          #cenaHero1 .cena-hero-1-sticky{background:#050605!important;opacity:1!important;visibility:visible!important;transition:none!important}
           #cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0!important;visibility:hidden!important}
           #cenaHero1Frame{position:absolute!important;inset:0!important;z-index:1!important;background:#050605!important}
           #cenaHero1 .cena-hero-shared-ui{position:absolute;inset:0;z-index:18;pointer-events:none;opacity:1;visibility:visible}
@@ -122,24 +126,43 @@ jobs:
           #cenaHero1 .cena-hero-shared-ui .video-scroll-meter{display:flex!important;visibility:visible!important;opacity:1!important}
           #cenaHero1 .cena-hero-meter i{transform-origin:left center;transform:scaleX(var(--cena-hero-progress,0));width:100%!important;transition:none!important}
           #cenaHero1.is-handoff .cena-hero-shared-ui{visibility:hidden!important}
+
+          /* HERO 2 stays fully hidden underneath until the exact handoff frame. */
+          html.cena-hero-active #hero .hero-sticky{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:none!important}
+          html:not(.cena-hero-active) #hero .hero-sticky{opacity:1!important;visibility:visible!important}
           </style>
-          <script id="cena-hero-1-v2-bridge">
+          <script id="cena-hero-1-v3-bridge">
           (()=>{
             const section=document.getElementById('cenaHero1');
             const frame=document.getElementById('cenaHero1Frame');
+            const hero2=document.getElementById('hero');
+            const hero2Video=document.getElementById('heroVideo');
             if(!section||!frame)return;
-            let raf=0,last=-1;
+            let raf=0,last=-1,wasHandoff=false;
+            const root=document.documentElement;
             const clamp=n=>Math.max(0,Math.min(1,n));
+            root.classList.add('cena-hero-active');
+
             const update=()=>{
               raf=0;
               const range=Math.max(1,section.offsetHeight-innerHeight);
               const passed=Math.min(range,Math.max(0,-section.getBoundingClientRect().top));
               const pageProgress=clamp(passed/range);
-              // Reach the exact final frame slightly before the physical handoff, then hold it.
-              const sceneProgress=clamp(pageProgress/0.9975);
+
+              // Finish the 3D animation just before the boundary and hold the exact final image.
+              const sceneProgress=clamp(pageProgress/0.994);
               section.style.setProperty('--cena-hero-progress',String(sceneProgress));
-              // Swap only at the exact end. HERO 2 is already at its first frame underneath.
-              section.classList.toggle('is-handoff',pageProgress>=0.999999);
+
+              const handoff=pageProgress>=0.999999;
+              section.classList.toggle('is-handoff',handoff);
+              root.classList.toggle('cena-hero-active',!handoff);
+
+              // HERO 2 always enters on its exact first frame. No double exposure, no rolling reveal.
+              if(handoff&&!wasHandoff&&hero2Video){
+                try{hero2Video.pause();hero2Video.currentTime=0}catch(_){}
+              }
+              wasHandoff=handoff;
+
               if(Math.abs(sceneProgress-last)>.00015||last<0){
                 last=sceneProgress;
                 try{frame.contentWindow&&frame.contentWindow.postMessage({type:'MS_CENA_HERO_PROGRESS',progress:sceneProgress},'*')}catch(_){}
@@ -153,15 +176,15 @@ jobs:
             schedule();
           })();
           </script>
-          <!-- CENA_HERO_1_V2_END -->
+          <!-- CENA_HERO_1_V3_END -->
           '''
           if '</body>' not in html: raise SystemExit('No body end')
           html=html.replace('</body>',style+'\n</body>',1)
 
-          # Disable the older bridge to avoid two competing progress writers.
+          # Disable the legacy bridge if it is still executable.
           html=html.replace("<script id=\"cena-hero-1-preview-bridge\">","<script id=\"cena-hero-1-preview-bridge-disabled\" type=\"application/x-disabled\">",1)
 
-          # Exact one-viewport overlap: final CENA frame and first HeroScroll frame occupy the same pixels.
+          # One viewport overlap means the final HERO 1 frame and first HERO 2 frame occupy identical pixels.
           if '#hero{margin-top:-100vh}' not in html:
               html=html.replace('</head>','<style>#hero{margin-top:-100vh}</style>\n</head>',1)
 
@@ -173,8 +196,11 @@ jobs:
         run: |
           set -euo pipefail
           test -s wix-preview/assets/cena-hero-1/visualizador.html
-          grep -q 'MS_CENA_HERO_EMBED_V2' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'MS_CENA_HERO_EMBED_V3' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q '#hero{object-fit:cover!important;object-position:50% 50%!important}' wix-preview/assets/cena-hero-1/visualizador.html
           grep -q 'cena-hero-shared-ui' wix-preview/index.html
+          grep -q 'html.cena-hero-active #hero .hero-sticky' wix-preview/index.html
+          grep -q 'hero2Video.currentTime=0' wix-preview/index.html
           grep -q 'pageProgress>=0.999999' wix-preview/index.html
           grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
           ! grep -q 'cenaHero1' index.html
@@ -184,7 +210,7 @@ jobs:
           h=Path('wix-preview/index.html').read_text(encoding='utf-8')
           assert v.stat().st_size > 45_000_000
           assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
-          print('PASS: corrected asset, shared scroll UI, exact frame handoff, preview only')
+          print('PASS: corrected asset, mobile cover frame, no double exposure, exact frame handoff, preview only')
           PY
 
       - name: Commit corrected preview
@@ -198,5 +224,5 @@ jobs:
             echo 'No changes.'
             exit 0
           fi
-          git commit -m 'Preview: use corrected CENA HERO 1 and seamless handoff [skip ci]'
+          git commit -m 'Preview: fix HERO 1 mobile full-frame handoff [skip ci]'
           git push
