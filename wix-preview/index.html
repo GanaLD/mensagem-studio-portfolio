@@ -1912,10 +1912,13 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 <!-- CENA_HERO_1_PREVIEW_BRIDGE_END -->
 
 
-<!-- CENA_HERO_1_V2_START -->
-<style id="cena-hero-1-v2-style">
+
+
+
+<!-- CENA_HERO_1_V3_START -->
+<style id="cena-hero-1-v3-style">
 #cenaHero1{background:#050605!important}
-#cenaHero1 .cena-hero-1-sticky{background:#050605!important;opacity:1!important;visibility:visible!important}
+#cenaHero1 .cena-hero-1-sticky{background:#050605!important;opacity:1!important;visibility:visible!important;transition:none!important}
 #cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0!important;visibility:hidden!important}
 #cenaHero1Frame{position:absolute!important;inset:0!important;z-index:1!important;background:#050605!important}
 #cenaHero1 .cena-hero-shared-ui{position:absolute;inset:0;z-index:18;pointer-events:none;opacity:1;visibility:visible}
@@ -1924,24 +1927,43 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 #cenaHero1 .cena-hero-shared-ui .video-scroll-meter{display:flex!important;visibility:visible!important;opacity:1!important}
 #cenaHero1 .cena-hero-meter i{transform-origin:left center;transform:scaleX(var(--cena-hero-progress,0));width:100%!important;transition:none!important}
 #cenaHero1.is-handoff .cena-hero-shared-ui{visibility:hidden!important}
+
+/* HERO 2 stays fully hidden underneath until the exact handoff frame. */
+html.cena-hero-active #hero .hero-sticky{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:none!important}
+html:not(.cena-hero-active) #hero .hero-sticky{opacity:1!important;visibility:visible!important}
 </style>
-<script id="cena-hero-1-v2-bridge">
+<script id="cena-hero-1-v3-bridge">
 (()=>{
   const section=document.getElementById('cenaHero1');
   const frame=document.getElementById('cenaHero1Frame');
+  const hero2=document.getElementById('hero');
+  const hero2Video=document.getElementById('heroVideo');
   if(!section||!frame)return;
-  let raf=0,last=-1;
+  let raf=0,last=-1,wasHandoff=false;
+  const root=document.documentElement;
   const clamp=n=>Math.max(0,Math.min(1,n));
+  root.classList.add('cena-hero-active');
+
   const update=()=>{
     raf=0;
     const range=Math.max(1,section.offsetHeight-innerHeight);
     const passed=Math.min(range,Math.max(0,-section.getBoundingClientRect().top));
     const pageProgress=clamp(passed/range);
-    // Reach the exact final frame slightly before the physical handoff, then hold it.
-    const sceneProgress=clamp(pageProgress/0.9975);
+
+    // Finish the 3D animation just before the boundary and hold the exact final image.
+    const sceneProgress=clamp(pageProgress/0.994);
     section.style.setProperty('--cena-hero-progress',String(sceneProgress));
-    // Swap only at the exact end. HERO 2 is already at its first frame underneath.
-    section.classList.toggle('is-handoff',pageProgress>=0.999999);
+
+    const handoff=pageProgress>=0.999999;
+    section.classList.toggle('is-handoff',handoff);
+    root.classList.toggle('cena-hero-active',!handoff);
+
+    // HERO 2 always enters on its exact first frame. No double exposure, no rolling reveal.
+    if(handoff&&!wasHandoff&&hero2Video){
+      try{hero2Video.pause();hero2Video.currentTime=0}catch(_){}
+    }
+    wasHandoff=handoff;
+
     if(Math.abs(sceneProgress-last)>.00015||last<0){
       last=sceneProgress;
       try{frame.contentWindow&&frame.contentWindow.postMessage({type:'MS_CENA_HERO_PROGRESS',progress:sceneProgress},'*')}catch(_){}
@@ -1955,7 +1977,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   schedule();
 })();
 </script>
-<!-- CENA_HERO_1_V2_END -->
+<!-- CENA_HERO_1_V3_END -->
 
 </body>
 </html>
