@@ -21,57 +21,72 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Remove rolling gap and make HERO 1 -> HERO 2 a frame-continuous handoff
+      - name: Enforce exact final-frame to first-frame handoff
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+
           p=Path('wix-preview/index.html')
           html=p.read_text(encoding='utf-8')
 
-          old_css='#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:#171917;overflow:visible;isolation:isolate}\n#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917}\n#cenaHero1Frame{display:block;width:100%;height:100%;border:0;background:#171917;pointer-events:none}'
-          new_css='#cenaHero1{position:relative;z-index:4;height:360vh;border:0;background:transparent;overflow:visible;isolation:isolate;pointer-events:none}\n#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible}\n#cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0;visibility:hidden}\n#cenaHero1Frame{display:block;width:100%;height:100%;border:0;background:#171917;pointer-events:none}\n#hero{margin-top:-100vh}'
-          if '#hero{margin-top:-100vh}' not in html:
-              if old_css not in html:
-                  raise SystemExit('Expected CENA HERO 1 CSS block not found')
-              html=html.replace(old_css,new_css,1)
+          html=html.replace("section.classList.toggle('is-handoff', progress>=0.9995);","section.classList.toggle('is-handoff', progress>=1);")
 
-          needle="    const progress=reduced.matches?0:passed/range;\n"
-          inject="    const progress=reduced.matches?0:passed/range;\n    section.classList.toggle('is-handoff', progress>=0.9995);\n"
-          if "section.classList.toggle('is-handoff'" not in html:
-              if needle not in html:
-                  raise SystemExit('Expected bridge progress line not found')
-              html=html.replace(needle,inject,1)
+          sticky='#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible}'
+          sticky_exact='#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible;transition:none!important}'
+          if sticky in html:
+              html=html.replace(sticky,sticky_exact,1)
+
+          if "const heroVideo=document.getElementById('heroVideo');" not in html:
+              html=html.replace("  const frame=document.getElementById('cenaHero1Frame');\n", "  const frame=document.getElementById('cenaHero1Frame');\n  const heroVideo=document.getElementById('heroVideo');\n", 1)
+
+          if 'let handedOff=false;' not in html:
+              html=html.replace('  let last=-1;\n', '  let last=-1;\n  let handedOff=false;\n', 1)
+
+          old="    const progress=reduced.matches?0:passed/range;\n    section.classList.toggle('is-handoff', progress>=1);\n"
+          new="""    const progress=reduced.matches?0:passed/range;\n    const atHandoff=progress>=1;\n    if(heroVideo){\n      try{\n        if(!atHandoff){\n          if(Math.abs(heroVideo.currentTime)>0.001) heroVideo.currentTime=0;\n          heroVideo.pause();\n        }else if(!handedOff){\n          heroVideo.currentTime=0;\n          heroVideo.pause();\n        }\n      }catch(_){}\n    }\n    handedOff=atHandoff;\n    section.classList.toggle('is-handoff',atHandoff);\n"""
+          if old in html and 'const atHandoff=progress>=1;' not in html:
+              html=html.replace(old,new,1)
 
           p.write_text(html,encoding='utf-8')
+
+          viewer=Path('wix-preview/assets/cena-hero-1/visualizador.html')
+          v=viewer.read_text(encoding='utf-8')
+          v=v.replace('#hint{display:none!important}','#hint{}')
+          viewer.write_text(v,encoding='utf-8')
           PY
 
-      - name: Verify continuity contract and production isolation
+      - name: Verify frame continuity and preview isolation
         shell: bash
         run: |
           set -euo pipefail
           grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
-          grep -q "section.classList.toggle('is-handoff', progress>=0.9995)" wix-preview/index.html
-          grep -q '#cenaHero1.is-handoff .cena-hero-1-sticky{opacity:0;visibility:hidden}' wix-preview/index.html
+          grep -q 'const atHandoff=progress>=1;' wix-preview/index.html
+          grep -q "section.classList.toggle('is-handoff',atHandoff)" wix-preview/index.html
+          grep -q "heroVideo.currentTime=0" wix-preview/index.html
+          grep -q 'transition:none!important' wix-preview/index.html
+          ! grep -q 'progress>=0.9995' wix-preview/index.html
+          ! grep -q '#hint{display:none!important}' wix-preview/assets/cena-hero-1/visualizador.html
           ! grep -q 'cenaHero1' index.html
           python - <<'PY'
           from pathlib import Path
           h=Path('wix-preview/index.html').read_text(encoding='utf-8')
           assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
-          print('PASS: HERO 2 begins under the final HERO 1 frame with no vertical reveal.')
+          assert '#hero{margin-top:-100vh}' in h
+          print('PASS: HERO 1 final frame and HERO 2 first frame share the exact viewport; no roll/fade gap.')
           PY
 
-      - name: Commit preview-only continuity fix
+      - name: Commit preview-only exact handoff fix
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/index.html
+          git add wix-preview/index.html wix-preview/assets/cena-hero-1/visualizador.html
           if git diff --cached --quiet; then
             echo 'No changes.'
             exit 0
           fi
-          git commit -m 'Fix continuous CENA HERO 1 to HeroScroll handoff [skip ci]'
+          git commit -m 'Lock exact HERO 1 to HeroScroll frame handoff [skip ci]'
           git push
