@@ -114,7 +114,134 @@
     root.querySelectorAll?.(selector).forEach(apply);
   }
 
+  function installMobileHeroVideoScrollControl(){
+    if(window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V4__) return;
+    if(!matchMedia('(max-width:760px)').matches) return;
+
+    const hero=document.getElementById('hero');
+    const original=document.getElementById('heroVideo');
+    if(!hero||!original||!original.parentNode) return;
+
+    window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V4__=true;
+
+    /*
+      The original inline controller keeps its own private scrub queue. On mobile
+      that queue can continue seeking stale frames after the finger has already
+      moved. Replacing only the media element leaves the approved Hero 1/Hero 2
+      integration untouched while giving mobile a single authoritative video
+      controller. Event listeners attached to the old node are intentionally not
+      copied by cloneNode().
+    */
+    const video=original.cloneNode(true);
+    video.muted=true;
+    video.defaultMuted=true;
+    video.playsInline=true;
+    video.setAttribute('playsinline','');
+    video.setAttribute('webkit-playsinline','');
+    video.preload='auto';
+    original.replaceWith(video);
+
+    const VIDEO_END=.465;
+    const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+    let ready=Number.isFinite(video.duration)&&video.duration>0;
+    let targetTime=0;
+    let scrollRaf=0;
+    let pendingSeek=false;
+    let priming=false;
+    let unlocked=false;
+
+    const viewportHeight=()=>{
+      const vv=window.visualViewport;
+      return Math.max(1,Math.round(vv?.height||innerHeight));
+    };
+
+    const progressFromScroll=()=>{
+      const vh=viewportHeight();
+      const range=Math.max(1,hero.offsetHeight-vh);
+      const heroProgress=clamp((scrollY-hero.offsetTop)/range);
+      return clamp(heroProgress/VIDEO_END);
+    };
+
+    const updateTarget=()=>{
+      if(!ready)return;
+      targetTime=progressFromScroll()*Math.max(.01,video.duration-.045);
+    };
+
+    const seekLatest=(force=false)=>{
+      if(!ready)return;
+      updateTarget();
+      if(video.seeking&&!force){
+        pendingSeek=true;
+        return;
+      }
+      const delta=Math.abs(video.currentTime-targetTime);
+      if(!force&&delta<.012)return;
+      pendingSeek=false;
+      try{video.currentTime=targetTime}catch(_){pendingSeek=true}
+    };
+
+    const syncFromScroll=()=>{
+      scrollRaf=0;
+      seekLatest(false);
+    };
+
+    const scheduleSync=()=>{
+      if(!scrollRaf)scrollRaf=requestAnimationFrame(syncFromScroll);
+    };
+
+    const prime=()=>{
+      if(unlocked||priming)return;
+      priming=true;
+      video.muted=true;
+      video.defaultMuted=true;
+      video.playsInline=true;
+      try{video.load()}catch(_){}
+      let playPromise;
+      try{playPromise=video.play()}catch(_){playPromise=null}
+      const finish=()=>{
+        try{video.pause()}catch(_){}
+        priming=false;
+        unlocked=true;
+        ready=Number.isFinite(video.duration)&&video.duration>0;
+        seekLatest(true);
+      };
+      if(playPromise&&typeof playPromise.then==='function')playPromise.then(finish).catch(()=>{
+        priming=false;
+        scheduleSync();
+      });
+      else finish();
+    };
+
+    video.addEventListener('loadedmetadata',()=>{
+      ready=Number.isFinite(video.duration)&&video.duration>0;
+      seekLatest(true);
+    });
+    video.addEventListener('durationchange',()=>{
+      ready=Number.isFinite(video.duration)&&video.duration>0;
+      scheduleSync();
+    });
+    video.addEventListener('seeked',()=>{
+      if(pendingSeek||Math.abs(video.currentTime-targetTime)>.018)seekLatest(false);
+    });
+    video.addEventListener('play',()=>{
+      if(!priming){try{video.pause()}catch(_){}}
+    });
+
+    addEventListener('scroll',scheduleSync,{passive:true});
+    addEventListener('resize',scheduleSync,{passive:true});
+    addEventListener('orientationchange',()=>setTimeout(scheduleSync,120),{passive:true});
+
+    /* Never consume the only user gesture just because metadata was late. */
+    addEventListener('touchstart',prime,{passive:true});
+    addEventListener('pointerdown',prime,{passive:true});
+
+    /* Muted inline video can normally be primed immediately on modern mobile. */
+    prime();
+    scheduleSync();
+  }
+
   scan();
+  installMobileHeroVideoScrollControl();
 
   const observer=new MutationObserver(records=>{
     for(const record of records){
