@@ -114,23 +114,27 @@
     root.querySelectorAll?.(selector).forEach(apply);
   }
 
+  function removeDuplicateHeroLabel(){
+    if(!matchMedia('(max-width:760px)').matches) return;
+    document.querySelectorAll(
+      '#msUnifiedHeroStage .video-scroll-label,#hero .video-scroll-label,.cena-hero-shared-ui .video-scroll-label'
+    ).forEach(el=>el.remove());
+  }
+
   function installMobileHeroVideoScrollControl(){
-    if(window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V4__) return;
+    if(window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V5__) return;
     if(!matchMedia('(max-width:760px)').matches) return;
 
     const hero=document.getElementById('hero');
     const original=document.getElementById('heroVideo');
     if(!hero||!original||!original.parentNode) return;
 
-    window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V4__=true;
+    window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V5__=true;
 
     /*
-      The original inline controller keeps its own private scrub queue. On mobile
-      that queue can continue seeking stale frames after the finger has already
-      moved. Replacing only the media element leaves the approved Hero 1/Hero 2
-      integration untouched while giving mobile a single authoritative video
-      controller. Event listeners attached to the old node are intentionally not
-      copied by cloneNode().
+      Mobile HeroScroll uses a dedicated media node so the old inline scrub queue
+      cannot compete with the current frame. The source asset is encoded with dense
+      keyframes; this controller sends only the newest requested position.
     */
     const video=original.cloneNode(true);
     video.muted=true;
@@ -139,54 +143,129 @@
     video.setAttribute('playsinline','');
     video.setAttribute('webkit-playsinline','');
     video.preload='auto';
+
+    const rawSrc=original.getAttribute('src')||original.currentSrc||'';
+    if(rawSrc){
+      try{
+        const url=new URL(rawSrc,location.href);
+        url.searchParams.set('v','20260928-keyframe-scrub-v5');
+        video.setAttribute('src',url.href);
+      }catch(_){
+        video.setAttribute('src',rawSrc+(rawSrc.includes('?')?'&':'?')+'v=20260928-keyframe-scrub-v5');
+      }
+    }
+
     original.replaceWith(video);
 
     const VIDEO_END=.465;
+    const SEEK_INTERVAL=42;
+    const SEEK_EPSILON=.018;
     const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
-    let ready=Number.isFinite(video.duration)&&video.duration>0;
+
+    let stableViewportHeight=0;
+    let stableViewportWidth=innerWidth;
+    let ready=false;
     let targetTime=0;
     let scrollRaf=0;
+    let monitorRaf=0;
     let pendingSeek=false;
+    let seekTimer=0;
+    let nextSeekAt=0;
     let priming=false;
     let unlocked=false;
+    let lastScrollY=-1;
 
-    const viewportHeight=()=>{
-      const vv=window.visualViewport;
-      return Math.max(1,Math.round(vv?.height||innerHeight));
+    const measureStableViewport=()=>{
+      if(window.CSS?.supports?.('height','100svh')){
+        const probe=document.createElement('div');
+        probe.style.cssText='position:fixed;left:-9999px;top:0;width:1px;height:100svh;visibility:hidden;pointer-events:none';
+        document.body.appendChild(probe);
+        const measured=Math.round(probe.getBoundingClientRect().height||0);
+        probe.remove();
+        if(measured>0)return measured;
+      }
+      return Math.round(innerHeight);
+    };
+
+    const refreshStableViewport=(force=false)=>{
+      const widthChanged=Math.abs(innerWidth-stableViewportWidth)>24;
+      if(force||!stableViewportHeight||widthChanged){
+        stableViewportWidth=innerWidth;
+        stableViewportHeight=measureStableViewport();
+      }
     };
 
     const progressFromScroll=()=>{
-      const vh=viewportHeight();
-      const range=Math.max(1,hero.offsetHeight-vh);
+      refreshStableViewport(false);
+      const range=Math.max(1,hero.offsetHeight-stableViewportHeight);
       const heroProgress=clamp((scrollY-hero.offsetTop)/range);
       return clamp(heroProgress/VIDEO_END);
     };
 
     const updateTarget=()=>{
       if(!ready)return;
-      targetTime=progressFromScroll()*Math.max(.01,video.duration-.045);
+      targetTime=progressFromScroll()*Math.max(.01,video.duration-.025);
     };
 
-    const seekLatest=(force=false)=>{
+    const flushSeek=(force=false)=>{
       if(!ready)return;
       updateTarget();
+
       if(video.seeking&&!force){
         pendingSeek=true;
         return;
       }
+
       const delta=Math.abs(video.currentTime-targetTime);
-      if(!force&&delta<.012)return;
+      if(!force&&delta<SEEK_EPSILON){
+        pendingSeek=false;
+        return;
+      }
+
+      const now=performance.now();
+      const wait=nextSeekAt-now;
+      if(!force&&wait>0){
+        pendingSeek=true;
+        if(!seekTimer){
+          seekTimer=setTimeout(()=>{
+            seekTimer=0;
+            flushSeek(false);
+          },Math.ceil(wait));
+        }
+        return;
+      }
+
       pendingSeek=false;
+      nextSeekAt=now+SEEK_INTERVAL;
       try{video.currentTime=targetTime}catch(_){pendingSeek=true}
     };
 
     const syncFromScroll=()=>{
       scrollRaf=0;
-      seekLatest(false);
+      flushSeek(false);
     };
 
     const scheduleSync=()=>{
       if(!scrollRaf)scrollRaf=requestAnimationFrame(syncFromScroll);
+    };
+
+    const monitorScroll=()=>{
+      monitorRaf=0;
+      const y=scrollY;
+      const start=hero.offsetTop-stableViewportHeight;
+      const end=hero.offsetTop+hero.offsetHeight;
+      if(y>=start&&y<=end){
+        if(Math.abs(y-lastScrollY)>.5){
+          lastScrollY=y;
+          scheduleSync();
+        }
+        monitorRaf=requestAnimationFrame(monitorScroll);
+      }
+    };
+
+    const startMonitor=()=>{
+      refreshStableViewport(false);
+      if(!monitorRaf)monitorRaf=requestAnimationFrame(monitorScroll);
     };
 
     const prime=()=>{
@@ -195,52 +274,70 @@
       video.muted=true;
       video.defaultMuted=true;
       video.playsInline=true;
-      try{video.load()}catch(_){}
+
       let playPromise;
       try{playPromise=video.play()}catch(_){playPromise=null}
+
       const finish=()=>{
         try{video.pause()}catch(_){}
         priming=false;
         unlocked=true;
         ready=Number.isFinite(video.duration)&&video.duration>0;
-        seekLatest(true);
+        if(ready)flushSeek(true);
       };
-      if(playPromise&&typeof playPromise.then==='function')playPromise.then(finish).catch(()=>{
-        priming=false;
-        scheduleSync();
-      });
-      else finish();
+
+      if(playPromise&&typeof playPromise.then==='function'){
+        playPromise.then(finish).catch(()=>{
+          priming=false;
+          ready=Number.isFinite(video.duration)&&video.duration>0;
+          scheduleSync();
+        });
+      }else finish();
     };
 
     video.addEventListener('loadedmetadata',()=>{
       ready=Number.isFinite(video.duration)&&video.duration>0;
-      seekLatest(true);
+      if(ready)flushSeek(true);
     });
     video.addEventListener('durationchange',()=>{
       ready=Number.isFinite(video.duration)&&video.duration>0;
       scheduleSync();
     });
+    video.addEventListener('canplay',()=>{
+      ready=Number.isFinite(video.duration)&&video.duration>0;
+      scheduleSync();
+    });
     video.addEventListener('seeked',()=>{
-      if(pendingSeek||Math.abs(video.currentTime-targetTime)>.018)seekLatest(false);
+      if(pendingSeek||Math.abs(video.currentTime-targetTime)>SEEK_EPSILON)flushSeek(false);
     });
     video.addEventListener('play',()=>{
       if(!priming){try{video.pause()}catch(_){}}
     });
 
-    addEventListener('scroll',scheduleSync,{passive:true});
-    addEventListener('resize',scheduleSync,{passive:true});
-    addEventListener('orientationchange',()=>setTimeout(scheduleSync,120),{passive:true});
+    addEventListener('scroll',()=>{scheduleSync();startMonitor()},{passive:true});
+    addEventListener('resize',()=>{
+      refreshStableViewport(false);
+      scheduleSync();
+      startMonitor();
+    },{passive:true});
+    addEventListener('orientationchange',()=>setTimeout(()=>{
+      refreshStableViewport(true);
+      scheduleSync();
+      startMonitor();
+    },140),{passive:true});
 
-    /* Never consume the only user gesture just because metadata was late. */
-    addEventListener('touchstart',prime,{passive:true});
-    addEventListener('pointerdown',prime,{passive:true});
+    addEventListener('touchstart',prime,{once:true,passive:true});
+    addEventListener('pointerdown',prime,{once:true,passive:true});
 
-    /* Muted inline video can normally be primed immediately on modern mobile. */
+    refreshStableViewport(true);
+    try{video.load()}catch(_){}
     prime();
     scheduleSync();
+    startMonitor();
   }
 
   scan();
+  removeDuplicateHeroLabel();
   installMobileHeroVideoScrollControl();
 
   const observer=new MutationObserver(records=>{
@@ -251,5 +348,5 @@
     }
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
-  addEventListener("pagehide",()=>observer.disconnect(),{once:true});
+  addEventListener('pagehide',()=>observer.disconnect(),{once:true});
 })();
