@@ -221,7 +221,26 @@
   });
 })();
 
-// Production promotion of the validated V7 3D controller.
-// Keeps the published Home on the same tested implementation as the approved preview.
-import('./wix-preview/fone-3d-entry.js?v=20260926-front-player-black-blue-v7-production')
-  .catch(error => console.error('[3D production V7]', error));
+// Load the production 3D V7 controller only when the visitor approaches the 3D section.
+// This keeps the approved Hero startup completely isolated from the 3D runtime.
+(() => {
+  const section = document.getElementById('three');
+  if (!section) return;
+  let loaded = false;
+  const load = () => {
+    if (loaded) return;
+    loaded = true;
+    import('./wix-preview/fone-3d-entry.js?v=20260927-production-v7-isolated')
+      .catch(error => console.error('[3D production V7]', error));
+  };
+  if (!('IntersectionObserver' in window)) {
+    window.addEventListener('load', load, {once:true});
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    load();
+  }, {root:null, rootMargin:'1400px 0px', threshold:0});
+  observer.observe(section);
+})();
