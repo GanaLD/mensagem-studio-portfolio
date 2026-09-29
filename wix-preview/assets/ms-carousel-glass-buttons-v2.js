@@ -336,13 +336,26 @@
     startMonitor();
   }
 
-  function installMobileFooterPolish(){
-    if(!matchMedia('(max-width:760px)').matches) return;
+  function installFooterPolish(){
+    const mobile=matchMedia('(max-width:760px)').matches;
 
-    if(!document.getElementById('ms-mobile-footer-polish-v1')){
+    if(!document.getElementById('ms-footer-polish-v2')){
       const style=document.createElement('style');
-      style.id='ms-mobile-footer-polish-v1';
+      style.id='ms-footer-polish-v2';
       style.textContent=`
+        #msFooterParticleStage.ms-particle-fallback-visible{
+          opacity:1!important;
+          visibility:visible!important;
+        }
+        #msFooterParticleStage.ms-particle-fallback-visible .ms-footer-particle-canvas{
+          opacity:0!important;
+        }
+        #msFooterParticleStage.ms-particle-fallback-visible .ms-footer-particle-fallback{
+          display:block!important;
+          opacity:1!important;
+          visibility:visible!important;
+          z-index:2!important;
+        }
         @media(max-width:760px){
           #landingReveal.landing-reveal{
             height:64vh!important;
@@ -360,7 +373,41 @@
 
     const stage=document.getElementById('msFooterParticleStage');
     const canvas=document.getElementById('msFooterParticleCanvas');
-    if(!stage||!canvas||stage.dataset.msMobileParticleFx==='1') return;
+    if(!stage||!canvas) return;
+
+    if(stage.dataset.msFooterWatchdog!=='1'){
+      stage.dataset.msFooterWatchdog='1';
+
+      const hasInk=()=>{
+        try{
+          if(!canvas.width||!canvas.height)return false;
+          const ctx=canvas.getContext('2d',{willReadFrequently:true});
+          if(!ctx)return false;
+          const w=canvas.width,h=canvas.height;
+          const cols=10,rows=6;
+          for(let gy=1;gy<rows;gy++){
+            for(let gx=1;gx<cols;gx++){
+              const x=Math.min(w-1,Math.max(0,Math.floor((gx/cols)*w)));
+              const y=Math.min(h-1,Math.max(0,Math.floor((gy/rows)*h)));
+              if(ctx.getImageData(x,y,1,1).data[3]>12)return true;
+            }
+          }
+        }catch(_){}
+        return false;
+      };
+
+      const verify=()=>{
+        if(!document.documentElement.contains(stage))return;
+        stage.classList.toggle('ms-particle-fallback-visible',!hasInk());
+      };
+
+      setTimeout(verify,450);
+      setTimeout(verify,1100);
+      setTimeout(verify,2200);
+      addEventListener('resize',()=>setTimeout(verify,180),{passive:true});
+    }
+
+    if(!mobile||stage.dataset.msMobileParticleFx==='1') return;
     if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
     stage.dataset.msMobileParticleFx='1';
@@ -374,7 +421,7 @@
     const emit=(clientX,clientY)=>{
       let event;
       try{
-        event=new PointerEvent('pointermove',{bubbles:false,clientX,clientY,pointerType:'touch'});
+        event=new PointerEvent('pointermove',{bubbles:false,clientX,clientY,pointerType:'mouse'});
       }catch(_){
         event=new MouseEvent('pointermove',{bubbles:false,clientX,clientY});
       }
@@ -430,7 +477,7 @@
   scan();
   removeDuplicateHeroLabel();
   installMobileHeroVideoScrollControl();
-  installMobileFooterPolish();
+  installFooterPolish();
 
   const observer=new MutationObserver(records=>{
     for(const record of records){
@@ -438,7 +485,7 @@
         if(node.nodeType===Node.ELEMENT_NODE) scan(node);
       }
     }
-    installMobileFooterPolish();
+    installFooterPolish();
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
   addEventListener('pagehide',()=>observer.disconnect(),{once:true});
