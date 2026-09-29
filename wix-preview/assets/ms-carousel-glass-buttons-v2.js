@@ -336,9 +336,101 @@
     startMonitor();
   }
 
+  function installMobileFooterPolish(){
+    if(!matchMedia('(max-width:760px)').matches) return;
+
+    if(!document.getElementById('ms-mobile-footer-polish-v1')){
+      const style=document.createElement('style');
+      style.id='ms-mobile-footer-polish-v1';
+      style.textContent=`
+        @media(max-width:760px){
+          #landingReveal.landing-reveal{
+            height:64vh!important;
+            height:64svh!important;
+            min-height:0!important;
+          }
+          #landingReveal .landing-reveal-sentinel{
+            top:58vh!important;
+            top:58svh!important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const stage=document.getElementById('msFooterParticleStage');
+    const canvas=document.getElementById('msFooterParticleCanvas');
+    if(!stage||!canvas||stage.dataset.msMobileParticleFx==='1') return;
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+    stage.dataset.msMobileParticleFx='1';
+
+    let visible=false;
+    let raf=0;
+    let lastEmit=0;
+    let manualUntil=0;
+    const startedAt=performance.now();
+
+    const emit=(clientX,clientY)=>{
+      let event;
+      try{
+        event=new PointerEvent('pointermove',{bubbles:false,clientX,clientY,pointerType:'touch'});
+      }catch(_){
+        event=new MouseEvent('pointermove',{bubbles:false,clientX,clientY});
+      }
+      canvas.dispatchEvent(event);
+    };
+
+    const loop=now=>{
+      raf=0;
+      if(!visible)return;
+      if(now>=manualUntil&&now-lastEmit>58){
+        const rect=canvas.getBoundingClientRect();
+        if(rect.width&&rect.height){
+          const t=(now-startedAt)/1000;
+          const x=rect.left+rect.width*(.50+Math.sin(t*.92)*.28);
+          const y=rect.top+rect.height*(.48+Math.sin(t*1.37)*.16);
+          emit(x,y);
+          lastEmit=now;
+        }
+      }
+      raf=requestAnimationFrame(loop);
+    };
+
+    const start=()=>{
+      if(!visible)return;
+      if(!raf)raf=requestAnimationFrame(loop);
+    };
+    const stop=()=>{
+      if(raf)cancelAnimationFrame(raf);
+      raf=0;
+    };
+
+    const observer=new IntersectionObserver(entries=>{
+      visible=entries.some(entry=>entry.isIntersecting&&entry.intersectionRatio>.08);
+      if(visible)start();else stop();
+    },{threshold:[0,.08,.2]});
+    observer.observe(stage);
+
+    const touch=event=>{
+      const point=event.touches?.[0]||event.changedTouches?.[0];
+      if(!point)return;
+      manualUntil=performance.now()+1200;
+      emit(point.clientX,point.clientY);
+    };
+    stage.addEventListener('touchstart',touch,{passive:true});
+    stage.addEventListener('touchmove',touch,{passive:true});
+
+    addEventListener('pagehide',()=>{
+      stop();
+      observer.disconnect();
+    },{once:true});
+  }
+
   scan();
   removeDuplicateHeroLabel();
   installMobileHeroVideoScrollControl();
+  installMobileFooterPolish();
 
   const observer=new MutationObserver(records=>{
     for(const record of records){
@@ -346,6 +438,7 @@
         if(node.nodeType===Node.ELEMENT_NODE) scan(node);
       }
     }
+    installMobileFooterPolish();
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
   addEventListener('pagehide',()=>observer.disconnect(),{once:true});
