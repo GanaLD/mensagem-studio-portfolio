@@ -40,10 +40,15 @@ jobs:
                   encoding='utf-8'
               )
 
-          section_re = re.compile(
-              r'<section id="word"\b.*?</section>\s*(?=<main id="afterWord"\b)',
-              re.S
-          )
+          def word_range(text: str):
+              start = text.find('<section id="word"')
+              if start < 0:
+                  raise ValueError('word start not found')
+              end = text.find('<main id="afterWord"', start)
+              if end < 0:
+                  raise ValueError('afterWord marker not found')
+              return start, end
+
           script_re = re.compile(
               r'<script id="ms-word-cases-gsap-[^"]+">.*?</script>',
               re.S
@@ -56,25 +61,21 @@ jobs:
               current = path.read_text(encoding='utf-8')
               good = old_file(path)
 
-              good_section = section_re.search(good)
-              current_section = section_re.search(current)
-              if not good_section or not current_section:
-                  raise SystemExit(f'Could not locate #word section in {path}')
+              try:
+                  gs, ge = word_range(good)
+                  cs, ce = word_range(current)
+              except ValueError as exc:
+                  raise SystemExit(f'{path}: {exc}')
 
               good_script = script_re.search(good)
               current_script = script_re.search(current)
               if not good_script or not current_script:
                   raise SystemExit(f'Could not locate GSAP word script in {path}')
 
-              # Restore only the approved horizontal showcase and its own runtime.
-              # Do not touch HERO, services, project grid, typography or downstream sections.
-              current = (
-                  current[:current_section.start()]
-                  + good_section.group(0)
-                  + current[current_section.end():]
-              )
+              # Restore only the horizontal showcase HTML.
+              current = current[:cs] + good[gs:ge] + current[ce:]
 
-              # Re-find after section replacement so offsets remain correct.
+              # Restore the exact approved GSAP runtime that drove that block.
               current_script = script_re.search(current)
               if not current_script:
                   raise SystemExit(f'GSAP runtime disappeared after section restore in {path}')
