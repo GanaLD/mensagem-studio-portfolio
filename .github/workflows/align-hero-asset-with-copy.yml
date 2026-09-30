@@ -1,0 +1,85 @@
+name: Align HERO asset with copy
+
+on:
+  push:
+    paths:
+      - '.github/workflows/align-hero-asset-with-copy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: align-hero-asset-with-copy
+  cancel-in-progress: false
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Align immersive and 3D hero asset with text block
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          STYLE = '''<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">
+@media (min-width:761px){
+  #hero .hero-grid{
+    align-items:center!important;
+  }
+  #hero .hero-copy{
+    align-self:center!important;
+  }
+  #hero .hero-art.is-immersive,
+  #hero .hero-art.is-model-3d{
+    align-self:center!important;
+    justify-self:end!important;
+    transform:translateY(clamp(-72px,-6vh,-42px))!important;
+    transform-origin:center center!important;
+  }
+}
+</style>'''
+
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+          for p in targets:
+              if not p.exists():
+                  print(f'Skip missing: {p}')
+                  continue
+              html = p.read_text(encoding='utf-8')
+              html = re.sub(r'<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">.*?</style>\s*', '', html, flags=re.S)
+              if '</head>' not in html:
+                  raise SystemExit(f'</head> not found in {p}')
+              html = html.replace('</head>', STYLE + '\n</head>', 1)
+              p.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Verify alignment patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' index.html
+          grep -q 'translateY(clamp(-72px,-6vh,-42px))' index.html
+          if [ -f wix-preview/index.html ]; then
+            grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' wix-preview/index.html
+          fi
+
+      - name: Publish alignment fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html wix-preview/index.html 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'Alignment already applied.'
+            exit 0
+          fi
+          git commit -m 'Align HERO 3D asset with text block'
+          git push
