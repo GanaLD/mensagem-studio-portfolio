@@ -1116,11 +1116,18 @@ body{overflow-x:clip!important}
 
 <script>window.__MS_UNIFIED_HERO_STAGE=true;</script>
 <style id="MS_HIDE_VIDEO_SCROLL_LABEL_EXACT">.video-scroll-label{display:none!important}</style>
-<style id="MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2">
+<style id="MS_HERO_CHARACTER_WEAPON_ALIGNMENT_V3">
 @media (min-width:1025px){
-  #hero .hero-art.is-immersive,
-  #hero .hero-art.is-model-3d{
+  /* Character: shift only its visual viewport. Do not move the HERO card/grid/scroll container. */
+  #hero .hero-art.is-immersive .hero-immersive-wrap{
     top:-92px!important;
+    bottom:92px!important;
+    transform:none!important;
+  }
+  /* Weapon: shift only the model-viewer visual viewport by the same amount. */
+  #hero .hero-art.is-model-3d .hero-model-3d{
+    top:-92px!important;
+    bottom:92px!important;
   }
 }
 </style>
