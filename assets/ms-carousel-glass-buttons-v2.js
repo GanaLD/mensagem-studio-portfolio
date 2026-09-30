@@ -126,3 +126,146 @@
   observer.observe(document.documentElement,{childList:true,subtree:true});
   addEventListener("pagehide",()=>observer.disconnect(),{once:true});
 })();
+
+/* Published-site HeroScroll controller.
+   The preview is intentionally untouched; this only runs on the root published site. */
+(()=>{
+  if(location.pathname.startsWith('/wix-preview/')) return;
+  if(window.__MS_PUBLISHED_HERO_SCROLL_CONTROL_V1__) return;
+
+  const hero=document.getElementById('hero');
+  const video=document.getElementById('heroVideo');
+  if(!hero||!video) return;
+  window.__MS_PUBLISHED_HERO_SCROLL_CONTROL_V1__=true;
+
+  /* Stop the older smoothing queue from fighting the published controller. */
+  try{
+    if(typeof scrubRaf!=='undefined'&&scrubRaf){
+      cancelAnimationFrame(scrubRaf);
+      scrubRaf=0;
+    }
+    if(typeof requestScrub==='function') requestScrub=()=>{};
+  }catch(_){}
+
+  const VIDEO_END=.465;
+  const EPS=.012;
+  const MIN_SEEK_INTERVAL=36;
+  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+
+  let ready=false;
+  let target=0;
+  let raf=0;
+  let pending=false;
+  let timer=0;
+  let nextSeekAt=0;
+
+  video.muted=true;
+  video.defaultMuted=true;
+  video.playsInline=true;
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.preload='auto';
+  try{video.pause()}catch(_){}
+
+  /* Force production to use the current Hero media instead of a stale cached response. */
+  const raw=video.getAttribute('src')||video.currentSrc||'';
+  if(raw){
+    try{
+      const url=new URL(raw,location.href);
+      url.searchParams.set('v','20260930-prod-scroll-v1');
+      const next=url.href;
+      if(video.src!==next){
+        video.src=next;
+        video.load();
+      }
+    }catch(_){}
+  }
+
+  const computeTarget=()=>{
+    if(!ready) return null;
+    const range=Math.max(1,hero.offsetHeight-innerHeight);
+    const progress=clamp((scrollY-hero.offsetTop)/range);
+    const videoProgress=clamp(progress/VIDEO_END);
+    target=videoProgress*Math.max(.01,video.duration-.045);
+    return target;
+  };
+
+  const seek=(force=false)=>{
+    if(!ready||document.hidden) return;
+    computeTarget();
+
+    if(video.seeking&&!force){
+      pending=true;
+      return;
+    }
+
+    const delta=Math.abs(video.currentTime-target);
+    if(!force&&delta<EPS){
+      pending=false;
+      return;
+    }
+
+    const now=performance.now();
+    const wait=nextSeekAt-now;
+    if(!force&&wait>0){
+      pending=true;
+      if(!timer){
+        timer=setTimeout(()=>{
+          timer=0;
+          seek(false);
+        },Math.ceil(wait));
+      }
+      return;
+    }
+
+    pending=false;
+    nextSeekAt=now+MIN_SEEK_INTERVAL;
+    try{
+      video.pause();
+      video.currentTime=target;
+    }catch(_){
+      pending=true;
+    }
+  };
+
+  const sync=()=>{
+    raf=0;
+    seek(false);
+  };
+  const schedule=()=>{
+    if(!raf) raf=requestAnimationFrame(sync);
+  };
+
+  const setReady=()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    if(ready) seek(true);
+  };
+
+  video.addEventListener('loadedmetadata',setReady);
+  video.addEventListener('durationchange',()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    schedule();
+  });
+  video.addEventListener('canplay',()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    schedule();
+  });
+  video.addEventListener('seeked',()=>{
+    if(pending||Math.abs(video.currentTime-target)>EPS) schedule();
+  });
+  video.addEventListener('play',()=>{
+    try{video.pause()}catch(_){}
+  });
+
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  addEventListener('orientationchange',()=>setTimeout(schedule,120),{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule()});
+
+  if(video.readyState>=1&&Number.isFinite(video.duration)&&video.duration>0){
+    ready=true;
+    seek(true);
+  }else{
+    try{video.load()}catch(_){}
+  }
+})();
