@@ -86,17 +86,40 @@ jobs:
               path.write_text(current, encoding='utf-8')
           PY
 
-      - name: Verify approved GSAP state
+      - name: Verify exact approved GSAP state
         shell: bash
         run: |
           set -euo pipefail
-          grep -q '<section id="word"' index.html
-          grep -q '<section id="word"' wix-preview/index.html
-          grep -q 'data-word-case="1"' index.html
-          grep -q '/assets/mago-gsap-10s.mp4' index.html
-          grep -q 'ms-word-cases-gsap-' index.html
-          grep -q 'ms-word-cases-gsap-' wix-preview/index.html
-          ! grep -q 'ms-word-cases-gsap-production-v1' index.html
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          OLD = '589bbb1adea67c7bbfae390e2eeedfa559945b62'
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+          script_re = re.compile(r'<script id="ms-word-cases-gsap-[^"]+">.*?</script>', re.S)
+
+          def old_file(path):
+              return subprocess.check_output(['git','show',f'{OLD}:{path.as_posix()}'], text=True, encoding='utf-8')
+
+          def block(text):
+              start = text.find('<section id="word"')
+              end = text.find('<main id="afterWord"', start)
+              if start < 0 or end < 0:
+                  raise SystemExit('GSAP block boundary missing')
+              return text[start:end]
+
+          for path in targets:
+              now = path.read_text(encoding='utf-8')
+              old = old_file(path)
+              if block(now) != block(old):
+                  raise SystemExit(f'{path}: #word block does not exactly match approved state')
+              ns = script_re.search(now)
+              os = script_re.search(old)
+              if not ns or not os or ns.group(0) != os.group(0):
+                  raise SystemExit(f'{path}: GSAP runtime does not exactly match approved state')
+              print(f'OK exact GSAP restore: {path}')
+          PY
 
       - name: Publish GSAP restoration
         shell: bash
