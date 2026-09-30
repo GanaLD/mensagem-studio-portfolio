@@ -65,6 +65,14 @@ jobs:
                       raise SystemExit(f'No </head> in {p}')
                   html = html.replace('</head>', css_guard + '\n</head>', 1)
               p.write_text(html, encoding='utf-8')
+
+          # Force one clean production deploy without [skip ci] so GitHub Pages publishes this exact fix.
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+          deploy_marker = '<!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->'
+          if deploy_marker not in html:
+              html = html.replace('</body>', deploy_marker + '\n</body>', 1)
+              p.write_text(html, encoding='utf-8')
           PY
 
       - name: Verify exact label is gone
@@ -77,12 +85,9 @@ jobs:
           ! grep -qi 'depois entram os cases' wix-preview/index.html
           grep -q 'MS_HIDE_VIDEO_SCROLL_LABEL_EXACT' index.html
           grep -q 'MS_HIDE_VIDEO_SCROLL_LABEL_EXACT' wix-preview/index.html
-          ! grep -q 'MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2' index.html
-          ! grep -q 'MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2' wix-preview/index.html
-          ! grep -q 'MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2' assets/cena-hero-1/visualizador.html
-          ! grep -q 'MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1' index.html
 
-      - name: Publish exact removal
+      - name: Publish exact removal and trigger Pages
         shell: bash
         run: |
           set -euo pipefail
@@ -90,8 +95,8 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html wix-preview/index.html assets/cena-hero-1/visualizador.html wix-preview/assets/cena-hero-1/visualizador.html
           if git diff --cached --quiet; then
-            echo 'Exact label already removed.'
+            echo 'Exact label already removed and deploy marker already present.'
             exit 0
           fi
-          git commit -m 'Remove exact HERO video scroll instruction label [skip ci]'
+          git commit -m 'Publish exact HERO video scroll label removal'
           git push
