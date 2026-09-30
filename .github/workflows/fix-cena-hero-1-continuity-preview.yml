@@ -1,4 +1,4 @@
-name: Fix CENA HERO 1 continuous handoff in preview
+name: Hide CENA HERO 1 instruction overlay
 
 on:
   workflow_dispatch:
@@ -10,83 +10,75 @@ permissions:
   contents: write
 
 concurrency:
-  group: fix-cena-hero-1-continuity-preview
+  group: hide-cena-hero-1-instruction-overlay
   cancel-in-progress: false
 
 jobs:
-  fix-preview:
+  hide-hint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Enforce exact final-frame to first-frame handoff
+      - name: Remove only the top-left instruction overlay
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import re
 
-          p=Path('wix-preview/index.html')
-          html=p.read_text(encoding='utf-8')
+          targets = [
+              Path('assets/cena-hero-1/visualizador.html'),
+              Path('wix-preview/assets/cena-hero-1/visualizador.html'),
+          ]
 
-          html=html.replace("section.classList.toggle('is-handoff', progress>=0.9995);","section.classList.toggle('is-handoff', progress>=1);")
+          for p in targets:
+              if not p.exists():
+                  raise SystemExit(f'Missing expected viewer: {p}')
 
-          sticky='#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible}'
-          sticky_exact='#cenaHero1 .cena-hero-1-sticky{position:-webkit-sticky;position:sticky;top:0;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#171917;opacity:1;visibility:visible;transition:none!important}'
-          if sticky in html:
-              html=html.replace(sticky,sticky_exact,1)
+              html = p.read_text(encoding='utf-8')
 
-          if "const heroVideo=document.getElementById('heroVideo');" not in html:
-              html=html.replace("  const frame=document.getElementById('cenaHero1Frame');\n", "  const frame=document.getElementById('cenaHero1Frame');\n  const heroVideo=document.getElementById('heroVideo');\n", 1)
+              # This is the small top-left debug/instruction label inside the HERO 1 iframe.
+              # Keep the approved central mouse/scroll cue untouched.
+              if re.search(r'#hint\s*\{[^}]*\}', html):
+                  html = re.sub(
+                      r'#hint\s*\{[^}]*\}',
+                      '#hint{display:none!important}',
+                      html,
+                      count=1,
+                  )
+              elif 'id="hint"' in html or "id='hint'" in html:
+                  marker = '<style id="MS_HIDE_TOP_LEFT_HINT">#hint{display:none!important}</style>'
+                  if marker not in html:
+                      if '</head>' in html:
+                          html = html.replace('</head>', marker + '\n</head>', 1)
+                      else:
+                          html = marker + '\n' + html
+              else:
+                  raise SystemExit(f'#hint overlay not found in {p}')
 
-          if 'let handedOff=false;' not in html:
-              html=html.replace('  let last=-1;\n', '  let last=-1;\n  let handedOff=false;\n', 1)
-
-          old="    const progress=reduced.matches?0:passed/range;\n    section.classList.toggle('is-handoff', progress>=1);\n"
-          new="""    const progress=reduced.matches?0:passed/range;\n    const atHandoff=progress>=1;\n    if(heroVideo){\n      try{\n        if(!atHandoff){\n          if(Math.abs(heroVideo.currentTime)>0.001) heroVideo.currentTime=0;\n          heroVideo.pause();\n        }else if(!handedOff){\n          heroVideo.currentTime=0;\n          heroVideo.pause();\n        }\n      }catch(_){}\n    }\n    handedOff=atHandoff;\n    section.classList.toggle('is-handoff',atHandoff);\n"""
-          if old in html and 'const atHandoff=progress>=1;' not in html:
-              html=html.replace(old,new,1)
-
-          p.write_text(html,encoding='utf-8')
-
-          viewer=Path('wix-preview/assets/cena-hero-1/visualizador.html')
-          v=viewer.read_text(encoding='utf-8')
-          v=v.replace('#hint{display:none!important}','#hint{}')
-          viewer.write_text(v,encoding='utf-8')
+              p.write_text(html, encoding='utf-8')
           PY
 
-      - name: Verify frame continuity and preview isolation
+      - name: Verify overlay is hidden in production and preview
         shell: bash
         run: |
           set -euo pipefail
-          grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
-          grep -q 'const atHandoff=progress>=1;' wix-preview/index.html
-          grep -q "section.classList.toggle('is-handoff',atHandoff)" wix-preview/index.html
-          grep -q "heroVideo.currentTime=0" wix-preview/index.html
-          grep -q 'transition:none!important' wix-preview/index.html
-          ! grep -q 'progress>=0.9995' wix-preview/index.html
-          ! grep -q '#hint{display:none!important}' wix-preview/assets/cena-hero-1/visualizador.html
-          ! grep -q 'cenaHero1' index.html
-          python - <<'PY'
-          from pathlib import Path
-          h=Path('wix-preview/index.html').read_text(encoding='utf-8')
-          assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
-          assert '#hero{margin-top:-100vh}' in h
-          print('PASS: HERO 1 final frame and HERO 2 first frame share the exact viewport; no roll/fade gap.')
-          PY
+          grep -q '#hint{display:none!important}' assets/cena-hero-1/visualizador.html
+          grep -q '#hint{display:none!important}' wix-preview/assets/cena-hero-1/visualizador.html
 
-      - name: Commit preview-only exact handoff fix
+      - name: Publish overlay removal
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add wix-preview/index.html wix-preview/assets/cena-hero-1/visualizador.html
+          git add assets/cena-hero-1/visualizador.html wix-preview/assets/cena-hero-1/visualizador.html
           if git diff --cached --quiet; then
-            echo 'No changes.'
+            echo 'Overlay already hidden.'
             exit 0
           fi
-          git commit -m 'Lock exact HERO 1 to HeroScroll frame handoff [skip ci]'
+          git commit -m 'Remove top-left HERO 1 instruction overlay [skip ci]'
           git push
