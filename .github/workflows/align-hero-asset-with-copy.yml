@@ -30,22 +30,22 @@ jobs:
           import re
 
           STYLE = '''<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">
-@media (min-width:761px){
-  #hero .hero-grid{
-    align-items:center!important;
-  }
-  #hero .hero-copy{
-    align-self:center!important;
-  }
-  #hero .hero-art.is-immersive,
-  #hero .hero-art.is-model-3d{
-    align-self:center!important;
-    justify-self:end!important;
-    transform:translateY(clamp(-72px,-6vh,-42px))!important;
-    transform-origin:center center!important;
-  }
-}
-</style>'''
+          @media (min-width:761px){
+            #hero .hero-grid{
+              align-items:center!important;
+            }
+            #hero .hero-copy{
+              align-self:center!important;
+            }
+            #hero .hero-art.is-immersive,
+            #hero .hero-art.is-model-3d{
+              align-self:center!important;
+              justify-self:end!important;
+              transform:translateY(clamp(-72px,-6vh,-42px))!important;
+              transform-origin:center center!important;
+            }
+          }
+          </style>'''
 
           targets = [Path('index.html'), Path('wix-preview/index.html')]
           for p in targets:
