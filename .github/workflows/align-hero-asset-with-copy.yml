@@ -1,4 +1,4 @@
-name: Align HERO asset with copy
+name: Restore HERO scroll and align asset only
 
 on:
   push:
@@ -10,69 +10,101 @@ permissions:
   contents: write
 
 concurrency:
-  group: align-hero-asset-with-copy
+  group: restore-hero-scroll-align-asset-only
   cancel-in-progress: false
 
 jobs:
-  align:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Align only immersive and 3D hero asset
+      - name: Restore approved HERO structure and move only the 3D asset
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
           import re
+          import subprocess
 
-          STYLE = '''<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">
-          @media (min-width:761px){
+          BASE = '12cf0d0c9cfd6c0c5c6ab14e0812a63671a5aca2'
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+
+          STYLE = '''<style id="MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2">
+          @media (min-width:1025px){
             #hero .hero-art.is-immersive,
             #hero .hero-art.is-model-3d{
-              align-self:center!important;
-              justify-self:end!important;
+              top:-92px!important;
             }
           }
           </style>'''
 
-          targets = [Path('index.html'), Path('wix-preview/index.html')]
-          for p in targets:
-              if not p.exists():
-                  print(f'Skip missing: {p}')
-                  continue
-              html = p.read_text(encoding='utf-8')
-              html = re.sub(r'<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">.*?</style>\s*', '', html, flags=re.S)
-              if '</head>' not in html:
-                  raise SystemExit(f'</head> not found in {p}')
-              html = html.replace('</head>', STYLE + '\n</head>', 1)
-              p.write_text(html, encoding='utf-8')
+          def baseline(path: Path) -> str:
+              return subprocess.check_output(
+                  ['git', 'show', f'{BASE}:{path.as_posix()}'],
+                  text=True,
+                  encoding='utf-8'
+              )
+
+          def hero_range(text: str):
+              start = text.find('<section id="hero"')
+              if start < 0:
+                  raise ValueError('hero start not found')
+              end = text.find('<section id="services"', start)
+              if end < 0:
+                  raise ValueError('services marker not found after hero')
+              return start, end
+
+          for path in targets:
+              if not path.exists():
+                  raise SystemExit(f'Missing target: {path}')
+
+              current = path.read_text(encoding='utf-8')
+              good = baseline(path)
+
+              # Remove every alignment experiment previously added by us.
+              current = re.sub(r'<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">.*?</style>\s*', '', current, flags=re.S)
+              current = re.sub(r'<style id="MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2">.*?</style>\s*', '', current, flags=re.S)
+
+              # Restore ONLY the HERO section markup to the exact pre-alignment state.
+              cs, ce = hero_range(current)
+              gs, ge = hero_range(good)
+              current = current[:cs] + good[gs:ge] + current[ce:]
+
+              # Alignment fix: move only the visible immersive / 3D card vertically.
+              # No transform, no grid change, no hero height change, no scroll JS change.
+              if '</head>' not in current:
+                  raise SystemExit(f'</head> not found in {path}')
+              current = current.replace('</head>', STYLE + '\n</head>', 1)
+              path.write_text(current, encoding='utf-8')
           PY
 
-      - name: Verify scope
+      - name: Verify HERO scope and scroll safety
         shell: bash
         run: |
           set -euo pipefail
-          grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' index.html
-          grep -q 'align-self:center!important' index.html
-          ! grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1.*translateY' index.html
-          if [ -f wix-preview/index.html ]; then
-            grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' wix-preview/index.html
-          fi
+          grep -q 'MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2' index.html
+          grep -q 'top:-92px!important' index.html
+          ! grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' index.html
+          ! grep -q 'MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2.*transform' index.html
+          grep -q '#hero{height:1380vh' index.html
+          grep -q 'const VIDEO_END=.465' index.html
+          grep -q 'function renderScroll()' index.html
+          grep -q 'MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2' wix-preview/index.html
 
-      - name: Publish alignment fix
+      - name: Publish HERO-only fix
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html wix-preview/index.html 2>/dev/null || true
+          git add index.html wix-preview/index.html
           if git diff --cached --quiet; then
-            echo 'Alignment already applied.'
+            echo 'HERO is already in the requested state.'
             exit 0
           fi
-          git commit -m 'Align HERO asset without overriding scroll transform'
+          git commit -m 'Restore HERO scroll and align only 3D asset'
           git push
