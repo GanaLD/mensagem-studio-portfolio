@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Align immersive and 3D hero asset with text block
+      - name: Align only immersive and 3D hero asset
         shell: bash
         run: |
           set -euo pipefail
@@ -31,18 +31,10 @@ jobs:
 
           STYLE = '''<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">
           @media (min-width:761px){
-            #hero .hero-grid{
-              align-items:center!important;
-            }
-            #hero .hero-copy{
-              align-self:center!important;
-            }
             #hero .hero-art.is-immersive,
             #hero .hero-art.is-model-3d{
               align-self:center!important;
               justify-self:end!important;
-              transform:translateY(clamp(-72px,-6vh,-42px))!important;
-              transform-origin:center center!important;
             }
           }
           </style>'''
@@ -60,12 +52,13 @@ jobs:
               p.write_text(html, encoding='utf-8')
           PY
 
-      - name: Verify alignment patch
+      - name: Verify scope
         shell: bash
         run: |
           set -euo pipefail
           grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' index.html
-          grep -q 'translateY(clamp(-72px,-6vh,-42px))' index.html
+          grep -q 'align-self:center!important' index.html
+          ! grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1.*translateY' index.html
           if [ -f wix-preview/index.html ]; then
             grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' wix-preview/index.html
           fi
@@ -81,5 +74,5 @@ jobs:
             echo 'Alignment already applied.'
             exit 0
           fi
-          git commit -m 'Align HERO 3D asset with text block'
+          git commit -m 'Align HERO asset without overriding scroll transform'
           git push
