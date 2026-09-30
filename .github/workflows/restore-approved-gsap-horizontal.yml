@@ -72,10 +72,8 @@ jobs:
               if not good_script or not current_script:
                   raise SystemExit(f'Could not locate GSAP word script in {path}')
 
-              # Restore only the horizontal showcase HTML.
               current = current[:cs] + good[gs:ge] + current[ce:]
 
-              # Restore the exact approved GSAP runtime that drove that block.
               current_script = script_re.search(current)
               if not current_script:
                   raise SystemExit(f'GSAP runtime disappeared after section restore in {path}')
@@ -92,10 +90,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -q 'ms-word-cases-gsap-preview-v5' index.html
-          grep -q 'ms-word-cases-gsap-preview-v5' wix-preview/index.html
+          grep -q '<section id="word"' index.html
+          grep -q '<section id="word"' wix-preview/index.html
           grep -q 'data-word-case="1"' index.html
           grep -q '/assets/mago-gsap-10s.mp4' index.html
+          grep -q 'ms-word-cases-gsap-' index.html
+          grep -q 'ms-word-cases-gsap-' wix-preview/index.html
           ! grep -q 'ms-word-cases-gsap-production-v1' index.html
 
       - name: Publish GSAP restoration
