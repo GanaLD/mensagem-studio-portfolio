@@ -2014,5 +2014,78 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 </script>
 <!-- CENA_HERO_1_V4_END -->
 
+<style id="MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2_STYLE">
+[data-ms-rogue-pseudo-hidden="1"]::before,
+[data-ms-rogue-pseudo-hidden="1"]::after{content:none!important;display:none!important}
+</style>
+<script id="MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2">
+(()=>{
+  if(window.__MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2__) return;
+  window.__MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2__=true;
+  const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
+  const rogue=s=>{
+    const t=norm(s);
+    return t.includes('depois entram os cases') ||
+           (t.includes('filme') && t.includes('cases')) ||
+           (t.includes('controlar') && t.includes('filme') && t.length<220);
+  };
+  const cleanRoot=root=>{
+    if(!root) return;
+    try{
+      const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      const victims=[];
+      let n;
+      while((n=walker.nextNode())){
+        const p=n.parentElement;
+        if(!p || ['SCRIPT','STYLE','NOSCRIPT','TEXTAREA'].includes(p.tagName)) continue;
+        if(rogue(n.nodeValue)) victims.push(n);
+      }
+      victims.forEach(n=>{n.nodeValue='';});
+    }catch(_){}
+
+    let els=[];
+    try{els=[...root.querySelectorAll('*')];}catch(_){}
+    for(let i=els.length-1;i>=0;i--){
+      const el=els[i];
+      if(['SCRIPT','STYLE','NOSCRIPT','TEXTAREA'].includes(el.tagName)) continue;
+      let before='',after='';
+      try{
+        before=getComputedStyle(el,'::before').content||'';
+        after=getComputedStyle(el,'::after').content||'';
+      }catch(_){}
+      if(rogue(before)||rogue(after)){
+        el.setAttribute('data-ms-rogue-pseudo-hidden','1');
+      }
+      const full=el.textContent||'';
+      if(!rogue(full)) continue;
+      const childHas=[...el.children].some(c=>rogue(c.textContent||''));
+      if(childHas) continue;
+      let r=null;
+      try{r=el.getBoundingClientRect();}catch(_){}
+      const smallTopLeft=!r || (
+        r.top<220 && r.left<520 && r.bottom>-20 &&
+        r.width<1000 && r.height<180
+      );
+      if(smallTopLeft || norm(full).length<220){
+        el.style.setProperty('display','none','important');
+        el.setAttribute('data-ms-rogue-text-hidden','1');
+      }
+    }
+  };
+  const clean=()=>cleanRoot(document.body||document.documentElement);
+  const run=()=>{
+    clean();
+    requestAnimationFrame(clean);
+    setTimeout(clean,100);
+    setTimeout(clean,500);
+    setTimeout(clean,1500);
+  };
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',run,{once:true});
+  else run();
+  try{
+    new MutationObserver(clean).observe(document.documentElement,{subtree:true,childList:true,characterData:true});
+  }catch(_){}
+})();
+</script>
 </body>
 </html>
