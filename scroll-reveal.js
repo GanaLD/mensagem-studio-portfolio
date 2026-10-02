@@ -244,3 +244,176 @@
   }, {root:null, rootMargin:'1400px 0px', threshold:0});
   observer.observe(section);
 })();
+
+// Published mobile-only recovery for the Word/GSAP horizontal showcase.
+// Desktop and /wix-preview/ are intentionally excluded.
+(() => {
+  if (location.pathname.startsWith('/wix-preview/')) return;
+  if (!matchMedia('(max-width:760px)').matches) return;
+  if (window.__MS_WORD_MOBILE_GSAP_FIX_V1__) return;
+
+  const section = document.getElementById('word');
+  const sticky = section?.querySelector('.word-sticky');
+  const track = document.getElementById('wordCaseVisuals');
+  const copyTrack = document.getElementById('wordCopyTrack');
+  const panels = [...document.querySelectorAll('#word .word-case-panel')];
+  const copies = [...document.querySelectorAll('#word .word-case-copy')];
+  const dots = [...document.querySelectorAll('#wordDots i')];
+  const videos = [...document.querySelectorAll('#word .word-case-video')];
+  const youtube = section?.querySelector('.word-case-youtube');
+  const youtubePanel = youtube?.closest('.word-case-panel') || null;
+  const youtubeBase = youtube?.dataset.src || '';
+
+  if (!section || !sticky || !track || !copyTrack || panels.length !== 4 || copies.length !== 4 || !window.gsap) return;
+  window.__MS_WORD_MOBILE_GSAP_FIX_V1__ = true;
+
+  // Remove only the ScrollTrigger that owns this section. The desktop timeline is untouched.
+  if (window.ScrollTrigger) {
+    ScrollTrigger.getAll().forEach((trigger) => {
+      const ownsWord = trigger.trigger === section || trigger.vars?.trigger === section || trigger.pin === sticky;
+      if (!ownsWord) return;
+      const animation = trigger.animation;
+      trigger.kill(true);
+      if (animation && typeof animation.kill === 'function') animation.kill();
+    });
+  }
+
+  // Defensive cleanup in case an interrupted pin left a wrapper in the mobile DOM.
+  const parent = sticky.parentElement;
+  if (parent?.classList?.contains('pin-spacer')) {
+    parent.parentNode?.insertBefore(sticky, parent);
+    parent.remove();
+  }
+
+  const style = document.createElement('style');
+  style.id = 'ms-word-mobile-gsap-recovery-v1';
+  style.textContent = `
+    @media(max-width:760px){
+      #word{
+        height:400svh!important;
+        min-height:400svh!important;
+        overflow:visible!important;
+        touch-action:pan-y!important;
+      }
+      #word>.word-sticky{
+        position:-webkit-sticky!important;
+        position:sticky!important;
+        top:0!important;
+        height:100svh!important;
+        min-height:100svh!important;
+        overflow:hidden!important;
+        touch-action:pan-y!important;
+      }
+      #word .word-case-visuals,
+      #word .word-copy-track{
+        transform:translate3d(var(--ms-word-mobile-x,0px),0,0)!important;
+        will-change:transform!important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
+  let activeIndex = -1;
+  let raf = 0;
+  let lastWidth = document.documentElement.clientWidth;
+
+  const hydrateMedia = () => {
+    videos.forEach((video) => {
+      if (!video.getAttribute('src') && video.dataset.src) {
+        video.setAttribute('src', video.dataset.src);
+        try { video.load(); } catch (_) {}
+      }
+      video.defaultMuted = true;
+      video.muted = true;
+      video.playsInline = true;
+    });
+  };
+
+  const syncYoutube = (index) => {
+    if (!youtube || !youtubePanel) return;
+    if (index === 1) {
+      if (!youtube.getAttribute('src') && youtubeBase) youtube.setAttribute('src', youtubeBase + '&autoplay=1');
+      youtubePanel.classList.add('is-video-live');
+    } else {
+      youtubePanel.classList.remove('is-video-live');
+      if (youtube.getAttribute('src')) youtube.removeAttribute('src');
+    }
+  };
+
+  const syncMedia = (index) => {
+    if (index === activeIndex) return;
+    activeIndex = index;
+
+    videos.forEach((video) => {
+      const panel = video.closest('.word-case-panel');
+      const on = Number(panel?.dataset.wordCase) === index;
+      if (!on) {
+        try { video.pause(); } catch (_) {}
+        return;
+      }
+
+      const start = Number(video.dataset.start);
+      const startPlayback = () => {
+        if (Number(video.closest('.word-case-panel')?.dataset.wordCase) !== activeIndex) return;
+        if (Number.isFinite(start)) {
+          try { if (Math.abs(video.currentTime - start) > .35) video.currentTime = start; } catch (_) {}
+        }
+        const play = video.play();
+        if (play && typeof play.catch === 'function') play.catch(() => {});
+      };
+
+      if (video.readyState >= 2) startPlayback();
+      else video.addEventListener('canplay', startPlayback, {once:true});
+    });
+
+    syncYoutube(index);
+    dots.forEach((dot, i) => dot.classList.toggle('on', i === index));
+  };
+
+  const measure = () => {
+    const width = Math.max(1, sticky.clientWidth || document.documentElement.clientWidth);
+    const travel = Math.max(1, section.offsetHeight - sticky.clientHeight);
+    return {width, travel, horizontal:(panels.length - 1) * width};
+  };
+
+  const render = () => {
+    raf = 0;
+    const {travel, horizontal} = measure();
+    const progress = clamp((scrollY - section.offsetTop) / travel);
+    const x = -horizontal * progress;
+
+    gsap.set([track, copyTrack], {'--ms-word-mobile-x': `${x.toFixed(2)}px`});
+
+    const position = progress * (panels.length - 1);
+    copies.forEach((copy, index) => {
+      const distance = Math.abs(position - index);
+      const alpha = clamp(1 - distance * 1.55);
+      gsap.set(copy, {autoAlpha: alpha});
+    });
+
+    const nextIndex = Math.min(panels.length - 1, Math.max(0, Math.round(position)));
+    syncMedia(nextIndex);
+  };
+
+  const queue = () => {
+    if (!raf) raf = requestAnimationFrame(render);
+  };
+
+  hydrateMedia();
+  gsap.set([track, copyTrack], {x:0, xPercent:0});
+  gsap.set(copies, {autoAlpha:0});
+  gsap.set(copies[0], {autoAlpha:1});
+
+  addEventListener('scroll', queue, {passive:true});
+  addEventListener('resize', () => {
+    const width = document.documentElement.clientWidth;
+    if (Math.abs(width - lastWidth) < 24) return;
+    lastWidth = width;
+    queue();
+  }, {passive:true});
+  addEventListener('orientationchange', () => setTimeout(queue, 120), {passive:true});
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) queue(); });
+
+  queue();
+})();
