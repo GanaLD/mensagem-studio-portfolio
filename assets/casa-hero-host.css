@@ -139,6 +139,17 @@ html.ms-casa-hero-enabled #hero {
 }
 
 @media (max-width: 760px) {
+  /* Keep the off-screen WebGL iframe paintable while it preloads.
+     Android/Instagram WebViews may throttle a fully transparent WebGL iframe. */
+  #msUnifiedHeroStage .ms-casa-hero-panel.is-preloading {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+  }
+  #msUnifiedHeroStage .ms-casa-hero-panel.is-preloading #msCasaHeroFrame {
+    opacity: 1;
+    visibility: visible;
+  }
   .ms-casa-hologram { padding: 16px 12px; bottom: max(122px, env(safe-area-inset-bottom)); }
   .ms-casa-hologram p { font-size: 15px; }
   .ms-casa-hero-actions { gap: 8px; }
