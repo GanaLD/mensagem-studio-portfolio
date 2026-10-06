@@ -1,6 +1,7 @@
-// The existing renderScroll owns all scroll progress. This module creates no scroll clock.
+// Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
+const caseStage = document.querySelector('#heroCaseStage');
 const clamp = value => Math.max(0, Math.min(1, value));
 
 if (hero && stage && !window.MSCasaHero) {
@@ -24,7 +25,7 @@ if (hero && stage && !window.MSCasaHero) {
         <button class="ms-casa-continue" type="button">Continuar pela página ↓</button>
       </div>
       <small class="ms-casa-controls-hint">${controlHint}</small>
-      <small id="msCasaHeroLoading" class="ms-casa-loading">Preparando o ambiente…</small>
+      <small id="msCasaHeroLoading" class="ms-casa-loading">Preparando personagem…</small>
     </div>
     <div id="msCasaHeroToolbar" class="ms-casa-hologram ms-casa-explore-toolbar" hidden>
       <div class="ms-casa-hero-actions">
@@ -35,25 +36,47 @@ if (hero && stage && !window.MSCasaHero) {
     </div>`;
   stage.append(panel);
 
+  const gate = document.createElement('div');
+  gate.id = 'msCasaHeroGate';
+  gate.className = 'ms-casa-hologram ms-casa-load-gate';
+  gate.hidden = true;
+  gate.innerHTML = '<p>Preparando próximo ambiente</p><small id="msCasaHeroGateText" class="ms-casa-loading">Carregando ambiente… 0%</small>';
+  stage.append(gate);
+
   const frame = panel.querySelector('#msCasaHeroFrame');
   const prompt = panel.querySelector('#msCasaHeroPrompt');
   const exploreButton = panel.querySelector('#msCasaHeroExplore');
   const toolbar = panel.querySelector('#msCasaHeroToolbar');
   const loading = panel.querySelector('#msCasaHeroLoading');
+  const gateText = gate.querySelector('#msCasaHeroGateText');
   const origin = location.origin;
   const state = {
     width: -1, height: -1, legacySpan: 1, legacyHeight: 1,
     legacyEnd: 0, end: 0, progress: 0, cameraProgress: 0, entryProgress: 0,
-    active: false, exploring: false, ready: false, loaded: false,
+    active: false, exploring: false, ready: false, visualReady: false, loaded: false,
+    loadPhase: 'environment', loadProgress: 0, loadLabel: 'Carregando ambiente…',
   };
   let lastMessage = '';
+  let correctingScroll = false;
   const entry = window.gsap?.timeline({paused: true}).fromTo(
     panel, {xPercent: 100}, {xPercent: 0, duration: 1, ease: 'none'}, 0,
   );
 
+  function hardScrollTo(top) {
+    if (correctingScroll) return;
+    correctingScroll = true;
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo({top, left: 0, behavior: 'instant'});
+    requestAnimationFrame(() => {
+      root.style.scrollBehavior = previous;
+      correctingScroll = false;
+    });
+  }
+
   function measureLegacy() {
     if (state.width === innerWidth && state.height === innerHeight) return;
-    // Temporarily remove only our height extension to read the approved responsive layout.
     document.documentElement.classList.remove('ms-casa-hero-enabled');
     state.legacyHeight = hero.offsetHeight;
     state.legacySpan = Math.max(1, state.legacyHeight - innerHeight);
@@ -61,12 +84,19 @@ if (hero && stage && !window.MSCasaHero) {
     document.documentElement.classList.add('ms-casa-hero-enabled');
     state.width = innerWidth;
     state.height = innerHeight;
-    // The appended scene moves downstream content; refresh the existing WordScroll only.
     window.ScrollTrigger?.refresh();
   }
 
+  function updateLoadText() {
+    const progress = Math.max(0, Math.min(100, Math.round(state.loadProgress)));
+    if (state.loadPhase === 'player') {
+      loading.textContent = state.ready ? '' : `${state.loadLabel || 'Preparando personagem…'} ${progress}%`;
+    }
+    gateText.textContent = `${state.loadLabel || 'Carregando ambiente…'} ${progress}%`;
+  }
+
   function postState(force = false) {
-    if (!state.loaded || !frame.contentWindow) return;
+    if (!state.loaded || !state.visualReady || !frame.contentWindow) return;
     const message = {
       type: 'MS_CASA_HERO_STATE', progress: state.cameraProgress,
       active: state.active, explore: state.exploring,
@@ -79,34 +109,44 @@ if (hero && stage && !window.MSCasaHero) {
 
   function sync() {
     measureLegacy();
-    const y = scrollY;
+    const currentY = scrollY;
     state.legacyEnd = hero.offsetTop + state.legacySpan;
     state.end = hero.offsetTop + Math.max(1, hero.offsetHeight - innerHeight);
-    const legacyProgress = clamp((y - hero.offsetTop) / state.legacySpan);
-    if (!state.loaded && legacyProgress > .48) {
+    const legacyProgress = clamp((currentY - hero.offsetTop) / state.legacySpan);
+    if (!state.loaded && (caseStage?.classList.contains('live') || legacyProgress > .66)) {
       state.loaded = true;
       frame.src = frame.dataset.src;
     }
-    state.progress = clamp((y - state.legacyEnd) / Math.max(1, state.end - state.legacyEnd));
-    state.active = y >= state.legacyEnd && y <= state.end;
-    state.entryProgress = clamp(state.progress / .15);
-    state.cameraProgress = clamp((state.progress - .15) / .73);
+
+    let y = currentY;
+    const insideHero4 = currentY > state.legacyEnd && currentY <= state.end;
+    if (!state.visualReady && insideHero4) {
+      hardScrollTo(state.legacyEnd);
+      y = state.legacyEnd;
+    }
+
+    state.progress = state.visualReady ? clamp((y - state.legacyEnd) / Math.max(1, state.end - state.legacyEnd)) : 0;
+    state.active = state.visualReady && y >= state.legacyEnd && y <= state.end;
+    state.entryProgress = state.visualReady ? clamp(state.progress / .15) : 0;
+    state.cameraProgress = state.visualReady ? clamp((state.progress - .15) / .73) : 0;
     if (!state.active || state.progress < .88) state.exploring = false;
 
+    const waitingAtGate = state.loaded && !state.visualReady && currentY >= state.legacyEnd - 2 && currentY <= state.end;
+    gate.hidden = !waitingAtGate;
     panel.hidden = !state.active;
     panel.setAttribute('aria-hidden', String(!state.active));
     if (entry) entry.progress(state.entryProgress, true);
     else panel.style.transform = `translateX(${(1 - state.entryProgress) * 100}%)`;
     stage.classList.toggle('is-casa-hero', state.active);
     stage.classList.toggle('is-casa-exploring', state.exploring);
-    // The fixed stage was decorative before this scene added accessible controls.
-    stage.setAttribute('aria-hidden', String(!state.active));
+    stage.setAttribute('aria-hidden', String(!state.active && !waitingAtGate));
     prompt.hidden = !state.active || state.progress < .88 || state.exploring;
     toolbar.hidden = !state.exploring;
     exploreButton.disabled = !state.ready;
     loading.hidden = state.ready;
     frame.tabIndex = state.exploring ? 0 : -1;
     frame.setAttribute('aria-hidden', String(!state.exploring));
+    updateLoadText();
     postState();
   }
 
@@ -130,13 +170,30 @@ if (hero && stage && !window.MSCasaHero) {
   });
   panel.querySelector('#msCasaHeroReturn').addEventListener('click', stopExploring);
   panel.querySelectorAll('.ms-casa-continue').forEach(button => button.addEventListener('click', continuePage));
-  frame.addEventListener('load', () => postState(true));
+  frame.addEventListener('load', () => { updateLoadText(); postState(true); });
   window.addEventListener('message', event => {
     if (event.source !== frame.contentWindow || event.origin !== origin) return;
     const data = event.data;
     if (!data || typeof data !== 'object') return;
-    if (data.type === 'MS_CASA_HERO_READY') {
+    if (data.type === 'MS_CASA_HERO_LOAD') {
+      state.loadPhase = data.phase === 'player' ? 'player' : 'environment';
+      state.loadProgress = clamp(Number(data.progress) / 100) * 100;
+      state.loadLabel = typeof data.label === 'string' && data.label ? data.label : (state.loadPhase === 'player' ? 'Preparando personagem…' : 'Carregando ambiente…');
+      updateLoadText();
+    } else if (data.type === 'MS_CASA_HERO_VISUAL_READY') {
+      measureLegacy();
+      if (scrollY >= state.legacyEnd - 1 && scrollY <= state.end) hardScrollTo(state.legacyEnd);
+      state.visualReady = true;
+      state.loadPhase = 'environment';
+      state.loadProgress = 100;
+      state.loadLabel = 'Ambiente pronto ·';
+      sync();
+      postState(true);
+    } else if (data.type === 'MS_CASA_HERO_READY') {
       state.ready = true;
+      state.loadPhase = 'player';
+      state.loadProgress = 100;
+      state.loadLabel = 'Personagem pronto ·';
       sync();
       postState(true);
     } else if (data.type === 'MS_CASA_HERO_EXIT') {
@@ -153,7 +210,8 @@ if (hero && stage && !window.MSCasaHero) {
     metrics() {
       return {
         progress: state.progress, active: state.active, exploring: state.exploring,
-        ready: state.ready, loaded: state.loaded,
+        ready: state.ready, visualReady: state.visualReady, loaded: state.loaded,
+        loadPhase: state.loadPhase, loadProgress: state.loadProgress,
         entryTransform: getComputedStyle(panel).transform,
         entryProgress: state.entryProgress, entryEngine: entry ? 'gsap' : 'css-fallback',
         legacySpan: state.legacySpan, legacyHeight: state.legacyHeight,
@@ -162,7 +220,6 @@ if (hero && stage && !window.MSCasaHero) {
     },
   };
   sync();
-  // Fonts and the existing page modules can finish after the initial measurement.
   const refreshDownstream = () => window.ScrollTrigger?.refresh();
   document.fonts?.ready.then(refreshDownstream);
   window.addEventListener('load', refreshDownstream, {once: true});
