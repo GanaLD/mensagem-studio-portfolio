@@ -1,0 +1,142 @@
+/* The fourth scene extends the existing Hero; its original height is measured first. */
+html.ms-casa-hero-enabled #hero {
+  height: calc(var(--ms-legacy-hero-height) + 400vh) !important;
+  height: calc(var(--ms-legacy-hero-height) + 400svh) !important;
+}
+
+#msUnifiedHeroStage .ms-casa-hero-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  overflow: hidden;
+  background: #050605;
+  pointer-events: none;
+  will-change: transform;
+}
+
+#msUnifiedHeroStage .ms-casa-hero-panel[hidden],
+#msUnifiedHeroStage .ms-casa-hero-panel [hidden] {
+  display: none !important;
+}
+
+#msCasaHeroFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #050605;
+  pointer-events: none;
+}
+
+#msUnifiedHeroStage.is-casa-exploring #msCasaHeroFrame {
+  pointer-events: auto;
+}
+
+#msUnifiedHeroStage.is-casa-hero .cena-hero-shared-ui {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.ms-casa-hologram {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: max(32px, env(safe-area-inset-bottom));
+  width: min(520px, calc(100% - 32px));
+  padding: 20px;
+  transform: translateX(-50%);
+  border: 1px solid rgba(201, 255, 54, .5);
+  background: linear-gradient(135deg, rgba(7, 14, 12, .9), rgba(9, 23, 20, .67));
+  box-shadow: 0 0 24px rgba(201, 255, 54, .14), inset 0 0 18px rgba(104, 255, 219, .035);
+  backdrop-filter: blur(12px);
+  color: #f4f5ef;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ms-casa-hologram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(104, 255, 219, .025) 4px);
+  pointer-events: none;
+}
+
+.ms-casa-hologram p {
+  position: relative;
+  margin: 0 0 15px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.ms-casa-hero-actions {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ms-casa-hero-actions button {
+  min-height: 44px;
+  padding: 12px 16px;
+  border: 1px solid rgba(201, 255, 54, .45);
+  background: rgba(5, 14, 12, .8);
+  color: #f4f5ef;
+  font: 700 11px/1.2 Inter, Arial, Helvetica, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.ms-casa-hero-actions .ms-casa-explore {
+  background: #c9ff36;
+  color: #10130b;
+  border-color: #c9ff36;
+}
+
+.ms-casa-hero-actions button:focus-visible {
+  outline: 2px solid #eaffab;
+  outline-offset: 4px;
+}
+
+.ms-casa-hero-actions button:disabled {
+  opacity: .45;
+  cursor: progress;
+}
+
+.ms-casa-loading {
+  margin: 10px 0 0;
+  color: #c9ff36;
+  font-size: 11px;
+}
+
+.ms-casa-controls-hint {
+  position: relative;
+  display: block;
+  margin-top: 11px;
+  color: rgba(241, 255, 225, .82);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: .025em;
+}
+
+.ms-casa-explore-toolbar {
+  top: max(86px, calc(env(safe-area-inset-top) + 70px));
+  bottom: auto;
+  width: auto;
+  max-width: calc(100% - 32px);
+  padding: 8px;
+}
+
+@media (max-width: 760px) {
+  .ms-casa-hologram { padding: 16px 12px; bottom: max(122px, env(safe-area-inset-bottom)); }
+  .ms-casa-hologram p { font-size: 15px; }
+  .ms-casa-hero-actions { gap: 8px; }
+  .ms-casa-hero-actions button { padding: 12px; font-size: 10px; }
+  .ms-casa-explore-toolbar { top: max(72px, calc(env(safe-area-inset-top) + 64px)); bottom: auto; padding: 6px; }
+}

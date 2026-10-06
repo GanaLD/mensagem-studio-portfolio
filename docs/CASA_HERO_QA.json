@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-10-06T01:49:07.951Z",
+  "scope": "Local integration in the existing unified Hero viewport. No publication performed.",
+  "pass": true,
+  "functionalChecks": 36,
+  "captures": 23,
+  "visualReview": {
+    "sampledPass": true,
+    "reviewed": [
+      "desktop and mobile entry, orbit, final choice and exploration",
+      "original 3D, video and character",
+      "downstream WordScroll"
+    ],
+    "fullSceneMaterialAcceptance": false
+  },
+  "reports": [
+    "parent-integration-report.json",
+    "preserved-scenes-report.json"
+  ],
+  "limits": [
+    "Mobile browser emulation, no physical phone tested.",
+    "Desktop wheel input was native; mobile wheel forwarding used DOM wheel delivery. Native mobile touch movement was tested.",
+    "Movement test covers the arrival area; no seat interaction prompt was reached in that short path.",
+    "Environment textures and all room collisions are outside this integration QA."
+  ],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "bf77b8f8ea39bea9728fb58aecf1b968cf86d53abb0cfaba79c23ef7c217d14c"
+    },
+    {
+      "file": "assets/casa-hero-host.mjs",
+      "sha256": "e24fdb0350c5424eedebdac51e3a0e4a40a1798efe1b2b0bbcc85c9b53ea6762"
+    },
+    {
+      "file": "assets/casa-hero-host.css",
+      "sha256": "d37a9923d19ec457e557e9a06381f1cc3a3e4f7fdf9c913b4ff459c0f306beb3"
+    }
+  ],
+  "models": [
+    {
+      "file": "CASA_HERO.glb",
+      "bytes": 43189832,
+      "sha256": "526b72c339fdd5baa0ff3b86b5c3bcccd8b07967559b2b01885e89950eb916f3",
+      "matchesSource": true
+    },
+    {
+      "file": "PLAYER.glb",
+      "bytes": 2972520,
+      "sha256": "1572a96b9910ab8b48381a0387cbbfbe1452424ec53f0a5c3d1e46f474e776e8",
+      "matchesSource": true
+    }
+  ]
+}
