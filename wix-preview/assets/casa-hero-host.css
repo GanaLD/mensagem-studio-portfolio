@@ -140,3 +140,14 @@ html.ms-casa-hero-enabled #hero {
   .ms-casa-hero-actions button { padding: 12px; font-size: 10px; }
   .ms-casa-explore-toolbar { top: max(72px, calc(env(safe-area-inset-top) + 64px)); bottom: auto; padding: 6px; }
 }
+
+.ms-casa-load-gate {
+  z-index: 45;
+  bottom: max(34px, env(safe-area-inset-bottom));
+  width: min(430px, calc(100% - 32px));
+  pointer-events: none;
+}
+.ms-casa-load-gate p { margin-bottom: 8px; }
+@media (max-width: 760px) {
+  .ms-casa-load-gate { bottom: max(116px, env(safe-area-inset-bottom)); }
+}
