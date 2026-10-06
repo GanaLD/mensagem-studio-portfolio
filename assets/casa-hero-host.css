@@ -19,6 +19,11 @@ html.ms-casa-hero-enabled #hero {
   display: none !important;
 }
 
+#msUnifiedHeroStage .ms-casa-hero-panel.is-preloading {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #msCasaHeroFrame {
   display: block;
   width: 100%;
@@ -143,11 +148,12 @@ html.ms-casa-hero-enabled #hero {
 
 .ms-casa-load-gate {
   z-index: 45;
-  bottom: max(34px, env(safe-area-inset-bottom));
+  top: 50%;
+  left: 50%;
+  bottom: auto;
   width: min(430px, calc(100% - 32px));
+  transform: translate(-50%, -50%);
+  margin: 0;
   pointer-events: none;
 }
 .ms-casa-load-gate p { margin-bottom: 8px; }
-@media (max-width: 760px) {
-  .ms-casa-load-gate { bottom: max(116px, env(safe-area-inset-bottom)); }
-}
