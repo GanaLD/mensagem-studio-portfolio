@@ -3,6 +3,7 @@ const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');
 const clamp = value => Math.max(0, Math.min(1, value));
+const mobileProfile = matchMedia('(max-width:760px), (pointer:coarse)').matches;
 
 if (hero && stage && !window.MSCasaHero) {
   const controlHint = matchMedia('(pointer: coarse)').matches
@@ -16,7 +17,7 @@ if (hero && stage && !window.MSCasaHero) {
   panel.setAttribute('aria-label', 'Explore a casa Mensagem Studio');
   panel.innerHTML = `
     <iframe id="msCasaHeroFrame" title="Casa Mensagem Studio — ambiente 3D interativo"
-      data-src="./assets/casa-hero/index.html?embed=hero4&v=20261006-loadfix1" loading="eager"
+      data-src="./assets/casa-hero/index.html?embed=hero4&v=20261006-mobilefix1" loading="eager"
       referrerpolicy="same-origin" tabindex="-1" aria-hidden="true"></iframe>
     <div id="msCasaHeroPrompt" class="ms-casa-hologram" hidden>
       <p>Explore o ambiente</p>
@@ -75,15 +76,21 @@ if (hero && stage && !window.MSCasaHero) {
     });
   }
 
+  function viewportHeight() {
+    if (mobileProfile && state.height > 0 && Math.abs(innerWidth - state.width) < 24) return state.height;
+    return innerHeight;
+  }
+
   function measureLegacy() {
-    if (state.width === innerWidth && state.height === innerHeight) return;
+    const nextHeight = viewportHeight();
+    if (state.width === innerWidth && state.height === nextHeight) return;
     document.documentElement.classList.remove('ms-casa-hero-enabled');
     state.legacyHeight = hero.offsetHeight;
-    state.legacySpan = Math.max(1, state.legacyHeight - innerHeight);
+    state.legacySpan = Math.max(1, state.legacyHeight - nextHeight);
     document.documentElement.style.setProperty('--ms-legacy-hero-height', `${state.legacyHeight}px`);
     document.documentElement.classList.add('ms-casa-hero-enabled');
     state.width = innerWidth;
-    state.height = innerHeight;
+    state.height = nextHeight;
     window.ScrollTrigger?.refresh();
   }
 
@@ -111,9 +118,11 @@ if (hero && stage && !window.MSCasaHero) {
     measureLegacy();
     const currentY = scrollY;
     state.legacyEnd = hero.offsetTop + state.legacySpan;
-    state.end = hero.offsetTop + Math.max(1, hero.offsetHeight - innerHeight);
+    const vh = viewportHeight();
+    state.end = hero.offsetTop + Math.max(1, hero.offsetHeight - vh);
     const legacyProgress = clamp((currentY - hero.offsetTop) / state.legacySpan);
-    if (!state.loaded && (caseStage?.classList.contains('live') || legacyProgress > .66)) {
+    const preloadThreshold = mobileProfile ? .24 : .66;
+    if (!state.loaded && (caseStage?.classList.contains('live') || legacyProgress > preloadThreshold)) {
       state.loaded = true;
       frame.src = frame.dataset.src;
     }
@@ -161,7 +170,7 @@ if (hero && stage && !window.MSCasaHero) {
   function continuePage() {
     state.exploring = false;
     sync();
-    window.scrollTo({top: state.end + Math.max(32, innerHeight * .12), behavior: 'smooth'});
+    window.scrollTo({top: state.end + Math.max(32, viewportHeight() * .12), behavior: 'smooth'});
   }
 
   exploreButton.addEventListener('click', () => {
