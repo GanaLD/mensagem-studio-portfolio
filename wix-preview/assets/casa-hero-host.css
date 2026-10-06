@@ -143,8 +143,12 @@ html.ms-casa-hero-enabled #hero {
 
 .ms-casa-load-gate {
   z-index: 45;
+  left: 50vw;
+  right: auto;
   bottom: max(34px, env(safe-area-inset-bottom));
-  width: min(430px, calc(100% - 32px));
+  width: min(430px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  margin: 0;
   pointer-events: none;
 }
 .ms-casa-load-gate p { margin-bottom: 8px; }
