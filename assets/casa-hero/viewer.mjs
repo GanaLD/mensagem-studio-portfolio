@@ -18,26 +18,32 @@ import {createHeroEmbedding} from './embedded-host.mjs';
 const splitOctree=Octree.prototype.split;
 Octree.prototype.split=function(level){this.trianglesPerLeaf=36;this.maxLevel=6;return splitOctree.call(this,level);};
 
-const renderer = new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
-renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.setSize(innerWidth,innerHeight);
+const mobileProfile=matchMedia('(max-width:760px), (pointer:coarse)').matches;
+const renderer = new THREE.WebGLRenderer({antialias:!mobileProfile,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,mobileProfile?1:1.5)); renderer.setSize(innerWidth,innerHeight);
 renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.15;
-renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.shadowMap.enabled=!mobileProfile; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.body.prepend(renderer.domElement);
 const scene=new THREE.Scene(); scene.background=new THREE.Color('#cbd1ce'); scene.fog=new THREE.FogExp2('#cbd1ce',.0009);
 const pmrem=new THREE.PMREMGenerator(renderer); scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture; scene.environmentIntensity=.30;
 scene.add(new THREE.HemisphereLight(0xe7efff,0xa49b83,.65));
-const sun=new THREE.DirectionalLight(0xffd8a7,2.2); sun.position.set(-35,45,-25); sun.castShadow=true;
-sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-45,right:45,top:45,bottom:-45,far:160}); sun.shadow.normalBias=.035;sun.shadow.bias=-.0005; scene.add(sun);
+const sun=new THREE.DirectionalLight(0xffd8a7,2.2); sun.position.set(-35,45,-25); sun.castShadow=!mobileProfile;
+sun.shadow.mapSize.set(mobileProfile?512:2048,mobileProfile?512:2048); Object.assign(sun.shadow.camera,{left:-45,right:45,top:45,bottom:-45,far:160}); sun.shadow.normalBias=.035;sun.shadow.bias=-.0005; scene.add(sun);
 const camera=new THREE.PerspectiveCamera(53,innerWidth/innerHeight,.05,5000);
 const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
-composer.renderTarget1.samples=2;composer.renderTarget2.samples=2;
-const contactAO=new SSAOPass(scene,camera,innerWidth*.65,innerHeight*.65,16);
-contactAO.kernelRadius=.42;contactAO.minDistance=.000004;contactAO.maxDistance=.00006;
-composer.addPass(contactAO);composer.addPass(new OutputPass());
+composer.renderTarget1.samples=mobileProfile?0:2;composer.renderTarget2.samples=mobileProfile?0:2;
+const contactAO=mobileProfile?null:new SSAOPass(scene,camera,innerWidth*.65,innerHeight*.65,16);
+if(contactAO){
+ contactAO.kernelRadius=.42;contactAO.minDistance=.000004;contactAO.maxDistance=.00006;
+ composer.addPass(contactAO);
+}
+composer.addPass(new OutputPass());
 const transparentMeshes=[];
-const renderAO=contactAO.render.bind(contactAO);
-contactAO.render=(...args)=>{const hidden=transparentMeshes.filter(o=>o.visible);for(const mesh of hidden)mesh.visible=false;try{renderAO(...args);}finally{for(const mesh of hidden)mesh.visible=true;}};
-function sizeComposer(){composer.setSize(innerWidth,innerHeight);contactAO.setSize(Math.round(innerWidth*.65),Math.round(innerHeight*.65));}
+if(contactAO){
+ const renderAO=contactAO.render.bind(contactAO);
+ contactAO.render=(...args)=>{const hidden=transparentMeshes.filter(o=>o.visible);for(const mesh of hidden)mesh.visible=false;try{renderAO(...args);}finally{for(const mesh of hidden)mesh.visible=true;}};
+}
+function sizeComposer(){composer.setSize(innerWidth,innerHeight);if(contactAO)contactAO.setSize(Math.round(innerWidth*.65),Math.round(innerHeight*.65));}
 sizeComposer();sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;
 const fromBlender=v=>new THREE.Vector3(v[0],v[2],-v[1]);
 const HERO_SECONDS=14, RADIUS=.23, HEIGHT=1.78, EYE_HEIGHT=1.64, WALK_SPEED=1.633, RUN_SPEED=3.5;
@@ -396,8 +402,8 @@ function tick(now){
  // Contact shading returns once the view rests; moving navigation avoids
  // rendering the entire environment again for the screen-space AO pass.
  if(movedLastFrame>.001||pointer||interactions?.getState().transition)lastVisualMotion=now;
- contactAO.enabled=mode==='free'&&now-lastVisualMotion>250;
- if(mode==='free')composer.render();else renderer.render(scene,camera);
+ if(contactAO)contactAO.enabled=mode==='free'&&now-lastVisualMotion>250;
+ if(mode==='free'&&!mobileProfile)composer.render();else renderer.render(scene,camera);
 }
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);sizeComposer();});
 window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,startIntro,resolvePosition,setViewMode,
@@ -428,7 +434,7 @@ async function ensurePlayerReady(){
   });
   setLoad('player',92,'Configurando personagem…');
   playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
-   if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
+   if(o.isMesh){o.castShadow=!mobileProfile;o.receiveShadow=!mobileProfile;}
    if(o.isSkinnedMesh)o.frustumCulled=false;
    if(o.isBone)bones[o.name.replace(/^mixamorig[:_]?/i,'')]=o;
   });
@@ -449,7 +455,7 @@ async function ensurePlayerReady(){
   footPlacement=createFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;
   setLoad('player',97,'Preparando animações…');
   placePlayer('living');sample(progress);scene.updateMatrixWorld(true);
-  playerModel.visible=true;await renderer.compileAsync(scene,camera);playerModel.visible=false;renderer.render(scene,camera);
+  playerModel.visible=true;if(!mobileProfile&&typeof renderer.compileAsync==='function')await renderer.compileAsync(scene,camera);playerModel.visible=false;renderer.render(scene,camera);
   playerReady=true;window.__ready=true;setLoad('player',100,'Personagem pronto ·');
   embedding.ready();
   return true;
@@ -476,14 +482,14 @@ try{
  environmentRoot=new THREE.Group();environmentRoot.name='CASA_Environment';environmentRoot.add(house.scene);scene.add(environmentRoot);vehicleBounds=new THREE.Box3().setFromObject(embeddedVehicle).expandByScalar(.08);
  environmentRoot.traverse(o=>{
   if(o.isLight)o.visible=false;if(!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];
-  o.castShadow=!materials.every(m=>m.transmission>0);o.receiveShadow=true;
-  for(const m of materials)for(const texture of [m.map,m.normalMap,m.roughnessMap,m.metalnessMap])if(texture)texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  o.castShadow=!mobileProfile&&!materials.every(m=>m.transmission>0);o.receiveShadow=!mobileProfile;
+  for(const m of materials)for(const texture of [m.map,m.normalMap,m.roughnessMap,m.metalnessMap])if(texture)texture.anisotropy=Math.min(mobileProfile?2:8,renderer.capabilities.getMaxAnisotropy());
   if(materials.some(m=>m.transmission>0||m.transparent))transparentMeshes.push(o);
  });
  setLoad('environment',89,'Preparando navegação…');await new Promise(resolve=>setTimeout(resolve,0));
  buildCollision(environmentRoot);
  setLoad('environment',94,'Preparando iluminação…');
- sample(0);scene.updateMatrixWorld(true);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
+ sample(0);scene.updateMatrixWorld(true);if(!mobileProfile&&typeof renderer.compileAsync==='function')await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
  window.__visualReady=true;mode='embedded';document.body.dataset.mode='embedded';
  setLoad('environment',100,'Ambiente pronto ·');
  if(embedding.enabled){
