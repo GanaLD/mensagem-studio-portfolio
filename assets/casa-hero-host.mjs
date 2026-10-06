@@ -16,7 +16,7 @@ if (hero && stage && !window.MSCasaHero) {
   panel.setAttribute('aria-label', 'Explore a casa Mensagem Studio');
   panel.innerHTML = `
     <iframe id="msCasaHeroFrame" title="Casa Mensagem Studio — ambiente 3D interativo"
-      data-src="./assets/casa-hero/index.html?embed=hero4" loading="eager"
+      data-src="./assets/casa-hero/index.html?embed=hero4&v=20261006-loadfix1" loading="eager"
       referrerpolicy="same-origin" tabindex="-1" aria-hidden="true"></iframe>
     <div id="msCasaHeroPrompt" class="ms-casa-hologram" hidden>
       <p>Explore o ambiente</p>
@@ -133,7 +133,9 @@ if (hero && stage && !window.MSCasaHero) {
 
     const waitingAtGate = state.loaded && !state.visualReady && currentY >= state.legacyEnd - 2 && currentY <= state.end;
     gate.hidden = !waitingAtGate;
-    panel.hidden = !state.active;
+    const preloading = state.loaded && !state.visualReady;
+    panel.hidden = !state.active && !preloading;
+    panel.classList.toggle('is-preloading', preloading);
     panel.setAttribute('aria-hidden', String(!state.active));
     if (entry) entry.progress(state.entryProgress, true);
     else panel.style.transform = `translateX(${(1 - state.entryProgress) * 100}%)`;
