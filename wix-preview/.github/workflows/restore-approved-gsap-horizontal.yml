@@ -1,0 +1,136 @@
+name: Restore approved GSAP horizontal block
+
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-approved-gsap-horizontal.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: restore-approved-gsap-horizontal
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore exact approved horizontal video block and GSAP runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          OLD = '589bbb1adea67c7bbfae390e2eeedfa559945b62'
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+
+          def old_file(path: Path) -> str:
+              return subprocess.check_output(
+                  ['git', 'show', f'{OLD}:{path.as_posix()}'],
+                  text=True,
+                  encoding='utf-8'
+              )
+
+          def word_range(text: str):
+              start = text.find('<section id="word"')
+              if start < 0:
+                  raise ValueError('word start not found')
+              end = text.find('<main id="afterWord"', start)
+              if end < 0:
+                  raise ValueError('afterWord marker not found')
+              return start, end
+
+          script_re = re.compile(
+              r'<script id="ms-word-cases-gsap-[^"]+">.*?</script>',
+              re.S
+          )
+
+          for path in targets:
+              if not path.exists():
+                  raise SystemExit(f'Missing target: {path}')
+
+              current = path.read_text(encoding='utf-8')
+              good = old_file(path)
+
+              try:
+                  gs, ge = word_range(good)
+                  cs, ce = word_range(current)
+              except ValueError as exc:
+                  raise SystemExit(f'{path}: {exc}')
+
+              good_script = script_re.search(good)
+              current_script = script_re.search(current)
+              if not good_script or not current_script:
+                  raise SystemExit(f'Could not locate GSAP word script in {path}')
+
+              current = current[:cs] + good[gs:ge] + current[ce:]
+
+              current_script = script_re.search(current)
+              if not current_script:
+                  raise SystemExit(f'GSAP runtime disappeared after section restore in {path}')
+              current = (
+                  current[:current_script.start()]
+                  + good_script.group(0)
+                  + current[current_script.end():]
+              )
+
+              path.write_text(current, encoding='utf-8')
+          PY
+
+      - name: Verify exact approved GSAP state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import subprocess
+
+          OLD = '589bbb1adea67c7bbfae390e2eeedfa559945b62'
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+          script_re = re.compile(r'<script id="ms-word-cases-gsap-[^"]+">.*?</script>', re.S)
+
+          def old_file(path):
+              return subprocess.check_output(['git','show',f'{OLD}:{path.as_posix()}'], text=True, encoding='utf-8')
+
+          def block(text):
+              start = text.find('<section id="word"')
+              end = text.find('<main id="afterWord"', start)
+              if start < 0 or end < 0:
+                  raise SystemExit('GSAP block boundary missing')
+              return text[start:end]
+
+          for path in targets:
+              now = path.read_text(encoding='utf-8')
+              old = old_file(path)
+              if block(now) != block(old):
+                  raise SystemExit(f'{path}: #word block does not exactly match approved state')
+              ns = script_re.search(now)
+              os = script_re.search(old)
+              if not ns or not os or ns.group(0) != os.group(0):
+                  raise SystemExit(f'{path}: GSAP runtime does not exactly match approved state')
+              print(f'OK exact GSAP restore: {path}')
+          PY
+
+      - name: Publish GSAP restoration
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html wix-preview/index.html
+          if git diff --cached --quiet; then
+            echo 'GSAP block already matches approved state.'
+            exit 0
+          fi
+          git commit -m 'Restore approved horizontal GSAP video block'
+          git push

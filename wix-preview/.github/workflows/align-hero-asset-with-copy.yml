@@ -1,0 +1,94 @@
+name: Align only HERO character and weapon
+
+on:
+  push:
+    paths:
+      - '.github/workflows/align-hero-asset-with-copy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: align-only-hero-character-and-weapon
+  cancel-in-progress: false
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Align only character and weapon visual with copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          STYLE = '''<style id="MS_HERO_CHARACTER_WEAPON_ALIGNMENT_V3">
+          @media (min-width:1025px){
+            /* Character: shift only its visual viewport. Do not move the HERO card/grid/scroll container. */
+            #hero .hero-art.is-immersive .hero-immersive-wrap{
+              top:-92px!important;
+              bottom:92px!important;
+              transform:none!important;
+            }
+            /* Weapon: shift only the model-viewer visual viewport by the same amount. */
+            #hero .hero-art.is-model-3d .hero-model-3d{
+              top:-92px!important;
+              bottom:92px!important;
+            }
+          }
+          </style>'''
+
+          targets = [Path('index.html'), Path('wix-preview/index.html')]
+          for path in targets:
+              if not path.exists():
+                  raise SystemExit(f'Missing target: {path}')
+
+              html = path.read_text(encoding='utf-8')
+
+              # Remove only our previous alignment overrides. No HERO markup/JS/GSAP changes.
+              html = re.sub(r'<style id="MS_HERO_COPY_ASSET_ALIGNMENT_V1">.*?</style>\s*', '', html, flags=re.S)
+              html = re.sub(r'<style id="MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2">.*?</style>\s*', '', html, flags=re.S)
+              html = re.sub(r'<style id="MS_HERO_CHARACTER_WEAPON_ALIGNMENT_V3">.*?</style>\s*', '', html, flags=re.S)
+
+              if '</head>' not in html:
+                  raise SystemExit(f'</head> not found in {path}')
+              html = html.replace('</head>', STYLE + '\n</head>', 1)
+              path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Verify alignment-only scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'MS_HERO_CHARACTER_WEAPON_ALIGNMENT_V3' index.html
+          grep -q '#hero .hero-art.is-immersive .hero-immersive-wrap' index.html
+          grep -q '#hero .hero-art.is-model-3d .hero-model-3d' index.html
+          grep -q 'top:-92px!important' index.html
+          grep -q 'bottom:92px!important' index.html
+          ! grep -q 'MS_HERO_ASSET_VERTICAL_OFFSET_ONLY_V2' index.html
+          ! grep -q 'MS_HERO_COPY_ASSET_ALIGNMENT_V1' index.html
+          grep -q '#hero{height:1380vh' index.html
+          grep -q 'const VIDEO_END=.465' index.html
+          grep -q 'function renderScroll()' index.html
+          grep -q 'MS_HERO_CHARACTER_WEAPON_ALIGNMENT_V3' wix-preview/index.html
+
+      - name: Publish alignment-only fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html wix-preview/index.html
+          if git diff --cached --quiet; then
+            echo 'Character and weapon alignment already applied.'
+            exit 0
+          fi
+          git commit -m 'Align only HERO character and weapon with text'
+          git push

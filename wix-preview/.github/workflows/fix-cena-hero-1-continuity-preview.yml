@@ -1,0 +1,102 @@
+name: Remove exact HERO scroll instruction label
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-cena-hero-1-continuity-preview.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: remove-exact-hero-scroll-instruction-label
+  cancel-in-progress: false
+
+jobs:
+  remove-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove exact video scroll label and broad guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          broad_guard = re.compile(
+              r'<style id="MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2_STYLE">.*?</style>\s*'
+              r'<script id="MS_REMOVE_ROGUE_HERO1_TOP_LEFT_TEXT_V2">.*?</script>\s*',
+              re.S,
+          )
+
+          all_targets = [
+              Path('index.html'),
+              Path('wix-preview/index.html'),
+              Path('assets/cena-hero-1/visualizador.html'),
+              Path('wix-preview/assets/cena-hero-1/visualizador.html'),
+          ]
+
+          for p in all_targets:
+              if not p.exists():
+                  raise SystemExit(f'Missing expected target: {p}')
+              html = p.read_text(encoding='utf-8')
+              html = broad_guard.sub('', html)
+              p.write_text(html, encoding='utf-8')
+
+          pages = [Path('index.html'), Path('wix-preview/index.html')]
+          label_re = re.compile(
+              r'<div\s+class=["\']video-scroll-label["\'][^>]*>.*?</div>\s*',
+              re.S | re.I,
+          )
+          css_guard = '<style id="MS_HIDE_VIDEO_SCROLL_LABEL_EXACT">.video-scroll-label{display:none!important}</style>'
+
+          for p in pages:
+              html = p.read_text(encoding='utf-8')
+              html, count = label_re.subn('', html)
+              print(f'{p}: removed {count} video-scroll-label node(s)')
+              if 'MS_HIDE_VIDEO_SCROLL_LABEL_EXACT' not in html:
+                  if '</head>' not in html:
+                      raise SystemExit(f'No </head> in {p}')
+                  html = html.replace('</head>', css_guard + '\n</head>', 1)
+              p.write_text(html, encoding='utf-8')
+
+          # Force one clean production deploy without [skip ci] so GitHub Pages publishes this exact fix.
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+          deploy_marker = '<!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->'
+          if deploy_marker not in html:
+              html = html.replace('</body>', deploy_marker + '\n</body>', 1)
+              p.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Verify exact label is gone
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -qi 'Role para controlar o filme' index.html
+          ! grep -qi 'Role para controlar o filme' wix-preview/index.html
+          ! grep -qi 'depois entram os cases' index.html
+          ! grep -qi 'depois entram os cases' wix-preview/index.html
+          grep -q 'MS_HIDE_VIDEO_SCROLL_LABEL_EXACT' index.html
+          grep -q 'MS_HIDE_VIDEO_SCROLL_LABEL_EXACT' wix-preview/index.html
+          grep -q 'MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1' index.html
+
+      - name: Publish exact removal and trigger Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html wix-preview/index.html assets/cena-hero-1/visualizador.html wix-preview/assets/cena-hero-1/visualizador.html
+          if git diff --cached --quiet; then
+            echo 'Exact label already removed and deploy marker already present.'
+            exit 0
+          fi
+          git commit -m 'Publish exact HERO video scroll label removal'
+          git push
