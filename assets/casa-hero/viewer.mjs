@@ -410,6 +410,7 @@ window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,
 };
 requestAnimationFrame(tick);
 const draco=new DRACOLoader();draco.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);
+const HOUSE_GLTF_BYTES=43189832;
 const setLoad=(phase,percent,label)=>{
  const value=Math.max(0,Math.min(100,Math.round(Number(percent)||0)));
  if(label)ui.loadText.textContent=`${label} ${value}%`;
@@ -462,8 +463,10 @@ try{
  heroPath=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.position)),false,'centripetal');
  heroTargets=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.target)),false,'centripetal');
  const house=await loader.loadAsync('./CASA_HERO.glb',e=>{
-  if(!e.total)return;
-  const ratio=Math.max(0,Math.min(1,e.loaded/Math.max(e.loaded,e.total)));
+  const loaded=Math.max(0,Number(e.loaded)||0);
+  if(!loaded)return;
+  const total=Math.max(loaded,Number(e.total)||HOUSE_GLTF_BYTES);
+  const ratio=Math.max(0,Math.min(1,loaded/total));
   setLoad('environment',ratio*82,'Carregando ambiente…');
  });
  setLoad('environment',84,'Montando ambiente…');
@@ -477,7 +480,7 @@ try{
   for(const m of materials)for(const texture of [m.map,m.normalMap,m.roughnessMap,m.metalnessMap])if(texture)texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   if(materials.some(m=>m.transmission>0||m.transparent))transparentMeshes.push(o);
  });
- setLoad('environment',89,'Preparando navegação…');await new Promise(resolve=>requestAnimationFrame(resolve));
+ setLoad('environment',89,'Preparando navegação…');await new Promise(resolve=>setTimeout(resolve,0));
  buildCollision(environmentRoot);
  setLoad('environment',94,'Preparando iluminação…');
  sample(0);scene.updateMatrixWorld(true);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
@@ -488,4 +491,4 @@ try{
  }else{
   await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');
  }
-}catch(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}
+}catch(error){embedding.reportLoad?.('environment',0,'Falha ao carregar ambiente ·');ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}
