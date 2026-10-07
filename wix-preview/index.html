@@ -377,6 +377,138 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 /* SECTION COPY — LUMINOUS WHITE */
 #pdf .identity-hire-copy{color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;font-weight:500!important;mix-blend-mode:normal!important;background:none!important;filter:none!important;text-shadow:0 0 8px rgba(255,255,255,.28),0 0 18px rgba(255,255,255,.15),0 0 36px rgba(255,255,255,.08)!important}
 </style>
+<!-- PDF_MODEL_EXPAND_MENU_PREVIEW_START -->
+<style id="pdf-model-expand-menu-preview">
+#pdf .stage{
+  grid-template-columns:78px minmax(0,1fr);
+  overflow:visible;
+}
+#pdf .pdf-menu-shell{
+  position:relative;
+  z-index:24;
+  min-width:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:22px 12px;
+  border-right:1px solid var(--line);
+  background:rgba(5,6,5,.32);
+}
+#pdf .pdf-menu-toggle{
+  position:relative;
+  width:50px;
+  height:50px;
+  flex:0 0 50px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(145deg,rgba(19,22,20,.92),rgba(6,8,7,.72));
+  color:#f4f5ef;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.07);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease;
+}
+#pdf .pdf-menu-toggle:hover,
+#pdf .pdf-menu-toggle:focus-visible,
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle{
+  outline:none;
+  border-color:rgba(201,255,54,.86);
+  box-shadow:0 10px 30px rgba(0,0,0,.38),0 0 0 1px rgba(201,255,54,.16),0 0 22px rgba(201,255,54,.18),inset 0 1px 0 rgba(255,255,255,.08);
+}
+#pdf .pdf-menu-toggle:hover{transform:translateY(-1px)}
+#pdf .pdf-menu-toggle-icon{
+  width:20px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+#pdf .pdf-menu-toggle-icon i{
+  display:block;
+  width:100%;
+  height:1px;
+  border-radius:999px;
+  background:currentColor;
+  transform-origin:center;
+  transition:transform .22s ease,opacity .18s ease,background .22s ease;
+}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i{background:var(--lime)}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(2){opacity:0}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+#pdf .pdf-menu-panel{
+  position:absolute;
+  left:calc(100% + 10px);
+  top:20px;
+  width:min(232px,calc(100vw - 118px));
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(10,13,12,.94),rgba(5,7,6,.88));
+  box-shadow:0 22px 60px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.05);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateX(-10px) scale(.98);
+  transform-origin:left top;
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.72,.18,1),visibility 0s linear .24s;
+}
+#pdf .pdf-menu-shell.is-open .pdf-menu-panel{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(0) scale(1);
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.72,.18,1),visibility 0s linear 0s;
+}
+#pdf .pdf-menu-panel button{
+  width:100%;
+  min-height:44px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+  color:#e8ebe4;
+  text-align:left;
+  padding:0 14px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease;
+}
+#pdf .pdf-menu-panel button:hover,
+#pdf .pdf-menu-panel button:focus-visible{
+  outline:none;
+  border-color:rgba(201,255,54,.66);
+  background:rgba(201,255,54,.055);
+  color:#fff;
+  transform:translateX(2px);
+}
+#pdf .pdf-menu-panel button.active{
+  border-color:rgba(201,255,54,.82);
+  color:var(--lime);
+  background:rgba(201,255,54,.06);
+}
+@media(max-width:760px){
+  #pdf .stage{grid-template-columns:66px minmax(0,1fr)}
+  #pdf .pdf-menu-shell{padding:14px 8px}
+  #pdf .pdf-menu-toggle{width:48px;height:48px;flex-basis:48px}
+  #pdf .pdf-menu-panel{left:calc(100% + 8px);top:12px;width:min(220px,calc(100vw - 92px))}
+  #pdf .pdf-menu-panel button{min-height:46px}
+}
+@media(prefers-reduced-motion:reduce){
+  #pdf .pdf-menu-toggle,
+  #pdf .pdf-menu-toggle-icon i,
+  #pdf .pdf-menu-panel,
+  #pdf .pdf-menu-panel button{transition:none!important}
+}
+</style>
+<!-- PDF_MODEL_EXPAND_MENU_PREVIEW_END -->
 <!-- HOME_SECTION_NAV_CLEAN_FINAL_START -->
 <style id="home-section-nav-clean-final">
 :root{
@@ -1207,7 +1339,7 @@ body{overflow-x:clip!important}
   </div>
 </section>
 <main id="afterWord" class="after-word">
-<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy">Modelos que você pode contratar.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL" data-pages="64">Book Completo</button><button data-pdf="1O70TxveLOia-045XtQzSBiBLJsVcUv91" data-pages="21">Brand Essencial</button><button data-pdf="1g2Vb8HoxaY2l4wv-TeZDi9laZhi3BPXP" data-pages="12">Manual Básico</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" loading="lazy"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
+<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy">Modelos que você pode contratar.</p></div><div class="stage"><div class="pdf-menu-shell"><button class="pdf-menu-toggle" id="pdfMenuToggle" type="button" aria-label="Selecionar modelo de identidade visual" aria-expanded="false" aria-controls="pdfTabs"><span class="pdf-menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr-only">Selecionar modelo</span></button><div class="stage-side pdf-menu-panel" id="pdfTabs" aria-hidden="true"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL" data-pages="64">Book Completo</button><button data-pdf="1O70TxveLOia-045XtQzSBiBLJsVcUv91" data-pages="21">Brand Essencial</button><button data-pdf="1g2Vb8HoxaY2l4wv-TeZDi9laZhi3BPXP" data-pages="12">Manual Básico</button></div></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" loading="lazy"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
 <section id="three" class="section"><div class="wrap"><div class="section-head"><div><h2>3D interativo.</h2></div><p class="three-intro-copy">Ambientes e produtos em 3D para explorar diretamente na página. Escolha o asset à esquerda e interaja diretamente no viewer.</p></div><div class="stage three-project-stage"><aside class="stage-side three-sidebar" aria-label="Assets 3D"><div class="three-sidebar-group"><span class="three-sidebar-label">ASSETS 3D</span><div id="modelTabs" class="three-asset-list"><button class="active" type="button" data-model="black-skull-creatine-v2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" data-alt="Black Skull Creatine em visualização 3D interativa" data-orbit-theta="180deg">Black Skull Creatine</button><button type="button" data-model="arma-cyberpunk" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" data-alt="Arma Cyberpunk em visualização 3D interativa" data-orbit-theta="0deg">Arma Cyberpunk</button><button type="button" data-model="arma-cyberpunk-v2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/69f50dbd-6639-47bb-9237-1359965e67df.glb" data-alt="Arma Cyberpunk V2 em visualização 3D interativa" data-orbit-theta="0deg">Arma Cyberpunk V2</button><button type="button" data-model="rejuvital" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/8d8a225a-0a73-4dc1-93e2-cfa7cb448540.glb" data-alt="Rejuvital em visualização 3D interativa" data-orbit-theta="180deg" data-orbit-phi="75deg" data-orbit-radius="92%" data-fov="25deg">Rejuvital</button><button type="button" data-model="rejuvital-4ml" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/e003adc4-76c5-4bbc-9b00-b2cc5c34f279.glb" data-alt="Rejuvital 4ML em visualização 3D interativa" data-orbit-theta="180deg" data-orbit-phi="75deg" data-orbit-radius="92%" data-fov="25deg">Rejuvital 4ML</button><button type="button" data-model="arencia-cleansing-balm" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b56bf8b1-cdab-445d-9fa5-4fe838d4be44.glb" data-alt="Arencia Cleansing Balm em visualização 3D interativa e animada" data-orbit-theta="25deg" data-orbit-phi="68deg" data-orbit-radius="118%" data-fov="28deg">Arencia</button></div></div></aside><div class="stage-main"><model-viewer id="modelViewer3D" camera-controls autoplay shadow-intensity="1.15" shadow-softness="0.8" exposure="1.08" environment-image="neutral" interaction-prompt="none" alt="Black Skull Creatine em visualização 3D interativa" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" camera-target="auto auto auto" camera-orbit="180deg 75deg 103%" field-of-view="28deg" touch-action="pan-y" loading="lazy"></model-viewer><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></div></section>
 <section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Seleção de projetos de design, audiovisual, motion, 3D, campanhas e conteúdo digital desenvolvidos pela Mensagem Studio.</p></div><div class="projects-grid">
 <a class="project has-preview" href="./portfolio/produto-3d-egeo/" aria-label="Abrir projeto Produto 3D EGEO"><div class="project-media"><img class="project-cover" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1600,h_900,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" srcset="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_640%2Ch_360%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 640w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_960%2Ch_540%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 960w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1280%2Ch_720%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1280w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1600%2Ch_900%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1600w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1920%2Ch_1080%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1920w" sizes="(max-width:760px) calc(100vw - 36px), (max-width:1024px) 50vw, 66vw" width="1600" height="900" alt="Produto 3D EGEO"><video class="project-preview" muted loop playsinline webkit-playsinline preload="none" data-poster="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" data-src="https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file" data-preview-fallback="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>3D / Produto</small><h3>Modelagem e Render 3D | EGEO</h3><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p></div></a>
@@ -1475,6 +1607,68 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   frames.forEach(frame=>io.observe(frame));
 })();
 </script>
+<!-- PDF_MODEL_EXPAND_MENU_PREVIEW_JS_START -->
+<script id="pdf-model-expand-menu-preview-js">
+(()=>{
+  const shell=document.querySelector('#pdf .pdf-menu-shell');
+  const toggle=document.getElementById('pdfMenuToggle');
+  const panel=document.getElementById('pdfTabs');
+  if(!shell||!toggle||!panel)return;
+
+  const options=()=>[...panel.querySelectorAll('button[data-pdf]')];
+  const isOpen=()=>shell.classList.contains('is-open');
+  const setOpen=open=>{
+    shell.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  };
+
+  toggle.addEventListener('click',event=>{
+    event.stopPropagation();
+    setOpen(!isOpen());
+  });
+
+  toggle.addEventListener('keydown',event=>{
+    if(event.key==='ArrowDown'){
+      event.preventDefault();
+      setOpen(true);
+      const target=panel.querySelector('button.active[data-pdf]')||options()[0];
+      target?.focus();
+    }
+  });
+
+  panel.addEventListener('click',event=>{
+    if(event.target.closest('button[data-pdf]'))setOpen(false);
+  });
+
+  panel.addEventListener('keydown',event=>{
+    const items=options();
+    const index=items.indexOf(document.activeElement);
+    if(event.key==='Escape'){
+      event.preventDefault();
+      setOpen(false);
+      toggle.focus();
+      return;
+    }
+    if(index<0)return;
+    let next=index;
+    if(event.key==='ArrowDown')next=(index+1)%items.length;
+    else if(event.key==='ArrowUp')next=(index-1+items.length)%items.length;
+    else if(event.key==='Home')next=0;
+    else if(event.key==='End')next=items.length-1;
+    else return;
+    event.preventDefault();
+    items[next]?.focus();
+  });
+
+  document.addEventListener('click',event=>{
+    if(isOpen()&&!shell.contains(event.target))setOpen(false);
+  });
+
+  setOpen(false);
+})();
+</script>
+<!-- PDF_MODEL_EXPAND_MENU_PREVIEW_JS_END -->
 <script id="ms-deferred-pdf-viewer">
 (()=>{
   const section=document.getElementById('pdf');
