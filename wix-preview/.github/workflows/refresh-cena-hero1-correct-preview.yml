@@ -1,0 +1,268 @@
+name: Refresh corrected CENA HERO 1 preview
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/refresh-cena-hero1-correct-preview.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-correct-cena-hero1-preview
+  cancel-in-progress: false
+
+jobs:
+  refresh-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download corrected self-contained viewer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --quiet 'gdown>=5.2,<6'
+          mkdir -p wix-preview/assets/cena-hero-1
+          gdown --id 1I2wB8ZlY_-nVSck9HBvXwXQJLYKstd_- -O wix-preview/assets/cena-hero-1/visualizador.html
+          test -s wix-preview/assets/cena-hero-1/visualizador.html
+          bytes=$(wc -c < wix-preview/assets/cena-hero-1/visualizador.html)
+          echo "Corrected viewer bytes: ${bytes}"
+          test "$bytes" -gt 45000000
+
+      - name: Adapt corrected viewer for fixed 16 by 9 cover framing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('wix-preview/assets/cena-hero-1/visualizador.html')
+          html=p.read_text(encoding='utf-8')
+          if 'MS_CENA_HERO_EMBED_V4' not in html:
+              head=r'''
+          <!-- MS_CENA_HERO_EMBED_V4 -->
+          <style id="ms-cena-hero-embed-v4">
+          html,body{width:100%;height:100%;min-height:100%!important;margin:0!important;overflow:hidden!important;overscroll-behavior:none!important;background:#050605!important}
+          body>header,.controls,aside,#downloads,#hint{display:none!important}
+          .experience{position:fixed!important;inset:0!important;display:block!important;background:#050605!important;overflow:hidden!important}
+          /* Keep the Three.js camera at 16:9 and crop the viewport, exactly like the HeroScroll video. */
+          #stage{position:absolute!important;left:50%!important;top:50%!important;width:max(100vw,177.777778vh)!important;height:max(100vh,56.25vw)!important;max-width:none!important;aspect-ratio:16/9!important;border-radius:0!important;outline:0!important;box-shadow:none!important;transform:translate(-50%,-50%)!important;transform-origin:center center!important;background:#050605!important}
+          #canvas,#hero{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+          #hero{object-fit:cover!important;object-position:50% 50%!important}
+          #loading{z-index:8!important;background:#050605!important}
+          </style>
+          '''
+              body=r'''
+          <script id="ms-cena-hero-embed-bridge-v4">
+          (()=>{
+            const TYPE='MS_CENA_HERO_PROGRESS';
+            let pending=0,announced=false;
+            const clamp=n=>Math.max(0,Math.min(1,Number(n)||0));
+            const apply=()=>{
+              const api=window.sceneReview;
+              if(!api||typeof api.setProgress!=='function') return false;
+              api.setProgress(clamp(pending));
+              if(!announced){announced=true;try{parent.postMessage({type:'MS_CENA_HERO_READY'},'*')}catch(_){}}
+              return true;
+            };
+            addEventListener('message',event=>{
+              const data=event.data;
+              if(!data||data.type!==TYPE)return;
+              pending=clamp(data.progress);
+              apply();
+            });
+            const timer=setInterval(()=>{if(apply())clearInterval(timer)},50);
+            setTimeout(()=>clearInterval(timer),30000);
+            addEventListener('load',apply,{once:true});
+            try{parent.postMessage({type:'MS_CENA_HERO_BOOT'},'*')}catch(_){}
+          })();
+          </script>
+          '''
+              if '</head>' not in html or '</body>' not in html: raise SystemExit('Viewer markers missing')
+              html=html.replace('</head>',head+'\n</head>',1)
+              html=html.replace('</body>',body+'\n</body>',1)
+          p.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Build one continuous fixed viewport for HERO 1 and HeroScroll
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('wix-preview/index.html')
+          html=p.read_text(encoding='utf-8')
+
+          # Remove all previous handoff experiments.
+          for a,b in [
+              ('<!-- CENA_HERO_1_V2_START -->','<!-- CENA_HERO_1_V2_END -->'),
+              ('<!-- CENA_HERO_1_V3_START -->','<!-- CENA_HERO_1_V3_END -->'),
+              ('<!-- CENA_HERO_1_V4_START -->','<!-- CENA_HERO_1_V4_END -->')
+          ]:
+              if a in html and b in html:
+                  s=html.index(a); e=html.index(b,s)+len(b)
+                  html=html[:s]+html[e:]
+
+          # The old overlap hack is explicitly forbidden now: there is no section rolling into another.
+          html=html.replace('#hero{margin-top:-100vh}','#hero{margin-top:0!important}')
+
+          # Keep a single copy of the shared scroll cue / label / meter.
+          marker='''      tabindex="-1"></iframe>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
+          overlay='''      tabindex="-1"></iframe>\n    <div class="cena-hero-shared-ui" aria-hidden="true">\n      <div class="hero-scroll-cue"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div>\n      <div class="video-scroll-label">Role para controlar o filme · depois entram os cases</div>\n      <div class="video-scroll-meter cena-hero-meter"><i></i></div>\n    </div>\n  </div>\n</section>\n<!-- CENA_HERO_1_PREVIEW_END -->'''
+          if 'cena-hero-shared-ui' not in html:
+              if marker not in html: raise SystemExit('CENA HERO 1 section marker not found')
+              html=html.replace(marker,overlay,1)
+
+          # Disable the old bridge if it is still executable.
+          html=html.replace("<script id=\"cena-hero-1-preview-bridge\">","<script id=\"cena-hero-1-preview-bridge-disabled\" type=\"application/x-disabled\">",1)
+
+          # Disable the sticky fallback before it installs listeners; the unified stage owns the viewport.
+          if 'window.__MS_UNIFIED_HERO_STAGE=true' not in html:
+              html=html.replace('</head>','<script>window.__MS_UNIFIED_HERO_STAGE=true;</script>\n</head>',1)
+          fallback='''(() => {\n  const hero=document.getElementById('hero');'''
+          fallback_fixed='''(() => {\n  if(window.__MS_UNIFIED_HERO_STAGE)return;\n  const hero=document.getElementById('hero');'''
+          if fallback in html and 'if(window.__MS_UNIFIED_HERO_STAGE)return;' not in html:
+              html=html.replace(fallback,fallback_fixed,1)
+
+          block=r'''
+          <!-- CENA_HERO_1_V4_START -->
+          <style id="cena-hero-1-v4-style">
+          /* HERO 1 and HeroScroll are now two sources inside ONE fixed viewport. Neither section moves on screen. */
+          #cenaHero1,#hero{margin-top:0!important;background:transparent!important;z-index:auto!important}
+          #msUnifiedHeroStage{position:fixed;inset:0;z-index:4;overflow:hidden;background:#050605;pointer-events:none;contain:layout paint style}
+          #msUnifiedHeroStage.is-after{display:none!important}
+          #msUnifiedHeroStage .cena-hero-1-sticky,
+          #msUnifiedHeroStage .hero-sticky{position:absolute!important;inset:0!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:100%!important;min-height:100%!important;margin:0!important;transform:none!important;transition:none!important}
+          #msUnifiedHeroStage .cena-hero-1-sticky{z-index:2!important;opacity:1!important;visibility:visible!important;background:#050605!important}
+          #msUnifiedHeroStage .hero-sticky{z-index:1!important;opacity:0!important;visibility:hidden!important;background:#050605!important}
+          #msUnifiedHeroStage.is-hero2 .cena-hero-1-sticky{z-index:1!important;opacity:0!important;visibility:hidden!important}
+          #msUnifiedHeroStage.is-hero2 .hero-sticky{z-index:2!important;opacity:1!important;visibility:visible!important}
+          #msUnifiedHeroStage #cenaHero1Frame{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;background:#050605!important}
+          #msUnifiedHeroStage .cena-hero-shared-ui{position:absolute;inset:0;z-index:40;pointer-events:none;opacity:1!important;visibility:visible!important}
+          #msUnifiedHeroStage .cena-hero-shared-ui .hero-scroll-cue,
+          #msUnifiedHeroStage .cena-hero-shared-ui .video-scroll-label,
+          #msUnifiedHeroStage .cena-hero-shared-ui .video-scroll-meter{display:flex!important;visibility:visible!important;opacity:1!important}
+          #msUnifiedHeroStage .cena-hero-meter i{transform-origin:left center!important;transform:scaleX(var(--unified-hero-meter,0))!important;width:100%!important;transition:none!important}
+          /* The overlay above is the single shared UI. Never render a second copy from HeroScroll. */
+          #msUnifiedHeroStage .hero-sticky .hero-scroll-cue,
+          #msUnifiedHeroStage .hero-sticky .video-scroll-label,
+          #msUnifiedHeroStage .hero-sticky .video-scroll-meter{display:none!important}
+          #msUnifiedHeroStage #heroVideo{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 50%!important}
+          @media(max-width:760px){
+            #msUnifiedHeroStage{height:100svh}
+            #msUnifiedHeroStage .cena-hero-1-sticky,#msUnifiedHeroStage .hero-sticky{height:100svh!important;min-height:100svh!important}
+          }
+          </style>
+          <script id="cena-hero-1-v4-bridge">
+          (()=>{
+            const sceneSection=document.getElementById('cenaHero1');
+            const heroSection=document.getElementById('hero');
+            const sceneShell=sceneSection?.querySelector('.cena-hero-1-sticky');
+            const heroShell=heroSection?.querySelector('.hero-sticky');
+            const frame=document.getElementById('cenaHero1Frame');
+            const video=document.getElementById('heroVideo');
+            const shared=sceneSection?.querySelector('.cena-hero-shared-ui');
+            if(!sceneSection||!heroSection||!sceneShell||!heroShell||!frame)return;
+
+            const stage=document.createElement('div');
+            stage.id='msUnifiedHeroStage';
+            stage.setAttribute('aria-hidden','true');
+            document.body.insertBefore(stage,sceneSection);
+            stage.append(sceneShell,heroShell);
+            if(shared)stage.append(shared);
+
+            let raf=0,lastScene=-1,lastMode='';
+            const clamp=n=>Math.max(0,Math.min(1,n));
+            const postScene=p=>{
+              if(Math.abs(p-lastScene)<.00015&&lastScene>=0)return;
+              lastScene=p;
+              try{frame.contentWindow&&frame.contentWindow.postMessage({type:'MS_CENA_HERO_PROGRESS',progress:p},'*')}catch(_){}
+            };
+            const heroMeter=()=>{
+              const raw=getComputedStyle(document.documentElement).getPropertyValue('--video-progress').trim();
+              const n=parseFloat(raw);
+              return Number.isFinite(n)?clamp(n):0;
+            };
+
+            const update=()=>{
+              raf=0;
+              const y=scrollY;
+              const sceneStart=sceneSection.offsetTop;
+              const handoffY=heroSection.offsetTop;
+              const heroEnd=heroSection.offsetTop+Math.max(1,heroSection.offsetHeight-innerHeight);
+              const span=Math.max(1,handoffY-sceneStart);
+              const scenePage=clamp((y-sceneStart)/span);
+              const sceneProgress=clamp(scenePage/.995);
+              const mode=y<handoffY?'scene':(y<=heroEnd?'hero2':'after');
+
+              if(mode!==lastMode){
+                if(mode==='hero2'&&video){
+                  /* Same pixels, same frame: only the source changes. */
+                  try{video.pause();video.currentTime=0}catch(_){}
+                }
+                lastMode=mode;
+              }
+
+              stage.classList.toggle('is-hero2',mode==='hero2');
+              stage.classList.toggle('is-after',mode==='after');
+              stage.style.setProperty('--unified-hero-meter',String(mode==='scene'?sceneProgress:heroMeter()));
+              postScene(mode==='scene'?sceneProgress:1);
+            };
+            const schedule=()=>{if(!raf)raf=requestAnimationFrame(update)};
+            addEventListener('scroll',schedule,{passive:true});
+            addEventListener('resize',schedule,{passive:true});
+            addEventListener('orientationchange',schedule,{passive:true});
+            frame.addEventListener('load',()=>{lastScene=-1;schedule()});
+            addEventListener('message',event=>{if(event.source===frame.contentWindow){lastScene=-1;schedule()}});
+            schedule();
+          })();
+          </script>
+          <!-- CENA_HERO_1_V4_END -->
+          '''
+          if '</body>' not in html: raise SystemExit('No body end')
+          html=html.replace('</body>',block+'\n</body>',1)
+          p.write_text(html,encoding='utf-8')
+          PY
+
+      - name: Validate preview only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'MS_CENA_HERO_EMBED_V4' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'width:max(100vw,177.777778vh)' wix-preview/assets/cena-hero-1/visualizador.html
+          grep -q 'id="cena-hero-1-v4-bridge"' wix-preview/index.html
+          grep -q "stage.id='msUnifiedHeroStage'" wix-preview/index.html
+          grep -q "stage.append(sceneShell,heroShell)" wix-preview/index.html
+          grep -q "const handoffY=heroSection.offsetTop" wix-preview/index.html
+          grep -q "video.currentTime=0" wix-preview/index.html
+          grep -q '#hero{margin-top:0!important}' wix-preview/index.html
+          ! grep -q '#hero{margin-top:-100vh}' wix-preview/index.html
+          ! grep -q 'cenaHero1' index.html
+          python - <<'PY'
+          from pathlib import Path
+          v=Path('wix-preview/assets/cena-hero-1/visualizador.html')
+          h=Path('wix-preview/index.html').read_text(encoding='utf-8')
+          assert v.stat().st_size > 45_000_000
+          assert h.index('id="cenaHero1"') < h.index('id="hero" class="content-layer"')
+          assert 'opacity:0!important;visibility:hidden!important' in h
+          print('PASS: one fixed viewport, no rolling transition, exact source swap at HERO boundary, preview only')
+          PY
+
+      - name: Commit corrected preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wix-preview/index.html wix-preview/assets/cena-hero-1/visualizador.html
+          if git diff --cached --quiet; then
+            echo 'No changes.'
+            exit 0
+          fi
+          git commit -m 'Preview: make HERO 1 and HeroScroll one continuous viewport [skip ci]'
+          git push

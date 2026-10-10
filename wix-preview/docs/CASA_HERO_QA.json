@@ -1,0 +1,44 @@
+{
+  "recordedAt": "2026-10-06T02:00:14.4892618Z",
+  "scope": "Official preview code tested locally under /wix-preview/. No production Home changes.",
+  "officialURL": "https://mensagemstudio.shop/wix-preview/",
+  "localURL": "http://127.0.0.1:4192/wix-preview/",
+  "pass": true,
+  "functionalChecks": 36,
+  "captures": 23,
+  "reports": [
+    "local-preview/parent-integration-report.json",
+    "local-preview/preserved-scenes-report.json"
+  ],
+  "sourceFiles": [
+    {
+      "file": "wix-preview/index.html",
+      "sha256": "b4058512c5c7fb06946c81e5e6cc31fa30276cab194f740fee3439f541b4387e"
+    },
+    {
+      "file": "wix-preview/assets/casa-hero-host.mjs",
+      "sha256": "e24fdb0350c5424eedebdac51e3a0e4a40a1798efe1b2b0bbcc85c9b53ea6762"
+    },
+    {
+      "file": "wix-preview/assets/casa-hero-host.css",
+      "sha256": "d37a9923d19ec457e557e9a06381f1cc3a3e4f7fdf9c913b4ff459c0f306beb3"
+    },
+    {
+      "file": "wix-preview/assets/casa-hero/viewer.mjs",
+      "sha256": "6e835cfc415b25801c097ede357214b1506906039a339e4e0b9daa1f966cd5c8"
+    },
+    {
+      "file": "wix-preview/assets/casa-hero/CASA_HERO.glb",
+      "sha256": "526b72c339fdd5baa0ff3b86b5c3bcccd8b07967559b2b01885e89950eb916f3"
+    },
+    {
+      "file": "wix-preview/assets/casa-hero/PLAYER.glb",
+      "sha256": "1572a96b9910ab8b48381a0387cbbfbe1452424ec53f0a5c3d1e46f474e776e8"
+    }
+  ],
+  "limits": [
+    "Mobile browser emulation, no physical phone tested.",
+    "Native desktop wheel and native mobile touch were tested. Mobile wheel forwarding used DOM delivery.",
+    "This integration test does not certify all environment materials or every room collision."
+  ]
+}

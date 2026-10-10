@@ -52,7 +52,7 @@ const rooms={
  garage:{p:[15.6,-6.9,4.22],t:[9.4,-6.9,4.7],title:'Garagem · Countach'}
 };
 let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now();
-let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,modelBaseY=0,footPlacement,interactions,interactionMetadata={},vehicleBounds;
+let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,modelBaseY=0,footPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null;
 const interactionActions={};
 let cameraMode='first',heroPath,heroTargets,viewTransition=0;
 const velocity=new THREE.Vector3(),eyeSpring={value:0,velocity:0},bodySpring={value:0,velocity:0};
@@ -82,7 +82,7 @@ function updateModeUI(){
  ui.hint.textContent=mode==='free'?(touch?'Setas para caminhar · arraste para olhar':'W/A/S/D para caminhar · arraste para olhar'):mode==='scroll'?'Role para acompanhar o percurso':'Sua visita começa automaticamente';
 }
 function setMode(next){
- if(!window.__ready||!['intro','scroll','free'].includes(next))return;
+ if(!playerReady||!['intro','scroll','free'].includes(next))return;
  if(next==='intro'){startIntro();return;}
  if(next==='free'&&mode!=='free'){finishIntro();return;}
  if(next!=='free')interactions?.reset();
@@ -91,7 +91,7 @@ function setMode(next){
  updateModeUI();window.scrollTo(0,0);
 }
 function startIntro(){
- if(!window.__ready)return;
+ if(!playerReady)return;
  interactions?.reset();
  mode='intro';introElapsed=0;progress=0;heroCompleted=false;resetFrameClock();dismissHandoff();
  setViewMode('first');viewTransition=0;placePlayer('living');updateModeUI();window.scrollTo(0,0);sample(0);ui.progress.style.width='0%';last=performance.now();
@@ -102,20 +102,22 @@ function finishIntro(){
  updateModeUI();window.scrollTo(0,0);ui.roomTitle.textContent='Sala · exploração livre';ui.progress.style.width='100%';ui.handoff.hidden=false;
 }
 function applyEmbeddedState(state){
- if(!window.__ready)return;
+ if(!window.__visualReady)return;
+ if(state.active&&state.progress>=.72&&!playerReady)ensurePlayerReady();
  if(state.explore){
+  if(!playerReady)return;
   if(mode!=='free')finishIntro();
   ui.handoff.hidden=true;
   return;
  }
- if(mode==='free'){
+ if(mode==='free'&&playerReady){
   interactions?.reset();setViewMode('first');viewTransition=0;placePlayer('living');
  }
  if(mode!=='embedded'||!state.active)resetFrameClock();
  mode='embedded';progress=state.progress;heroCompleted=progress>=.999;
  document.body.dataset.mode='embedded';ui.handoff.hidden=true;
  sample(progress);updateProgress();
- playerModel.visible=camera.position.distanceTo(player.position.clone().add(new THREE.Vector3(0,EYE_HEIGHT,0)))>.65;
+ if(playerModel)playerModel.visible=camera.position.distanceTo(player.position.clone().add(new THREE.Vector3(0,EYE_HEIGHT,0)))>.65;
 }
 const embedding=createHeroEmbedding({applyState:applyEmbeddedState,releaseInput:resetFrameClock});
 function rawFloorAt(x,z,y){
@@ -350,7 +352,7 @@ function* movementSteps(start,end){
 }
 function tick(now){
  requestAnimationFrame(tick);const elapsed=frameElapsed(now),dt=elapsed;
- if(!window.__ready||document.hidden||(embedding.enabled&&!embedding.state.active))return;
+ if(!window.__visualReady||document.hidden||(embedding.enabled&&!embedding.state.active))return;
  movedLastFrame=0;
  if(mode==='intro'){introElapsed+=elapsed;progress=Math.min(1,introElapsed/HERO_SECONDS);sample(progress);updateProgress();if(progress>=1)finishIntro();}
  else if(mode==='scroll'){progress=THREE.MathUtils.clamp(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight),0,1);sample(progress);updateProgress();if(progress>=.999)finishIntro();}
@@ -389,7 +391,7 @@ function tick(now){
  }
  if(mode!=='free')interactions?.update(dt);
  if(mode==='free'&&((cameraMode==='third'&&movedLastFrame>.001)||interactions?.getState().transition)&&now-lastShadowUpdate>90){sun.shadow.needsUpdate=true;lastShadowUpdate=now;}
- if(mode!=='free')playerModel.visible=camera.position.distanceTo(player.position.clone().add(new THREE.Vector3(0,EYE_HEIGHT,0)))>.65;
+ if(playerModel&&mode!=='free')playerModel.visible=camera.position.distanceTo(player.position.clone().add(new THREE.Vector3(0,EYE_HEIGHT,0)))>.65;
  updateAvatar(dt,movedLastFrame);renderer.info.autoReset=false;renderer.info.reset();
  // Contact shading returns once the view rests; moving navigation avoids
  // rendering the entire environment again for the screen-space AO pass.
@@ -408,54 +410,82 @@ window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,
 };
 requestAnimationFrame(tick);
 const draco=new DRACOLoader();draco.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);
+const setLoad=(phase,percent,label)=>{
+ const value=Math.max(0,Math.min(100,Math.round(Number(percent)||0)));
+ if(label)ui.loadText.textContent=`${label} ${value}%`;
+ embedding.reportLoad?.(phase,value,label||'');
+};
+async function ensurePlayerReady(){
+ if(playerReady)return true;
+ if(playerLoadPromise)return playerLoadPromise;
+ playerLoadPromise=(async()=>{
+  setLoad('player',0,'Preparando personagem…');
+  const avatar=await loader.loadAsync('./PLAYER.glb',e=>{
+   if(!e.total)return;
+   const ratio=Math.max(0,Math.min(1,e.loaded/Math.max(e.loaded,e.total)));
+   setLoad('player',ratio*90,'Preparando personagem…');
+  });
+  setLoad('player',92,'Configurando personagem…');
+  playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
+   if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
+   if(o.isSkinnedMesh)o.frustumCulled=false;
+   if(o.isBone)bones[o.name.replace(/^mixamorig[:_]?/i,'')]=o;
+  });
+  if(!avatar.animations.length)throw new Error('O personagem não contém a animação Idle');
+  mixer=new THREE.AnimationMixer(playerModel);idleAction=mixer.clipAction(avatar.animations.find(a=>/^idle$/i.test(a.name))||avatar.animations[0]);idleAction.play();
+  const walkClip=avatar.animations.find(a=>a.name==='WalkRefined')||avatar.animations.find(a=>a.name==='Walk');if(!walkClip)throw new Error('Animação Walk não encontrada');
+  walkAction=mixer.clipAction(walkClip);walkAction.play().setEffectiveWeight(0);mixer.update(0);
+  const runClip=avatar.animations.find(a=>a.name==='Run');if(runClip)runAction=mixer.clipAction(runClip).play().setEffectiveWeight(0);
+  for(const [key,name]of Object.entries({sit:'Sit',carSeat:'CarSeat',swim:'Swim',treadWater:'TreadWater'})){
+   const clip=avatar.animations.find(a=>a.name===name);if(!clip)throw new Error(`Animação de interação ${name} não encontrada`);interactionActions[key]=mixer.clipAction(clip).play().setEffectiveWeight(0);
+  }
+  interactions=createEnvironmentInteractions({scene,player,camera,renderer,metadata:interactionMetadata,resolvePosition,getViewMode:()=>cameraMode,getYaw:()=>yaw,setYaw:value=>{yaw=value;},getIsExploring:()=>mode==='free',
+   onPrompt:prompt=>{ui.interactionHint.hidden=!prompt.visible;ui.interactionText.textContent=prompt.text;ui.interactionAction.textContent=prompt.action||'Interagir';ui.interactionAction.hidden=prompt.busy||!prompt.visible;ui.interactionAction.disabled=!!prompt.busy;ui.interactionHint.setAttribute('aria-busy',String(!!prompt.busy));if(prompt.visible)dismissHandoff();},
+   onStateChange:()=>{sun.shadow.needsUpdate=true;},
+   onTransitionEnd:()=>{velocity.set(0,0,0);footPlacement?.reset();eyeSpring.velocity=0;bodySpring.velocity=0;}
+  });
+  if(interactions.water)transparentMeshes.push(interactions.water.mesh,...interactions.water.root.children.filter(o=>o.isMesh&&o.material.transparent));
+  footPlacement=createFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;
+  setLoad('player',97,'Preparando animações…');
+  placePlayer('living');sample(progress);scene.updateMatrixWorld(true);
+  playerModel.visible=true;await renderer.compileAsync(scene,camera);playerModel.visible=false;renderer.render(scene,camera);
+  playerReady=true;window.__ready=true;setLoad('player',100,'Personagem pronto ·');
+  embedding.ready();
+  return true;
+ })().catch(error=>{playerLoadPromise=null;embedding.reportLoad?.('player',0,'Falha ao preparar personagem');throw error;});
+ return playerLoadPromise;
+}
 try{
+ setLoad('environment',0,'Carregando ambiente…');
  const [response,metadataResponse]=await Promise.all([fetch('./hero-route.json'),fetch('./interaction-metadata.json')]);
  if(!response.ok)throw new Error('Percurso indisponível');if(!metadataResponse.ok)throw new Error('Interações indisponíveis');route=await response.json();interactionMetadata=await metadataResponse.json();
  heroPath=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.position)),false,'centripetal');
  heroTargets=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.target)),false,'centripetal');
- const [house,avatar]=await Promise.all([
-  loader.loadAsync('./CASA_HERO.glb',e=>{if(e.total)ui.loadText.textContent=`Carregando o ambiente… ${Math.round(e.loaded/e.total*100)}%`;}),
-  loader.loadAsync('./PLAYER.glb')
- ]);
+ const house=await loader.loadAsync('./CASA_HERO.glb',e=>{
+  if(!e.total)return;
+  const ratio=Math.max(0,Math.min(1,e.loaded/Math.max(e.loaded,e.total)));
+  setLoad('environment',ratio*82,'Carregando ambiente…');
+ });
+ setLoad('environment',84,'Montando ambiente…');
  const embeddedVehicle=house.scene.getObjectByName('CASA_VEHICLE');
  if(!embeddedVehicle)throw new Error('CASA_HERO.glb está incompleto: o carro articulado CASA_VEHICLE deve estar incluído no ambiente.');
  const spatialPartition=partitionStaticScene(house.scene);window.__scenePartition=spatialPartition;
- const environmentRoot=new THREE.Group();environmentRoot.name='CASA_Environment';environmentRoot.add(house.scene);scene.add(environmentRoot);vehicleBounds=new THREE.Box3().setFromObject(embeddedVehicle).expandByScalar(.08);
+ environmentRoot=new THREE.Group();environmentRoot.name='CASA_Environment';environmentRoot.add(house.scene);scene.add(environmentRoot);vehicleBounds=new THREE.Box3().setFromObject(embeddedVehicle).expandByScalar(.08);
  environmentRoot.traverse(o=>{
   if(o.isLight)o.visible=false;if(!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];
   o.castShadow=!materials.every(m=>m.transmission>0);o.receiveShadow=true;
   for(const m of materials)for(const texture of [m.map,m.normalMap,m.roughnessMap,m.metalnessMap])if(texture)texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   if(materials.some(m=>m.transmission>0||m.transparent))transparentMeshes.push(o);
  });
- ui.loadText.textContent='Preparando o personagem e os caminhos…';await new Promise(resolve=>requestAnimationFrame(resolve));
+ setLoad('environment',89,'Preparando navegação…');await new Promise(resolve=>requestAnimationFrame(resolve));
  buildCollision(environmentRoot);
- playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
-  if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
-  // Rest-pose bounds do not cover the cap/body while swimming or sitting.
-  // Whole-avatar visibility still controls the first-person presentation.
-  if(o.isSkinnedMesh)o.frustumCulled=false;
-  if(o.isBone)bones[o.name.replace(/^mixamorig[:_]?/i,'')]=o;
- });
- if(!avatar.animations.length)throw new Error('O personagem não contém a animação Idle');
- mixer=new THREE.AnimationMixer(playerModel);idleAction=mixer.clipAction(avatar.animations.find(a=>/^idle$/i.test(a.name))||avatar.animations[0]);idleAction.play();
- const walkClip=avatar.animations.find(a=>a.name==='WalkRefined')||avatar.animations.find(a=>a.name==='Walk');if(!walkClip)throw new Error('Animação Walk não encontrada');
- walkAction=mixer.clipAction(walkClip);walkAction.play().setEffectiveWeight(0);mixer.update(0);
- const runClip=avatar.animations.find(a=>a.name==='Run');if(runClip)runAction=mixer.clipAction(runClip).play().setEffectiveWeight(0);
- for(const [key,name]of Object.entries({sit:'Sit',carSeat:'CarSeat',swim:'Swim',treadWater:'TreadWater'})){
-  const clip=avatar.animations.find(a=>a.name===name);if(!clip)throw new Error(`Animação de interação ${name} não encontrada`);interactionActions[key]=mixer.clipAction(clip).play().setEffectiveWeight(0);
+ setLoad('environment',94,'Preparando iluminação…');
+ sample(0);scene.updateMatrixWorld(true);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
+ window.__visualReady=true;mode='embedded';document.body.dataset.mode='embedded';
+ setLoad('environment',100,'Ambiente pronto ·');
+ if(embedding.enabled){
+  embedding.visualReady();ui.loading.classList.add('done');
+ }else{
+  await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');
  }
- interactions=createEnvironmentInteractions({scene,player,camera,renderer,metadata:interactionMetadata,resolvePosition,getViewMode:()=>cameraMode,getYaw:()=>yaw,setYaw:value=>{yaw=value;},getIsExploring:()=>mode==='free',
-  onPrompt:prompt=>{ui.interactionHint.hidden=!prompt.visible;ui.interactionText.textContent=prompt.text;ui.interactionAction.textContent=prompt.action||'Interagir';ui.interactionAction.hidden=prompt.busy||!prompt.visible;ui.interactionAction.disabled=!!prompt.busy;ui.interactionHint.setAttribute('aria-busy',String(!!prompt.busy));if(prompt.visible)dismissHandoff();},
-  onStateChange:()=>{sun.shadow.needsUpdate=true;},
-  onTransitionEnd:()=>{velocity.set(0,0,0);footPlacement?.reset();eyeSpring.velocity=0;bodySpring.velocity=0;}
- });
- if(interactions.water)transparentMeshes.push(interactions.water.mesh,...interactions.water.root.children.filter(o=>o.isMesh&&o.material.transparent));
- footPlacement=createFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;
- // Prepare the exploration passes while the loading screen still owns the
- // scene, so its first shadow/AO shader compilation cannot swallow key input.
- ui.loadText.textContent='Preparando a iluminação e a visita…';
- placePlayer('living');sample(1);scene.updateMatrixWorld(true);
- await renderer.compileAsync(scene,camera);composer.render();
- playerModel.visible=false;sun.shadow.needsUpdate=true;composer.render();
- window.__ready=true;if(embedding.enabled)embedding.ready();else startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');
 }catch(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}

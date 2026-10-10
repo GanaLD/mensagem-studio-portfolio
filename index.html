@@ -377,6 +377,138 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
 /* SECTION COPY — LUMINOUS WHITE */
 #pdf .identity-hire-copy{color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;font-weight:500!important;mix-blend-mode:normal!important;background:none!important;filter:none!important;text-shadow:0 0 8px rgba(255,255,255,.28),0 0 18px rgba(255,255,255,.15),0 0 36px rgba(255,255,255,.08)!important}
 </style>
+<!-- PDF_MODEL_EXPAND_MENU_PRODUCTION_START -->
+<style id="pdf-model-expand-menu-production">
+#pdf .stage{
+  grid-template-columns:78px minmax(0,1fr);
+  overflow:visible;
+}
+#pdf .pdf-menu-shell{
+  position:relative;
+  z-index:24;
+  min-width:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:22px 12px;
+  border-right:1px solid var(--line);
+  background:rgba(5,6,5,.32);
+}
+#pdf .pdf-menu-toggle{
+  position:relative;
+  width:50px;
+  height:50px;
+  flex:0 0 50px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);
+  background:linear-gradient(145deg,rgba(19,22,20,.92),rgba(6,8,7,.72));
+  color:#f4f5ef;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.07);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease;
+}
+#pdf .pdf-menu-toggle:hover,
+#pdf .pdf-menu-toggle:focus-visible,
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle{
+  outline:none;
+  border-color:rgba(201,255,54,.86);
+  box-shadow:0 10px 30px rgba(0,0,0,.38),0 0 0 1px rgba(201,255,54,.16),0 0 22px rgba(201,255,54,.18),inset 0 1px 0 rgba(255,255,255,.08);
+}
+#pdf .pdf-menu-toggle:hover{transform:translateY(-1px)}
+#pdf .pdf-menu-toggle-icon{
+  width:20px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+#pdf .pdf-menu-toggle-icon i{
+  display:block;
+  width:100%;
+  height:1px;
+  border-radius:999px;
+  background:currentColor;
+  transform-origin:center;
+  transition:transform .22s ease,opacity .18s ease,background .22s ease;
+}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i{background:var(--lime)}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(2){opacity:0}
+#pdf .pdf-menu-shell.is-open .pdf-menu-toggle-icon i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+#pdf .pdf-menu-panel{
+  position:absolute;
+  left:calc(100% + 10px);
+  top:20px;
+  width:min(232px,calc(100vw - 118px));
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(10,13,12,.94),rgba(5,7,6,.88));
+  box-shadow:0 22px 60px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.05);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateX(-10px) scale(.98);
+  transform-origin:left top;
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.72,.18,1),visibility 0s linear .24s;
+}
+#pdf .pdf-menu-shell.is-open .pdf-menu-panel{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(0) scale(1);
+  transition:opacity .2s ease,transform .24s cubic-bezier(.2,.72,.18,1),visibility 0s linear 0s;
+}
+#pdf .pdf-menu-panel button{
+  width:100%;
+  min-height:44px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+  color:#e8ebe4;
+  text-align:left;
+  padding:0 14px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease;
+}
+#pdf .pdf-menu-panel button:hover,
+#pdf .pdf-menu-panel button:focus-visible{
+  outline:none;
+  border-color:rgba(201,255,54,.66);
+  background:rgba(201,255,54,.055);
+  color:#fff;
+  transform:translateX(2px);
+}
+#pdf .pdf-menu-panel button.active{
+  border-color:rgba(201,255,54,.82);
+  color:var(--lime);
+  background:rgba(201,255,54,.06);
+}
+@media(max-width:760px){
+  #pdf .stage{grid-template-columns:66px minmax(0,1fr)}
+  #pdf .pdf-menu-shell{padding:14px 8px}
+  #pdf .pdf-menu-toggle{width:48px;height:48px;flex-basis:48px}
+  #pdf .pdf-menu-panel{left:calc(100% + 8px);top:12px;width:min(220px,calc(100vw - 92px))}
+  #pdf .pdf-menu-panel button{min-height:46px}
+}
+@media(prefers-reduced-motion:reduce){
+  #pdf .pdf-menu-toggle,
+  #pdf .pdf-menu-toggle-icon i,
+  #pdf .pdf-menu-panel,
+  #pdf .pdf-menu-panel button{transition:none!important}
+}
+</style>
+<!-- PDF_MODEL_EXPAND_MENU_PRODUCTION_END -->
 <!-- HOME_SECTION_NAV_CLEAN_FINAL_START -->
 <style id="home-section-nav-clean-final">
 :root{
@@ -1207,7 +1339,7 @@ body{overflow-x:clip!important}
   </div>
 </section>
 <main id="afterWord" class="after-word">
-<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy">Modelos que você pode contratar.</p></div><div class="stage"><div class="stage-side" id="pdfTabs"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL" data-pages="64">Book Completo</button><button data-pdf="1O70TxveLOia-045XtQzSBiBLJsVcUv91" data-pages="21">Brand Essencial</button><button data-pdf="1g2Vb8HoxaY2l4wv-TeZDi9laZhi3BPXP" data-pages="12">Manual Básico</button></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" loading="lazy"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
+<section id="pdf" class="section"><div class="wrap"><div class="section-head"><div><h2>IDENTIDADE VISUAL</h2></div><p class="identity-hire-copy">Modelos que você pode contratar.</p></div><div class="stage"><div class="pdf-menu-shell"><button class="pdf-menu-toggle" id="pdfMenuToggle" type="button" aria-label="Selecionar modelo de identidade visual" aria-expanded="false" aria-controls="pdfTabs"><span class="pdf-menu-toggle-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr-only">Selecionar modelo</span></button><div class="stage-side pdf-menu-panel" id="pdfTabs" aria-hidden="true"><button class="active" data-pdf="11XDu6CIsWljx6I5ZRfveGJIFFdSnkSlL" data-pages="64">Book Completo</button><button data-pdf="1O70TxveLOia-045XtQzSBiBLJsVcUv91" data-pages="21">Brand Essencial</button><button data-pdf="1g2Vb8HoxaY2l4wv-TeZDi9laZhi3BPXP" data-pages="12">Manual Básico</button></div></div><div class="stage-main"><iframe id="pdfFrame" title="PDF Showcase" loading="lazy"></iframe><div class="stage-note">viewer compartilhado · 01/03</div></div></div></div></section>
 <section id="three" class="section"><div class="wrap"><div class="section-head"><div><h2>3D interativo.</h2></div><p class="three-intro-copy">Ambientes e produtos em 3D para explorar diretamente na página. Escolha o asset à esquerda e interaja diretamente no viewer.</p></div><div class="stage three-project-stage"><aside class="stage-side three-sidebar" aria-label="Assets 3D"><div class="three-sidebar-group"><span class="three-sidebar-label">ASSETS 3D</span><div id="modelTabs" class="three-asset-list"><button class="active" type="button" data-model="black-skull-creatine-v2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" data-alt="Black Skull Creatine em visualização 3D interativa" data-orbit-theta="180deg">Black Skull Creatine</button><button type="button" data-model="arma-cyberpunk" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" data-alt="Arma Cyberpunk em visualização 3D interativa" data-orbit-theta="0deg">Arma Cyberpunk</button><button type="button" data-model="arma-cyberpunk-v2" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/69f50dbd-6639-47bb-9237-1359965e67df.glb" data-alt="Arma Cyberpunk V2 em visualização 3D interativa" data-orbit-theta="0deg">Arma Cyberpunk V2</button><button type="button" data-model="rejuvital" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/8d8a225a-0a73-4dc1-93e2-cfa7cb448540.glb" data-alt="Rejuvital em visualização 3D interativa" data-orbit-theta="180deg" data-orbit-phi="75deg" data-orbit-radius="92%" data-fov="25deg">Rejuvital</button><button type="button" data-model="rejuvital-4ml" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/e003adc4-76c5-4bbc-9b00-b2cc5c34f279.glb" data-alt="Rejuvital 4ML em visualização 3D interativa" data-orbit-theta="180deg" data-orbit-phi="75deg" data-orbit-radius="92%" data-fov="25deg">Rejuvital 4ML</button><button type="button" data-model="arencia-cleansing-balm" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b56bf8b1-cdab-445d-9fa5-4fe838d4be44.glb" data-alt="Arencia Cleansing Balm em visualização 3D interativa e animada" data-orbit-theta="25deg" data-orbit-phi="68deg" data-orbit-radius="118%" data-fov="28deg">Arencia</button></div></div></aside><div class="stage-main"><model-viewer id="modelViewer3D" camera-controls autoplay shadow-intensity="1.15" shadow-softness="0.8" exposure="1.08" environment-image="neutral" interaction-prompt="none" alt="Black Skull Creatine em visualização 3D interativa" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/1551a3c0-7367-48e9-a011-c2baa38ab040.glb" camera-target="auto auto auto" camera-orbit="180deg 75deg 103%" field-of-view="28deg" touch-action="pan-y" loading="lazy"></model-viewer><div class="stage-note stage-note-3d" aria-label="Controles do visualizador 3D"><span class="stage-note-dot" aria-hidden="true"></span><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></div></div></div></div></section>
 <section id="projects" class="section"><div class="wrap"><div class="section-head"><div><div class="kicker">PORTFÓLIO</div><h2>Projetos selecionados.</h2></div><p>Seleção de projetos de design, audiovisual, motion, 3D, campanhas e conteúdo digital desenvolvidos pela Mensagem Studio.</p></div><div class="projects-grid">
 <a class="project has-preview" href="./portfolio/produto-3d-egeo/" aria-label="Abrir projeto Produto 3D EGEO"><div class="project-media"><img class="project-cover" loading="lazy" decoding="async" src="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1600,h_900,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" srcset="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_640%2Ch_360%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 640w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_960%2Ch_540%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 960w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1280%2Ch_720%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1280w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1600%2Ch_900%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1600w, https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_1920%2Ch_1080%2Cal_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg 1920w" sizes="(max-width:760px) calc(100vw - 36px), (max-width:1024px) 50vw, 66vw" width="1600" height="900" alt="Produto 3D EGEO"><video class="project-preview" muted loop playsinline webkit-playsinline preload="none" data-poster="https://static.wixstatic.com/media/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg/v1/fill/w_864,h_1080,al_c/ef8a3a_4c36901c2391413a94b821cb081437f9f000.jpg" data-src="https://video.wixstatic.com/video/01a1159a-2bbe-43cf-ba26-ccb18a02056f/file" data-preview-fallback="https://video.wixstatic.com/video/ef8a3a_090b5e48acfb4b89a58abb8b56b7f551/file"></video><span class="project-open">VER PROJETO ↗</span></div><div class="project-text"><small>3D / Produto</small><h3>Modelagem e Render 3D | EGEO</h3><p>Modelagem e render 3D de produto com materiais, iluminação e CGI para publicidade e campanhas.</p></div></a>
@@ -1235,8 +1367,9 @@ const heroStates=[
 ];
 const words=['DESIGN','MOTION','BRANDING','3D / CGI','WEB','EXPERIÊNCIAS'];
 const hero=document.querySelector('#hero'),video=document.querySelector('#heroVideo'),heroFullMedia=document.querySelector('#heroFullMedia'),heroFullImage=document.querySelector('#heroFullImage'),heroFullVideo=document.querySelector('#heroFullVideo'),heroFullYouTube=document.querySelector('#heroFullYouTube'),caseStage=document.querySelector('#heroCaseStage'),art=document.querySelector('#heroArt'),artCard=document.querySelector('.hero-art'),immersiveFrame=document.querySelector('#heroImmersiveFrame'),heroImmersiveAngel=document.querySelector('#heroImmersiveAngel'),heroModel3D=document.querySelector('#heroModel3D'),heroCardVideo=document.querySelector('#heroCardVideo'),title=document.querySelector('#heroTitle'),desc=document.querySelector('#heroDesc'),cat=document.querySelector('#heroCat'),bars=[...document.querySelectorAll('#heroProgress i')],word=document.querySelector('#word'),wordMain=document.querySelector('#wordMain'),wordDots=[...document.querySelectorAll('#wordDots i')],afterWord=document.querySelector('#afterWord'),gmc=document.querySelector('#sfGlobalMediaCanvas'),landingReveal=document.querySelector('#landingReveal'),landingSentinel=document.querySelector('#cyber-landing-sentinel'),cyberAngel=document.querySelector('#cyberAngelBg'),cyberAngelLegacy=document.querySelector('#cyberAngelLegacy'),backgroundSwitcher=document.querySelector('#backgroundSwitcher'),backgroundState=document.querySelector('#backgroundState'),backgroundNext=document.querySelector('#backgroundNext');
-const VIDEO_END=.465;let lastState=-1,raf=0,videoReady=false,videoDegraded=false,videoPriming=false,targetVideoTime=0,smoothVideoTime=0,px=0,py=0;const heroVideoWatchdog=setTimeout(()=>{if(!videoReady){videoDegraded=true;renderScroll()}},5000);
+const VIDEO_END=.465;const HERO_VIDEO_SCROLL_DESKTOP=3.069,HERO_VIDEO_SCROLL_MOBILE=2.79,HERO_VIDEO_SCROLL_MOBILE_DEGRADED=.72;let lastState=-1,raf=0,videoReady=false,videoDegraded=false,videoPriming=false,targetVideoTime=0,smoothVideoTime=0,px=0,py=0;const heroVideoWatchdog=setTimeout(()=>{if(!videoReady){videoDegraded=true;renderScroll()}},5000);
 function clamp(v,a=0,b=1){return Math.max(a,Math.min(b,v))}
+function heroVideoEndForSpan(span){const viewports=(videoDegraded&&innerWidth<=760)?HERO_VIDEO_SCROLL_MOBILE_DEGRADED:(innerWidth<=760?HERO_VIDEO_SCROLL_MOBILE:HERO_VIDEO_SCROLL_DESKTOP);return clamp((innerHeight*viewports)/Math.max(1,span),.01,.95)}
 function ensureDeferredFrame(frame){if(!frame)return;const src=frame.dataset&&frame.dataset.src;if(src&&!frame.getAttribute('src'))frame.setAttribute('src',src)}
 let heroImmersiveProgress=0,heroImmersiveFrames=[],heroImmersiveReady=false,heroImmersiveLoading=false,heroImmersiveLast=-1;
 const heroImmersiveFiles=[
@@ -1273,12 +1406,12 @@ function syncHeroImmersive(p){
 }if(heroFullVideo){heroFullVideo.addEventListener('timeupdate',()=>{const a=parseFloat(heroFullVideo.dataset.segmentStart||''),b=parseFloat(heroFullVideo.dataset.segmentEnd||'');if(Number.isFinite(a)&&Number.isFinite(b)&&heroFullVideo.currentTime>=b){try{heroFullVideo.currentTime=a}catch(e){}}})}
 function setHeroState(state){if(state===lastState)return;lastState=state;const s=heroStates[state];cat.textContent=s.cat;title.textContent=s.title;title.classList.toggle('is-compact-title',!!s.compactTitle);title.classList.toggle('is-relaxed-title',!!s.relaxedTitle);desc.textContent=s.desc;const immersive=!!s.immersive,model3d=!!s.model3d,videoMedia=!!s.video,rawImage=!!s.rawImage,fullBleed=!!s.fullBleed;artCard&&artCard.classList.toggle('is-immersive',immersive);artCard&&artCard.classList.toggle('is-model-3d',model3d);artCard&&artCard.classList.toggle('is-video-media',videoMedia);artCard&&artCard.classList.toggle('is-raw-image',rawImage);artCard&&artCard.classList.toggle('is-full-bleed-source',fullBleed);if(heroFullMedia){heroFullMedia.classList.toggle('is-active',fullBleed);const hasFullVideo=!!s.fullVideo,hasFullYouTube=!!s.fullYouTube;heroFullMedia.classList.toggle('is-video',fullBleed&&hasFullVideo);heroFullMedia.classList.toggle('is-youtube',fullBleed&&hasFullYouTube);heroFullMedia.classList.toggle('is-image',fullBleed&&!hasFullVideo&&!hasFullYouTube);heroFullMedia.classList.toggle('show-podcast',fullBleed&&!!s.podcast);const fullPos=s.objectPosition||'50% 50%';if(heroFullImage)heroFullImage.style.objectPosition=fullPos;if(heroFullVideo)heroFullVideo.style.objectPosition=fullPos;if(fullBleed&&hasFullVideo){if(heroFullVideo&&heroFullVideo.getAttribute('src')!==s.fullVideo){heroFullVideo.setAttribute('src',s.fullVideo);heroFullVideo.load()}if(heroFullVideo){const segStart=Number.isFinite(s.videoStart)?s.videoStart:null,segEnd=Number.isFinite(s.videoEnd)?s.videoEnd:null;heroFullVideo.dataset.segmentStart=segStart==null?'':String(segStart);heroFullVideo.dataset.segmentEnd=segEnd==null?'':String(segEnd);const jumpToStart=()=>{if(segStart!=null&&Math.abs(heroFullVideo.currentTime-segStart)>.35){try{heroFullVideo.currentTime=segStart}catch(e){}}};if(heroFullVideo.readyState>=1)jumpToStart();else heroFullVideo.addEventListener('loadedmetadata',jumpToStart,{once:true});const fp=heroFullVideo.play();if(fp&&fp.catch)fp.catch(()=>{})}}else if(heroFullVideo){heroFullVideo.dataset.segmentStart='';heroFullVideo.dataset.segmentEnd='';heroFullVideo.pause();}if(fullBleed&&hasFullYouTube&&heroFullYouTube){const ytStart=Number.isFinite(s.youtubeStart)?'&start='+Math.floor(s.youtubeStart):'',ytEnd=Number.isFinite(s.youtubeEnd)?'&end='+Math.floor(s.youtubeEnd):'',yt='https://www.youtube.com/embed/'+s.fullYouTube+'?autoplay=1&mute=1&controls=0&loop=1&playlist='+s.fullYouTube+'&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3'+ytStart+ytEnd;if(heroFullYouTube.getAttribute('src')!==yt)heroFullYouTube.setAttribute('src',yt)}if(fullBleed&&!hasFullVideo&&!hasFullYouTube&&heroFullImage){heroFullImage.alt=s.name||'';if(heroFullImage.getAttribute('src')!==s.img)heroFullImage.setAttribute('src',s.img)}}art.style.objectPosition=s.objectPosition||'50% 50%';if(heroCardVideo){if(videoMedia){if(s.videoSrc&&heroCardVideo.getAttribute('src')!==s.videoSrc){heroCardVideo.setAttribute('src',s.videoSrc);heroCardVideo.load()}const playPromise=heroCardVideo.play();if(playPromise&&playPromise.catch)playPromise.catch(()=>{})}else heroCardVideo.pause()}if(model3d){if(heroModel3D&&s.model){heroModel3D.setAttribute('loading','eager');if(heroModel3D.getAttribute('src')!==s.model)heroModel3D.setAttribute('src',s.model);requestAnimationFrame(()=>{try{heroModel3D.updateFraming?.();heroModel3D.jumpCameraToGoal?.()}catch(_){}})}art.alt=s.name;art.style.opacity='0'}else if(immersive||videoMedia||fullBleed){art.alt=s.name;art.style.opacity='0'}else{art.style.opacity='.12';const preload=new Image();preload.onload=()=>{art.src=s.img;art.alt=s.name;requestAnimationFrame(()=>art.style.opacity='1')};preload.src=s.img}bars.forEach((b,i)=>b.classList.toggle('on',i===state))}
 const BACKGROUND_STORAGE_KEY='mensagemstudio-background';let backgroundProgress=0,activeBackground='01';try{if(localStorage.getItem(BACKGROUND_STORAGE_KEY)==='02')activeBackground='02'}catch(e){}const backgroundFrames={'01':cyberAngel,'02':cyberAngelLegacy};function ensureBackgroundFrame(code){const frame=backgroundFrames[code];if(!frame)return;const src=frame.dataset&&frame.dataset.src;if(src&&!frame.getAttribute('src'))frame.setAttribute('src',src)}function postBackground(frame,message){if(frame&&frame.contentWindow)frame.contentWindow.postMessage(message,'*')}function syncBackgroundFrame(code,instant=false){const frame=backgroundFrames[code];postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant})}function applyBackground(code,persist=true,hydrate=true){const next=code==='02'?'02':'01';if(hydrate)ensureBackgroundFrame(next);activeBackground=next;Object.entries(backgroundFrames).forEach(([key,frame])=>{if(!frame)return;const on=key===next;frame.classList.toggle('is-active',on);postBackground(frame,{type:'cyber-angel-active',active:on});if(on)postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant:true})});gmc.dataset.background=next;if(backgroundState)backgroundState.textContent=next;if(backgroundNext)backgroundNext.textContent=next==='01'?'02':'01';if(backgroundSwitcher)backgroundSwitcher.setAttribute('aria-label','Trocar para o background '+(next==='01'?'02':'01'));if(persist){try{localStorage.setItem(BACKGROUND_STORAGE_KEY,next)}catch(e){}}}function getLandingEndScroll(y){if(!landingSentinel)return Math.max(afterWord.offsetTop+1,y+innerHeight);const sentinelDocY=y+landingSentinel.getBoundingClientRect().top;return sentinelDocY-innerHeight*.58}function updateGlobalCanvas(y){const start=afterWord.offsetTop-innerHeight*.08,end=Math.max(start+1,getLandingEndScroll(y));const reveal=clamp((y-start)/(innerHeight*.34));const p=clamp((y-start)/(end-start));backgroundProgress=p;document.documentElement.style.setProperty('--gmc-alpha',String(reveal));syncBackgroundFrame(activeBackground,false);gmc.dataset.progress=p.toFixed(4);gmc.dataset.landingEnd=Math.round(end);gmc.dataset.visible=reveal>.02?'true':'false'}
-function renderScroll(){raf=0;const y=scrollY,hs=hero.offsetTop,hh=Math.max(1,hero.offsetHeight-innerHeight),p=clamp((y-hs)/hh),heroVideoEnd=(videoDegraded&&innerWidth<=760)?.12:VIDEO_END,videoP=clamp(p/heroVideoEnd);document.documentElement.style.setProperty('--video-progress',videoP);if(videoReady)targetVideoTime=videoP*Math.max(.01,video.duration-.045);const caseP=clamp((p-heroVideoEnd)/(1-heroVideoEnd)),reveal=clamp(caseP/.055);if(p>heroVideoEnd*.72)warmHeroModelViewer();document.documentElement.style.setProperty('--case-alpha',reveal);document.documentElement.style.setProperty('--case-veil',reveal*.96);caseStage.classList.toggle('live',reveal>.82);if(caseP>0){const scaled=clamp(caseP)*2,state=Math.min(1,Math.floor(scaled)),local=clamp(scaled-state);document.documentElement.style.setProperty('--hero-state-progress',local);setHeroState(state);if(state===0){loadHeroImmersiveFrames();const immersiveStart=.055,immersiveEnd=1/6,immersiveP=reveal>=.999?clamp((caseP-immersiveStart)/(immersiveEnd-immersiveStart)):0;syncHeroImmersive(immersiveP)}}if(innerWidth<=760&&y>=word.offsetTop-innerHeight*1.25)ensureBackgroundFrame(activeBackground);updateGlobalCanvas(y);requestScrub()}
+function renderScroll(){raf=0;const y=scrollY,hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((y-hs)/hh),heroVideoEnd=heroVideoEndForSpan(hh),videoP=clamp(p/heroVideoEnd);document.documentElement.style.setProperty('--video-progress',videoP);if(videoReady)targetVideoTime=videoP*Math.max(.01,video.duration-.045);const caseP=clamp((p-heroVideoEnd)/(1-heroVideoEnd)),reveal=clamp(caseP/.055);if(p>heroVideoEnd*.72)warmHeroModelViewer();document.documentElement.style.setProperty('--case-alpha',reveal);document.documentElement.style.setProperty('--case-veil',reveal*.96);caseStage.classList.toggle('live',reveal>.82);if(caseP>0){const bonecoEnd=.45,state=caseP<bonecoEnd?0:1,local=state===0?clamp(caseP/bonecoEnd):clamp((caseP-bonecoEnd)/(1-bonecoEnd));document.documentElement.style.setProperty('--hero-state-progress',local);setHeroState(state);if(state===0){loadHeroImmersiveFrames();syncHeroImmersive(reveal>=.999?local:0)}}if(innerWidth<=760&&y>=word.offsetTop-innerHeight*1.25)ensureBackgroundFrame(activeBackground);updateGlobalCanvas(y);requestScrub();window.MSCasaHero?.sync()}
 let heroModelViewerWarm=false;function warmHeroModelViewer(){if(heroModelViewerWarm)return;heroModelViewerWarm=true;const p=window.MSModelViewer?.load?.();if(p&&typeof p.catch==='function')p.catch(()=>{heroModelViewerWarm=false})}
 let scrubRaf=0;function requestScrub(){if(!scrubRaf&&videoReady&&!document.hidden)scrubRaf=requestAnimationFrame(scrubStep)}function scrubStep(){scrubRaf=0;if(!videoReady||document.hidden)return;const mobile=innerWidth<=760,delta=targetVideoTime-smoothVideoTime;smoothVideoTime+=delta*(mobile?.34:.115);const seekGate=mobile?.006:.014;if(Math.abs(video.currentTime-smoothVideoTime)>seekGate&&!video.seeking){try{video.currentTime=smoothVideoTime}catch(e){}}if(Math.abs(delta)>(mobile?.002:.004)||video.seeking)requestScrub()}
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(renderScroll)},{passive:true});addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(renderScroll)});addEventListener('pointermove',e=>{px=(e.clientX/Math.max(1,innerWidth)-.5)*2;py=(e.clientY/Math.max(1,innerHeight)-.5)*2},{passive:true});
 Object.entries(backgroundFrames).forEach(([key,frame])=>{if(!frame)return;frame.addEventListener('load',()=>{postBackground(frame,{type:'cyber-angel-active',active:key===activeBackground});if(key===activeBackground)postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant:true})})});backgroundSwitcher&&backgroundSwitcher.addEventListener('click',()=>applyBackground(activeBackground==='01'?'02':'01',true,true));applyBackground(activeBackground,false,innerWidth>760);cyberAngel&&cyberAngel.addEventListener('load',()=>updateGlobalCanvas(scrollY));
-video.addEventListener('loadedmetadata',()=>{clearTimeout(heroVideoWatchdog);video.pause();videoReady=true;videoDegraded=false;const hs=hero.offsetTop,hh=Math.max(1,hero.offsetHeight-innerHeight),p=clamp((scrollY-hs)/hh),videoP=clamp(p/VIDEO_END);smoothVideoTime=targetVideoTime=videoP*Math.max(.01,video.duration-.045);video.currentTime=smoothVideoTime;renderScroll()});video.addEventListener('play',()=>{if(!videoPriming)video.pause()});const primeHeroVideo=()=>{if(innerWidth>760||videoPriming||!videoReady)return;videoPriming=true;try{if(video.currentTime===0)video.currentTime=.01}catch(e){}const p=video.play();const done=()=>{try{video.pause()}catch(e){}videoPriming=false;renderScroll();requestScrub()};if(p&&p.then)p.then(done).catch(()=>{videoPriming=false;videoDegraded=true;renderScroll()});else done()};addEventListener('touchstart',primeHeroVideo,{once:true,passive:true});addEventListener('pointerdown',primeHeroVideo,{once:true,passive:true});video.addEventListener('error',()=>{clearTimeout(heroVideoWatchdog);videoReady=false;videoDegraded=true;renderScroll()});setHeroState(0);renderScroll();requestScrub();
+video.addEventListener('loadedmetadata',()=>{clearTimeout(heroVideoWatchdog);video.pause();videoReady=true;videoDegraded=false;const hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((scrollY-hs)/hh),videoP=clamp(p/heroVideoEndForSpan(hh));smoothVideoTime=targetVideoTime=videoP*Math.max(.01,video.duration-.045);video.currentTime=smoothVideoTime;renderScroll()});video.addEventListener('play',()=>{if(!videoPriming)video.pause()});const primeHeroVideo=()=>{if(innerWidth>760||videoPriming||!videoReady)return;videoPriming=true;try{if(video.currentTime===0)video.currentTime=.01}catch(e){}const p=video.play();const done=()=>{try{video.pause()}catch(e){}videoPriming=false;renderScroll();requestScrub()};if(p&&p.then)p.then(done).catch(()=>{videoPriming=false;videoDegraded=true;renderScroll()});else done()};addEventListener('touchstart',primeHeroVideo,{once:true,passive:true});addEventListener('pointerdown',primeHeroVideo,{once:true,passive:true});video.addEventListener('error',()=>{clearTimeout(heroVideoWatchdog);videoReady=false;videoDegraded=true;renderScroll()});setHeroState(0);renderScroll();requestScrub();
 function bindTabs(root,cb){const host=document.querySelector(root);if(!host)return;host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll(root+' button').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b)})}
 bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFrame').src='https://www.youtube.com/embed/'+b.dataset.yt+'?rel=0&modestbranding=1'});
 </script>
@@ -1474,6 +1607,68 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   frames.forEach(frame=>io.observe(frame));
 })();
 </script>
+<!-- PDF_MODEL_EXPAND_MENU_PRODUCTION_JS_START -->
+<script id="pdf-model-expand-menu-production-js">
+(()=>{
+  const shell=document.querySelector('#pdf .pdf-menu-shell');
+  const toggle=document.getElementById('pdfMenuToggle');
+  const panel=document.getElementById('pdfTabs');
+  if(!shell||!toggle||!panel)return;
+
+  const options=()=>[...panel.querySelectorAll('button[data-pdf]')];
+  const isOpen=()=>shell.classList.contains('is-open');
+  const setOpen=open=>{
+    shell.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    panel.setAttribute('aria-hidden',open?'false':'true');
+  };
+
+  toggle.addEventListener('click',event=>{
+    event.stopPropagation();
+    setOpen(!isOpen());
+  });
+
+  toggle.addEventListener('keydown',event=>{
+    if(event.key==='ArrowDown'){
+      event.preventDefault();
+      setOpen(true);
+      const target=panel.querySelector('button.active[data-pdf]')||options()[0];
+      target?.focus();
+    }
+  });
+
+  panel.addEventListener('click',event=>{
+    if(event.target.closest('button[data-pdf]'))setOpen(false);
+  });
+
+  panel.addEventListener('keydown',event=>{
+    const items=options();
+    const index=items.indexOf(document.activeElement);
+    if(event.key==='Escape'){
+      event.preventDefault();
+      setOpen(false);
+      toggle.focus();
+      return;
+    }
+    if(index<0)return;
+    let next=index;
+    if(event.key==='ArrowDown')next=(index+1)%items.length;
+    else if(event.key==='ArrowUp')next=(index-1+items.length)%items.length;
+    else if(event.key==='Home')next=0;
+    else if(event.key==='End')next=items.length-1;
+    else return;
+    event.preventDefault();
+    items[next]?.focus();
+  });
+
+  document.addEventListener('click',event=>{
+    if(isOpen()&&!shell.contains(event.target))setOpen(false);
+  });
+
+  setOpen(false);
+})();
+</script>
+<!-- PDF_MODEL_EXPAND_MENU_PRODUCTION_JS_END -->
 <script id="ms-deferred-pdf-viewer">
 (()=>{
   const section=document.getElementById('pdf');
@@ -1964,6 +2159,13 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 })();
 </script>
 <!-- CENA_HERO_1_PRODUCTION_V4_END -->
+<style id="ms-hero-case-scroll-balance-v1">
+/* Production timing: keep the opening film readable, then give each legacy case ~1.6-1.8 viewports of travel before Hero 4. */
+#hero{height:600vh!important}
+@media(max-width:760px){#hero{height:550svh!important}}
+</style>
+<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261006-mobilefix-v1">
+<script type="module" src="./assets/casa-hero-host.mjs?v=20261006-mobilefix-v1"></script>
 <!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->
 </body>
 </html>

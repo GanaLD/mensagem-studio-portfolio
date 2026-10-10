@@ -114,370 +114,7 @@
     root.querySelectorAll?.(selector).forEach(apply);
   }
 
-  function removeDuplicateHeroLabel(){
-    if(!matchMedia('(max-width:760px)').matches) return;
-    document.querySelectorAll(
-      '#msUnifiedHeroStage .video-scroll-label,#hero .video-scroll-label,.cena-hero-shared-ui .video-scroll-label'
-    ).forEach(el=>el.remove());
-  }
-
-  function installMobileHeroVideoScrollControl(){
-    if(window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V5__) return;
-    if(!matchMedia('(max-width:760px)').matches) return;
-
-    const hero=document.getElementById('hero');
-    const original=document.getElementById('heroVideo');
-    if(!hero||!original||!original.parentNode) return;
-
-    window.__MS_MOBILE_HERO_VIDEO_SCROLL_CONTROL_V5__=true;
-
-    /*
-      Mobile HeroScroll uses a dedicated media node so the old inline scrub queue
-      cannot compete with the current frame. The source asset is encoded with dense
-      keyframes; this controller sends only the newest requested position.
-    */
-    const video=original.cloneNode(true);
-    video.muted=true;
-    video.defaultMuted=true;
-    video.playsInline=true;
-    video.setAttribute('playsinline','');
-    video.setAttribute('webkit-playsinline','');
-    video.preload='auto';
-
-    const rawSrc=original.getAttribute('src')||original.currentSrc||'';
-    if(rawSrc){
-      try{
-        const url=new URL(rawSrc,location.href);
-        url.searchParams.set('v','20260928-keyframe-scrub-v5');
-        video.setAttribute('src',url.href);
-      }catch(_){
-        video.setAttribute('src',rawSrc+(rawSrc.includes('?')?'&':'?')+'v=20260928-keyframe-scrub-v5');
-      }
-    }
-
-    original.replaceWith(video);
-
-    const VIDEO_END=.465;
-    const SEEK_INTERVAL=42;
-    const SEEK_EPSILON=.018;
-    const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
-
-    let stableViewportHeight=0;
-    let stableViewportWidth=innerWidth;
-    let ready=false;
-    let targetTime=0;
-    let scrollRaf=0;
-    let monitorRaf=0;
-    let pendingSeek=false;
-    let seekTimer=0;
-    let nextSeekAt=0;
-    let priming=false;
-    let unlocked=false;
-    let lastScrollY=-1;
-
-    const measureStableViewport=()=>{
-      if(window.CSS?.supports?.('height','100svh')){
-        const probe=document.createElement('div');
-        probe.style.cssText='position:fixed;left:-9999px;top:0;width:1px;height:100svh;visibility:hidden;pointer-events:none';
-        document.body.appendChild(probe);
-        const measured=Math.round(probe.getBoundingClientRect().height||0);
-        probe.remove();
-        if(measured>0)return measured;
-      }
-      return Math.round(innerHeight);
-    };
-
-    const refreshStableViewport=(force=false)=>{
-      const widthChanged=Math.abs(innerWidth-stableViewportWidth)>24;
-      if(force||!stableViewportHeight||widthChanged){
-        stableViewportWidth=innerWidth;
-        stableViewportHeight=measureStableViewport();
-      }
-    };
-
-    const progressFromScroll=()=>{
-      refreshStableViewport(false);
-      const range=Math.max(1,hero.offsetHeight-stableViewportHeight);
-      const heroProgress=clamp((scrollY-hero.offsetTop)/range);
-      return clamp(heroProgress/VIDEO_END);
-    };
-
-    const updateTarget=()=>{
-      if(!ready)return;
-      targetTime=progressFromScroll()*Math.max(.01,video.duration-.025);
-    };
-
-    const flushSeek=(force=false)=>{
-      if(!ready)return;
-      updateTarget();
-
-      if(video.seeking&&!force){
-        pendingSeek=true;
-        return;
-      }
-
-      const delta=Math.abs(video.currentTime-targetTime);
-      if(!force&&delta<SEEK_EPSILON){
-        pendingSeek=false;
-        return;
-      }
-
-      const now=performance.now();
-      const wait=nextSeekAt-now;
-      if(!force&&wait>0){
-        pendingSeek=true;
-        if(!seekTimer){
-          seekTimer=setTimeout(()=>{
-            seekTimer=0;
-            flushSeek(false);
-          },Math.ceil(wait));
-        }
-        return;
-      }
-
-      pendingSeek=false;
-      nextSeekAt=now+SEEK_INTERVAL;
-      try{video.currentTime=targetTime}catch(_){pendingSeek=true}
-    };
-
-    const syncFromScroll=()=>{
-      scrollRaf=0;
-      flushSeek(false);
-    };
-
-    const scheduleSync=()=>{
-      if(!scrollRaf)scrollRaf=requestAnimationFrame(syncFromScroll);
-    };
-
-    const monitorScroll=()=>{
-      monitorRaf=0;
-      const y=scrollY;
-      const start=hero.offsetTop-stableViewportHeight;
-      const end=hero.offsetTop+hero.offsetHeight;
-      if(y>=start&&y<=end){
-        if(Math.abs(y-lastScrollY)>.5){
-          lastScrollY=y;
-          scheduleSync();
-        }
-        monitorRaf=requestAnimationFrame(monitorScroll);
-      }
-    };
-
-    const startMonitor=()=>{
-      refreshStableViewport(false);
-      if(!monitorRaf)monitorRaf=requestAnimationFrame(monitorScroll);
-    };
-
-    const prime=()=>{
-      if(unlocked||priming)return;
-      priming=true;
-      video.muted=true;
-      video.defaultMuted=true;
-      video.playsInline=true;
-
-      let playPromise;
-      try{playPromise=video.play()}catch(_){playPromise=null}
-
-      const finish=()=>{
-        try{video.pause()}catch(_){}
-        priming=false;
-        unlocked=true;
-        ready=Number.isFinite(video.duration)&&video.duration>0;
-        if(ready)flushSeek(true);
-      };
-
-      if(playPromise&&typeof playPromise.then==='function'){
-        playPromise.then(finish).catch(()=>{
-          priming=false;
-          ready=Number.isFinite(video.duration)&&video.duration>0;
-          scheduleSync();
-        });
-      }else finish();
-    };
-
-    video.addEventListener('loadedmetadata',()=>{
-      ready=Number.isFinite(video.duration)&&video.duration>0;
-      if(ready)flushSeek(true);
-    });
-    video.addEventListener('durationchange',()=>{
-      ready=Number.isFinite(video.duration)&&video.duration>0;
-      scheduleSync();
-    });
-    video.addEventListener('canplay',()=>{
-      ready=Number.isFinite(video.duration)&&video.duration>0;
-      scheduleSync();
-    });
-    video.addEventListener('seeked',()=>{
-      if(pendingSeek||Math.abs(video.currentTime-targetTime)>SEEK_EPSILON)flushSeek(false);
-    });
-    video.addEventListener('play',()=>{
-      if(!priming){try{video.pause()}catch(_){}}
-    });
-
-    addEventListener('scroll',()=>{scheduleSync();startMonitor()},{passive:true});
-    addEventListener('resize',()=>{
-      refreshStableViewport(false);
-      scheduleSync();
-      startMonitor();
-    },{passive:true});
-    addEventListener('orientationchange',()=>setTimeout(()=>{
-      refreshStableViewport(true);
-      scheduleSync();
-      startMonitor();
-    },140),{passive:true});
-
-    addEventListener('touchstart',prime,{once:true,passive:true});
-    addEventListener('pointerdown',prime,{once:true,passive:true});
-
-    refreshStableViewport(true);
-    try{video.load()}catch(_){}
-    prime();
-    scheduleSync();
-    startMonitor();
-  }
-
-  function installFooterPolish(){
-    const mobile=matchMedia('(max-width:760px)').matches;
-
-    if(!document.getElementById('ms-footer-polish-v2')){
-      const style=document.createElement('style');
-      style.id='ms-footer-polish-v2';
-      style.textContent=`
-        #msFooterParticleStage.ms-particle-fallback-visible{
-          opacity:1!important;
-          visibility:visible!important;
-        }
-        #msFooterParticleStage.ms-particle-fallback-visible .ms-footer-particle-canvas{
-          opacity:0!important;
-        }
-        #msFooterParticleStage.ms-particle-fallback-visible .ms-footer-particle-fallback{
-          display:block!important;
-          opacity:1!important;
-          visibility:visible!important;
-          z-index:2!important;
-        }
-        @media(max-width:760px){
-          #landingReveal.landing-reveal{
-            height:64vh!important;
-            height:64svh!important;
-            min-height:0!important;
-          }
-          #landingReveal .landing-reveal-sentinel{
-            top:58vh!important;
-            top:58svh!important;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-    }
-
-    const stage=document.getElementById('msFooterParticleStage');
-    const canvas=document.getElementById('msFooterParticleCanvas');
-    if(!stage||!canvas) return;
-
-    if(stage.dataset.msFooterWatchdog!=='1'){
-      stage.dataset.msFooterWatchdog='1';
-
-      const hasInk=()=>{
-        try{
-          if(!canvas.width||!canvas.height)return false;
-          const ctx=canvas.getContext('2d',{willReadFrequently:true});
-          if(!ctx)return false;
-          const w=canvas.width,h=canvas.height;
-          const cols=10,rows=6;
-          for(let gy=1;gy<rows;gy++){
-            for(let gx=1;gx<cols;gx++){
-              const x=Math.min(w-1,Math.max(0,Math.floor((gx/cols)*w)));
-              const y=Math.min(h-1,Math.max(0,Math.floor((gy/rows)*h)));
-              if(ctx.getImageData(x,y,1,1).data[3]>12)return true;
-            }
-          }
-        }catch(_){}
-        return false;
-      };
-
-      const verify=()=>{
-        if(!document.documentElement.contains(stage))return;
-        stage.classList.toggle('ms-particle-fallback-visible',!hasInk());
-      };
-
-      setTimeout(verify,450);
-      setTimeout(verify,1100);
-      setTimeout(verify,2200);
-      addEventListener('resize',()=>setTimeout(verify,180),{passive:true});
-    }
-
-    if(!mobile||stage.dataset.msMobileParticleFx==='1') return;
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-    stage.dataset.msMobileParticleFx='1';
-
-    let visible=false;
-    let raf=0;
-    let lastEmit=0;
-    let manualUntil=0;
-    const startedAt=performance.now();
-
-    const emit=(clientX,clientY)=>{
-      let event;
-      try{
-        event=new PointerEvent('pointermove',{bubbles:false,clientX,clientY,pointerType:'mouse'});
-      }catch(_){
-        event=new MouseEvent('pointermove',{bubbles:false,clientX,clientY});
-      }
-      canvas.dispatchEvent(event);
-    };
-
-    const loop=now=>{
-      raf=0;
-      if(!visible)return;
-      if(now>=manualUntil&&now-lastEmit>58){
-        const rect=canvas.getBoundingClientRect();
-        if(rect.width&&rect.height){
-          const t=(now-startedAt)/1000;
-          const x=rect.left+rect.width*(.50+Math.sin(t*.92)*.28);
-          const y=rect.top+rect.height*(.48+Math.sin(t*1.37)*.16);
-          emit(x,y);
-          lastEmit=now;
-        }
-      }
-      raf=requestAnimationFrame(loop);
-    };
-
-    const start=()=>{
-      if(!visible)return;
-      if(!raf)raf=requestAnimationFrame(loop);
-    };
-    const stop=()=>{
-      if(raf)cancelAnimationFrame(raf);
-      raf=0;
-    };
-
-    const observer=new IntersectionObserver(entries=>{
-      visible=entries.some(entry=>entry.isIntersecting&&entry.intersectionRatio>.08);
-      if(visible)start();else stop();
-    },{threshold:[0,.08,.2]});
-    observer.observe(stage);
-
-    const touch=event=>{
-      const point=event.touches?.[0]||event.changedTouches?.[0];
-      if(!point)return;
-      manualUntil=performance.now()+1200;
-      emit(point.clientX,point.clientY);
-    };
-    stage.addEventListener('touchstart',touch,{passive:true});
-    stage.addEventListener('touchmove',touch,{passive:true});
-
-    addEventListener('pagehide',()=>{
-      stop();
-      observer.disconnect();
-    },{once:true});
-  }
-
   scan();
-  removeDuplicateHeroLabel();
-  installMobileHeroVideoScrollControl();
-  installFooterPolish();
 
   const observer=new MutationObserver(records=>{
     for(const record of records){
@@ -485,8 +122,150 @@
         if(node.nodeType===Node.ELEMENT_NODE) scan(node);
       }
     }
-    installFooterPolish();
   });
   observer.observe(document.documentElement,{childList:true,subtree:true});
-  addEventListener('pagehide',()=>observer.disconnect(),{once:true});
+  addEventListener("pagehide",()=>observer.disconnect(),{once:true});
+})();
+
+/* Published-site HeroScroll controller.
+   The preview is intentionally untouched; this only runs on the root published site. */
+(()=>{
+  if(location.pathname.startsWith('/wix-preview/')) return;
+  if(window.__MS_PUBLISHED_HERO_SCROLL_CONTROL_V1__) return;
+
+  const hero=document.getElementById('hero');
+  const video=document.getElementById('heroVideo');
+  if(!hero||!video) return;
+  window.__MS_PUBLISHED_HERO_SCROLL_CONTROL_V1__=true;
+
+  /* Stop the older smoothing queue from fighting the published controller. */
+  try{
+    if(typeof scrubRaf!=='undefined'&&scrubRaf){
+      cancelAnimationFrame(scrubRaf);
+      scrubRaf=0;
+    }
+    if(typeof requestScrub==='function') requestScrub=()=>{};
+  }catch(_){}
+
+  const VIDEO_END=.465;
+  const EPS=.012;
+  const MIN_SEEK_INTERVAL=36;
+  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
+
+  let ready=false;
+  let target=0;
+  let raf=0;
+  let pending=false;
+  let timer=0;
+  let nextSeekAt=0;
+
+  video.muted=true;
+  video.defaultMuted=true;
+  video.playsInline=true;
+  video.setAttribute('playsinline','');
+  video.setAttribute('webkit-playsinline','');
+  video.preload='auto';
+  try{video.pause()}catch(_){}
+
+  /* Force production to use the current Hero media instead of a stale cached response. */
+  const raw=video.getAttribute('src')||video.currentSrc||'';
+  if(raw){
+    try{
+      const url=new URL(raw,location.href);
+      url.searchParams.set('v','20260930-prod-scroll-v1');
+      const next=url.href;
+      if(video.src!==next){
+        video.src=next;
+        video.load();
+      }
+    }catch(_){}
+  }
+
+  const computeTarget=()=>{
+    if(!ready) return null;
+    const range=Math.max(1,hero.offsetHeight-innerHeight);
+    const progress=clamp((scrollY-hero.offsetTop)/range);
+    const videoProgress=clamp(progress/VIDEO_END);
+    target=videoProgress*Math.max(.01,video.duration-.045);
+    return target;
+  };
+
+  const seek=(force=false)=>{
+    if(!ready||document.hidden) return;
+    computeTarget();
+
+    if(video.seeking&&!force){
+      pending=true;
+      return;
+    }
+
+    const delta=Math.abs(video.currentTime-target);
+    if(!force&&delta<EPS){
+      pending=false;
+      return;
+    }
+
+    const now=performance.now();
+    const wait=nextSeekAt-now;
+    if(!force&&wait>0){
+      pending=true;
+      if(!timer){
+        timer=setTimeout(()=>{
+          timer=0;
+          seek(false);
+        },Math.ceil(wait));
+      }
+      return;
+    }
+
+    pending=false;
+    nextSeekAt=now+MIN_SEEK_INTERVAL;
+    try{
+      video.pause();
+      video.currentTime=target;
+    }catch(_){
+      pending=true;
+    }
+  };
+
+  const sync=()=>{
+    raf=0;
+    seek(false);
+  };
+  const schedule=()=>{
+    if(!raf) raf=requestAnimationFrame(sync);
+  };
+
+  const setReady=()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    if(ready) seek(true);
+  };
+
+  video.addEventListener('loadedmetadata',setReady);
+  video.addEventListener('durationchange',()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    schedule();
+  });
+  video.addEventListener('canplay',()=>{
+    ready=Number.isFinite(video.duration)&&video.duration>0;
+    schedule();
+  });
+  video.addEventListener('seeked',()=>{
+    if(pending||Math.abs(video.currentTime-target)>EPS) schedule();
+  });
+  video.addEventListener('play',()=>{
+    try{video.pause()}catch(_){}
+  });
+
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',schedule,{passive:true});
+  addEventListener('orientationchange',()=>setTimeout(schedule,120),{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule()});
+
+  if(video.readyState>=1&&Number.isFinite(video.duration)&&video.duration>0){
+    ready=true;
+    seek(true);
+  }else{
+    try{video.load()}catch(_){}
+  }
 })();

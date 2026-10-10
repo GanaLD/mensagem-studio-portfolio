@@ -212,6 +212,26 @@ window.MENSAGEM_PROJECTS = [
       {type:'EMBED',title:'Template 02 — Experiência Automotiva',description:'Referência para páginas de produto, catálogos e lançamentos com hotspots, variações e exploração interativa customizável.',url:'./demo/index.html'},
       {type:'EMBED',title:'Template 03 — LTX: O modelo de mundo',description:'Referência para experiências audiovisuais, campanhas e apresentações com interface glass, cenas em tela cheia e narrativa interativa.',url:'https://raw.githack.com/GanaLD/LTXhtml/main/index.html'}
     ]
+  },
+
+  {
+    slug:'camera-canon-t7-3d', sourceSlug:'camera-canon-t7-3d', title:'CÂMERA CANON T7 | 3D CODEX + BLENDER', tag:'3D / Produto',
+    description:'Modelagem, animação e apresentação 3D da Canon EOS Rebel T7, com foco em construção hard-surface, detalhes funcionais, iluminação de produto e entrega web interativa.',
+    details:[
+      {label:'Serviço',text:'Modelagem 3D · Animação · Render · Web 3D'},
+      {label:'Pipeline',text:'Codex + Blender · GLB animado · Visualização de produto'},
+      {label:'Projeto completo',text:'Behance',link:'https://www.behance.net/gallery/256753479/CAMERA-CANON-T7-3D-CODEX-BLENDER'},
+      {label:'Arquivo fonte',text:'Canon_T7_20s.blend',link:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/c4cd46e6-e770-470a-ab59-0a9a6ff33894.blend'}
+    ],
+    cover:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b7d15168-e299-4df7-a90d-6c7bce4190f3.jpg',
+    coverVideo:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/ce969e3a-03d6-4033-b84e-d641920b53fd.mp4',
+    media:[
+      {type:'IMAGE',title:'Canon EOS Rebel T7 — Render Final',description:'Apresentação frontal final da câmera 3D com lente, corpo, materiais e iluminação de produto.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b7d15168-e299-4df7-a90d-6c7bce4190f3.jpg'},
+      {type:'VIDEO',title:'Canon T7 — Animação 3D de 20 segundos',description:'Sequência animada com órbita, corpo e lente, controles, flash, bateria e SD, conexões, explosão técnica e apresentação final.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/ce969e3a-03d6-4033-b84e-d641920b53fd.mp4',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b7d15168-e299-4df7-a90d-6c7bce4190f3.jpg'},
+      {type:'IMAGE',title:'Canon T7 — Contact Sheet da Animação',description:'Resumo visual do filme: órbita, corpo e lente, controles, flash, bateria e SD, conexões, explosão e apresentação final.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/bd94c780-6a9e-4689-a8f8-9b2ed5160889.jpg'},
+      {type:'IMAGE',title:'Canon T7 — Detalhe do Flash Aberto',description:'Close técnico do mecanismo de flash aberto e da construção superior do corpo da câmera.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/2addd61f-b87a-4736-b259-751bbcec6b25.png'},
+      {type:'MODEL',title:'Canon EOS Rebel T7 — GLB Animado Interativo',description:'Modelo 3D interativo da câmera com animação de 20 segundos para inspeção direta no navegador.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/cc2db3ea-1364-413f-83e6-9c0425df2cfd.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b7d15168-e299-4df7-a90d-6c7bce4190f3.jpg'}
+    ]
   }
 ];
 
@@ -334,6 +354,18 @@ window.MENSAGEM_CASE_STUDIES = {
     "process": "Estruturação do produto, refinamento de geometria e materiais, preparação de animação, renderização em Cycles, preview em vídeo e exportação final do GLB animado.",
     "tools": "Blender, Cycles, GLB/glTF, animação 3D e Codex como apoio ao pipeline técnico e de produção.",
     "result": "Um portfólio técnico de produtos 3D com renders, motions e modelos GLB interativos de Arencia, Rejuvital e Black Skull, pronto para crescer com novos produtos.",
+    "serviceLabel": "Modelagem 3D de Produto",
+    "serviceHref": "../../servicos/modelagem-3d-produto/"
+  },
+
+  "camera-canon-t7-3d": {
+    "intro": "Projeto autoral de modelagem e animação 3D da Canon EOS Rebel T7, construído para apresentar o produto em diferentes níveis de detalhe e também como experiência interativa na web.",
+    "context": "A câmera foi tratada como um produto técnico completo: corpo, lente, controles, compartimentos, conexões e flash precisavam funcionar visualmente como um único asset consistente ao longo de uma animação de apresentação.",
+    "objective": "Construir uma representação 3D reconhecível da Canon EOS Rebel T7 e demonstrar o produto por meio de enquadramentos técnicos, close-ups, vista explodida, animação e visualização interativa.",
+    "solution": "A direção visual combina fundo laranja, materialidade escura e iluminação de recorte para destacar silhueta, lente, controles, portas e mecanismo de flash sem perder a leitura geral do produto.",
+    "process": "Referências visuais, blocagem, modelagem hard-surface, refinamento de componentes, materiais, iluminação, animação de câmera e peças, montagem da sequência de 20 segundos, renderização e exportação do GLB animado para web.",
+    "tools": "Blender, modelagem hard-surface, materiais PBR, animação 3D, render de produto, glTF/GLB e Codex como apoio ao pipeline técnico.",
+    "result": "Case completo com render final, contact sheet, detalhe do flash, filme de 20 segundos, GLB animado interativo e arquivo-fonte .blend, além da publicação do projeto no Behance.",
     "serviceLabel": "Modelagem 3D de Produto",
     "serviceHref": "../../servicos/modelagem-3d-produto/"
   }

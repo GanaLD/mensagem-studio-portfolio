@@ -230,8 +230,8 @@
   const load = () => {
     if (loaded) return;
     loaded = true;
-    import('./wix-preview/fone-3d-entry.js?v=20260927-production-v7-isolated')
-      .catch(error => console.error('[3D production V7]', error));
+    import('./fone-3d-entry.js?v=20261006-production-v7-local')
+      .catch(error => console.error('[3D V7]', error));
   };
   if (!('IntersectionObserver' in window)) {
     window.addEventListener('load', load, {once:true});

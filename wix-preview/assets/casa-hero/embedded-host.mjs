@@ -3,8 +3,9 @@
 export function createHeroEmbedding({applyState,releaseInput}){
  const enabled=new URLSearchParams(location.search).get('embed')==='hero4';
  const state={active:false,explore:false,progress:0};
- let ready=false;
+ let visualReady=false,ready=false;
  const post=message=>{if(enabled&&parent!==window)parent.postMessage(message,location.origin);};
+ const apply=()=>{if(visualReady)applyState({...state});};
  if(enabled){
   document.documentElement.dataset.embedded='hero4';
   addEventListener('message',event=>{
@@ -14,7 +15,7 @@ export function createHeroEmbedding({applyState,releaseInput}){
    state.progress=Math.max(0,Math.min(1,value));
    state.active=event.data.active===true;
    state.explore=state.active&&state.progress>=.999&&event.data.explore===true;
-   if(ready)applyState({...state});
+   apply();
   });
   addEventListener('wheel',event=>{
    if(!state.active||!state.explore)return;
@@ -25,7 +26,22 @@ export function createHeroEmbedding({applyState,releaseInput}){
  }
  return{
   enabled,state,
-  ready(){ready=true;if(enabled){applyState({...state});post({type:'MS_CASA_HERO_READY'});}},
-  exit(){if(!enabled)return;releaseInput();post({type:'MS_CASA_HERO_EXIT'});}
+  reportLoad(phase,progress,label){
+   const value=Math.max(0,Math.min(100,Number(progress)||0));
+   post({type:'MS_CASA_HERO_LOAD',phase:String(phase||'environment'),progress:value,label:String(label||'')});
+  },
+  visualReady(){
+   if(visualReady)return;
+   visualReady=true;apply();
+   post({type:'MS_CASA_HERO_VISUAL_READY'});
+  },
+  ready(){
+   ready=true;
+   if(!visualReady){visualReady=true;post({type:'MS_CASA_HERO_VISUAL_READY'});}
+   apply();post({type:'MS_CASA_HERO_READY'});
+  },
+  exit(){if(!enabled)return;releaseInput();post({type:'MS_CASA_HERO_EXIT'});},
+  get visualReadyState(){return visualReady;},
+  get readyState(){return ready;}
  };
 }
