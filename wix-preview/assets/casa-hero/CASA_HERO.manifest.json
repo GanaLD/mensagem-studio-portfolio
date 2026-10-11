@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "asset": "CASA_HERO.glb",
+  "bytes": 293818104,
+  "sha256": "6a1ad21f734af0aff0fd1cf0c256f4c1ca57b66e333a6c7ddd2a7f170723ef1f",
+  "parts": [
+    {
+      "url": "CASA_HERO.part-001.bin",
+      "offset": 0,
+      "bytes": 50331648,
+      "sha256": "95bbc477b4c9abde1168d404852fa290de977273553f4a7c7c1f2b130629aa09"
+    },
+    {
+      "url": "CASA_HERO.part-002.bin",
+      "offset": 50331648,
+      "bytes": 50331648,
+      "sha256": "79dfcbd4064d0562c30f9396e99b43618066a7cb82fbf7eff68dfb40804fe565"
+    },
+    {
+      "url": "CASA_HERO.part-003.bin",
+      "offset": 100663296,
+      "bytes": 50331648,
+      "sha256": "8499a1168f02491562594e605319e4aeddd73ff41efa22db909122dc0f417d49"
+    },
+    {
+      "url": "CASA_HERO.part-004.bin",
+      "offset": 150994944,
+      "bytes": 50331648,
+      "sha256": "995161359a1608990608be6ec5bec8a0be219d469d245fa025df92d8e41c62be"
+    },
+    {
+      "url": "CASA_HERO.part-005.bin",
+      "offset": 201326592,
+      "bytes": 50331648,
+      "sha256": "7d352c3e4befa4e81d5510e71f10d5e8f17dfb7d61cd1c2a0db5e9e549038dbb"
+    },
+    {
+      "url": "CASA_HERO.part-006.bin",
+      "offset": 251658240,
+      "bytes": 42159864,
+      "sha256": "00f5064592e3e96e9750b04e316cbb7c71039205493a93fb35cd93551d5a5531"
+    }
+  ]
+}

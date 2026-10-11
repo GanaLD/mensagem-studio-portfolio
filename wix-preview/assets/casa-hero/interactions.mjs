@@ -71,24 +71,23 @@ function createPoolWater(scene,definition){
  const causticMaterial=new THREE.MeshBasicMaterial({name:'INTERACTION_Caustics',map:causticTexture,transparent:true,opacity:.38,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide});
  const caustics=new THREE.Mesh(new THREE.PlaneGeometry(width-.18,length-.18).rotateX(-Math.PI/2),causticMaterial);
  caustics.name='INTERACTION_PoolCaustics';caustics.position.set(mesh.position.x,surface-depth+.027,mesh.position.z);root.add(caustics);
- const ripples=[];for(let i=0;i<6;i++){
-  const mat=new THREE.MeshBasicMaterial({color:0xc5f1e7,transparent:true,opacity:0,depthWrite:false,side:THREE.DoubleSide});
-  const ring=new THREE.Mesh(new THREE.RingGeometry(.93,1,64),mat);ring.rotation.x=-Math.PI/2;ring.visible=false;ring.name='INTERACTION_WaterRipple_'+i;root.add(ring);ripples.push({mesh:ring,age:10});
- }
+ const ripples=Array.from({length:6},()=>({position:new THREE.Vector3(),age:10,strength:0}));
  let rippleCursor=0;
- function ripple(position,strength=1){const r=ripples[rippleCursor++%ripples.length];r.age=0;r.strength=strength;r.mesh.visible=true;r.mesh.position.set(position.x,surface+.018,position.z);}
+ function ripple(position,strength=1){const r=ripples[rippleCursor++%ripples.length];r.age=0;r.strength=strength;r.position.copy(position);}
  function update(dt,time){
   normal.offset.set(time*.008,-time*.005);causticTexture.offset.set(-time*.006,time*.003);
+  for(const ripple of ripples)ripple.age+=dt;
   const p=geometry.attributes.position;
   for(let i=0;i<p.count;i++){
    const x=base[i*3],z=base[i*3+2];
-   p.array[i*3+1]=.006*Math.sin(x*2.4+z*.76+time*.9)+.003*Math.sin(x*.63-z*1.85+time*1.25);
+   let displacement=.006*Math.sin(x*2.4+z*.76+time*.9)+.003*Math.sin(x*.63-z*1.85+time*1.25);
+   for(const ripple of ripples){if(ripple.age>2.8)continue;const distance=Math.hypot(x+mesh.position.x-ripple.position.x,z+mesh.position.z-ripple.position.z),front=distance-ripple.age*.85;displacement+=.010*ripple.strength*Math.exp(-ripple.age*1.4)*Math.exp(-Math.abs(front)*3.5)*Math.sin(front*10);}
+   p.array[i*3+1]=displacement;
   }
   p.needsUpdate=true;
   // The tangent-space normal scan supplies the fine ripples; the large wave
   // mesh normal only needs an update at a bounded 12 Hz cadence.
   if(Math.floor(time*12)!==Math.floor((time-dt)*12))geometry.computeVertexNormals();
-  for(const r of ripples){if(r.age>2.3)continue;r.age+=dt;const s=.12+r.age*.56;r.mesh.scale.setScalar(s);r.mesh.material.opacity=Math.max(0,(1-r.age/2.3)*.13*r.strength);if(r.age>=2.3)r.mesh.visible=false;}
  }
  function dispose(){for(const value of hidden)value.node.visible=value.visible;root.traverse(o=>{if(o.isMesh){o.geometry.dispose();o.material.dispose();}});normal.dispose();causticTexture.dispose();root.removeFromParent();}
  return{root,mesh,material,normal,caustics,lo,hi,surface,depth,update,ripple,dispose};
@@ -103,7 +102,11 @@ function createPoolWater(scene,definition){
 export function createEnvironmentInteractions(options){
  const {scene,player,metadata={},resolvePosition,getViewMode=()=> 'first',getYaw=()=>0,setYaw=()=>{},getIsExploring=()=>true,onPrompt=()=>{},onStateChange=()=>{},onTransitionEnd=()=>{}}=options;
  if(!scene||!player)throw new Error('Interações precisam da cena e do personagem.');
- const seatDefinitions=(metadata.seats||[]).filter(s=>s.enabled!==false).map(s=>({...s,id:s.id||s.node,position:vec(s.position),approach:vec(s.approach),yaw:s.yaw??0}));
+ const seatDefinitions=(metadata.seats||[]).filter(s=>s.enabled!==false).map(s=>{
+  const node=s.dynamicNode?scene.getObjectByName(s.dynamicNode):null;
+  if(s.dynamicNode&&!node)throw new Error('Grupo articulado do assento indisponível: '+s.dynamicNode);
+  return{...s,id:s.id||s.node,position:vec(s.position),approach:vec(s.approach),yaw:s.yaw??0,dynamic:node?{node,base:node.position.clone(),offset:vec(s.pullOffset),amount:0}:null};
+ });
  const carDefinition=metadata.car?.enabled===false?null:metadata.car;
  const car=carDefinition?{...carDefinition,id:carDefinition.id||'countach',position:vec(carDefinition.driverSeat||carDefinition.position),approach:vec(carDefinition.approach),doors:carDefinition.doors||carDefinition.doorNodes||[],yaw:carDefinition.yaw??Math.PI/2}:null;
  const poolDefinition=metadata.pool?.enabled===false?null:metadata.pool;
@@ -116,7 +119,7 @@ export function createEnvironmentInteractions(options){
  }).filter(Boolean);
  if(car&&(car.doors.length===0||doors.length!==car.doors.length))throw new Error('A porta articulada do Countach está indisponível.');
  let state='idle',active=null,sequence=null,stepIndex=0,stepElapsed=0,time=0,doorAmount=0,lastPrompt='',pendingCancel=false,disposed=false;
- let pose={sit:0,carSeat:0,swim:0,treadWater:0,waterMotion:0,time:0,kind:'none'},targetPose={...pose};
+ let pose={sit:0,carSeat:0,lounger:0,swim:0,treadWater:0,waterMotion:0,time:0,kind:'none'},targetPose={...pose};
  let lastWaterRipple=0,swimVelocity=new THREE.Vector3(),saved=null;
  const events=[];
  function event(type,extra={}){events.push({type,time,...extra});if(events.length>120)events.shift();}
@@ -141,19 +144,25 @@ export function createEnvironmentInteractions(options){
   return items.map(value=>({...value,distance:distanceXZ(player.position,value.item.approach)})).filter(value=>value.distance<=(value.item.triggerRadius??value.item.radius??1.0)&&Math.abs(player.position.y-value.item.approach.y)<.45).sort((a,b)=>a.distance-b.distance)[0]||null;
  }
  function save(){saved={position:player.position.clone(),yaw:getYaw(),playerYaw:player.rotation.y,viewMode:getViewMode()};}
- function setPoseTarget(value){targetPose={sit:0,carSeat:0,swim:0,treadWater:0,waterMotion:0,time,kind:'none',...value};}
+ function setPoseTarget(value){targetPose={sit:0,carSeat:0,lounger:0,swim:0,treadWater:0,waterMotion:0,time,kind:'none',...value};}
  function door(value){doorAmount=clamp(value,0,1);for(const d of doors)d.node.quaternion.copy(d.base).multiply(new THREE.Quaternion().setFromAxisAngle(d.axis,d.angle*doorAmount));}
- function moveStep(to,duration,{walk=false,supportAtEnd=false,yaw=null,pose:stepPose=null,door:doorTarget=null,carPoseRange=null}={}){return{to:vec(to),duration:Math.max(.05,duration),walk,supportAtEnd,yaw,pose:stepPose,door:doorTarget,carPoseRange};}
+ function chair(value){
+  const dynamic=active?.dynamic;if(!dynamic)return;dynamic.amount=clamp(value,0,1);
+  const parent=dynamic.node.parent,parentPosition=parent?.getWorldPosition(new THREE.Vector3())||new THREE.Vector3();
+  const local=parent?parent.worldToLocal(parentPosition.clone().add(dynamic.offset)).sub(parent.worldToLocal(parentPosition.clone())):dynamic.offset;
+  dynamic.node.position.copy(dynamic.base).addScaledVector(local,dynamic.amount);dynamic.node.updateMatrixWorld(true);
+ }
+ function moveStep(to,duration,{walk=false,supportAtEnd=false,yaw=null,pose:stepPose=null,door:doorTarget=null,carPoseRange=null,chair:chairTarget=null}={}){return{to:vec(to),duration:Math.max(.05,duration),walk,supportAtEnd,yaw,pose:stepPose,door:doorTarget,carPoseRange,chair:chairTarget};}
  function begin(next,steps,complete){sequence={steps,complete};stepIndex=0;stepElapsed=0;setState(next);startStep();}
  function startStep(){
-  const step=sequence.steps[stepIndex];step.start=player.position.clone();step.startYaw=player.rotation.y;step.viewYaw=getYaw();step.startDoor=doorAmount;step.startCarPose=pose.carSeat;
+  const step=sequence.steps[stepIndex];step.start=player.position.clone();step.startYaw=player.rotation.y;step.viewYaw=getYaw();step.startDoor=doorAmount;step.startCarPose=pose.carSeat;step.startChair=active?.dynamic?.amount||0;
   if(step.to===null)step.to=step.start.clone();if(step.pose)setPoseTarget(step.pose);
  }
  function safeWalkTarget(position){return resolvePosition?resolvePosition(position.clone()):position;}
  function approachSteps(item){
   const path=item.approachPath||[item.approach.toArray()],steps=[];
   let previous=player.position.clone();
-  for(const point of path){const to=vec(point),duration=Math.max(.22,distanceXZ(previous,to)/(item.approachSpeed??1.12));steps.push(moveStep(to,duration,{walk:true,yaw:item.yaw}));previous=to;}
+  for(const point of path){const to=vec(point),distance=distanceXZ(previous,to),duration=Math.max(.22,distance/(item.approachSpeed??1.12)),direction=distance>.02?Math.atan2(to.x-previous.x,to.z-previous.z):item.yaw;steps.push(moveStep(to,duration,{walk:true,yaw:direction}));previous=to;}
   return steps;
  }
  function standingComplete(){
@@ -174,12 +183,25 @@ export function createEnvironmentInteractions(options){
   setPoseTarget({});setState('idle');active=null;saved=null;onTransitionEnd({position:player.position.clone(),yaw:getYaw()});showPrompt({visible:true,text:'Aproxime-se pelo acesso livre.',key:'',busy:false});
  }
  function startSeat(item){
-  active=item;save();const p=item.position.clone();if(item.cushionY!==undefined)p.y=item.cushionY+(item.pelvisAboveCushion??.105)-.53;
-  const steps=[...approachSteps(item),moveStep(p,.95,{yaw:item.yaw,pose:{sit:1,kind:'seat'}})];
+  active=item;save();const p=item.position.clone();if(item.cushionY!==undefined)p.y=item.cushionY+(item.pelvisAboveCushion??.105)-(item.clipHipHeight??.53);
+  const steps=[];
+  if(item.dynamic){
+   p.add(item.dynamic.offset);
+   steps.push(...approachSteps({...item,approachPath:[item.approach.toArray()]}));
+   steps.push(moveStep(item.approach,.9,{chair:1,yaw:item.yaw,pose:{}}));
+  }
+  steps.push(...approachSteps(item),moveStep(p,.95,{yaw:item.yaw,pose:{[item.poseKey||'sit']:1,kind:'seat'}}));
   begin('seatEnter',steps,()=>{setState('seated');if(pendingCancel)cancel();});return true;
  }
  function exitSeat(){
-  begin('seatExit',[moveStep(active.approach,.95,{yaw:active.yaw,pose:{sit:0,kind:'seat'}})],standingComplete);return true;
+  const front=vec(active.standPosition||active.approach),steps=[moveStep(front,.95,{yaw:active.yaw,pose:{sit:0,kind:'seat'}})];
+  if(active.dynamic){
+   const path=[...(active.approachPath||[])].reverse();let previous=front;
+   for(const point of path){const next=vec(point);if(distanceXZ(previous,next)<.015)continue;steps.push(moveStep(next,Math.max(.22,distanceXZ(previous,next)/1.05),{walk:true,pose:{},yaw:Math.atan2(next.x-previous.x,next.z-previous.z)}));previous=next;}
+   if(distanceXZ(previous,active.approach)>.015)steps.push(moveStep(active.approach,Math.max(.22,distanceXZ(previous,active.approach)/1.05),{walk:true,pose:{},yaw:Math.atan2(active.approach.x-previous.x,active.approach.z-previous.z)}));
+   steps.push(moveStep(active.approach,.9,{chair:0,pose:{}}));
+  }
+  begin('seatExit',steps,standingComplete);return true;
  }
  function startCar(){
   if(!car)return false;
@@ -239,6 +261,13 @@ export function createEnvironmentInteractions(options){
   const nearest=nearestInteraction();if(!nearest)return false;
   return nearest.kind==='pool'?startPool():nearest.kind==='car'?startCar():startSeat(nearest.item);
  }
+ function enterWaterFromMotion(){
+  if(disposed||state!=='idle'||!pool||!water||player.position.y>water.surface+.035)return false;
+  const margin=.12;if(player.position.x<water.lo.x+margin||player.position.x>water.hi.x-margin||player.position.z<water.lo.z+margin||player.position.z>water.hi.z-margin)return false;
+  active=pool;save();saved.position=safeWalkTarget(pool.approach)||pool.approach.clone();
+  swimVelocity.set(0,0,0);player.position.y=water.surface;setPoseTarget({treadWater:1,kind:'pool'});pose.treadWater=1;pose.kind='pool';
+  water.ripple(player.position,1.7);setState('swimming');event('waterLanding');emitPrompt();return true;
+ }
  function cancel(){
   if(disposed||state==='idle')return false;
   if(sequence){pendingCancel=true;event('queuedExit');return true;}
@@ -253,6 +282,7 @@ export function createEnvironmentInteractions(options){
  function updateSequence(dt){
   const step=sequence.steps[stepIndex];stepElapsed+=dt;const progress=clamp(stepElapsed/step.duration,0,1),u=ease(progress);
   const target=step.start.clone().lerp(step.to,u);
+  if(step.chair!==null)chair(THREE.MathUtils.lerp(step.startChair,step.chair,u));
   const synchronizedCarPose=!!step.carPoseRange;
   if(synchronizedCarPose){
    const [from,to]=step.carPoseRange,poseProgress=ease(clamp((progress-from)/Math.max(.001,to-from),0,1));
@@ -297,18 +327,18 @@ export function createEnvironmentInteractions(options){
   }
   let synchronizedCarPose=false;
   if(sequence)synchronizedCarPose=updateSequence(dt);else if(state==='swimming')updateSwimming(dt,input);
-  for(const field of ['sit','carSeat','swim','treadWater','waterMotion'])if(field!=='carSeat'||!synchronizedCarPose)pose[field]=THREE.MathUtils.damp(pose[field],targetPose[field]||0,7,dt);
+  for(const field of ['sit','carSeat','lounger','swim','treadWater','waterMotion'])if(field!=='carSeat'||!synchronizedCarPose)pose[field]=THREE.MathUtils.damp(pose[field],targetPose[field]||0,7,dt);
   pose.time=time;pose.kind=targetPose.kind;emitPrompt();
  }
- function getEyeHeight(normal=1.64){return normal-(normal-1.18)*pose.sit-(normal-(car?.eyeHeight??1.12))*pose.carSeat-(normal-.14)*pose.swim-(normal-.24)*pose.treadWater;}
- function getFirstPersonOffset(){return new THREE.Vector3(Math.sin(player.rotation.y),0,Math.cos(player.rotation.y)).multiplyScalar(.78*pose.swim+(car?.eyeForward??.03)*pose.carSeat);}
- function getFocusHeight(normal=1.2){return normal-(normal-.82)*pose.sit-(normal-.61)*pose.carSeat-(normal-.13)*(pose.swim+pose.treadWater);}
- function getPose(){return{...pose,approachWalk:!!(sequence?.steps[stepIndex]?.walk)};}
- function getState(){return{state,id:active?.id||null,movementLocked:isMovementLocked(),transition:!!sequence,transitionProgress:sequence?clamp(stepElapsed/sequence.steps[stepIndex].duration,0,1):1,doorAmount,pose:getPose(),position:player.position.toArray(),nearest:nearestInteraction()?.item.id||null,water:water?{visible:water.mesh.visible,surfaceY:water.surface,normalOffset:water.normal.offset.toArray(),bounds:[water.lo.toArray(),water.hi.toArray()]}:null,events:[...events]};}
+ function getEyeHeight(normal=1.64){return normal-(normal-1.18)*pose.sit-(normal-(car?.eyeHeight??1.12))*pose.carSeat-(normal-(active?.eyeHeight??.92))*pose.lounger-(normal-.14)*pose.swim-(normal-.24)*pose.treadWater;}
+ function getFirstPersonOffset(){return new THREE.Vector3(Math.sin(player.rotation.y),0,Math.cos(player.rotation.y)).multiplyScalar(.78*pose.swim+(car?.eyeForward??.03)*pose.carSeat+(active?.eyeForward??-.28)*pose.lounger);}
+ function getFocusHeight(normal=1.2){return normal-(normal-.82)*pose.sit-(normal-.61)*pose.carSeat-(normal-(active?.focusHeight??.67))*pose.lounger-(normal-.13)*(pose.swim+pose.treadWater);}
+ function getPose(){return{...pose,approachWalk:!!(sequence?.steps[stepIndex]?.walk),seatSupport:active&&/^seat/.test(state)&&active.footSupportY!==undefined?{y:active.footSupportY,forward:active.footSupportForward,mode:active.footSupportMode}:null};}
+ function getState(){return{state,id:active?.id||null,movementLocked:isMovementLocked(),transition:!!sequence,transitionProgress:sequence?clamp(stepElapsed/sequence.steps[stepIndex].duration,0,1):1,doorAmount,chairAmount:active?.dynamic?.amount||0,seatCount:seatDefinitions.length,pose:getPose(),position:player.position.toArray(),nearest:nearestInteraction()?.item.id||null,water:water?{visible:water.mesh.visible,surfaceY:water.surface,normalOffset:water.normal.offset.toArray(),bounds:[water.lo.toArray(),water.hi.toArray()]}:null,events:[...events]};}
  function reset({restore=true}={}){
   if(saved&&restore){const supported=safeWalkTarget(saved.position);if(supported)player.position.copy(supported);setYaw(saved.yaw);player.rotation.y=saved.playerYaw;}
-  sequence=null;active=null;saved=null;pendingCancel=false;swimVelocity.set(0,0,0);setPoseTarget({});pose={...targetPose};door(0);setState('idle');showPrompt({});onTransitionEnd({position:player.position.clone(),yaw:getYaw()});
+  chair(0);for(const item of seatDefinitions)if(item.dynamic){item.dynamic.node.position.copy(item.dynamic.base);item.dynamic.amount=0;item.dynamic.node.updateMatrixWorld(true);}sequence=null;active=null;saved=null;pendingCancel=false;swimVelocity.set(0,0,0);setPoseTarget({});pose={...targetPose};door(0);setState('idle');showPrompt({});onTransitionEnd({position:player.position.clone(),yaw:getYaw()});
  }
  function dispose(){if(disposed)return;reset();water?.dispose();disposed=true;}
- return{update,handleKey,activate,cancel,reset,dispose,isMovementLocked,getEyeHeight,getFocusHeight,getFirstPersonOffset,getPose,getState,water};
+ return{update,handleKey,activate,cancel,enterWaterFromMotion,reset,dispose,isMovementLocked,getEyeHeight,getFocusHeight,getFirstPersonOffset,getPose,getState,water};
 }

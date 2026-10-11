@@ -1,17 +1,18 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
-import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {Octree} from 'three/addons/math/Octree.js';
 import {Capsule} from 'three/addons/math/Capsule.js';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {SSAOPass} from 'three/addons/postprocessing/SSAOPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-import {createFootPlacement,spring} from './avatar-motion.mjs';
-import {createEnvironmentInteractions} from './interactions.mjs';
-import {partitionStaticScene} from './scene-chunks.mjs';
-import {createHeroEmbedding} from './embedded-host.mjs';
+import {createFootPlacement,createSeatedFootPlacement,spring} from './avatar-motion.mjs?v=20261011-cabin-entrance-v1';
+import {createEnvironmentInteractions} from './interactions.mjs?v=20261011-cabin-entrance-v1';
+import {partitionStaticScene} from './scene-chunks.mjs?v=20261011-cabin-entrance-v1';
+import {createHeroEmbedding} from './embedded-host.mjs?v=20261011-cabin-entrance-v1';
+import {createJumpController} from './jump-controller.mjs?v=20261011-cabin-entrance-v1';
+import {loadHouseAsset,versionedAssetURL} from './asset-loader.mjs?v=20261011-cabin-entrance-v1';
 
 // Three's recursive children do not inherit root settings. Bound every branch,
 // otherwise coplanar architectural details expand the default depth excessively.
@@ -20,14 +21,23 @@ Octree.prototype.split=function(level){this.trianglesPerLeaf=36;this.maxLevel=6;
 
 const renderer = new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.setSize(innerWidth,innerHeight);
-renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.15;
+renderer.outputColorSpace=THREE.SRGBColorSpace; renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.04;
 renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 document.body.prepend(renderer.domElement);
-const scene=new THREE.Scene(); scene.background=new THREE.Color('#cbd1ce'); scene.fog=new THREE.FogExp2('#cbd1ce',.0009);
-const pmrem=new THREE.PMREMGenerator(renderer); scene.environment=pmrem.fromScene(new RoomEnvironment(),.04).texture; scene.environmentIntensity=.30;
-scene.add(new THREE.HemisphereLight(0xe7efff,0xa49b83,.65));
-const sun=new THREE.DirectionalLight(0xffd8a7,2.2); sun.position.set(-35,45,-25); sun.castShadow=true;
+const scene=new THREE.Scene(); scene.background=new THREE.Color('#c7b79b'); scene.fog=new THREE.FogExp2('#c7b79b',.0008);
+const pmrem=new THREE.PMREMGenerator(renderer);
+scene.add(new THREE.HemisphereLight(0xe5efff,0xb39a78,.78));
+const sun=new THREE.DirectionalLight(0xffca87,2.5); sun.position.set(-65,20,-48); sun.castShadow=true;
 sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-45,right:45,top:45,bottom:-45,far:160}); sun.shadow.normalBias=.035;sun.shadow.bias=-.0005; scene.add(sun);
+const sky=new THREE.Mesh(new THREE.SphereGeometry(2100,24,12),new THREE.ShaderMaterial({name:'GoldenHourAtmosphere',side:THREE.BackSide,depthWrite:false,uniforms:{sunDirection:{value:sun.position.clone().normalize()},zenith:{value:new THREE.Color('#8299b6')},horizon:{value:new THREE.Color('#e9c59a')},warm:{value:new THREE.Color('#ffc47c')}},vertexShader:'varying vec3 skyWorld;void main(){vec4 p=modelMatrix*vec4(position,1.0);skyWorld=p.xyz;gl_Position=projectionMatrix*viewMatrix*p;}',fragmentShader:`
+ varying vec3 skyWorld;uniform vec3 sunDirection;uniform vec3 zenith;uniform vec3 horizon;uniform vec3 warm;
+ float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
+ float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
+ void main(){vec3 d=normalize(skyWorld-cameraPosition);float elevation=max(0.0,d.y);vec3 c=mix(horizon,zenith,pow(elevation,.43));float alignment=max(0.0,dot(d,sunDirection));c+=warm*pow(alignment,28.0)*.24;float disk=smoothstep(.99990,.99996,alignment);c+=vec3(5.5,3.6,1.7)*disk;vec2 q=d.xz/max(.12,d.y+.12);float n=noise(q*2.4)*.55+noise(q*5.1)*.28+noise(q*10.8)*.17;float clouds=smoothstep(.61,.80,n)*smoothstep(.02,.14,d.y)*(1.0-smoothstep(.55,.9,d.y));c=mix(c,mix(vec3(.92,.88,.80),warm,alignment*.45),clouds*.5);if(d.y<0.0)c=mix(c,vec3(.35,.32,.25),min(1.0,-d.y*4.0));gl_FragColor=vec4(c,1.0);
+ #include <tonemapping_fragment>
+ #include <colorspace_fragment>
+ }`}));sky.name='RUNTIME_GoldenHourSky';sky.renderOrder=-1;sky.frustumCulled=false;scene.add(sky);
+const reflectionSky=new THREE.Scene();reflectionSky.add(sky.clone());scene.environment=pmrem.fromScene(reflectionSky,.035,.1,2500).texture;scene.environmentIntensity=.42;
 const camera=new THREE.PerspectiveCamera(53,innerWidth/innerHeight,.05,5000);
 const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
 composer.renderTarget1.samples=2;composer.renderTarget2.samples=2;
@@ -43,7 +53,7 @@ const fromBlender=v=>new THREE.Vector3(v[0],v[2],-v[1]);
 const HERO_SECONDS=14, RADIUS=.23, HEIGHT=1.78, EYE_HEIGHT=1.64, WALK_SPEED=1.633, RUN_SPEED=3.5;
 const ui=Object.fromEntries(['introMode','scrollMode','freeMode','hint','roomTitle','progress','handoff','loading','loadText','signalTitle','signalHint','controlHint','interactionHint','interactionText','interactionAction'].map(id=>[id,document.getElementById(id)]));
 const touch=matchMedia('(pointer:coarse)').matches;
-ui.controlHint.textContent=touch?'Setas para caminhar · arraste para olhar':'W/A/S/D · caminhar  ·  Shift · correr  ·  arraste para olhar';
+ui.controlHint.textContent=touch?'Setas · andar · arraste para olhar · Correr · Pular · Interagir':'WASD · andar · Shift · correr · Espaço · pular · E · interagir';
 const rooms={
  living:{p:[-.65,17.5,.07],t:[-.1,9,1.64],title:'Sala · exploração livre'},
  kitchen:{p:[4.2,8.05,.07],t:[2.3,5.5,1.1],title:'Cozinha integrada'},
@@ -52,13 +62,14 @@ const rooms={
  garage:{p:[15.6,-6.9,4.22],t:[9.4,-6.9,4.7],title:'Garagem · Countach'}
 };
 let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now();
-let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,modelBaseY=0,footPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null;
-const interactionActions={};
+let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,jumpAction,jumpController,jumpBlend=0,modelBaseY=0,footPlacement,seatedFootPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null;
+const interactionActions={};let playerClipNames=[];
 let cameraMode='first',heroPath,heroTargets,viewTransition=0;
 const velocity=new THREE.Vector3(),eyeSpring={value:0,velocity:0},bodySpring={value:0,velocity:0};
 const lookRotation=new THREE.Quaternion(),lookEuler=new THREE.Euler(0,0,0,'YXZ');
 const keys=new Set(),physicsKeys=new Set(),inputChanges=[],player=new THREE.Group(); player.name='PLAYER_Control'; scene.add(player);
 const bones={},octree=new Octree(); octree.trianglesPerLeaf=24;octree.maxLevel=10;
+const dynamicSeatColliders=[];
 const capsule=new Capsule(),ray=new THREE.Ray(),normal=new THREE.Vector3(), axisX=new THREE.Vector3(1,0,0);
 const down=new THREE.Vector3(0,-1,0),up=new THREE.Vector3(0,1,0), temp=new THREE.Vector3(),desiredCamera=new THREE.Vector3(),focus=new THREE.Vector3();
 let collisionTriangleCount=0,movedLastFrame=0,blockedLastMove=false,lastShadowUpdate=0,lastVisualMotion=0;
@@ -103,7 +114,7 @@ function finishIntro(){
 }
 function applyEmbeddedState(state){
  if(!window.__visualReady)return;
- if(state.active&&state.progress>=.72&&!playerReady)ensurePlayerReady();
+ if(state.active&&state.progress>=.72&&!playerReady)ensurePlayerReady().catch(reportLoadingFailure);
  if(state.explore){
   if(!playerReady)return;
   if(mode!=='free')finishIntro();
@@ -148,12 +159,25 @@ function supportAt(p){
  return highest-lowest>.37?null:highest+.007;
 }
 function setCapsule(p){capsule.start.set(p.x,p.y+RADIUS+.01,p.z);capsule.end.set(p.x,p.y+HEIGHT-RADIUS,p.z);capsule.radius=RADIUS;}
+function resolveDynamicSeats(p){
+ for(const item of dynamicSeatColliders){
+  const offset=item.node.getWorldPosition(temp).sub(item.origin),box=item.box.clone().translate(offset);
+  if(p.y+HEIGHT<box.min.y||p.y+.02>box.max.y)continue;
+  const closestX=THREE.MathUtils.clamp(p.x,box.min.x,box.max.x),closestZ=THREE.MathUtils.clamp(p.z,box.min.z,box.max.z),dx=p.x-closestX,dz=p.z-closestZ,distance=Math.hypot(dx,dz);
+  if(distance>=RADIUS+.002)continue;
+  if(distance>.0001){p.x+=dx/distance*(RADIUS+.002-distance);p.z+=dz/distance*(RADIUS+.002-distance);}
+  else{
+   const choices=[[box.min.x-RADIUS-.002-p.x,0],[box.max.x+RADIUS+.002-p.x,0],[0,box.min.z-RADIUS-.002-p.z],[0,box.max.z+RADIUS+.002-p.z]].sort((a,b)=>Math.hypot(...a)-Math.hypot(...b));p.x+=choices[0][0];p.z+=choices[0][1];
+  }
+ }
+ return p;
+}
 function resolvePosition(p){
  const trial=p.clone();
  const initialFloor=supportAt(trial);if(initialFloor===null||Math.abs(initialFloor-p.y)>.27)return null;
  trial.y=initialFloor;
  for(let i=0;i<4;i++){
-  setCapsule(trial);const hit=octree.capsuleIntersect(capsule);if(!hit)break;
+  resolveDynamicSeats(trial);setCapsule(trial);const hit=octree.capsuleIntersect(capsule);if(!hit)break;
   if(hit.depth>.45)return null;
   trial.addScaledVector(hit.normal,hit.depth+.001);
  }
@@ -172,7 +196,7 @@ function placePlayer(name){
  if(!position)throw new Error(`Não há espaço livre para o personagem em ${name}`);
  player.position.copy(position);const target=fromBlender(room.t).sub(position);target.y=0;target.normalize();
  yaw=Math.atan2(-target.x,-target.z);pitch=0;player.rotation.y=Math.atan2(target.x,target.z);
- walkBlend=0;runBlend=0;velocity.set(0,0,0);eyeSpring.value=position.y+EYE_HEIGHT;eyeSpring.velocity=0;bodySpring.value=position.y;bodySpring.velocity=0;footPlacement?.reset();
+ walkBlend=0;runBlend=0;jumpBlend=0;jumpController?.reset();velocity.set(0,0,0);eyeSpring.value=position.y+EYE_HEIGHT;eyeSpring.velocity=0;bodySpring.value=position.y;bodySpring.velocity=0;footPlacement?.reset();
  followDestination();introCamera.copy(desiredCamera);introTarget.copy(focus);
  if(name==='living'&&heroPath){heroPath.points.at(-1).copy(introCamera);heroTargets.points.at(-1).copy(introTarget);}
  ui.roomTitle.textContent=room.title;
@@ -224,7 +248,7 @@ function followDestination(){
   focus.set(0,0,-1).applyQuaternion(lookRotation).add(desiredCamera);return;
  }
  focus.copy(player.position).add(new THREE.Vector3(0,interactions?.getFocusHeight(1.20)??1.20,0));
- const interactionPose=interactions?.getPose()||{},carPose=interactionPose.carSeat||0,carView=carPose>.03&&interactionMetadata.car,seatedView=(interactionPose.sit||0)>.03;
+ const interactionPose=interactions?.getPose()||{},carPose=interactionPose.carSeat||0,carView=interactionPose.kind==='car'&&carPose>.03&&interactionMetadata.car,seatedView=interactionPose.kind==='seat'&&((interactionPose.sit||0)+(interactionPose.lounger||0))>.03;
  // The driving view keeps the door and cabin in an exterior three-quarter
  // frame. Pointer yaw/pitch still orbit normally around that cabin focus.
  if(carView){const cabin=new THREE.Vector3(...(carView.driverSeat||carView.position));cabin.y=(carView.seatCushionY??cabin.y+.43)+.38;focus.lerp(cabin,Math.min(1,carPose/.4));}
@@ -240,8 +264,9 @@ function followDestination(){
 function updateAvatar(dt,travelled){
  const speed=travelled/Math.max(dt,.001),moving=speed>.02;
  const pose=interactions?.getPose()||{},locked=interactions?.isMovementLocked()||false;
- const animationPose=Math.min(1,(pose.sit||0)+(pose.carSeat||0)+(pose.swim||0)+(pose.treadWater||0));
- const walking=(!locked||pose.approachWalk)&&moving;
+ const jumpPose=jumpController?.pose()||{weight:0,time:0,airborne:false};jumpBlend=THREE.MathUtils.damp(jumpBlend,jumpPose.weight,jumpPose.airborne?24:16,dt);
+ const animationPose=Math.min(1,(pose.sit||0)+(pose.carSeat||0)+(pose.lounger||0)+(pose.swim||0)+(pose.treadWater||0)+(jumpAction?jumpBlend:0));
+ const walking=(!locked||pose.approachWalk)&&moving&&!jumpPose.airborne;
  walkBlend=THREE.MathUtils.damp(walkBlend,walking?Math.min(1,speed/.6):0,12,dt);
  runBlend=THREE.MathUtils.damp(runBlend,walking&&keys.has('shift')&&!locked?1:0,10,dt);
  const locomotion=walkBlend*(1-animationPose),runWeight=runAction?locomotion*runBlend:0,walkWeight=locomotion-runWeight;
@@ -250,16 +275,20 @@ function updateAvatar(dt,travelled){
  // Run was authored at 2.8 m/s; retain that stride reference as movement speeds change.
  if(runAction){runAction.setEffectiveWeight(runWeight);runAction.setEffectiveTimeScale(walking?speed/2.8:0);}
  for(const [key,action]of Object.entries(interactionActions))action.setEffectiveWeight(pose[key]||0);
+ if(jumpAction){jumpAction.setEffectiveWeight(jumpBlend);jumpAction.time=jumpPose.time*jumpAction.getClip().duration;}
  mixer?.update(dt);
  if(playerModel)playerModel.position.y=modelBaseY+bodySpring.value-player.position.y;
- if(!locked||pose.approachWalk)footPlacement?.update(walkBlend,walking);else footPlacement?.reset();
+ if((!locked||pose.approachWalk)&&!jumpPose.airborne)footPlacement?.update(walkBlend,walking);else footPlacement?.reset();
+ seatedFootPlacement?.update(pose.sit||0,pose.seatSupport);
 }
 function buildCollision(root){
- const area=new THREE.Box3(new THREE.Vector3(-11.5,-.6,-34),new THREE.Vector3(27,8.6,30));
+ const area=new THREE.Box3(new THREE.Vector3(-15,-2,-36),new THREE.Vector3(29,10,33));
  const bounds=new THREE.Box3(),a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
  root.updateMatrixWorld(true);
+ root.traverse(node=>{if(node.name.startsWith('R30_SEAT_'))dynamicSeatColliders.push({node,origin:node.getWorldPosition(new THREE.Vector3()),box:new THREE.Box3().setFromObject(node)});});
  root.traverse(mesh=>{
   if(!mesh.isMesh)return;
+  for(let parent=mesh.parent;parent;parent=parent.parent)if(parent.name.startsWith('R30_SEAT_'))return;
   // Vehicle doors contribute their closed rest geometry. All authored entry
   // sequences lock free locomotion, so the static capsule remains valid again
   // before the visitor can walk and the door has closed.
@@ -268,7 +297,7 @@ function buildCollision(root){
   const groups=geometry.groups.length?geometry.groups:[{start:0,count:index?index.count:position.count,materialIndex:0}];
   for(const group of groups){
    const mat=materials[group.materialIndex]||materials[0];
-   if(/Foliage|Bark|Mountain|Soil|Water|Seam|LED|Book|Paper/i.test(mat.name))continue;
+   if(/Foliage|Leaf|Bark|Mountain|Soil|Water|Seam|LED|Book|Paper|Stem/i.test(mat.name))continue;
    for(let i=group.start;i<group.start+group.count;i+=3){
     a.fromBufferAttribute(position,index?index.getX(i):i).applyMatrix4(mesh.matrixWorld);
     b.fromBufferAttribute(position,index?index.getX(i+1):i+1).applyMatrix4(mesh.matrixWorld);
@@ -290,12 +319,15 @@ document.querySelectorAll('[data-key]').forEach(button=>{
  button.onpointerup=button.onpointercancel=button.onlostpointercapture=()=>setMovementKey(button.dataset.key,false);
 });
 window.addEventListener('keydown',e=>{
+ if(mode==='free'&&!e.target.closest('input,textarea')&&e.code==='Space'){e.preventDefault();if(!e.repeat&&!interactions?.isMovementLocked()&&jumpController?.request()){dismissHandoff();footPlacement?.reset();}return;}
  if(mode==='free'&&!e.target.closest('input,textarea')&&interactions?.handleKey(e)){dismissHandoff();resetFrameClock();return;}
  if(embedding.enabled&&mode==='free'&&e.key==='Escape'&&!e.repeat){e.preventDefault();embedding.exit();return;}
  if(e.key.toLowerCase()==='v'&&mode==='free'&&!e.repeat){setViewMode(cameraMode==='first'?'third':'first');e.preventDefault();return;}
  const key=e.key.toLowerCase();if(mode==='free'&&!e.target.closest('input,textarea')&&['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','shift'].includes(key)){setMovementKey(key,true);dismissHandoff();e.preventDefault();}
 });
 window.addEventListener('keyup',e=>setMovementKey(e.key.toLowerCase(),false));
+const jumpButton=document.getElementById('jumpAction');
+jumpButton.onpointerdown=e=>{if(mode!=='free')return;e.preventDefault();if(!interactions?.isMovementLocked()&&jumpController?.request()){dismissHandoff();footPlacement?.reset();}};
 function setMovementKey(key,pressed){
  if(keys.has(key)===pressed)return;
  if(pressed)keys.add(key);else keys.delete(key);
@@ -314,7 +346,7 @@ renderer.domElement.onpointerup=renderer.domElement.onpointercancel=renderer.dom
 // Wheel/touch page scrolling stays with the host page after the handoff.
 // Locomotion has explicit keyboard/touch controls and does not consume scroll.
 renderer.domElement.addEventListener('wheel',()=>{if(mode==='free')dismissHandoff();},{passive:true});
-ui.interactionAction.onclick=()=>{if(interactions?.activate()){resetFrameClock();dismissHandoff();}};
+ui.interactionAction.onclick=()=>{if(!jumpController?.airborne&&!jumpController?.queued&&interactions?.activate()){resetFrameClock();dismissHandoff();}};
 function sample(t){
  const keys=route.keyframes,seconds=t*HERO_SECONDS;
  let i=keys.findIndex((p,j)=>j<keys.length-1&&seconds<=keys[j+1].t);if(i<0)i=keys.length-2;
@@ -371,7 +403,9 @@ function tick(now){
     if(delta.lengthSq()>0)delta.normalize().multiplyScalar(stepKeys.has('shift')?RUN_SPEED:WALK_SPEED);
     velocity.lerp(delta,1-Math.exp(-(delta.lengthSq()?9:15)*stepDt));
     if(velocity.lengthSq()<.00001)velocity.set(0,0,0);
-    delta.copy(velocity).multiplyScalar(stepDt);lastMoveDt=stepDt;movedLastFrame+=movePlayer(delta);
+    delta.copy(velocity).multiplyScalar(stepDt);lastMoveDt=stepDt;
+    const airborneMove=jumpController?.update(stepDt,delta);movedLastFrame+=airborneMove===null||airborneMove===undefined?movePlayer(delta):airborneMove;
+    if(jumpController?.airborne&&interactions?.enterWaterFromMotion()){jumpController.reset();jumpBlend=0;velocity.set(0,0,0);footPlacement?.reset();sun.shadow.needsUpdate=true;}
    }
    spring(eyeSpring,player.position.y+(interactions?.getEyeHeight(EYE_HEIGHT)??EYE_HEIGHT),16,stepDt);
    spring(bodySpring,player.position.y,22,stepDt);
@@ -402,11 +436,12 @@ function tick(now){
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);sizeComposer();});
 window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,startIntro,resolvePosition,setViewMode,
  embedding,
- get interactions(){return interactions;},get interactionMetadata(){return interactionMetadata;},
+ get visualReady(){return !!window.__visualReady;},get playerReady(){return playerReady;},ensurePlayerReady,
+ get interactions(){return interactions;},get interactionMetadata(){return interactionMetadata;},get jump(){return jumpController;},get seatedFeet(){return seatedFootPlacement;},
  sampleHero:sample,heroDuration:HERO_SECONDS,
  get mode(){return mode;},get heroCompleted(){return heroCompleted;},get progress(){return progress;},get introElapsed(){return introElapsed;},get walkBlend(){return walkBlend;},get idleTime(){return idleAction?.time||0;},
  setProgress(p){setMode('scroll');window.scrollTo(0,p*(document.documentElement.scrollHeight-innerHeight));},
- metrics(){return{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls,textures:renderer.info.memory.textures,position:camera.position.toArray(),player:player.position.toArray(),collisionTriangles:collisionTriangleCount,walkBlend,runBlend,speed:velocity.length(),walkSpeed:WALK_SPEED,runSpeed:RUN_SPEED,cameraMode,eyeHeight:interactions?.getEyeHeight(EYE_HEIGHT)??EYE_HEIGHT,eyeY:eyeSpring.value,blockedLastMove,interaction:interactions?.getState().state||'idle',animations:mixer?._actions.map(a=>a.getClip().name)||[]};}
+ metrics(){return{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls,textures:renderer.info.memory.textures,position:camera.position.toArray(),player:player.position.toArray(),collisionTriangles:collisionTriangleCount,walkBlend,runBlend,jumpBlend,jump:jumpController?.metrics(),speed:velocity.length(),walkSpeed:WALK_SPEED,runSpeed:RUN_SPEED,cameraMode,eyeHeight:interactions?.getEyeHeight(EYE_HEIGHT)??EYE_HEIGHT,eyeY:eyeSpring.value,blockedLastMove,interaction:interactions?.getState().state||'idle',animations:mixer?._actions.map(a=>a.getClip().name)||[],assetAnimations:[...playerClipNames]};}
 };
 requestAnimationFrame(tick);
 const draco=new DRACOLoader();draco.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);
@@ -415,57 +450,56 @@ const setLoad=(phase,percent,label)=>{
  if(label)ui.loadText.textContent=`${label} ${value}%`;
  embedding.reportLoad?.(phase,value,label||'');
 };
+function reportLoadingFailure(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}
 async function ensurePlayerReady(){
  if(playerReady)return true;
  if(playerLoadPromise)return playerLoadPromise;
  playerLoadPromise=(async()=>{
   setLoad('player',0,'Preparando personagem…');
-  const avatar=await loader.loadAsync('./PLAYER.glb',e=>{
-   if(!e.total)return;
-   const ratio=Math.max(0,Math.min(1,e.loaded/Math.max(e.loaded,e.total)));
-   setLoad('player',ratio*90,'Preparando personagem…');
-  });
+  const avatar=await loader.loadAsync(versionedAssetURL('./PLAYER.glb'),e=>{if(e.total)setLoad('player',Math.min(1,e.loaded/Math.max(e.loaded,e.total))*90,'Preparando personagem…');});
   setLoad('player',92,'Configurando personagem…');
-  playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
-   if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
-   if(o.isSkinnedMesh)o.frustumCulled=false;
-   if(o.isBone)bones[o.name.replace(/^mixamorig[:_]?/i,'')]=o;
-  });
-  if(!avatar.animations.length)throw new Error('O personagem não contém a animação Idle');
-  mixer=new THREE.AnimationMixer(playerModel);idleAction=mixer.clipAction(avatar.animations.find(a=>/^idle$/i.test(a.name))||avatar.animations[0]);idleAction.play();
-  const walkClip=avatar.animations.find(a=>a.name==='WalkRefined')||avatar.animations.find(a=>a.name==='Walk');if(!walkClip)throw new Error('Animação Walk não encontrada');
-  walkAction=mixer.clipAction(walkClip);walkAction.play().setEffectiveWeight(0);mixer.update(0);
-  const runClip=avatar.animations.find(a=>a.name==='Run');if(runClip)runAction=mixer.clipAction(runClip).play().setEffectiveWeight(0);
-  for(const [key,name]of Object.entries({sit:'Sit',carSeat:'CarSeat',swim:'Swim',treadWater:'TreadWater'})){
-   const clip=avatar.animations.find(a=>a.name===name);if(!clip)throw new Error(`Animação de interação ${name} não encontrada`);interactionActions[key]=mixer.clipAction(clip).play().setEffectiveWeight(0);
-  }
-  interactions=createEnvironmentInteractions({scene,player,camera,renderer,metadata:interactionMetadata,resolvePosition,getViewMode:()=>cameraMode,getYaw:()=>yaw,setYaw:value=>{yaw=value;},getIsExploring:()=>mode==='free',
-   onPrompt:prompt=>{ui.interactionHint.hidden=!prompt.visible;ui.interactionText.textContent=prompt.text;ui.interactionAction.textContent=prompt.action||'Interagir';ui.interactionAction.hidden=prompt.busy||!prompt.visible;ui.interactionAction.disabled=!!prompt.busy;ui.interactionHint.setAttribute('aria-busy',String(!!prompt.busy));if(prompt.visible)dismissHandoff();},
-   onStateChange:()=>{sun.shadow.needsUpdate=true;},
-   onTransitionEnd:()=>{velocity.set(0,0,0);footPlacement?.reset();eyeSpring.velocity=0;bodySpring.velocity=0;}
-  });
-  if(interactions.water)transparentMeshes.push(interactions.water.mesh,...interactions.water.root.children.filter(o=>o.isMesh&&o.material.transparent));
-  footPlacement=createFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;
-  setLoad('player',97,'Preparando animações…');
-  placePlayer('living');sample(progress);scene.updateMatrixWorld(true);
-  playerModel.visible=true;await renderer.compileAsync(scene,camera);playerModel.visible=false;renderer.render(scene,camera);
+ playerClipNames=avatar.animations.map(clip=>clip.name);playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
+  if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
+  // Rest-pose bounds do not cover the cap/body while swimming or sitting.
+  // Whole-avatar visibility still controls the first-person presentation.
+  if(o.isSkinnedMesh)o.frustumCulled=false;
+  if(o.isBone)bones[o.name.replace(/^mixamorig[:_]?/i,'')]=o;
+ });
+ if(!avatar.animations.length)throw new Error('O personagem não contém a animação Idle');
+ mixer=new THREE.AnimationMixer(playerModel);idleAction=mixer.clipAction(avatar.animations.find(a=>/^idle$/i.test(a.name))||avatar.animations[0]);idleAction.play();
+ const walkClip=avatar.animations.find(a=>a.name==='WalkRefined')||avatar.animations.find(a=>a.name==='Walk');if(!walkClip)throw new Error('Animação Walk não encontrada');
+ walkAction=mixer.clipAction(walkClip);walkAction.play().setEffectiveWeight(0);mixer.update(0);
+ const runClip=avatar.animations.find(a=>a.name==='Run');if(runClip)runAction=mixer.clipAction(runClip).play().setEffectiveWeight(0);
+ const jumpClip=avatar.animations.find(a=>a.name==='Jump');if(jumpClip){jumpAction=mixer.clipAction(jumpClip).play().setEffectiveWeight(0);jumpAction.paused=true;}
+ for(const [key,name]of Object.entries({sit:'Sit',carSeat:'CarSeat',lounger:'Lounger',swim:'Swim',treadWater:'TreadWater'})){
+  const clip=avatar.animations.find(a=>a.name===name);if(!clip)throw new Error(`Animação de interação ${name} não encontrada`);interactionActions[key]=mixer.clipAction(clip).play().setEffectiveWeight(0);
+ }
+ jumpController=createJumpController({player,octree,supportAt,resolvePosition,resolveDynamic:resolveDynamicSeats,radius:RADIUS,height:HEIGHT,onLand:()=>{footPlacement?.reset();sun.shadow.needsUpdate=true;},onRecover:()=>{velocity.set(0,0,0);footPlacement?.reset();}});
+ interactions=createEnvironmentInteractions({scene,player,camera,renderer,metadata:interactionMetadata,resolvePosition,getViewMode:()=>cameraMode,getYaw:()=>yaw,setYaw:value=>{yaw=value;},getIsExploring:()=>mode==='free'&&!jumpController.airborne&&!jumpController.queued,
+  onPrompt:prompt=>{ui.interactionHint.hidden=!prompt.visible;ui.interactionText.textContent=prompt.text;ui.interactionAction.textContent=prompt.action||'Interagir';ui.interactionAction.hidden=prompt.busy||!prompt.visible;ui.interactionAction.disabled=!!prompt.busy;ui.interactionHint.setAttribute('aria-busy',String(!!prompt.busy));if(prompt.visible)dismissHandoff();},
+  onStateChange:()=>{sun.shadow.needsUpdate=true;},
+  onTransitionEnd:()=>{velocity.set(0,0,0);footPlacement?.reset();eyeSpring.velocity=0;bodySpring.velocity=0;}
+ });
+ if(interactions.water)transparentMeshes.push(interactions.water.mesh,...interactions.water.root.children.filter(o=>o.isMesh&&o.material.transparent));
+ footPlacement=createFootPlacement(player,playerModel,bones,octree);seatedFootPlacement=createSeatedFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;setLoad('player',97,'Preparando animações…');
+ // Prepare the exploration passes while the loading screen still owns the
+ // scene, so its first shadow/AO shader compilation cannot swallow key input.
+ setLoad('player',98,'Preparando iluminação…');
+ placePlayer('living');sample(progress);scene.updateMatrixWorld(true);
+ await renderer.compileAsync(scene,camera);composer.render();
+ playerModel.visible=false;sun.shadow.needsUpdate=true;composer.render();
   playerReady=true;window.__ready=true;setLoad('player',100,'Personagem pronto ·');
-  embedding.ready();
-  return true;
+  embedding.ready();return true;
  })().catch(error=>{playerLoadPromise=null;embedding.reportLoad?.('player',0,'Falha ao preparar personagem');throw error;});
  return playerLoadPromise;
 }
 try{
  setLoad('environment',0,'Carregando ambiente…');
- const [response,metadataResponse]=await Promise.all([fetch('./hero-route.json'),fetch('./interaction-metadata.json')]);
+ const [response,metadataResponse]=await Promise.all([fetch(versionedAssetURL('./hero-route.json')),fetch(versionedAssetURL('./interaction-metadata.json'))]);
  if(!response.ok)throw new Error('Percurso indisponível');if(!metadataResponse.ok)throw new Error('Interações indisponíveis');route=await response.json();interactionMetadata=await metadataResponse.json();
  heroPath=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.position)),false,'centripetal');
  heroTargets=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.target)),false,'centripetal');
- const house=await loader.loadAsync('./CASA_HERO.glb',e=>{
-  if(!e.total)return;
-  const ratio=Math.max(0,Math.min(1,e.loaded/Math.max(e.loaded,e.total)));
-  setLoad('environment',ratio*82,'Carregando ambiente…');
- });
+ const house=await loadHouseAsset(loader,{url:'./CASA_HERO.glb',onProgress:e=>{if(e.total)setLoad('environment',Math.min(1,e.loaded/Math.max(e.loaded,e.total))*82,'Carregando ambiente…');}});
  setLoad('environment',84,'Montando ambiente…');
  const embeddedVehicle=house.scene.getObjectByName('CASA_VEHICLE');
  if(!embeddedVehicle)throw new Error('CASA_HERO.glb está incompleto: o carro articulado CASA_VEHICLE deve estar incluído no ambiente.');
@@ -483,9 +517,6 @@ try{
  sample(0);scene.updateMatrixWorld(true);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
  window.__visualReady=true;mode='embedded';document.body.dataset.mode='embedded';
  setLoad('environment',100,'Ambiente pronto ·');
- if(embedding.enabled){
-  embedding.visualReady();ui.loading.classList.add('done');
- }else{
-  await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');
- }
-}catch(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}
+ if(embedding.enabled){embedding.visualReady();ui.loading.classList.add('done');}
+ else{await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');}
+}catch(error){reportLoadingFailure(error);}

@@ -1,4 +1,5 @@
 // Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
+const CASA_RELEASE = '20261011-cabin-entrance-v1';
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');
@@ -6,8 +7,8 @@ const clamp = value => Math.max(0, Math.min(1, value));
 
 if (hero && stage && !window.MSCasaHero) {
   const controlHint = matchMedia('(pointer: coarse)').matches
-    ? 'Setas · andar · arraste para olhar'
-    : 'W/A/S/D · andar · Shift · correr · arraste para olhar';
+    ? 'Setas · andar · segure Correr · Pular · Interagir · arraste para olhar'
+    : 'W/A/S/D · andar · Shift · correr · Espaço · pular · E · interagir';
   const panel = document.createElement('div');
   panel.id = 'msCasaHeroPanel';
   panel.className = 'ms-casa-hero-panel';
@@ -16,10 +17,10 @@ if (hero && stage && !window.MSCasaHero) {
   panel.setAttribute('aria-label', 'Explore a casa Mensagem Studio');
   panel.innerHTML = `
     <iframe id="msCasaHeroFrame" title="Casa Mensagem Studio — ambiente 3D interativo"
-      data-src="./assets/casa-hero/index.html?embed=hero4" loading="eager"
+      data-src="./assets/casa-hero/index.html?embed=hero4&v=${CASA_RELEASE}" loading="eager"
       referrerpolicy="same-origin" tabindex="-1" aria-hidden="true"></iframe>
     <div id="msCasaHeroPrompt" class="ms-casa-hologram" hidden>
-      <p>Explore o ambiente</p>
+      <p>Ande no ambiente ou continue rolando</p>
       <div class="ms-casa-hero-actions">
         <button id="msCasaHeroExplore" class="ms-casa-explore" type="button" disabled>Andar no ambiente</button>
         <button class="ms-casa-continue" type="button">Continuar pela página ↓</button>
