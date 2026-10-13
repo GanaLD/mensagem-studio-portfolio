@@ -1,11 +1,13 @@
 import * as THREE from 'three';
+import {createYieldBudget} from './async-octree.mjs?v=20261012-web-fast-v1';
 
 // Static material batches may span every room and the entire landscape.
 // Reuse their original vertex buffers and distribute only triangle indices
 // into bounded regions, so the camera can cull unseen regions. No material,
 // vertex position, texture, skin, animation or vehicle hierarchy is changed.
-export function partitionStaticScene(root,cellSize=6,maxChunksPerMesh=128){
+export async function partitionStaticScene(root,cellSize=6,maxChunksPerMesh=128){
  if(!(cellSize>0)||!Number.isInteger(maxChunksPerMesh)||maxChunksPerMesh<8)throw Error('Invalid static partition limits');
+ const budget=createYieldBudget(8),started=performance.now();
  const sources=[];root.updateMatrixWorld(true);
  root.traverse(mesh=>{
   if(!mesh.isMesh||mesh.isSkinnedMesh||mesh.children.length||Array.isArray(mesh.material)||mesh.geometry.groups.length>1)return;
@@ -26,6 +28,7 @@ export function partitionStaticScene(root,cellSize=6,maxChunksPerMesh=128){
   while((gridCells=estimatedCells())>maxChunksPerMesh)cellScale*=Math.max(1.1,Math.cbrt(gridCells/maxChunksPerMesh));
   const cellDimensions=baseCell.map(size=>size*cellScale);
   for(let offset=0;offset<count;offset+=3){
+   if(offset%1536===0){const pending=budget.check();if(pending)await pending;}
    const a=index?index.getX(offset):offset,b=index?index.getX(offset+1):offset+1,c=index?index.getX(offset+2):offset+2;
    const x=(positions.getX(a)+positions.getX(b)+positions.getX(c))/3,y=(positions.getY(a)+positions.getY(b)+positions.getY(c))/3,z=(positions.getZ(a)+positions.getZ(b)+positions.getZ(c))/3;
    const key=[Math.floor((m[0]*x+m[4]*y+m[8]*z+m[12])/cellDimensions[0]),Math.floor((m[1]*x+m[5]*y+m[9]*z+m[13])/cellDimensions[1]),Math.floor((m[2]*x+m[6]*y+m[10]*z+m[14])/cellDimensions[2])].join(',');
@@ -49,9 +52,10 @@ export function partitionStaticScene(root,cellSize=6,maxChunksPerMesh=128){
    const child=new THREE.Mesh(part,mesh.material);child.name=mesh.name+'_region_'+ordinal++;
    child.castShadow=mesh.castShadow;child.receiveShadow=mesh.receiveShadow;child.renderOrder=mesh.renderOrder;
    group.add(child);report.chunks++;report.trianglesAfter+=bucket.indices.length/3;
+   const pending=budget.check();if(pending)await pending;
   }
   const parent=mesh.parent;parent.add(group);parent.remove(mesh);
  }
  if(report.trianglesBefore!==report.trianglesAfter)throw Error('Static partition lost scene triangles');
- root.updateMatrixWorld(true);return report;
+ root.updateMatrixWorld(true);Object.assign(report,{durationMs:performance.now()-started,...budget.finish()});return report;
 }

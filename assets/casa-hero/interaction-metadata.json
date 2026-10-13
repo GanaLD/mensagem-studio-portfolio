@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "coordinateSystem": "Three Y-up metres",
-  "source": "3D CASAv2.blend",
+  "source": "3D CASAv3.blend",
   "seats": [
     {
       "id": "R27_LivingArmchair_A",
@@ -19,7 +19,25 @@
         -14.980486869812012
       ],
       "yaw": 2.86233996903203,
-      "triggerRadius": 0.92
+      "triggerRadius": 0.92,
+      "padNode": "R27_LivingArmchair_A_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          -1.690442681312561,
+          0.33773139119148254,
+          -14.441855430603027
+        ],
+        "max": [
+          -0.8012881875038147,
+          0.5062686204910278,
+          -13.586982727050781
+        ]
+      },
+      "footSupportY": 0.077,
+      "clipHipHeight": 0.524142780647,
+      "pelvisAboveCushion": 0.185343686276,
+      "footSupportMode": "floor"
     },
     {
       "id": "R27_LivingArmchair_B",
@@ -37,13 +55,1435 @@
         -17.280000686645508
       ],
       "yaw": 0.38397241810465355,
-      "triggerRadius": 0.92
+      "triggerRadius": 0.92,
+      "padNode": "R27_LivingArmchair_B_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          -1.8101693391799927,
+          0.33773139119148254,
+          -18.288066864013672
+        ],
+        "max": [
+          -0.8785926103591919,
+          0.5062686204910278,
+          -17.384119033813477
+        ]
+      },
+      "footSupportY": 0.077,
+      "clipHipHeight": 0.524142780647,
+      "pelvisAboveCushion": 0.185343686276,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairL0_Seat",
+      "node": "FURN_DiningChairL0_Seat",
+      "label": "Cadeira",
+      "position": [
+        0.6499999761581421,
+        0.062,
+        -9.100000381469727
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairL0",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -1.150000023841858,
+        0.062,
+        -9.100000381469727
+      ],
+      "standPosition": [
+        0.36999997615814206,
+        0.062,
+        -9.100000381469727
+      ],
+      "approachPath": [
+        [
+          -1.150000023841858,
+          0.062,
+          -8.480000381469727
+        ],
+        [
+          -0.3500000238418579,
+          0.062,
+          -8.480000381469727
+        ],
+        [
+          0.1699999761581421,
+          0.062,
+          -8.675000381469726
+        ],
+        [
+          0.36999997615814206,
+          0.062,
+          -9.100000381469727
+        ]
+      ],
+      "padNode": "FURN_DiningChairL0_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.38999998569488525,
+          0.42000001668930054,
+          -9.360000610351562
+        ],
+        "max": [
+          0.9099999666213989,
+          0.5099999904632568,
+          -8.84000015258789
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairL1_Seat",
+      "node": "FURN_DiningChairL1_Seat",
+      "label": "Cadeira",
+      "position": [
+        0.6499999761581421,
+        0.062,
+        -9.949999809265137
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairL1",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -1.150000023841858,
+        0.062,
+        -9.949999809265137
+      ],
+      "standPosition": [
+        0.36999997615814206,
+        0.062,
+        -9.949999809265137
+      ],
+      "approachPath": [
+        [
+          -1.150000023841858,
+          0.062,
+          -9.329999809265138
+        ],
+        [
+          -0.3500000238418579,
+          0.062,
+          -9.329999809265138
+        ],
+        [
+          0.1699999761581421,
+          0.062,
+          -9.524999809265136
+        ],
+        [
+          0.36999997615814206,
+          0.062,
+          -9.949999809265137
+        ]
+      ],
+      "padNode": "FURN_DiningChairL1_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.38999998569488525,
+          0.42000001668930054,
+          -10.210000038146973
+        ],
+        "max": [
+          0.9099999666213989,
+          0.5099999904632568,
+          -9.6899995803833
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairL2_Seat",
+      "node": "FURN_DiningChairL2_Seat",
+      "label": "Cadeira",
+      "position": [
+        0.6499999761581421,
+        0.062,
+        -10.800000190734863
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairL2",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -1.150000023841858,
+        0.062,
+        -10.800000190734863
+      ],
+      "standPosition": [
+        0.36999997615814206,
+        0.062,
+        -10.800000190734863
+      ],
+      "approachPath": [
+        [
+          -1.150000023841858,
+          0.062,
+          -10.180000190734864
+        ],
+        [
+          -0.3500000238418579,
+          0.062,
+          -10.180000190734864
+        ],
+        [
+          0.1699999761581421,
+          0.062,
+          -10.375000190734863
+        ],
+        [
+          0.36999997615814206,
+          0.062,
+          -10.800000190734863
+        ]
+      ],
+      "padNode": "FURN_DiningChairL2_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.38999998569488525,
+          0.42000001668930054,
+          -11.0600004196167
+        ],
+        "max": [
+          0.9099999666213989,
+          0.5099999904632568,
+          -10.539999961853027
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairL3_Seat",
+      "node": "FURN_DiningChairL3_Seat",
+      "label": "Cadeira",
+      "position": [
+        0.6499999761581421,
+        0.062,
+        -11.649999618530273
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairL3",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -1.150000023841858,
+        0.062,
+        -11.649999618530273
+      ],
+      "standPosition": [
+        0.36999997615814206,
+        0.062,
+        -11.649999618530273
+      ],
+      "approachPath": [
+        [
+          -1.150000023841858,
+          0.062,
+          -11.029999618530274
+        ],
+        [
+          -0.3500000238418579,
+          0.062,
+          -11.029999618530274
+        ],
+        [
+          0.1699999761581421,
+          0.062,
+          -11.224999618530273
+        ],
+        [
+          0.36999997615814206,
+          0.062,
+          -11.649999618530273
+        ]
+      ],
+      "padNode": "FURN_DiningChairL3_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.38999998569488525,
+          0.42000001668930054,
+          -11.90999984741211
+        ],
+        "max": [
+          0.9099999666213989,
+          0.5099999904632568,
+          -11.389999389648438
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairR0_Seat",
+      "node": "FURN_DiningChairR0_Seat",
+      "label": "Cadeira",
+      "position": [
+        2.950000047683716,
+        0.062,
+        -9.100000381469727
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairR0",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        4.750000047683716,
+        0.062,
+        -9.100000381469727
+      ],
+      "standPosition": [
+        3.230000047683716,
+        0.062,
+        -9.100000381469727
+      ],
+      "approachPath": [
+        [
+          4.750000047683716,
+          0.062,
+          -9.720000381469726
+        ],
+        [
+          3.950000047683716,
+          0.062,
+          -9.720000381469726
+        ],
+        [
+          3.430000047683716,
+          0.062,
+          -9.525000381469727
+        ],
+        [
+          3.230000047683716,
+          0.062,
+          -9.100000381469727
+        ]
+      ],
+      "padNode": "FURN_DiningChairR0_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          2.690000057220459,
+          0.42000001668930054,
+          -9.360000610351562
+        ],
+        "max": [
+          3.2100000381469727,
+          0.5099999904632568,
+          -8.84000015258789
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairR1_Seat",
+      "node": "FURN_DiningChairR1_Seat",
+      "label": "Cadeira",
+      "position": [
+        2.950000047683716,
+        0.062,
+        -9.949999809265137
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairR1",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        4.750000047683716,
+        0.062,
+        -9.949999809265137
+      ],
+      "standPosition": [
+        3.230000047683716,
+        0.062,
+        -9.949999809265137
+      ],
+      "approachPath": [
+        [
+          4.750000047683716,
+          0.062,
+          -10.569999809265136
+        ],
+        [
+          3.950000047683716,
+          0.062,
+          -10.569999809265136
+        ],
+        [
+          3.430000047683716,
+          0.062,
+          -10.374999809265137
+        ],
+        [
+          3.230000047683716,
+          0.062,
+          -9.949999809265137
+        ]
+      ],
+      "padNode": "FURN_DiningChairR1_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          2.690000057220459,
+          0.42000001668930054,
+          -10.210000038146973
+        ],
+        "max": [
+          3.2100000381469727,
+          0.5099999904632568,
+          -9.6899995803833
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairR2_Seat",
+      "node": "FURN_DiningChairR2_Seat",
+      "label": "Cadeira",
+      "position": [
+        2.950000047683716,
+        0.062,
+        -10.800000190734863
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairR2",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        4.750000047683716,
+        0.062,
+        -10.800000190734863
+      ],
+      "standPosition": [
+        3.230000047683716,
+        0.062,
+        -10.800000190734863
+      ],
+      "approachPath": [
+        [
+          4.750000047683716,
+          0.062,
+          -11.420000190734862
+        ],
+        [
+          3.950000047683716,
+          0.062,
+          -11.420000190734862
+        ],
+        [
+          3.430000047683716,
+          0.062,
+          -11.225000190734864
+        ],
+        [
+          3.230000047683716,
+          0.062,
+          -10.800000190734863
+        ]
+      ],
+      "padNode": "FURN_DiningChairR2_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          2.690000057220459,
+          0.42000001668930054,
+          -11.0600004196167
+        ],
+        "max": [
+          3.2100000381469727,
+          0.5099999904632568,
+          -10.539999961853027
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_DiningChairR3_Seat",
+      "node": "FURN_DiningChairR3_Seat",
+      "label": "Cadeira",
+      "position": [
+        2.950000047683716,
+        0.062,
+        -11.649999618530273
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_DiningChairR3",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        4.750000047683716,
+        0.062,
+        -11.649999618530273
+      ],
+      "standPosition": [
+        3.230000047683716,
+        0.062,
+        -11.649999618530273
+      ],
+      "approachPath": [
+        [
+          4.750000047683716,
+          0.062,
+          -12.269999618530273
+        ],
+        [
+          3.950000047683716,
+          0.062,
+          -12.269999618530273
+        ],
+        [
+          3.430000047683716,
+          0.062,
+          -12.074999618530274
+        ],
+        [
+          3.230000047683716,
+          0.062,
+          -11.649999618530273
+        ]
+      ],
+      "padNode": "FURN_DiningChairR3_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          2.690000057220459,
+          0.42000001668930054,
+          -11.90999984741211
+        ],
+        "max": [
+          3.2100000381469727,
+          0.5099999904632568,
+          -11.389999389648438
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairL0_Seat",
+      "node": "FURN_GourmetChairL0_Seat",
+      "label": "Cadeira",
+      "position": [
+        -1.2000000476837158,
+        0.062,
+        -22.600000381469727
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairL0",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -3.0000000476837156,
+        0.062,
+        -22.600000381469727
+      ],
+      "standPosition": [
+        -1.4800000476837158,
+        0.062,
+        -22.600000381469727
+      ],
+      "approachPath": [
+        [
+          -3.0000000476837156,
+          0.062,
+          -21.980000381469726
+        ],
+        [
+          -2.200000047683716,
+          0.062,
+          -21.980000381469726
+        ],
+        [
+          -1.6800000476837158,
+          0.062,
+          -22.175000381469726
+        ],
+        [
+          -1.4800000476837158,
+          0.062,
+          -22.600000381469727
+        ]
+      ],
+      "padNode": "FURN_GourmetChairL0_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          -1.4600000381469727,
+          0.42000001668930054,
+          -22.860000610351562
+        ],
+        "max": [
+          -0.940000057220459,
+          0.5099999904632568,
+          -22.34000015258789
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairL1_Seat",
+      "node": "FURN_GourmetChairL1_Seat",
+      "label": "Cadeira",
+      "position": [
+        -1.2000000476837158,
+        0.062,
+        -23.450000762939453
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairL1",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -3.0000000476837156,
+        0.062,
+        -23.450000762939453
+      ],
+      "standPosition": [
+        -1.4800000476837158,
+        0.062,
+        -23.450000762939453
+      ],
+      "approachPath": [
+        [
+          -3.0000000476837156,
+          0.062,
+          -22.830000762939452
+        ],
+        [
+          -2.200000047683716,
+          0.062,
+          -22.830000762939452
+        ],
+        [
+          -1.6800000476837158,
+          0.062,
+          -23.025000762939452
+        ],
+        [
+          -1.4800000476837158,
+          0.062,
+          -23.450000762939453
+        ]
+      ],
+      "padNode": "FURN_GourmetChairL1_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          -1.4600000381469727,
+          0.42000001668930054,
+          -23.71000099182129
+        ],
+        "max": [
+          -0.940000057220459,
+          0.5099999904632568,
+          -23.190000534057617
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairL2_Seat",
+      "node": "FURN_GourmetChairL2_Seat",
+      "label": "Cadeira",
+      "position": [
+        -1.2000000476837158,
+        0.062,
+        -24.299999237060547
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairL2",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -3.0000000476837156,
+        0.062,
+        -24.299999237060547
+      ],
+      "standPosition": [
+        -1.4800000476837158,
+        0.062,
+        -24.299999237060547
+      ],
+      "approachPath": [
+        [
+          -3.0000000476837156,
+          0.062,
+          -23.679999237060546
+        ],
+        [
+          -2.200000047683716,
+          0.062,
+          -23.679999237060546
+        ],
+        [
+          -1.6800000476837158,
+          0.062,
+          -23.874999237060546
+        ],
+        [
+          -1.4800000476837158,
+          0.062,
+          -24.299999237060547
+        ]
+      ],
+      "padNode": "FURN_GourmetChairL2_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          -1.4600000381469727,
+          0.42000001668930054,
+          -24.559999465942383
+        ],
+        "max": [
+          -0.940000057220459,
+          0.5099999904632568,
+          -24.03999900817871
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairL3_Seat",
+      "node": "FURN_GourmetChairL3_Seat",
+      "label": "Cadeira",
+      "position": [
+        -1.2000000476837158,
+        0.062,
+        -25.149999618530273
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairL3",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -3.0000000476837156,
+        0.062,
+        -25.149999618530273
+      ],
+      "standPosition": [
+        -1.4800000476837158,
+        0.062,
+        -25.149999618530273
+      ],
+      "approachPath": [
+        [
+          -3.0000000476837156,
+          0.062,
+          -24.529999618530272
+        ],
+        [
+          -2.200000047683716,
+          0.062,
+          -24.529999618530272
+        ],
+        [
+          -1.6800000476837158,
+          0.062,
+          -24.724999618530273
+        ],
+        [
+          -1.4800000476837158,
+          0.062,
+          -25.149999618530273
+        ]
+      ],
+      "padNode": "FURN_GourmetChairL3_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          -1.4600000381469727,
+          0.42000001668930054,
+          -25.40999984741211
+        ],
+        "max": [
+          -0.940000057220459,
+          0.5099999904632568,
+          -24.889999389648438
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairR0_Seat",
+      "node": "FURN_GourmetChairR0_Seat",
+      "label": "Cadeira",
+      "position": [
+        1.2000000476837158,
+        0.062,
+        -22.600000381469727
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairR0",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        3.0000000476837156,
+        0.062,
+        -22.600000381469727
+      ],
+      "standPosition": [
+        1.4800000476837158,
+        0.062,
+        -22.600000381469727
+      ],
+      "approachPath": [
+        [
+          3.0000000476837156,
+          0.062,
+          -23.220000381469728
+        ],
+        [
+          2.200000047683716,
+          0.062,
+          -23.220000381469728
+        ],
+        [
+          1.6800000476837158,
+          0.062,
+          -23.025000381469727
+        ],
+        [
+          1.4800000476837158,
+          0.062,
+          -22.600000381469727
+        ]
+      ],
+      "padNode": "FURN_GourmetChairR0_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.940000057220459,
+          0.42000001668930054,
+          -22.860000610351562
+        ],
+        "max": [
+          1.4600000381469727,
+          0.5099999904632568,
+          -22.34000015258789
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairR1_Seat",
+      "node": "FURN_GourmetChairR1_Seat",
+      "label": "Cadeira",
+      "position": [
+        1.2000000476837158,
+        0.062,
+        -23.450000762939453
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairR1",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        3.0000000476837156,
+        0.062,
+        -23.450000762939453
+      ],
+      "standPosition": [
+        1.4800000476837158,
+        0.062,
+        -23.450000762939453
+      ],
+      "approachPath": [
+        [
+          3.0000000476837156,
+          0.062,
+          -24.070000762939454
+        ],
+        [
+          2.200000047683716,
+          0.062,
+          -24.070000762939454
+        ],
+        [
+          1.6800000476837158,
+          0.062,
+          -23.875000762939454
+        ],
+        [
+          1.4800000476837158,
+          0.062,
+          -23.450000762939453
+        ]
+      ],
+      "padNode": "FURN_GourmetChairR1_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.940000057220459,
+          0.42000001668930054,
+          -23.71000099182129
+        ],
+        "max": [
+          1.4600000381469727,
+          0.5099999904632568,
+          -23.190000534057617
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairR2_Seat",
+      "node": "FURN_GourmetChairR2_Seat",
+      "label": "Cadeira",
+      "position": [
+        1.2000000476837158,
+        0.062,
+        -24.299999237060547
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairR2",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        3.0000000476837156,
+        0.062,
+        -24.299999237060547
+      ],
+      "standPosition": [
+        1.4800000476837158,
+        0.062,
+        -24.299999237060547
+      ],
+      "approachPath": [
+        [
+          3.0000000476837156,
+          0.062,
+          -24.919999237060548
+        ],
+        [
+          2.200000047683716,
+          0.062,
+          -24.919999237060548
+        ],
+        [
+          1.6800000476837158,
+          0.062,
+          -24.724999237060548
+        ],
+        [
+          1.4800000476837158,
+          0.062,
+          -24.299999237060547
+        ]
+      ],
+      "padNode": "FURN_GourmetChairR2_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.940000057220459,
+          0.42000001668930054,
+          -24.559999465942383
+        ],
+        "max": [
+          1.4600000381469727,
+          0.5099999904632568,
+          -24.03999900817871
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_GourmetChairR3_Seat",
+      "node": "FURN_GourmetChairR3_Seat",
+      "label": "Cadeira",
+      "position": [
+        1.2000000476837158,
+        0.062,
+        -25.149999618530273
+      ],
+      "cushionY": 0.5099999904632568,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_GourmetChairR3",
+      "pullOffset": [
+        1,
+        0,
+        0
+      ],
+      "approach": [
+        3.0000000476837156,
+        0.062,
+        -25.149999618530273
+      ],
+      "standPosition": [
+        1.4800000476837158,
+        0.062,
+        -25.149999618530273
+      ],
+      "approachPath": [
+        [
+          3.0000000476837156,
+          0.062,
+          -25.769999618530274
+        ],
+        [
+          2.200000047683716,
+          0.062,
+          -25.769999618530274
+        ],
+        [
+          1.6800000476837158,
+          0.062,
+          -25.574999618530274
+        ],
+        [
+          1.4800000476837158,
+          0.062,
+          -25.149999618530273
+        ]
+      ],
+      "padNode": "FURN_GourmetChairR3_Seat",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          0.940000057220459,
+          0.42000001668930054,
+          -25.40999984741211
+        ],
+        "max": [
+          1.4600000381469727,
+          0.5099999904632568,
+          -24.889999389648438
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_KitchenStool_0_Seat",
+      "node": "FURN_KitchenStool_0_Seat",
+      "label": "Banqueta",
+      "position": [
+        0.9500000178813934,
+        0.062,
+        -4.5
+      ],
+      "cushionY": 0.75,
+      "pelvisAboveCushion": 0.19734368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_KitchenStool_0",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -0.8499999821186066,
+        0.062,
+        -4.5
+      ],
+      "standPosition": [
+        0.6700000178813934,
+        0.062,
+        -4.5
+      ],
+      "approachPath": [
+        [
+          -0.8499999821186066,
+          0.062,
+          -3.88
+        ],
+        [
+          -0.04999998211860657,
+          0.062,
+          -3.88
+        ],
+        [
+          0.47000001788139345,
+          0.062,
+          -4.075
+        ],
+        [
+          0.6700000178813934,
+          0.062,
+          -4.5
+        ]
+      ],
+      "padNode": "FURN_KitchenStool_0_Seat",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          0.6899999976158142,
+          0.6599999666213989,
+          -4.760000228881836
+        ],
+        "max": [
+          1.2100000381469727,
+          0.75,
+          -4.239999771118164
+        ]
+      },
+      "footSupportY": 0.3114127,
+      "footSupportMode": "rail",
+      "footSupportForward": 0.18
+    },
+    {
+      "id": "FURN_KitchenStool_1_Seat",
+      "node": "FURN_KitchenStool_1_Seat",
+      "label": "Banqueta",
+      "position": [
+        0.9500000178813934,
+        0.062,
+        -5.349999904632568
+      ],
+      "cushionY": 0.75,
+      "pelvisAboveCushion": 0.19734368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_KitchenStool_1",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -0.8499999821186066,
+        0.062,
+        -5.349999904632568
+      ],
+      "standPosition": [
+        0.6700000178813934,
+        0.062,
+        -5.349999904632568
+      ],
+      "approachPath": [
+        [
+          -0.8499999821186066,
+          0.062,
+          -4.729999904632568
+        ],
+        [
+          -0.04999998211860657,
+          0.062,
+          -4.729999904632568
+        ],
+        [
+          0.47000001788139345,
+          0.062,
+          -4.9249999046325685
+        ],
+        [
+          0.6700000178813934,
+          0.062,
+          -5.349999904632568
+        ]
+      ],
+      "padNode": "FURN_KitchenStool_1_Seat",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          0.6899999976158142,
+          0.6599999666213989,
+          -5.609999656677246
+        ],
+        "max": [
+          1.2100000381469727,
+          0.75,
+          -5.090000152587891
+        ]
+      },
+      "footSupportY": 0.3114127,
+      "footSupportMode": "rail",
+      "footSupportForward": 0.18
+    },
+    {
+      "id": "FURN_KitchenStool_2_Seat",
+      "node": "FURN_KitchenStool_2_Seat",
+      "label": "Banqueta",
+      "position": [
+        0.9500000178813934,
+        0.062,
+        -6.199999809265137
+      ],
+      "cushionY": 0.75,
+      "pelvisAboveCushion": 0.19734368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_KitchenStool_2",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -0.8499999821186066,
+        0.062,
+        -6.199999809265137
+      ],
+      "standPosition": [
+        0.6700000178813934,
+        0.062,
+        -6.199999809265137
+      ],
+      "approachPath": [
+        [
+          -0.8499999821186066,
+          0.062,
+          -5.579999809265137
+        ],
+        [
+          -0.04999998211860657,
+          0.062,
+          -5.579999809265137
+        ],
+        [
+          0.47000001788139345,
+          0.062,
+          -5.774999809265137
+        ],
+        [
+          0.6700000178813934,
+          0.062,
+          -6.199999809265137
+        ]
+      ],
+      "padNode": "FURN_KitchenStool_2_Seat",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          0.6899999976158142,
+          0.6599999666213989,
+          -6.460000038146973
+        ],
+        "max": [
+          1.2100000381469727,
+          0.75,
+          -5.939999580383301
+        ]
+      },
+      "footSupportY": 0.3114127,
+      "footSupportMode": "rail",
+      "footSupportForward": 0.18
+    },
+    {
+      "id": "FURN_KitchenStool_3_Seat",
+      "node": "FURN_KitchenStool_3_Seat",
+      "label": "Banqueta",
+      "position": [
+        0.9500000178813934,
+        0.062,
+        -7.050000190734863
+      ],
+      "cushionY": 0.75,
+      "pelvisAboveCushion": 0.19734368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.92,
+      "dynamicNode": "R30_SEAT_FURN_KitchenStool_3",
+      "pullOffset": [
+        -1,
+        0,
+        0
+      ],
+      "approach": [
+        -0.8499999821186066,
+        0.062,
+        -7.050000190734863
+      ],
+      "standPosition": [
+        0.6700000178813934,
+        0.062,
+        -7.050000190734863
+      ],
+      "approachPath": [
+        [
+          -0.8499999821186066,
+          0.062,
+          -6.430000190734863
+        ],
+        [
+          -0.04999998211860657,
+          0.062,
+          -6.430000190734863
+        ],
+        [
+          0.47000001788139345,
+          0.062,
+          -6.6250001907348635
+        ],
+        [
+          0.6700000178813934,
+          0.062,
+          -7.050000190734863
+        ]
+      ],
+      "padNode": "FURN_KitchenStool_3_Seat",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          0.6899999976158142,
+          0.6599999666213989,
+          -7.310000419616699
+        ],
+        "max": [
+          1.2100000381469727,
+          0.75,
+          -6.789999961853027
+        ]
+      },
+      "footSupportY": 0.3114127,
+      "footSupportMode": "rail",
+      "footSupportForward": 0.18
     },
     {
       "id": "FURN_LivingSofa_0_Seat",
       "label": "Sofá",
       "position": [
-        1.96,
+        1.68,
         0.07,
         -14.85
       ],
@@ -54,13 +1494,31 @@
         -14.85
       ],
       "yaw": -1.5707963267948966,
-      "triggerRadius": 0.72
+      "triggerRadius": 0.72,
+      "padNode": "FURN_LivingSofa_0_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          1.4999998807907104,
+          0.2549999952316284,
+          -15.390000343322754
+        ],
+        "max": [
+          2.6999998092651367,
+          0.4950000047683716,
+          -14.3100004196167
+        ]
+      },
+      "footSupportY": 0.07,
+      "clipHipHeight": 0.524142780647,
+      "pelvisAboveCushion": 0.185343686276,
+      "footSupportMode": "floor"
     },
     {
       "id": "FURN_LivingSofa_1_Seat",
       "label": "Sofá",
       "position": [
-        1.96,
+        1.68,
         0.07,
         -16
       ],
@@ -71,13 +1529,31 @@
         -16
       ],
       "yaw": -1.5707963267948966,
-      "triggerRadius": 0.72
+      "triggerRadius": 0.72,
+      "padNode": "FURN_LivingSofa_1_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          1.4999998807907104,
+          0.2549999952316284,
+          -16.540000915527344
+        ],
+        "max": [
+          2.6999998092651367,
+          0.4950000047683716,
+          -15.460000038146973
+        ]
+      },
+      "footSupportY": 0.07,
+      "clipHipHeight": 0.524142780647,
+      "pelvisAboveCushion": 0.185343686276,
+      "footSupportMode": "floor"
     },
     {
       "id": "FURN_LivingSofa_2_Seat",
       "label": "Sofá",
       "position": [
-        1.96,
+        1.68,
         0.07,
         -17.15
       ],
@@ -88,7 +1564,629 @@
         -17.15
       ],
       "yaw": -1.5707963267948966,
-      "triggerRadius": 0.72
+      "triggerRadius": 0.72,
+      "padNode": "FURN_LivingSofa_2_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          1.4999998807907104,
+          0.2549999952316284,
+          -17.690000534057617
+        ],
+        "max": [
+          2.6999998092651367,
+          0.4950000047683716,
+          -16.60999870300293
+        ]
+      },
+      "footSupportY": 0.07,
+      "clipHipHeight": 0.524142780647,
+      "pelvisAboveCushion": 0.185343686276,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_LivingSofaReturn_0_Seat",
+      "node": "FURN_LivingSofaReturn_0_Seat",
+      "label": "Sofá",
+      "position": [
+        0.15000002086162567,
+        0.062,
+        -18.094999923706055
+      ],
+      "cushionY": 0.4950000047683716,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 0,
+      "triggerRadius": 0.78,
+      "approach": [
+        0.15000002086162567,
+        0.062,
+        -17.574999923706056
+      ],
+      "padNode": "FURN_LivingSofaReturn_0_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          -0.4000000059604645,
+          0.2549999952316284,
+          -19.030000686645508
+        ],
+        "max": [
+          0.7000000476837158,
+          0.4950000047683716,
+          -17.8799991607666
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_LivingSofaReturn_1_Seat",
+      "node": "FURN_LivingSofaReturn_1_Seat",
+      "label": "Sofá",
+      "position": [
+        1.25,
+        0.062,
+        -18.094999923706055
+      ],
+      "cushionY": 0.4950000047683716,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 0,
+      "triggerRadius": 0.78,
+      "approach": [
+        1.02,
+        0.07,
+        -17.55
+      ],
+      "padNode": "FURN_LivingSofaReturn_1_Seat",
+      "padMaterial": "R28_Boucle_Living",
+      "padBounds": {
+        "min": [
+          0.800000011920929,
+          0.2549999952316284,
+          -19.030000686645508
+        ],
+        "max": [
+          1.9000000953674316,
+          0.4950000047683716,
+          -17.8799991607666
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_OfficeLounge_PLAN_0",
+      "node": "FURN_OfficeLounge_PLAN_0",
+      "label": "Poltrona do escritório",
+      "position": [
+        7.47,
+        4.207,
+        -4
+      ],
+      "cushionY": 4.769999980926514,
+      "pelvisAboveCushion": 0.218343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        8.13,
+        4.207,
+        -4
+      ],
+      "padNode": "FURN_OfficeLounge_PLAN_0",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          6.855000019073486,
+          4.580000400543213,
+          -4.309999942779541
+        ],
+        "max": [
+          7.644999980926514,
+          4.769999980926514,
+          -3.690000057220459
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_OfficeLounge_PLAN_1",
+      "node": "FURN_OfficeLounge_PLAN_1",
+      "label": "Poltrona do escritório",
+      "position": [
+        7.47,
+        4.207,
+        -5
+      ],
+      "cushionY": 4.769999980926514,
+      "pelvisAboveCushion": 0.218343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        8.13,
+        4.207,
+        -5
+      ],
+      "padNode": "FURN_OfficeLounge_PLAN_1",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          6.855000019073486,
+          4.580000400543213,
+          -5.309999942779541
+        ],
+        "max": [
+          7.644999980926514,
+          4.769999980926514,
+          -4.690000057220459
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_OfficeLounge_PLAN_2",
+      "node": "FURN_OfficeLounge_PLAN_2",
+      "label": "Poltrona do escritório",
+      "position": [
+        7.47,
+        4.207,
+        -8.800000190734863
+      ],
+      "cushionY": 4.769999980926514,
+      "pelvisAboveCushion": 0.218343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        8.13,
+        4.207,
+        -8.800000190734863
+      ],
+      "padNode": "FURN_OfficeLounge_PLAN_2",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          6.855000019073486,
+          4.580000400543213,
+          -9.110000610351562
+        ],
+        "max": [
+          7.644999980926514,
+          4.769999980926514,
+          -8.489999771118164
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_OfficeLounge_PLAN_3",
+      "node": "FURN_OfficeLounge_PLAN_3",
+      "label": "Poltrona do escritório",
+      "position": [
+        7.47,
+        4.207,
+        -9.800000190734863
+      ],
+      "cushionY": 4.769999980926514,
+      "pelvisAboveCushion": 0.218343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        8.13,
+        4.207,
+        -9.800000190734863
+      ],
+      "padNode": "FURN_OfficeLounge_PLAN_3",
+      "padMaterial": "MAT_Leather_Tan",
+      "padBounds": {
+        "min": [
+          6.855000019073486,
+          4.580000400543213,
+          -10.110000610351562
+        ],
+        "max": [
+          7.644999980926514,
+          4.769999980926514,
+          -9.489999771118164
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "R27_OfficeTaskChair_Seat",
+      "node": "R27_OfficeTaskChair_Seat",
+      "label": "Cadeira do escritório",
+      "position": [
+        8.019999980926514,
+        4.207,
+        -6.650000095367432
+      ],
+      "cushionY": 4.7321343421936035,
+      "pelvisAboveCushion": 0.204343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        8.4,
+        4.207,
+        -7.25
+      ],
+      "padNode": "R27_OfficeTaskChair_Seat",
+      "padMaterial": "R28_Textile_Charcoal",
+      "padBounds": {
+        "min": [
+          7.75,
+          4.6478657722473145,
+          -6.914999961853027
+        ],
+        "max": [
+          8.289999961853027,
+          4.7321343421936035,
+          -6.385000228881836
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "PARK_Bench_0",
+      "node": "PARK_Bench_0",
+      "label": "Banco da praça",
+      "position": [
+        -1.5460000038146973,
+        4.207,
+        18
+      ],
+      "cushionY": 4.71999979019165,
+      "pelvisAboveCushion": 0.20134368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -2.426000003814697,
+        4.207,
+        18
+      ],
+      "padNode": "PARK_Bench_0",
+      "padMaterial": "MAT_Wood_Freijo",
+      "padBounds": {
+        "min": [
+          -1.7999999523162842,
+          4.639999866485596,
+          17
+        ],
+        "max": [
+          -1.2920000553131104,
+          4.71999979019165,
+          19
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "PARK_Bench_1",
+      "node": "PARK_Bench_1",
+      "label": "Banco da praça",
+      "position": [
+        -1.5460000038146973,
+        4.207,
+        8
+      ],
+      "cushionY": 4.71999979019165,
+      "pelvisAboveCushion": 0.20134368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -2.426000003814697,
+        4.207,
+        8
+      ],
+      "padNode": "PARK_Bench_1",
+      "padMaterial": "MAT_Wood_Freijo",
+      "padBounds": {
+        "min": [
+          -1.7999999523162842,
+          4.639999866485596,
+          7
+        ],
+        "max": [
+          -1.2920000553131104,
+          4.71999979019165,
+          9
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "PARK_Bench_2",
+      "node": "PARK_Bench_2",
+      "label": "Banco da praça",
+      "position": [
+        -1.5460000038146973,
+        4.207,
+        -7
+      ],
+      "cushionY": 4.71999979019165,
+      "pelvisAboveCushion": 0.20134368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -2.426000003814697,
+        4.207,
+        -7
+      ],
+      "padNode": "PARK_Bench_2",
+      "padMaterial": "MAT_Wood_Freijo",
+      "padBounds": {
+        "min": [
+          -1.7999999523162842,
+          4.639999866485596,
+          -8
+        ],
+        "max": [
+          -1.2920000553131104,
+          4.71999979019165,
+          -6
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "PARK_Bench_3",
+      "node": "PARK_Bench_3",
+      "label": "Banco da praça",
+      "position": [
+        -1.5460000038146973,
+        4.207,
+        -16
+      ],
+      "cushionY": 4.71999979019165,
+      "pelvisAboveCushion": 0.20134368627600002,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -2.426000003814697,
+        4.207,
+        -16
+      ],
+      "padNode": "PARK_Bench_3",
+      "padMaterial": "MAT_Wood_Freijo",
+      "padBounds": {
+        "min": [
+          -1.7999999523162842,
+          4.639999866485596,
+          -17
+        ],
+        "max": [
+          -1.2920000553131104,
+          4.71999979019165,
+          -15
+        ]
+      },
+      "footSupportY": 4.207,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "R27_MasterCloset_BenchPad",
+      "node": "R27_MasterCloset_BenchPad",
+      "label": "Banco do closet",
+      "position": [
+        -0.3200000002980232,
+        0.062,
+        20.200000762939453
+      ],
+      "cushionY": 0.498201459646225,
+      "pelvisAboveCushion": 0.185343686276,
+      "clipHipHeight": 0.524142780647,
+      "poseKey": "sit",
+      "yaw": 1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        0.5599999997019768,
+        0.062,
+        20.200000762939453
+      ],
+      "padNode": "R27_MasterCloset_BenchPad",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          -0.550000011920929,
+          0.38179853558540344,
+          19.610000610351562
+        ],
+        "max": [
+          -0.08999998867511749,
+          0.498201459646225,
+          20.790000915527344
+        ]
+      },
+      "footSupportY": 0.062,
+      "footSupportMode": "floor"
+    },
+    {
+      "id": "FURN_Lounger_PLAN_0_Pad",
+      "node": "FURN_Lounger_PLAN_0_Pad",
+      "label": "Espreguiçadeira",
+      "position": [
+        -7.25,
+        0.107,
+        -15.199999809265137
+      ],
+      "cushionY": 0.445107,
+      "pelvisAboveCushion": 0.189,
+      "clipHipHeight": 0.4,
+      "poseKey": "lounger",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -8.9,
+        0.107,
+        -15.199999809265137
+      ],
+      "eyeHeight": 0.86,
+      "eyeForward": -0.338,
+      "focusHeight": 0.67,
+      "cameraAnchorRevision": "Lounger v2 Head displacement measured in lounger-action-report.json; camera follows reclined head.",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          -8.420000076293945,
+          0.3149999976158142,
+          -15.545000076293945
+        ],
+        "max": [
+          -6.460000038146973,
+          0.9408999681472778,
+          -14.854999542236328
+        ]
+      },
+      "padNode": "FURN_Lounger_PLAN_0_Pad",
+      "surfaceContactRevision": "chaise-long-leg-support-20261010-v1 Lounger upper-.06/lower-.04"
+    },
+    {
+      "id": "FURN_Lounger_PLAN_1_Pad",
+      "node": "FURN_Lounger_PLAN_1_Pad",
+      "label": "Espreguiçadeira",
+      "position": [
+        -7.25,
+        0.107,
+        -12.5
+      ],
+      "cushionY": 0.445107,
+      "pelvisAboveCushion": 0.189,
+      "clipHipHeight": 0.4,
+      "poseKey": "lounger",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -8.9,
+        0.107,
+        -12.5
+      ],
+      "eyeHeight": 0.86,
+      "eyeForward": -0.338,
+      "focusHeight": 0.67,
+      "cameraAnchorRevision": "Lounger v2 Head displacement measured in lounger-action-report.json; camera follows reclined head.",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          -8.420000076293945,
+          0.3149999976158142,
+          -12.845000267028809
+        ],
+        "max": [
+          -6.460000038146973,
+          0.9408999681472778,
+          -12.154999732971191
+        ]
+      },
+      "padNode": "FURN_Lounger_PLAN_1_Pad",
+      "surfaceContactRevision": "chaise-long-leg-support-20261010-v1 Lounger upper-.06/lower-.04"
+    },
+    {
+      "id": "FURN_Lounger_PLAN_2_Pad",
+      "node": "FURN_Lounger_PLAN_2_Pad",
+      "label": "Espreguiçadeira",
+      "position": [
+        -7.25,
+        0.107,
+        13.300000190734863
+      ],
+      "cushionY": 0.445107,
+      "pelvisAboveCushion": 0.189,
+      "clipHipHeight": 0.4,
+      "poseKey": "lounger",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -8.9,
+        0.107,
+        13.300000190734863
+      ],
+      "eyeHeight": 0.86,
+      "eyeForward": -0.338,
+      "focusHeight": 0.67,
+      "cameraAnchorRevision": "Lounger v2 Head displacement measured in lounger-action-report.json; camera follows reclined head.",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          -8.420000076293945,
+          0.3149999976158142,
+          12.954999923706055
+        ],
+        "max": [
+          -6.460000038146973,
+          0.9408999681472778,
+          13.645000457763672
+        ]
+      },
+      "padNode": "FURN_Lounger_PLAN_2_Pad",
+      "surfaceContactRevision": "chaise-long-leg-support-20261010-v1 Lounger upper-.06/lower-.04"
+    },
+    {
+      "id": "FURN_Lounger_PLAN_3_Pad",
+      "node": "FURN_Lounger_PLAN_3_Pad",
+      "label": "Espreguiçadeira",
+      "position": [
+        -7.25,
+        0.107,
+        16.29999876022339
+      ],
+      "cushionY": 0.445107,
+      "pelvisAboveCushion": 0.189,
+      "clipHipHeight": 0.4,
+      "poseKey": "lounger",
+      "yaw": -1.5707963267948966,
+      "triggerRadius": 0.78,
+      "approach": [
+        -8.9,
+        0.107,
+        16.29999876022339
+      ],
+      "eyeHeight": 0.86,
+      "eyeForward": -0.338,
+      "focusHeight": 0.67,
+      "cameraAnchorRevision": "Lounger v2 Head displacement measured in lounger-action-report.json; camera follows reclined head.",
+      "padMaterial": "R28_Fabric_Linen",
+      "padBounds": {
+        "min": [
+          -8.420000076293945,
+          0.3149999976158142,
+          15.954998970031738
+        ],
+        "max": [
+          -6.460000038146973,
+          0.9408999681472778,
+          16.64499855041504
+        ]
+      },
+      "padNode": "FURN_Lounger_PLAN_3_Pad",
+      "surfaceContactRevision": "chaise-long-leg-support-20261010-v1 Lounger upper-.06/lower-.04"
     }
   ],
   "car": {
@@ -101,15 +2199,15 @@
     ],
     "position": [
       9.25,
-      4.04,
-      6.53
+      4.079854965209961,
+      6.53000020980835
     ],
     "driverSeat": [
       9.25,
-      4.04,
-      6.53
+      4.079854965209961,
+      6.53000020980835
     ],
-    "seatCushionY": 4.47,
+    "seatCushionY": 4.4056901931762695,
     "yaw": 1.5707963267948966,
     "radius": 1.35,
     "exit": [
@@ -117,7 +2215,7 @@
       4.227,
       4.95
     ],
-    "eyeHeight": 1.12,
+    "eyeHeight": 1.0849574470520018,
     "triggerRadius": 1.35,
     "doors": [
       {
@@ -130,25 +2228,25 @@
         "angle": 1.18
       }
     ],
-    "clipHipHeight": 0.494145,
-    "pelvisAboveCushion": 0.064,
-    "eyeForward": 0.03,
+    "clipHipHeight": 0.49414491653442383,
+    "pelvisAboveCushion": 0.16830968856811523,
+    "eyeForward": -0.14322677612304702,
     "enterPath": [
       [
         9.34,
-        4.04,
+        4.079854965209961,
         5.65
       ],
       [
         9.25,
-        4.04,
+        4.079854965209961,
         6.53
       ]
     ],
     "exitPath": [
       [
         9.34,
-        4.04,
+        4.079854965209961,
         5.65
       ],
       [
@@ -156,7 +2254,206 @@
         4.227,
         4.95
       ]
-    ]
+    ],
+    "contacts": {
+      "hip": [
+        9.258126258850098,
+        4.573999881744385,
+        6.530008316040039
+      ],
+      "leftFoot": [
+        10.053000450134277,
+        4.366,
+        6.41841459274292
+      ],
+      "rightFoot": [
+        10.053000450134277,
+        4.367,
+        6.6416015625
+      ],
+      "entrySill": [
+        9.45,
+        4.466,
+        6.264
+      ],
+      "doorHand": [
+        9.83,
+        4.806,
+        6.264
+      ],
+      "steeringCenter": [
+        9.55,
+        4.981,
+        6.55
+      ],
+      "leftAnkle": [
+        10.053000450134277,
+        4.455500602722168,
+        6.41841459274292
+      ],
+      "rightAnkle": [
+        10.053000450134277,
+        4.455500602722168,
+        6.6416015625
+      ],
+      "leftHand": [
+        9.524999618530273,
+        4.9810004234313965,
+        6.408999919891357
+      ],
+      "rightHand": [
+        9.524999618530273,
+        4.981000900268555,
+        6.690999984741211
+      ]
+    },
+    "cabinBounds": {
+      "min": [
+        8.8,
+        4.335,
+        6.25
+      ],
+      "max": [
+        10.31,
+        5.27,
+        7.56
+      ]
+    },
+    "bakedClip": "CarSeat",
+    "runtimeIKRequired": false,
+    "anatomicalPan": {
+      "centralPaddingTop": 4.405690087930979,
+      "paddingBottom": 4.38,
+      "baseCavityTop": 4.374,
+      "baseBottomPreserved": 4.342,
+      "driverRootThree": [
+        9.25,
+        4.079855,
+        6.53
+      ],
+      "revision": "countach-closed-anatomical-driver-pan-20261009-v2"
+    },
+    "driverSeatbackFit": {
+      "revision": "countach-driver-backrest-real-surface-fit-20261010-v2",
+      "extraReclineDeg": 25,
+      "headrestExtraX": -0.075,
+      "sourceSamples": 3,
+      "pending": "Final saved source contacts passed three sampled poses; export and browser acceptance are recorded separately.",
+      "sourcePass": true,
+      "sourceEvidence": {
+        "report": "carseat-source-cabin-qc.json",
+        "sha256": "285a7527bc21f83f079ed67b3a5d1e3e413c64490958a57245e6b993c018a5c7",
+        "method": "Real evaluated source skin positions and outward cabin BVHs; candidates are temporary matrices, no source edits.",
+        "sourceFile": "3D CASAv3.blend",
+        "sourceSha256": "dc0c80fde604b7823fd149f9d0e137e876da6ba5baee08f10a991a133a20b66a"
+      },
+      "exportPending": true,
+      "runtimePending": true
+    },
+    "surfaceContactRevision": "countach-surface-contact-bake-20261009-v2",
+    "pelvisCompression": 0.018,
+    "eyeAnchorSource": {
+      "revision": "carseat-v2-head-derived-20261010",
+      "headThree": [
+        9.016773223876953,
+        5.074812412261963,
+        6.522769927978516
+      ],
+      "eyeThree": [
+        9.106773223876953,
+        5.164812412261963,
+        6.522769927978516
+      ],
+      "forwardFromHead": 0.09,
+      "heightFromHead": 0.09,
+      "sourceContactSamples": 3
+    },
+    "pedalFit": {
+      "revision": "countach-driver-pedal-parity-fit-20261010-v2",
+      "offsetX": 0.1,
+      "sourceSamples": 3,
+      "floorMounts": [
+        {
+          "side": "Brake",
+          "hinge": [
+            10.369999885559082,
+            -6.650000095367432,
+            4.360000133514404
+          ],
+          "floor": [
+            10.369999885559082,
+            -6.650000095367432,
+            4.331735134124756
+          ],
+          "existingHingeFloorGap": 0.02026499938964843,
+          "newMountRequired": true,
+          "object": "R30_Countach_Pedal_Brake_FloorHingeMount"
+        },
+        {
+          "side": "Accelerator",
+          "hinge": [
+            10.369999885559082,
+            -6.465000152587891,
+            4.360000133514404
+          ],
+          "floor": [
+            10.369999885559082,
+            -6.465000152587891,
+            4.331735134124756
+          ],
+          "existingHingeFloorGap": 0.02026499938964843,
+          "newMountRequired": true,
+          "object": "R30_Countach_Pedal_Accelerator_FloorHingeMount"
+        }
+      ],
+      "pending": "Final saved source contacts passed three sampled poses; export and browser acceptance are recorded separately.",
+      "sourcePass": true,
+      "sourceEvidence": {
+        "report": "carseat-source-cabin-qc.json",
+        "sha256": "285a7527bc21f83f079ed67b3a5d1e3e413c64490958a57245e6b993c018a5c7",
+        "method": "Real evaluated source skin positions and outward cabin BVHs; candidates are temporary matrices, no source edits.",
+        "sourceFile": "3D CASAv3.blend",
+        "sourceSha256": "dc0c80fde604b7823fd149f9d0e137e876da6ba5baee08f10a991a133a20b66a"
+      },
+      "exportPending": true,
+      "runtimePending": true
+    },
+    "cabinStructuralFit": {
+      "revision": "countach-structural-mounts-20261011-v1",
+      "sourcePass": true,
+      "sourceEvidence": {
+        "sourceFile": "3D CASAv3.blend",
+        "sourceSha256": "dc0c80fde604b7823fd149f9d0e137e876da6ba5baee08f10a991a133a20b66a",
+        "structuralSnapshotSha256": "cfa0d25394c61ae891678184217317b35391240517db5b56b9aeb24b5c47d01e",
+        "slabRevision": "countach-native-dash-slab-refit-20261011-v1",
+        "slabReportSha256": "acb087c0646762458cd6ae00499517f18bd2062c93f4a4eb720d9b4d6f7f1275",
+        "floorRevision": "countach-native-seat-floor-lining-20261011-v1",
+        "floorReportSha256": "16b9ee7b483350a363a83e1db9a2e3a81687594c67e2f4142c60f51a947d5581",
+        "outsideNormalRestorationReportSha256": "3ec7a4b57c77bd4ac1de6effe47deee037500b0ffdd9c4878b14437527b60f43",
+        "outsideNormalMaximumAngularDeg": 0.007150063129641115,
+        "structuralContactReportSha256": "d6a4010eab1e8c3d87f13991c89ab42feeadcff64a963e43faf1f9dd43a1695a",
+        "avatarContactReportSha256": "285a7527bc21f83f079ed67b3a5d1e3e413c64490958a57245e6b993c018a5c7"
+      },
+      "scope": "Final saved source: 17 physical mount contacts, native dashboard slab and floor lining refits, current triangle-contact audit and exterior normal restoration. Three avatar poses passed; continuous transitions and exported browser views remain separate gates.",
+      "exportPending": true,
+      "runtimePending": true,
+      "pending": "Source geometry and contact checks passed. Corrected export, rendered cabin and real interaction gates remain pending in separate reports."
+    },
+    "sourceProvenance": {
+      "sourceFile": "3D CASAv3.blend",
+      "sourceSha256": "dc0c80fde604b7823fd149f9d0e137e876da6ba5baee08f10a991a133a20b66a",
+      "structuralSnapshotSha256": "cfa0d25394c61ae891678184217317b35391240517db5b56b9aeb24b5c47d01e",
+      "slabRevision": "countach-native-dash-slab-refit-20261011-v1",
+      "slabReportSha256": "acb087c0646762458cd6ae00499517f18bd2062c93f4a4eb720d9b4d6f7f1275",
+      "floorRevision": "countach-native-seat-floor-lining-20261011-v1",
+      "floorReportSha256": "16b9ee7b483350a363a83e1db9a2e3a81687594c67e2f4142c60f51a947d5581",
+      "outsideNormalRestorationReportSha256": "3ec7a4b57c77bd4ac1de6effe47deee037500b0ffdd9c4878b14437527b60f43",
+      "outsideNormalMaximumAngularDeg": 0.007150063129641115,
+      "structuralContactReportSha256": "d6a4010eab1e8c3d87f13991c89ab42feeadcff64a963e43faf1f9dd43a1695a",
+      "avatarContactReportSha256": "285a7527bc21f83f079ed67b3a5d1e3e413c64490958a57245e6b993c018a5c7",
+      "frozenBeforeExportAndBrowser": true,
+      "approvalReportsSeparate": true
+    }
   },
   "pool": {
     "id": "pool",
@@ -231,5 +2528,7 @@
         5
       ]
     ]
-  }
+  },
+  "seatContract": "41 authored seats; 20 dining/gourmet/stool chairs pull 1m and restore after a supported side exit. Sitting clips retain the accepted standing root convention.",
+  "seatContactRevision": "Surface measurements 2026-10-10: real skin/padding and sole support; final rendered gate pending."
 }

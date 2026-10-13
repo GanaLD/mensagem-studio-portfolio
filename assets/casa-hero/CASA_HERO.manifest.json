@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "asset": "CASA_HERO.glb",
+  "bytes": 164024844,
+  "sha256": "0a79aa7db5203491a0f1da1c06c912b0ea2259ab3ed3444953cf52a673273267",
+  "quality": {
+    "sourceSha256": "6a1ad21f734af0aff0fd1cf0c256f4c1ca57b66e333a6c7ddd2a7f170723ef1f",
+    "textures": "exact decoded pixels at original resolution",
+    "geometry": "exact original attribute and index bytes",
+    "compression": "lossless WebP and lossless meshopt; original Draco unchanged"
+  },
+  "parts": [
+    {
+      "url": "CASA_HERO.part-001.bin",
+      "offset": 0,
+      "bytes": 50331648,
+      "sha256": "7af1d6a2ce69a2d10a6b673f654c0de26822351b5abe72c0fede4612eab24a70"
+    },
+    {
+      "url": "CASA_HERO.part-002.bin",
+      "offset": 50331648,
+      "bytes": 50331648,
+      "sha256": "9d8c981a783c6a85f9b480b98db1ecfeb66d8dfdc4a4fe7c24e7a76abb813d49"
+    },
+    {
+      "url": "CASA_HERO.part-003.bin",
+      "offset": 100663296,
+      "bytes": 50331648,
+      "sha256": "7bd1d159119f4b921857e088ca5da8b78489576fd6505f50f3c7970a294b84f8"
+    },
+    {
+      "url": "CASA_HERO.part-004.bin",
+      "offset": 150994944,
+      "bytes": 13029900,
+      "sha256": "3469b51673f830b39c8e6a30db6ff181267c6fb44269b96fc4200902e11941a3"
+    }
+  ]
+}

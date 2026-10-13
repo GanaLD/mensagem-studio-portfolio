@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {DRACOLoader} from 'three/addons/loaders/DRACOLoader.js';
 import {Octree} from 'three/addons/math/Octree.js';
 import {Capsule} from 'three/addons/math/Capsule.js';
@@ -7,17 +8,53 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {SSAOPass} from 'three/addons/postprocessing/SSAOPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-import {createFootPlacement,createSeatedFootPlacement,spring} from './avatar-motion.mjs?v=20261011-cabin-entrance-v1';
-import {createEnvironmentInteractions} from './interactions.mjs?v=20261011-cabin-entrance-v1';
-import {partitionStaticScene} from './scene-chunks.mjs?v=20261011-cabin-entrance-v1';
-import {createHeroEmbedding} from './embedded-host.mjs?v=20261011-cabin-entrance-v1';
-import {createJumpController} from './jump-controller.mjs?v=20261011-cabin-entrance-v1';
-import {loadHouseAsset,versionedAssetURL} from './asset-loader.mjs?v=20261011-cabin-entrance-v1';
+import {createFootPlacement,createSeatedFootPlacement,spring} from './avatar-motion.mjs?v=20261012-web-fast-v1';
+import {createEnvironmentInteractions} from './interactions.mjs?v=20261012-web-fast-v1';
+import {partitionStaticScene} from './scene-chunks.mjs?v=20261012-web-fast-v1';
+import {createHeroEmbedding} from './embedded-host.mjs?v=20261012-web-fast-v1';
+import {createJumpController} from './jump-controller.mjs?v=20261012-web-fast-v1';
+import {loadHouseAsset,versionedAssetURL} from './asset-loader.mjs?v=20261012-web-fast-v1';
+import {buildOctreeCooperatively,createYieldBudget,yieldMainThread} from './async-octree.mjs?v=20261012-web-fast-v1';
 
-// Three's recursive children do not inherit root settings. Bound every branch,
-// otherwise coplanar architectural details expand the default depth excessively.
-const splitOctree=Octree.prototype.split;
-Octree.prototype.split=function(level){this.trianglesPerLeaf=36;this.maxLevel=6;return splitOctree.call(this,level);};
+const touch=matchMedia('(pointer:coarse)').matches;
+const loadPerformance={startedAt:performance.now(),stages:{},longTasks:[],visualReadyMs:null,playerReadyMs:null};
+window.__houseLoadPerformance=loadPerformance;
+let longTaskObserver;
+try{longTaskObserver=new PerformanceObserver(list=>{for(const entry of list.getEntries())if(loadPerformance.longTasks.length<200)loadPerformance.longTasks.push({startTime:entry.startTime,duration:entry.duration});});longTaskObserver.observe({type:'longtask',buffered:true});}catch{}
+function startLoadStage(name){performance.mark('casa:'+name+':start');loadPerformance.stages[name]={startTime:performance.now()};}
+function endLoadStage(name){const stage=loadPerformance.stages[name];if(stage){stage.durationMs=performance.now()-stage.startTime;performance.mark('casa:'+name+':end');performance.measure('casa:'+name,'casa:'+name+':start','casa:'+name+':end');}}
+
+async function prepareTextures(root,name){
+ const textures=new Set();root.traverse(object=>{
+  for(const material of (Array.isArray(object.material)?object.material:[object.material]))if(material)
+   for(const value of Object.values(material))if(value?.isTexture)textures.add(value);
+ });
+ startLoadStage(name);const budget=createYieldBudget(8);
+ for(const texture of textures){renderer.initTexture(texture);const pending=budget.check();if(pending)await pending;}
+ loadPerformance[name]={textures:textures.size,...budget.finish()};endLoadStage(name);
+ await yieldMainThread();
+}
+
+let preparingGraphics=false;
+async function prepareDraws(root,name){
+ const all=[],selected=new Set();scene.traverse(object=>{if(object.isMesh)all.push([object,object.layers.mask]);});
+ root.traverse(object=>{if(object.isMesh)selected.add(object);});
+ const meshes=all.filter(([object,mask])=>selected.has(object)&&object.visible&&(mask&camera.layers.mask));
+ let maximumDrawMs=0;preparingGraphics=true;startLoadStage(name);
+ try{
+  for(const [object]of all)object.layers.mask=0;
+  for(let index=0;index<meshes.length;index+=48){
+   const batch=meshes.slice(index,index+48);for(const [object,mask]of batch)object.layers.mask=mask;
+   sun.shadow.needsUpdate=true;const started=performance.now();renderer.render(scene,camera);maximumDrawMs=Math.max(maximumDrawMs,performance.now()-started);
+   for(const [object]of batch)object.layers.mask=0;
+   await yieldMainThread();
+  }
+ }finally{
+  for(const [object,mask]of all)object.layers.mask=mask;
+  sun.shadow.needsUpdate=true;preparingGraphics=false;endLoadStage(name);
+  loadPerformance[name]={meshes:meshes.length,batches:Math.ceil(meshes.length/48),maximumDrawMs,originalLayersRestored:all.every(([object,mask])=>object.layers.mask===mask)};
+ }
+}
 
 const renderer = new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});
 renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); renderer.setSize(innerWidth,innerHeight);
@@ -41,18 +78,18 @@ const reflectionSky=new THREE.Scene();reflectionSky.add(sky.clone());scene.envir
 const camera=new THREE.PerspectiveCamera(53,innerWidth/innerHeight,.05,5000);
 const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));
 composer.renderTarget1.samples=2;composer.renderTarget2.samples=2;
-const contactAO=new SSAOPass(scene,camera,innerWidth*.65,innerHeight*.65,16);
+const aoScale=.65;
+const contactAO=new SSAOPass(scene,camera,innerWidth*aoScale,innerHeight*aoScale,16);
 contactAO.kernelRadius=.42;contactAO.minDistance=.000004;contactAO.maxDistance=.00006;
 composer.addPass(contactAO);composer.addPass(new OutputPass());
 const transparentMeshes=[];
 const renderAO=contactAO.render.bind(contactAO);
 contactAO.render=(...args)=>{const hidden=transparentMeshes.filter(o=>o.visible);for(const mesh of hidden)mesh.visible=false;try{renderAO(...args);}finally{for(const mesh of hidden)mesh.visible=true;}};
-function sizeComposer(){composer.setSize(innerWidth,innerHeight);contactAO.setSize(Math.round(innerWidth*.65),Math.round(innerHeight*.65));}
+function sizeComposer(){composer.setSize(innerWidth,innerHeight);contactAO.setSize(Math.round(innerWidth*aoScale),Math.round(innerHeight*aoScale));}
 sizeComposer();sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;
 const fromBlender=v=>new THREE.Vector3(v[0],v[2],-v[1]);
 const HERO_SECONDS=14, RADIUS=.23, HEIGHT=1.78, EYE_HEIGHT=1.64, WALK_SPEED=1.633, RUN_SPEED=3.5;
 const ui=Object.fromEntries(['introMode','scrollMode','freeMode','hint','roomTitle','progress','handoff','loading','loadText','signalTitle','signalHint','controlHint','interactionHint','interactionText','interactionAction'].map(id=>[id,document.getElementById(id)]));
-const touch=matchMedia('(pointer:coarse)').matches;
 ui.controlHint.textContent=touch?'Setas · andar · arraste para olhar · Correr · Pular · Interagir':'WASD · andar · Shift · correr · Espaço · pular · E · interagir';
 const rooms={
  living:{p:[-.65,17.5,.07],t:[-.1,9,1.64],title:'Sala · exploração livre'},
@@ -61,7 +98,7 @@ const rooms={
  closet:{p:[2.3,-20.2,.07],t:[5.9,-20,1.4],title:'Closet da suíte'},
  garage:{p:[15.6,-6.9,4.22],t:[9.4,-6.9,4.7],title:'Garagem · Countach'}
 };
-let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now();
+let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now(),collisionLoadPromise=null,collisionTaskController=null;
 let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,jumpAction,jumpController,jumpBlend=0,modelBaseY=0,footPlacement,seatedFootPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null;
 const interactionActions={};let playerClipNames=[];
 let cameraMode='first',heroPath,heroTargets,viewTransition=0;
@@ -281,14 +318,19 @@ function updateAvatar(dt,travelled){
  if((!locked||pose.approachWalk)&&!jumpPose.airborne)footPlacement?.update(walkBlend,walking);else footPlacement?.reset();
  seatedFootPlacement?.update(pose.sit||0,pose.seatSupport);
 }
-function buildCollision(root){
+async function buildCollision(root){
+ startLoadStage('collisionCollect');
+ const budget=createYieldBudget(8);
  const area=new THREE.Box3(new THREE.Vector3(-15,-2,-36),new THREE.Vector3(29,10,33));
  const bounds=new THREE.Box3(),a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
  root.updateMatrixWorld(true);
  root.traverse(node=>{if(node.name.startsWith('R30_SEAT_'))dynamicSeatColliders.push({node,origin:node.getWorldPosition(new THREE.Vector3()),box:new THREE.Box3().setFromObject(node)});});
- root.traverse(mesh=>{
+ const meshes=[];root.traverse(mesh=>{
   if(!mesh.isMesh)return;
   for(let parent=mesh.parent;parent;parent=parent.parent)if(parent.name.startsWith('R30_SEAT_'))return;
+  meshes.push(mesh);
+ });
+ for(const mesh of meshes){
   // Vehicle doors contribute their closed rest geometry. All authored entry
   // sequences lock free locomotion, so the static capsule remains valid again
   // before the visitor can walk and the door has closed.
@@ -299,6 +341,7 @@ function buildCollision(root){
    const mat=materials[group.materialIndex]||materials[0];
    if(/Foliage|Leaf|Bark|Mountain|Soil|Water|Seam|LED|Book|Paper|Stem/i.test(mat.name))continue;
    for(let i=group.start;i<group.start+group.count;i+=3){
+    if((i-group.start)%1536===0){const pending=budget.check();if(pending)await pending;}
     a.fromBufferAttribute(position,index?index.getX(i):i).applyMatrix4(mesh.matrixWorld);
     b.fromBufferAttribute(position,index?index.getX(i+1):i+1).applyMatrix4(mesh.matrixWorld);
     c.fromBufferAttribute(position,index?index.getX(i+2):i+2).applyMatrix4(mesh.matrixWorld);
@@ -309,8 +352,11 @@ function buildCollision(root){
     if(/Glass|Mirror/i.test(mat.name)){octree.addTriangle(new THREE.Triangle(c.clone(),b.clone(),a.clone()));collisionTriangleCount++;}
    }
   }
- });
- octree.build();
+ }
+ loadPerformance.collisionCollection=budget.finish();endLoadStage('collisionCollect');
+ startLoadStage('collisionTree');
+ loadPerformance.collisionTree=await buildOctreeCooperatively(octree);
+ endLoadStage('collisionTree');
 }
 ui.introMode.onclick=startIntro;ui.scrollMode.onclick=()=>setMode('scroll');ui.freeMode.onclick=()=>setMode('free');
 document.querySelectorAll('[data-room]').forEach(b=>b.onclick=()=>gotoRoom(b.dataset.room));
@@ -384,7 +430,7 @@ function* movementSteps(start,end){
 }
 function tick(now){
  requestAnimationFrame(tick);const elapsed=frameElapsed(now),dt=elapsed;
- if(!window.__visualReady||document.hidden||(embedding.enabled&&!embedding.state.active))return;
+ if(!window.__visualReady||preparingGraphics||document.hidden||(embedding.enabled&&!embedding.state.active))return;
  movedLastFrame=0;
  if(mode==='intro'){introElapsed+=elapsed;progress=Math.min(1,introElapsed/HERO_SECONDS);sample(progress);updateProgress();if(progress>=1)finishIntro();}
  else if(mode==='scroll'){progress=THREE.MathUtils.clamp(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight),0,1);sample(progress);updateProgress();if(progress>=.999)finishIntro();}
@@ -444,20 +490,27 @@ window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,
  metrics(){return{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls,textures:renderer.info.memory.textures,position:camera.position.toArray(),player:player.position.toArray(),collisionTriangles:collisionTriangleCount,walkBlend,runBlend,jumpBlend,jump:jumpController?.metrics(),speed:velocity.length(),walkSpeed:WALK_SPEED,runSpeed:RUN_SPEED,cameraMode,eyeHeight:interactions?.getEyeHeight(EYE_HEIGHT)??EYE_HEIGHT,eyeY:eyeSpring.value,blockedLastMove,interaction:interactions?.getState().state||'idle',animations:mixer?._actions.map(a=>a.getClip().name)||[],assetAnimations:[...playerClipNames]};}
 };
 requestAnimationFrame(tick);
-const draco=new DRACOLoader();draco.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);
+const draco=new DRACOLoader();draco.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');const loader=new GLTFLoader();loader.setDRACOLoader(draco);loader.setMeshoptDecoder(MeshoptDecoder);
 const setLoad=(phase,percent,label)=>{
  const value=Math.max(0,Math.min(100,Math.round(Number(percent)||0)));
  if(label)ui.loadText.textContent=`${label} ${value}%`;
  embedding.reportLoad?.(phase,value,label||'');
 };
-function reportLoadingFailure(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);console.error(error);}
+function reportLoadingFailure(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);embedding.reportError?.(error);console.error(error);}
 async function ensurePlayerReady(){
  if(playerReady)return true;
  if(playerLoadPromise)return playerLoadPromise;
  playerLoadPromise=(async()=>{
   setLoad('player',0,'Preparando personagem…');
+  startLoadStage('playerPayload');
   const avatar=await loader.loadAsync(versionedAssetURL('./PLAYER.glb'),e=>{if(e.total)setLoad('player',Math.min(1,e.loaded/Math.max(e.loaded,e.total))*90,'Preparando personagem…');});
-  setLoad('player',92,'Configurando personagem…');
+  endLoadStage('playerPayload');
+  setLoad('player',92,'Preparando navegação…');
+  // Reuse the exact collider already preparing behind the earlier case/orbit.
+  collisionTaskController?.setPriority('user-visible');
+  if(!collisionLoadPromise)collisionLoadPromise=buildCollision(environmentRoot);
+  await collisionLoadPromise;
+  setLoad('player',94,'Configurando personagem…');startLoadStage('playerSetup');
  playerClipNames=avatar.animations.map(clip=>clip.name);playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
   if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}
   // Rest-pose bounds do not cover the cap/body while swimming or sitting.
@@ -482,12 +535,18 @@ async function ensurePlayerReady(){
  });
  if(interactions.water)transparentMeshes.push(interactions.water.mesh,...interactions.water.root.children.filter(o=>o.isMesh&&o.material.transparent));
  footPlacement=createFootPlacement(player,playerModel,bones,octree);seatedFootPlacement=createSeatedFootPlacement(player,playerModel,bones,octree);setViewMode('first');viewTransition=0;setLoad('player',97,'Preparando animações…');
+ endLoadStage('playerSetup');
  // Prepare the exploration passes while the loading screen still owns the
  // scene, so its first shadow/AO shader compilation cannot swallow key input.
  setLoad('player',98,'Preparando iluminação…');
+ startLoadStage('playerWarmup');await yieldMainThread();
+ await prepareTextures(playerModel,'playerTextureUpload');
  placePlayer('living');sample(progress);scene.updateMatrixWorld(true);
- await renderer.compileAsync(scene,camera);composer.render();
- playerModel.visible=false;sun.shadow.needsUpdate=true;composer.render();
+ const warmupExploration=()=>{const previousAO=contactAO.enabled;contactAO.enabled=true;try{composer.render();}finally{contactAO.enabled=previousAO;}};
+ await renderer.compileAsync(scene,camera);await yieldMainThread();warmupExploration();
+ await yieldMainThread();playerModel.visible=false;sun.shadow.needsUpdate=true;warmupExploration();
+ endLoadStage('playerWarmup');loadPerformance.playerReadyMs=performance.now()-loadPerformance.startedAt;
+ setTimeout(()=>longTaskObserver?.disconnect(),100);
   playerReady=true;window.__ready=true;setLoad('player',100,'Personagem pronto ·');
   embedding.ready();return true;
  })().catch(error=>{playerLoadPromise=null;embedding.reportLoad?.('player',0,'Falha ao preparar personagem');throw error;});
@@ -499,11 +558,13 @@ try{
  if(!response.ok)throw new Error('Percurso indisponível');if(!metadataResponse.ok)throw new Error('Interações indisponíveis');route=await response.json();interactionMetadata=await metadataResponse.json();
  heroPath=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.position)),false,'centripetal');
  heroTargets=new THREE.CatmullRomCurve3(route.keyframes.map(k=>new THREE.Vector3(...k.target)),false,'centripetal');
+ startLoadStage('environmentPayload');
  const house=await loadHouseAsset(loader,{url:'./CASA_HERO.glb',onProgress:e=>{if(e.total)setLoad('environment',Math.min(1,e.loaded/Math.max(e.loaded,e.total))*82,'Carregando ambiente…');}});
+ endLoadStage('environmentPayload');
  setLoad('environment',84,'Montando ambiente…');
  const embeddedVehicle=house.scene.getObjectByName('CASA_VEHICLE');
  if(!embeddedVehicle)throw new Error('CASA_HERO.glb está incompleto: o carro articulado CASA_VEHICLE deve estar incluído no ambiente.');
- const spatialPartition=partitionStaticScene(house.scene);window.__scenePartition=spatialPartition;
+ startLoadStage('partition');const spatialPartition=await partitionStaticScene(house.scene);window.__scenePartition=spatialPartition;endLoadStage('partition');
  environmentRoot=new THREE.Group();environmentRoot.name='CASA_Environment';environmentRoot.add(house.scene);scene.add(environmentRoot);vehicleBounds=new THREE.Box3().setFromObject(embeddedVehicle).expandByScalar(.08);
  environmentRoot.traverse(o=>{
   if(o.isLight)o.visible=false;if(!o.isMesh)return;const materials=Array.isArray(o.material)?o.material:[o.material];
@@ -511,12 +572,22 @@ try{
   for(const m of materials)for(const texture of [m.map,m.normalMap,m.roughnessMap,m.metalnessMap])if(texture)texture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
   if(materials.some(m=>m.transmission>0||m.transparent))transparentMeshes.push(o);
  });
- setLoad('environment',89,'Preparando navegação…');await new Promise(resolve=>requestAnimationFrame(resolve));
- buildCollision(environmentRoot);
  setLoad('environment',94,'Preparando iluminação…');
- sample(0);scene.updateMatrixWorld(true);await renderer.compileAsync(scene,camera);renderer.render(scene,camera);
+ startLoadStage('environmentWarmup');await yieldMainThread();
+ await prepareTextures(environmentRoot,'environmentTextureUpload');
+ sample(0);scene.updateMatrixWorld(true);startLoadStage('environmentShaderCompile');await renderer.compileAsync(scene,camera);endLoadStage('environmentShaderCompile');
+ await prepareDraws(environmentRoot,'environmentDrawUpload');
+ startLoadStage('environmentFirstRender');renderer.render(scene,camera);endLoadStage('environmentFirstRender');
+ endLoadStage('environmentWarmup');loadPerformance.visualReadyMs=performance.now()-loadPerformance.startedAt;
  window.__visualReady=true;mode='embedded';document.body.dataset.mode='embedded';
  setLoad('environment',100,'Ambiente pronto ·');
- if(embedding.enabled){embedding.visualReady();ui.loading.classList.add('done');}
+ if(embedding.enabled){
+  embedding.visualReady();ui.loading.classList.add('done');
+  if(!collisionLoadPromise){
+   collisionTaskController=globalThis.TaskController?new TaskController({priority:'background'}):null;
+   collisionLoadPromise=globalThis.scheduler?.postTask?globalThis.scheduler.postTask(()=>buildCollision(environmentRoot),collisionTaskController?{signal:collisionTaskController.signal}:{priority:'user-visible'}):new Promise(resolve=>setTimeout(resolve,0)).then(()=>buildCollision(environmentRoot));
+   collisionLoadPromise.catch(reportLoadingFailure);
+  }
+ }
  else{await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');}
 }catch(error){reportLoadingFailure(error);}

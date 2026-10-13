@@ -28,6 +28,9 @@ html.ms-casa-hero-enabled #hero {
   pointer-events: none;
 }
 
+/* Keep initialization paintable offscreen; the viewer itself suspends inactive frames. */
+#msUnifiedHeroStage .ms-casa-hero-panel.is-preloading { visibility: visible; pointer-events: none; }
+
 #msUnifiedHeroStage.is-casa-exploring #msCasaHeroFrame {
   pointer-events: auto;
 }
@@ -152,6 +155,8 @@ html.ms-casa-hero-enabled #hero {
   pointer-events: none;
 }
 .ms-casa-load-gate p { margin-bottom: 8px; }
+.ms-casa-load-gate .ms-casa-hero-actions { margin-top: 14px; }
+.ms-casa-load-gate button[hidden] { display: none; }
 @media (max-width: 760px) {
   .ms-casa-load-gate { bottom: max(116px, env(safe-area-inset-bottom)); }
 }

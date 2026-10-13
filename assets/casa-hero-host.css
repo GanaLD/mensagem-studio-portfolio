@@ -19,11 +19,6 @@ html.ms-casa-hero-enabled #hero {
   display: none !important;
 }
 
-#msUnifiedHeroStage .ms-casa-hero-panel.is-preloading {
-  opacity: 0;
-  pointer-events: none;
-}
-
 #msCasaHeroFrame {
   display: block;
   width: 100%;
@@ -32,6 +27,9 @@ html.ms-casa-hero-enabled #hero {
   background: #050605;
   pointer-events: none;
 }
+
+/* Keep initialization paintable offscreen; the viewer itself suspends inactive frames. */
+#msUnifiedHeroStage .ms-casa-hero-panel.is-preloading { visibility: visible; pointer-events: none; }
 
 #msUnifiedHeroStage.is-casa-exploring #msCasaHeroFrame {
   pointer-events: auto;
@@ -139,17 +137,6 @@ html.ms-casa-hero-enabled #hero {
 }
 
 @media (max-width: 760px) {
-  /* Keep the off-screen WebGL iframe paintable while it preloads.
-     Android/Instagram WebViews may throttle a fully transparent WebGL iframe. */
-  #msUnifiedHeroStage .ms-casa-hero-panel.is-preloading {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: none;
-  }
-  #msUnifiedHeroStage .ms-casa-hero-panel.is-preloading #msCasaHeroFrame {
-    opacity: 1;
-    visibility: visible;
-  }
   .ms-casa-hologram { padding: 16px 12px; bottom: max(122px, env(safe-area-inset-bottom)); }
   .ms-casa-hologram p { font-size: 15px; }
   .ms-casa-hero-actions { gap: 8px; }
@@ -159,12 +146,17 @@ html.ms-casa-hero-enabled #hero {
 
 .ms-casa-load-gate {
   z-index: 45;
-  top: 50%;
-  left: 50%;
-  bottom: auto;
-  width: min(430px, calc(100% - 32px));
-  transform: translate(-50%, -50%);
+  left: 50vw;
+  right: auto;
+  bottom: max(34px, env(safe-area-inset-bottom));
+  width: min(430px, calc(100vw - 32px));
+  transform: translateX(-50%);
   margin: 0;
   pointer-events: none;
 }
 .ms-casa-load-gate p { margin-bottom: 8px; }
+.ms-casa-load-gate .ms-casa-hero-actions { margin-top: 14px; }
+.ms-casa-load-gate button[hidden] { display: none; }
+@media (max-width: 760px) {
+  .ms-casa-load-gate { bottom: max(116px, env(safe-area-inset-bottom)); }
+}
