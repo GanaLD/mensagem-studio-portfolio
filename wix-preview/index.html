@@ -1279,7 +1279,7 @@ body{overflow-x:clip!important}
     <iframe
       id="cenaHero1Frame"
       title="Cena Hero 1 — experiência 3D Mensagem Studio"
-      src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261014-notebook-controls-v2"
+      src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261014-mobile-stages-v4"
       loading="eager"
       referrerpolicy="same-origin"
       sandbox="allow-scripts"
@@ -2089,6 +2089,11 @@ bindTabs('#pdfTabs',()=>{});
 #msUnifiedHeroStage .hero-sticky .video-scroll-label,
 #msUnifiedHeroStage .hero-sticky .video-scroll-meter{display:none!important}
 #msUnifiedHeroStage #heroVideo{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 50%!important}
+#msUnifiedHeroStage.is-cena-loading .cena-hero-shared-ui{visibility:hidden!important;opacity:0!important}
+#msCenaHeroGate{position:absolute;z-index:46;left:50%;bottom:max(116px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(430px,calc(100% - 32px));padding:18px;border:1px solid #c9ff3680;background:#07140eea;box-shadow:0 0 24px #c9ff3624;color:#f4f5ef;font:13px/1.5 Inter,Arial,sans-serif;text-align:center;pointer-events:auto;backdrop-filter:blur(12px)}
+#msCenaHeroGate[hidden]{display:none!important}
+#msCenaHeroGate p{margin:0 0 10px;color:#c9ff36}
+#msCenaHeroGate button{min-height:44px;padding:10px 14px;margin:5px;border:1px solid #c9ff3670;background:#05100c;color:#f4f5ef;font:700 11px Inter,Arial,sans-serif;cursor:pointer;touch-action:manipulation}
 @media(max-width:760px){
   #msUnifiedHeroStage{height:100svh}
   #msUnifiedHeroStage .cena-hero-1-sticky,#msUnifiedHeroStage .hero-sticky{height:100svh!important;min-height:100svh!important}
@@ -2112,13 +2117,26 @@ bindTabs('#pdfTabs',()=>{});
   stage.append(sceneShell,heroShell);
   if(shared)stage.append(shared);
 
-  let raf=0,lastScene=-1,lastMode='';
+  const gate=document.createElement('div');
+  gate.id='msCenaHeroGate';gate.hidden=true;
+  gate.innerHTML='<p role="status" aria-live="polite">Preparando a cena do notebook…</p><button type="button" data-retry hidden>Tentar novamente</button><button type="button" data-continue>Continuar pela página ↓</button>';
+  stage.append(gate);
+  const state={ready:false,error:false,bypassed:false,progress:0,waiting:false};
+  let raf=0,lastScene=-1,lastMode='',previousY=scrollY,correcting=false,pendingScroll=null;
   const clamp=n=>Math.max(0,Math.min(1,n));
+  const holdScroll=top=>{
+    if(correcting){pendingScroll=top;return;}
+    correcting=true;
+    const root=document.documentElement,behavior=root.style.scrollBehavior;
+    root.style.scrollBehavior='auto';scrollTo({top,behavior:'instant'});
+    requestAnimationFrame(()=>{root.style.scrollBehavior=behavior;correcting=false;if(pendingScroll!==null){const next=pendingScroll;pendingScroll=null;holdScroll(next);}schedule()});
+  };
   const postScene=p=>{
     if(Math.abs(p-lastScene)<.00015&&lastScene>=0)return;
     lastScene=p;
     try{frame.contentWindow&&frame.contentWindow.postMessage({type:'MS_CENA_HERO_PROGRESS',progress:p},'*')}catch(_){}
   };
+  const queryScene=()=>frame.contentWindow?.postMessage({type:'MS_CENA_HERO_STATUS_REQUEST'},'*');
   const heroMeter=()=>{
     const raw=getComputedStyle(document.documentElement).getPropertyValue('--video-progress').trim();
     const n=parseFloat(raw);
@@ -2127,13 +2145,19 @@ bindTabs('#pdfTabs',()=>{});
 
   const update=()=>{
     raf=0;
-    const y=scrollY;
+    let y=scrollY;
     const sceneStart=sceneSection.offsetTop;
     const handoffY=heroSection.offsetTop;
     const heroEnd=heroSection.offsetTop+Math.max(1,heroSection.offsetHeight-innerHeight);
     const span=Math.max(1,handoffY-sceneStart);
-    const scenePage=clamp((y-sceneStart)/span);
+    if(y<sceneStart-10||(state.bypassed&&y<=sceneStart+2&&previousY>sceneStart+2))state.bypassed=false;
+    const crossesPending=previousY<handoffY&&y>=handoffY;
+    state.waiting=!state.ready&&!state.bypassed&&((y>=sceneStart&&y<handoffY)||crossesPending);
+    if(state.waiting&&y>sceneStart){holdScroll(sceneStart);y=sceneStart;}
+    previousY=y;
+    const scenePage=state.ready?clamp((y-sceneStart)/span):0;
     const sceneProgress=clamp(scenePage/.995);
+    state.progress=sceneProgress;
     const mode=y<handoffY?'scene':(y<=heroEnd?'hero2':'after');
 
     if(mode!==lastMode){
@@ -2146,6 +2170,9 @@ bindTabs('#pdfTabs',()=>{});
 
     stage.classList.toggle('is-hero2',mode==='hero2');
     stage.classList.toggle('is-after',mode==='after');
+    stage.classList.toggle('is-cena-loading',mode==='scene'&&!state.ready&&!state.bypassed);
+    gate.hidden=mode!=='scene'||state.ready||state.bypassed;
+    gate.querySelector('[data-retry]').hidden=!state.error;
     stage.style.setProperty('--unified-hero-meter',String(mode==='scene'?sceneProgress:heroMeter()));
     postScene(mode==='scene'?sceneProgress:1);
   };
@@ -2153,8 +2180,21 @@ bindTabs('#pdfTabs',()=>{});
   addEventListener('scroll',schedule,{passive:true});
   addEventListener('resize',schedule,{passive:true});
   addEventListener('orientationchange',schedule,{passive:true});
-  frame.addEventListener('load',()=>{lastScene=-1;schedule()});
-  addEventListener('message',event=>{if(event.source===frame.contentWindow){lastScene=-1;schedule()}});
+  frame.addEventListener('load',()=>{lastScene=-1;queryScene();schedule()});
+  gate.querySelector('[data-continue]').addEventListener('click',()=>{state.bypassed=true;holdScroll(heroSection.offsetTop);schedule()});
+  gate.querySelector('[data-retry]').addEventListener('click',()=>{state.ready=false;state.error=false;state.bypassed=false;gate.querySelector('p').textContent='Preparando a cena do notebook…';frame.src=frame.getAttribute('src');lastScene=-1;schedule()});
+  addEventListener('message',event=>{
+    if(event.source!==frame.contentWindow)return;
+    const data=event.data;
+    if(data?.type==='MS_CENA_HERO_READY'){state.ready=true;state.error=false;}
+    else if(data?.type==='MS_CENA_HERO_ERROR'){state.ready=false;state.error=true;gate.querySelector('p').textContent='A cena não pôde ser preparada. Tente novamente ou continue pela página.';}
+    else if(data?.type==='MS_CENA_HERO_LOAD'&&!state.error){gate.querySelector('p').textContent=`Preparando a cena do notebook… ${Math.round(clamp(Number(data.progress)/100)*100)}%`;}
+    else if(data?.type==='MS_CENA_HERO_BOOT')queryScene();
+    else return;
+    lastScene=-1;schedule();
+  });
+  window.MSCenaHero={get ready(){return state.ready},get bypassed(){return state.bypassed},metrics:()=>({...state,gateVisible:!gate.hidden})};
+  queryScene();
   schedule();
 })();
 </script>
@@ -2164,8 +2204,8 @@ bindTabs('#pdfTabs',()=>{});
 #hero{height:600vh!important}
 @media(max-width:760px){#hero{height:550svh!important}}
 </style>
-<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261014-http-parallel-v3">
-<script type="module" src="./assets/casa-hero-host.mjs?v=20261014-http-parallel-v3"></script>
+<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261014-mobile-stages-v4">
+<script type="module" src="./assets/casa-hero-host.mjs?v=20261014-mobile-stages-v4"></script>
 <!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->
 </body>
 </html>

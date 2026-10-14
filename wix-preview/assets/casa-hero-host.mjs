@@ -1,5 +1,5 @@
 // Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
-const CASA_RELEASE = '20261014-http-parallel-v3';
+const CASA_RELEASE = '20261014-mobile-stages-v4';
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');
@@ -62,6 +62,7 @@ if (hero && stage && !window.MSCasaHero) {
   let lastMessage = '';
   let correctingScroll = false;
   let pendingScroll = null;
+  let previousY = scrollY;
   const entry = window.gsap?.timeline({paused: true}).fromTo(
     panel, {xPercent: 100}, {xPercent: 0, duration: 1, ease: 'none'}, 0,
   );
@@ -133,10 +134,13 @@ if (hero && stage && !window.MSCasaHero) {
     let y = currentY;
     if (currentY < state.legacyEnd - 32) state.loadingBypassed = false;
     const insideHero4 = currentY > state.legacyEnd && currentY <= state.end;
-    if (!state.visualReady && !state.loadingBypassed && insideHero4) {
+    const crossedPending = previousY <= state.legacyEnd && currentY > state.legacyEnd;
+    const notebookPending = window.MSCenaHero && !window.MSCenaHero.ready && !window.MSCenaHero.bypassed;
+    if (!state.visualReady && !state.loadingBypassed && !notebookPending && (insideHero4 || crossedPending)) {
       hardScrollTo(state.legacyEnd);
       y = state.legacyEnd;
     }
+    previousY = y;
 
     state.progress = state.visualReady ? clamp((y - state.legacyEnd) / Math.max(1, state.end - state.legacyEnd)) : 0;
     state.active = state.visualReady && y >= state.legacyEnd && y <= state.end;
@@ -144,7 +148,7 @@ if (hero && stage && !window.MSCasaHero) {
     state.cameraProgress = state.visualReady ? clamp((state.progress - .15) / .73) : 0;
     if (!state.active || state.progress < .88) state.exploring = false;
 
-    const waitingAtGate = state.loaded && !state.visualReady && !state.loadingBypassed && currentY >= state.legacyEnd - 2 && currentY <= state.end;
+    const waitingAtGate = state.loaded && !state.visualReady && !state.loadingBypassed && y >= state.legacyEnd - 2 && y <= state.end;
     gate.hidden = !waitingAtGate;
     gate.querySelector('#msCasaHeroRetry').hidden = !state.error;
     const preloading = state.loaded && !state.visualReady && !state.error;
@@ -201,6 +205,11 @@ if (hero && stage && !window.MSCasaHero) {
     frame.src = frame.dataset.src;lastMessage = '';sync();
   });
   frame.addEventListener('load', () => { updateLoadText(); postState(true); });
+  const primeFilm = () => {
+    if (mobileProfile && state.loaded) frame.contentWindow?.postMessage({type:'MS_CASA_HERO_PRIME'}, origin);
+  };
+  window.addEventListener('touchstart', primeFilm, {passive:true});
+  window.addEventListener('pointerdown', primeFilm, {passive:true});
   window.addEventListener('message', event => {
     if (event.source !== frame.contentWindow || event.origin !== origin) return;
     const data = event.data;
