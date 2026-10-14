@@ -69,6 +69,30 @@ async function bootPdfClickViewer(){
   }
 
   let doc=null,pageNo=1,rendering=false,pending=false,loadToken=0,activeKey='manual';
+  const documentTasks=new Map();
+  function loadCachedDocument(key){
+    const existing=documentTasks.get(key);
+    if(existing)return existing.promise;
+    const task=pdfjsLib.getDocument({url:PDF_PROXY+encodeURIComponent(key),rangeChunkSize:262144});
+    const promise=task.promise.catch(error=>{
+      if(documentTasks.get(key)?.task===task){
+        documentTasks.delete(key);
+        const cleanup=task.destroy?.();
+        if(cleanup?.catch)cleanup.catch(()=>{});
+      }
+      throw error;
+    });
+    documentTasks.set(key,{task,promise});
+    return promise;
+  }
+  addEventListener('pagehide',event=>{
+    if(event.persisted)return;
+    for(const {task} of documentTasks.values()){
+      const cleanup=task.destroy?.();
+      if(cleanup?.catch)cleanup.catch(()=>{});
+    }
+    documentTasks.clear();
+  });
   function syncUi(){
     const total=doc?.numPages||0;
     indicator.textContent=total?`Página ${pageNo} / ${total}`:'Página — / —';
@@ -112,13 +136,13 @@ async function bootPdfClickViewer(){
     loadState.style.display='grid';
     loadState.textContent='Carregando documento…';
     try{
-      const task=pdfjsLib.getDocument({url:PDF_PROXY+encodeURIComponent(key),rangeChunkSize:262144});
-      const loaded=await task.promise;
-      if(token!==loadToken){loaded.destroy?.();return}
+      const loaded=await loadCachedDocument(key);
+      if(token!==loadToken)return
       doc=loaded;pageNo=1;syncUi();
       if(note) note.textContent=`clique nas laterais · ${doc.numPages} páginas`;
       await renderPage();
     }catch(err){
+      if(token!==loadToken)return;
       console.error('[PDF click viewer] load failed',err);
       loadState.textContent='Não foi possível abrir este PDF';
     }

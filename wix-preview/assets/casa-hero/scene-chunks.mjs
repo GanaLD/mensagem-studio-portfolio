@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {createYieldBudget} from './async-octree.mjs?v=20261012-web-fast-v1';
+import {createYieldBudget} from './async-octree.mjs?v=20261013-site-fast-v1';
 
 // Static material batches may span every room and the entire landscape.
 // Reuse their original vertex buffers and distribute only triangle indices

@@ -14,7 +14,12 @@
       "url": "CASA_HERO.part-001.bin",
       "offset": 0,
       "bytes": 50331648,
-      "sha256": "7af1d6a2ce69a2d10a6b673f654c0de26822351b5abe72c0fede4612eab24a70"
+      "sha256": "7af1d6a2ce69a2d10a6b673f654c0de26822351b5abe72c0fede4612eab24a70",
+      "gzip": {
+        "url": "CASA_HERO.part-001.gz.bin",
+        "bytes": 49050916,
+        "sha256": "1cb2c17e6bf4000a9414fca6343b423386f0dd7e5ca88ae4693797ec72ea26f9"
+      }
     },
     {
       "url": "CASA_HERO.part-002.bin",
@@ -26,13 +31,23 @@
       "url": "CASA_HERO.part-003.bin",
       "offset": 100663296,
       "bytes": 50331648,
-      "sha256": "7bd1d159119f4b921857e088ca5da8b78489576fd6505f50f3c7970a294b84f8"
+      "sha256": "7bd1d159119f4b921857e088ca5da8b78489576fd6505f50f3c7970a294b84f8",
+      "gzip": {
+        "url": "CASA_HERO.part-003.gz.bin",
+        "bytes": 41773496,
+        "sha256": "8810fcedc9b1e29cc49aabe4add632638e5def4344f138163203de065b3d06ea"
+      }
     },
     {
       "url": "CASA_HERO.part-004.bin",
       "offset": 150994944,
       "bytes": 13029900,
-      "sha256": "3469b51673f830b39c8e6a30db6ff181267c6fb44269b96fc4200902e11941a3"
+      "sha256": "3469b51673f830b39c8e6a30db6ff181267c6fb44269b96fc4200902e11941a3",
+      "gzip": {
+        "url": "CASA_HERO.part-004.gz.bin",
+        "bytes": 9023948,
+        "sha256": "43b228ffc2a7ff2fab378a4a12a566791a5477d8602345d8e8effad8e2a53c28"
+      }
     }
   ]
 }

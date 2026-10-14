@@ -1271,7 +1271,7 @@ body{overflow-x:clip!important}
 </nav>
 <!-- HOME_SECTION_NAV_HTML_END -->
 
-<div id="sfGlobalMediaCanvas" data-background="01" aria-hidden="true"><div id="cyberAngelSlot" data-asset="cyber-angel-scroll"><iframe id="cyberAngelBg" class="cyber-bg-frame is-active" sandbox="allow-scripts" referrerpolicy="no-referrer" data-src="./assets/cyber-angel-bg-v2.html" title="Cyber Angel V2.1.5 global scroll background" tabindex="-1" loading="lazy"></iframe><iframe id="cyberAngelLegacy" class="cyber-bg-frame" data-src="./assets/cyber-angel-bg.html" title="Cyber Angel legacy global scroll background" tabindex="-1" loading="lazy"></iframe></div></div>
+<div id="sfGlobalMediaCanvas" data-background="01" aria-hidden="true"><div id="cyberAngelSlot" data-asset="cyber-angel-scroll"><iframe id="cyberAngelBg" class="cyber-bg-frame is-active" sandbox="allow-scripts" referrerpolicy="no-referrer" data-src="./assets/cyber-angel-bg-v2.html?v=20261013-site-fast-v1" title="Cyber Angel V2.1.5 global scroll background" tabindex="-1" loading="lazy"></iframe><iframe id="cyberAngelLegacy" class="cyber-bg-frame" data-src="./assets/cyber-angel-bg.html" title="Cyber Angel legacy global scroll background" tabindex="-1" loading="lazy"></iframe></div></div>
 <header class="content-layer"><div class="brand">MENSAGEM STUDIO</div><nav class="nav"><a href="./">HOME</a><a href="./portfolio/">PROJETOS</a><a href="./servicos/">SERVIÇOS</a><a href="./sobre/">SOBRE</a></nav></header><h1 class="sr-only">Studio de Design Gráfico e Estúdio Criativo em Curitiba</h1>
 <!-- CENA_HERO_1_PRODUCTION_START -->
 <section id="cenaHero1" aria-label="Cena Hero 1 — Home Office 3D">
@@ -1279,7 +1279,7 @@ body{overflow-x:clip!important}
     <iframe
       id="cenaHero1Frame"
       title="Cena Hero 1 — experiência 3D Mensagem Studio"
-      src="./assets/cena-hero-1/visualizador.html?embed=hero1"
+      src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261013-site-fast-v1"
       loading="eager"
       referrerpolicy="same-origin"
       sandbox="allow-scripts"
@@ -1413,7 +1413,7 @@ addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(renderScroll)},
 Object.entries(backgroundFrames).forEach(([key,frame])=>{if(!frame)return;frame.addEventListener('load',()=>{postBackground(frame,{type:'cyber-angel-active',active:key===activeBackground});if(key===activeBackground)postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant:true})})});backgroundSwitcher&&backgroundSwitcher.addEventListener('click',()=>applyBackground(activeBackground==='01'?'02':'01',true,true));applyBackground(activeBackground,false,innerWidth>760);cyberAngel&&cyberAngel.addEventListener('load',()=>updateGlobalCanvas(scrollY));
 video.addEventListener('loadedmetadata',()=>{clearTimeout(heroVideoWatchdog);video.pause();videoReady=true;videoDegraded=false;const hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((scrollY-hs)/hh),videoP=clamp(p/heroVideoEndForSpan(hh));smoothVideoTime=targetVideoTime=videoP*Math.max(.01,video.duration-.045);video.currentTime=smoothVideoTime;renderScroll()});video.addEventListener('play',()=>{if(!videoPriming)video.pause()});const primeHeroVideo=()=>{if(innerWidth>760||videoPriming||!videoReady)return;videoPriming=true;try{if(video.currentTime===0)video.currentTime=.01}catch(e){}const p=video.play();const done=()=>{try{video.pause()}catch(e){}videoPriming=false;renderScroll();requestScrub()};if(p&&p.then)p.then(done).catch(()=>{videoPriming=false;videoDegraded=true;renderScroll()});else done()};addEventListener('touchstart',primeHeroVideo,{once:true,passive:true});addEventListener('pointerdown',primeHeroVideo,{once:true,passive:true});video.addEventListener('error',()=>{clearTimeout(heroVideoWatchdog);videoReady=false;videoDegraded=true;renderScroll()});setHeroState(0);renderScroll();requestScrub();
 function bindTabs(root,cb){const host=document.querySelector(root);if(!host)return;host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll(root+' button').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b)})}
-bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFrame').src='https://www.youtube.com/embed/'+b.dataset.yt+'?rel=0&modestbranding=1'});
+bindTabs('#pdfTabs',()=>{});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -1677,7 +1677,7 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
   const load=()=>{
     if(loaded)return;
     loaded=true;
-    import('./pdf-click-viewer.js?v=20260914-pdf-catalog-v4-no-drive').catch(err=>console.error('[PDF viewer] deferred import failed',err));
+    import('./pdf-click-viewer.js?v=20261013-site-fast-v1').catch(err=>console.error('[PDF viewer] deferred import failed',err));
   };
   if(!('IntersectionObserver' in window)){load();return;}
   const io=new IntersectionObserver(entries=>{
@@ -2164,8 +2164,8 @@ bindTabs('#pdfTabs',()=>{});bindTabs('#ytTabs',b=>{document.querySelector('#ytFr
 #hero{height:600vh!important}
 @media(max-width:760px){#hero{height:550svh!important}}
 </style>
-<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261012-web-fast-v1">
-<script type="module" src="./assets/casa-hero-host.mjs?v=20261012-web-fast-v1"></script>
+<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261013-site-fast-v1">
+<script type="module" src="./assets/casa-hero-host.mjs?v=20261013-site-fast-v1"></script>
 <!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->
 </body>
 </html>
