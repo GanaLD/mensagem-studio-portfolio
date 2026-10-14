@@ -1,5 +1,5 @@
 // Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
-const CASA_RELEASE = '20261014-mobile-stages-v4';
+const CASA_RELEASE = '20261014-single-load-mobile-v5';
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');
@@ -19,7 +19,7 @@ if (hero && stage && !window.MSCasaHero) {
   panel.innerHTML = `
     <iframe id="msCasaHeroFrame" title="Casa Mensagem Studio — ambiente 3D interativo"
       data-src="./assets/casa-hero/index.html?embed=hero4&v=${CASA_RELEASE}" loading="eager"
-      referrerpolicy="same-origin" tabindex="-1" aria-hidden="true"></iframe>
+      referrerpolicy="same-origin" allow="autoplay" tabindex="-1" aria-hidden="true"></iframe>
     <div id="msCasaHeroPrompt" class="ms-casa-hologram" hidden>
       <p>Ande no ambiente ou continue rolando</p>
       <div class="ms-casa-hero-actions">
@@ -42,7 +42,7 @@ if (hero && stage && !window.MSCasaHero) {
   gate.id = 'msCasaHeroGate';
   gate.className = 'ms-casa-hologram ms-casa-load-gate';
   gate.hidden = true;
-  gate.innerHTML = '<p>Preparando próximo ambiente</p><small id="msCasaHeroGateText" class="ms-casa-loading" role="status" aria-live="polite">Carregando ambiente… 0%</small><div class="ms-casa-hero-actions"><button id="msCasaHeroSkipLoad" type="button">Continuar pela página ↓</button><button id="msCasaHeroRetry" type="button" hidden>Tentar novamente</button></div>';
+  gate.innerHTML = '<p>Preparando próximo ambiente</p><small id="msCasaHeroGateText" class="ms-casa-loading" role="status" aria-live="polite">Carregando ambiente… 0%</small><div class="ms-casa-hero-actions"><button id="msCasaHeroStart" type="button" hidden>Iniciar passeio</button><button id="msCasaHeroSkipLoad" type="button">Continuar pela página ↓</button><button id="msCasaHeroRetry" type="button" hidden>Tentar novamente</button></div>';
   stage.append(gate);
 
   const frame = panel.querySelector('#msCasaHeroFrame');
@@ -57,7 +57,7 @@ if (hero && stage && !window.MSCasaHero) {
     legacyEnd: 0, end: 0, progress: 0, cameraProgress: 0, entryProgress: 0,
     active: false, exploring: false, ready: false, visualReady: false, loaded: false,
     loadPhase: 'environment', loadProgress: 0, loadLabel: 'Carregando ambiente…',
-    loadingBypassed: false, error: false, cinematicOnly: false,
+    loadingBypassed: false, error: false, cinematicOnly: false, gestureRequired: false,
   };
   let lastMessage = '';
   let correctingScroll = false;
@@ -104,7 +104,7 @@ if (hero && stage && !window.MSCasaHero) {
     if (state.loadPhase === 'player') {
       loading.textContent = state.ready ? '' : `${state.loadLabel || 'Preparando personagem…'} ${progress}%`;
     }
-    gateText.textContent = state.error ? 'O ambiente não pôde ser preparado. Você pode tentar novamente ou seguir pela página.' : `${state.loadLabel || 'Carregando ambiente…'} ${progress}%`;
+    gateText.textContent = state.error ? 'O ambiente não pôde ser preparado. Você pode tentar novamente ou seguir pela página.' : state.gestureRequired ? 'Toque em Iniciar passeio para liberar o vídeo neste navegador.' : `${state.loadLabel || 'Carregando ambiente…'} ${progress}%`;
   }
 
   function postState(force = false) {
@@ -151,6 +151,7 @@ if (hero && stage && !window.MSCasaHero) {
     const waitingAtGate = state.loaded && !state.visualReady && !state.loadingBypassed && y >= state.legacyEnd - 2 && y <= state.end;
     gate.hidden = !waitingAtGate;
     gate.querySelector('#msCasaHeroRetry').hidden = !state.error;
+    gate.querySelector('#msCasaHeroStart').hidden = !state.gestureRequired || state.error;
     const preloading = state.loaded && !state.visualReady && !state.error;
     panel.hidden = !state.active && !preloading;
     panel.classList.toggle('is-preloading', preloading);
@@ -201,21 +202,32 @@ if (hero && stage && !window.MSCasaHero) {
   panel.querySelectorAll('.ms-casa-continue').forEach(button => button.addEventListener('click', continuePage));
   gate.querySelector('#msCasaHeroSkipLoad').addEventListener('click', continuePage);
   gate.querySelector('#msCasaHeroRetry').addEventListener('click', () => {
-    state.error = false;state.ready = false;state.visualReady = false;state.loadPhase = 'environment';state.loadProgress = 0;state.loadLabel = 'Carregando ambiente…';state.loadingBypassed = false;state.cinematicOnly = false;
+    state.error = false;state.ready = false;state.visualReady = false;state.loadPhase = 'environment';state.loadProgress = 0;state.loadLabel = 'Carregando ambiente…';state.loadingBypassed = false;state.cinematicOnly = false;state.gestureRequired = false;
     frame.src = frame.dataset.src;lastMessage = '';sync();
   });
   frame.addEventListener('load', () => { updateLoadText(); postState(true); });
-  const primeFilm = () => {
-    if (mobileProfile && state.loaded) frame.contentWindow?.postMessage({type:'MS_CASA_HERO_PRIME'}, origin);
+  const primeFilm = event => {
+    if (!mobileProfile || !state.loaded || state.visualReady || state.error) return;
+    // Invoke the same-origin child during the actual tap, before returning to
+    // the event loop. An asynchronous message cannot carry Safari's gesture.
+    try {
+      const cinematic = frame.contentWindow?.__houseCinematic;
+      if (typeof cinematic?.prime === 'function') { cinematic.prime({fromGesture:event?.isTrusted === true}); return; }
+    } catch {}
+    frame.contentWindow?.postMessage({type:'MS_CASA_HERO_PRIME'}, origin);
   };
-  window.addEventListener('touchstart', primeFilm, {passive:true});
-  window.addEventListener('pointerdown', primeFilm, {passive:true});
+  gate.querySelector('#msCasaHeroStart').addEventListener('click', primeFilm);
+  window.addEventListener('touchend', primeFilm, {passive:true});
+  window.addEventListener('pointerup', primeFilm, {passive:true});
+  window.addEventListener('click', primeFilm, {passive:true});
   window.addEventListener('message', event => {
     if (event.source !== frame.contentWindow || event.origin !== origin) return;
     const data = event.data;
     if (!data || typeof data !== 'object') return;
     if (data.type === 'MS_CASA_HERO_CAPABILITIES') {
       state.cinematicOnly = data.cinematicOnly === true;sync();
+    } else if (data.type === 'MS_CASA_HERO_MEDIA_BLOCKED') {
+      state.gestureRequired = data.gestureRequired === true;sync();
     } else if (data.type === 'MS_CASA_HERO_LOAD') {
       state.loadPhase = data.phase === 'player' ? 'player' : 'environment';
       state.loadProgress = clamp(Number(data.progress) / 100) * 100;
@@ -225,6 +237,7 @@ if (hero && stage && !window.MSCasaHero) {
       measureLegacy();
       if (scrollY >= state.legacyEnd - 1 && scrollY <= state.end) hardScrollTo(state.legacyEnd);
       state.visualReady = true;
+      state.gestureRequired = false;
       state.loadPhase = 'environment';
       state.loadProgress = 100;
       state.loadLabel = 'Ambiente pronto ·';
@@ -232,6 +245,7 @@ if (hero && stage && !window.MSCasaHero) {
       postState(true);
     } else if (data.type === 'MS_CASA_HERO_READY') {
       state.ready = true;
+      state.gestureRequired = false;
       state.loadPhase = 'player';
       state.loadProgress = 100;
       state.loadLabel = 'Personagem pronto ·';
@@ -254,7 +268,7 @@ if (hero && stage && !window.MSCasaHero) {
       return {
         progress: state.progress, active: state.active, exploring: state.exploring,
         ready: state.ready, visualReady: state.visualReady, loaded: state.loaded,
-        loadPhase: state.loadPhase, loadProgress: state.loadProgress, error: state.error, loadingBypassed: state.loadingBypassed, cinematicOnly: state.cinematicOnly,
+        loadPhase: state.loadPhase, loadProgress: state.loadProgress, error: state.error, loadingBypassed: state.loadingBypassed, cinematicOnly: state.cinematicOnly, gestureRequired: state.gestureRequired,
         entryTransform: getComputedStyle(panel).transform,
         entryProgress: state.entryProgress, entryEngine: entry ? 'gsap' : 'css-fallback',
         legacySpan: state.legacySpan, legacyHeight: state.legacyHeight,

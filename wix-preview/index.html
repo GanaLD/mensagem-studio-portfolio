@@ -1279,7 +1279,7 @@ body{overflow-x:clip!important}
     <iframe
       id="cenaHero1Frame"
       title="Cena Hero 1 — experiência 3D Mensagem Studio"
-      src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261014-mobile-stages-v4"
+      data-src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261014-single-load-mobile-v5"
       loading="eager"
       referrerpolicy="same-origin"
       sandbox="allow-scripts"
@@ -2182,7 +2182,7 @@ bindTabs('#pdfTabs',()=>{});
   addEventListener('orientationchange',schedule,{passive:true});
   frame.addEventListener('load',()=>{lastScene=-1;queryScene();schedule()});
   gate.querySelector('[data-continue]').addEventListener('click',()=>{state.bypassed=true;holdScroll(heroSection.offsetTop);schedule()});
-  gate.querySelector('[data-retry]').addEventListener('click',()=>{state.ready=false;state.error=false;state.bypassed=false;gate.querySelector('p').textContent='Preparando a cena do notebook…';frame.src=frame.getAttribute('src');lastScene=-1;schedule()});
+  gate.querySelector('[data-retry]').addEventListener('click',()=>{state.ready=false;state.error=false;state.bypassed=false;gate.querySelector('p').textContent='Preparando a cena do notebook…';frame.src=frame.dataset.src;lastScene=-1;schedule()});
   addEventListener('message',event=>{
     if(event.source!==frame.contentWindow)return;
     const data=event.data;
@@ -2194,6 +2194,8 @@ bindTabs('#pdfTabs',()=>{});
     lastScene=-1;schedule();
   });
   window.MSCenaHero={get ready(){return state.ready},get bypassed(){return state.bypassed},metrics:()=>({...state,gateVisible:!gate.hidden})};
+  /* Assign the source after moving the iframe and installing listeners: reparenting a loaded iframe restarts its document. */
+  if(!frame.hasAttribute('src'))frame.src=frame.dataset.src;
   queryScene();
   schedule();
 })();
@@ -2204,8 +2206,8 @@ bindTabs('#pdfTabs',()=>{});
 #hero{height:600vh!important}
 @media(max-width:760px){#hero{height:550svh!important}}
 </style>
-<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261014-mobile-stages-v4">
-<script type="module" src="./assets/casa-hero-host.mjs?v=20261014-mobile-stages-v4"></script>
+<link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261014-single-load-mobile-v5">
+<script type="module" src="./assets/casa-hero-host.mjs?v=20261014-single-load-mobile-v5"></script>
 <!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->
 </body>
 </html>

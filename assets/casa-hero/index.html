@@ -20,6 +20,22 @@ html[data-embedded=hero4] body[data-mode=embedded] .status,html[data-embedded=he
  html[data-embedded=hero4] .interaction-hint{bottom:240px}
 }
 </style>
+<script id="ms-casa-entry-errors">
+(()=>{
+ const enabled=new URLSearchParams(location.search).get('embed')==='hero4';
+ const report=error=>{
+  const message=String(error?.message||error||'Não foi possível carregar o ambiente.');
+  if(window.__loadError===message)return;
+  window.__loadError=message;window.__visualReady=false;window.__ready=false;
+  if(enabled&&parent!==window)parent.postMessage({type:'MS_CASA_HERO_ERROR',message},location.origin);
+ };
+ window.__reportCasaEntryError=report;
+ addEventListener('error',event=>{
+  if(event.target?.id==='msCasaEntry'||/\/casa-hero\/[^?#]+\.mjs/.test(event.filename||''))report(event.message||'Não foi possível carregar o ambiente.');
+ },true);
+ addEventListener('unhandledrejection',event=>report(event.reason));
+})();
+</script>
 <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
 <meta name="casa-asset-manifest" content="./CASA_HERO.manifest.json">
 </head><body data-mode="loading">
@@ -33,5 +49,5 @@ html[data-embedded=hero4] body[data-mode=embedded] .status,html[data-embedded=he
 <aside id="interactionHint" class="interaction-hint" role="status" aria-live="polite" hidden><p id="interactionText"></p><button id="interactionAction" type="button">Interagir</button></aside>
 <button id="viewMode" class="view-toggle" aria-label="Mudar para terceira pessoa">Ver personagem · V</button><details class="navigation"><summary>Ambientes</summary><nav class="rooms" aria-label="Ambientes"><button data-room="living">Sala</button><button data-room="kitchen">Cozinha</button><button data-room="pool">Piscina</button><button data-room="closet">Closet</button><button data-room="garage">Garagem</button></nav></details>
 <a class="credit" href="https://sketchfab.com/3d-models/2021-lamborghini-countach-lpi-800-4-d76b94884432422b966d1a7f8815afb5" target="_blank" rel="noopener">Countach · Lexyc16 · CC BY-NC 4.0</a>
-<div class="progress" id="progress"></div><script type="module" src="./entry.mjs?v=20261012-web-fast-v1"></script>
+<div class="progress" id="progress"></div><script id="msCasaEntry" type="module" src="./entry.mjs?v=20261014-single-load-mobile-v5"></script>
 </body></html>
