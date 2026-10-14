@@ -1,5 +1,5 @@
-import {createHeroEmbedding} from './embedded-host.mjs?v=20261013-site-fast-v1';
-import {versionedAssetURL} from './asset-loader.mjs?v=20261013-site-fast-v1';
+import {createHeroEmbedding} from './embedded-host.mjs?v=20261014-http-parallel-v3';
+import {versionedAssetURL} from './asset-loader.mjs?v=20261014-http-parallel-v3';
 document.documentElement.dataset.cinematic='true';
 document.body.dataset.mode='embedded';
 const style=document.createElement('style');style.textContent='html[data-cinematic] body> :not(.mobile-house-film):not(.load){display:none!important}.mobile-house-film{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#17201b;pointer-events:none}';document.head.append(style);

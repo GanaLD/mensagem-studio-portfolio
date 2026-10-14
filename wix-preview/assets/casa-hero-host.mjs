@@ -1,5 +1,5 @@
 // Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
-const CASA_RELEASE = '20261013-site-fast-v1';
+const CASA_RELEASE = '20261014-http-parallel-v3';
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');

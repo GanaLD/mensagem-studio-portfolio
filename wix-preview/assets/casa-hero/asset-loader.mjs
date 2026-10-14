@@ -1,4 +1,4 @@
-export const ASSET_VERSION='20261013-site-fast-v1';
+export const ASSET_VERSION='20261014-http-parallel-v3';
 export function versionedAssetURL(url){const absolute=new URL(url,location.href);absolute.searchParams.set('v',ASSET_VERSION);return absolute.href;}
 
 async function digest(buffer){
