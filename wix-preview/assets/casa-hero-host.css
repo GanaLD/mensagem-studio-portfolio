@@ -35,6 +35,13 @@ html.ms-casa-hero-enabled #hero {
   pointer-events: auto;
 }
 
+/* The house owns this interval. Covered model-viewers must not intercept
+   wheel/zoom input through the non-interactive camera tour. */
+#msUnifiedHeroStage.is-casa-range .hero-sticky,
+#msUnifiedHeroStage.is-casa-range .hero-sticky * {
+  pointer-events: none !important;
+}
+
 #msUnifiedHeroStage.is-casa-hero .cena-hero-shared-ui {
   opacity: 0 !important;
   visibility: hidden !important;

@@ -30,9 +30,10 @@ export function createHeroEmbedding({applyState,releaseInput}){
    const value=Math.max(0,Math.min(100,Number(progress)||0));
    post({type:'MS_CASA_HERO_LOAD',phase:String(phase||'environment'),progress:value,label:String(label||'')});
   },
-  reportError(){post({type:'MS_CASA_HERO_ERROR'});},
-  visualReady(){
-   if(visualReady)return;
+  reportError(error){post({type:'MS_CASA_HERO_ERROR',phase:'environment',message:String(error?.message||error||'Não foi possível carregar o ambiente.')});},
+  reportPlayerError(error){post({type:'MS_CASA_HERO_PLAYER_ERROR',phase:'player',message:String(error?.message||error||'Não foi possível preparar o personagem.')});},
+  visualReady({force=false}={}){
+   if(visualReady&&!force)return;
    visualReady=true;apply();
    post({type:'MS_CASA_HERO_VISUAL_READY'});
   },

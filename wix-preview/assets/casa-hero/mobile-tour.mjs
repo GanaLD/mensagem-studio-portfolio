@@ -1,14 +1,29 @@
-import {createHeroEmbedding} from './embedded-host.mjs?v=20261014-http-parallel-v3';
+import {createHeroEmbedding} from './embedded-host.mjs?v=20261017-house-navigation-v1';
 import {versionedAssetURL} from './asset-loader.mjs?v=20261014-http-parallel-v3';
 document.documentElement.dataset.cinematic='true';
 document.body.dataset.mode='embedded';
 const style=document.createElement('style');style.textContent='html[data-cinematic] body> :not(.mobile-house-film):not(.load){display:none!important}.mobile-house-film{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;background:#17201b;pointer-events:none}';document.head.append(style);
 const video=document.createElement('video');video.className='mobile-house-film';video.muted=true;video.defaultMuted=true;video.playsInline=true;video.setAttribute('muted','');video.setAttribute('playsinline','');video.setAttribute('webkit-playsinline','');video.preload='auto';video.controls=false;video.disablePictureInPicture=true;video.poster=versionedAssetURL('./mobile-tour-poster.webp');document.body.prepend(video);
 let desired=0,ready=false,scheduled=0,priming=false,failed=false,gestureRequired=false;
+let seekWatchdog=0,seekStarted=0,seekRetriedAt=0,seekRetries=0,totalSeekRecoveries=0;
+function watchSeek(){
+ if(!seekWatchdog&&!document.hidden&&embedding.state.active)seekWatchdog=setTimeout(()=>{seekWatchdog=0;queueSeek();},500);
+}
+function resetSeekWatch(){clearTimeout(seekWatchdog);seekWatchdog=0;seekStarted=seekRetriedAt=seekRetries=0;}
 function seek(){
- scheduled=0;if(!ready||video.seeking)return;
+ scheduled=0;if(!ready||failed)return;
  const target=desired*Math.max(0,video.duration-1/30);
- if(Math.abs(video.currentTime-target)>.018)video.currentTime=target;
+ if(video.seeking){
+  if(document.hidden||!embedding.state.active){resetSeekWatch();return;}
+  const now=performance.now();if(!seekStarted)seekStarted=now;
+  // A stalled request must not leave the latest scroll position waiting for
+  // a seeked event forever. Retry the current destination before showing retry.
+  if(now-seekStarted>3000&&now-seekRetriedAt>3000&&seekRetries<2){video.currentTime=target;seekRetriedAt=now;seekRetries++;totalSeekRecoveries++;}
+  if(now-seekStarted>20000){reportError('O percurso demorou para responder. Tente novamente.');return;}
+  watchSeek();return;
+ }
+ resetSeekWatch();
+ if(Math.abs(video.currentTime-target)>.018){seekStarted=performance.now();video.currentTime=target;watchSeek();}
 }
 function queueSeek(){if(!scheduled)scheduled=requestAnimationFrame(seek);}
 const embedding=createHeroEmbedding({applyState(state){desired=state.progress;queueSeek();},releaseInput(){}});
@@ -18,10 +33,10 @@ function reportMediaBlocked(blocked){
  gestureRequired=blocked;
  if(embedding.enabled)parent.postMessage({type:'MS_CASA_HERO_MEDIA_BLOCKED',gestureRequired:blocked},location.origin);
 }
-function reportError(){
+function reportError(message='Não foi possível carregar o percurso.'){
  if(failed)return;failed=true;ready=false;priming=false;video.pause();
- window.__visualReady=false;window.__ready=false;window.__loadError='Não foi possível carregar o percurso.';
- embedding.reportError();
+ resetSeekWatch();window.__visualReady=false;window.__ready=false;window.__loadError=typeof message==='string'?message:'Não foi possível carregar o percurso.';
+ embedding.reportError(window.__loadError);
 }
 function reconcileReady(){
  if(video.error){reportError();return;}
@@ -48,21 +63,22 @@ function prime({fromGesture=false}={}){
 addEventListener('message',event=>{
  if(embedding.enabled&&event.source===parent&&event.origin===location.origin&&event.data?.type==='MS_CASA_HERO_PRIME')prime();
 });
-video.addEventListener('seeked',()=>{reconcileReady();queueSeek();});
+video.addEventListener('seeked',()=>{resetSeekWatch();reconcileReady();queueSeek();});
 video.addEventListener('play',()=>{if(!priming)video.pause();});
 video.addEventListener('playing',finishPrime);
 video.addEventListener('error',reportError);
 video.addEventListener('progress',()=>{
- reconcileReady();
+ reconcileReady();if(ready)queueSeek();
  if(!Number.isFinite(video.duration)||!video.duration)return;
  let end=0;for(let i=0;i<video.buffered.length;i++)end=Math.max(end,video.buffered.end(i));
  if(!ready)embedding.reportLoad('environment',Math.min(99,end/video.duration*100),'Preparando percurso…');
 });
-for(const event of ['loadedmetadata','loadeddata','canplay','canplaythrough','durationchange'])video.addEventListener(event,reconcileReady);
-addEventListener('pageshow',reconcileReady);
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)reconcileReady();});
+for(const event of ['loadedmetadata','loadeddata','canplay','canplaythrough','durationchange'])video.addEventListener(event,()=>{reconcileReady();if(ready)queueSeek();});
+for(const event of ['waiting','stalled','suspend'])video.addEventListener(event,queueSeek);
+addEventListener('pageshow',()=>{reconcileReady();queueSeek();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)resetSeekWatch();else{reconcileReady();queueSeek();}});
 // The same-origin parent calls this synchronously from its native tap handler,
 // so Safari can retain the gesture when media playback is restricted.
-window.__houseCinematic={video,embedding,prime,metrics:()=>({ready,gestureRequired,priming,progress:desired,currentTime:video.currentTime,duration:video.duration,paused:video.paused,source:video.currentSrc,webgl:false})};
+window.__houseCinematic={video,embedding,prime,metrics:()=>({ready,gestureRequired,priming,progress:desired,currentTime:video.currentTime,duration:video.duration,paused:video.paused,source:video.currentSrc,seeking:video.seeking,seekRetries,totalSeekRecoveries,webgl:false})};
 embedding.reportLoad('environment',0,'Preparando percurso…');
 video.src=versionedAssetURL('./mobile-tour.mp4');video.load();prime();

@@ -11,7 +11,7 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {createFootPlacement,createSeatedFootPlacement,spring} from './avatar-motion.mjs?v=20261014-http-parallel-v3';
 import {createEnvironmentInteractions} from './interactions.mjs?v=20261014-http-parallel-v3';
 import {partitionStaticScene} from './scene-chunks.mjs?v=20261014-http-parallel-v3';
-import {createHeroEmbedding} from './embedded-host.mjs?v=20261014-http-parallel-v3';
+import {createHeroEmbedding} from './embedded-host.mjs?v=20261017-house-navigation-v1';
 import {createJumpController} from './jump-controller.mjs?v=20261014-http-parallel-v3';
 import {loadHouseAsset,versionedAssetURL} from './asset-loader.mjs?v=20261014-http-parallel-v3';
 import {buildOctreeCooperatively,createYieldBudget,yieldMainThread} from './async-octree.mjs?v=20261014-http-parallel-v3';
@@ -35,7 +35,7 @@ async function prepareTextures(root,name){
  await yieldMainThread();
 }
 
-let preparingGraphics=false;
+let preparingGraphics=false,graphicsContextLost=false,restoreVisualReady=false;
 async function prepareDraws(root,name){
  const all=[],selected=new Set();scene.traverse(object=>{if(object.isMesh)all.push([object,object.layers.mask]);});
  root.traverse(object=>{if(object.isMesh)selected.add(object);});
@@ -98,8 +98,8 @@ const rooms={
  closet:{p:[2.3,-20.2,.07],t:[5.9,-20,1.4],title:'Closet da suíte'},
  garage:{p:[15.6,-6.9,4.22],t:[9.4,-6.9,4.7],title:'Garagem · Countach'}
 };
-let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now(),collisionLoadPromise=null,collisionTaskController=null;
-let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,jumpAction,jumpController,jumpBlend=0,modelBaseY=0,footPlacement,seatedFootPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null;
+let mode='loading',route=[],progress=0,heroCompleted=false,introElapsed=0,last=performance.now(),collisionLoadPromise=null,collisionTaskController=null,collisionLoadFailed=false;
+let yaw=-2.20,pitch=0,pointer=null,wheelStep=0,walkBlend=0,runBlend=0,playerModel,mixer,idleAction,walkAction,runAction,jumpAction,jumpController,jumpBlend=0,modelBaseY=0,footPlacement,seatedFootPlacement,interactions,interactionMetadata={},vehicleBounds,environmentRoot,playerReady=false,playerLoadPromise=null,playerLoadFailure=null;
 const interactionActions={};let playerClipNames=[];
 let cameraMode='first',heroPath,heroTargets,viewTransition=0;
 const velocity=new THREE.Vector3(),eyeSpring={value:0,velocity:0},bodySpring={value:0,velocity:0};
@@ -151,7 +151,7 @@ function finishIntro(){
 }
 function applyEmbeddedState(state){
  if(!window.__visualReady)return;
- if(state.active&&state.progress>=.72&&!playerReady)ensurePlayerReady().catch(reportLoadingFailure);
+ if(state.active&&state.progress>=.72&&!playerReady&&!playerLoadFailure)ensurePlayerReady().catch(reportPlayerLoadingFailure);
  if(state.explore){
   if(!playerReady)return;
   if(mode!=='free')finishIntro();
@@ -168,6 +168,38 @@ function applyEmbeddedState(state){
  if(playerModel)playerModel.visible=camera.position.distanceTo(player.position.clone().add(new THREE.Vector3(0,EYE_HEIGHT,0)))>.65;
 }
 const embedding=createHeroEmbedding({applyState:applyEmbeddedState,releaseInput:resetFrameClock});
+renderer.domElement.addEventListener('webglcontextlost',event=>{
+ event.preventDefault();graphicsContextLost=true;restoreVisualReady=!!window.__visualReady;
+ window.__visualReady=false;resetFrameClock();
+ embedding.reportError(new Error('O navegador interrompeu a renderização do ambiente.'));
+});
+renderer.domElement.addEventListener('webglcontextrestored',()=>{
+ graphicsContextLost=false;resetFrameClock();sun.shadow.needsUpdate=true;
+ if(restoreVisualReady){window.__visualReady=true;embedding.visualReady({force:true});if(playerReady)embedding.ready();}
+ restoreVisualReady=false;
+});
+addEventListener('message',event=>{
+ if(!embedding.enabled||event.source!==parent||event.origin!==location.origin||event.data?.type!=='MS_CASA_HERO_RETRY_PLAYER')return;
+ if(!window.__visualReady||playerReady||playerLoadPromise)return;
+ if(playerLoadFailure){
+  const waterMeshes=new Set();interactions?.water?.root.traverse(object=>waterMeshes.add(object));
+  interactions?.dispose();interactions=null;
+  for(let index=transparentMeshes.length-1;index>=0;index--)if(waterMeshes.has(transparentMeshes[index]))transparentMeshes.splice(index,1);
+  if(playerModel){
+   mixer?.stopAllAction();mixer?.uncacheRoot(playerModel);player.remove(playerModel);
+   const textures=new Set(),materials=new Set(),geometries=new Set();playerModel.traverse(object=>{
+    if(object.geometry)geometries.add(object.geometry);
+    for(const material of (Array.isArray(object.material)?object.material:[object.material]))if(material){materials.add(material);for(const value of Object.values(material))if(value?.isTexture)textures.add(value);}
+   });
+   for(const value of [...textures,...materials,...geometries])value.dispose();
+  }
+  playerModel=mixer=idleAction=walkAction=runAction=jumpAction=jumpController=footPlacement=seatedFootPlacement=null;
+  for(const key of Object.keys(bones))delete bones[key];for(const key of Object.keys(interactionActions))delete interactionActions[key];
+  if(collisionLoadFailed){collisionLoadPromise=null;collisionLoadFailed=false;octree.clear();dynamicSeatColliders.length=0;collisionTriangleCount=0;}
+  playerLoadFailure=null;delete window.__playerLoadError;
+ }
+ ensurePlayerReady().catch(reportPlayerLoadingFailure);
+});
 function rawFloorAt(x,z,y){
  ray.set(new THREE.Vector3(x,y+.26,z),down);
  const hit=octree.rayIntersect(ray);
@@ -430,7 +462,7 @@ function* movementSteps(start,end){
 }
 function tick(now){
  requestAnimationFrame(tick);const elapsed=frameElapsed(now),dt=elapsed;
- if(!window.__visualReady||preparingGraphics||document.hidden||(embedding.enabled&&!embedding.state.active))return;
+ if(!window.__visualReady||preparingGraphics||graphicsContextLost||document.hidden||(embedding.enabled&&!embedding.state.active))return;
  movedLastFrame=0;
  if(mode==='intro'){introElapsed+=elapsed;progress=Math.min(1,introElapsed/HERO_SECONDS);sample(progress);updateProgress();if(progress>=1)finishIntro();}
  else if(mode==='scroll'){progress=THREE.MathUtils.clamp(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight),0,1);sample(progress);updateProgress();if(progress>=.999)finishIntro();}
@@ -482,7 +514,7 @@ function tick(now){
 window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);sizeComposer();});
 window.__hero={scene,camera,renderer,player,bones,octree,rooms,gotoRoom,setMode,startIntro,resolvePosition,setViewMode,
  embedding,
- get visualReady(){return !!window.__visualReady;},get playerReady(){return playerReady;},ensurePlayerReady,
+ get visualReady(){return !!window.__visualReady;},get playerReady(){return playerReady;},get playerError(){return playerLoadFailure;},ensurePlayerReady,
  get interactions(){return interactions;},get interactionMetadata(){return interactionMetadata;},get jump(){return jumpController;},get seatedFeet(){return seatedFootPlacement;},
  sampleHero:sample,heroDuration:HERO_SECONDS,
  get mode(){return mode;},get heroCompleted(){return heroCompleted;},get progress(){return progress;},get introElapsed(){return introElapsed;},get walkBlend(){return walkBlend;},get idleTime(){return idleAction?.time||0;},
@@ -497,8 +529,16 @@ const setLoad=(phase,percent,label)=>{
  embedding.reportLoad?.(phase,value,label||'');
 };
 function reportLoadingFailure(error){ui.loadText.textContent=embedding.enabled?'Não foi possível carregar o ambiente. Recarregue esta página para tentar novamente.':'Não foi possível preparar a visita. Abra pelo INICIAR_HERO e recarregue.';window.__loadError=String(error);embedding.reportError?.(error);console.error(error);}
+function reportPlayerLoadingFailure(error){
+ const message=String(error?.message||error||'Não foi possível preparar o personagem.');
+ if(playerLoadFailure===message)return;
+ playerLoadFailure=message;window.__playerLoadError=message;
+ embedding.reportLoad?.('player',0,'Não foi possível preparar o personagem');
+ embedding.reportPlayerError?.(error);console.error(error);
+}
 async function ensurePlayerReady(){
  if(playerReady)return true;
+ if(playerLoadFailure)throw new Error(playerLoadFailure);
  if(playerLoadPromise)return playerLoadPromise;
  playerLoadPromise=(async()=>{
   setLoad('player',0,'Preparando personagem…');
@@ -508,7 +548,7 @@ async function ensurePlayerReady(){
   setLoad('player',92,'Preparando navegação…');
   // Reuse the exact collider already preparing behind the earlier case/orbit.
   collisionTaskController?.setPriority('user-visible');
-  if(!collisionLoadPromise)collisionLoadPromise=buildCollision(environmentRoot);
+  if(!collisionLoadPromise)collisionLoadPromise=buildCollision(environmentRoot).catch(error=>{collisionLoadFailed=true;throw error;});
   await collisionLoadPromise;
   setLoad('player',94,'Configurando personagem…');startLoadStage('playerSetup');
  playerClipNames=avatar.animations.map(clip=>clip.name);playerModel=avatar.scene;modelBaseY=playerModel.position.y;player.add(playerModel);playerModel.traverse(o=>{
@@ -586,7 +626,7 @@ try{
   if(!collisionLoadPromise){
    collisionTaskController=globalThis.TaskController?new TaskController({priority:'background'}):null;
    collisionLoadPromise=globalThis.scheduler?.postTask?globalThis.scheduler.postTask(()=>buildCollision(environmentRoot),collisionTaskController?{signal:collisionTaskController.signal}:{priority:'user-visible'}):new Promise(resolve=>setTimeout(resolve,0)).then(()=>buildCollision(environmentRoot));
-   collisionLoadPromise.catch(reportLoadingFailure);
+   collisionLoadPromise.catch(error=>{collisionLoadFailed=true;reportPlayerLoadingFailure(error);});
   }
  }
  else{await ensurePlayerReady();startIntro();renderer.render(scene,camera);ui.loading.classList.add('done');}

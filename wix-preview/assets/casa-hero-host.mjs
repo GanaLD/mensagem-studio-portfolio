@@ -1,5 +1,5 @@
 // Hero 4 production host: one scroll clock, gated visual readiness, deferred avatar.
-const CASA_RELEASE = '20261014-single-load-mobile-v5';
+const CASA_RELEASE = '20261017-house-navigation-v1';
 const hero = document.querySelector('#hero');
 const stage = document.querySelector('#msUnifiedHeroStage');
 const caseStage = document.querySelector('#heroCaseStage');
@@ -24,6 +24,7 @@ if (hero && stage && !window.MSCasaHero) {
       <p>Ande no ambiente ou continue rolando</p>
       <div class="ms-casa-hero-actions">
         <button id="msCasaHeroExplore" class="ms-casa-explore" type="button" disabled>Andar no ambiente</button>
+        <button id="msCasaHeroRetryPlayer" type="button" hidden>Tentar personagem novamente</button>
         <button class="ms-casa-continue" type="button">Continuar pela página ↓</button>
       </div>
       <small class="ms-casa-controls-hint">${controlHint}</small>
@@ -48,6 +49,7 @@ if (hero && stage && !window.MSCasaHero) {
   const frame = panel.querySelector('#msCasaHeroFrame');
   const prompt = panel.querySelector('#msCasaHeroPrompt');
   const exploreButton = panel.querySelector('#msCasaHeroExplore');
+  const retryPlayerButton = panel.querySelector('#msCasaHeroRetryPlayer');
   const toolbar = panel.querySelector('#msCasaHeroToolbar');
   const loading = panel.querySelector('#msCasaHeroLoading');
   const gateText = gate.querySelector('#msCasaHeroGateText');
@@ -57,12 +59,11 @@ if (hero && stage && !window.MSCasaHero) {
     legacyEnd: 0, end: 0, progress: 0, cameraProgress: 0, entryProgress: 0,
     active: false, exploring: false, ready: false, visualReady: false, loaded: false,
     loadPhase: 'environment', loadProgress: 0, loadLabel: 'Carregando ambiente…',
-    loadingBypassed: false, error: false, cinematicOnly: false, gestureRequired: false,
+    loadingBypassed: false, error: false, playerError: false, cinematicOnly: false, gestureRequired: false,
   };
   let lastMessage = '';
   let correctingScroll = false;
   let pendingScroll = null;
-  let previousY = scrollY;
   const entry = window.gsap?.timeline({paused: true}).fromTo(
     panel, {xPercent: 100}, {xPercent: 0, duration: 1, ease: 'none'}, 0,
   );
@@ -102,7 +103,7 @@ if (hero && stage && !window.MSCasaHero) {
   function updateLoadText() {
     const progress = Math.max(0, Math.min(100, Math.round(state.loadProgress)));
     if (state.loadPhase === 'player') {
-      loading.textContent = state.ready ? '' : `${state.loadLabel || 'Preparando personagem…'} ${progress}%`;
+      loading.textContent = state.playerError ? 'O personagem não pôde ser preparado. Você pode tentar novamente ou continuar pela página.' : state.ready ? '' : `${state.loadLabel || 'Preparando personagem…'} ${progress}%`;
     }
     gateText.textContent = state.error ? 'O ambiente não pôde ser preparado. Você pode tentar novamente ou seguir pela página.' : state.gestureRequired ? 'Toque em Iniciar passeio para liberar o vídeo neste navegador.' : `${state.loadLabel || 'Carregando ambiente…'} ${progress}%`;
   }
@@ -130,21 +131,15 @@ if (hero && stage && !window.MSCasaHero) {
     const preloadReady = characterTiming
       ? (characterTiming.ready || characterTiming.bypassed) && currentY >= characterTiming.start + characterTiming.characterSpan * .8
       : caseStage?.classList.contains('live') || legacyProgress > preloadThreshold;
-    if (!state.loaded && preloadReady) {
+    if (!state.loaded && (preloadReady || (currentY >= state.legacyEnd && currentY <= state.end))) {
       state.loaded = true;
       frame.src = frame.dataset.src;
     }
 
-    let y = currentY;
+    const y = currentY;
     if (currentY < state.legacyEnd - 32) state.loadingBypassed = false;
-    const insideHero4 = currentY > state.legacyEnd && currentY <= state.end;
-    const crossedPending = previousY <= state.legacyEnd && currentY > state.legacyEnd;
-    const notebookPending = window.MSCenaHero && !window.MSCenaHero.ready && !window.MSCenaHero.bypassed;
-    if (!state.visualReady && !state.loadingBypassed && !notebookPending && (insideHero4 || crossedPending)) {
-      hardScrollTo(state.legacyEnd);
-      y = state.legacyEnd;
-    }
-    previousY = y;
+    // Loading and recovery never take ownership of page scrolling. The house
+    // can become ready in place while forward/backward navigation stays free.
 
     state.progress = state.visualReady ? clamp((y - state.legacyEnd) / Math.max(1, state.end - state.legacyEnd)) : 0;
     state.active = state.visualReady && y >= state.legacyEnd && y <= state.end;
@@ -163,11 +158,13 @@ if (hero && stage && !window.MSCasaHero) {
     if (entry) entry.progress(state.entryProgress, true);
     else panel.style.transform = `translateX(${(1 - state.entryProgress) * 100}%)`;
     stage.classList.toggle('is-casa-hero', state.active);
+    stage.classList.toggle('is-casa-range', y >= state.legacyEnd && y <= state.end);
     stage.classList.toggle('is-casa-exploring', state.exploring);
     stage.setAttribute('aria-hidden', String(!state.active && !waitingAtGate));
     prompt.hidden = !state.active || state.progress < .88 || state.exploring;
     toolbar.hidden = !state.exploring;
     exploreButton.hidden = state.cinematicOnly;
+    retryPlayerButton.hidden = !state.playerError || state.cinematicOnly;
     prompt.querySelector('p').textContent = state.cinematicOnly ? 'Continue rolando para conhecer mais' : 'Ande no ambiente ou continue rolando';
     prompt.querySelector('.ms-casa-controls-hint').hidden = state.cinematicOnly;
     exploreButton.disabled = !state.ready;
@@ -203,10 +200,15 @@ if (hero && stage && !window.MSCasaHero) {
     frame.focus({preventScroll: true});
   });
   panel.querySelector('#msCasaHeroReturn').addEventListener('click', stopExploring);
+  retryPlayerButton.addEventListener('click', () => {
+    state.playerError = false;state.loadPhase = 'player';state.loadProgress = 0;state.loadLabel = 'Preparando personagem…';
+    frame.contentWindow?.postMessage({type: 'MS_CASA_HERO_RETRY_PLAYER'}, origin);
+    sync();
+  });
   panel.querySelectorAll('.ms-casa-continue').forEach(button => button.addEventListener('click', continuePage));
   gate.querySelector('#msCasaHeroSkipLoad').addEventListener('click', continuePage);
   gate.querySelector('#msCasaHeroRetry').addEventListener('click', () => {
-    state.error = false;state.ready = false;state.visualReady = false;state.loadPhase = 'environment';state.loadProgress = 0;state.loadLabel = 'Carregando ambiente…';state.loadingBypassed = false;state.cinematicOnly = false;state.gestureRequired = false;
+    state.error = false;state.playerError = false;state.ready = false;state.visualReady = false;state.loadPhase = 'environment';state.loadProgress = 0;state.loadLabel = 'Carregando ambiente…';state.loadingBypassed = false;state.cinematicOnly = false;state.gestureRequired = false;
     frame.src = frame.dataset.src;lastMessage = '';sync();
   });
   frame.addEventListener('load', () => { updateLoadText(); postState(true); });
@@ -239,8 +241,8 @@ if (hero && stage && !window.MSCasaHero) {
       updateLoadText();
     } else if (data.type === 'MS_CASA_HERO_VISUAL_READY') {
       measureLegacy();
-      if (scrollY >= state.legacyEnd - 1 && scrollY <= state.end) hardScrollTo(state.legacyEnd);
       state.visualReady = true;
+      state.error = false;
       state.gestureRequired = false;
       state.loadPhase = 'environment';
       state.loadProgress = 100;
@@ -249,12 +251,15 @@ if (hero && stage && !window.MSCasaHero) {
       postState(true);
     } else if (data.type === 'MS_CASA_HERO_READY') {
       state.ready = true;
+      state.playerError = false;
       state.gestureRequired = false;
       state.loadPhase = 'player';
       state.loadProgress = 100;
       state.loadLabel = 'Personagem pronto ·';
       sync();
       postState(true);
+    } else if (data.type === 'MS_CASA_HERO_PLAYER_ERROR') {
+      state.playerError = true;state.ready = false;state.exploring = false;state.loadPhase = 'player';sync();
     } else if (data.type === 'MS_CASA_HERO_ERROR') {
       state.error = true;state.visualReady = false;state.ready = false;state.exploring = false;sync();
     } else if (data.type === 'MS_CASA_HERO_EXIT') {
@@ -272,7 +277,7 @@ if (hero && stage && !window.MSCasaHero) {
       return {
         progress: state.progress, active: state.active, exploring: state.exploring,
         ready: state.ready, visualReady: state.visualReady, loaded: state.loaded,
-        loadPhase: state.loadPhase, loadProgress: state.loadProgress, error: state.error, loadingBypassed: state.loadingBypassed, cinematicOnly: state.cinematicOnly, gestureRequired: state.gestureRequired,
+        loadPhase: state.loadPhase, loadProgress: state.loadProgress, error: state.error, playerError: state.playerError, loadingBypassed: state.loadingBypassed, cinematicOnly: state.cinematicOnly, gestureRequired: state.gestureRequired,
         entryTransform: getComputedStyle(panel).transform,
         entryProgress: state.entryProgress, entryEngine: entry ? 'gsap' : 'css-fallback',
         legacySpan: state.legacySpan, legacyHeight: state.legacyHeight,
