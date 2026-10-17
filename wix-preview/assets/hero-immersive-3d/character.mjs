@@ -87,25 +87,15 @@ try {
   };
   body.material.customProgramCacheKey = () => 'case3-jacket-mustard-v1';
 
-  const wingOpacity = { value: 0 };
+  let wingOpacity = 0;
   for (const wing of wings) {
     wing.material = wing.material.clone();
     // The GLB stores the invisible starting pose. Keep its base surface opaque;
-    // the reveal uniform alone controls visibility after the feather mask.
+    // visibility switches instantly while the original feather mask stays intact.
     wing.material.opacity = 1;
     wing.material.transparent = true;
     wing.material.forceSinglePass = true;
-    // Fade after the existing feather alpha mask: the cutout stays clean and
-    // does not shrink as it would if opacity changed its alpha-test threshold.
-    wing.material.onBeforeCompile = shader => {
-      shader.uniforms.case3WingOpacity = wingOpacity;
-      shader.fragmentShader = 'uniform float case3WingOpacity;\n' + shader.fragmentShader;
-      shader.fragmentShader = shader.fragmentShader.replace(
-        '#include <alphatest_fragment>',
-        '#include <alphatest_fragment>\ndiffuseColor.a *= case3WingOpacity;'
-      );
-    };
-    wing.material.customProgramCacheKey = () => 'case3-feather-reveal-v1';
+    wing.material.depthWrite = true;
   }
 
   const clip = gltf.animations[0];
@@ -116,11 +106,72 @@ try {
   const action = mixer.clipAction(clip).setLoop(THREE.LoopOnce, 1);
   action.clampWhenFinished = true;
 
+  const timeline = Object.freeze({ firstTurnEnd: .40, wingPeak: .525, secondTurnStart: .65 });
+  let currentPose;
+
+  // Reuse the exported local rotation axes and skin. Only these upper-body
+  // channels change; mesh geometry, weights, hips and legs stay in the source clip.
+  function rotationControl(name, strength = 1) {
+    const object = model.getObjectByName(name);
+    const track = clip.tracks.find(track => track.name === `${name}.quaternion`);
+    if (!object || !track) throw new Error(`The Case3 bone ${name} is missing.`);
+    const sample = track.createInterpolant();
+    const rest = new THREE.Quaternion().fromArray(sample.evaluate(startTime)).normalize();
+    const end = new THREE.Quaternion().fromArray(sample.evaluate(startTime + duration)).normalize();
+    const delta = rest.clone().invert().multiply(end).normalize();
+    if (delta.w < 0) delta.set(-delta.x, -delta.y, -delta.z, -delta.w);
+    const angle = 2 * Math.acos(THREE.MathUtils.clamp(delta.w, -1, 1));
+    const axis = new THREE.Vector3(delta.x, delta.y, delta.z);
+    if (axis.lengthSq() < 1e-12) axis.set(1, 0, 0);
+    else axis.normalize();
+    const rotation = new THREE.Quaternion();
+    return {
+      object, rest,
+      apply(amount) {
+        rotation.setFromAxisAngle(axis, angle * strength * amount);
+        object.quaternion.copy(rest).multiply(rotation).normalize();
+      }
+    };
+  }
+  const arms = ['L', 'R'].flatMap(side => [
+    rotationControl(`${side}_Clavicle`, 4 / 3),
+    rotationControl(`${side}_Upperarm`, 40 / 25),
+    rotationControl(`${side}_Forearm`, 10 / 7),
+    rotationControl(`${side}_Hand`)
+  ]);
+  const wingControls = ['L', 'R'].flatMap(side => [
+    rotationControl(`CASE3_WingRoot_${side}`),
+    rotationControl(`CASE3_WingFan_${side}`)
+  ]);
+  const torso = ['Waist', 'Spine01', 'Spine02', 'Head'].map(name => rotationControl(name));
+
   function pose(p) {
+    const { firstTurnEnd, wingPeak, secondTurnStart } = timeline;
+    const first = Math.max(0, Math.min(1, p / firstTurnEnd));
+    const second = Math.max(0, Math.min(1, (p - secondTurnStart) / (1 - secondTurnStart)));
+    const armOpening = smooth(0, 1, first) * (1 - smooth(0, 1, second));
+    const wingOpening = p < wingPeak ? smooth(firstTurnEnd, wingPeak, p) :
+      1 - smooth(wingPeak, secondTurnStart, p);
+    const sourceProgress = p < firstTurnEnd ? first * .5 :
+      p < secondTurnStart ? .5 : .5 + second * (11 / 24);
     // reset().play() re-enables the action after reaching either endpoint,
     // allowing the existing page scroll to scrub backward without a jump.
     action.reset().play();
-    mixer.setTime(startTime + p * duration);
+    // The root's rotation and translation use the same source time, preserving
+    // its fixed pivot. It holds at 360 degrees throughout the wing movement.
+    mixer.setTime(startTime + sourceProgress * duration);
+    for (const control of arms) control.apply(armOpening);
+    for (const control of torso) control.apply(armOpening);
+    for (const control of wingControls) control.apply(wingOpening);
+    const revealed = p >= firstTurnEnd;
+    transformation.value = revealed ? 1 : 0;
+    wingOpacity = revealed ? 1 : 0;
+    for (const wing of wings) wing.visible = revealed;
+    currentPose = {
+      phase: p < firstTurnEnd ? 'first-turn' : p < wingPeak ? 'wings-opening' :
+        p < secondTurnStart ? 'wings-closing' : 'second-turn',
+      armOpening, wingOpening
+    };
     model.updateMatrixWorld(true);
   }
 
@@ -128,8 +179,12 @@ try {
   // the viewport on both tall desktop slots and wide mobile slots.
   const bounds = new THREE.Box3();
   const poseBounds = new THREE.Box3();
-  for (let sample = 0; sample <= 24; sample++) {
-    pose(sample / 24);
+  const framingSamples = new Set([
+    ...Array.from({ length: 49 }, (_, sample) => sample / 48),
+    timeline.firstTurnEnd, timeline.wingPeak, timeline.secondTurnStart
+  ]);
+  for (const sample of framingSamples) {
+    pose(sample);
     poseBounds.setFromObject(model, true);
     bounds.union(poseBounds);
   }
@@ -154,13 +209,6 @@ try {
 
   applyProgress = p => {
     pose(p);
-    const reveal = smooth(106 / 288, 144 / 288, p);
-    transformation.value = reveal;
-    wingOpacity.value = reveal;
-    for (const wing of wings) {
-      wing.visible = reveal > 0;
-      wing.material.depthWrite = reveal >= 1;
-    }
     renderer.render(scene, camera);
     document.documentElement.dataset.progress = p.toFixed(5);
   };
@@ -225,9 +273,15 @@ try {
         ready,
         progress,
         turnAngle,
-        wingOpacity: wingOpacity.value,
+        wingOpacity,
         wingVisible: wings.map(wing => wing.visible),
         greenFactor: transformation.value,
+        ...currentPose,
+        timeline,
+        armAngles: arms.filter(control => control.object.name.endsWith('_Upperarm')).map(control =>
+          THREE.MathUtils.radToDeg(control.rest.angleTo(control.object.quaternion))),
+        wingRootAngles: wingControls.filter(control => control.object.name.includes('WingRoot')).map(control =>
+          THREE.MathUtils.radToDeg(control.rest.angleTo(control.object.quaternion))),
         mixerTime: mixer.time,
         duration,
         turnRootName: turnRoot.name,
