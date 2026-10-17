@@ -126,7 +126,11 @@ if (hero && stage && !window.MSCasaHero) {
     state.end = hero.offsetTop + Math.max(1, hero.offsetHeight - viewportHeight());
     const legacyProgress = clamp((currentY - hero.offsetTop) / state.legacySpan);
     const preloadThreshold = mobileProfile ? .24 : .55;
-    if (!state.loaded && (caseStage?.classList.contains('live') || legacyProgress > preloadThreshold)) {
+    const characterTiming = window.MSCase3Scroll?.metrics?.();
+    const preloadReady = characterTiming
+      ? (characterTiming.ready || characterTiming.bypassed) && currentY >= characterTiming.start + characterTiming.characterSpan * .8
+      : caseStage?.classList.contains('live') || legacyProgress > preloadThreshold;
+    if (!state.loaded && preloadReady) {
       state.loaded = true;
       frame.src = frame.dataset.src;
     }

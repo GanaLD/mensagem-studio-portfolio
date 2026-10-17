@@ -33,22 +33,27 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://mensagemstudio.shop/#organization","name":"MENSAGEM STUDIO","alternateName":["Mensagem Studio","Mensagem Design Studio","Mensagem Design"],"url":"https://mensagemstudio.shop/","description":"Studio de design gráfico e estúdio criativo em Curitiba com atuação em branding, direção de arte, audiovisual, motion, VFX, inteligência artificial generativa, modelagem 3D, CGI, e-commerce e experiências web.","logo":{"@type":"ImageObject","url":"https://mensagemstudio.shop/favicon-48.png"},"sameAs":["https://www.instagram.com/mensagem_studio/","https://www.behance.net/gabrieldesigner42","https://github.com/GanaLD/mensagem-studio-portfolio"],"founder":{"@id":"https://mensagemstudio.shop/sobre/#gabriel"},"areaServed":[{"@type":"City","name":"Curitiba"},{"@type":"Country","name":"Brasil"}],"knowsAbout":["Design gráfico","Identidade visual","Branding","Direção de arte","Edição de vídeo","Produção audiovisual","Motion design","VFX","Modelagem 3D","Render 3D","CGI de produto","E-commerce","HTML","Experiências web","Inteligência artificial generativa","Creative AI","AI Video","Studio de design gráfico","Estúdio de design gráfico","Design Studio","Creative Studio","3D Studio","CGI Studio"],"image":"https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc","hasMap":"https://www.google.com/maps/search/?api=1&query=Mensagem%20Design%20Studio&query_place_id=ChIJubpRbkfl3JQRc2xLxFhEf2g","identifier":[{"@type":"PropertyValue","propertyID":"Google Business Profile Place ID","value":"ChIJubpRbkfl3JQRc2xLxFhEf2g"}]},{"@type":"Person","@id":"https://mensagemstudio.shop/sobre/#gabriel","name":"Gabriel Slompo","jobTitle":"Designer Gráfico e Profissional de Audiovisual","url":"https://mensagemstudio.shop/sobre/","worksFor":{"@id":"https://mensagemstudio.shop/#organization"},"homeLocation":{"@type":"City","name":"Curitiba"},"alumniOf":[{"@type":"EducationalOrganization","name":"UniCesumar"}],"affiliation":[{"@type":"EducationalOrganization","name":"Estácio"}],"knowsAbout":["Design gráfico","Audiovisual","Cinema","Direção de arte","Edição de vídeo","Motion design","VFX","Modelagem 3D","UX/UI","E-commerce","Inteligência artificial aplicada à criação","Creative Direction","AI Video"],"sameAs":["https://br.linkedin.com/in/gabriel-slompo-136531286","https://www.behance.net/gabrieldesigner42"]},{"@type":"WebPage","@id":"https://mensagemstudio.shop/#webpage","name":"Studio de Design Gráfico em Curitiba | Mensagem Studio","url":"https://mensagemstudio.shop/","inLanguage":"pt-BR","description":"Studio de design gráfico em Curitiba para marcas e empresas: branding, direção de arte, vídeo, motion, IA generativa, 3D, CGI e experiências web.","image":"https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc","isPartOf":{"@id":"https://mensagemstudio.shop/#website"},"about":{"@id":"https://mensagemstudio.shop/#organization"},"relatedLink":["https://mensagemstudio.shop/curitiba/","https://mensagemstudio.shop/servicos/","https://mensagemstudio.shop/portfolio/"]},{"@type":"WebSite","@id":"https://mensagemstudio.shop/#website","url":"https://mensagemstudio.shop/","name":"MENSAGEM STUDIO","alternateName":"Mensagem Studio","inLanguage":"pt-BR","publisher":{"@id":"https://mensagemstudio.shop/#organization"},"about":{"@id":"https://mensagemstudio.shop/#organization"}}]}</script>
 
 
-<script id="modelViewerLib" type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script id="modelViewerLib" type="module" data-src="https://unpkg.com/@google/model-viewer@4.4.0/dist/model-viewer.min.js"></script>
 <script id="modelViewerLibFallback">(()=>{
   const primary=document.getElementById('modelViewerLib');
-  if(!primary)return;
-  let injected=false;
-  const fallback=()=>{
-    if(injected||customElements.get('model-viewer'))return;
-    injected=true;
-    const s=document.createElement('script');
-    s.type='module';
-    s.src='https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js';
-    document.head.appendChild(s);
+  let pending=null;
+  const load=()=>{
+    if(customElements.get('model-viewer'))return Promise.resolve();
+    if(pending)return pending;
+    pending=new Promise((resolve,reject)=>{
+      customElements.whenDefined('model-viewer').then(resolve);
+      primary.addEventListener('error',()=>{
+        if(customElements.get('model-viewer'))return resolve();
+        const fallback=document.createElement('script');fallback.type='module';
+        fallback.src='https://cdn.jsdelivr.net/npm/@google/model-viewer@4.4.0/dist/model-viewer.min.js';
+        fallback.addEventListener('error',()=>reject(new Error('3D viewer unavailable')),{once:true});
+        document.head.appendChild(fallback);
+      },{once:true});
+      primary.src=primary.dataset.src;
+    });
+    return pending;
   };
-  primary.addEventListener('error',fallback,{once:true});
-  setTimeout(fallback,4500);
-  window.MSModelViewer={load:()=>customElements.get('model-viewer')?Promise.resolve():customElements.whenDefined('model-viewer')};
+  window.MSModelViewer={load};
 })();</script>
 <style>
 :root{--bg:#070806;--fg:#f4f5ef;--muted:#a4a99c;--line:rgba(255,255,255,.13);--lime:#c9ff36;--orange:#ff7043;--card:#10110e;--pad:clamp(18px,4vw,64px);--case-veil:0;--case-alpha:0;--video-progress:0;--hero-state-progress:0;--gmc-alpha:0}*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,Arial,Helvetica,sans-serif;overflow-x:clip}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}.wrap{width:min(1600px,100%);margin:auto;padding-left:var(--pad);padding-right:var(--pad)}.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}.muted{color:var(--muted)}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.section{position:relative;padding:clamp(82px,10vw,160px) 0;border-top:1px solid rgba(255,255,255,.07)}.section-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:40px;align-items:end;margin-bottom:48px}.section-head h2{font-size:clamp(44px,7vw,112px);line-height:.88;letter-spacing:-.055em;margin:8px 0 0}.section-head p{font-size:clamp(15px,1.2vw,19px);line-height:1.55;color:var(--muted);max-width:55ch;margin:0}.section-head p.three-intro-copy{color:#fff}.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.2);background:rgba(8,9,7,.66);backdrop-filter:blur(12px);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.btn.primary{background:var(--lime);color:#10130b;border-color:var(--lime);font-weight:800}.cta-row{display:flex;gap:12px;flex-wrap:wrap}
@@ -110,6 +115,10 @@ header{position:fixed;z-index:100;top:0;left:0;right:0;height:72px;display:flex;
   pointer-events:none;
 }
 .hero-immersive-status[hidden]{display:none}
+#heroModel3D{touch-action:pan-y!important}
+.hero-immersive-status:not([hidden]){display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;padding:12px;background:#07140eea;border:1px solid #c9ff3640;pointer-events:auto}
+.hero-immersive-status button{padding:9px 12px;border:1px solid #c9ff3670;background:#05100c;color:#f4f5ef;font:700 11px Inter,Arial,sans-serif;cursor:pointer;touch-action:manipulation}
+.hero-immersive-status button[hidden]{display:none}
 @media(min-width:761px){
   /* Keep the character slot aligned vertically with the left hero copy. */
   .hero-art.is-immersive .hero-immersive-wrap{
@@ -1266,7 +1275,7 @@ body{overflow-x:clip!important}
     <iframe
       id="cenaHero1Frame"
       title="Cena Hero 1 — experiência 3D Mensagem Studio"
-      data-src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261014-single-load-mobile-v5"
+      data-src="./assets/cena-hero-1/visualizador.html?embed=hero1&v=20261017-lossless-v6"
       loading="eager"
       referrerpolicy="same-origin"
       sandbox="allow-scripts"
@@ -1279,22 +1288,22 @@ body{overflow-x:clip!important}
   </div>
 </section>
 <!-- CENA_HERO_1_PRODUCTION_END -->
-<section id="hero" class="content-layer"><div class="hero-sticky"><video id="heroVideo" class="hero-video" muted playsinline webkit-playsinline preload="auto" poster="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc" src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=hero"></video><div id="heroFullMedia" class="hero-full-media" aria-hidden="true"><img id="heroFullImage" alt=""><video id="heroFullVideo" muted loop playsinline preload="metadata"></video><iframe id="heroFullYouTube" class="hero-full-youtube" title="Showcase audiovisual" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><span id="heroFullBadge" class="hero-full-badge"><i></i><b>PODCAST</b></span></div><div class="hero-shade"></div><div id="heroCaseStage" class="hero-case-stage"><div class="wrap hero-grid"><div class="hero-copy"><div class="kicker" id="heroCat">HTML</div><h1 id="heroTitle">IMERSÃO COMPLETA</h1><p id="heroDesc">esse HTML é um projeto imersivo e um serviço contratável para sua empresa.</p><div class="cta-row"><a class="btn primary ms-carousel-glass-btn" href="#projects">Ver projeto <b>↗</b></a><a class="btn ms-carousel-glass-btn" href="#services">Serviços <b>↓</b></a></div></div><div class="hero-art is-immersive"><img id="heroArt" alt="Projeto em destaque" src="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc"><div id="heroImmersiveWrap" class="hero-immersive-wrap"><iframe id="heroImmersiveFrame" class="hero-immersive-character" title="Personagem 3D animado com asas" tabindex="-1" data-src="./assets/hero-immersive-3d/character.html?sequence=20261017"></iframe><span id="heroImmersiveStatus" class="hero-immersive-status" role="status" aria-live="polite">Carregando personagem…</span></div><video id="heroCardVideo" class="hero-card-video" muted loop playsinline preload="metadata" src="./assets/hero/dermacast-laila.mp4"></video><model-viewer id="heroModel3D" class="hero-model-3d" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" alt="Objeto 3D Arma Cyberpunk" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="none" shadow-intensity="1.15" shadow-softness="0.8" exposure="1.05" environment-image="neutral" camera-target="auto auto auto" camera-orbit="0deg 75deg 103%" field-of-view="28deg" loading="eager"></model-viewer><span class="hero-3d-interaction" aria-hidden="true"><i></i><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></span><span class="hero-podcast-badge" aria-hidden="true"><i></i><span><b>PODCAST</b></span></span></div><span class="hero-card-continue" aria-hidden="true"><span class="hero-card-continue-label">CONTINUE</span><span class="hero-card-continue-mouse"><span class="hero-card-continue-wheel"></span></span><span class="hero-card-continue-arrow"></span></span></div></div><div class="hero-progress" id="heroProgress"><i class="on"></i><i></i></div><div class="hero-scroll-cue" aria-hidden="true"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div><div class="video-scroll-meter"><i></i></div></div></section>
+<section id="hero" class="content-layer"><div class="hero-sticky"><video id="heroVideo" class="hero-video" muted playsinline webkit-playsinline preload="none" poster="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc" data-src="https://ktkikndmcsezuivfcsft.supabase.co/functions/v1/ms-lab-media-assets?asset=hero"></video><div id="heroFullMedia" class="hero-full-media" aria-hidden="true"><img id="heroFullImage" alt=""><video id="heroFullVideo" muted loop playsinline preload="metadata"></video><iframe id="heroFullYouTube" class="hero-full-youtube" title="Showcase audiovisual" tabindex="-1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe><span id="heroFullBadge" class="hero-full-badge"><i></i><b>PODCAST</b></span></div><div class="hero-shade"></div><div id="heroCaseStage" class="hero-case-stage"><div class="wrap hero-grid"><div class="hero-copy"><div class="kicker" id="heroCat">HTML</div><h1 id="heroTitle">IMERSÃO COMPLETA</h1><p id="heroDesc">esse HTML é um projeto imersivo e um serviço contratável para sua empresa.</p><div class="cta-row"><a class="btn primary ms-carousel-glass-btn" href="#projects">Ver projeto <b>↗</b></a><a class="btn ms-carousel-glass-btn" href="#services">Serviços <b>↓</b></a></div></div><div class="hero-art is-immersive"><img id="heroArt" alt="Projeto em destaque" src="https://static.wixstatic.com/media/7992dba1-ceca-4a21-b8e6-14a673addafc/v1/fill/w_1080,h_1049,al_c/7992dba1-ceca-4a21-b8e6-14a673addafc"><div id="heroImmersiveWrap" class="hero-immersive-wrap"><iframe id="heroImmersiveFrame" class="hero-immersive-character" title="Personagem 3D animado com asas" tabindex="-1" data-src="./assets/hero-immersive-3d/character.html?sequence=20261017-lossless-v2"></iframe><span id="heroImmersiveStatus" class="hero-immersive-status" role="status" aria-live="polite">Carregando personagem…</span></div><video id="heroCardVideo" class="hero-card-video" muted loop playsinline preload="none" src="./assets/hero/dermacast-laila.mp4"></video><model-viewer id="heroModel3D" class="hero-model-3d" data-src="./assets/hero-weapon/WEAPON_CYBERPUNK.glb" data-original-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/76776a9a-dca3-45ab-9fef-8619cbb9b76a.glb" touch-action="pan-y" alt="Objeto 3D Arma Cyberpunk" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="none" shadow-intensity="1.15" shadow-softness="0.8" exposure="1.05" environment-image="neutral" camera-target="auto auto auto" camera-orbit="0deg 75deg 103%" field-of-view="28deg" loading="eager"></model-viewer><span class="hero-3d-interaction" aria-hidden="true"><i></i><span><b>INTERAÇÃO 3D</b><small>ARRASTE · GIRE · ZOOM</small></span></span><span class="hero-podcast-badge" aria-hidden="true"><i></i><span><b>PODCAST</b></span></span></div><span class="hero-card-continue" aria-hidden="true"><span class="hero-card-continue-label">CONTINUE</span><span class="hero-card-continue-mouse"><span class="hero-card-continue-wheel"></span></span><span class="hero-card-continue-arrow"></span></span></div></div><div class="hero-progress" id="heroProgress"><i class="on"></i><i></i></div><div class="hero-scroll-cue" aria-hidden="true"><span class="cue-label">Role para controlar</span><span class="cue-mouse"><span class="cue-wheel"></span></span><span class="cue-arrow"></span></div><div class="video-scroll-meter"><i></i></div></div></section>
 <section id="services" class="section content-layer"><div class="wrap"><div class="section-head"><div><div class="kicker">SERVIÇOS</div><h2>Do conceito à entrega.</h2></div><p>Uma frente integrada de design studio e creative studio para branding, direção de arte, vídeos, IA, 3D, web e experiências digitais.</p></div><div class="services-grid"><a class="service" href="./servicos/identidade-visual-branding/"><span class="num">01</span><div><h3>Branding</h3><p>Identidade visual, direção de arte, sistemas gráficos e posicionamento.</p></div></a><a class="service" href="./servicos/direcao-arte-campanhas/"><span class="num">02</span><div><h3>Imagem & KV</h3><p>Campanhas, peças publicitárias, manipulação, composição e key visuals.</p></div></a><a class="service" href="./servicos/fotos-ecommerce/"><span class="num">03</span><div><h3>E-commerce</h3><p>Tratamento, padronização e direção visual de produto para marketplaces e lojas online.</p></div></a><a class="service" href="./servicos/motion-design-vfx/"><span class="num">04</span><div><h3>Motion & Vídeo</h3><p>Motion design, VFX, animação e peças audiovisuais para campanhas e lançamentos.</p></div></a><a class="service" href="./servicos/modelagem-3d-produto/"><span class="num">05</span><div><h3>3D / CGI</h3><p>Modelagem, materiais, render, animação e experiências de produto em 3D.</p></div></a><a class="service" href="./servicos/sites-html/"><span class="num">06</span><div><h3>Web & Experiências</h3><p>HTML, páginas imersivas, publicação e experiências digitais sob medida.</p></div></a></div><div id="msServicesMobileFallback" aria-label="Serviços em cards 3D para mobile"><div class="ms-mobile-services-rail"><a class="ms-mobile-service-card" href="/servicos/" aria-label="Social Media"><span class="ms-mobile-service-kicker">01</span><h3>Social Media</h3><p>Posts, stories, carrosséis e pacotes de criativos.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Vídeo"><span class="ms-mobile-service-kicker">02</span><h3>Vídeo</h3><p>Reels, edição com motion, legendas, efeitos e vídeo PRO.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Produção"><span class="ms-mobile-service-kicker">03</span><h3>Produção</h3><p>Diária de serviços para captação e produção audiovisual.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Motion e VFX"><span class="ms-mobile-service-kicker">04</span><h3>Motion e VFX</h3><p>Animação de logotipo, motion design, VFX e packs de vídeo.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Fotos"><span class="ms-mobile-service-kicker">05</span><h3>Fotos</h3><p>Correção, retoque avançado e pacotes de fotografia.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Manipulação"><span class="ms-mobile-service-kicker">06</span><h3>Manipulação</h3><p>Montagem, composição publicitária e composição complexa.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Identidade"><span class="ms-mobile-service-kicker">07</span><h3>Identidade</h3><p>Manuais de identidade visual essenciais e completos.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Campanhas"><span class="ms-mobile-service-kicker">08</span><h3>Campanhas</h3><p>Key visual, pacotes visuais e direção de arte.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="E-commerce"><span class="ms-mobile-service-kicker">09</span><h3>E-commerce</h3><p>Imagens de produto, kits de marketplace e banners comerciais.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Narrativa Visual"><span class="ms-mobile-service-kicker">10</span><h3>Narrativa Visual</h3><p>Ilustração, personagens, roteiro publicitário e storyboard.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="3D"><span class="ms-mobile-service-kicker">11</span><h3>3D</h3><p>Modelagem de produto, render animado e ambientes 3D.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a><a class="ms-mobile-service-card" href="/servicos/" aria-label="Web / HTML"><span class="ms-mobile-service-kicker">12</span><h3>Web / HTML</h3><p>HTML, editor independente e publicação com domínio.</p><span class="ms-mobile-service-foot">Explorar os serviços</span></a></div></div></div></section>
 <section id="word" class="content-layer word-case-showcase" aria-label="Cases em destaque">
   <div class="word-sticky">
     <div class="word-case-visuals" id="wordCaseVisuals" aria-hidden="true">
-      <article class="word-case-panel is-active" data-word-case="0" style="background-image:url('https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg')">
-        <video class="word-case-media word-case-video" muted playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4" data-start="65" data-end="78"></video>
+      <article class="word-case-panel is-active" data-word-case="0" data-background-image="url('https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg')">
+        <video class="word-case-media word-case-video" muted playsinline preload="none" poster="https://static.wixstatic.com/media/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_7f3ede99644440579b983500bc76cd87f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_7f3ede99644440579b983500bc76cd87/1080p/mp4/file.mp4" data-start="65" data-end="78"></video>
       </article>
-      <article class="word-case-panel" data-word-case="1" style="background-image:url('https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg')">
-        <video class="word-case-media word-case-video word-case-mago" muted loop playsinline webkit-playsinline preload="auto" poster="https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg" src="/assets/mago-gsap-10s.mp4" data-src="/assets/mago-gsap-10s.mp4"></video>
+      <article class="word-case-panel" data-word-case="1" data-background-image="url('https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg')">
+        <video class="word-case-media word-case-video word-case-mago" muted loop playsinline webkit-playsinline preload="none" poster="https://i.ytimg.com/vi/G_2jdXfXxiI/maxresdefault.jpg" data-src="/assets/mago-gsap-10s.mp4"></video>
       </article>
-      <article class="word-case-panel" data-word-case="2" style="background-image:url('https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png')">
-        <img class="word-case-media" loading="eager" decoding="async" fetchpriority="high" src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png" alt="">
+      <article class="word-case-panel" data-word-case="2" data-background-image="url('https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png')">
+        <img class="word-case-media" loading="lazy" decoding="async" fetchpriority="low" data-src="https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/d3377fec-7932-4859-8a1c-fc4daedbcdcc.png" alt="">
       </article>
-      <article class="word-case-panel" data-word-case="3" style="background-image:url('https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg')">
-        <video class="word-case-media word-case-video" muted loop playsinline preload="auto" poster="https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_f57409b1be21499eba6d825c07371206/file"></video>
+      <article class="word-case-panel" data-word-case="3" data-background-image="url('https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg')">
+        <video class="word-case-media word-case-video" muted loop playsinline preload="none" poster="https://static.wixstatic.com/media/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg/v1/fill/w_1920,h_1080,al_c/ef8a3a_f57409b1be21499eba6d825c07371206f000.jpg" data-src="https://video.wixstatic.com/video/ef8a3a_f57409b1be21499eba6d825c07371206/file"></video>
       </article>
     </div>
     <div class="word-shade"></div>
@@ -1356,9 +1365,51 @@ const words=['DESIGN','MOTION','BRANDING','3D / CGI','WEB','EXPERIÊNCIAS'];
 const hero=document.querySelector('#hero'),video=document.querySelector('#heroVideo'),heroFullMedia=document.querySelector('#heroFullMedia'),heroFullImage=document.querySelector('#heroFullImage'),heroFullVideo=document.querySelector('#heroFullVideo'),heroFullYouTube=document.querySelector('#heroFullYouTube'),caseStage=document.querySelector('#heroCaseStage'),art=document.querySelector('#heroArt'),artCard=document.querySelector('.hero-art'),immersiveFrame=document.querySelector('#heroImmersiveFrame'),heroImmersiveStatus=document.querySelector('#heroImmersiveStatus'),heroModel3D=document.querySelector('#heroModel3D'),heroCardVideo=document.querySelector('#heroCardVideo'),title=document.querySelector('#heroTitle'),desc=document.querySelector('#heroDesc'),cat=document.querySelector('#heroCat'),bars=[...document.querySelectorAll('#heroProgress i')],word=document.querySelector('#word'),wordMain=document.querySelector('#wordMain'),wordDots=[...document.querySelectorAll('#wordDots i')],afterWord=document.querySelector('#afterWord'),gmc=document.querySelector('#sfGlobalMediaCanvas'),landingReveal=document.querySelector('#landingReveal'),landingSentinel=document.querySelector('#cyber-landing-sentinel'),cyberAngel=document.querySelector('#cyberAngelBg'),cyberAngelLegacy=document.querySelector('#cyberAngelLegacy'),backgroundSwitcher=document.querySelector('#backgroundSwitcher'),backgroundState=document.querySelector('#backgroundState'),backgroundNext=document.querySelector('#backgroundNext');
 const VIDEO_END=.465;const HERO_VIDEO_SCROLL_DESKTOP=3.069,HERO_VIDEO_SCROLL_MOBILE=2.79,HERO_VIDEO_SCROLL_MOBILE_DEGRADED=.72;let lastState=-1,raf=0,videoReady=false,videoDegraded=false,videoPriming=false,targetVideoTime=0,smoothVideoTime=0,px=0,py=0;const heroVideoWatchdog=setTimeout(()=>{if(!videoReady){videoDegraded=true;renderScroll()}},5000);
 function clamp(v,a=0,b=1){return Math.max(a,Math.min(b,v))}
-function heroVideoEndForSpan(span){const viewports=(videoDegraded&&innerWidth<=760)?HERO_VIDEO_SCROLL_MOBILE_DEGRADED:(innerWidth<=760?HERO_VIDEO_SCROLL_MOBILE:HERO_VIDEO_SCROLL_DESKTOP);return clamp((innerHeight*viewports)/Math.max(1,span),.01,.95)}
+// Media readiness never changes the geometry of an animation already in view.
+const HERO_CASE_REVEAL_SCROLL=.12,HERO_CHARACTER_SCROLL=6,HERO_WEAPON_SCROLL=1.2;
+function heroScrollTiming(span){
+  const filmViews=innerWidth<=760?HERO_VIDEO_SCROLL_MOBILE:HERO_VIDEO_SCROLL_DESKTOP;
+  const unit=Math.max(1,span)/(filmViews+HERO_CASE_REVEAL_SCROLL+HERO_CHARACTER_SCROLL+HERO_WEAPON_SCROLL);
+  const filmEnd=filmViews*unit,characterStart=filmEnd+HERO_CASE_REVEAL_SCROLL*unit;
+  return {filmEnd,characterStart,characterEnd:characterStart+HERO_CHARACTER_SCROLL*unit,characterSpan:HERO_CHARACTER_SCROLL*unit,revealSpan:HERO_CASE_REVEAL_SCROLL*unit};
+}
+function hydrateHeroVideo(){
+  if(video.getAttribute('src')||!video.dataset.src)return;
+  video.preload='auto';video.src=video.dataset.src;video.load();
+}
+addEventListener('message',event=>{
+  if(event.source===document.getElementById('cenaHero1Frame')?.contentWindow&&event.data?.type==='MS_CENA_HERO_READY')hydrateHeroVideo();
+});
+function heroVideoEndForSpan(span){return heroScrollTiming(span).filmEnd/Math.max(1,span)}
+// Retiming the character must not advance the approved background film to black.
+// Map its extra scroll distance back to the published film's original positions.
+function heroMediaProgressForScroll(y,span){
+  const timing=heroScrollTiming(span),unit=timing.characterSpan/HERO_CHARACTER_SCROLL;
+  const oldSpan=(innerWidth<=760?4.5:5)*unit,oldTail=oldSpan-timing.filmEnd;
+  const offset=y-hero.offsetTop;let mediaOffset=offset;
+  if(offset>timing.filmEnd&&offset<timing.characterStart)mediaOffset=timing.filmEnd+oldTail*.055*clamp((offset-timing.filmEnd)/timing.revealSpan);
+  else if(offset>=timing.characterStart&&offset<timing.characterEnd)mediaOffset=timing.filmEnd+oldTail*(.055+.395*clamp((offset-timing.characterStart)/timing.characterSpan));
+  else if(offset>=timing.characterEnd)mediaOffset=timing.filmEnd+oldTail*(.45+.55*clamp((offset-timing.characterEnd)/Math.max(1,span-timing.characterEnd)));
+  return clamp(mediaOffset/((oldSpan+4*unit)*VIDEO_END));
+}
 function ensureDeferredFrame(frame){if(!frame)return;const src=frame.dataset&&frame.dataset.src;if(src&&!frame.getAttribute('src'))frame.setAttribute('src',src)}
 let heroImmersiveProgress=0,heroImmersiveReady=false,heroImmersiveLast=-1;
+let heroImmersiveHolding=false,heroImmersiveBypassed=false,heroImmersivePreviousY=scrollY;
+const heroImmersiveMessage=document.createElement('span');
+const heroImmersiveContinue=document.createElement('button');
+heroImmersiveMessage.textContent=heroImmersiveStatus?.textContent||'Carregando personagem…';
+heroImmersiveContinue.type='button';heroImmersiveContinue.textContent='Continuar sem o personagem';heroImmersiveContinue.hidden=true;
+heroImmersiveStatus?.replaceChildren(heroImmersiveMessage,heroImmersiveContinue);
+function heroCharacterMetrics(){
+  const span=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),timing=heroScrollTiming(span),top=hero.offsetTop;
+  return {...timing,heroTop:top,legacySpan:span,start:top+timing.characterStart,end:top+timing.characterEnd,ready:heroImmersiveReady,holding:heroImmersiveHolding,bypassed:heroImmersiveBypassed};
+}
+window.MSCase3Scroll={metrics:heroCharacterMetrics};
+heroImmersiveContinue.addEventListener('click',()=>{
+  heroImmersiveBypassed=true;heroImmersiveHolding=false;heroImmersiveContinue.hidden=true;
+  scrollTo({top:heroCharacterMetrics().end+1,behavior:'instant'});renderScroll();
+});
+function holdHeroCharacter(top){if(Math.abs(scrollY-top)>=.5)scrollTo({top,left:0,behavior:'instant'})}
 function loadHeroImmersiveCharacter(){
   if(!immersiveFrame)return;
   ensureDeferredFrame(immersiveFrame);
@@ -1375,22 +1426,76 @@ addEventListener('message',event=>{
   if(event.data?.type==='case3-character-ready'){
     heroImmersiveReady=true;
     heroImmersiveLast=-1;
+    if(heroImmersiveHolding){heroImmersiveProgress=0;holdHeroCharacter(heroCharacterMetrics().start);}
+    heroImmersiveHolding=false;heroImmersiveContinue.hidden=true;
     if(heroImmersiveStatus)heroImmersiveStatus.hidden=true;
-    syncHeroImmersive(heroImmersiveProgress);
+    renderScroll();syncHeroImmersive(heroImmersiveProgress);
   }else if(event.data?.type==='case3-character-error'){
     heroImmersiveReady=false;
-    if(heroImmersiveStatus){heroImmersiveStatus.textContent='Personagem 3D indisponível no momento.';heroImmersiveStatus.hidden=false;}
+    if(heroImmersiveStatus){heroImmersiveMessage.textContent='Personagem 3D indisponível no momento.';heroImmersiveStatus.hidden=false;heroImmersiveContinue.hidden=false;}
   }
 });
 if(heroFullVideo){heroFullVideo.addEventListener('timeupdate',()=>{const a=parseFloat(heroFullVideo.dataset.segmentStart||''),b=parseFloat(heroFullVideo.dataset.segmentEnd||'');if(Number.isFinite(a)&&Number.isFinite(b)&&heroFullVideo.currentTime>=b){try{heroFullVideo.currentTime=a}catch(e){}}})}
-function setHeroState(state){if(state===lastState)return;lastState=state;const s=heroStates[state];cat.textContent=s.cat;title.textContent=s.title;title.classList.toggle('is-compact-title',!!s.compactTitle);title.classList.toggle('is-relaxed-title',!!s.relaxedTitle);desc.textContent=s.desc;const immersive=!!s.immersive,model3d=!!s.model3d,videoMedia=!!s.video,rawImage=!!s.rawImage,fullBleed=!!s.fullBleed;artCard&&artCard.classList.toggle('is-immersive',immersive);artCard&&artCard.classList.toggle('is-model-3d',model3d);artCard&&artCard.classList.toggle('is-video-media',videoMedia);artCard&&artCard.classList.toggle('is-raw-image',rawImage);artCard&&artCard.classList.toggle('is-full-bleed-source',fullBleed);if(heroFullMedia){heroFullMedia.classList.toggle('is-active',fullBleed);const hasFullVideo=!!s.fullVideo,hasFullYouTube=!!s.fullYouTube;heroFullMedia.classList.toggle('is-video',fullBleed&&hasFullVideo);heroFullMedia.classList.toggle('is-youtube',fullBleed&&hasFullYouTube);heroFullMedia.classList.toggle('is-image',fullBleed&&!hasFullVideo&&!hasFullYouTube);heroFullMedia.classList.toggle('show-podcast',fullBleed&&!!s.podcast);const fullPos=s.objectPosition||'50% 50%';if(heroFullImage)heroFullImage.style.objectPosition=fullPos;if(heroFullVideo)heroFullVideo.style.objectPosition=fullPos;if(fullBleed&&hasFullVideo){if(heroFullVideo&&heroFullVideo.getAttribute('src')!==s.fullVideo){heroFullVideo.setAttribute('src',s.fullVideo);heroFullVideo.load()}if(heroFullVideo){const segStart=Number.isFinite(s.videoStart)?s.videoStart:null,segEnd=Number.isFinite(s.videoEnd)?s.videoEnd:null;heroFullVideo.dataset.segmentStart=segStart==null?'':String(segStart);heroFullVideo.dataset.segmentEnd=segEnd==null?'':String(segEnd);const jumpToStart=()=>{if(segStart!=null&&Math.abs(heroFullVideo.currentTime-segStart)>.35){try{heroFullVideo.currentTime=segStart}catch(e){}}};if(heroFullVideo.readyState>=1)jumpToStart();else heroFullVideo.addEventListener('loadedmetadata',jumpToStart,{once:true});const fp=heroFullVideo.play();if(fp&&fp.catch)fp.catch(()=>{})}}else if(heroFullVideo){heroFullVideo.dataset.segmentStart='';heroFullVideo.dataset.segmentEnd='';heroFullVideo.pause();}if(fullBleed&&hasFullYouTube&&heroFullYouTube){const ytStart=Number.isFinite(s.youtubeStart)?'&start='+Math.floor(s.youtubeStart):'',ytEnd=Number.isFinite(s.youtubeEnd)?'&end='+Math.floor(s.youtubeEnd):'',yt='https://www.youtube.com/embed/'+s.fullYouTube+'?autoplay=1&mute=1&controls=0&loop=1&playlist='+s.fullYouTube+'&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3'+ytStart+ytEnd;if(heroFullYouTube.getAttribute('src')!==yt)heroFullYouTube.setAttribute('src',yt)}if(fullBleed&&!hasFullVideo&&!hasFullYouTube&&heroFullImage){heroFullImage.alt=s.name||'';if(heroFullImage.getAttribute('src')!==s.img)heroFullImage.setAttribute('src',s.img)}}art.style.objectPosition=s.objectPosition||'50% 50%';if(heroCardVideo){if(videoMedia){if(s.videoSrc&&heroCardVideo.getAttribute('src')!==s.videoSrc){heroCardVideo.setAttribute('src',s.videoSrc);heroCardVideo.load()}const playPromise=heroCardVideo.play();if(playPromise&&playPromise.catch)playPromise.catch(()=>{})}else heroCardVideo.pause()}if(model3d){if(heroModel3D&&s.model){heroModel3D.setAttribute('loading','eager');if(heroModel3D.getAttribute('src')!==s.model)heroModel3D.setAttribute('src',s.model);requestAnimationFrame(()=>{try{heroModel3D.updateFraming?.();heroModel3D.jumpCameraToGoal?.()}catch(_){}})}art.alt=s.name;art.style.opacity='0'}else if(immersive||videoMedia||fullBleed){art.alt=s.name;art.style.opacity='0'}else{art.style.opacity='.12';const preload=new Image();preload.onload=()=>{art.src=s.img;art.alt=s.name;requestAnimationFrame(()=>art.style.opacity='1')};preload.src=s.img}bars.forEach((b,i)=>b.classList.toggle('on',i===state))}
+function setHeroState(state){if(state===lastState)return;lastState=state;const s=heroStates[state];cat.textContent=s.cat;title.textContent=s.title;title.classList.toggle('is-compact-title',!!s.compactTitle);title.classList.toggle('is-relaxed-title',!!s.relaxedTitle);desc.textContent=s.desc;const immersive=!!s.immersive,model3d=!!s.model3d,videoMedia=!!s.video,rawImage=!!s.rawImage,fullBleed=!!s.fullBleed;artCard&&artCard.classList.toggle('is-immersive',immersive);artCard&&artCard.classList.toggle('is-model-3d',model3d);artCard&&artCard.classList.toggle('is-video-media',videoMedia);artCard&&artCard.classList.toggle('is-raw-image',rawImage);artCard&&artCard.classList.toggle('is-full-bleed-source',fullBleed);if(heroFullMedia){heroFullMedia.classList.toggle('is-active',fullBleed);const hasFullVideo=!!s.fullVideo,hasFullYouTube=!!s.fullYouTube;heroFullMedia.classList.toggle('is-video',fullBleed&&hasFullVideo);heroFullMedia.classList.toggle('is-youtube',fullBleed&&hasFullYouTube);heroFullMedia.classList.toggle('is-image',fullBleed&&!hasFullVideo&&!hasFullYouTube);heroFullMedia.classList.toggle('show-podcast',fullBleed&&!!s.podcast);const fullPos=s.objectPosition||'50% 50%';if(heroFullImage)heroFullImage.style.objectPosition=fullPos;if(heroFullVideo)heroFullVideo.style.objectPosition=fullPos;if(fullBleed&&hasFullVideo){if(heroFullVideo&&heroFullVideo.getAttribute('src')!==s.fullVideo){heroFullVideo.setAttribute('src',s.fullVideo);heroFullVideo.load()}if(heroFullVideo){const segStart=Number.isFinite(s.videoStart)?s.videoStart:null,segEnd=Number.isFinite(s.videoEnd)?s.videoEnd:null;heroFullVideo.dataset.segmentStart=segStart==null?'':String(segStart);heroFullVideo.dataset.segmentEnd=segEnd==null?'':String(segEnd);const jumpToStart=()=>{if(segStart!=null&&Math.abs(heroFullVideo.currentTime-segStart)>.35){try{heroFullVideo.currentTime=segStart}catch(e){}}};if(heroFullVideo.readyState>=1)jumpToStart();else heroFullVideo.addEventListener('loadedmetadata',jumpToStart,{once:true});const fp=heroFullVideo.play();if(fp&&fp.catch)fp.catch(()=>{})}}else if(heroFullVideo){heroFullVideo.dataset.segmentStart='';heroFullVideo.dataset.segmentEnd='';heroFullVideo.pause();}if(fullBleed&&hasFullYouTube&&heroFullYouTube){const ytStart=Number.isFinite(s.youtubeStart)?'&start='+Math.floor(s.youtubeStart):'',ytEnd=Number.isFinite(s.youtubeEnd)?'&end='+Math.floor(s.youtubeEnd):'',yt='https://www.youtube.com/embed/'+s.fullYouTube+'?autoplay=1&mute=1&controls=0&loop=1&playlist='+s.fullYouTube+'&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3'+ytStart+ytEnd;if(heroFullYouTube.getAttribute('src')!==yt)heroFullYouTube.setAttribute('src',yt)}if(fullBleed&&!hasFullVideo&&!hasFullYouTube&&heroFullImage){heroFullImage.alt=s.name||'';if(heroFullImage.getAttribute('src')!==s.img)heroFullImage.setAttribute('src',s.img)}}art.style.objectPosition=s.objectPosition||'50% 50%';if(heroCardVideo){if(videoMedia){if(s.videoSrc&&heroCardVideo.getAttribute('src')!==s.videoSrc){heroCardVideo.setAttribute('src',s.videoSrc);heroCardVideo.load()}const playPromise=heroCardVideo.play();if(playPromise&&playPromise.catch)playPromise.catch(()=>{})}else heroCardVideo.pause()}if(model3d){if(heroModel3D&&s.model){heroModel3D.setAttribute('loading','eager');prepareHeroWeapon();requestAnimationFrame(()=>{try{heroModel3D.updateFraming?.();heroModel3D.jumpCameraToGoal?.()}catch(_){}})}art.alt=s.name;art.style.opacity='0'}else if(immersive||videoMedia||fullBleed){art.alt=s.name;art.style.opacity='0'}else{art.style.opacity='.12';const preload=new Image();preload.onload=()=>{art.src=s.img;art.alt=s.name;requestAnimationFrame(()=>art.style.opacity='1')};preload.src=s.img}bars.forEach((b,i)=>b.classList.toggle('on',i===state))}
 const BACKGROUND_STORAGE_KEY='mensagemstudio-background';let backgroundProgress=0,activeBackground='01';try{if(localStorage.getItem(BACKGROUND_STORAGE_KEY)==='02')activeBackground='02'}catch(e){}const backgroundFrames={'01':cyberAngel,'02':cyberAngelLegacy};function ensureBackgroundFrame(code){const frame=backgroundFrames[code];if(!frame)return;const src=frame.dataset&&frame.dataset.src;if(src&&!frame.getAttribute('src'))frame.setAttribute('src',src)}function postBackground(frame,message){if(frame&&frame.contentWindow)frame.contentWindow.postMessage(message,'*')}function syncBackgroundFrame(code,instant=false){const frame=backgroundFrames[code];postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant})}function applyBackground(code,persist=true,hydrate=true){const next=code==='02'?'02':'01';if(hydrate)ensureBackgroundFrame(next);activeBackground=next;Object.entries(backgroundFrames).forEach(([key,frame])=>{if(!frame)return;const on=key===next;frame.classList.toggle('is-active',on);postBackground(frame,{type:'cyber-angel-active',active:on});if(on)postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant:true})});gmc.dataset.background=next;if(backgroundState)backgroundState.textContent=next;if(backgroundNext)backgroundNext.textContent=next==='01'?'02':'01';if(backgroundSwitcher)backgroundSwitcher.setAttribute('aria-label','Trocar para o background '+(next==='01'?'02':'01'));if(persist){try{localStorage.setItem(BACKGROUND_STORAGE_KEY,next)}catch(e){}}}function getLandingEndScroll(y){if(!landingSentinel)return Math.max(afterWord.offsetTop+1,y+innerHeight);const sentinelDocY=y+landingSentinel.getBoundingClientRect().top;return sentinelDocY-innerHeight*.58}function updateGlobalCanvas(y){const start=afterWord.offsetTop-innerHeight*.08,end=Math.max(start+1,getLandingEndScroll(y));const reveal=clamp((y-start)/(innerHeight*.34));const p=clamp((y-start)/(end-start));backgroundProgress=p;document.documentElement.style.setProperty('--gmc-alpha',String(reveal));syncBackgroundFrame(activeBackground,false);gmc.dataset.progress=p.toFixed(4);gmc.dataset.landingEnd=Math.round(end);gmc.dataset.visible=reveal>.02?'true':'false'}
-function renderScroll(){raf=0;const y=scrollY,hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((y-hs)/hh),heroVideoEnd=heroVideoEndForSpan(hh),videoP=clamp(p/heroVideoEnd);document.documentElement.style.setProperty('--video-progress',videoP);if(videoReady)targetVideoTime=videoP*Math.max(.01,video.duration-.045);const caseP=clamp((p-heroVideoEnd)/(1-heroVideoEnd)),reveal=clamp(caseP/.055);if(p>heroVideoEnd*.72)warmHeroModelViewer();document.documentElement.style.setProperty('--case-alpha',reveal);document.documentElement.style.setProperty('--case-veil',reveal*.96);caseStage.classList.toggle('live',reveal>.82);if(caseP>0){const bonecoEnd=.45,state=caseP<bonecoEnd?0:1,local=state===0?clamp(caseP/bonecoEnd):clamp((caseP-bonecoEnd)/(1-bonecoEnd));document.documentElement.style.setProperty('--hero-state-progress',local);setHeroState(state);if(state===0){loadHeroImmersiveCharacter();syncHeroImmersive(clamp((caseP-.055)/(bonecoEnd-.055)))}else if(heroImmersiveReady){syncHeroImmersive(1)}}if(innerWidth<=760&&y>=word.offsetTop-innerHeight*1.25)ensureBackgroundFrame(activeBackground);updateGlobalCanvas(y);requestScrub();window.MSCasaHero?.sync()}
+function renderScroll(){
+  raf=0;let y=scrollY;
+  if(window.MSCenaHero?.ready||window.MSCenaHero?.bypassed)hydrateHeroVideo();
+  const hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),timing=heroScrollTiming(hh);
+  const characterStart=hs+timing.characterStart,characterEnd=hs+timing.characterEnd;
+  if(y<characterStart-32)heroImmersiveBypassed=false;
+  if(y>=hs+timing.filmEnd*.65&&y<=hs+hh)loadHeroImmersiveCharacter();
+  const crossesPending=heroImmersivePreviousY<characterStart&&y>=characterStart;
+  const insideCharacter=y>=characterStart&&y<characterEnd;
+  if(!heroImmersiveReady&&!heroImmersiveBypassed&&(insideCharacter||crossesPending||(heroImmersiveHolding&&y>=characterStart))&&y<=hs+hh){
+    heroImmersiveHolding=true;heroImmersiveProgress=0;heroImmersiveContinue.hidden=false;
+    holdHeroCharacter(characterStart);y=characterStart;
+  }else if(heroImmersiveHolding&&(y<characterStart-.5||y>hs+hh)){heroImmersiveHolding=false;heroImmersiveContinue.hidden=true;}
+  heroImmersivePreviousY=y;
+  const p=clamp((y-hs)/hh),heroVideoEnd=heroVideoEndForSpan(hh),videoP=clamp((y-hs)/timing.filmEnd);
+  document.documentElement.style.setProperty('--video-progress',videoP);
+  if(videoReady)targetVideoTime=heroMediaProgressForScroll(y,hh)*Math.max(.01,video.duration-.045);
+  const caseP=clamp((y-hs-timing.filmEnd)/(hh-timing.filmEnd)),reveal=clamp((y-hs-timing.filmEnd)/timing.revealSpan);
+  if(y>=hs+timing.filmEnd*.4&&y<=hs+hh)warmHeroModelViewer();
+  if(heroImmersiveReady&&y>=hs+timing.filmEnd*.8)prepareHeroWeapon();
+  document.documentElement.style.setProperty('--case-alpha',reveal);document.documentElement.style.setProperty('--case-veil',reveal*.96);
+  caseStage.classList.toggle('live',reveal>.82);
+  if(caseP>0){
+    const state=y<characterEnd?0:1;
+    const local=state===0?clamp((y-characterStart)/timing.characterSpan):clamp((y-characterEnd)/Math.max(1,hs+hh-characterEnd));
+    document.documentElement.style.setProperty('--hero-state-progress',local);setHeroState(state);
+    if(state===0){loadHeroImmersiveCharacter();syncHeroImmersive(local)}else if(heroImmersiveReady){syncHeroImmersive(1)}
+  }
+  if(innerWidth<=760&&y>=word.offsetTop-innerHeight*1.25)ensureBackgroundFrame(activeBackground);
+  updateGlobalCanvas(y);requestScrub();window.MSCasaHero?.sync();
+}
+let heroWeaponPromise=null,heroWeaponOriginalFallback=false;
+function prepareHeroWeapon(){
+  if(heroWeaponPromise||!heroModel3D)return heroWeaponPromise;
+  warmHeroModelViewer();
+  heroModel3D.setAttribute('touch-action','pan-y');
+  heroWeaponPromise=(async()=>{
+    const {loadGLBBytes}=await import('./assets/hero-lossless-loader.mjs?v=20261017-lossless-v1');
+    const plain=new URL(heroModel3D.dataset.src,document.baseURI).href;
+    const bytes=await loadGLBBytes(plain,plain+'.gz',{priority:'low'});
+    const url=URL.createObjectURL(new Blob([bytes],{type:'model/gltf-binary'}));
+    heroModel3D.setAttribute('src',url);return url;
+  })().catch(()=>{
+    heroWeaponOriginalFallback=true;
+    const original=heroModel3D.dataset.originalSrc;heroModel3D.setAttribute('src',original);return original;
+  });
+  return heroWeaponPromise;
+}
+heroModel3D?.addEventListener('error',()=>{
+  if(heroWeaponOriginalFallback)return;
+  heroWeaponOriginalFallback=true;
+  heroModel3D.setAttribute('src',heroModel3D.dataset.originalSrc);
+});
 let heroModelViewerWarm=false;function warmHeroModelViewer(){if(heroModelViewerWarm)return;heroModelViewerWarm=true;const p=window.MSModelViewer?.load?.();if(p&&typeof p.catch==='function')p.catch(()=>{heroModelViewerWarm=false})}
 let scrubRaf=0;function requestScrub(){if(!scrubRaf&&videoReady&&!document.hidden)scrubRaf=requestAnimationFrame(scrubStep)}function scrubStep(){scrubRaf=0;if(!videoReady||document.hidden)return;const mobile=innerWidth<=760,delta=targetVideoTime-smoothVideoTime;smoothVideoTime+=delta*(mobile?.34:.115);const seekGate=mobile?.006:.014;if(Math.abs(video.currentTime-smoothVideoTime)>seekGate&&!video.seeking){try{video.currentTime=smoothVideoTime}catch(e){}}if(Math.abs(delta)>(mobile?.002:.004)||video.seeking)requestScrub()}
 addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(renderScroll)},{passive:true});addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(renderScroll)});addEventListener('pointermove',e=>{px=(e.clientX/Math.max(1,innerWidth)-.5)*2;py=(e.clientY/Math.max(1,innerHeight)-.5)*2},{passive:true});
 Object.entries(backgroundFrames).forEach(([key,frame])=>{if(!frame)return;frame.addEventListener('load',()=>{postBackground(frame,{type:'cyber-angel-active',active:key===activeBackground});if(key===activeBackground)postBackground(frame,{type:'cyber-angel-progress',progress:backgroundProgress,instant:true})})});backgroundSwitcher&&backgroundSwitcher.addEventListener('click',()=>applyBackground(activeBackground==='01'?'02':'01',true,true));applyBackground(activeBackground,false,innerWidth>760);cyberAngel&&cyberAngel.addEventListener('load',()=>updateGlobalCanvas(scrollY));
-video.addEventListener('loadedmetadata',()=>{clearTimeout(heroVideoWatchdog);video.pause();videoReady=true;videoDegraded=false;const hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((scrollY-hs)/hh),videoP=clamp(p/heroVideoEndForSpan(hh));smoothVideoTime=targetVideoTime=videoP*Math.max(.01,video.duration-.045);video.currentTime=smoothVideoTime;renderScroll()});video.addEventListener('play',()=>{if(!videoPriming)video.pause()});const primeHeroVideo=()=>{if(innerWidth>760||videoPriming||!videoReady)return;videoPriming=true;try{if(video.currentTime===0)video.currentTime=.01}catch(e){}const p=video.play();const done=()=>{try{video.pause()}catch(e){}videoPriming=false;renderScroll();requestScrub()};if(p&&p.then)p.then(done).catch(()=>{videoPriming=false;videoDegraded=true;renderScroll()});else done()};addEventListener('touchstart',primeHeroVideo,{once:true,passive:true});addEventListener('pointerdown',primeHeroVideo,{once:true,passive:true});video.addEventListener('error',()=>{clearTimeout(heroVideoWatchdog);videoReady=false;videoDegraded=true;renderScroll()});setHeroState(0);renderScroll();requestScrub();
+video.addEventListener('loadedmetadata',()=>{clearTimeout(heroVideoWatchdog);video.pause();videoReady=true;videoDegraded=false;const hs=hero.offsetTop,hh=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight),p=clamp((scrollY-hs)/hh),videoP=heroMediaProgressForScroll(scrollY,hh);smoothVideoTime=targetVideoTime=videoP*Math.max(.01,video.duration-.045);video.currentTime=smoothVideoTime;renderScroll()});video.addEventListener('play',()=>{if(!videoPriming)video.pause()});const primeHeroVideo=()=>{if(innerWidth>760||videoPriming||!videoReady)return;videoPriming=true;try{if(video.currentTime===0)video.currentTime=.01}catch(e){}const p=video.play();const done=()=>{try{video.pause()}catch(e){}videoPriming=false;renderScroll();requestScrub()};if(p&&p.then)p.then(done).catch(()=>{videoPriming=false;videoDegraded=true;renderScroll()});else done()};addEventListener('touchstart',primeHeroVideo,{once:true,passive:true});addEventListener('pointerdown',primeHeroVideo,{once:true,passive:true});video.addEventListener('error',()=>{clearTimeout(heroVideoWatchdog);videoReady=false;videoDegraded=true;renderScroll()});setHeroState(0);renderScroll();requestScrub();
 function bindTabs(root,cb){const host=document.querySelector(root);if(!host)return;host.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll(root+' button').forEach(x=>x.classList.remove('active'));b.classList.add('active');cb(b)})}
 bindTabs('#pdfTabs',()=>{});
 </script>
@@ -1415,19 +1520,20 @@ bindTabs('#pdfTabs',()=>{});
   const youtubePanel=youtube?.closest('.word-case-panel')||null;
   const youtubeBase=youtube?.dataset.src||'';
 
+  const mediaNear=()=>{const rect=section.getBoundingClientRect();return rect.top<innerHeight+1800&&rect.bottom>-1800};
+  const mediaInView=()=>{const rect=section.getBoundingClientRect();return rect.top<innerHeight&&rect.bottom>0};
   const hydrateMedia=()=>{
+    if(!mediaNear())return;
+    panels.forEach(panel=>{if(panel.dataset.backgroundImage&&!panel.style.backgroundImage)panel.style.backgroundImage=panel.dataset.backgroundImage});
     videos.forEach(video=>{
-      if(!video.src&&video.dataset.src){
-        video.src=video.dataset.src;
-        video.load();
-      }
+      if(video.isConnected&&!video.getAttribute('src')&&video.dataset.src){video.preload='metadata';video.src=video.dataset.src;video.load();}
     });
     images.forEach(img=>{
-      try{img.loading='eager';img.fetchPriority='high'}catch(_){}
+      if(!img.isConnected)return;
+      if(!img.getAttribute('src')&&img.dataset.src)img.src=img.dataset.src;
+      try{img.loading='eager';img.fetchPriority='auto'}catch(_){}
       if(img.decode)img.decode().catch(()=>{});
     });
-    // Prepaint every case before it enters the viewport so horizontal travel
-    // never exposes the dark section background between media loads.
   };
 
   const prepareSegmentVideo=video=>{
@@ -1463,7 +1569,9 @@ bindTabs('#pdfTabs',()=>{});
   };
 
   const syncMedia=index=>{
+    if(!mediaInView())index=-1;
     if(index===activeIndex)return;
+    if(index>=0)hydrateMedia();
     activeIndex=index;
 
     videos.forEach(video=>{
@@ -1474,8 +1582,8 @@ bindTabs('#pdfTabs',()=>{});
         if(Number.isFinite(start)&&video.readyState>=1){
           try{video.currentTime=start}catch(_){}
         }
-        video.defaultMuted=true;video.muted=true;video.playsInline=true;
-        const tryPlay=()=>{if(Number(video.closest('.word-case-panel')?.dataset.wordCase)!==activeIndex)return;const p=video.play();if(p&&p.catch)p.catch(()=>{})};
+        video.preload='auto';video.defaultMuted=true;video.muted=true;video.playsInline=true;
+        const tryPlay=()=>{if(!mediaInView()||Number(video.closest('.word-case-panel')?.dataset.wordCase)!==activeIndex)return;const p=video.play();if(p&&p.catch)p.catch(()=>{})};
         if(video.readyState>=2)tryPlay();else video.addEventListener('canplay',tryPlay,{once:true});
       }else{
         video.pause();
@@ -1509,8 +1617,9 @@ bindTabs('#pdfTabs',()=>{});
       anticipatePin:1,
       scrub:0.7,
       invalidateOnRefresh:true,
-      onEnter:()=>{hydrateMedia();syncMedia(0)},
-      onEnterBack:hydrateMedia,
+      onEnter:self=>{hydrateMedia();syncMedia(Math.min(3,Math.max(0,Math.round(self.progress*3))))},
+      onEnterBack:self=>{hydrateMedia();syncMedia(Math.min(3,Math.max(0,Math.round(self.progress*3))))},
+      onLeave:()=>syncMedia(-1),
       onLeaveBack:()=>{
         videos.forEach(video=>video.pause());
         if(youtube){youtubePanel?.classList.remove('is-video-live');youtube.removeAttribute('src')}
@@ -1519,7 +1628,7 @@ bindTabs('#pdfTabs',()=>{});
       onUpdate:self=>{
         // Each full viewport of horizontal travel activates the corresponding case.
         const index=Math.min(3,Math.max(0,Math.round(self.progress*3)));
-        try{syncMedia(index)}catch(_){}
+        try{syncMedia(self.isActive?index:-1)}catch(_){}
       }
     }
   });
@@ -1665,10 +1774,11 @@ bindTabs('#pdfTabs',()=>{});
   io.observe(section);
 })();
 </script>
-<script type="module" src="./catalog-sync.js?v=20260913-r14-royal-blue-cards"></script>
+<script type="module" src="./catalog-sync.js?v=20261017-media-priority-v4"></script>
 <style id="ms-home-whatsapp-style">#msHomeWhatsapp{position:fixed;right:24px;bottom:24px;z-index:130;display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 18px;border-radius:999px;background:#25d366;color:#07110a;font:800 11px/1 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 42px rgba(0,0,0,.38),0 0 26px rgba(37,211,102,.18);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(10px);transition:transform .2s ease,filter .2s ease}#msHomeWhatsapp:hover{transform:translateY(-2px);filter:brightness(1.06)}#msHomeWhatsapp i{width:8px;height:8px;border-radius:50%;background:#07110a;opacity:.8}@media(max-width:760px){#msHomeWhatsapp{right:16px;bottom:max(78px,calc(66px + env(safe-area-inset-bottom)));min-height:46px;padding:0 15px}}</style><a id="msHomeWhatsapp" href="https://wa.me/5541999999937?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Mensagem%20Studio%20e%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener" aria-label="Falar com a Mensagem Studio pelo WhatsApp"><i></i>WhatsApp ↗</a><script src="./home-runtime.js?v=20260923-mobile-parity-v2"></script>
 <script type="module" src="./react-bits-border-glow/border-glow-service-cards.js?v=20260920-react-bits-border-glow-v2"></script>
-<script type="module" src="./scroll-reveal.js?v=20260912-r12-white-section-copy"></script>
+<script type="module" src="./scroll-reveal.js?v=20261017-media-priority-v4"></script>
+<script src="./assets/ms-carousel-glass-buttons-v2.js?v=20261017-case3-scroll-v2" data-ms-carousel-glass-buttons-v2></script>
 <script src="./global-ui.js?v=20260927-sitewide-type-v1"></script>
 <!-- SEO-PUBLISH-SOURCE: wix-preview -->
 <script>
@@ -2181,12 +2291,13 @@ bindTabs('#pdfTabs',()=>{});
 </script>
 <!-- CENA_HERO_1_PRODUCTION_V4_END -->
 <style id="ms-hero-case-scroll-balance-v1">
-/* Production timing: keep the opening film readable, then give each legacy case ~1.6-1.8 viewports of travel before Hero 4. */
-#hero{height:600vh!important}
-@media(max-width:760px){#hero{height:550svh!important}}
+/* Film, .12-screen reveal, six screens for the complete character sequence,
+   then 1.2 screens for the weapon. The existing host appends Hero 4. */
+#hero{height:1138.9vh!important}
+@media(max-width:760px){#hero{height:1111svh!important}}
 </style>
 <link rel="stylesheet" href="./assets/casa-hero-host.css?v=20261014-single-load-mobile-v5">
-<script type="module" src="./assets/casa-hero-host.mjs?v=20261014-single-load-mobile-v5"></script>
+<script type="module" src="./assets/casa-hero-host.mjs?v=20261017-load-priority-v6"></script>
 <!-- MS_DEPLOY_EXACT_VIDEO_SCROLL_LABEL_REMOVAL_V1 -->
 </body>
 </html>

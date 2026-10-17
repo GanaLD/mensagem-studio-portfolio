@@ -183,9 +183,10 @@
 
   const computeTarget=()=>{
     if(!ready) return null;
-    const range=Math.max(1,hero.offsetHeight-innerHeight);
+    const range=Math.max(1,window.MSCasaHero?.legacySpan??hero.offsetHeight-innerHeight);
     const progress=clamp((scrollY-hero.offsetTop)/range);
-    const videoProgress=clamp(progress/VIDEO_END);
+    const videoProgress=typeof heroMediaProgressForScroll==='function'
+      ?heroMediaProgressForScroll(scrollY,range):clamp(progress/VIDEO_END);
     target=videoProgress*Math.max(.01,video.duration-.045);
     return target;
   };

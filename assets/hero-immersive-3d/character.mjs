@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { loadGLBBytes } from '../hero-lossless-loader.mjs?v=20261017-lossless-v1';
 
 // This renderer has no animation clock. The existing hero owns every pose.
 const origin = location.origin;
@@ -49,8 +50,12 @@ try {
   }
 
   const [gltf, yellow] = await Promise.all([
-    new GLTFLoader().loadAsync('./CASE3_CHARACTER_ANIMATED.glb'),
-    new THREE.TextureLoader().loadAsync('./CASE3_JACKET_MUSTARD_OVERLAY.png')
+    loadGLBBytes(
+      new URL('./CASE3_CHARACTER_ANIMATED.glb', import.meta.url),
+      new URL('./CASE3_CHARACTER_ANIMATED.glb.gz', import.meta.url)
+    ).then(buffer => new GLTFLoader().parseAsync(buffer, new URL('.', import.meta.url).href)),
+    new THREE.TextureLoader().loadAsync('./CASE3_JACKET_MUSTARD_OVERLAY.webp')
+      .catch(() => new THREE.TextureLoader().loadAsync('./CASE3_JACKET_MUSTARD_OVERLAY.png'))
   ]);
   const model = gltf.scene;
   const body = model.getObjectByName('CASE3_Character');

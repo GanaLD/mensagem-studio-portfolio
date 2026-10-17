@@ -260,6 +260,7 @@
   const copies = [...document.querySelectorAll('#word .word-case-copy')];
   const dots = [...document.querySelectorAll('#wordDots i')];
   const videos = [...document.querySelectorAll('#word .word-case-video')];
+  const images = [...document.querySelectorAll('#word .word-case-panel img.word-case-media')];
   const youtube = section?.querySelector('.word-case-youtube');
   const youtubePanel = youtube?.closest('.word-case-panel') || null;
   const youtubeBase = youtube?.dataset.src || '';
@@ -318,15 +319,34 @@
   let raf = 0;
   let lastWidth = document.documentElement.clientWidth;
 
+  const mediaNear = () => {
+    const rect = section.getBoundingClientRect();
+    return rect.top < innerHeight + 1800 && rect.bottom > -1800;
+  };
+  const mediaInView = () => {
+    const rect = section.getBoundingClientRect();
+    return rect.top < innerHeight && rect.bottom > 0;
+  };
   const hydrateMedia = () => {
+    if (!mediaNear()) return;
+    panels.forEach(panel => {
+      if (panel.dataset.backgroundImage && !panel.style.backgroundImage) panel.style.backgroundImage = panel.dataset.backgroundImage;
+    });
     videos.forEach((video) => {
+      if (!video.isConnected) return;
       if (!video.getAttribute('src') && video.dataset.src) {
+        video.preload = 'metadata';
         video.setAttribute('src', video.dataset.src);
         try { video.load(); } catch (_) {}
       }
       video.defaultMuted = true;
       video.muted = true;
       video.playsInline = true;
+    });
+    images.forEach(image => {
+      if (!image.isConnected) return;
+      if (!image.getAttribute('src') && image.dataset.src) image.src = image.dataset.src;
+      if (image.decode) image.decode().catch(() => {});
     });
   };
 
@@ -356,6 +376,7 @@
       const start = Number(video.dataset.start);
       const startPlayback = () => {
         if (Number(video.closest('.word-case-panel')?.dataset.wordCase) !== activeIndex) return;
+        if (!mediaInView() || document.hidden) { video.pause(); return; }
         if (Number.isFinite(start)) {
           try { if (Math.abs(video.currentTime - start) > .35) video.currentTime = start; } catch (_) {}
         }
@@ -393,7 +414,8 @@
     });
 
     const nextIndex = Math.min(panels.length - 1, Math.max(0, Math.round(position)));
-    syncMedia(nextIndex);
+    hydrateMedia();
+    syncMedia(mediaInView() ? nextIndex : -1);
   };
 
   const queue = () => {
@@ -413,7 +435,10 @@
     queue();
   }, {passive:true});
   addEventListener('orientationchange', () => setTimeout(queue, 120), {passive:true});
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) queue(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { videos.forEach(video => video.pause()); syncYoutube(-1); activeIndex = -1; }
+    else queue();
+  });
 
   queue();
 })();
