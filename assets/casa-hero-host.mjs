@@ -60,27 +60,76 @@ if (hero && stage && !window.MSCasaHero) {
     active: false, exploring: false, ready: false, visualReady: false, loaded: false,
     loadPhase: 'environment', loadProgress: 0, loadLabel: 'Carregando ambiente…',
     loadingBypassed: false, error: false, playerError: false, cinematicOnly: false, gestureRequired: false,
+    entryShown: false, entryHolding: false, entrySettling: false,
   };
   let lastMessage = '';
-  let correctingScroll = false;
-  let pendingScroll = null;
+  let previousY = scrollY, lastForwardInput = -Infinity, entryReleaseTimer = 0;
+  let entryReleaseAfter = 0, entryReleaseDeadline = 0, touchY = null;
   const entry = window.gsap?.timeline({paused: true}).fromTo(
     panel, {xPercent: 100}, {xPercent: 0, duration: 1, ease: 'none'}, 0,
   );
 
   function hardScrollTo(top) {
-    if (correctingScroll) { pendingScroll = top; return; }
-    correctingScroll = true;
+    if (Math.abs(scrollY - top) < .5) return;
     const root = document.documentElement;
     const previous = root.style.scrollBehavior;
     root.style.scrollBehavior = 'auto';
     window.scrollTo({top, left: 0, behavior: 'instant'});
-    requestAnimationFrame(() => {
-      root.style.scrollBehavior = previous;
-      correctingScroll = false;
-      if (pendingScroll !== null) { const next = pendingScroll; pendingScroll = null; hardScrollTo(next); }
-    });
+    root.style.scrollBehavior = previous;
   }
+
+  function releaseEntryHold() {
+    clearTimeout(entryReleaseTimer);
+    state.entryHolding = false;
+    state.entrySettling = false;
+  }
+
+  function scheduleEntryRelease() {
+    if (!state.entrySettling) return;
+    clearTimeout(entryReleaseTimer);
+    const releaseAt = Math.min(entryReleaseDeadline, Math.max(entryReleaseAfter, lastForwardInput + 120));
+    entryReleaseTimer = setTimeout(() => { releaseEntryHold(); sync(); }, Math.max(0, releaseAt - performance.now()));
+  }
+
+  function presentEntry() {
+    state.entryShown = true;
+    state.entrySettling = true;
+    const now = performance.now();
+    // Paint the opening pose and discard the tail of the loading gesture.
+    // Continuous input can resume after this short, bounded handoff.
+    entryReleaseAfter = now + 180;
+    entryReleaseDeadline = now + 420;
+    scheduleEntryRelease();
+  }
+
+  function trackEntryInput(event, delta) {
+    if (!Number.isFinite(delta) || delta === 0) return;
+    if (delta < 0) { releaseEntryHold(); return; }
+    lastForwardInput = performance.now();
+    if (state.entryHolding && !state.error && !state.loadingBypassed && scrollY >= state.legacyEnd - 1) {
+      if (event.cancelable) event.preventDefault();
+      scheduleEntryRelease();
+    }
+  }
+  addEventListener('wheel', event => trackEntryInput(event, event.deltaY), {passive: false, capture: true});
+  addEventListener('touchstart', event => { touchY = event.touches.length === 1 ? event.touches[0].clientY : null; }, {passive: true});
+  addEventListener('touchmove', event => {
+    if (event.touches.length !== 1) { touchY = null; return; }
+    const nextY = event.touches[0].clientY;
+    if (touchY !== null) trackEntryInput(event, touchY - nextY);
+    touchY = nextY;
+  }, {passive: false, capture: true});
+  addEventListener('touchend', () => { touchY = null; scheduleEntryRelease(); }, {passive: true});
+  addEventListener('click', event => {
+    const link = event.target.closest?.('a[href^="#"]');
+    if (!link || (link.target && link.target !== '_self')) return;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(link.hash.slice(1))); } catch { return; }
+    if (target && scrollY + target.getBoundingClientRect().top > state.end) {
+      releaseEntryHold();
+      state.loadingBypassed = true;
+    }
+  }, {capture: true});
 
   function viewportHeight() {
     if (mobileProfile && state.height > 0 && Math.abs(innerWidth - state.width) < 24) return state.height;
@@ -136,10 +185,18 @@ if (hero && stage && !window.MSCasaHero) {
       frame.src = frame.dataset.src;
     }
 
-    const y = currentY;
-    if (currentY < state.legacyEnd - 32) state.loadingBypassed = false;
-    // Loading and recovery never take ownership of page scrolling. The house
-    // can become ready in place while forward/backward navigation stays free.
+    let y = currentY;
+    if (currentY < state.legacyEnd - 32 && previousY >= state.legacyEnd - 32) state.loadingBypassed = false;
+    if (currentY < state.legacyEnd - 1 || state.error || state.loadingBypassed) releaseEntryHold();
+    const insideHouse = currentY >= state.legacyEnd && currentY <= state.end;
+    const crossedEntry = previousY < state.legacyEnd && currentY > state.legacyEnd && performance.now() - lastForwardInput < 1000;
+    if (!state.entryShown && !state.error && !state.loadingBypassed && (insideHouse || crossedEntry)) state.entryHolding = true;
+    if (state.entryHolding && !state.error && !state.loadingBypassed && currentY >= state.legacyEnd - 1) {
+      hardScrollTo(state.legacyEnd);
+      y = state.legacyEnd;
+      if (state.visualReady && !state.entryShown) presentEntry();
+    }
+    previousY = y;
 
     state.progress = state.visualReady ? clamp((y - state.legacyEnd) / Math.max(1, state.end - state.legacyEnd)) : 0;
     state.active = state.visualReady && y >= state.legacyEnd && y <= state.end;
@@ -182,9 +239,10 @@ if (hero && stage && !window.MSCasaHero) {
   }
 
   function continuePage() {
+    releaseEntryHold();
+    state.loadingBypassed = true;
     state.exploring = false;
     if (!state.visualReady) {
-      state.loadingBypassed = true;
       hardScrollTo(state.end + Math.max(32, viewportHeight() * .12));
       sync();
       return;
@@ -208,6 +266,7 @@ if (hero && stage && !window.MSCasaHero) {
   panel.querySelectorAll('.ms-casa-continue').forEach(button => button.addEventListener('click', continuePage));
   gate.querySelector('#msCasaHeroSkipLoad').addEventListener('click', continuePage);
   gate.querySelector('#msCasaHeroRetry').addEventListener('click', () => {
+    releaseEntryHold();
     state.error = false;state.playerError = false;state.ready = false;state.visualReady = false;state.loadPhase = 'environment';state.loadProgress = 0;state.loadLabel = 'Carregando ambiente…';state.loadingBypassed = false;state.cinematicOnly = false;state.gestureRequired = false;
     frame.src = frame.dataset.src;lastMessage = '';sync();
   });
@@ -261,6 +320,7 @@ if (hero && stage && !window.MSCasaHero) {
     } else if (data.type === 'MS_CASA_HERO_PLAYER_ERROR') {
       state.playerError = true;state.ready = false;state.exploring = false;state.loadPhase = 'player';sync();
     } else if (data.type === 'MS_CASA_HERO_ERROR') {
+      releaseEntryHold();
       state.error = true;state.visualReady = false;state.ready = false;state.exploring = false;sync();
     } else if (data.type === 'MS_CASA_HERO_EXIT') {
       stopExploring();
@@ -278,6 +338,7 @@ if (hero && stage && !window.MSCasaHero) {
         progress: state.progress, active: state.active, exploring: state.exploring,
         ready: state.ready, visualReady: state.visualReady, loaded: state.loaded,
         loadPhase: state.loadPhase, loadProgress: state.loadProgress, error: state.error, playerError: state.playerError, loadingBypassed: state.loadingBypassed, cinematicOnly: state.cinematicOnly, gestureRequired: state.gestureRequired,
+        entryShown: state.entryShown, entryHolding: state.entryHolding, entrySettling: state.entrySettling,
         entryTransform: getComputedStyle(panel).transform,
         entryProgress: state.entryProgress, entryEngine: entry ? 'gsap' : 'css-fallback',
         legacySpan: state.legacySpan, legacyHeight: state.legacyHeight,
