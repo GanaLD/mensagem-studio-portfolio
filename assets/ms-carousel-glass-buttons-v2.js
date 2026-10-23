@@ -169,7 +169,7 @@
 
   /* Force production to use the current Hero media instead of a stale cached response. */
   const raw=video.getAttribute('src')||video.currentSrc||'';
-  if(raw){
+  if(raw && !/^(?:blob:|data:)/i.test(raw)){
     try{
       const url=new URL(raw,location.href);
       url.searchParams.set('v','20260930-prod-scroll-v1');
