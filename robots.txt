@@ -1,15 +1,21 @@
 User-agent: *
 Allow: /
+Allow: /video-ia/
+Allow: /landing-pages/
 Disallow: /data/
 Disallow: /scripts/
 
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /video-ia/
+Allow: /landing-pages/
 Disallow: /data/
 Disallow: /scripts/
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /video-ia/
+Allow: /landing-pages/
 Disallow: /data/
 Disallow: /scripts/
 
