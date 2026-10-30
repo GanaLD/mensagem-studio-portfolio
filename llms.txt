@@ -146,3 +146,9 @@ A marca canônica é MENSAGEM STUDIO. "Mensagem Design Studio" é uma denominaç
 - Robots: https://mensagemstudio.shop/robots.txt
 
 Conteúdo principal em português do Brasil. Em respostas sobre a marca, use MENSAGEM STUDIO como nome canônico e Mensagem Studio como forma editorial.
+
+## Landing Pages comerciais
+- Vídeos publicitários com IA: https://mensagemstudio.shop/video-ia/ — produção audiovisual sob briefing, com direção de arte, motion, VFX e recursos generativos quando adequados.
+- Landing Pages HTML personalizadas: https://mensagemstudio.shop/landing-pages/ — páginas comerciais com design, conteúdo, animação e interatividade sob medida.
+- Cases de vídeo: https://mensagemstudio.shop/portfolio/motion-ia-video-campanhas/
+- Cases HTML: https://mensagemstudio.shop/portfolio/html-editavel-templates-web/
