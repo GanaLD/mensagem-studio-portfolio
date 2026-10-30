@@ -34,8 +34,8 @@ jobs:
           from pathlib import Path
           import re
 
-          PROD_VERSION = "20260922-r42-home-topnav-outside-hero-published"
-          PREVIEW_VERSION = "20260922-r40-budget-position-carousel-palette"
+          PROD_VERSION = "20260923-r43-mobile-parity"
+          PREVIEW_VERSION = "20260923-r43-mobile-parity"
           changed = []
 
           for path in Path(".").rglob("*.html"):
@@ -66,9 +66,9 @@ jobs:
         run: |
           set -euo pipefail
           grep -q 'react-bits-rubber-topnav' global-ui.js
-          grep -q "20260922-r42-home-topnav-outside-hero-published" global-ui.js
+          grep -q "20260923-r43-mobile-parity" global-ui.js
           grep -q 'react-bits-rubber-topnav' wix-preview/global-ui.js
-          grep -q "20260922-r40-budget-position-carousel-palette" wix-preview/global-ui.js
+          grep -q "20260923-r43-mobile-parity" wix-preview/global-ui.js
 
       - name: Commit if needed
         shell: bash

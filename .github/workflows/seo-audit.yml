@@ -8,6 +8,8 @@ on:
       - 'wix-preview/**'
       - 'index.html'
       - 'portfolio/**'
+      - 'video-ia/**'
+      - 'landing-pages/**'
       - 'servicos/**'
       - 'sobre/**'
       - 'sitemap.xml'
@@ -95,6 +97,11 @@ jobs:
           pages.update({
               f"servicos/{slug}/index.html": base + f"servicos/{slug}/"
               for slug in service_slugs
+          })
+          pages.update({
+              "portfolio/camera-canon-t7-3d/index.html": base + "portfolio/camera-canon-t7-3d/",
+              "video-ia/index.html": base + "video-ia/",
+              "landing-pages/index.html": base + "landing-pages/",
           })
 
           errors = []
