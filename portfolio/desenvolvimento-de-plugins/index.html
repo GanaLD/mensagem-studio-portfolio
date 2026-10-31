@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070a10">
+<title>Desenvolvimento de Plugins | Motion Captions 0.8.0 | Mensagem Studio</title>
+<meta name="description" content="Conheça o desenvolvimento de plugins criativos da Mensagem Studio. Destaque para o Motion Captions 0.8.0, projeto dedicado a legendas animadas e edição audiovisual.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MENSAGEM STUDIO">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Desenvolvimento de Plugins | Motion Captions 0.8.0 | Mensagem Studio">
+<meta property="og:description" content="Conheça o desenvolvimento de plugins criativos da Mensagem Studio. Destaque para o Motion Captions 0.8.0, projeto dedicado a legendas animadas e edição audiovisual."><meta property="og:url" content="https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/">
+<meta property="og:image" content="https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg">
+<meta property="og:image:alt" content="Arte conceitual do Motion Captions 0.8.0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desenvolvimento de Plugins | Motion Captions 0.8.0">
+<meta name="twitter:description" content="Conheça o desenvolvimento de plugins criativos da Mensagem Studio. Destaque para o Motion Captions 0.8.0, projeto dedicado a legendas animadas e edição audiovisual.">
+<meta name="twitter:image" content="https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/#creativework","name":"DESENVOLVIMENTO DE PLUGINS | Motion Captions 0.8.0","url":"https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/","inLanguage":"pt-BR","description":"Conheça o desenvolvimento de plugins criativos da Mensagem Studio. Destaque para o Motion Captions 0.8.0, projeto dedicado a legendas animadas e edição audiovisual.","genre":"Desenvolvimento de software criativo","keywords":["desenvolvimento de plugins","Motion Captions 0.8.0","legendas animadas","motion design","edição de vídeo"],"creator":{"@type":"Organization","name":"MENSAGEM STUDIO","url":"https://mensagemstudio.shop/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MENSAGEM STUDIO","item":"https://mensagemstudio.shop/"},{"@type":"ListItem","position":2,"name":"Projetos","item":"https://mensagemstudio.shop/portfolio/"},{"@type":"ListItem","position":3,"name":"Desenvolvimento de Plugins","item":"https://mensagemstudio.shop/portfolio/desenvolvimento-de-plugins/"}]}]}</script>
+<link rel="stylesheet" href="../project-page.css?v=20260920-project-base">
+<link rel="stylesheet" href="/site-typography-v2.css?v=20260927-published-type-v2">
+<style id="plugin-case-styles">
+body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparent 38%),radial-gradient(ellipse at 8% 70%,rgba(34,93,68,.12),transparent 44%),#070806}
+.plugin-hero .hero-grid{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);align-items:center;gap:clamp(32px,5vw,78px)}
+.plugin-hero .hero-copy h1{font-size:clamp(42px,5.8vw,94px);max-width:13ch;line-height:.91}
+.plugin-hero .description{max-width:58ch}
+.plugin-hero .hero-media{min-height:0;aspect-ratio:16/10;border-radius:18px;border-color:rgba(107,181,178,.35);box-shadow:0 30px 100px #0007,0 0 60px #3465ac19}
+.plugin-hero .hero-media img{object-fit:cover}
+.plugin-hero .hero-label{border-radius:10px}
+.plugin-tags{display:flex;flex-wrap:wrap;gap:8px;margin:27px 0 0}
+.plugin-tags span{border:1px solid rgba(166,217,207,.22);background:rgba(20,56,60,.2);padding:9px 13px;border-radius:40px;color:#d1e5e0;font-size:10px;font-weight:700}
+.plugin-intro{padding:clamp(70px,8vw,114px) 0;border-top:1px solid rgba(255,255,255,.08)}
+.plugin-intro .plugin-intro-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,7vw,112px);align-items:start}
+.plugin-intro h2{font-size:clamp(38px,5vw,74px);letter-spacing:-.05em;line-height:.94;margin:0;max-width:13ch}
+.plugin-intro p{color:#b2c4bc;font-size:clamp(15px,1.15vw,19px);line-height:1.72;margin:0;max-width:65ch}
+.plugin-gallery .section-head h2{max-width:13ch}
+.plugin-gallery .section-head p{font-size:14px;line-height:1.6}
+.plugin-gallery .media-item{border-radius:18px;border-color:rgba(152,222,199,.20);background:rgba(12,25,27,.78);opacity:1;transform:none;filter:none}
+.plugin-gallery .media-visual{background:#07141c}
+.plugin-gallery .media-item.wide .media-visual{aspect-ratio:16/9}
+.plugin-gallery .media-item:not(.wide) .media-visual{aspect-ratio:16/10}
+.plugin-gallery .media-visual img{width:100%;height:100%;object-fit:cover;cursor:default}
+.plugin-gallery .media-item:hover img{transform:none}
+.plugin-gallery .caption{padding:24px}
+.plugin-gallery .caption strong{font-size:15px}
+.plugin-gallery .caption p{font-size:12px}
+.plugin-note{margin:24px 0 0;padding:16px 18px;border-left:2px solid #7fd7b9;color:#a4b5b0;background:#81e7bf0b;font-size:12px;line-height:1.55}
+.plugin-process{padding:clamp(70px,8vw,110px) 0;border-top:1px solid rgba(255,255,255,.08)}
+.plugin-process .section-head h2{font-size:clamp(37px,5vw,74px);max-width:14ch}
+.plugin-process .section-head p{font-size:14px;line-height:1.6}
+.plugin-process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.plugin-process-item{padding:clamp(23px,2.5vw,36px);border:1px solid #bddfc331;background:#16271f55;border-radius:18px;min-width:0}
+.plugin-process-item small{display:block;color:#c9ff36;letter-spacing:.16em;font-size:11px;margin-bottom:35px}
+.plugin-process-item h3{font-size:clamp(20px,2vw,28px);letter-spacing:-.03em;margin:0 0 14px}
+.plugin-process-item p{font-size:13px;line-height:1.7;color:#b2c2b9;margin:0}
+.plugin-cta .conversion-card{border-radius:18px;border-color:#637ff77a;background:radial-gradient(circle at 91% 13%,#315eea33,transparent 35%),#101a23}
+.plugin-cta .conversion-btn.primary{background:linear-gradient(145deg,#416bff,#3154d4);color:white;border-color:#719dff;box-shadow:inset 0 1px 0 #ffffff55,0 0 35px #3667ed33}
+.plugin-cta .conversion-btn.primary:hover{background:#4776ff}
+.plugin-cta .conversion-copy h2{max-width:14ch}
+.plugin-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:36px var(--pad) 54px;border-top:1px solid #ffffff18;color:#a5aa9d;font-size:12px}
+.plugin-footer a:hover{color:#c9ff36}
+@media(max-width:1100px){.plugin-hero .hero-grid{grid-template-columns:1fr}.plugin-hero .hero-copy h1{max-width:18ch}}
+@media(max-width:760px){.plugin-intro .plugin-intro-grid,.plugin-process-grid,.plugin-gallery .section-head{grid-template-columns:1fr}.plugin-gallery .caption{flex-direction:column}.plugin-gallery .caption-meta{align-items:flex-start}.plugin-hero .hero-label{left:10px;right:10px;bottom:10px;font-size:8px}.plugin-hero .hero-media{aspect-ratio:16/11}}
+@media(prefers-reduced-motion:reduce){.plugin-gallery .media-item{transition:none}}
+
+/* Download gratuito / source-of-truth do pacote 0.8.0 */
+.plugin-free-download{padding:clamp(76px,8vw,124px) 0;border-top:1px solid rgba(255,255,255,.09)}
+.plugin-free-download .section-head{grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);align-items:end}
+.plugin-free-download .section-head h2{font-size:clamp(42px,6vw,86px);max-width:14ch}
+.plugin-free-download .section-head p{max-width:50ch;font-size:14px;line-height:1.7}
+.plugin-release{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(26px,4vw,66px);align-items:center;padding:clamp(26px,4vw,58px);border:1px solid rgba(95,155,253,.34);border-radius:22px;background:radial-gradient(circle at 85% 14%,rgba(50,104,235,.25),transparent 35%),linear-gradient(138deg,rgba(17,34,41,.95),rgba(7,13,20,.96));box-shadow:0 36px 95px rgba(0,0,0,.25)}
+.plugin-release>*{min-width:0}
+.plugin-release-kicker{color:#aaf7ce;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:750}
+.plugin-release h3{font-size:clamp(28px,3.6vw,55px);letter-spacing:-.04em;line-height:1.05;margin:16px 0}
+.plugin-release p{color:#b6c6c4;line-height:1.65;font-size:14px;margin:0 0 22px;max-width:65ch}
+.plugin-download-action{display:flex;flex-direction:column;gap:14px}
+.plugin-download-action a{display:flex;min-height:63px;justify-content:center;align-items:center;text-align:center;padding:16px 28px;border:1px solid rgba(159,197,255,.68);border-radius:15px;background:linear-gradient(145deg,#416bff,#3154d4);color:#fff;font-size:13px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 44px rgba(53,103,231,.24);transition:background .22s ease,box-shadow .22s ease}
+.plugin-download-action a:hover,.plugin-download-action a:focus-visible{background:#4b79ff;box-shadow:0 0 50px rgba(64,120,254,.42);outline:2px solid rgba(177,217,255,.8);outline-offset:3px}
+.plugin-download-action small{color:#b4c4c7;font-size:12px;line-height:1.5;text-align:center}
+.plugin-install{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.plugin-install div{border:1px solid rgba(163,205,203,.17);background:rgba(15,29,32,.63);border-radius:13px;padding:22px;line-height:1.55;color:#b9c8c6;font-size:13px;min-width:0}
+.plugin-install strong{display:block;margin-bottom:10px;color:#f3f7f3;font-size:14px}
+.plugin-limitations{margin-top:22px;color:#a5b5b5;font-size:12px;line-height:1.75;max-width:95ch}
+.plugin-hash{margin-top:14px;font-size:11px;color:#8bada8;line-height:1.6;overflow-wrap:anywhere}
+.plugin-hash code{font-family:ui-monospace,Consolas,monospace}
+@media(max-width:850px){.plugin-free-download .section-head,.plugin-release{grid-template-columns:1fr}.plugin-install{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body data-project="desenvolvimento-de-plugins">
+<header class="top"><a class="brand" href="../../">MENSAGEM STUDIO</a>
+<nav class="nav" aria-label="Navegação principal"><a href="../../">Home</a><a class="on" href="../" aria-current="page">Projetos</a><a href="../../servicos/">Serviços</a><a href="../../sobre/">Sobre</a></nav><a class="back" href="../">Voltar aos projetos</a></header>
+<main>
+<section class="hero plugin-hero" aria-labelledby="plugins-title"><div class="wrap"><div class="hero-grid">
+<div class="hero-copy"><div class="eyebrow">MENSAGEM STUDIO / CREATIVE TECH</div>
+<h1 id="plugins-title">DESENVOLVIMENTO DE PLUGINS</h1>
+<p class="description">Ferramentas criativas desenvolvidas para aproximar software, edição e motion design. Apresentamos o <strong>Motion Captions 0.8.0</strong>, nosso projeto de plugin de legendas animadas para produção audiovisual.</p>
+<div class="plugin-tags" aria-label="Áreas do projeto"><span>Software criativo</span><span>Legendas</span><span>Motion design</span><span>Pós-produção</span></div>
+<div class="details"><div class="detail"><small>Projeto em destaque</small><span>Motion Captions 0.8.0</span></div><div class="detail"><small>Categoria</small><span>Desenvolvimento de plugins</span></div><div class="detail"><small>Direção</small><span>Interface, timing e tipografia</span></div><div class="detail"><small>Estúdio</small><span>Mensagem Studio / Projeto autoral</span></div></div></div>
+<figure class="hero-media"><img src="./motion-captions-cover.svg" width="1600" height="900" fetchpriority="high" alt="Arte conceitual de Motion Captions 0.8.0: painel de legendas, interface de edição e linha do tempo">
+<figcaption class="hero-label"><span>MOTION CAPTIONS / LEGENDAS ANIMADAS</span><b>VERSÃO 0.8.0</b></figcaption></figure>
+</div></div></section>
+<section class="plugin-intro" aria-labelledby="plugin-intro-title"><div class="wrap plugin-intro-grid">
+<div><div class="eyebrow">01 / CONCEITO</div><h2 id="plugin-intro-title">Um fluxo mais criativo para as legendas.</h2></div>
+<p>O Motion Captions nasce de um desafio real da pós-produção: fazer texto, fala e movimento trabalharem juntos. A proposta explora sincronização, animação tipográfica e organização de elementos na linha do tempo para pensar uma experiência de edição mais fluida.</p>
+</div></section>
+<section class="gallery-section plugin-gallery" aria-labelledby="gallery-title"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow">02 / DIREÇÃO VISUAL</div><h2 id="gallery-title">O plugin também é um projeto de design.</h2></div><p>Três artes originais apresentam a identidade do Motion Captions, o ritmo da timeline e estudos visuais de legendas.</p></div>
+<div class="media-grid">
+<figure class="media-item wide in"><div class="media-visual"><img src="./motion-captions-cover.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Composição gráfica Motion Captions 0.8.0 com janela de edição e estilos tipográficos"></div>
+<figcaption class="caption"><div><strong>01 / MOTION CAPTIONS 0.8.0</strong><p>Apresentação visual da ferramenta e de seu universo de edição criativa.</p></div><div class="caption-meta"><small>Identidade visual</small></div></figcaption></figure>
+<figure class="media-item in"><div class="media-visual"><img src="./motion-captions-timeline.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Arte conceitual de timeline com segmentos de palavras e trilhas de animação"></div>
+<figcaption class="caption"><div><strong>02 / TIMELINE &amp; TIMING</strong><p>Estudo de organização temporal de falas, segmentos de texto e animações.</p></div><div class="caption-meta"><small>Interface / Fluxo</small></div></figcaption></figure>
+<figure class="media-item in"><div class="media-visual"><img src="./motion-captions-styles.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Três estudos de lettering e legendas nos estilos Pop, Karaoke e Cinematic"></div>
+<figcaption class="caption"><div><strong>03 / ESTILOS DE LEGENDA</strong><p>Experimentação gráfica de tipografia expressiva no audiovisual.</p></div><div class="caption-meta"><small>Motion / Arte</small></div></figcaption></figure>
+</div><p class="plugin-note">As artes desta página são representações conceituais, não capturas da interface final nem comprovação de funcionalidades concluídas.</p>
+</div></section>
+<section class="plugin-process" aria-labelledby="process-title"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow">03 / PROCESSO DE CRIAÇÃO</div><h2 id="process-title">Da necessidade da edição à ferramenta.</h2></div><p>O trabalho envolve definição do fluxo, desenho de interface e exploração de motion para transformar uma tarefa repetitiva em um processo criativo.</p></div>
+<div class="plugin-process-grid">
+<article class="plugin-process-item"><small>01 / DESAFIO</small><h3>Tempo da fala</h3><p>Projetar legendas que respeitem o momento e a duração de cada parte da narração.</p></article>
+<article class="plugin-process-item"><small>02 / SISTEMA</small><h3>Organização da timeline</h3><p>Estruturar segmentos de texto e sua relação com trilhas, keyframes e sequência da edição.</p></article>
+<article class="plugin-process-item"><small>03 / DIREÇÃO DE ARTE</small><h3>Identidade em movimento</h3><p>Explorar estilos tipográficos que se integrem ao conteúdo e mantenham a legibilidade.</p></article>
+</div></div></section>
+
+<section id="download-plugin" class="plugin-free-download" aria-labelledby="download-title">
+<div class="wrap">
+<div class="section-head">
+<div><div class="eyebrow">04 / DOWNLOAD GRATUITO</div><h2 id="download-title">Baixe o Motion Captions.</h2></div>
+<p>Disponibilizamos gratuitamente o instalador da suite Motion Captions 0.8.0 para Windows, com extensão de legendas e animações para Adobe After Effects.</p>
+</div>
+<div class="plugin-release">
+<div>
+<div class="plugin-release-kicker">RELEASE GRATUITO / WINDOWS</div>
+<h3>Mensagem Motion Captions Suite 0.8.0</h3>
+<p>Inclui o instalador, os arquivos da extensão, documentação e relatório de testes. O pacote oferece modos Palavra, Frase e Revelar e ferramentas de animação tipográfica. A versão 0.8.0 foi validada no After Effects 2026, conforme documentação incluída.</p>
+<div class="plugin-tags" aria-label="Compatibilidade e pacote"><span>Adobe After Effects 2026</span><span>Windows</span><span>Arquivo ZIP · 11,7 MB</span><span>Gratuito</span></div>
+</div>
+<div class="plugin-download-action">
+<a href="https://drive.google.com/file/d/1OqwyZ8-zXSA2wfq7hHnmHljCXftf4qJS/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Baixar gratuitamente o instalador Mensagem Motion Captions Suite 0.8.0 em ZIP, hospedado no Google Drive">BAIXAR GRATUITAMENTE (ZIP)</a>
+<small>Download pelo Google Drive. Sem cobrança.</small>
+</div>
+</div>
+<div class="plugin-install" aria-label="Como instalar">
+<div><strong>01 · Extraia o arquivo ZIP</strong>Descompacte a pasta completa no Windows. Não execute o instalador dentro do ZIP.</div>
+<div><strong>02 · Feche o After Effects</strong>Salve o projeto, feche o programa e execute o arquivo <code>INSTALAR.bat</code>.</div>
+<div><strong>03 · Abra o painel</strong>No After Effects, acesse <strong>Janela &gt; Extensões &gt; Mensagem Motion Captions</strong>.</div>
+</div>
+<p class="plugin-limitations"><strong>Compatibilidade:</strong> o instalador contém uma variante para Premiere Pro 0.7.4, desmarcada por padrão e não homologada neste pacote. A transcrição local com Whisper/FFmpeg/Silero também não foi revalidada na versão 0.8.0. Consulte os arquivos README.md e VALIDACAO_0.8.0.md dentro do ZIP antes de instalar.</p>
+<p class="plugin-hash">Integridade SHA-256: <code>ac474cca38342083d47a520e9b90dc6bde55126eaa0314fcbf88aa3b39d69cae</code></p>
+</div>
+</section>
+<section class="project-conversion plugin-cta" aria-labelledby="cta-title"><div class="wrap"><div class="conversion-card">
+<div class="conversion-copy"><div class="eyebrow">MENSAGEM STUDIO / CREATIVE TECH</div><h2 id="cta-title">Arte e tecnologia no mesmo projeto.</h2><p>Conheça nossos serviços de design, vídeo, motion e experiências web ou explore mais trabalhos do estúdio.</p></div>
+<div class="conversion-actions"><a class="conversion-btn primary" href="../../servicos/">Conhecer serviços</a><a class="conversion-btn" href="../">Explorar projetos</a></div>
+<div class="conversion-ref"><span>Projeto em destaque</span><strong>Motion Captions 0.8.0 / Mensagem Studio</strong></div>
+</div></div></section>
+</main><footer class="plugin-footer"><span>Mensagem Studio © 2026</span><a href="../">Portfólio completo</a></footer>
+<script src="../../global-ui.js?v=20260927-sitewide-type-v1"></script>
+</body></html>
