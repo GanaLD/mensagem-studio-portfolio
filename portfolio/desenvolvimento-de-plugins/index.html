@@ -63,6 +63,29 @@ body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparen
 @media(max-width:1100px){.plugin-hero .hero-grid{grid-template-columns:1fr}.plugin-hero .hero-copy h1{max-width:18ch}}
 @media(max-width:760px){.plugin-intro .plugin-intro-grid,.plugin-process-grid,.plugin-gallery .section-head{grid-template-columns:1fr}.plugin-gallery .caption{flex-direction:column}.plugin-gallery .caption-meta{align-items:flex-start}.plugin-hero .hero-label{left:10px;right:10px;bottom:10px;font-size:8px}.plugin-hero .hero-media{aspect-ratio:16/11}}
 @media(prefers-reduced-motion:reduce){.plugin-gallery .media-item{transition:none}}
+
+/* Download gratuito / source-of-truth do pacote 0.8.0 */
+.plugin-free-download{padding:clamp(76px,8vw,124px) 0;border-top:1px solid rgba(255,255,255,.09)}
+.plugin-free-download .section-head{grid-template-columns:minmax(0,1fr) minmax(220px,.65fr);align-items:end}
+.plugin-free-download .section-head h2{font-size:clamp(42px,6vw,86px);max-width:14ch}
+.plugin-free-download .section-head p{max-width:50ch;font-size:14px;line-height:1.7}
+.plugin-release{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:clamp(26px,4vw,66px);align-items:center;padding:clamp(26px,4vw,58px);border:1px solid rgba(95,155,253,.34);border-radius:22px;background:radial-gradient(circle at 85% 14%,rgba(50,104,235,.25),transparent 35%),linear-gradient(138deg,rgba(17,34,41,.95),rgba(7,13,20,.96));box-shadow:0 36px 95px rgba(0,0,0,.25)}
+.plugin-release>*{min-width:0}
+.plugin-release-kicker{color:#aaf7ce;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:750}
+.plugin-release h3{font-size:clamp(28px,3.6vw,55px);letter-spacing:-.04em;line-height:1.05;margin:16px 0}
+.plugin-release p{color:#b6c6c4;line-height:1.65;font-size:14px;margin:0 0 22px;max-width:65ch}
+.plugin-download-action{display:flex;flex-direction:column;gap:14px}
+.plugin-download-action a{display:flex;min-height:63px;justify-content:center;align-items:center;text-align:center;padding:16px 28px;border:1px solid rgba(159,197,255,.68);border-radius:15px;background:linear-gradient(145deg,#416bff,#3154d4);color:#fff;font-size:13px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 0 44px rgba(53,103,231,.24);transition:background .22s ease,box-shadow .22s ease}
+.plugin-download-action a:hover,.plugin-download-action a:focus-visible{background:#4b79ff;box-shadow:0 0 50px rgba(64,120,254,.42);outline:2px solid rgba(177,217,255,.8);outline-offset:3px}
+.plugin-download-action small{color:#b4c4c7;font-size:12px;line-height:1.5;text-align:center}
+.plugin-install{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.plugin-install div{border:1px solid rgba(163,205,203,.17);background:rgba(15,29,32,.63);border-radius:13px;padding:22px;line-height:1.55;color:#b9c8c6;font-size:13px;min-width:0}
+.plugin-install strong{display:block;margin-bottom:10px;color:#f3f7f3;font-size:14px}
+.plugin-limitations{margin-top:22px;color:#a5b5b5;font-size:12px;line-height:1.75;max-width:95ch}
+.plugin-hash{margin-top:14px;font-size:11px;color:#8bada8;line-height:1.6;overflow-wrap:anywhere}
+.plugin-hash code{font-family:ui-monospace,Consolas,monospace}
+@media(max-width:850px){.plugin-free-download .section-head,.plugin-release{grid-template-columns:1fr}.plugin-install{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body data-project="desenvolvimento-de-plugins">
@@ -100,6 +123,34 @@ body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparen
 <article class="plugin-process-item"><small>02 / SISTEMA</small><h3>Organização da timeline</h3><p>Estruturar segmentos de texto e sua relação com trilhas, keyframes e sequência da edição.</p></article>
 <article class="plugin-process-item"><small>03 / DIREÇÃO DE ARTE</small><h3>Identidade em movimento</h3><p>Explorar estilos tipográficos que se integrem ao conteúdo e mantenham a legibilidade.</p></article>
 </div></div></section>
+
+<section id="download-plugin" class="plugin-free-download" aria-labelledby="download-title">
+<div class="wrap">
+<div class="section-head">
+<div><div class="eyebrow">04 / DOWNLOAD GRATUITO</div><h2 id="download-title">Baixe o Motion Captions.</h2></div>
+<p>Disponibilizamos gratuitamente o instalador da suite Motion Captions 0.8.0 para Windows, com extensão de legendas e animações para Adobe After Effects.</p>
+</div>
+<div class="plugin-release">
+<div>
+<div class="plugin-release-kicker">RELEASE GRATUITO / WINDOWS</div>
+<h3>Mensagem Motion Captions Suite 0.8.0</h3>
+<p>Inclui o instalador, os arquivos da extensão, documentação e relatório de testes. O pacote oferece modos Palavra, Frase e Revelar e ferramentas de animação tipográfica. A versão 0.8.0 foi validada no After Effects 2026, conforme documentação incluída.</p>
+<div class="plugin-tags" aria-label="Compatibilidade e pacote"><span>Adobe After Effects 2026</span><span>Windows</span><span>Arquivo ZIP · 11,7 MB</span><span>Gratuito</span></div>
+</div>
+<div class="plugin-download-action">
+<a href="https://drive.google.com/file/d/1OqwyZ8-zXSA2wfq7hHnmHljCXftf4qJS/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Baixar gratuitamente o instalador Mensagem Motion Captions Suite 0.8.0 em ZIP, hospedado no Google Drive">BAIXAR GRATUITAMENTE (ZIP)</a>
+<small>Download pelo Google Drive. Sem cobrança.</small>
+</div>
+</div>
+<div class="plugin-install" aria-label="Como instalar">
+<div><strong>01 · Extraia o arquivo ZIP</strong>Descompacte a pasta completa no Windows. Não execute o instalador dentro do ZIP.</div>
+<div><strong>02 · Feche o After Effects</strong>Salve o projeto, feche o programa e execute o arquivo <code>INSTALAR.bat</code>.</div>
+<div><strong>03 · Abra o painel</strong>No After Effects, acesse <strong>Janela &gt; Extensões &gt; Mensagem Motion Captions</strong>.</div>
+</div>
+<p class="plugin-limitations"><strong>Compatibilidade:</strong> o instalador contém uma variante para Premiere Pro 0.7.4, desmarcada por padrão e não homologada neste pacote. A transcrição local com Whisper/FFmpeg/Silero também não foi revalidada na versão 0.8.0. Consulte os arquivos README.md e VALIDACAO_0.8.0.md dentro do ZIP antes de instalar.</p>
+<p class="plugin-hash">Integridade SHA-256: <code>ac474cca38342083d47a520e9b90dc6bde55126eaa0314fcbf88aa3b39d69cae</code></p>
+</div>
+</section>
 <section class="project-conversion plugin-cta" aria-labelledby="cta-title"><div class="wrap"><div class="conversion-card">
 <div class="conversion-copy"><div class="eyebrow">MENSAGEM STUDIO / CREATIVE TECH</div><h2 id="cta-title">Arte e tecnologia no mesmo projeto.</h2><p>Conheça nossos serviços de design, vídeo, motion e experiências web ou explore mais trabalhos do estúdio.</p></div>
 <div class="conversion-actions"><a class="conversion-btn primary" href="../../servicos/">Conhecer serviços</a><a class="conversion-btn" href="../">Explorar projetos</a></div>
