@@ -22,12 +22,12 @@
 <link rel="stylesheet" href="/site-typography-v2.css?v=20260927-published-type-v2">
 <style id="plugin-case-styles">
 body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparent 38%),radial-gradient(ellipse at 8% 70%,rgba(34,93,68,.12),transparent 44%),#070806}
-.plugin-hero .hero-grid{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);align-items:center;gap:clamp(32px,5vw,78px)}
-.plugin-hero .hero-copy h1{font-size:clamp(42px,5.8vw,94px);max-width:13ch;line-height:.91}
-.plugin-hero .description{max-width:58ch}
-.plugin-hero .hero-media{min-height:0;aspect-ratio:16/10;border-radius:18px;border-color:rgba(107,181,178,.35);box-shadow:0 30px 100px #0007,0 0 60px #3465ac19}
-.plugin-hero .hero-media img{object-fit:cover}
-.plugin-hero .hero-label{border-radius:10px}
+.plugin-hero .hero-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:clamp(32px,4vw,64px)}
+.plugin-hero .hero-copy h1{font-size:clamp(34px,3.1vw,56px);max-width:100%;line-height:1.02;letter-spacing:-.018em;overflow-wrap:normal;word-break:normal;hyphens:none;margin-bottom:26px}
+.plugin-hero .description{max-width:55ch}
+.plugin-hero .hero-media{min-width:0;width:100%;height:100%;margin:0;align-self:stretch;min-height:0;aspect-ratio:auto;border-radius:18px;border-color:rgba(107,181,178,.35);background:linear-gradient(135deg,#0a2030,#092622);box-shadow:0 30px 100px #0007,0 0 60px #3465ac19}
+.plugin-hero .hero-media img{object-fit:contain;object-position:center}
+.plugin-hero .hero-label{display:none}
 .plugin-tags{display:flex;flex-wrap:wrap;gap:8px;margin:27px 0 0}
 .plugin-tags span{border:1px solid rgba(166,217,207,.22);background:rgba(20,56,60,.2);padding:9px 13px;border-radius:40px;color:#d1e5e0;font-size:10px;font-weight:700}
 .plugin-intro{padding:clamp(70px,8vw,114px) 0;border-top:1px solid rgba(255,255,255,.08)}
@@ -60,8 +60,9 @@ body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparen
 .plugin-cta .conversion-copy h2{max-width:14ch}
 .plugin-footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:36px var(--pad) 54px;border-top:1px solid #ffffff18;color:#a5aa9d;font-size:12px}
 .plugin-footer a:hover{color:#c9ff36}
-@media(max-width:1100px){.plugin-hero .hero-grid{grid-template-columns:1fr}.plugin-hero .hero-copy h1{max-width:18ch}}
-@media(max-width:760px){.plugin-intro .plugin-intro-grid,.plugin-process-grid,.plugin-gallery .section-head{grid-template-columns:1fr}.plugin-gallery .caption{flex-direction:column}.plugin-gallery .caption-meta{align-items:flex-start}.plugin-hero .hero-label{left:10px;right:10px;bottom:10px;font-size:8px}.plugin-hero .hero-media{aspect-ratio:16/11}}
+@media(max-width:1100px){.plugin-hero .hero-grid{grid-template-columns:minmax(0,1fr);align-items:start;gap:clamp(26px,4vw,42px)}.plugin-hero .hero-copy h1{font-size:clamp(36px,6.3vw,64px);max-width:100%}.plugin-hero .hero-media{height:auto;aspect-ratio:16/9;margin-top:0;align-self:auto}}
+@media(max-width:760px){.plugin-intro .plugin-intro-grid,.plugin-process-grid,.plugin-gallery .section-head{grid-template-columns:1fr}.plugin-gallery .caption{flex-direction:column}.plugin-gallery .caption-meta{align-items:flex-start}.plugin-hero .hero-label{left:10px;right:10px;bottom:10px;font-size:8px}.plugin-hero .hero-media{aspect-ratio:16/9}}
+@media(max-width:420px){.plugin-hero .hero-copy h1{font-size:clamp(30px,9vw,37px);line-height:1.04}}
 @media(prefers-reduced-motion:reduce){.plugin-gallery .media-item{transition:none}}
 
 /* Download gratuito / source-of-truth do pacote 0.8.0 */
@@ -99,7 +100,7 @@ body{background:radial-gradient(ellipse at 76% 4%,rgba(24,71,118,.22),transparen
 <div class="plugin-tags" aria-label="Áreas do projeto"><span>Software criativo</span><span>Legendas</span><span>Motion design</span><span>Pós-produção</span></div>
 <div class="details"><div class="detail"><small>Projeto em destaque</small><span>Motion Captions 0.8.0</span></div><div class="detail"><small>Categoria</small><span>Desenvolvimento de plugins</span></div><div class="detail"><small>Direção</small><span>Interface, timing e tipografia</span></div><div class="detail"><small>Estúdio</small><span>Mensagem Studio / Projeto autoral</span></div></div></div>
 <figure class="hero-media"><img src="./motion-captions-cover.svg" width="1600" height="900" fetchpriority="high" alt="Arte conceitual de Motion Captions 0.8.0: painel de legendas, interface de edição e linha do tempo">
-<figcaption class="hero-label"><span>MOTION CAPTIONS / LEGENDAS ANIMADAS</span><b>VERSÃO 0.8.0</b></figcaption></figure>
+</figure>
 </div></div></section>
 <section class="plugin-intro" aria-labelledby="plugin-intro-title"><div class="wrap plugin-intro-grid">
 <div><div class="eyebrow">01 / CONCEITO</div><h2 id="plugin-intro-title">Um fluxo mais criativo para as legendas.</h2></div>
