@@ -236,15 +236,15 @@ window.MENSAGEM_PROJECTS = [
   {
     slug:'desenvolvimento-de-plugins', sourceSlug:'desenvolvimento-de-plugins',
     title:'DESENVOLVIMENTO DE PLUGINS', tag:'Plugins / Creative Tech',
-    description:'Desenvolvimento autoral de ferramentas criativas para edição e pós-produção, com destaque para o projeto Motion Captions 8.0 de legendas animadas.',
+    description:'Desenvolvimento autoral de ferramentas criativas para edição e pós-produção, com destaque para o projeto Motion Captions 0.8.0 de legendas animadas.',
     details:[
-      {label:'Projeto',text:'Motion Captions 8.0'},
+      {label:'Projeto',text:'Motion Captions 0.8.0'},
       {label:'Área',text:'Plugins · Legendas · Motion design'},
       {label:'Apresentação',text:'Artes conceituais de interface e fluxo de edição'}
     ],
     cover:'/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg', coverVideo:'',
     media:[
-      {type:'IMAGE',title:'Motion Captions 8.0 — Arte Conceitual',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg'},
+      {type:'IMAGE',title:'Motion Captions 0.8.0 — Arte Conceitual',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg'},
       {type:'IMAGE',title:'Motion Captions — Timeline e Timing',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-timeline.svg'},
       {type:'IMAGE',title:'Motion Captions — Estilos de Legenda',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-styles.svg'}
     ]
@@ -253,13 +253,13 @@ window.MENSAGEM_PROJECTS = [
 
 window.MENSAGEM_CASE_STUDIES = {
   "desenvolvimento-de-plugins": {
-    "intro": "Projetos autorais de plugins e ferramentas para edição audiovisual, com destaque ao Motion Captions 8.0.",
+    "intro": "Projetos autorais de plugins e ferramentas para edição audiovisual, com destaque ao Motion Captions 0.8.0.",
     "context": "Estudo de um fluxo de criação de legendas animadas integrado à linguagem da edição e do motion.",
     "objective": "Explorar uma experiência que organize texto, tempo e movimento como partes de um mesmo processo criativo.",
     "solution": "Concepção de interface e representações visuais de timeline, sincronização e linguagem tipográfica.",
     "process": "Pesquisa de fluxo, organização da interface, direção de arte, estudos de animação e documentação visual.",
     "tools": "Design de interface, lógica de linha do tempo, tipografia e motion design.",
-    "result": "Estudo visual e documentação de apresentação do projeto Motion Captions 8.0.",
+    "result": "Estudo visual e documentação de apresentação do projeto Motion Captions 0.8.0.",
     "serviceLabel": "Conheça os serviços da Mensagem Studio",
     "serviceHref": "../../servicos/"
   },
