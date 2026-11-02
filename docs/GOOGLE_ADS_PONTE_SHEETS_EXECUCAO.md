@@ -81,3 +81,23 @@ O Google Ads da conta `987-700-7101` permanece protegido:
 - A aba de comandos recebeu validações de estado e aprovação para reduzir alterações acidentais.
 
 **Status da sincronização v2 na última conferência (02/11/2026 após as 17h):** `CONFIG!B7` ainda marcava `2026-11-02 16:30:16` e as abas `GRUPOS_RECURSOS`, `CONVERSOES`, `METAS`, `LOCALIZACOES` estavam vazias. O usuário informou ter salvo e exportado a versão mais nova; porém não há nova leitura confirmada na planilha. Não afirmar auditoria concluída até que novas linhas apareçam. Investigar o registro da execução caso não atualize. Nenhuma campanha foi modificada durante a preparação deste painel.
+
+
+## v3 — consultas editáveis pelo Sheets (protocolo sem procurar código)
+
+O modo de trabalho recomendado deixa as consultas **somente de leitura** em uma nova aba `CONSULTAS`. O script executa `AdsApp.search()` sobre as consultas GAQL aprovadas e grava os resultados nas abas respectivas. Não busca nem executa código JavaScript remoto, não permite escrita em `CONFIG`, `COMANDOS` ou outras abas por consultas, e rejeita consultas fora da campanha autorizada (exceto lista global de ações de conversão).
+
+**A primeira instalação da v3 ainda requer a substituição integral do Code.gs no Google Ads Scripts** usando seleção total e colar; não é necessário procurar linhas/funções. Após essa instalação, futuras correções de colunas e consultas de relatórios são feitas no Sheets por este ChatGPT, sem novas edições do código pelo proprietário. O Google Ads exige essa instalação inicial em seu ambiente autenticado; o conector Google Drive não pode substituir o Code.gs diretamente.
+
+Aba `CONSULTAS`:
+- coluna A: nome de um relatório permitido (GRUPOS_RECURSOS, RECURSOS, CONVERSOES, METAS, LOCALIZACOES, CONFIG_PMAX)
+- coluna B: `SIM`/`NÃO` — ativa/desativa a consulta
+- coluna C: consulta GAQL do tipo `SELECT ... FROM ...` (somente leitura)
+- coluna D: atributos do resultado separados por `|`; chaves especiais `$date`, `$campaign`, `$blank`; conversão de moeda com `@BRL`
+- coluna E: máximo de registros por relatório, até 200
+- coluna F: status OK, SEM_DADOS ou ERRO
+- coluna G: quantidade de linhas ou motivo do erro de consulta
+
+Em caso de erro, consultar a coluna G e o `LOG`. **Ajustar apenas a consulta ou coluna na planilha — não pedir ao usuário para procurar funções no código.**
+
+Não confundir esse recurso de configuração de **relatórios** com alteração de anúncios: a publicação de novos recursos, segmentação ou metas ainda exige funções específicas autorizadas. Mantenha `CONFIG!B4=NÃO`, orçamento diário R$1 e nenhuma campanha adicional.

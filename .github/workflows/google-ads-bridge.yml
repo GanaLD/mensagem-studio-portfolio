@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/google_ads_sheets_bridge.gs'
       - 'tests/google-ads-bridge.test.cjs'
+      - 'tests/google-ads-queries.test.cjs'
       - '.github/workflows/google-ads-bridge.yml'
   workflow_dispatch:
 
@@ -16,4 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify syntax, safeguards and PMax read coverage
-        run: node --test tests/google-ads-bridge.test.cjs
+        run: node --test tests/google-ads-*.test.cjs
