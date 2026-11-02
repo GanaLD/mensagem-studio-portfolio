@@ -493,7 +493,8 @@ function msPublishApprovedAssets_(ss, account, cfg) {
             .build();
           var imageAsset=assetOperation.getResult();
           if (!imageAsset) throw new Error('Imagem não foi importada para a biblioteca Ads.');
-          group.addAsset(imageAsset,'SQUARE_MARKETING_IMAGE');
+          var imageLink=group.addAsset(imageAsset,'SQUARE_MARKETING_IMAGE');
+          if (!imageLink.isSuccessful()) throw new Error('Falha ao vincular imagem: '+imageLink.getErrors().join('; '));
           counts[fieldType]++;
           existingNames[assetName]=true;
           result='PUBLICADO';
@@ -506,7 +507,8 @@ function msPublishApprovedAssets_(ss, account, cfg) {
           result='IGNORADO';
           note='Texto idêntico já presente no grupo.';
         } else {
-          group.addAsset(data,fieldType);
+          var textLink=group.addAsset(data,fieldType);
+          if (!textLink.isSuccessful()) throw new Error('Falha ao vincular texto: '+textLink.getErrors().join('; '));
           counts[fieldType]++;
           existingText[fieldType+'|'+data]=true;
           result='PUBLICADO';
