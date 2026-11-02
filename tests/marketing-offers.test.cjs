@@ -63,3 +63,11 @@ test('landing page and video keep working contact links and price styles', () =>
   assert.match(read('assets/lp-campaigns.css'), /\.discount-price/);
   assert.match(read('servicos/service-page.css'), /\.discount-price/);
 });
+
+test('catalog pricing JavaScript compiles without syntax errors', () => {
+  const vm = require('node:vm');
+  const scripts = [...web.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+  const pricingScript = scripts.find(match => match[1].includes('const SERVICES='));
+  assert.ok(pricingScript, 'Main pricing script not found');
+  assert.doesNotThrow(() => new vm.Script(pricingScript[1]));
+});
