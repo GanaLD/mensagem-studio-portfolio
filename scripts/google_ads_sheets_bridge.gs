@@ -27,7 +27,7 @@ function main() {
 
   // Sempre atualizar o diagnóstico, mesmo quando as alterações estiverem bloqueadas.
   msExportCampaigns_(ss, account);
-  msExportPMaxAudit_(ss, account, cfg);
+  msRunConfiguredReports_(ss, account, cfg);
   ss.getSheetByName('CONFIG').getRange('B7').setValue(
     Utilities.formatDate(new Date(), account.getTimeZone(), 'yyyy-MM-dd HH:mm:ss')
   );
@@ -309,4 +309,73 @@ function msAuditError_(ss, timestamp, accountId, campaignId, area, error) {
   var log = ss.getSheetByName('LOG');
   if (log) log.appendRow([timestamp, accountId, campaignId, 'AUDITORIA',
     area, 'ERRO_LEITURA', detail.slice(0,3500)]);
+}
+
+
+/** Consultas de relatórios gerenciadas na planilha, SEM executar código remoto. */
+function msRunConfiguredReports_(ss, account, cfg) {
+  var control=ss.getSheetByName('CONSULTAS');
+  if(!control) { Logger.log('Aba CONSULTAS não localizada.'); return; }
+  var allow={GRUPOS_RECURSOS:true,RECURSOS:true,CONVERSOES:true,METAS:true,LOCALIZACOES:true,CONFIG_PMAX:true};
+  var count=Math.min(control.getLastRow()-1,30);
+  if(count<1)return;
+  var definitions=control.getRange(2,1,count,7).getDisplayValues();
+  var campaignId=String(cfg.CAMPANHA_PERMITIDA_ID||'').trim();
+  if(!/^\d+$/.test(campaignId))return;
+  var now=Utilities.formatDate(new Date(),account.getTimeZone(),'yyyy-MM-dd HH:mm:ss');
+  definitions.forEach(function(d,index){
+    var name=String(d[0]).trim();
+    if(!allow[name]||String(d[1]).trim().toUpperCase()!=='SIM')return;
+    var sql=String(d[2]).trim(), keys=String(d[3]).split('|');
+    var maximum=Math.max(1,Math.min(parseInt(d[4],10)||100,200));
+    var state='ERRO',message='';
+    try {
+      if(!/^SELECT\s+[\s\S]+\s+FROM\s+[\s\S]+$/i.test(sql)||sql.indexOf(';')>=0)throw Error('Apenas SELECT válido');
+      if(name!=='CONVERSOES'&&sql.indexOf(campaignId)<0)throw Error('Campanha não autorizada');
+      var target=ss.getSheetByName(name);
+      if(!target)throw Error('Aba não encontrada: '+name);
+      var width=target.getRange(1,1,1,target.getLastColumn()).getDisplayValues()[0].filter(String).length;
+      if(keys.length!==width)throw Error('Colunas não correspondem: '+name);
+      var iter=AdsApp.search(sql),items=[];
+      while(iter.hasNext()&&items.length<maximum) {
+        var entity=iter.next();
+        items.push(keys.map(function(k){
+          k=String(k).trim();
+          if(k==='$date')return now;
+          if(k==='$campaign')return campaignId;
+          if(k==='$blank')return '';
+          var money=/@BRL$/.test(k);
+          var value=msPath_(entity,k.replace(/@BRL$/,''));
+          if(money)return Number(value||0)/1000000;
+          return msSheetSafe_(value);
+        }));
+      }
+      var used=target.getLastRow()-1;
+      if(used>0)target.getRange(2,1,used,width).clearContent();
+      if(items.length)target.getRange(2,1,items.length,width).setValues(items);
+      state=items.length?'OK':'SEM_DADOS';
+      message=items.length+' linha(s), '+now;
+      Logger.log(name+': '+message);
+    }catch(err) {
+      message=String(err.message||err).slice(0,1500);
+      Logger.log(name+' ERRO '+message);
+      var log=ss.getSheetByName('LOG');
+      if(log)log.appendRow([now,account.getCustomerId(),campaignId,'CONSULTAS',name,'ERRO_LEITURA',message]);
+    }
+    control.getRange(index+2,6,1,2).setValues([[state,message]]);
+  });
+}
+function msPath_(root,path){
+  var steps=path.split('.'),value=root;
+  for(var i=0;i<steps.length;i++){if(value===null||typeof value==='undefined')return '';value=value[steps[i]];}
+  return value;
+}
+function msSheetSafe_(v) {
+  if(v===null||typeof v==='undefined')return '';
+  if(typeof v==='number')return isFinite(v)?v:0;
+  if(typeof v==='boolean')return String(v);
+  if(typeof v==='object')v=JSON.stringify(v);
+  var text=String(v).slice(0,2000);
+  if(/^[=+\-@]/.test(text))text="'"+text;
+  return text;
 }
