@@ -27,6 +27,7 @@ function main() {
 
   // Sempre atualizar o diagnóstico, mesmo quando as alterações estiverem bloqueadas.
   msExportCampaigns_(ss, account);
+  msExportPMaxAudit_(ss, account, cfg);
   ss.getSheetByName('CONFIG').getRange('B7').setValue(
     Utilities.formatDate(new Date(), account.getTimeZone(), 'yyyy-MM-dd HH:mm:ss')
   );
@@ -132,9 +133,12 @@ function msExecuteApprovedCommands_(ss, cfg, account) {
       if (action !== 'RENOMEAR' && action !== 'NEGATIVAR') {
         throw new Error('Ação não permitida. Não há comandos de orçamento ou ativação.');
       }
-      var it = AdsApp.campaigns().withIds([campaignId]).get();
-      if (!it.hasNext()) throw new Error('Campanha não suportada por AdsApp.campaigns(), ou não encontrada.');
+      var it = AdsApp.performanceMaxCampaigns().withIds([campaignId]).get();
+      if (!it.hasNext()) throw new Error('Campanha Performance Max não encontrada na conta autorizada.');
       var campaign = it.next();
+      if (action === 'NEGATIVAR') {
+        throw new Error('Performance Max não aceita palavras-chave negativas por este método. Não alterar segmentação sem auditoria.');
+      }
       var budget = campaign.getBudget();
       var amount = budget ? Number(budget.getAmount()) : NaN;
       if (!(amount > 0 && amount <= 1.0 && amount <= maxBudget)) {
@@ -162,4 +166,147 @@ function msExecuteApprovedCommands_(ss, cfg, account) {
       timestamp, account.getCustomerId(), campaignId, commandId, action, outcome, detail
     ]);
   }
+}
+
+
+
+/**
+ * Auditoria v2 — exclusivamente leitura. Resultados limitados a 200 por aba.
+ * Se um recurso não estiver disponível na versão ativa da API, registra erro
+ * no LOG, sem interromper as leituras das outras abas.
+ */
+function msExportPMaxAudit_(ss, account, cfg) {
+  var campaignId = String(cfg.CAMPANHA_PERMITIDA_ID || '').trim();
+  if (!/^\d+$/.test(campaignId)) {
+    Logger.log('Auditoria PMax ignorada: definir CONFIG!B5 com o ID da campanha.');
+    return;
+  }
+  var now = Utilities.formatDate(new Date(), account.getTimeZone(), 'yyyy-MM-dd HH:mm:ss');
+  var accountId = account.getCustomerId();
+  var id = campaignId;
+
+  // 1. Grupos de recursos, URLs de destino, qualidade e métricas.
+  msAuditQuery_(ss, 'GRUPOS_RECURSOS',
+    'SELECT asset_group.id, asset_group.name, asset_group.status, ' +
+    'asset_group.primary_status, asset_group.ad_strength, asset_group.final_urls, ' +
+    'metrics.impressions, metrics.clicks, metrics.cost_micros, metrics.conversions ' +
+    'FROM asset_group WHERE campaign.id = ' + id +
+    ' AND segments.date DURING LAST_30_DAYS',
+    12, function(r) {
+      var a = r.assetGroup || {}, m = r.metrics || {};
+      return [now, id, a.id, a.name, a.status, a.primaryStatus,
+        a.adStrength, JSON.stringify(a.finalUrls || []), m.impressions || 0,
+        m.clicks || 0, Number(m.costMicros || 0) / 1000000, m.conversions || 0];
+    }, accountId, id);
+
+  // 2. Recursos criativos — textos, imagens e vídeos vinculados.
+  msAuditQuery_(ss, 'RECURSOS',
+    'SELECT asset_group.id, asset_group_asset.asset, asset_group_asset.field_type, ' +
+    'asset_group_asset.status, asset_group_asset.performance_label, ' +
+    'asset.type, asset.text_asset.text ' +
+    'FROM asset_group_asset WHERE campaign.id = ' + id,
+    9, function(r) {
+      var g = r.assetGroup || {}, a = r.assetGroupAsset || {}, asset = r.asset || {};
+      var textValue = asset.textAsset ? asset.textAsset.text : '';
+      return [now, g.id, a.fieldType, asset.type, a.status,
+        a.performanceLabel, a.asset, textValue || '', ''];
+    }, accountId, id);
+
+  // 3. Conversões por origem da campanha + metadados de cada ação.
+  var actionCounts = {};
+  try {
+    var ci = AdsApp.search(
+      'SELECT segments.conversion_action_name, metrics.conversions ' +
+      'FROM campaign WHERE campaign.id = ' + id +
+      ' AND segments.date DURING LAST_30_DAYS');
+    while (ci.hasNext()) {
+      var cr = ci.next(), n = String(cr.segments.conversionActionName || '');
+      actionCounts[n] = (actionCounts[n] || 0) + Number(cr.metrics.conversions || 0);
+    }
+  } catch (error) {
+    msAuditError_(ss, now, accountId, id, 'CONVERSOES-DETALHE', error);
+  }
+  msAuditQuery_(ss, 'CONVERSOES',
+    'SELECT conversion_action.id, conversion_action.name, conversion_action.category, ' +
+    'conversion_action.type, conversion_action.status, conversion_action.primary_for_goal, ' +
+    'conversion_action.counting_type FROM conversion_action ' +
+    'WHERE conversion_action.status = ENABLED',
+    10, function(r) {
+      var a = r.conversionAction || {};
+      return [now, a.id, a.name, a.category, a.type, a.status,
+        a.primaryForGoal, a.countingType, a.type,
+        'Conversões da campanha nos últimos 30 dias: ' + (actionCounts[String(a.name)] || 0)];
+    }, accountId, id);
+
+  // 4. Metas consideradas para os lances da campanha.
+  msAuditQuery_(ss, 'METAS',
+    'SELECT campaign_conversion_goal.campaign, campaign_conversion_goal.category, ' +
+    'campaign_conversion_goal.origin, campaign_conversion_goal.biddable ' +
+    'FROM campaign_conversion_goal WHERE campaign_conversion_goal.campaign = ' +
+    "'customers/" + accountId.replace(/\D/g, '') + "/campaigns/" + id + "'",
+    6, function(r) {
+      var g = r.campaignConversionGoal || {};
+      return [now, id, g.category, g.origin, String(g.biddable), 'Verificar se a meta representa um lead real'];
+    }, accountId, id);
+
+  // 5. Inclusões e exclusões de localidades, sem modificar a entrega.
+  msAuditQuery_(ss, 'LOCALIZACOES',
+    'SELECT campaign_criterion.criterion_id, campaign_criterion.type, ' +
+    'campaign_criterion.location.geo_target_constant, campaign_criterion.negative, ' +
+    'campaign_criterion.status FROM campaign_criterion ' +
+    'WHERE campaign.id = ' + id + ' AND campaign_criterion.type = LOCATION',
+    8, function(r) {
+      var c = r.campaignCriterion || {}, loc = c.location || {};
+      return [now, id, c.criterionId, c.type, loc.geoTargetConstant,
+        String(c.negative), c.status, 'Revisar localização antes de alterar segmentação'];
+    }, accountId, id);
+
+  // 6. Critérios globais de presença e expansão de URLs.
+  msAuditQuery_(ss, 'CONFIG_PMAX',
+    'SELECT campaign.id, campaign.name, campaign.status, ' +
+    'campaign.geo_target_type_setting.positive_geo_target_type, ' +
+    'campaign.geo_target_type_setting.negative_geo_target_type, ' +
+    'campaign.url_expansion_opt_out FROM campaign WHERE campaign.id = ' + id,
+    7, function(r) {
+      var c = r.campaign || {}, g = c.geoTargetTypeSetting || {};
+      return [now, c.id, c.name, c.status,
+        g.positiveGeoTargetType, g.negativeGeoTargetType,
+        String(c.urlExpansionOptOut)];
+    }, accountId, id);
+}
+
+function msAuditQuery_(ss, sheetName, sql, width, mapRow, accountId, campaignId) {
+  var now = Utilities.formatDate(new Date(), AdsApp.currentAccount().getTimeZone(), 'yyyy-MM-dd HH:mm:ss');
+  try {
+    var it = AdsApp.search(sql), rows = [];
+    while (it.hasNext() && rows.length < 200) {
+      var data = mapRow(it.next());
+      if (!Array.isArray(data) || data.length !== width) throw new Error('Quantidade de colunas inválida para ' + sheetName);
+      rows.push(data.map(msSafeSheetValue_));
+    }
+    var sheet = ss.getSheetByName(sheetName);
+    if (!sheet) throw new Error('Aba inexistente: ' + sheetName);
+    var oldCount = sheet.getLastRow() - 1;
+    if (oldCount > 0) sheet.getRange(2, 1, oldCount, width).clearContent();
+    if (rows.length > 0) sheet.getRange(2, 1, rows.length, width).setValues(rows);
+    Logger.log(sheetName + ': ' + rows.length + ' registros.');
+  } catch (error) {
+    msAuditError_(ss, now, accountId, campaignId, sheetName, error);
+  }
+}
+
+function msSafeSheetValue_(val) {
+  if (val === null || typeof val === 'undefined') return '';
+  if (typeof val === 'number' && isFinite(val)) return val;
+  if (typeof val === 'boolean') return String(val);
+  if (Array.isArray(val) || typeof val === 'object') return JSON.stringify(val).slice(0,3500);
+  return String(val).slice(0,3500);
+}
+
+function msAuditError_(ss, timestamp, accountId, campaignId, area, error) {
+  var detail = String(error && error.message ? error.message : error);
+  Logger.log(area + ' — ' + detail);
+  var log = ss.getSheetByName('LOG');
+  if (log) log.appendRow([timestamp, accountId, campaignId, 'AUDITORIA',
+    area, 'ERRO_LEITURA', detail.slice(0,3500)]);
 }
