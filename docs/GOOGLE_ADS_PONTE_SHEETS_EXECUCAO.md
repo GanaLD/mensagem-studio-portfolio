@@ -120,3 +120,37 @@ Confirmado pelo Google Sheets conectado que o usuário aplicou e executou o scri
 - Todas essas correções foram feitas **diretamente no Sheets**, sem alterar script, campanha, anúncios, orçamento, locais ou conversões.
 
 Próxima leitura do script é suficiente para confirmar se as consultas corrigidas `RECURSOS`, `CONFIG_PMAX` e `LOCALIZACOES` retornam conteúdo. A coluna STATUS/DETALHES em `CONSULTAS` mostra OK, SEM_DADOS ou ERRO. A conta de anúncios não é alterada por essas consultas.
+
+
+## 02/11/2026 — V4: publicação de criativos na campanha REAL
+
+Pedido explícito: não apenas criar imagens ou rascunhos; enviar os recursos **diretamente para a conta Google Ads** já configurada.
+
+### Arquivos e conta
+
+- Google Ads: `987-700-7101`.
+- Campanha ativa: `24423699562` (Performance Max).
+- Grupo: `6767362372`.
+- Orçamento médio atual: **R$ 1/dia**; o script **não aumenta, modifica ou define orçamento**.
+- A aba `PUBLICAR_ASSETS` está preparada com 4 imagens 1:1 no Google Drive e 11 recursos de texto.
+- Google Drive:
+  - HTML: `12tilnSKJDZWLbsrZ2Zx-gByVwmlU8Gmw`.
+  - Vídeo IA: `1f5peJ7ZSoobSIY4Ce8U_7wF6NIICuPWx`.
+  - Branding: `17-hWrcKi6f6KauqnWCO9h75Pf82VnQUJ`.
+  - CGI: `1E0MnO6V7onRLcQ1ABZP9IssGHYVA99EK`.
+
+### Fluxo V4
+
+Após a instalação no editor RAW do Google Ads, o script `scripts/google_ads_sheets_bridge.gs` consulta `PUBLICAR_ASSETS` e adiciona os registros que estejam `APROVADO=SIM` e `ESTADO=PENDENTE` ao grupo identificado. Os tipos válidos são `HEADLINE`, `LONG_HEADLINE`, `DESCRIPTION` e `SQUARE_MARKETING_IMAGE`. O script obtém imagens privadas do Google Drive com `DriveApp.getFileById()`, declara conteúdo sintético `IS_SYNTHETIC`, usa `AdsApp.adAssets().newImageAssetBuilder()` e `AssetGroup.addAsset()`, procedimentos oficiais do Google Ads Scripts.
+
+- Não cria campanha ou grupo novo.
+- Não altera orçamento, localização, lances, metas ou URL.
+- Não remove criativos existentes.
+- Valida o ID da conta, BRL, campanha, grupo, orçamento observado <=R$ 1, limites por tipo de asset e evita textos/imagens duplicados.
+- Previsualização não faz alterações.
+- Escreve `PUBLICADO`, `IGNORADO`, `REVISAR` ou `ERRO` por recurso na planilha e registra no `LOG`.
+- Para evitar duplicação após interrupções, atualiza `PROCESSANDO` antes de qualquer modificação; itens nesse estado não são reexecutados automaticamente.
+
+**Status da instalação:** a existência do script V4 no GitHub e da fila no Sheets NÃO comprova publicação no Google Ads. A V4 só é aplicada quando o usuário substituir integralmente o `Code.gs` do script **RAW** pela versão publicada do GitHub e executar ou aguardar a execução agendada. Não editar o script `Integração GPT`, que é legado e está desativado. A autenticação com Google Drive pode solicitar permissão adicional em virtude de `DriveApp`.
+
+Depois da execução do RAW V4, verificar `PUBLICAR_ASSETS!H:K` e, de preferência, consultar `RECURSOS` no Google Ads pela ponte para confirmar links `asset_group_asset`. Não declarar criativos publicados com base apenas no status de fila.
