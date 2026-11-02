@@ -5,6 +5,7 @@ on:
       - 'scripts/google_ads_sheets_bridge.gs'
       - 'tests/google-ads-bridge.test.cjs'
       - 'tests/google-ads-queries.test.cjs'
+      - 'tests/google-ads-assets-publish.test.cjs'
       - '.github/workflows/google-ads-bridge.yml'
   workflow_dispatch:
 
