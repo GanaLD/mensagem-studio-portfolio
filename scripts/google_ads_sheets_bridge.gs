@@ -28,6 +28,7 @@ function main() {
   // Sempre atualizar o diagnóstico, mesmo quando as alterações estiverem bloqueadas.
   msExportCampaigns_(ss, account);
   msRunConfiguredReports_(ss, account, cfg);
+  msPublishApprovedAssets_(ss, account, cfg);
   ss.getSheetByName('CONFIG').getRange('B7').setValue(
     Utilities.formatDate(new Date(), account.getTimeZone(), 'yyyy-MM-dd HH:mm:ss')
   );
@@ -378,4 +379,148 @@ function msSheetSafe_(v) {
   var text=String(v).slice(0,2000);
   if(/^[=+\-@]/.test(text))text="'"+text;
   return text;
+}
+
+
+
+/**
+ * 2026-11-02 — publicação de criativos APROVADOS no grupo Performance Max.
+ * Integração privada: lê os arquivos do Drive do usuário; nunca usa imagem externa.
+ * Não edita orçamento, lances, localização, status da campanha, grupos ou conversões.
+ * Não cria nem remove campanhas ou grupos; apenas adiciona recursos ao grupo existente.
+ */
+function msPublishApprovedAssets_(ss, account, cfg) {
+  if (AdsApp.getExecutionInfo().isPreview()) {
+    Logger.log('Pré-visualização: PUBLICAR_ASSETS não terá alterações no Google Ads.');
+    return;
+  }
+  var sheet=ss.getSheetByName('PUBLICAR_ASSETS');
+  if (!sheet || sheet.getLastRow()<2) return;
+
+  var campaignId='24423699562';
+  var groupId='6767362372';
+  if (String(cfg.CAMPANHA_PERMITIDA_ID||'').trim() !== campaignId) {
+    Logger.log('Publicação bloqueada: campanha autorizada não corresponde.');
+    return;
+  }
+  if (String(account.getCustomerId()).replace(/\D/g,'') !== '9877007101' ||
+      String(account.getCurrencyCode()) !== 'BRL') {
+    throw new Error('Publicação bloqueada: conta ou moeda diferente.');
+  }
+  var iterator=AdsApp.performanceMaxCampaigns().withIds([campaignId]).get();
+  if (!iterator.hasNext()) throw new Error('Campanha Performance Max não encontrada.');
+  var campaign=iterator.next();
+  var amount=Number(campaign.getBudget().getAmount());
+  if (!(amount>0) || amount>1) {
+    throw new Error('Publicação bloqueada: orçamento diário excede R$ 1 ou é inválido.');
+  }
+
+  var groups=campaign.assetGroups().get(), group=null;
+  while (groups.hasNext()) {
+    var candidate=groups.next();
+    if (String(candidate.getId())===groupId) { group=candidate; break; }
+  }
+  if (!group) throw new Error('Grupo de recursos 6767362372 não encontrado.');
+  var counts={HEADLINE:0,LONG_HEADLINE:0,DESCRIPTION:0,SQUARE_MARKETING_IMAGE:0};
+  var max={HEADLINE:15,LONG_HEADLINE:5,DESCRIPTION:5,SQUARE_MARKETING_IMAGE:20};
+  var existingText={};
+  var existingNames={};
+  var q=AdsApp.search(
+    'SELECT asset_group_asset.field_type, asset.text_asset.text, asset.name '+
+    'FROM asset_group_asset WHERE asset_group.id = '+groupId+
+    ' AND asset_group_asset.status != REMOVED'
+  );
+  while (q.hasNext()) {
+    var t=q.next();
+    var f=String(t.assetGroupAsset.fieldType||'');
+    if (!(f in counts)) continue;
+    counts[f]++;
+    var value=t.asset&&t.asset.textAsset?t.asset.textAsset.text:'';
+    if (value) existingText[f+'|'+String(value)]=true;
+    var name=t.asset?t.asset.name:'';
+    if (name) existingNames[String(name)]=true;
+  }
+
+  var total=Math.min(sheet.getLastRow()-1,60);
+  var inputs=sheet.getRange(2,1,total,11).getDisplayValues();
+  var now=Utilities.formatDate(new Date(),account.getTimeZone(),'yyyy-MM-dd HH:mm:ss');
+
+  for (var i=0;i<inputs.length;i++) {
+    var row=inputs[i], sheetRow=i+2;
+    var recordId=String(row[0]||'').trim();
+    var fieldType=String(row[1]||'').trim();
+    var data=String(row[3]||'').trim();
+    var targetCampaign=String(row[4]||'').trim();
+    var targetGroup=String(row[5]||'').trim();
+    var approved=String(row[6]||'').trim().toUpperCase();
+    var status=String(row[7]||'').trim().toUpperCase();
+    if (!recordId || approved !== 'SIM' || status !== 'PENDENTE') continue;
+
+    var result='ERRO', note='', assetName='';
+    try {
+      if (targetCampaign!==campaignId || targetGroup!==groupId) {
+        throw new Error('Campanha ou grupo de recursos diferente do autorizado.');
+      }
+      if (!(fieldType in counts)) throw new Error('Tipo de criativo não autorizado.');
+      if (!data) throw new Error('Conteúdo ou ID do Drive vazio.');
+      if (counts[fieldType]>=max[fieldType]) {
+        result='REVISAR';
+        note='Limite de '+fieldType+' atingido, sem substituir criativos existentes.';
+        sheet.getRange(sheetRow,8,1,4).setValues([[result,now,note,'']]);
+        continue;
+      }
+
+      // Marcar PROCESSANDO primeiro: uma interrupção não faz publicação duplicada.
+      sheet.getRange(sheetRow,8,1,2).setValues([['PROCESSANDO',now]]);
+      SpreadsheetApp.flush();
+
+      if (fieldType==='SQUARE_MARKETING_IMAGE') {
+        assetName='MS_ADS_'+recordId;
+        if (existingNames[assetName]) {
+          result='IGNORADO';
+          note='Imagem com mesmo nome já presente no grupo.';
+        } else {
+          var file=DriveApp.getFileById(data);
+          if (file.getMimeType()!=='image/png' && file.getMimeType()!=='image/jpeg') {
+            throw new Error('Imagem deve ser PNG ou JPG.');
+          }
+          if (file.getSize()>5120000) throw new Error('Arquivo ultrapassa 5 MB.');
+          var imageBlob=file.getBlob();
+          var assetOperation=AdsApp.adAssets().newImageAssetBuilder()
+            .withName(assetName)
+            .withData(imageBlob)
+            .withSyntheticContentAttestation('IS_SYNTHETIC')
+            .build();
+          var imageAsset=assetOperation.getResult();
+          if (!imageAsset) throw new Error('Imagem não foi importada para a biblioteca Ads.');
+          group.addAsset(imageAsset,'SQUARE_MARKETING_IMAGE');
+          counts[fieldType]++;
+          existingNames[assetName]=true;
+          result='PUBLICADO';
+          note='Imagem enviada à biblioteca e adicionada ao grupo existente.';
+        }
+      } else {
+        var limits={HEADLINE:30,LONG_HEADLINE:90,DESCRIPTION:90};
+        if (data.length>limits[fieldType]) throw new Error('Texto ultrapassa limite de caracteres.');
+        if (existingText[fieldType+'|'+data]) {
+          result='IGNORADO';
+          note='Texto idêntico já presente no grupo.';
+        } else {
+          group.addAsset(data,fieldType);
+          counts[fieldType]++;
+          existingText[fieldType+'|'+data]=true;
+          result='PUBLICADO';
+          note='Texto adicionado ao grupo de recursos da campanha.';
+        }
+      }
+    } catch (e) {
+      result='ERRO';
+      note=String(e.message||e).slice(0,750);
+      Logger.log(recordId+' erro: '+note);
+    }
+    sheet.getRange(sheetRow,8,1,4).setValues([[result,now,note,assetName]]);
+    if (result==='PUBLICADO') Logger.log(recordId+': '+note);
+    var log=ss.getSheetByName('LOG');
+    if(log)log.appendRow([now,account.getCustomerId(),campaignId,recordId,fieldType,result,note]);
+  }
 }
