@@ -101,3 +101,22 @@ Aba `CONSULTAS`:
 Em caso de erro, consultar a coluna G e o `LOG`. **Ajustar apenas a consulta ou coluna na planilha — não pedir ao usuário para procurar funções no código.**
 
 Não confundir esse recurso de configuração de **relatórios** com alteração de anúncios: a publicação de novos recursos, segmentação ou metas ainda exige funções específicas autorizadas. Mantenha `CONFIG!B4=NÃO`, orçamento diário R$1 e nenhuma campanha adicional.
+
+
+## 02/11/2026 — auditoria efetivamente exportada pela versão 3
+
+Confirmado pelo Google Sheets conectado que o usuário aplicou e executou o script v3 às `2026-11-02 17:59:36`; `CONFIG!B7` foi atualizado para `17:59:44` horário São Paulo.
+
+### Evidência real
+
+- Campanha `24423699562` — Performance Max, nome `Campaign #1`, status `ENABLED`, orçamento médio `R$ 1/dia`.
+- Um grupo de recursos: ID `6767362372`, `Grupo de recursos 1`, `ELIGIBLE`, força criativa `POOR`. URLs finais retornaram vazias na consulta de grupo.
+- Métricas dos últimos 30 dias: 89 impressões, 4 cliques, gasto R$ 2,213094, 3 conversões reportadas (sem distribuição por ação confirmada).
+- Duas ações de conversão ativas e primárias: `Local actions - Directions` (categoria GET_DIRECTIONS, GOOGLE_HOSTED) e `Clicks to call` (CONTACT, GOOGLE_HOSTED).
+- Metas habilitadas no relatório: GET_DIRECTIONS, CONTACT; existem também registros PHONE_CALL_LEAD com origem CALL_FROM_ADS/UNKNOWN, cujos valores de biddable retornaram vazios. Não considerar todas as 3 conversões como leads de orçamento.
+- Busca inicial de `LOCALIZACOES` usando somente `LOCATION` retornou `SEM_DADOS`. Ampliada para `LOCATION`, `PROXIMITY` e `LOCATION_GROUP` em `CONSULTAS`; requer próxima execução antes de concluir segmentação geográfica.
+- `RECURSOS` falhou por campo GAQL não reconhecido `asset_group_asset.performance_label`; removido da consulta na aba CONSULTAS, com coluna de desempenho mantida vazia.
+- `CONFIG_PMAX` falhou por campo GAQL não reconhecido `campaign.url_expansion_opt_out`, descontinuado nas versões atuais; removido e marcado na aba de saída como **não verificado**.
+- Todas essas correções foram feitas **diretamente no Sheets**, sem alterar script, campanha, anúncios, orçamento, locais ou conversões.
+
+Próxima leitura do script é suficiente para confirmar se as consultas corrigidas `RECURSOS`, `CONFIG_PMAX` e `LOCALIZACOES` retornam conteúdo. A coluna STATUS/DETALHES em `CONSULTAS` mostra OK, SEM_DADOS ou ERRO. A conta de anúncios não é alterada por essas consultas.
