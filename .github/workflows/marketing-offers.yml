@@ -1,0 +1,23 @@
+name: Marketing — Offer & SEO Regression
+on:
+  pull_request:
+    paths:
+      - 'video-ia/**'
+      - 'landing-pages/**'
+      - 'servicos/**'
+      - 'assets/lp-campaigns.css'
+      - 'tests/marketing-offers.test.cjs'
+      - '.github/workflows/marketing-offers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pricing and SEO consistency checks
+        run: node --test tests/marketing-offers.test.cjs

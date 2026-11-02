@@ -87,3 +87,8 @@ h3{font-size:20px;line-height:1.25;margin:0 0 12px}
 @media(max-width:680px){.lp-shell{width:min(var(--max),calc(100% - 36px))}.lp-header{padding:18px 0}.header-note{display:none}.hero{grid-template-columns:1fr;padding:54px 0 58px;gap:30px}.hero-media{max-height:none;aspect-ratio:4/5}.hero-actions .button{flex:1 1 100%}h1{font-size:clamp(42px,13vw,66px)}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.service-card,.step-card{padding:22px}.case-body{padding:19px}.case-media{aspect-ratio:9/12;max-height:560px}.demo-frame{min-height:280px;aspect-ratio:4/3}.demo-frame iframe{min-height:280px}.price-card{min-height:250px}.lp-section{padding:66px 0}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{gap:14px}.cross-sell .button{width:100%}}
 @media(max-width:390px){.lp-shell{width:calc(100% - 30px)}.brand{font-size:11px}.button{padding-inline:16px}.faq-item{padding-inline:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* 2026-11-02: commercial prices and honest scope comparisons */
+.price-card .price .original-price{display:block;font:500 13px/1.35 Inter,Arial,sans-serif;text-decoration:line-through;color:#9da99d;margin-bottom:7px}
+.price-card .price .discount-price{display:block;font:400 clamp(29px,3.4vw,42px)/1.15 'Fugaz One',Inter,Arial,sans-serif;color:var(--yellow)}
+.price-card .price small{display:block;margin-top:6px}
