@@ -29,6 +29,7 @@ function main() {
   msExportCampaigns_(ss, account);
   msRunConfiguredReports_(ss, account, cfg);
   msPublishApprovedAssets_(ss, account, cfg);
+  msReplacePMaxAssets_(ss, account, cfg);
   ss.getSheetByName('CONFIG').getRange('B7').setValue(
     Utilities.formatDate(new Date(), account.getTimeZone(), 'yyyy-MM-dd HH:mm:ss')
   );
@@ -524,5 +525,125 @@ function msPublishApprovedAssets_(ss, account, cfg) {
     if (result==='PUBLICADO') Logger.log(recordId+': '+note);
     var log=ss.getSheetByName('LOG');
     if(log)log.appendRow([now,account.getCustomerId(),campaignId,recordId,fieldType,result,note]);
+  }
+}
+
+
+
+/**
+ * Substituição direta de textos dentro do AssetGroup PMax existente.
+ * Somente linhas aprovadas e pendentes da aba SUBSTITUICOES_PMAX.
+ * Preserva orçamento, veiculação, grupo, metas, localização e URL.
+ */
+function msReplacePMaxAssets_(ss, account, cfg) {
+  if (AdsApp.getExecutionInfo().isPreview()) {
+    Logger.log('Pré-visualização: substituições não serão aplicadas.');
+    return;
+  }
+  var campaignId='24423699562', groupId='6767362372';
+  if(String(cfg.CAMPANHA_PERMITIDA_ID||'').trim()!==campaignId) {
+    Logger.log('SUBSTITUICOES_PMAX bloqueada: campanha diferente.');
+    return;
+  }
+  if (account.getCustomerId().replace(/\D/g,'')!=='9877007101' ||
+      account.getCurrencyCode()!=='BRL') throw Error('Conta ou moeda inesperada.');
+  var campaigns=AdsApp.performanceMaxCampaigns().withIds([campaignId]).get();
+  if (!campaigns.hasNext())throw Error('Performance Max não encontrada.');
+  var campaign=campaigns.next();
+  var daily=Number(campaign.getBudget().getAmount());
+  if (!(daily>0) || daily>1)throw Error('Orçamento diário maior que R$ 1: não alterar.');
+
+  var groups=campaign.assetGroups().withIds([groupId]).get();
+  if (!groups.hasNext())throw Error('Grupo de recursos não localizado.');
+  var group=groups.next();
+  var sheet=ss.getSheetByName('SUBSTITUICOES_PMAX');
+  if(!sheet||sheet.getLastRow()<2)return;
+  var items=sheet.getRange(2,1,Math.min(sheet.getLastRow()-1,40),11).getDisplayValues();
+  var now=Utilities.formatDate(new Date(),account.getTimeZone(),'yyyy-MM-dd HH:mm:ss');
+  // Confere vínculos reais no Ads antes de qualquer remoção.
+  var current={};
+  var query=AdsApp.search(
+    'SELECT asset_group_asset.asset, asset_group_asset.field_type, ' +
+    'asset.text_asset.text FROM asset_group_asset ' +
+    'WHERE asset_group.id = '+groupId+
+    ' AND asset_group_asset.status = ENABLED'
+  );
+  while(query.hasNext()) {
+    var record=query.next();
+    var field=String(record.assetGroupAsset.fieldType||'');
+    var name=String(record.assetGroupAsset.asset||'');
+    current[field+'|'+name]=String(record.asset?.textAsset?.text||'');
+    current[field+'|TEXT|'+String(record.asset?.textAsset?.text||'')]=true;
+  }
+
+  for(var i=0;i<items.length;i++){
+    var row=items[i], sheetRow=i+2;
+    var itemId=String(row[0]||'').trim();
+    var rowGroup=String(row[1]||'').trim();
+    var fieldType=String(row[2]||'').trim();
+    var oldResource=String(row[3]||'').trim();
+    var expectedOld=String(row[4]||'');
+    var newText=String(row[5]||'');
+    var approved=String(row[6]||'').trim().toUpperCase();
+    var state=String(row[7]||'').trim().toUpperCase();
+    if(!itemId || approved !== 'SIM' || state !== 'PENDENTE')continue;
+
+    var outcome='ERRO',detail='',newResource='';
+    try{
+      if(rowGroup!==groupId)throw Error('Grupo de recursos diferente do autorizado.');
+      var limit={HEADLINE:30,LONG_HEADLINE:90,DESCRIPTION:90}[fieldType];
+      if(!limit || !newText || newText.length>limit)throw Error('Texto inválido ou muito longo.');
+      if(!/^customers\/9877007101\/assets\/\d+$/.test(oldResource))throw Error('Recurso antigo inesperado.');
+      if(current[fieldType+'|'+oldResource]!==expectedOld) {
+        if(current[fieldType+'|TEXT|'+newText]) {
+          outcome='IGNORADO';detail='Texto novo já está vinculado; revisão manual do texto antigo ainda necessária.';
+          sheet.getRange(sheetRow,8,1,4).setValues([[outcome,now,detail,'']]);
+          continue;
+        }
+        throw Error('O texto antigo não corresponde ao vínculo atual no Google Ads.');
+      }
+      if(current[fieldType+'|TEXT|'+newText])throw Error('Texto novo já está presente no grupo; não remover o antigo sem análise.');
+      var it=AdsApp.adAssets().assets().withResourceNames([oldResource]).get();
+      if(!it.hasNext())throw Error('Recurso antigo não encontrado na biblioteca do Ads.');
+      var oldAsset=it.next();
+
+      // Trava de repetição: se interromper, a linha PROCESSANDO exige revisão antes de nova tentativa.
+      sheet.getRange(sheetRow,8,1,2).setValues([['PROCESSANDO',now]]);
+      SpreadsheetApp.flush();
+      var removed=false;
+      try{
+        group.removeAsset(oldAsset,fieldType);
+        removed=true;
+        var op=group.addAsset(newText,fieldType);
+        if(!op.isSuccessful())throw Error('Novo recurso rejeitado: '+op.getErrors().join('; '));
+        var created=op.getResult();
+        newResource=created?.getResourceName?.()||'CRIADO';
+        outcome='PUBLICADO';detail='Recurso antigo removido e novo texto vinculado.';
+        delete current[fieldType+'|'+oldResource];
+        current[fieldType+'|TEXT|'+newText]=true;
+      }catch(error){
+        if(removed){
+          try{
+            var rollback=group.addAsset(oldAsset,fieldType);
+            if(!rollback.isSuccessful()) {
+              throw Error('Falha ao restaurar recurso: '+rollback.getErrors().join('; '));
+            }
+            detail='Falha na substituição; original restaurado. '+String(error.message||error);
+          }catch(restoreError){
+            detail='ATENÇÃO: falha na substituição E no rollback: '+
+              String(restoreError.message||restoreError)+'; causa original: '+String(error.message||error);
+          }
+        }else detail=String(error.message||error);
+        outcome='ERRO';
+      }
+    }catch(e) {
+      detail=String(e.message||e);
+      outcome='ERRO';
+    }
+    detail=detail.slice(0,1600);
+    sheet.getRange(sheetRow,8,1,4).setValues([[outcome,now,detail,newResource]]);
+    var log=ss.getSheetByName('LOG');
+    if(log)log.appendRow([now,account.getCustomerId(),campaignId,itemId,fieldType,outcome,detail]);
+    Logger.log(itemId+' '+outcome+': '+detail);
   }
 }
