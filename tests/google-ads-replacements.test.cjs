@@ -1,0 +1,7 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
+const source=fs.readFileSync(path.join(__dirname,'../scripts/google_ads_sheets_bridge.gs'),'utf8');
+test('the script contains a single valid main',()=>{assert.doesNotThrow(()=>new vm.Script(source));assert.equal((source.match(/function main\s*\(/g)||[]).length,1)});
+test('approved PMax replacements read existing asset IDs from Sheets',()=>{assert.match(source,/msReplacePMaxAssets_\(ss,\s*account,\s*cfg\)/);assert.match(source,/getSheetByName\('SUBSTITUICOES_PMAX'\)/);assert.match(source,/withResourceNames\(\[oldResource\]\)/)});
+test('removals are exact and reversible with rollback',()=>{assert.match(source,/group\.removeAsset\(oldAsset,\s*fieldType\)/);assert.match(source,/group\.addAsset\(newText,\s*fieldType\)/);assert.match(source,/group\.addAsset\(oldAsset,\s*fieldType\)/)});
+test('only authorized campaign and group are edited and every row is approved',()=>{assert.match(source,/24423699562/);assert.match(source,/6767362372/);assert.match(source,/approved\s*!==\s*'SIM'/);assert.match(source,/state\s*!==\s*'PENDENTE'/);assert.match(source,/account\.getCustomerId\(\)/);assert.match(source,/getExecutionInfo\(\)\.isPreview\(\)/)});
+test('budget is protected',()=>{assert.doesNotMatch(source,/\.setAmount\s*\(/);assert.doesNotMatch(source,/\.enable\s*\(/);assert.doesNotMatch(source,/createCampaign\s*\(/)});
