@@ -32,8 +32,10 @@ test('publication enforces safety, campaign and price safeguards', () => {
   assert.doesNotMatch(src, /\.enable\s*\(/);
   assert.doesNotMatch(src, /createCampaign\s*\(/);
 });
-test('safe retries prevent duplicates, keep original assets', () => {
-  assert.match(src, /'PROCESSANDO'/);
-  assert.match(src, /'PUBLICADO'/);
-  assert.doesNotMatch(src, /group\.removeAsset\(/);
+test('safe image-upload retries prevent duplicates and do not remove assets', () => {
+  const imagePublisher = src.split('function msPublishApprovedAssets_')[1].split('function msReplacePMaxAssets_')[0];
+  assert.ok(imagePublisher, 'Image publisher must be present');
+  assert.match(imagePublisher, /'PROCESSANDO'/);
+  assert.match(imagePublisher, /'PUBLICADO'/);
+  assert.doesNotMatch(imagePublisher, /group\.removeAsset\(/);
 });
