@@ -28,6 +28,7 @@ function main() {
   // Sempre atualizar o diagnóstico, mesmo quando as alterações estiverem bloqueadas.
   msExportCampaigns_(ss, account);
   msRunConfiguredReports_(ss, account, cfg);
+  msApplyPMaxSettings_(ss, account, cfg);
   msPublishApprovedAssets_(ss, account, cfg);
   msReplacePMaxAssets_(ss, account, cfg);
   ss.getSheetByName('CONFIG').getRange('B7').setValue(
@@ -645,5 +646,137 @@ function msReplacePMaxAssets_(ss, account, cfg) {
     var log=ss.getSheetByName('LOG');
     if(log)log.appendRow([now,account.getCustomerId(),campaignId,itemId,fieldType,outcome,detail]);
     Logger.log(itemId+' '+outcome+': '+detail);
+  }
+}
+
+
+
+/**
+ * RAW V6 — ajustes de campanha autorizados em AJUSTES_PMAX.
+ * Nunca modifica orçamento, lances, estado da campanha, faturamento ou outras contas.
+ * Idempotente, com identificação fixa de campanha/grupo e registro por operação.
+ */
+function msApplyPMaxSettings_(ss, account, cfg) {
+  if (AdsApp.getExecutionInfo().isPreview()) {
+    Logger.log('AJUSTES_PMAX: pré-visualização, sem aplicar alterações.');
+    return;
+  }
+  var campaignId='24423699562',groupId='6767362372';
+  if(String(cfg.CAMPANHA_PERMITIDA_ID||'').trim()!==campaignId ||
+      account.getCustomerId().replace(/\D/g,'')!=='9877007101' ||
+      account.getCurrencyCode()!=='BRL'){
+    throw Error('AJUSTES_PMAX: conta, moeda ou campanha diferente do autorizado.');
+  }
+  var sheet=ss.getSheetByName('AJUSTES_PMAX');
+  if(!sheet||sheet.getLastRow()<2)return;
+  var all=sheet.getRange(2,1,Math.min(sheet.getLastRow()-1,30),9).getDisplayValues();
+  var campaigns=AdsApp.performanceMaxCampaigns().withIds([campaignId]).get();
+  if(!campaigns.hasNext())throw Error('AJUSTES_PMAX: campanha não encontrada.');
+  var campaign=campaigns.next();
+  var amount=Number(campaign.getBudget().getAmount());
+  if(!(amount>0)||amount>1)throw Error('AJUSTES_PMAX: orçamento diário acima de R$ 1, nenhuma alteração feita.');
+
+  var groups=campaign.assetGroups().withIds([groupId]).get();
+  if(!groups.hasNext())throw Error('AJUSTES_PMAX: grupo de recursos não encontrado.');
+  var group=groups.next();
+  var now=Utilities.formatDate(new Date(),account.getTimeZone(),'yyyy-MM-dd HH:mm:ss');
+
+  for(var index=0;index<all.length;index++){
+    var row=all[index],rowNo=index+2;
+    var id=String(row[0]||'').trim();
+    var action=String(row[1]||'').trim().toUpperCase();
+    var value=String(row[2]||'').trim();
+    var rowCampaign=String(row[3]||'').trim();
+    var rowGroup=String(row[4]||'').trim();
+    var approved=String(row[5]||'').trim().toUpperCase();
+    var status=String(row[6]||'').trim().toUpperCase();
+    if(!id || approved !== 'SIM' || status !== 'PENDENTE')continue;
+    var outcome='ERRO',detail='';
+    try{
+      if(rowCampaign!==campaignId || rowGroup!==groupId)throw Error('Alvo não autorizado.');
+      if(action!=='ADD_PROXIMITY' && action!=='SET_GEO_PRESENCE' &&
+         action!=='SET_FINAL_URL' && action!=='RENAME_GROUP')throw Error('Ação não permitida.');
+
+      sheet.getRange(rowNo,7,1,2).setValues([['PROCESSANDO',now]]);
+      SpreadsheetApp.flush();
+
+      if(action==='ADD_PROXIMITY') {
+        var args=value.split('|').map(Number),lat=args[0],lng=args[1],radius=args[2];
+        if(args.length!==3 || !isFinite(lat)||!isFinite(lng)||!isFinite(radius)||
+           lat< -26 || lat> -24 || lng< -50 || lng> -48 || radius<20 || radius>60)
+          throw Error('Raio ou coordenadas fora do padrão Curitiba/RMC.');
+        // Impedir união acidental com regiões anteriores: não sobrescrever alvo preexistente.
+        var locs=campaign.targeting().targetedLocations().get();
+        if(locs.hasNext()){
+          outcome='REVISAR';detail='Existem regiões já segmentadas: inspeção obrigatória antes de adicionar raio.';
+        }else{
+          var near=campaign.targeting().targetedProximities().get(),exact=false,other=false;
+          while(near.hasNext()){
+            var entry=near.next();
+            if(Math.abs(entry.getLatitude()-lat)<0.001 &&
+               Math.abs(entry.getLongitude()-lng)<0.001 &&
+               Math.abs(entry.getRadius()-radius)<0.2 &&
+               entry.getRadiusUnits()==='KILOMETERS')exact=true;
+            else other=true;
+          }
+          if(exact){outcome='IGNORADO';detail='Raio já presente.';}
+          else if(other){outcome='REVISAR';detail='Já existem outros raios ativos; não ampliar segmentação automaticamente.';}
+          else{
+            var geoOp=campaign.addProximity(lat,lng,radius,'KILOMETERS',{
+              address:{cityName:'Curitiba',provinceName:'Paraná',provinceCode:'PR',countryCode:'BR'}
+            });
+            if(!geoOp.isSuccessful())throw Error('Erro de região: '+geoOp.getErrors().join('; '));
+            var region=geoOp.getResult();
+            if(!region)throw Error('Região não retornada pelo Google Ads.');
+            outcome='EXECUTADO';detail='Criado alvo geográfico de '+radius+' km de Curitiba; critério '+region.getId();
+          }
+        }
+      } else if(action==='SET_GEO_PRESENCE') {
+        if(value!=='PRESENCE')throw Error('Permitido apenas PRESENCE.');
+        var geo=AdsApp.search('SELECT campaign.geo_target_type_setting.positive_geo_target_type FROM campaign WHERE campaign.id = '+campaignId);
+        var current=geo.hasNext()?String(geo.next().campaign.geoTargetTypeSetting.positiveGeoTargetType):'';
+        if(current==='PRESENCE'){outcome='IGNORADO';detail='Critério PRESENCE já ativo.';}
+        else {
+          var result=AdsApp.mutate({campaignOperation:{
+            update:{resourceName:'customers/9877007101/campaigns/'+campaignId,
+              geoTargetTypeSetting:{positiveGeoTargetType:'PRESENCE'}},
+            updateMask:'geo_target_type_setting.positive_geo_target_type'
+          }});
+          if(!result.isSuccessful())throw Error('Falha de presença: '+result.getErrorMessages().join('; '));
+          outcome='EXECUTADO';detail='Correspondência de local alterada para PRESENCE.';
+        }
+      } else if(action==='SET_FINAL_URL') {
+        var allowedUrls=[
+          'https://mensagemstudio.shop/servicos/',
+          'https://mensagemstudio.shop/landing-pages/',
+          'https://mensagemstudio.shop/video-ia/',
+          'https://mensagemstudio.shop/servicos/identidade-visual-branding/',
+          'https://mensagemstudio.shop/servicos/modelagem-3d-produto/'
+        ];
+        if(allowedUrls.indexOf(value)<0)throw Error('Destino fora das páginas autorizadas no .shop.');
+        var urls=group.urls(),existingUrl=String(urls.getFinalUrl()||'');
+        if(existingUrl===value){outcome='IGNORADO';detail='URL final já configurada.';}
+        else if(existingUrl && existingUrl.indexOf('https://mensagemstudio.shop/')!==0){
+          outcome='REVISAR';detail='URL anterior fora do .shop ('+existingUrl+'); não substituir sem auditoria.';
+        }else{
+          urls.setFinalUrl(value);
+          if(String(urls.getFinalUrl()||'')!==value)throw Error('URL de destino não confirmada após a alteração.');
+          outcome='EXECUTADO';detail='URL final definida: '+value+' (anterior: '+(existingUrl||'vazia')+').';
+        }
+      } else if(action==='RENAME_GROUP') {
+        if(value.length<8||value.length>100||/[\r\n]/.test(value))throw Error('Nome de grupo inválido.');
+        if(group.getName()===value){outcome='IGNORADO';detail='Grupo já possui este nome.';}
+        else{
+          var oldName=group.getName();
+          group.setName(value);
+          if(group.getName()!==value)throw Error('Renomeação não confirmada.');
+          outcome='EXECUTADO';detail='Grupo renomeado de '+oldName+' para '+value+'.';
+        }
+      }
+    }catch(error){outcome='ERRO';detail=String(error.message||error).slice(0,1200);}
+    sheet.getRange(rowNo,7,1,3).setValues([[outcome,now,detail]]);
+    var log=ss.getSheetByName('LOG');
+    if(log)log.appendRow([now,account.getCustomerId(),campaignId,id,action,outcome,detail]);
+    Logger.log(id+' ['+outcome+'] '+detail);
   }
 }
