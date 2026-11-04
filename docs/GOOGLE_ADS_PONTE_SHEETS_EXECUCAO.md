@@ -154,3 +154,27 @@ Após a instalação no editor RAW do Google Ads, o script `scripts/google_ads_s
 **Status da instalação:** a existência do script V4 no GitHub e da fila no Sheets NÃO comprova publicação no Google Ads. A V4 só é aplicada quando o usuário substituir integralmente o `Code.gs` do script **RAW** pela versão publicada do GitHub e executar ou aguardar a execução agendada. Não editar o script `Integração GPT`, que é legado e está desativado. A autenticação com Google Drive pode solicitar permissão adicional em virtude de `DriveApp`.
 
 Depois da execução do RAW V4, verificar `PUBLICAR_ASSETS!H:K` e, de preferência, consultar `RECURSOS` no Google Ads pela ponte para confirmar links `asset_group_asset`. Não declarar criativos publicados com base apenas no status de fila.
+
+## 04/11/2026 — V6: configurações de campanha via planilha
+
+**Estado constatado pelo último RAW de 03/11/2026 às 20h09:**
+- Conta `987-700-7101`, campanha `24423699562` ativa, Performance Max, orçamento R$ 1/dia.
+- 110 impressões, 5 cliques, R$ 3,116779, 4 conversões nos últimos 30 dias (não verificadas como leads).
+- O grupo `6767362372` permanece com força `POOR` e com 43 vínculos de recursos existentes.
+- `PUBLICAR_ASSETS`: 4 imagens PENDENTE; 11 textos REVISAR.
+- `SUBSTITUICOES_PMAX`: 11 substituições PENDENTE.
+- A conta está com auto-tagging TRUE e geo positivo PRESENCE_OR_INTEREST; `LOCALIZACOES` retornou zero critérios. A ausência de segmentação explícita pode abranger todas as regiões. Não assumir Curitiba já configurada.
+
+Aba `COMANDOS`: solicitação de renomeação da campanha para `Mensagem Studio | Curitiba | Serviços Criativos | PMax` foi marcada `APROVADO=SIM`, `PENDENTE` e a trava `CONFIG!B4` mudou para `SIM`, em razão da autorização explícita de otimizar a campanha. A alteração só é confirmada se o RAW registrar `EXECUTADO` e a leitura seguinte mostrar o nome.
+
+Aba `AJUSTES_PMAX` foi adicionada com quatro operações aprovadas e pendentes, agora suportadas pela **V6**:
+1. `ADD_PROXIMITY` — Curitiba (centro, -25.4280, -49.2730), raio de 35 km; recusa se já existirem alvos regionais conflitantes.
+2. `SET_GEO_PRESENCE` — PRESENCE, usando `AdsApp.mutate` com `updateMask` restrito ao campo de segmentação positiva.
+3. `SET_FINAL_URL` — grupo `6767362372` direcionado para `https://mensagemstudio.shop/servicos/`, que contém os quatro serviços; só aceita destinos aprovados em `.shop`.
+4. `RENAME_GROUP` — novo nome `Serviços Criativos | Curitiba`.
+
+O RAW V6 mantém todos os recursos de auditoria v3, upload de imagens V4 e substituições de textos V5. Não cria campanhas, não aumenta orçamento, não habilita anúncio, não toca no cartão. Cada operação tem aprovação, idempotência, status em Sheets e log. As configurações de localização seguem a recomendação de **concentrar R$1/dia na área Curitiba/RMC**; isso reduz o alcance remoto para esta campanha.
+
+**Atenção: o script v6 está no GitHub, mas ainda exige instalação pelo proprietário no RAW existente do Google Ads. O conector Drive só altera a planilha; não substitui automaticamente o Code.gs autenticado.** Nunca afirmar publicação em Google Ads apenas por merge ou por estado PENDENTE nas abas.
+
+O script deve ser executado em modo real (não só Visualizar). Ao final, ler `AJUSTES_PMAX!G:I`, `PUBLICAR_ASSETS!H:K`, `SUBSTITUICOES_PMAX!H:K` e as consultas `GRUPOS_RECURSOS`, `CONFIG_PMAX` e `LOCALIZACOES` para verificar mudanças. Não pedir ao usuário para procurar funções ou editar linhas isoladas.
