@@ -1,0 +1,10 @@
+{
+  "requestId": "MS-PMAX-APPLY-20261104",
+  "customerId": "9877007101",
+  "campaignId": "24423699562",
+  "approved": true,
+  "reason": "Correções solicitadas expressamente no chat",
+  "createdAt": "2026-11-04",
+  "planFile": "ops/google-ads/plan.json",
+  "noBillingOrBudgetChanges": true
+}
