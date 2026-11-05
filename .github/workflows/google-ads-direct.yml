@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/google-ads-direct.mjs'
       - 'scripts/google-ads-oauth-bootstrap.mjs'
+      - 'scripts/configurar-google-ads-oauth-sata3.ps1'
       - 'ops/google-ads/**'
       - 'tests/google-ads-direct.test.mjs'
       - 'tests/google-ads-oauth-bootstrap.test.mjs'
