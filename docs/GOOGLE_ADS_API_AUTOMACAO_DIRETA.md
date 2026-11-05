@@ -44,3 +44,39 @@ O MCP oficial google-ads-mcp é SOMENTE LEITURA em novembro/2026, portanto não 
 - https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server
 
 Para uso local futuro, todo o projeto deve ficar apenas em E:\ARQUIVOS DO CHAT GPT E 3D\MARKETING_AI\ de acordo com manual SATA3. Nenhuma instalação local foi realizada nesta implementação.
+
+## Correção OAuth - 04/11/2026
+
+Já existe um cliente OAuth de desktop do projeto Google Cloud Mensagem Studio: project-72069d50-38bb-4cfd-acd (número 680171140600). A aprovação Explorer foi informada em 31/10/2026; não criar outro projeto nem alterar faturamento.
+
+Arquivos já estabelecidos no SATA3:
+- E:\ARQUIVOS DO CHAT GPT E 3D\MARKETING_AI\CREDENCIAIS_PRIVADAS\google-ads-oauth-client-id.txt
+- E:\ARQUIVOS DO CHAT GPT E 3D\MARKETING_AI\CREDENCIAIS_PRIVADAS\google-ads-oauth-client-secret.txt
+- Alternativa: CHAVE API ADS.json na mesma pasta com seção installed.
+
+O bloqueio do GitHub Actions foi comprovado: o job apply não encontrou GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET e GOOGLE_ADS_REFRESH_TOKEN. Google Ads Scripts e Metricool têm autorizações próprias, não transferíveis. Nenhum refresh token de usuário foi confirmado até aqui.
+
+### Autorização oficial única no Windows, sem instalar no NVMe
+
+O código scripts/google-ads-oauth-bootstrap.mjs (Node 20+, sem dependências de NPM) lê as credenciais existentes no SATA3, cria servidor local restrito a 127.0.0.1 e gera URL de consentimento oficial accounts.google.com com CSRF state e PKCE. O usuário aprova dois escopos: adwords para editar a conta e drive.readonly para importar os quatro PNGs.
+
+Após o consentimento, troca o authorization code por refresh token, valida os escopos, lê a conta 9877007101 em BRL pela API oficial v26 e armazena o token apenas em E:\ARQUIVOS DO CHAT GPT E 3D\MARKETING_AI\CREDENCIAIS_PRIVADAS\google-ads-refresh-token.txt. Não imprime segredos.
+
+A integração tenta cadastrar os segredos privados no GitHub Actions via gh CLI já autenticado (GH_CONFIG_DIR no SATA3). Se o gh não estiver autenticado, isso não bloqueia a execução local da API; a aplicação ocorre diretamente em scripts/google-ads-direct.mjs --inspect e --apply, com verificações de nomes, URL, geografia, quatro imagens, onze textos e orçamento R$1/dia.
+
+Executável auxiliar: scripts/configurar-google-ads-oauth-sata3.ps1. Ele baixa os scripts e plano públicos da branch main exclusivamente no SATA3, faz backup dos arquivos de código anteriores no próprio SATA3, e chama o autorizador com --apply --sync-gh.
+
+Comando de inicialização única a partir do PowerShell do Windows (a etapa de consentimento é intransferível):
+
+    $dir = 'E:\ARQUIVOS DO CHAT GPT E 3D\MARKETING_AI\scripts'
+    New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/GanaLD/mensagem-studio-portfolio/main/scripts/configurar-google-ads-oauth-sata3.ps1' -OutFile (Join-Path $dir 'configurar-google-ads-oauth-sata3.ps1')
+    powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $dir 'configurar-google-ads-oauth-sata3.ps1')
+
+É necessário Node 20+ já disponível no PATH ou em instalação portátil no SATA3. O instalador não modifica C:, não controla o cursor, não cria campanhas nem modifica o cartão.
+
+Um OAuth client External com estado Testing pode produzir refresh tokens válidos por apenas 7 dias; para longa duração, verificar a elegibilidade de publicação In production no Google Auth Platform. Não criar segunda conta ou projeto para contornar autorização.
+
+A API Google Ads descontinuou developer tokens em 09/09/2026; a autorização agora é verificada pelo projeto Google Cloud do OAuth. Não inserir developer-token obrigatório no código novo.
+
+Status: bootstrap e testes preparados no GitHub; OAuth do usuário e execução real na conta ainda dependem de consentimento e execução em host conectado. Apenas resultado APLICADO_E_VERIFICADO do Google Ads encerra o trabalho.
