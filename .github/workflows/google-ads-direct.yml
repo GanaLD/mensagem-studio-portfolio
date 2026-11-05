@@ -1,0 +1,62 @@
+name: Mensagem Studio — Google Ads API direct apply
+on:
+  pull_request:
+    paths:
+      - 'scripts/google-ads-direct.mjs'
+      - 'ops/google-ads/**'
+      - 'tests/google-ads-direct.test.mjs'
+      - '.github/workflows/google-ads-direct.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'ops/google-ads/execute.json'
+  workflow_dispatch:
+    inputs:
+      execute:
+        description: 'Apply exact approved PMax plan to account 9877007101?'
+        type: choice
+        options: ['NO', 'YES']
+        default: 'NO'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: google-ads-direct-9877007101
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate pinned exact campaign plan and REST operation safeguards
+        run: |
+          node --version
+          node scripts/google-ads-direct.mjs --validate
+          node --test tests/google-ads-direct.test.mjs
+  apply:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.execute == 'YES')
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_ADS_CLIENT_ID: ${{ secrets.GOOGLE_ADS_CLIENT_ID }}
+      GOOGLE_ADS_CLIENT_SECRET: ${{ secrets.GOOGLE_ADS_CLIENT_SECRET }}
+      GOOGLE_ADS_REFRESH_TOKEN: ${{ secrets.GOOGLE_ADS_REFRESH_TOKEN }}
+      GOOGLE_ADS_LOGIN_CUSTOMER_ID: ${{ secrets.GOOGLE_ADS_LOGIN_CUSTOMER_ID }}
+      GOOGLE_ADS_WRITE_CONFIRMATION: APPLY_9877007101_24423699562
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assert approved intent file and secrets before any write
+        shell: bash
+        run: |
+          node --input-type=module -e 'import fs from "node:fs";let r=JSON.parse(fs.readFileSync("ops/google-ads/execute.json"));if(r.requestId!=="MS-PMAX-APPLY-20261104"||r.customerId!=="9877007101"||r.campaignId!=="24423699562"||r.approved!==true) process.exit(1)'
+          for name in GOOGLE_ADS_CLIENT_ID GOOGLE_ADS_CLIENT_SECRET GOOGLE_ADS_REFRESH_TOKEN; do
+            if [[ -z "${!name}" ]]; then
+              echo "::error::CREDENCIAL_AUSENTE: ${name}. OAuth Google Cloud com escopos adwords + drive.readonly é obrigatório."
+              exit 1
+            fi
+          done
+      - name: Apply existing PMax corrections through official Google Ads API
+        run: node scripts/google-ads-direct.mjs --apply
