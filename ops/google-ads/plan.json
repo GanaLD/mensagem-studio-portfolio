@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "customerId": "9877007101",
+  "campaignId": "24423699562",
+  "assetGroupId": "6767362372",
+  "currency": "BRL",
+  "dailyBudgetMicros": "1000000",
+  "dailyBudgetMustRemainUnchanged": true,
+  "campaignName": "Mensagem Studio | Curitiba | Serviços Criativos | PMax",
+  "assetGroupName": "Serviços Criativos | Curitiba",
+  "destination": "https://mensagemstudio.shop/servicos/",
+  "positiveGeo": "PRESENCE",
+  "geo": {
+    "latitude": -25.428,
+    "longitude": -49.273,
+    "radiusKm": 35
+  },
+  "textReplacements": [
+    {
+      "id": "MS-H-01",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "434896667966",
+      "oldText": "Publicidade e Marketing",
+      "newText": "Mensagem Studio Curitiba"
+    },
+    {
+      "id": "MS-H-02",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "435004247482",
+      "oldText": "Designers de Marca",
+      "newText": "Design para sua empresa"
+    },
+    {
+      "id": "MS-H-03",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "435004247470",
+      "oldText": "Marca e Design",
+      "newText": "Vídeo, 3D, Marca e HTML"
+    },
+    {
+      "id": "MS-H-04",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "435083991861",
+      "oldText": "Percepção da Marca em Curitiba",
+      "newText": "Criação para marcas"
+    },
+    {
+      "id": "MS-H-05",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "435004247497",
+      "oldText": "Comunicação Visual em Curitiba",
+      "newText": "Seu projeto merece destaque"
+    },
+    {
+      "id": "MS-H-06",
+      "fieldType": "HEADLINE",
+      "oldAssetId": "435004247479",
+      "oldText": "Programação e Web Design",
+      "newText": "Solicite um orçamento"
+    },
+    {
+      "id": "MS-L-01",
+      "fieldType": "LONG_HEADLINE",
+      "oldAssetId": "435004247512",
+      "oldText": "Design Gráfico: Crie a Identidade Visual da sua Marca com a Message Studio.",
+      "newText": "Direção de arte, landing pages, vídeos, identidade visual e CGI para empresas"
+    },
+    {
+      "id": "MS-L-02",
+      "fieldType": "LONG_HEADLINE",
+      "oldAssetId": "435004247524",
+      "oldText": "Criação de Design Gráfico em Curitiba | Message Studio",
+      "newText": "Mensagem Studio: produção criativa para marcas em Curitiba e atendimento remoto"
+    },
+    {
+      "id": "MS-D-01",
+      "fieldType": "DESCRIPTION",
+      "oldAssetId": "435004247512",
+      "oldText": "Design Gráfico: Crie a Identidade Visual da sua Marca com a Message Studio.",
+      "newText": "Criamos landing pages, vídeos, identidades visuais e CGI para empresas e marcas."
+    },
+    {
+      "id": "MS-D-02",
+      "fieldType": "DESCRIPTION",
+      "oldAssetId": "435004247521",
+      "oldText": "A Message Studio é um estúdio de design gráfico de topo com sede em Curitiba.",
+      "newText": "Projetos com direção de arte, produção visual e atendimento personalizado."
+    },
+    {
+      "id": "MS-D-03",
+      "fieldType": "DESCRIPTION",
+      "oldAssetId": "435083991864",
+      "oldText": "Precisando de um parceiro de design? Conheça a Message Studio.",
+      "newText": "Conheça nossos trabalhos e solicite um orçamento para sua empresa."
+    }
+  ],
+  "images": [
+    {
+      "id": "MS-IMG-HTML-20261102",
+      "assetName": "MS-PMAX-20261104-HTML",
+      "driveFileId": "12tilnSKJDZWLbsrZ2Zx-gByVwmlU8Gmw",
+      "fieldType": "SQUARE_MARKETING_IMAGE"
+    },
+    {
+      "id": "MS-IMG-VIDEO-20261102",
+      "assetName": "MS-PMAX-20261104-VIDEO",
+      "driveFileId": "1f5peJ7ZSoobSIY4Ce8U_7wF6NIICuPWx",
+      "fieldType": "SQUARE_MARKETING_IMAGE"
+    },
+    {
+      "id": "MS-IMG-BRANDING-20261102",
+      "assetName": "MS-PMAX-20261104-BRANDING",
+      "driveFileId": "17-hWrcKi6f6KauqnWCO9h75Pf82VnQUJ",
+      "fieldType": "SQUARE_MARKETING_IMAGE"
+    },
+    {
+      "id": "MS-IMG-3D-20261102",
+      "assetName": "MS-PMAX-20261104-3D",
+      "driveFileId": "1E0MnO6V7onRLcQ1ABZP9IssGHYVA99EK",
+      "fieldType": "SQUARE_MARKETING_IMAGE"
+    }
+  ],
+  "approval": {
+    "campaignOnly": true,
+    "explicitUserApproval": true,
+    "noNewCampaigns": true,
+    "noBudgetIncrease": true,
+    "noBillingChanges": true,
+    "approvalDate": "2026-11-04"
+  }
+}
