@@ -193,7 +193,7 @@ async function createOrReuseAssets(api,plan,needs,imageMode){
     const name=item.assetName||('MS-PMAX-20261104-'+item.id);
     if(indexed.has(name)){mapping.set(item.id,indexed.get(name));continue;}
     const body=item.newText ? {name,textAsset:{text:item.newText}} :
-      {name,type:'IMAGE',imageAsset:{data:(await api.drivePng(item.driveFileId)).toString('base64')}};
+      {name,imageAsset:{data:(await api.drivePng(item.driveFileId)).toString('base64')}};
     toCreate.push({item,body});
   }
   if(toCreate.length) {
