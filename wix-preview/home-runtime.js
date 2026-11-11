@@ -7,7 +7,7 @@ const LINKEDIN_URL='https://www.linkedin.com/in/gabriel-slompo-136531286/';
 const MAGO_YT='G_2jdXfXxiI';
 const DERMACAST_YT='XVL_ToV0-uY';
 const MOTORS_VANS_INSTITUTIONAL='https://video.wixstatic.com/video/ef8a3a_cb8012857e1149e08ee02383f47e2fa3/file';
-const MOTORS_VANS_INSTITUTIONAL_POSTER='https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.webp';
+const MOTORS_VANS_INSTITUTIONAL_POSTER='https://static.wixstatic.com/media/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg/v1/fill/w_1900,h_1080,al_c/ef8a3a_cb8012857e1149e08ee02383f47e2fa3f000.jpg';
 const AREAS=[
 ['01','Social Media','Posts, stories, carrosséis e pacotes de criativos.'],
 ['02','Vídeo','Reels, edição com motion, legendas, efeitos e vídeo PRO.'],
