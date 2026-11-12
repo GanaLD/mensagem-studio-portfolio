@@ -236,9 +236,9 @@ window.MENSAGEM_PROJECTS = [
   {
     slug:'desenvolvimento-de-plugins', sourceSlug:'desenvolvimento-de-plugins',
     title:'DESENVOLVIMENTO DE PLUGINS', tag:'Plugins / Creative Tech',
-    description:'Desenvolvimento autoral de ferramentas criativas para edição e pós-produção, com destaque para o plugin Motion Captions 0.8.7 de legendas animadas.',
+    description:'Desenvolvimento autoral de ferramentas criativas para edição e pós-produção, com destaque para o plugin gratuito Motion Captions 0.8.17 para Windows.',
     details:[
-      {label:'Projeto',text:'Motion Captions 0.8.7'},
+      {label:'Projeto',text:'Motion Captions 0.8.17'},
       {label:'Área',text:'Plugins · Legendas · Motion design'},
       {label:'Apresentação',text:'Artes conceituais de interface e fluxo de edição'}
     ],
@@ -253,13 +253,13 @@ window.MENSAGEM_PROJECTS = [
 
 window.MENSAGEM_CASE_STUDIES = {
   "desenvolvimento-de-plugins": {
-    "intro": "Projetos autorais de plugins e ferramentas para edição audiovisual, com destaque ao Motion Captions 0.8.7.",
+    "intro": "Projetos autorais de plugins e ferramentas para edição audiovisual, com destaque ao Motion Captions 0.8.17.",
     "context": "Estudo de um fluxo de criação de legendas animadas integrado à linguagem da edição e do motion.",
     "objective": "Explorar uma experiência que organize texto, tempo e movimento como partes de um mesmo processo criativo.",
     "solution": "Concepção de interface e representações visuais de timeline, sincronização e linguagem tipográfica.",
     "process": "Pesquisa de fluxo, organização da interface, direção de arte, estudos de animação e documentação visual.",
     "tools": "Design de interface, lógica de linha do tempo, tipografia e motion design.",
-    "result": "Estudo visual do projeto e instalador gratuito da versão 0.8.7 acompanhado de documentação e testes.",
+    "result": "Estudo visual do projeto e download gratuito do instalador Motion Captions 0.8.17 para Windows.",
     "serviceLabel": "Conheça os serviços da Mensagem Studio",
     "serviceHref": "../../servicos/"
   },
