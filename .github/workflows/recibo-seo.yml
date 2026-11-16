@@ -1,0 +1,31 @@
+name: Registrar evidências da publicação
+on:
+  push:
+    branches: [qa/recibo-seo-20261116]
+    paths: ['.github/workflows/recibo-seo.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  recibo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            qa-seo
+      - name: Registrar endereços das execuções
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          mkdir -p qa-seo
+          for sha in c6cfdd8ec7db02a313f0e5cf252e1463008ee91f 26fc41c08e1ea880dcca55d1b6b39e07e02691f5; do
+            gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$sha" --jq '[.workflow_runs[]|{id,name,status,conclusion,html_url}]' > "qa-seo/$sha.json"
+          done
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add qa-seo/*.json
+          git commit -m 'Registra execuções Pages e QA do release'
+          git push origin HEAD:qa/recibo-seo-20261116
