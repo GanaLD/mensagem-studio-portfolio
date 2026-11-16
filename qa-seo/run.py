@@ -26,7 +26,7 @@ async def test(browser, width, slug, before=False):
                 return await route.continue_()
             await route.fulfill(body=original_files[path],content_type='text/html; charset=utf-8' if path.endswith('.html') else 'text/javascript; charset=utf-8')
         await context.route('https://mensagemstudio.shop/**', original)
-    page = await context.new_page()
+    page = await context.new_page();page.set_default_timeout(8000)
     await page.add_init_script("""window.lab={cls:0}; for(const t of ['largest-contentful-paint','layout-shift'])try{new PerformanceObserver(list=>{for(const e of list.getEntries()){if(t==='layout-shift'){if(!e.hadRecentInput)window.lab.cls+=e.value}else window.lab.lcp=e.startTime}}).observe({type:t,buffered:true})}catch(e){}""")
     r = await page.goto(BASE+'/wix-preview/'+slug, wait_until='domcontentloaded',timeout=90000)
     await page.wait_for_timeout(2500)
@@ -45,6 +45,18 @@ async def test(browser, width, slug, before=False):
         assert await page.locator('a[href="/wix-preview/landing-pages/"]').count()
         assert await page.locator('#msUnifiedHeroStage').count()
         row['frames']=await page.locator('iframe').count()
+        if width in (1366,390):
+            await page.locator('#pdfMenuToggle').press('ArrowDown')
+            assert not await page.locator('#pdfTabs').evaluate('e=>e.inert')
+            await page.keyboard.press('Escape')
+            assert await page.locator('#pdfTabs').evaluate('e=>e.inert')
+            await page.locator('.ms-sound-toggle').click()
+            assert await page.locator('.ms-sound-toggle').get_attribute('aria-label') in ('OFF · Ligar trilha sonora','ON · Desligar trilha sonora')
+            # Confirm the isolated hero has an active canvas or a reachable loading fallback.
+            assert await page.locator('#cenaHero1Frame').count()==1
+            row['heroReady']=await page.evaluate('()=>window.MSCenaHero?.ready')
+            row['heroFallback']=await page.locator('#msCenaHeroGate button[data-continue]').count()
+            assert row['heroReady'] or row['heroFallback']
     elif slug=='servicos/':
         btn=page.locator('button[data-add]:visible').first
         await btn.click(timeout=10000)
@@ -58,10 +70,25 @@ async def test(browser, width, slug, before=False):
         assert await page.locator('#items .item').count()==0
         await page.locator('#closeBtn').click()
         for cat,slug2 in [('Motion e VFX','video-ia'),('Web / HTML','landing-pages')]:
-            await page.locator(f'#filters button[data-cat="{cat}"]').click()
+            radio=page.get_by_role('radiogroup',name='Categorias de serviços').get_by_role('radio',name=cat,exact=True)
+            if await radio.count() and await radio.is_visible():await radio.click()
+            else:await page.locator(f'#filters button[data-cat="{cat}"]').click()
             await page.locator(f'#catalog a[href$="/{slug2}/"]').wait_for(state='attached')
     else:
         assert await page.locator('a[href*="wa.me/"][href*="text="]').count()
+        if slug=='landing-pages/' and width in (1366,390):
+            first=page.locator('.demo-frame').first
+            await first.scroll_into_view_if_needed()
+            await first.locator(':scope > iframe').wait_for(state='visible')
+            assert await first.locator(':scope > iframe').get_attribute('src')
+        if slug=='video-ia/' and width in (1366,390):
+            video=page.locator('video[controls]').first
+            await video.evaluate('v=>{v.muted=true;v.play().catch(()=>{})}')
+            try:
+                await page.wait_for_function('document.querySelector("video[controls]").currentTime>0',timeout=12000)
+                row['videoPlayback']=True
+            except Exception:
+                row['videoPlayback']=False
         faq=page.locator('details > summary').first
         if await faq.count():
             await faq.click()
@@ -85,7 +112,7 @@ async def main():
         for slug in ['produto-3d-egeo','edicao-podcast-workshop','motion-ia-video-campanhas','produtos-3d-codex-blender','camera-canon-t7-3d','fotos-para-ecommerce']:
             for js in [False,True]:
                 ctx=await browser.new_context(java_script_enabled=js,viewport={'width':390,'height':844})
-                page=await ctx.new_page()
+                page=await ctx.new_page();page.set_default_timeout(8000)
                 try:
                     res=await page.goto(BASE+'/wix-preview/portfolio/'+slug+'/',wait_until='domcontentloaded')
                     assert res.status==200 and await page.locator('main h1').count()==1
