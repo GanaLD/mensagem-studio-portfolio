@@ -1,37 +1,39 @@
-name: Medir páginas comerciais e home
+name: LCP das três páginas
 on:
   push:
     branches: [qa/performance-20261116]
+    paths: ['.github/workflows/qa-lab.yml']
 permissions:
   contents: read
 jobs:
-  lighthouse:
+  medir:
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         form: [mobile, desktop]
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     steps:
       - run: npm install --prefix /tmp/ms-lab lighthouse@12.8.2
-      - name: Medir produção original e homologação
-        shell: bash
+      - name: Medir páginas com cache frio
         env:
           FORM: ${{ matrix.form }}
         run: |
-          set -eu
-          mkdir evidence
-          for page in home video-ia landing-pages; do
-            slug="$page/"
-            if [[ "$page" == home ]]; then slug=""; fi
-            for phase in antes depois; do
-              prefix=""
-              if [[ "$phase" == depois ]]; then prefix="wix-preview/"; fi
-              options=()
-              if [[ "$FORM" == desktop ]]; then options+=(--preset=desktop); fi
-              file="evidence/$phase-$page-$FORM.json"
-              /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$slug" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${options[@]}" --output=json --output-path="$file"
-              jq -c '{url:.finalDisplayedUrl,perf:.categories.performance.score,a11y:.categories.accessibility.score,LCP:.audits["largest-contentful-paint"].numericValue,CLS:.audits["cumulative-layout-shift"].numericValue,TBT:.audits["total-blocking-time"].numericValue,bytes:.audits["total-byte-weight"].numericValue}' "$file"
+          mkdir -p evidence
+          google-chrome --version > evidence/chrome.txt
+          for area in prod preview; do
+            prefix=""
+            if [[ $area == preview ]]; then prefix="wix-preview/"; fi
+            for slug in home video-ia landing-pages; do
+              path="$slug/"
+              if [[ $slug == home ]]; then path=""; fi
+              flags=()
+              if [[ $FORM == desktop ]]; then flags+=(--preset=desktop); fi
+              for rep in 1 2 3; do
+                file="evidence/$area-$slug-$FORM-$rep.json"
+                /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$path" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${flags[@]}" --output=json --output-path="$file"
+                jq -ce 'select(.runtimeError == null and .audits["largest-contentful-paint"].numericValue != null) | {url:.finalDisplayedUrl,LCP:.audits["largest-contentful-paint"].numericValue,CLS:.audits["cumulative-layout-shift"].numericValue,TBT:.audits["total-blocking-time"].numericValue,bytes:.audits["total-byte-weight"].numericValue,perf:.categories.performance.score,a11y:.categories.accessibility.score,node:.audits["largest-contentful-paint-element"].details.items[0], blocking:[.audits["render-blocking-resources"].details.items[]? | {url,wastedMs}], breakdown:(.audits["lcp-phases-insight"].details // .audits["largest-contentful-paint-element"].details.items[1]),heavy:([.audits["network-requests"].details.items[]? | {url,transferSize}]|sort_by(-.transferSize)|.[0:4])}' "$file" > "$file.compact"
+              done
             done
           done
       - uses: actions/upload-artifact@v4
@@ -39,39 +41,30 @@ jobs:
         with:
           name: lighthouse-${{ matrix.form }}
           path: evidence/
-          retention-days: 7
-  referencias:
+          retention-days: 30
+  recibo:
+    if: always()
+    needs: medir
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
-    timeout-minutes: 8
     steps:
-      - run: python -m pip install playwright==1.51.0
-      - name: Medições exploratórias em duas larguras
-        shell: bash
-        run: |
-          mkdir evidence
-          python - <<'PY'
-          from playwright.sync_api import sync_playwright
-          import json
-          urls=['https://tbfilms.com.br/','https://znestudio.com/','https://walk.productions/','https://agenciafellowship.com.br/servicos','https://jfilms.com.br/','https://www.vs3dstudio.com/','https://www.tdgstudios.org/']
-          rows=[]
-          with sync_playwright() as p:
-              b=p.chromium.launch(channel='chrome')
-              for url in urls:
-                  for width in (390,1366):
-                      c=b.new_context(viewport={'width':width,'height':844})
-                      page=c.new_page()
-                      page.add_init_script("window.testMetrics={};new PerformanceObserver(l=>{for(let e of l.getEntries())window.testMetrics.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true})")
-                      try:
-                          res=page.goto(url,wait_until='domcontentloaded',timeout=22000)
-                          page.wait_for_timeout(3000)
-                          rows.append(dict(url=url,width=width,http=res.status,**page.evaluate("()=>({docWidth:document.documentElement.scrollWidth,lcp:window.testMetrics.lcp??null})")))
-                      except Exception as e:rows.append(dict(url=url,width=width,error=str(e)[:90]))
-                      c.close()
-              b.close()
-          open('evidence/concorrentes.json','w').write(json.dumps(rows))
-          PY
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
         with:
-          name: concorrentes-mobile-desktop
-          path: evidence/
-          retention-days: 7
+          ref: qa/performance-20261116
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/medicoes
+      - run: |
+          mkdir -p qa-lcp
+          python - <<'PY'
+          import os, json, pathlib
+          r=pathlib.Path('/tmp/medicoes')
+          files={p.name:json.loads(p.read_text()) for p in r.rglob('*.compact') if p.stat().st_size}
+          pathlib.Path('qa-lcp/baseline.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add qa-lcp/baseline.json
+          git commit -m "Arquiva resumo das medições mobile e desktop"
+          git push origin HEAD:qa/performance-20261116
