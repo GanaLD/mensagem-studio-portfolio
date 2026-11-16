@@ -12,26 +12,31 @@ jobs:
       fail-fast: false
       matrix:
         form: [mobile, desktop]
+        slug: [video-ia, landing-pages, home]
     timeout-minutes: 45
     steps:
       - run: npm install --prefix /tmp/ms-lab lighthouse@12.8.2
       - name: Medir páginas com cache frio
         env:
           FORM: ${{ matrix.form }}
+          SLUG: ${{ matrix.slug }}
         run: |
           mkdir -p evidence
           google-chrome --version > evidence/chrome.txt
           for area in prod preview; do
             prefix=""
             if [[ $area == preview ]]; then prefix="wix-preview/"; fi
-            for slug in home video-ia landing-pages; do
+            for slug in "$SLUG"; do
               path="$slug/"
               if [[ $slug == home ]]; then path=""; fi
               flags=()
               if [[ $FORM == desktop ]]; then flags+=(--preset=desktop); fi
               for rep in 1 2 3; do
                 file="evidence/$area-$slug-$FORM-$rep.json"
-                /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$path" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${flags[@]}" --output=json --output-path="$file"
+                for attempt in 1 2 3; do
+                  /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$path" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${flags[@]}" --output=json --output-path="$file" && break
+                  sleep 2
+                done
                 jq -ce 'select(.runtimeError == null and .audits["largest-contentful-paint"].numericValue != null) | {url:.finalDisplayedUrl,LCP:.audits["largest-contentful-paint"].numericValue,CLS:.audits["cumulative-layout-shift"].numericValue,TBT:.audits["total-blocking-time"].numericValue,bytes:.audits["total-byte-weight"].numericValue,perf:.categories.performance.score,a11y:.categories.accessibility.score,node:.audits["largest-contentful-paint-element"].details.items[0], blocking:[.audits["render-blocking-resources"].details.items[]? | {url,wastedMs}], breakdown:(.audits["lcp-phases-insight"].details // .audits["largest-contentful-paint-element"].details.items[1]),heavy:([.audits["network-requests"].details.items[]? | {url,transferSize}]|sort_by(-.transferSize)|.[0:4])}' "$file" > "$file.compact"
               done
             done
@@ -39,7 +44,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: lighthouse-${{ matrix.form }}
+          name: lighthouse-${{ matrix.slug }}-${{ matrix.form }}
           path: evidence/
           retention-days: 30
   recibo:
@@ -61,10 +66,10 @@ jobs:
           import os, json, pathlib
           r=pathlib.Path('/tmp/medicoes')
           files={p.name:json.loads(p.read_text()) for p in r.rglob('*.compact') if p.stat().st_size}
-          pathlib.Path('qa-lcp/baseline.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
+          pathlib.Path('qa-lcp/baseline-v2.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add qa-lcp/baseline.json
+          git add qa-lcp/baseline-v2.json
           git commit -m "Arquiva resumo das medições mobile e desktop"
           git push origin HEAD:qa/performance-20261116
