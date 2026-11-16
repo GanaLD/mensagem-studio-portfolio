@@ -23,12 +23,20 @@ jobs:
         run: |
           mkdir -p evidence
           google-chrome --version > evidence/chrome.txt
-          for area in prod preview; do
+          for area in preview; do
             prefix=""
             if [[ $area == preview ]]; then prefix="wix-preview/"; fi
             for slug in "$SLUG"; do
               path="$slug/"
               if [[ $slug == home ]]; then path=""; fi
+              refpath="$prefix${path}index.html"
+              curl -fsSL --retry 3 "https://raw.githubusercontent.com/GanaLD/mensagem-studio-portfolio/77711b4e2b33882466dfda92d5eb512304006b80/$refpath" > /tmp/expected
+              for turn in {1..45}; do
+                curl -fsSL "https://mensagemstudio.shop/$prefix$path?qa_lcp=77711b4e2b33882466dfda92d5eb512304006b80" > /tmp/served || true
+                if cmp -s /tmp/expected /tmp/served; then break; fi
+                sleep 10
+              done
+              cmp /tmp/expected /tmp/served
               flags=()
               if [[ $FORM == desktop ]]; then flags+=(--preset=desktop); fi
               for rep in 1 2 3; do
@@ -66,10 +74,10 @@ jobs:
           import os, json, pathlib
           r=pathlib.Path('/tmp/medicoes')
           files={p.name:json.loads(p.read_text()) for p in r.rglob('*.compact') if p.stat().st_size}
-          pathlib.Path('qa-lcp/baseline-v2.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
+          pathlib.Path('qa-lcp/preview-final.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add qa-lcp/baseline-v2.json
+          git add qa-lcp/preview-final.json
           git commit -m "Arquiva resumo das medições mobile e desktop"
           git push origin HEAD:qa/performance-20261116
