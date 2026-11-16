@@ -55,7 +55,6 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
     const anchor = document.createElement("a");
     anchor.className = "ms-holo-card";
     anchor.href = project.href;
-    anchor.setAttribute("aria-label", `Abrir projeto ${project.title}`);
     anchor.innerHTML = `
       <span class="ms-holo-card__glass">
         <span class="ms-holo-card__media">
@@ -269,6 +268,7 @@ import * as THREE from "./motion/vendor/three/three.module.min.js";
       el.style.zIndex = String(20 + Math.round(depth01 * 80));
       el.style.filter = behind ? "saturate(.78) brightness(.82)" : "none";
       el.style.pointerEvents = behind ? "none" : "auto";
+      el.tabIndex = behind ? -1 : 0;
       el.setAttribute("aria-hidden", behind ? "true" : "false");
     });
   }

@@ -97,7 +97,7 @@
       card.href = SERVICES_URL;
       card.target = '_blank';
       card.rel = 'noopener noreferrer';
-      card.setAttribute('aria-label', 'Abrir página de Serviços em nova guia');
+      card.removeAttribute('aria-label');
       card.addEventListener('pointerdown', e => e.stopPropagation(), true);
       card.addEventListener('click', e => e.stopImmediatePropagation(), true);
     });
