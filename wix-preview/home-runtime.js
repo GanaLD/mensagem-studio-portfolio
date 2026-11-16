@@ -130,7 +130,7 @@ function upgradeServices(){
   const intro=section.querySelector('.section-head p');
   if(intro) intro.textContent='Design gráfico, social media, vídeo, motion e VFX, fotografia, identidade visual, campanhas, e-commerce, 3D e web para marcas que querem vender mais, fortalecer presença e transformar ideias em comunicação de alto impacto.';
   oldGrid.insertAdjacentHTML('afterend',`<div class="ms3d-shell" id="msServices3dShell" aria-label="Carrossel 3D das áreas de serviços">
-    <div class="ms3d-stage" id="msServicesStage"><div class="ms3d-deck" id="msServicesDeck">${AREAS.map(([n,title,desc],i)=>`<a class="ms3d-card" href="${SERVICES_URL}" data-index="${i}" aria-label="Conhecer esta área de serviço"><div class="ms3d-inner"><div class="ms3d-top" aria-hidden="true"></div><div class="ms3d-copy"><h3>${title}</h3><p>${desc}</p></div><div class="ms3d-foot"><span>Explorar os serviços</span></div></div></a>`).join('')}</div></div>
+    <div class="ms3d-stage" id="msServicesStage"><div class="ms3d-deck" id="msServicesDeck">${AREAS.map(([n,title,desc],i)=>`<a class="ms3d-card" href="${SERVICES_URL}" data-index="${i}"><div class="ms3d-inner"><div class="ms3d-top" aria-hidden="true"></div><div class="ms3d-copy"><h3>${title}</h3><p>${desc}</p></div><div class="ms3d-foot"><span>Explorar os serviços</span></div></div></a>`).join('')}</div></div>
     
   </div>`);
   const shell=document.querySelector('#msServices3dShell'),stage=document.querySelector('#msServicesStage'),deck=document.querySelector('#msServicesDeck');
