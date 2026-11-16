@@ -1,0 +1,42 @@
+name: Medir páginas comerciais e home
+on:
+  push:
+    branches: [qa/performance-20261116]
+permissions:
+  contents: read
+jobs:
+  lighthouse:
+    strategy:
+      fail-fast: false
+      matrix:
+        form: [mobile, desktop]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - run: npm install --prefix /tmp/ms-lab lighthouse@12.8.2
+      - name: Medir produção original e homologação
+        shell: bash
+        env:
+          FORM: ${{ matrix.form }}
+        run: |
+          set -eu
+          mkdir evidence
+          for page in home video-ia landing-pages; do
+            slug="$page/"
+            if [[ "$page" == home ]]; then slug=""; fi
+            for phase in antes depois; do
+              prefix=""
+              if [[ "$phase" == depois ]]; then prefix="wix-preview/"; fi
+              options=()
+              if [[ "$FORM" == desktop ]]; then options+=(--preset=desktop); fi
+              file="evidence/$phase-$page-$FORM.json"
+              /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$slug" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${options[@]}" --output=json --output-path="$file"
+              jq -c '{url:.finalDisplayedUrl,perf:.categories.performance.score,a11y:.categories.accessibility.score,LCP:.audits["largest-contentful-paint"].numericValue,CLS:.audits["cumulative-layout-shift"].numericValue,TBT:.audits["total-blocking-time"].numericValue,bytes:.audits["total-byte-weight"].numericValue}' "$file"
+            done
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-${{ matrix.form }}
+          path: evidence/
+          retention-days: 7
