@@ -1,126 +1,68 @@
-import asyncio, json, pathlib, urllib.request
-from urllib.parse import urlsplit
+import asyncio, hashlib, json, pathlib, time, urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from playwright.async_api import async_playwright
 
-BASE = 'https://mensagemstudio.shop'
+BASE = 'https://mensagemstudio.shop/'
+SHA = 'c6cfdd8ec7db02a313f0e5cf252e1463008ee91f'
+EXPECTED = {"index.html":"5f2735f87617ea56e136f12d4637142ff9e54402","servicos/index.html":"7148a9badbd6ea41e5c902f0c7fbefc80a61398d","landing-pages/index.html":"91c4d3864c181e7a51759a5bd17847dd11588db6","video-ia/index.html":"06d366b507d69f2191a09359ad656e1e8982db0a","llms.txt":"32f58c712c58b89b0b6d0b57d5135a1c3331061c","assets/projects-hologram-grid.js":"506293f570368436db3a73bcbd0c24fd26308635","assets/lp-campaigns.css":"08cb2bab24b48a6b660413fab7b1ea9668a80fab","global-ui.js":"0b0c9d3f5b35f9e17e0c6e4c13d3736343700fb6","home-round2.js":"758506fda0330f4b745fa8268e81ba243a2cbfc9","home-runtime.js":"71c5b327cc8d545e7aedd153ea41f32261c4c216","catalog-sync.js":"05b546f0dbe32770db0c6ef9d730127d0939fea5","portfolio/camera-canon-t7-3d/index.html":"02df81b613ecf9c4fd4a05375b0fb54ae486d3eb","portfolio/edicao-podcast-workshop/index.html":"5cc509ea2c98c3bb3ecf9babdf61310f91c2c88f","portfolio/fotos-para-ecommerce/index.html":"d91d71ee2ba8d4ff3ad0fe35c2a0598fdf7ccbe3","portfolio/motion-ia-video-campanhas/index.html":"36eac109d0ea544c5d39a03472bf7dceb9441196","portfolio/produto-3d-egeo/index.html":"e73fab39f7e8943ce22286e42d791c3ce4401659","portfolio/produtos-3d-codex-blender/index.html":"ef0c9bf2ffeb50dc90d58ff355661cb5dfc488c8"}
 OUT = pathlib.Path('evidence')
 OUT.mkdir(exist_ok=True)
 
-async def test(browser, width, slug, before=False):
-    phase='antes' if before else 'depois'
-    context = await browser.new_context(viewport={'width': width, 'height': 900 if width > 800 else 800}, device_scale_factor=1)
-    await context.route('**/g/collect*', lambda route: route.abort())
-    await context.route('**/google-analytics.com/**', lambda r:r.abort())
-    await context.route('**/googletagmanager.com/**', lambda r:r.abort())
-    if before:
-        # Replay only affected files. The commercial pages were absent from the original preview.
-        async def original(route):
-            path=urlsplit(route.request.url).path.strip('/')
-            if urlsplit(route.request.url).netloc!='mensagemstudio.shop':
-                return await route.continue_()
-            if path in ['wix-preview','wix-preview/servicos']:
-                path+='/index.html'
-            elif path in ['wix-preview/video-ia','wix-preview/landing-pages']:
-                path=path.removeprefix('wix-preview/')+'/index.html'
-            if path not in original_files:
-                return await route.continue_()
-            await route.fulfill(body=original_files[path],content_type='text/html; charset=utf-8' if path.endswith('.html') else 'text/javascript; charset=utf-8')
-        await context.route('https://mensagemstudio.shop/**', original)
-    page = await context.new_page();page.set_default_timeout(8000)
-    await page.add_init_script("""window.lab={cls:0}; for(const t of ['largest-contentful-paint','layout-shift'])try{new PerformanceObserver(list=>{for(const e of list.getEntries()){if(t==='layout-shift'){if(!e.hadRecentInput)window.lab.cls+=e.value}else window.lab.lcp=e.startTime}}).observe({type:t,buffered:true})}catch(e){}""")
-    r = await page.goto(BASE+'/wix-preview/'+slug, wait_until='domcontentloaded',timeout=90000)
-    await page.wait_for_timeout(2500)
-    row = {'phase':phase,'width':width,'page':slug or 'home','http':r.status,'title':await page.title()}
-    row.update(await page.evaluate("""()=>({viewport:innerWidth,documentWidth:document.documentElement.scrollWidth,h1:document.querySelectorAll('h1').length,robots:document.querySelector('meta[name=robots]')?.content,lab:window.lab})"""))
-    assert row['http']==200,row
-    if not before:assert row['h1']==1 and 'noindex' in row['robots'],row
-    assert row['documentWidth']<=width+1,row
-    await page.screenshot(path=str(OUT/f"{phase}-{width}-{slug.strip('/') or 'home'}.jpg"),type='jpeg',quality=75,timeout=45000)
-    if before:
-        print(json.dumps(row),flush=True);await context.close();return
-    if not slug:
-        assert await page.locator('#heroTitle').evaluate("e=>e.tagName")== 'H2'
-        assert await page.locator('#pdfTabs').evaluate('e=>e.inert')
-        assert await page.locator('a[href="/wix-preview/video-ia/"]').count()
-        assert await page.locator('a[href="/wix-preview/landing-pages/"]').count()
-        assert await page.locator('#msUnifiedHeroStage').count()
-        row['frames']=await page.locator('iframe').count()
-        if width in (1366,390):
-            await page.locator('#pdfMenuToggle').press('ArrowDown')
-            assert not await page.locator('#pdfTabs').evaluate('e=>e.inert')
-            await page.keyboard.press('Escape')
-            assert await page.locator('#pdfTabs').evaluate('e=>e.inert')
-            await page.locator('.ms-sound-toggle').click()
-            assert await page.locator('.ms-sound-toggle').get_attribute('aria-label') in ('OFF · Ligar trilha sonora','ON · Desligar trilha sonora')
-            # Confirm the isolated hero has an active canvas or a reachable loading fallback.
-            assert await page.locator('#cenaHero1Frame').count()==1
-            row['heroReady']=await page.evaluate('()=>window.MSCenaHero?.ready')
-            row['heroFallback']=await page.locator('#msCenaHeroGate button[data-continue]').count()
-            assert row['heroReady'] or row['heroFallback']
-    elif slug=='servicos/':
-        btn=page.locator('button[data-add]:visible').first
-        await btn.click(timeout=10000)
-        await page.locator('#drawer.open #items .item').first.wait_for(state='visible')
-        row['item']=await page.locator('#items .item strong').first.inner_text()
-        assert row['item'].strip(),row
-        assert await page.locator('#items .qty span').first.text_content()=='1'
-        await page.locator('#items button[data-plus]').first.click()
-        assert await page.locator('#items .qty span').first.text_content()=='2'
-        await page.locator('#items button[data-del]').first.click()
-        assert await page.locator('#items .item').count()==0
-        await page.locator('#closeBtn').click()
-        for cat,slug2 in [('Motion e VFX','video-ia'),('Web / HTML','landing-pages')]:
-            radio=page.get_by_role('radiogroup',name='Categorias de serviços').get_by_role('radio',name=cat,exact=True)
-            if await radio.count() and await radio.is_visible():await radio.click()
-            else:await page.locator(f'#filters button[data-cat="{cat}"]').click()
-            await page.locator(f'#catalog a[href$="/{slug2}/"]').wait_for(state='attached')
-    else:
-        assert await page.locator('a[href*="wa.me/"][href*="text="]').count()
-        if slug=='landing-pages/' and width in (1366,390):
-            first=page.locator('.demo-frame').first
-            await first.scroll_into_view_if_needed()
-            await first.locator(':scope > iframe').wait_for(state='visible')
-            assert await first.locator(':scope > iframe').get_attribute('src')
-        if slug=='video-ia/' and width in (1366,390):
-            video=page.locator('video[controls]').first
-            await video.evaluate('v=>{v.muted=true;v.play().catch(()=>{})}')
-            try:
-                await page.wait_for_function('document.querySelector("video[controls]").currentTime>0',timeout=12000)
-                row['videoPlayback']=True
-            except Exception:
-                row['videoPlayback']=False
-        faq=page.locator('details > summary').first
-        if await faq.count():
-            await faq.click()
-            assert await faq.evaluate('e=>e.parentNode.open')
-    print(json.dumps(row,ensure_ascii=False),flush=True)
-    await context.close()
+def deployed(item):
+    path, sha = item
+    url = BASE + path.removesuffix('index.html') + '?release=' + SHA[:12]
+    for attempt in range(18):
+        try:
+            with urllib.request.urlopen(url+'&check='+str(attempt), timeout=18) as response:
+                data = response.read()
+                actual = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+                if actual == sha and response.status == 200:
+                    print('PUBLIC HASH OK', path, sha, flush=True)
+                    return
+        except OSError:
+            pass
+        time.sleep(8)
+    raise RuntimeError('Conteúdo público divergente em '+path)
 
-def source(path):
-    url='https://raw.githubusercontent.com/GanaLD/mensagem-studio-portfolio/4324b0569deedb37c802c44fa676e90a0332e0d9/'+path
-    return urllib.request.urlopen(url,timeout=20).read()
-original_files={p:source(p) for p in ['wix-preview/index.html','wix-preview/servicos/index.html','video-ia/index.html','landing-pages/index.html','wix-preview/home-runtime.js','wix-preview/home-round2.js','wix-preview/catalog-sync.js']}
-async def main():
-    widths=[1920,1366,768,390,360]
-    failures=[]
+async def smoke():
     async with async_playwright() as p:
-        browser=await p.chromium.launch(channel='chrome',args=['--no-sandbox'])
-        for width in widths:
-            for slug,before in [(s,b) for s in ['','video-ia/','landing-pages/','servicos/'] for b in (True,False)]:
-                try:await test(browser,width,slug,before)
-                except Exception as e:failures.append((width,slug,str(e)));print('FAIL',failures[-1],flush=True)
-        for slug in ['produto-3d-egeo','edicao-podcast-workshop','motion-ia-video-campanhas','produtos-3d-codex-blender','camera-canon-t7-3d','fotos-para-ecommerce']:
-            for js in [False,True]:
-                ctx=await browser.new_context(java_script_enabled=js,viewport={'width':390,'height':844})
-                page=await ctx.new_page();page.set_default_timeout(8000)
-                try:
-                    res=await page.goto(BASE+'/wix-preview/portfolio/'+slug+'/',wait_until='domcontentloaded')
-                    assert res.status==200 and await page.locator('main h1').count()==1
-                    if slug!='fotos-para-ecommerce':await page.locator('main .case-study-section').wait_for(state='attached')
-                    print('CASE',slug,'JS',js,'OK',flush=True)
-                except Exception as e:failures.append((slug,js,str(e)))
+        browser=await p.chromium.launch(channel='chrome')
+        for width in (1366,390):
+            for slug in ['', 'video-ia/', 'landing-pages/', 'servicos/', 'portfolio/camera-canon-t7-3d/']:
+                ctx=await browser.new_context(viewport={'width':width,'height':844})
+                await ctx.route('**/*googletagmanager.com/**',lambda r:r.abort())
+                await ctx.route('**/*google-analytics.com/**',lambda r:r.abort())
+                page=await ctx.new_page()
+                page.set_default_timeout(15000)
+                url=BASE+slug
+                r=await page.goto(url+'?release='+SHA[:12],wait_until='domcontentloaded')
+                assert r.status==200 and await page.locator('link[rel=canonical]').get_attribute('href')==url
+                assert 'noindex' not in await page.locator('meta[name=robots]').get_attribute('content')
+                assert await page.locator('h1').count()==1
+                assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
+                if not slug:
+                    assert await page.locator('#heroTitle').evaluate("e=>e.tagName==='H2'")
+                    assert await page.locator('#pdfTabs').evaluate('e=>e.inert')
+                    await page.locator('#msUnifiedHeroStage').wait_for(state='attached')
+                if slug=='servicos/':
+                    for lp in ('video-ia','landing-pages'):
+                        assert await page.locator(f'#catalog a[href="/{lp}/"]').count()
+                    await page.locator('button[data-add]:visible').first.click()
+                    await page.locator('#drawer.open #items .item').first.wait_for(state='visible')
+                    await page.locator('#items button[data-del]').first.click()
+                    assert not await page.locator('#items .item').count()
+                    await page.locator('#closeBtn').click()
+                if slug=='landing-pages/':
+                    frame=page.locator('.demo-frame').first
+                    await frame.scroll_into_view_if_needed()
+                    await frame.locator(':scope > iframe').wait_for(state='attached')
+                if slug in ('video-ia/','landing-pages/'):
+                    assert await page.locator('a[href*="wa.me/"][href*="text="]').count()
+                await page.screenshot(path=str(OUT/f"{width}-{slug.strip('/').replace('/','_') or 'home'}.jpg"),type='jpeg',quality=75)
+                print('PUBLIC INTERACTION OK',width,url,flush=True)
                 await ctx.close()
         await browser.close()
-    pathlib.Path('evidence/failures.json').write_text(json.dumps(failures,ensure_ascii=False))
-    assert not failures,failures
-asyncio.run(main())
+
+with ThreadPoolExecutor(max_workers=10) as pool:
+    list(pool.map(deployed,EXPECTED.items()))
+asyncio.run(smoke())
