@@ -242,6 +242,8 @@
       z-index:100020!important;
       flex:0 0 auto!important;
     }
+    .ms-rubber-topnav-legacy[aria-hidden="true"]:has(+ #ms-rubber-topnav-root [role="radio"]){display:none!important}
+    #ms-rubber-topnav-root .rubber-segment__thumb .rubber-segment__copy{color:#04130d!important}
     html.ms-topnav-no-active #ms-rubber-topnav-root .rubber-segment__thumb{
       opacity:0!important;
     }
@@ -447,7 +449,7 @@
   const soundDock=document.createElement('div');
   soundDock.className='ms-sound-dock';
   soundDock.innerHTML=
-    '<button type="button" class="ms-sound-toggle" aria-label="Desligar trilha sonora">'+
+    '<button type="button" class="ms-sound-toggle" aria-label="ON · Desligar trilha sonora">'+
       '<span class="icon">'+speakerSvg+'</span><span class="label">ON</span>'+
     '</button>'+
     '<button type="button" class="ms-sound-more" aria-label="Abrir controles de som" aria-expanded="false">'+
@@ -481,7 +483,7 @@
     const off=soundMuted||soundVolume===0;
     soundBtn.classList.toggle('muted',off);
     soundBtn.querySelector('.label').textContent=off?'OFF':'ON';
-    soundBtn.setAttribute('aria-label',off?'Ligar trilha sonora':'Desligar trilha sonora');
+    soundBtn.setAttribute('aria-label',off?'OFF · Ligar trilha sonora':'ON · Desligar trilha sonora');
     soundBtn.title=off?'Ligar trilha sonora':'Desligar trilha sonora';
     volumeInput.value=String(soundVolume);
     volumeOutput.value=String(soundVolume);
