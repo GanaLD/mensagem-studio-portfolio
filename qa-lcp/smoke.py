@@ -61,7 +61,11 @@ with sync_playwright() as pw:
                         sound = page.locator('.ms-sound-toggle').first
                         states = []
                         for _ in range(4):
-                            sound.click()
+                            box = sound.bounding_box()
+                            assert box
+                            x, y = box['x'] + box['width']/2, box['y'] + box['height']/2
+                            assert page.evaluate("([x,y])=>Boolean(document.elementFromPoint(x,y)?.closest('.ms-sound-toggle'))", [x,y])
+                            page.mouse.click(x,y)
                             page.wait_for_timeout(500)
                             states.append(sound.get_attribute('aria-label'))
                         row['audioStates'] = states
