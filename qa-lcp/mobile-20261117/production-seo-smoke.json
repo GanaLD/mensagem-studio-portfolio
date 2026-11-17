@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://mensagemstudio.shop/",
+    "http": 200,
+    "h1": 1,
+    "canonical": "https://mensagemstudio.shop/",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "jsonld_blocks": 1
+  },
+  {
+    "url": "https://mensagemstudio.shop/video-ia/",
+    "http": 200,
+    "h1": 1,
+    "canonical": "https://mensagemstudio.shop/video-ia/",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "jsonld_blocks": 1
+  },
+  {
+    "url": "https://mensagemstudio.shop/landing-pages/",
+    "http": 200,
+    "h1": 1,
+    "canonical": "https://mensagemstudio.shop/landing-pages/",
+    "robots": "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1",
+    "jsonld_blocks": 1
+  }
+]
