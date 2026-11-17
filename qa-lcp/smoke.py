@@ -53,7 +53,6 @@ with sync_playwright() as pw:
                     row['scrollWidth'] = page.evaluate('document.documentElement.scrollWidth')
                     assert row['scrollWidth'] <= width + 1
                     row['layout'] = page.locator('.hero-copy' if slug else '#msUnifiedHeroStage').evaluate("""e=>[...e.querySelectorAll('h1,p.lead,.cue-label')].filter(n=>n.getBoundingClientRect().width).map(n=>{const r=n.getBoundingClientRect(),s=getComputedStyle(n);return [n.textContent.trim(),s.fontFamily,s.fontSize,...[r.x,r.y,r.width,r.height].map(Math.round)]})""")
-                    page.screenshot(path=str(OUT / f'{phase}-{width}-{slug.strip("/") or "home"}.png'), timeout=40000)
                     if not slug:
                         page.evaluate("scrollTo({top:document.querySelector('#cenaHero1').offsetTop+300,behavior:'instant'})")
                         page.wait_for_function('window.MSCenaHero.metrics().progress>0')
