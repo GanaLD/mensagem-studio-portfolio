@@ -23,5 +23,5 @@ jobs:
           node-version: '22'
       - name: Validate consent and quote field integration
         env:
-          QUOTE_VERIFY_PRODUCTION: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          QUOTE_VERIFY_PRODUCTION: '1'
         run: node --test tests/quote-email.test.cjs
