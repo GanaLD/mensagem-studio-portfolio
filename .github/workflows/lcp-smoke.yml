@@ -1,0 +1,57 @@
+name: Regressão do commit publicado
+on:
+  push:
+    branches: [qa/performance-20261116]
+    paths: ['.github/workflows/lcp-smoke.yml']
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: 6b65f83baa55bca5fbdc9c38efa4c9af4591b0d2
+          path: site
+          fetch-depth: 1
+          sparse-checkout: |
+            index.html
+            video-ia
+            landing-pages
+          sparse-checkout-cone-mode: false
+      - run: python -m pip -q install playwright==1.51.0 pillow
+      - run: python qa-lcp/smoke.py prod
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: regressao-commit-publicado
+          path: evidence/
+          retention-days: 30
+  recibo:
+    if: always()
+    needs: verificar
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: qa/performance-20261116
+      - uses: actions/download-artifact@v4
+        with:
+          path: /tmp/smoke
+      - run: |
+          mkdir -p qa-lcp/mobile-20261117
+          cp /tmp/smoke/regressao-commit-publicado/prod/qa.json qa-lcp/mobile-20261117/production-smoke.json
+          cd /tmp/smoke
+          zip -qr "$GITHUB_WORKSPACE/qa-lcp/mobile-20261117/production-smoke.zip" .
+          cd "$GITHUB_WORKSPACE"
+          echo '${{ github.run_id }}' > qa-lcp/mobile-20261117/smoke-run.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add qa-lcp/mobile-20261117
+          git commit -m "Registra regressão de produção vinculada ao commit publicado"
+          git pull --rebase origin qa/performance-20261116
+          git push origin HEAD:qa/performance-20261116
