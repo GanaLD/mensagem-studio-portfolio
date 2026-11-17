@@ -1,8 +1,8 @@
 window.MS_ANALYTICS_CONFIG = Object.freeze({
   ga4MeasurementId: "G-9BYT1JY7QS",
   enabled: true,
-  clarityProjectId: "", // Project ID from clarity.microsoft.com; never use a GA4 ID here.
-  clarityEnabled: false // Remains inactive until the Clarity project is linked.
+  clarityProjectId: "zf84t1xrws", // Project ID from clarity.microsoft.com; never use a GA4 ID here.
+  clarityEnabled: true // Remains inactive until the Clarity project is linked.
 });
 
 (() => {
