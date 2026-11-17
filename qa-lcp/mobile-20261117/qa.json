@@ -1,0 +1,832 @@
+[
+  {
+    "width": 1920,
+    "slug": "home",
+    "phase": "before",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        877,
+        759,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.09305788200260562,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1920,
+    "slug": "home",
+    "phase": "after",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        877,
+        759,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.09305788200260562,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1920,
+    "slug": "video-ia/",
+    "phase": "before",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        380,
+        263,
+        589,
+        262
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        380,
+        549,
+        589,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1920,
+    "slug": "video-ia/",
+    "phase": "after",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        380,
+        263,
+        589,
+        262
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        380,
+        549,
+        589,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1920,
+    "slug": "landing-pages/",
+    "phase": "before",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        380,
+        263,
+        589,
+        262
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        380,
+        549,
+        589,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1920,
+    "slug": "landing-pages/",
+    "phase": "after",
+    "scrollWidth": 1920,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        380,
+        263,
+        589,
+        262
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        380,
+        549,
+        589,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "home",
+    "phase": "before",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        600,
+        759,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.09305788200260562,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "home",
+    "phase": "after",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        600,
+        759,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.09305788200260562,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "video-ia/",
+    "phase": "before",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        103,
+        260,
+        592,
+        262
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        103,
+        546,
+        592,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "video-ia/",
+    "phase": "after",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        103,
+        260,
+        592,
+        262
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        103,
+        546,
+        592,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "landing-pages/",
+    "phase": "before",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        103,
+        260,
+        592,
+        262
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        103,
+        546,
+        592,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 1366,
+    "slug": "landing-pages/",
+    "phase": "after",
+    "scrollWidth": 1366,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "84px",
+        103,
+        260,
+        592,
+        262
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "20px",
+        103,
+        546,
+        592,
+        136
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "home",
+    "phase": "before",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        301,
+        659,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "home",
+    "phase": "after",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "11px",
+        301,
+        659,
+        166,
+        11
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "video-ia/",
+    "phase": "before",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "53.76px",
+        24,
+        212,
+        402,
+        168
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        24,
+        404,
+        402,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "video-ia/",
+    "phase": "after",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "53.76px",
+        24,
+        212,
+        402,
+        168
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        24,
+        404,
+        402,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "landing-pages/",
+    "phase": "before",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "53.76px",
+        24,
+        212,
+        402,
+        168
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        24,
+        404,
+        402,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 768,
+    "slug": "landing-pages/",
+    "phase": "after",
+    "scrollWidth": 768,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "53.76px",
+        24,
+        212,
+        402,
+        168
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        24,
+        404,
+        402,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "home",
+    "phase": "before",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "9px",
+        129,
+        647,
+        131,
+        9
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "home",
+    "phase": "after",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "9px",
+        129,
+        647,
+        131,
+        9
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "video-ia/",
+    "phase": "before",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "50.7px",
+        15,
+        189,
+        360,
+        158
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        371,
+        360,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "video-ia/",
+    "phase": "after",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "50.7px",
+        15,
+        189,
+        360,
+        158
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        371,
+        360,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "landing-pages/",
+    "phase": "before",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "50.7px",
+        15,
+        189,
+        360,
+        158
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        371,
+        360,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 390,
+    "slug": "landing-pages/",
+    "phase": "after",
+    "scrollWidth": 390,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "50.7px",
+        15,
+        189,
+        360,
+        158
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        371,
+        360,
+        144
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "home",
+    "phase": "before",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "9px",
+        114,
+        647,
+        131,
+        9
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "ON · Desligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "home",
+    "phase": "after",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "Role para controlar",
+        "\"Work Sans\", Arial, Helvetica, sans-serif",
+        "9px",
+        114,
+        647,
+        131,
+        9
+      ]
+    ],
+    "heroProgress": 0.10469011725293133,
+    "audioStates": [
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora",
+      "OFF · Ligar trilha sonora",
+      "ON · Desligar trilha sonora"
+    ],
+    "audioToggleVerified": true,
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "video-ia/",
+    "phase": "before",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "46.8px",
+        15,
+        209,
+        330,
+        146
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        379,
+        330,
+        173
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "video-ia/",
+    "phase": "after",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "A sua marca em outra dimensão.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "46.8px",
+        15,
+        209,
+        330,
+        146
+      ],
+      [
+        "Vídeos publicitários com IA para marcas que querem se destacar. Da ideia ao comercial: direção de arte, inteligência artificial, motion design, VFX e acabamento audiovisual em uma produção integrada.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        379,
+        330,
+        173
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "landing-pages/",
+    "phase": "before",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "46.8px",
+        15,
+        209,
+        330,
+        146
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        379,
+        330,
+        173
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  },
+  {
+    "width": 360,
+    "slug": "landing-pages/",
+    "phase": "after",
+    "scrollWidth": 360,
+    "layout": [
+      [
+        "Não é só uma página. É uma experiência.",
+        "\"Fugaz One\", Inter, Arial, sans-serif",
+        "46.8px",
+        15,
+        209,
+        330,
+        146
+      ],
+      [
+        "Landing Pages HTML personalizadas para produtos, marcas e campanhas. Criamos experiências digitais com direção visual, conteúdo, motion e interatividade, alinhadas ao objetivo do seu projeto.",
+        "Inter, Arial, sans-serif",
+        "17px",
+        15,
+        379,
+        330,
+        173
+      ]
+    ],
+    "ok": true,
+    "pageErrors": []
+  }
+]
