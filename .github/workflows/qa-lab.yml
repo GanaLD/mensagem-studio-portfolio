@@ -1,4 +1,4 @@
-name: LCP das três páginas
+name: Valida LCP preview
 on:
   push:
     branches: [qa/performance-20261116]
@@ -6,58 +6,33 @@ on:
 permissions:
   contents: read
 jobs:
-  medir:
+  visual:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        form: [mobile, desktop]
-        slug: [video-ia, landing-pages, home]
-    timeout-minutes: 45
+    timeout-minutes: 30
     steps:
-      - run: npm install --prefix /tmp/ms-lab lighthouse@12.8.2
-      - name: Medir páginas com cache frio
-        env:
-          FORM: ${{ matrix.form }}
-          SLUG: ${{ matrix.slug }}
-        run: |
-          mkdir -p evidence
-          google-chrome --version > evidence/chrome.txt
-          for area in preview; do
-            prefix=""
-            if [[ $area == preview ]]; then prefix="wix-preview/"; fi
-            for slug in "$SLUG"; do
-              path="$slug/"
-              if [[ $slug == home ]]; then path=""; fi
-              refpath="$prefix${path}index.html"
-              curl -fsSL --retry 3 "https://raw.githubusercontent.com/GanaLD/mensagem-studio-portfolio/77711b4e2b33882466dfda92d5eb512304006b80/$refpath" > /tmp/expected
-              for turn in {1..45}; do
-                curl -fsSL "https://mensagemstudio.shop/$prefix$path?qa_lcp=77711b4e2b33882466dfda92d5eb512304006b80" > /tmp/served || true
-                if cmp -s /tmp/expected /tmp/served; then break; fi
-                sleep 10
-              done
-              cmp /tmp/expected /tmp/served
-              flags=()
-              if [[ $FORM == desktop ]]; then flags+=(--preset=desktop); fi
-              for rep in 1 2 3; do
-                file="evidence/$area-$slug-$FORM-$rep.json"
-                for attempt in 1 2 3; do
-                  /tmp/ms-lab/node_modules/.bin/lighthouse "https://mensagemstudio.shop/$prefix$path" --quiet --only-categories=performance,accessibility --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" "${flags[@]}" --output=json --output-path="$file" && break
-                  sleep 2
-                done
-                jq -ce 'select(.runtimeError == null and .audits["largest-contentful-paint"].numericValue != null) | {url:.finalDisplayedUrl,LCP:.audits["largest-contentful-paint"].numericValue,CLS:.audits["cumulative-layout-shift"].numericValue,TBT:.audits["total-blocking-time"].numericValue,bytes:.audits["total-byte-weight"].numericValue,perf:.categories.performance.score,a11y:.categories.accessibility.score,node:.audits["largest-contentful-paint-element"].details.items[0], blocking:[.audits["render-blocking-resources"].details.items[]? | {url,wastedMs}], breakdown:(.audits["lcp-phases-insight"].details // .audits["largest-contentful-paint-element"].details.items[1]),heavy:([.audits["network-requests"].details.items[]? | {url,transferSize}]|sort_by(-.transferSize)|.[0:4])}' "$file" > "$file.compact"
-              done
-            done
-          done
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+          fetch-depth: 8
+          sparse-checkout: |
+            wix-preview/assets/lcp-fonts
+            wix-preview/video-ia
+            wix-preview/landing-pages
+            wix-preview/index.html
+          sparse-checkout-cone-mode: false
+      - run: python -m pip -q install playwright==1.51.0 pillow
+      - run: python qa-lcp/visual.py preview
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: lighthouse-${{ matrix.slug }}-${{ matrix.form }}
+          name: capturas-preview
           path: evidence/
           retention-days: 30
   recibo:
+    needs: visual
     if: always()
-    needs: medir
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -67,17 +42,13 @@ jobs:
           ref: qa/performance-20261116
       - uses: actions/download-artifact@v4
         with:
-          path: /tmp/medicoes
+          path: /tmp/qa
       - run: |
-          mkdir -p qa-lcp
-          python - <<'PY'
-          import os, json, pathlib
-          r=pathlib.Path('/tmp/medicoes')
-          files={p.name:json.loads(p.read_text()) for p in r.rglob('*.compact') if p.stat().st_size}
-          pathlib.Path('qa-lcp/preview-final.json').write_text(json.dumps(dict(run=os.environ['GITHUB_RUN_ID'],chrome=[p.read_text().strip() for p in r.rglob('chrome.txt')],files=files),ensure_ascii=False))
-          PY
+          mkdir -p qa-lcp/mobile-20261117
+          cp /tmp/qa/capturas-preview/preview/*.json qa-lcp/mobile-20261117/
+          echo '${{ github.run_id }}' > qa-lcp/mobile-20261117/visual-run.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add qa-lcp/preview-final.json
-          git commit -m "Arquiva resumo das medições mobile e desktop"
+          git add qa-lcp/mobile-20261117
+          git commit -m "Registra validação visual e funcional do preview"
           git push origin HEAD:qa/performance-20261116
