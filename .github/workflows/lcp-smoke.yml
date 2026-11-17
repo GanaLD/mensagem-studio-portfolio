@@ -1,4 +1,4 @@
-name: Verifica clique real no áudio em 1920
+name: Confirma interação de áudio no canvas 1920
 on:
   push:
     branches: [qa/performance-20261116]
