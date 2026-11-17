@@ -1,0 +1,27 @@
+name: Quote email QA | mensagemstudio.shop
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/quote-email.test.cjs'
+      - 'wix-preview/servicos/index.html'
+      - 'servicos/index.html'
+      - '.github/workflows/quote-email-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate consent and quote field integration
+        env:
+          QUOTE_VERIFY_PRODUCTION: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+        run: node --test tests/quote-email.test.cjs
