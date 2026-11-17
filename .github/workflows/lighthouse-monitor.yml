@@ -1,0 +1,44 @@
+name: Lighthouse CI | mensagemstudio.shop
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '27 12 * * *' # ~09:27 em Curitiba
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lighthouse-monitor.yml'
+      - 'lighthouserc.cjs'
+      - 'scripts/lighthouse-summary.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-monitor
+  cancel-in-progress: true
+
+jobs:
+  audit-mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.16.x
+      - name: Collect mobile audits for the public .shop
+        run: lhci autorun
+      - name: Summarize Core Web Vitals and scores
+        if: always()
+        run: node scripts/lighthouse-summary.mjs
+      - name: Save full reports for comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-mobile-reports
+          path: lighthouse-reports/
+          retention-days: 30
+          if-no-files-found: warn
