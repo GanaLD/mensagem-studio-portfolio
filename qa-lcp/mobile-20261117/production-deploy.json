@@ -1,0 +1,79 @@
+{
+  "commit": "6b65f83baa55bca5fbdc9c38efa4c9af4591b0d2",
+  "deploy": "https://github.com/GanaLD/mensagem-studio-portfolio/actions/runs/44128107827",
+  "status": "success",
+  "files": [
+    {
+      "path": "assets/lcp-fonts/fugaz-one-79e8fb1228.woff2",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/fugaz-one-79e8fb1228.woff2",
+      "sha256": "79e8fb1228cec14f8ec640bfe4a41d30f1ef0f5ed919ae81b8018e54e0296a63",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/fugazone-OFL.txt",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/fugazone-OFL.txt",
+      "sha256": "c386fb13f9c849a17017f8b0ad2ccd60ac878a2e76daf2570840dc4e30d45d11",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/home.css",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/home.css",
+      "sha256": "bacbdf2dd6bbcc7fc7a235178ab60059f463b4fd3d0f02a599d18949f9443bc9",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/inter-3100e775e8.woff2",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/inter-3100e775e8.woff2",
+      "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/inter-OFL.txt",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/inter-OFL.txt",
+      "sha256": "5dd548d31a85f756e01d63e00d7faf1e324103ed3e9102fcbbabf2cc2db6dd39",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/lp.css",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/lp.css",
+      "sha256": "0bb9189fd59740678aa66be5bd387ecab4dd323e603085aaad52ee4374fb7e50",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/work-sans-1dd49afc07.woff2",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/work-sans-1dd49afc07.woff2",
+      "sha256": "1dd49afc07fb2231b2ff686cbf007725fb2742271bb1f28ebd98f22a0d817343",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/work-sans-73468c2b5c.woff2",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/work-sans-73468c2b5c.woff2",
+      "sha256": "73468c2b5cc7c31456ee0c297ac87b2bfb7eb626bc79688dc3a320151fddcd2f",
+      "http": 200
+    },
+    {
+      "path": "assets/lcp-fonts/worksans-OFL.txt",
+      "url": "https://mensagemstudio.shop/assets/lcp-fonts/worksans-OFL.txt",
+      "sha256": "2786ce9d9f2272d1382d3ccb7a6e5887ac87dba5c8dd09266ba1ceb7be16d711",
+      "http": 200
+    },
+    {
+      "path": "index.html",
+      "url": "https://mensagemstudio.shop/",
+      "sha256": "12155bc66416a48501d5f8dea588d2ab6698b070351b8c5f0188b686da400d94",
+      "http": 200
+    },
+    {
+      "path": "landing-pages/index.html",
+      "url": "https://mensagemstudio.shop/landing-pages/",
+      "sha256": "708da759a9f9c977fd7849bf326950a382f9901eb57c8003243dbf7551608669",
+      "http": 200
+    },
+    {
+      "path": "video-ia/index.html",
+      "url": "https://mensagemstudio.shop/video-ia/",
+      "sha256": "bcb640175c2521798b876f2c1d08b59a23502b947c7d8a8241009077d1731bc2",
+      "http": 200
+    }
+  ]
+}
