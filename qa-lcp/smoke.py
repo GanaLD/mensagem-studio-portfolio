@@ -24,8 +24,8 @@ def old_html(slug):
 
 with sync_playwright() as pw:
     browser = pw.chromium.launch(channel='chrome', args=['--no-sandbox'])
-    for width in [1366, 390]:
-        for slug in ['', 'video-ia/', 'landing-pages/']:
+    for width in [1920]:
+        for slug in ['']:
             phases = ['before', 'after'] if AREA == 'preview' else ['after']
             for phase in phases:
                 row = dict(width=width, slug=slug or 'home', phase=phase)
