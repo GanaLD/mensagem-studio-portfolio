@@ -303,94 +303,95 @@ window.MENSAGEM_PROJECTS = [
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 1",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/90e812258653511.6afce8e93d703.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 2",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/9a9f28258653511.6afce8e93e304.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9a9f28258653511.6afce8e93e304.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 3",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/096c8f258653511.6afce8e93e76e.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/096c8f258653511.6afce8e93e76e.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 4",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/1c7ad7258653511.6afce8e93df4b.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1c7ad7258653511.6afce8e93df4b.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 5",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/c74a1d258653511.6afce8e93dafb.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c74a1d258653511.6afce8e93dafb.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 6",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/8f319e258653511.6afce8e93eb57.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8f319e258653511.6afce8e93eb57.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 7",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/674350258653511.6afce8eb75ff1.png"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/674350258653511.6afce8eb75ff1.png"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 8",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/529aeb258653511.6afce8eab3620.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/529aeb258653511.6afce8eab3620.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 9",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/f516f7258653511.6afce8eab2d0f.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f516f7258653511.6afce8eab2d0f.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 10",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/36d7d3258653511.6afce8eab3ed6.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/36d7d3258653511.6afce8eab3ed6.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 11",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/e9b7d0258653511.6afce8eab4325.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e9b7d0258653511.6afce8eab4325.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 12",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/144aa3258653511.6afce8eab14da.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/144aa3258653511.6afce8eab14da.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 13",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/9241dd258653511.6afce8eab1a77.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9241dd258653511.6afce8eab1a77.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 14",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/5516e2258653511.6afce8eab1f07.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/5516e2258653511.6afce8eab1f07.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 15",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/109c23258653511.6afce8eab283f.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/109c23258653511.6afce8eab283f.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 16",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/fc2602258653511.6afce8eab31cf.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/fc2602258653511.6afce8eab31cf.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 17",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/da32b1258653511.6afce8eab3a64.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/da32b1258653511.6afce8eab3a64.jpg"
     },
     {
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 18",
-      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/412b22258653511.6afce8eab239f.jpg"
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/412b22258653511.6afce8eab239f.jpg"
     }
   ]
+}
 },
   {
   "slug": "barbeador-aureos",
