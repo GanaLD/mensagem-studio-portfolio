@@ -692,6 +692,23 @@
   };
   window.MSAnalytics=window.MSAnalytics||msAnalytics;
 
+  // Google Ads conversion tag for Mensagem Studio's WhatsApp contact intent.
+  const MS_GOOGLE_ADS_ID='AW-18543181277';
+  const MS_WHATSAPP_CONVERSION='AW-18543181277/y2G4CJ36v7odEN37iYpF';
+  function initConfiguredGoogleAds(){
+    if(!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')){
+      const s=document.createElement('script');
+      s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(MS_GOOGLE_ADS_ID);
+      s.dataset.msGoogleAds='1';
+      document.head.appendChild(s);
+    }
+    window.gtag('js',new Date());
+    window.gtag('config',MS_GOOGLE_ADS_ID);
+    document.documentElement.dataset.msGoogleAds=MS_GOOGLE_ADS_ID;
+  }
+  initConfiguredGoogleAds();
+
   function initConfiguredGa4(){
     const cfg=window.MS_ANALYTICS_CONFIG||{};
     const id=String(cfg.ga4MeasurementId||'').trim();
@@ -748,6 +765,7 @@
         link_text:textLabel(el),
         link_url:url.href
       });
+      window.gtag('event','conversion',{send_to:MS_WHATSAPP_CONVERSION});
     }
 
     if(url.hash==='#briefing'){
