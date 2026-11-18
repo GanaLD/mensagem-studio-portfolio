@@ -28,7 +28,7 @@
       return;
     }
 
-    if (!/(^|\\.)wa\\.me$|whatsapp\\.com$/i.test(url.hostname)) return;
+    if (!/(^|\.)wa\.me$|whatsapp\.com$/i.test(url.hostname)) return;
 
     window.gtag('event', 'conversion', {
       send_to: conversionId,
