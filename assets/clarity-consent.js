@@ -44,7 +44,7 @@
     Object.assign(banner.style, {
       position: 'fixed', left: '16px', bottom: '48px', zIndex: '2147483000',
       width: 'min(410px, calc(100vw - 32px))', padding: '17px', borderRadius: '12px',
-      background: 'rgba(10,13,10,.96)', border: '1px solid rgba(201,255,54,.45)',
+      background: 'rgba(10,13,10,.96)', border: '1px solid rgba(255,218,39,.45)',
       color: '#fff', boxShadow: '0 12px 35px rgba(0,0,0,.5)',
       font: '13px/1.55 Arial, sans-serif'
     });
@@ -61,7 +61,7 @@
       Object.assign(button.style, {
         cursor: 'pointer', padding: '9px 12px', borderRadius: '6px',
         border: '1px solid rgba(255,255,255,.35)',
-        background: accept ? '#c9ff36' : 'transparent', color: accept ? '#10130b' : '#fff',
+        background: accept ? '#ffda27' : 'transparent', color: accept ? '#10130b' : '#fff',
         font: 'bold 12px Arial, sans-serif'
       });
       button.addEventListener('click', () => decide(accept));
