@@ -393,6 +393,7 @@ window.MENSAGEM_PROJECTS = [
       "type": "SKETCHFAB",
       "title": "Modelo 3D interativo — Anel Open3D Texturizado",
       "url": "https://sketchfab.com/models/7e8bc55466494a599e4bea5ee0692e99/embed?autostart=0&ui_theme=dark",
+      "poster": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png",
       "link": "https://sketchfab.com/3d-models/anel-open3d-texturizado-7e8bc55466494a599e4bea5ee0692e99"
     },
     {
@@ -430,6 +431,7 @@ window.MENSAGEM_PROJECTS = [
       "type": "SKETCHFAB",
       "title": "Modelo 3D interativo — Barbeador Aureos",
       "url": "https://sketchfab.com/models/8331f1367cce413d891dd7ddab1edc96/embed?autostart=0&ui_theme=dark",
+      "poster": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg",
       "link": "https://sketchfab.com/3d-models/barbeador-aureos-8331f1367cce413d891dd7ddab1edc96"
     },
     {

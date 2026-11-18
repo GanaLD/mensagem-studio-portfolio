@@ -49,3 +49,13 @@ linear-gradient(145deg,rgba(15,18,12,.96),rgba(7,8,6,.98));border:1px solid rgba
 .media-item.sketchfab .project-embed{height:100%;min-height:0}
 @media(max-width:900px){.media-item.video-embed .media-visual,.media-item.video-embed .project-embed{min-height:0;aspect-ratio:16/9}.media-item.sketchfab .media-visual{min-height:min(68svh,680px)}}
 @media(max-width:650px){.hero-grid-text .hero-copy h1{max-width:100%}.media-item.video-embed .media-visual,.media-item.video-embed .project-embed{min-height:0;aspect-ratio:16/9}.media-item.sketchfab .media-visual{min-height:min(62svh,560px)}}
+
+/* Sketchfab viewers load on demand; keep a clear render visible in the gallery. */
+.media-item.sketchfab .media-visual{aspect-ratio:auto;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.media-item.sketchfab .model-preview{position:relative;min-height:clamp(320px,48vw,680px);display:grid;place-items:center;background:#0b0c0a;overflow:hidden}
+.media-item.sketchfab .model-preview img{width:100%;height:100%;max-height:680px;object-fit:contain;background:#080907;cursor:default}
+.media-item.sketchfab .model-preview-link{position:absolute;right:18px;bottom:18px;display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:0 18px;background:var(--lime);color:#090c06;font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+.media-item.sketchfab .model-details{border-top:1px solid var(--line);background:#0b0c0a}
+.media-item.sketchfab .model-details summary{padding:16px 18px;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.media-item.sketchfab .model-details[open] .project-embed{display:block;width:100%;height:min(76vh,760px);min-height:480px;border:0;background:#080907}
+@media(max-width:650px){.media-item.sketchfab .model-preview{min-height:62svh}.media-item.sketchfab .model-preview-link{left:14px;right:14px;bottom:14px}.media-item.sketchfab .model-details[open] .project-embed{height:62svh;min-height:420px}}

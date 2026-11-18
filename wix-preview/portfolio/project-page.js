@@ -93,8 +93,12 @@
     let visual='';
     if (item.type === 'VIDEO') {
       visual=`<video controls muted loop playsinline preload="none" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} data-ms-lazy-video="${esc(item.url)}"></video>`;
-    } else if (item.type === 'VIDEO_EMBED' || item.type === 'SKETCHFAB') {
+    } else if (item.type === 'VIDEO_EMBED') {
       visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    } else if (item.type === 'SKETCHFAB') {
+      const modelUrl=item.url;
+      const modelLink=item.link || item.url;
+      visual=`<div class="model-preview">${item.poster ? `<img loading="lazy" decoding="async" src="${esc(item.poster)}" alt="Prévia renderizada de ${esc(mediaLabel)}" title="Prévia renderizada de ${esc(mediaLabel)}">` : ''}<a class="model-preview-link" href="${esc(modelLink)}" target="_blank" rel="noopener">ABRIR MODELO 3D INTERATIVO ↗</a></div><details class="model-details"><summary>Carregar visualizador 3D nesta página</summary><iframe class="project-embed" data-src="${esc(modelUrl)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></details>`;
     } else if (item.type === 'EMBED') {
       visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'MODEL') {
@@ -153,6 +157,14 @@
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'} do projeto, organizadas depois das informações.</p></div>
       <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
     </div></section>`;
+
+  app.querySelectorAll('.model-details').forEach(details => {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      const frame = details.querySelector('iframe[data-src]');
+      if (frame && !frame.src) frame.src = frame.dataset.src;
+    });
+  });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = [...document.querySelectorAll('.media-item')];
