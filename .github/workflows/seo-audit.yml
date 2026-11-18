@@ -56,6 +56,9 @@ jobs:
               "produtos-3d-codex-blender",
               "desenvolvimento-de-plugins",
               "html-editavel-templates-web",
+              "rock-show-edicao-video",
+              "maed-joias-3d",
+              "barbeador-aureos",
           ]
           service_slugs = [
               "design-social-media",
@@ -83,6 +86,9 @@ jobs:
               "edicao-fantasia-photoshop",
               "motion-design-cartaz-cinematografico",
               "produtos-3d-codex-blender",
+              "rock-show-edicao-video",
+              "maed-joias-3d",
+              "barbeador-aureos",
           ]
           pages = {
               "index.html": base,
