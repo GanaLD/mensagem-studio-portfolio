@@ -249,6 +249,43 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Motion Captions — Estilos de Legenda',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-styles.svg'}
     ]
   }
+  {
+    slug:'rock-show-edicao-video', title:'ROCK SHOW | Edição de Vídeo', tag:'Audiovisual / Edição',
+    description:'Edição de vídeo para o projeto Rock Show, com montagem e finalização audiovisual.',
+    details:[{label:'Serviço',text:'Edição de vídeo · Pós-produção'},{label:'Projeto completo',text:'Ver no Behance ↗',link:'https://www.behance.net/gallery/258653933/ROCK-SHOW-EDICAO-DE-VIDEO'}],
+    cover:'https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png', coverVideo:'',
+    media:[{type:'IMAGE',title:'ROCK SHOW | Edição de Vídeo',url:'https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png'}]
+  },
+  {
+    slug:'maed-joias-3d', title:'MAED JOIAS | 3D, Logo Reveal e Fotografia', tag:'3D / Identidade / Fotografia',
+    description:'Projeto para MAED JOIAS com visualização 3D, apresentação de marca, logo reveal e fotografias.',
+    details:[{label:'Serviços',text:'3D · Logo reveal · Fotografia'},{label:'Projeto completo',text:'Ver no Behance ↗',link:'https://www.behance.net/gallery/258653511/MAED-JOIAS-3D-LOGO-REVEAL-FOTOGRAFIAS'}],
+    cover:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'MAED JOIAS — Apresentação',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png'},
+      {type:'IMAGE',title:'MAED JOIAS — Identidade visual',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9a9f28258653511.6afce8e93e304.png'},
+      {type:'IMAGE',title:'MAED JOIAS — Fotografia',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/096c8f258653511.6afce8e93e76e.png'},
+      {type:'IMAGE',title:'MAED JOIAS — Logo reveal',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1c7ad7258653511.6afce8e93df4b.png'},
+      {type:'IMAGE',title:'MAED JOIAS — 3D',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c74a1d258653511.6afce8e93dafb.png'},
+      {type:'IMAGE',title:'MAED JOIAS — Detalhe',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8f319e258653511.6afce8e93eb57.png'}
+    ]
+  },
+  {
+    slug:'barbeador-aureos', title:'Barbeador Aureos | 3D, Vídeos e Motion', tag:'3D / Audiovisual / Motion',
+    description:'Apresentação do barbeador Aureos em 3D, com vídeos de produto e motion design.',
+    details:[{label:'Serviços',text:'Modelagem 3D · Vídeo · Motion design'},{label:'Projeto completo',text:'Ver no Behance ↗',link:'https://www.behance.net/gallery/258653663/Barbeador-Aureos-3D-Videos-Motion'}],
+    cover:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'Barbeador Aureos — Render 3D',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Produto',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ce5226258653663.6afceab5ed515.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Detalhe',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8d3ddd258653663.6afceab5ecc8f.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Visualização',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/511da1258653663.6afceab5ed934.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Campanha',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/51712f258653663.6afceab5ec89f.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Motion',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ed7432258653663.6afceab5ec084.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Render',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/af3673258653663.6afceab5ec471.jpg'},
+      {type:'IMAGE',title:'Barbeador Aureos — Apresentação',url:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c24932258653663.6afceab5edd6b.jpg'}
+    ]
+  },
 ];
 
 window.MENSAGEM_CASE_STUDIES = {
