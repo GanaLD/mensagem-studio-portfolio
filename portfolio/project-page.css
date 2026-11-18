@@ -35,3 +35,5 @@ linear-gradient(145deg,rgba(15,18,12,.96),rgba(7,8,6,.98));border:1px solid rgba
 .template-slot strong{display:block;font-size:clamp(28px,4.2vw,62px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase}
 .template-slot p{margin:14px 0 0;max-width:52ch;color:var(--muted);font-size:clamp(13px,1vw,16px);line-height:1.55}
 @media(max-width:650px){.template-slot{grid-template-columns:1fr;align-content:end}.template-slot-index{font-size:72px}.template-slot-card .media-visual,.template-slot{min-height:52svh}}
+
+.hero-media .hero-project-embed{position:absolute;inset:0;width:100%;height:100%;display:block;border:0;background:#080907}
