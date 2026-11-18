@@ -1,14 +1,14 @@
 /* PREVIEW — GLASS BUTTONS V40
    Visual reference: the EXISTING 3D carousel BorderGlow.
    Exact carousel palette used here:
-   warm cream #f6f1d9 · royal blue #4169e1 · lime #c9ff36
+   warm cream #f6f1d9 · royal blue #4169e1 · lime #ffda27
    glow hsl(48deg 90% 86%)
    This stylesheet does not target or alter the carousel itself. */
 
 :root{
   --ms-btn-cream:#f6f1d9;
   --ms-btn-blue:#4169e1;
-  --ms-btn-lime:#c9ff36;
+  --ms-btn-lime:#ffda27;
   --ms-btn-glow:hsl(48deg 90% 86%);
   --ms-btn-radius:10px;
 }
@@ -60,10 +60,10 @@
   background:
     radial-gradient(at 80% 55%,#f6f1d9 0px,transparent 50%) padding-box,
     radial-gradient(at 69% 34%,#4169e1 0px,transparent 50%) padding-box,
-    radial-gradient(at 8% 6%,#c9ff36 0px,transparent 50%) padding-box,
+    radial-gradient(at 8% 6%,#ffda27 0px,transparent 50%) padding-box,
     radial-gradient(at 41% 38%,#f6f1d9 0px,transparent 50%) padding-box,
     radial-gradient(at 86% 85%,#4169e1 0px,transparent 50%) padding-box,
-    radial-gradient(at 82% 18%,#c9ff36 0px,transparent 50%) padding-box,
+    radial-gradient(at 82% 18%,#ffda27 0px,transparent 50%) padding-box,
     radial-gradient(at 51% 4%,#4169e1 0px,transparent 50%) padding-box!important;
 
   -webkit-mask-image:
@@ -107,7 +107,7 @@
     transparent 16%,
     transparent 78%,
     rgba(65,105,225,.88) 90%,
-    rgba(201,255,54,.72) 96%,
+    rgba(255,218,39,.72) 96%,
     var(--ms-btn-glow) 100%
   )!important;
 
@@ -121,7 +121,7 @@
   filter:
     drop-shadow(0 0 3px hsl(48deg 90% 86% / 36%))
     drop-shadow(0 0 7px rgba(65,105,225,.24))
-    drop-shadow(0 0 6px rgba(201,255,54,.18))!important;
+    drop-shadow(0 0 6px rgba(255,218,39,.18))!important;
   transition:opacity .18s ease,filter .18s ease!important;
 }
 
@@ -140,7 +140,7 @@
     0 12px 38px #00000055,
     0 0 8px hsl(48deg 90% 86% / 40%),
     0 0 17px rgba(65,105,225,.30),
-    0 0 14px rgba(201,255,54,.22)!important;
+    0 0 14px rgba(255,218,39,.22)!important;
 }
 
 .ms-carousel-glass-btn:hover::before,
@@ -154,7 +154,7 @@
   filter:
     drop-shadow(0 0 5px hsl(48deg 90% 86% / 70%))
     drop-shadow(0 0 12px rgba(65,105,225,.48))
-    drop-shadow(0 0 10px rgba(201,255,54,.32))!important;
+    drop-shadow(0 0 10px rgba(255,218,39,.32))!important;
 }
 
 .ms-carousel-glass-btn:active{
