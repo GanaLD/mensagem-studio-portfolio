@@ -249,6 +249,7 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Motion Captions — Estilos de Legenda',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-styles.svg'}
     ]
   }
+  },
   {
     slug:'rock-show-edicao-video', title:'ROCK SHOW | Edição de Vídeo', tag:'Audiovisual / Edição',
     description:'Edição de vídeo para o projeto Rock Show, com montagem e finalização audiovisual.',
