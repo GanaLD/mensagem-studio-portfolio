@@ -16,7 +16,10 @@
   function mediaClass(item) {
     if (item.type === 'MODEL') return 'wide model';
     if (item.type === 'SKETCHFAB') return 'wide embed sketchfab';
-    if (item.type === 'VIDEO_EMBED') return `wide embed video-embed${item.aspect === 'portrait' ? ' portrait-video' : ''}`;
+    if (item.type === 'VIDEO_EMBED') {
+      const aspectClass = ({'9/16':'portrait-video','4/5':'portrait-video-4-5','16/9':'landscape-video'})[item.aspect] || 'landscape-video';
+      return `wide embed video-embed ${aspectClass}`;
+    }
     if (item.type === 'EMBED') return 'wide embed';
     const r = ratioFrom(item.type === 'VIDEO' ? (item.poster || '') : item.url);
     if (r >= 1.55) return 'wide';
@@ -96,9 +99,7 @@
     } else if (item.type === 'VIDEO_EMBED') {
       visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'SKETCHFAB') {
-      const modelUrl=item.url;
-      const modelLink=item.link || item.url;
-      visual=`<div class="model-preview">${item.poster ? `<img loading="lazy" decoding="async" src="${esc(item.poster)}" alt="Prévia renderizada de ${esc(mediaLabel)}" title="Prévia renderizada de ${esc(mediaLabel)}">` : ''}<a class="model-preview-link" href="${esc(modelLink)}" target="_blank" rel="noopener">ABRIR MODELO 3D INTERATIVO ↗</a></div><details class="model-details"><summary>Carregar visualizador 3D nesta página</summary><iframe class="project-embed" data-src="${esc(modelUrl)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></details>`;
+      visual=`<iframe class="project-embed model-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>${item.poster ? `<div class="model-render-preview"><img loading="lazy" decoding="async" src="${esc(item.poster)}" alt="Render de referência de ${esc(mediaLabel)}" title="Render de referência de ${esc(mediaLabel)}"><span>Render do modelo</span></div>` : ''}`;
     } else if (item.type === 'EMBED') {
       visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'MODEL') {
@@ -106,7 +107,7 @@
     } else {
       visual=`<img loading="lazy" decoding="async" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
     }
-    const modelAction=item.type==='MODEL' || item.type==='SKETCHFAB' ? `<a class="model-file-link" href="${esc(item.link || item.url)}" target="_blank" rel="noopener">ABRIR MODELO 3D ↗</a>` : '';
+    const modelAction=item.type==='MODEL' ? `<a class="model-file-link" href="${esc(item.link || item.url)}" target="_blank" rel="noopener">ABRIR MODELO 3D ↗</a>` : '';
     const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><div class="caption-meta"><small>${type} · ${String(index+1).padStart(2,'0')}</small>${modelAction}</div></div>`;
     return `<article class="media-item ${mediaClass(item)}" role="group" aria-label="${esc(mediaLabel)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
@@ -157,14 +158,6 @@
       <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'} do projeto, organizadas depois das informações.</p></div>
       <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
     </div></section>`;
-
-  app.querySelectorAll('.model-details').forEach(details => {
-    details.addEventListener('toggle', () => {
-      if (!details.open) return;
-      const frame = details.querySelector('iframe[data-src]');
-      if (frame && !frame.src) frame.src = frame.dataset.src;
-    });
-  });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = [...document.querySelectorAll('.media-item')];
