@@ -40,8 +40,8 @@
   background:transparent!important;
   pointer-events:none;
   filter:
-    drop-shadow(0 0 16px rgba(201,255,54,.16))
-    drop-shadow(0 0 34px rgba(126,255,227,.08));
+    drop-shadow(0 0 16px rgba(255,218,39,.16))
+    drop-shadow(0 0 34px rgba(22,77,218,.08));
 }
 .ms-holo-projects__cards{
   position:absolute;
@@ -69,7 +69,7 @@
   grid-template-rows:auto auto;
   gap:10px;
   padding:9px;
-  border:1px solid rgba(201,255,54,.24);
+  border:1px solid rgba(255,218,39,.24);
   border-radius:18px;
   overflow:hidden;
   background:
@@ -77,7 +77,7 @@
   box-shadow:
     0 18px 48px rgba(0,0,0,.18),
     inset 0 1px 0 rgba(255,255,255,.14),
-    0 0 0 1px rgba(126,255,227,.025);
+    0 0 0 1px rgba(22,77,218,.025);
   -webkit-backdrop-filter:blur(10px) saturate(118%);
   backdrop-filter:blur(10px) saturate(118%);
   transition:
@@ -92,23 +92,23 @@
   inset:0;
   pointer-events:none;
   background:
-    linear-gradient(115deg,rgba(201,255,54,.10),transparent 30%,transparent 68%,rgba(126,255,227,.08));
+    linear-gradient(115deg,rgba(255,218,39,.10),transparent 30%,transparent 68%,rgba(22,77,218,.08));
   opacity:.6;
 }
 .ms-holo-card:hover .ms-holo-card__glass,
 .ms-holo-card:focus-visible .ms-holo-card__glass{
   transform:scale(1.045);
-  border-color:rgba(201,255,54,.74);
+  border-color:rgba(255,218,39,.74);
   background:
-    linear-gradient(145deg,rgba(201,255,54,.095),rgba(255,255,255,.025));
+    linear-gradient(145deg,rgba(255,218,39,.095),rgba(255,255,255,.025));
   box-shadow:
     0 22px 60px rgba(0,0,0,.24),
-    0 0 26px rgba(201,255,54,.16),
-    0 0 48px rgba(126,255,227,.08),
+    0 0 26px rgba(255,218,39,.16),
+    0 0 48px rgba(22,77,218,.08),
     inset 0 1px 0 rgba(255,255,255,.18);
 }
 .ms-holo-card:focus-visible{
-  outline:2px solid var(--lime,#c9ff36);
+  outline:2px solid var(--lime,#ffda27);
   outline-offset:5px;
   border-radius:20px;
 }
@@ -144,7 +144,7 @@
   padding:0 2px 3px;
 }
 .ms-holo-card__meta small{
-  color:var(--lime,#c9ff36);
+  color:var(--lime,#ffda27);
   font-size:8px;
   line-height:1.15;
   letter-spacing:.12em;
