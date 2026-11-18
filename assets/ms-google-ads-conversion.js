@@ -32,6 +32,8 @@
 
     window.gtag('event', 'conversion', {
       send_to: conversionId,
+      value: 0,
+      currency: 'BRL',
       transport_type: 'beacon'
     });
   }, true);
