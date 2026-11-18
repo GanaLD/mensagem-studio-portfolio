@@ -87,6 +87,9 @@
 
   function heroMediaHTML() {
     const heroLabel = `${project.title} — Capa do projeto`;
+    if (project.coverEmbed) {
+      return '<iframe class="hero-project-embed" src="' + esc(project.coverEmbed) + '" title="' + esc(heroLabel) + '" loading="eager" allow="fullscreen; autoplay; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    }
     if (project.coverVideo) {
       return `<video muted autoplay loop playsinline preload="metadata" title="${esc(heroLabel)}" aria-label="${esc(heroLabel)}" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
     }
