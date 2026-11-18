@@ -250,227 +250,227 @@ window.MENSAGEM_PROJECTS = [
     ]
   },
   {
-  slug: 'rock-show-edicao-video',
-  title: 'ROCK SHOW | Edição de Vídeo',
-  tag: 'Audiovisual / Edição',
-  description: 'Edição de vídeo para o projeto Rock Show, com montagem e finalização audiovisual.',
-  details: [
+  "slug": "rock-show-edicao-video",
+  "title": "ROCK SHOW | Edição de Vídeo",
+  "tag": "Audiovisual / Edição",
+  "description": "Edição de vídeo para o projeto Rock Show, com montagem e finalização audiovisual.",
+  "details": [
     {
-      label: 'Serviço',
-      text: 'Edição de vídeo · Pós-produção'
+      "label": "Serviço",
+      "text": "Edição de vídeo · Pós-produção"
     },
     {
-      label: 'Projeto completo',
-      text: 'Ver no Behance ↗',
-      link: 'https://www.behance.net/gallery/258653933/ROCK-SHOW-EDICAO-DE-VIDEO'
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653933/ROCK-SHOW-EDICAO-DE-VIDEO"
     }
   ],
-  cover: 'https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png',
-  coverVideo: "',
-  coverEmbed: 'https://www.behance.net/embed/project/258653933?ilo0=1',
-  media: [
+  "cover": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png",
+  "coverVideo": "",
+  "coverEmbed": "https://www.behance.net/embed/project/258653933?ilo0=1",
+  "media": [
     {
-      type: 'IMAGE',
-      title: 'Capa do vídeo ROCK SHOW',
-      url: 'https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png'
+      "type": "IMAGE",
+      "title": "Capa do vídeo ROCK SHOW",
+      "url": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png"
     },
     {
-      type: 'EMBED',
-      title: 'Vídeo ROCK SHOW no Behance',
-      url: 'https://www.behance.net/embed/project/258653933?ilo0=1"
+      "type": "EMBED",
+      "title": "Vídeo ROCK SHOW no Behance",
+      "url": "https://www.behance.net/embed/project/258653933?ilo0=1"
     }
   ]
 },
   {
-  slug: 'maed-joias-3d',
-  title: 'MAED JOIAS | 3D, Logo Reveal e Fotografia',
-  tag: '3D / Identidade / Fotografia',
-  description: 'Projeto para MAED JOIAS com visualização 3D, apresentação de marca, logo reveal e fotografias.',
-  details: [
+  "slug": "maed-joias-3d",
+  "title": "MAED JOIAS | 3D, Logo Reveal e Fotografia",
+  "tag": "3D / Identidade / Fotografia",
+  "description": "Projeto para MAED JOIAS com visualização 3D, apresentação de marca, logo reveal e fotografias.",
+  "details": [
     {
-      label: 'Serviços',
-      text: '3D · Logo reveal · Fotografia'
+      "label": "Serviços",
+      "text": "3D · Logo reveal · Fotografia"
     },
     {
-      label: 'Projeto completo',
-      text: 'Ver no Behance ↗',
-      link: 'https://www.behance.net/gallery/258653511/MAED-JOIAS-3D-LOGO-REVEAL-FOTOGRAFIAS'
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653511/MAED-JOIAS-3D-LOGO-REVEAL-FOTOGRAFIAS"
     }
   ],
-  cover: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png',
-  coverVideo: "',
-  media: [
+  "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png",
+  "coverVideo": "",
+  "media": [
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 1',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 1",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/90e812258653511.6afce8e93d703.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 2',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9a9f28258653511.6afce8e93e304.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 2",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/9a9f28258653511.6afce8e93e304.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 3',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/096c8f258653511.6afce8e93e76e.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 3",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/096c8f258653511.6afce8e93e76e.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 4',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1c7ad7258653511.6afce8e93df4b.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 4",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/1c7ad7258653511.6afce8e93df4b.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 5',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c74a1d258653511.6afce8e93dafb.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 5",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/c74a1d258653511.6afce8e93dafb.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 6',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8f319e258653511.6afce8e93eb57.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 6",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/8f319e258653511.6afce8e93eb57.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 7',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/674350258653511.6afce8eb75ff1.png'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 7",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/674350258653511.6afce8eb75ff1.png"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 8',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/529aeb258653511.6afce8eab3620.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 8",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/529aeb258653511.6afce8eab3620.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 9',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f516f7258653511.6afce8eab2d0f.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 9",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/f516f7258653511.6afce8eab2d0f.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 10',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/36d7d3258653511.6afce8eab3ed6.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 10",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/36d7d3258653511.6afce8eab3ed6.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 11',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e9b7d0258653511.6afce8eab4325.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 11",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/e9b7d0258653511.6afce8eab4325.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 12',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/144aa3258653511.6afce8eab14da.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 12",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/144aa3258653511.6afce8eab14da.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 13',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9241dd258653511.6afce8eab1a77.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 13",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/9241dd258653511.6afce8eab1a77.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 14',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/5516e2258653511.6afce8eab1f07.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 14",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/5516e2258653511.6afce8eab1f07.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 15',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/109c23258653511.6afce8eab283f.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 15",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/109c23258653511.6afce8eab283f.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 16',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/fc2602258653511.6afce8eab31cf.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 16",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/fc2602258653511.6afce8eab31cf.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 17',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/da32b1258653511.6afce8eab3a64.jpg'
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 17",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/da32b1258653511.6afce8eab3a64.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'MAED JOIAS — Imagem 18',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/412b22258653511.6afce8eab239f.jpg"
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 18",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/412b22258653511.6afce8eab239f.jpg"
     }
   ]
 },
   {
-  slug: 'barbeador-aureos',
-  title: 'Barbeador Aureos | 3D, Vídeos e Motion',
-  tag: '3D / Audiovisual / Motion',
-  description: 'Apresentação do barbeador Aureos em 3D, com vídeos de produto e motion design.',
-  details: [
+  "slug": "barbeador-aureos",
+  "title": "Barbeador Aureos | 3D, Vídeos e Motion",
+  "tag": "3D / Audiovisual / Motion",
+  "description": "Apresentação do barbeador Aureos em 3D, com vídeos de produto e motion design.",
+  "details": [
     {
-      label: 'Serviços',
-      text: 'Modelagem 3D · Vídeo · Motion design'
+      "label": "Serviços",
+      "text": "Modelagem 3D · Vídeo · Motion design"
     },
     {
-      label: 'Projeto completo',
-      text: 'Ver no Behance ↗',
-      link: 'https://www.behance.net/gallery/258653663/Barbeador-Aureos-3D-Videos-Motion'
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653663/Barbeador-Aureos-3D-Videos-Motion"
     }
   ],
-  cover: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg',
-  coverVideo: "',
-  coverEmbed: 'https://www.behance.net/embed/project/258653663?ilo0=1',
-  media: [
+  "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg",
+  "coverVideo": "",
+  "coverEmbed": "https://www.behance.net/embed/project/258653663?ilo0=1",
+  "media": [
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 1',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 1",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 2',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ce5226258653663.6afceab5ed515.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 2",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ce5226258653663.6afceab5ed515.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 3',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8d3ddd258653663.6afceab5ecc8f.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 3",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8d3ddd258653663.6afceab5ecc8f.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 4',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/511da1258653663.6afceab5ed934.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 4",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/511da1258653663.6afceab5ed934.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 5',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/51712f258653663.6afceab5ec89f.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 5",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/51712f258653663.6afceab5ec89f.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 6',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ed7432258653663.6afceab5ec084.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 6",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ed7432258653663.6afceab5ec084.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 7',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/af3673258653663.6afceab5ec471.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 7",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/af3673258653663.6afceab5ec471.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 8',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c24932258653663.6afceab5edd6b.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 8",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c24932258653663.6afceab5edd6b.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 9',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/70baec258653663.6afceab5ee166.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 9",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/70baec258653663.6afceab5ee166.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 10',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/dc60e8258653663.6afceab5ee555.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 10",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/dc60e8258653663.6afceab5ee555.jpg"
     },
     {
-      type: 'IMAGE',
-      title: 'Barbeador Aureos — Imagem 11',
-      url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/eae306258653663.6afceab5ed0b7.jpg'
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 11",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/eae306258653663.6afceab5ed0b7.jpg"
     },
     {
-      type: 'EMBED',
-      title: 'Vídeo e apresentação do Barbeador Aureos no Behance',
-      url: 'https://www.behance.net/embed/project/258653663?ilo0=1"
+      "type": "EMBED",
+      "title": "Vídeo e apresentação do Barbeador Aureos no Behance",
+      "url": "https://www.behance.net/embed/project/258653663?ilo0=1"
     }
   ]
 }
