@@ -232,10 +232,287 @@ window.MENSAGEM_PROJECTS = [
       {type:'IMAGE',title:'Canon T7 — Detalhe do Flash Aberto',description:'Close técnico do mecanismo de flash aberto e da construção superior do corpo da câmera.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/2addd61f-b87a-4736-b259-751bbcec6b25.png'},
       {type:'MODEL',title:'Canon EOS Rebel T7 — GLB Animado Interativo',description:'Modelo 3D interativo da câmera com animação de 20 segundos para inspeção direta no navegador.',url:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/cc2db3ea-1364-413f-83e6-9c0425df2cfd.glb',poster:'https://d2ol7oe51mr4n9.cloudfront.net/user_2wayxIrYymbrFzIPfYY8jkYgTU2/b7d15168-e299-4df7-a90d-6c7bce4190f3.jpg'}
     ]
-  }
+  },
+  {
+    slug:'desenvolvimento-de-plugins', sourceSlug:'desenvolvimento-de-plugins',
+    title:'DESENVOLVIMENTO DE PLUGINS', tag:'Plugins / Creative Tech',
+    description:'Desenvolvimento autoral de ferramentas criativas para edição e pós-produção, com destaque para o plugin gratuito Motion Captions 0.8.17 para Windows.',
+    details:[
+      {label:'Projeto',text:'Motion Captions 0.8.17'},
+      {label:'Área',text:'Plugins · Legendas · Motion design'},
+      {label:'Apresentação',text:'Artes conceituais de interface e fluxo de edição'}
+    ],
+    cover:'/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg', coverVideo:'',
+    media:[
+      {type:'IMAGE',title:'Motion Captions 0.8.0 — Arte Conceitual',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-cover.svg'},
+      {type:'IMAGE',title:'Motion Captions — Timeline e Timing',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-timeline.svg'},
+      {type:'IMAGE',title:'Motion Captions — Estilos de Legenda',url:'/portfolio/desenvolvimento-de-plugins/motion-captions-styles.svg'}
+    ]
+  },
+  {
+  "slug": "rock-show-edicao-video",
+  "title": "ROCK SHOW | Edição de Vídeo",
+  "tag": "Audiovisual / Edição",
+  "description": "Edição de vídeo para o projeto Rock Show, com montagem e finalização audiovisual.",
+  "details": [
+    {
+      "label": "Serviço",
+      "text": "Edição de vídeo · Pós-produção"
+    },
+    {
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653933/ROCK-SHOW-EDICAO-DE-VIDEO"
+    }
+  ],
+  "cover": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png",
+  "coverVideo": "",
+  "media": [
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo completo — ROCK SHOW",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/QmEiithdKBR/embed?api_key=behance1&bgcolor=%23191919"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Capa original do projeto ROCK SHOW",
+      "url": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png"
+    }
+  ]
+},
+  {
+  "slug": "maed-joias-3d",
+  "title": "MAED JOIAS | 3D, Logo Reveal e Fotografia",
+  "tag": "3D / Identidade / Fotografia",
+  "description": "Projeto para MAED JOIAS com visualização 3D, apresentação de marca, logo reveal e fotografias.",
+  "details": [
+    {
+      "label": "Serviços",
+      "text": "3D · Logo reveal · Fotografia"
+    },
+    {
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653511/MAED-JOIAS-3D-LOGO-REVEAL-FOTOGRAFIAS"
+    }
+  ],
+  "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png",
+  "coverVideo": "",
+  "media": [
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 1",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/90e812258653511.6afce8e93d703.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 2",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9a9f28258653511.6afce8e93e304.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 3",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/096c8f258653511.6afce8e93e76e.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 4",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1c7ad7258653511.6afce8e93df4b.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 5",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c74a1d258653511.6afce8e93dafb.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 6",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8f319e258653511.6afce8e93eb57.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 7",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/674350258653511.6afce8eb75ff1.png"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 8",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/529aeb258653511.6afce8eab3620.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 9",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f516f7258653511.6afce8eab2d0f.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 10",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/36d7d3258653511.6afce8eab3ed6.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 11",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e9b7d0258653511.6afce8eab4325.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 12",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/144aa3258653511.6afce8eab14da.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 13",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9241dd258653511.6afce8eab1a77.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 14",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/5516e2258653511.6afce8eab1f07.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 15",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/109c23258653511.6afce8eab283f.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 16",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/fc2602258653511.6afce8eab31cf.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 17",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/da32b1258653511.6afce8eab3a64.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "MAED JOIAS — Imagem 18",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/412b22258653511.6afce8eab239f.jpg"
+    },
+    {
+      "type": "SKETCHFAB",
+      "title": "Modelo 3D interativo — Anel Open3D Texturizado",
+      "url": "https://sketchfab.com/models/7e8bc55466494a599e4bea5ee0692e99/embed?autostart=0&ui_theme=dark",
+      "link": "https://sketchfab.com/3d-models/anel-open3d-texturizado-7e8bc55466494a599e4bea5ee0692e99"
+    },
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo de logo reveal — MAED JOIAS",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/LiF8zuv5HPR/embed?api_key=behance1&bgcolor=%23191919"
+    }
+  ]
+},
+  {
+  "slug": "barbeador-aureos",
+  "title": "Barbeador Aureos | 3D, Vídeos e Motion",
+  "tag": "3D / Audiovisual / Motion",
+  "description": "Apresentação do barbeador Aureos em 3D, com vídeos de produto e motion design.",
+  "details": [
+    {
+      "label": "Serviços",
+      "text": "Modelagem 3D · Vídeo · Motion design"
+    },
+    {
+      "label": "Projeto completo",
+      "text": "Ver no Behance ↗",
+      "link": "https://www.behance.net/gallery/258653663/Barbeador-Aureos-3D-Videos-Motion"
+    }
+  ],
+  "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg",
+  "coverVideo": "",
+  "media": [
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 1 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/JvLP9hInAbF/embed?api_key=behance1&bgcolor=%23191919"
+    },
+    {
+      "type": "SKETCHFAB",
+      "title": "Modelo 3D interativo — Barbeador Aureos",
+      "url": "https://sketchfab.com/models/8331f1367cce413d891dd7ddab1edc96/embed?autostart=0&ui_theme=dark",
+      "link": "https://sketchfab.com/3d-models/barbeador-aureos-8331f1367cce413d891dd7ddab1edc96"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 1",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 2",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ce5226258653663.6afceab5ed515.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 3",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8d3ddd258653663.6afceab5ecc8f.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 4",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/511da1258653663.6afceab5ed934.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 5",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/51712f258653663.6afceab5ec89f.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 6",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ed7432258653663.6afceab5ec084.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 7",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/af3673258653663.6afceab5ec471.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 8",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c24932258653663.6afceab5edd6b.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 9",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/70baec258653663.6afceab5ee166.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 10",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/dc60e8258653663.6afceab5ee555.jpg"
+    },
+    {
+      "type": "IMAGE",
+      "title": "Barbeador Aureos — Imagem 11",
+      "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/eae306258653663.6afceab5ed0b7.jpg"
+    },
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 2 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/TP3f475UMEy/embed?api_key=behance1&bgcolor=%23191919"
+    },
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 3 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/JntLbFWsUct/embed?api_key=behance1&bgcolor=%23191919"
+    }
+  ]
+}
 ];
 
 window.MENSAGEM_CASE_STUDIES = {
+  "desenvolvimento-de-plugins": {
+    "intro": "Projetos autorais de plugins e ferramentas para edição audiovisual, com destaque ao Motion Captions 0.8.17.",
+    "context": "Estudo de um fluxo de criação de legendas animadas integrado à linguagem da edição e do motion.",
+    "objective": "Explorar uma experiência que organize texto, tempo e movimento como partes de um mesmo processo criativo.",
+    "solution": "Concepção de interface e representações visuais de timeline, sincronização e linguagem tipográfica.",
+    "process": "Pesquisa de fluxo, organização da interface, direção de arte, estudos de animação e documentação visual.",
+    "tools": "Design de interface, lógica de linha do tempo, tipografia e motion design.",
+    "result": "Estudo visual do projeto e download gratuito do instalador Motion Captions 0.8.17 para Windows.",
+    "serviceLabel": "Conheça os serviços da Mensagem Studio",
+    "serviceHref": "../../servicos/"
+  },
   "html-editavel-templates-web": {
     "intro": "Sites HTML customizados vendidos a partir de templates de referência que aceleram a definição visual sem limitar a personalização final.",
     "context": "O cliente pode partir de Cyber Ronin, Experiência Automotiva ou LTX como referência de linguagem, interação e estrutura para construir uma presença web própria.",
