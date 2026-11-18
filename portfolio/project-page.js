@@ -15,6 +15,8 @@
   }
   function mediaClass(item) {
     if (item.type === 'MODEL') return 'wide model';
+    if (item.type === 'SKETCHFAB') return 'wide embed sketchfab';
+    if (item.type === 'VIDEO_EMBED') return 'wide embed video-embed';
     if (item.type === 'EMBED') return 'wide embed';
     const r = ratioFrom(item.type === 'VIDEO' ? (item.poster || '') : item.url);
     if (r >= 1.55) return 'wide';
@@ -85,22 +87,14 @@
     </div></section>`;
   }
 
-  function heroMediaHTML() {
-    const heroLabel = `${project.title} — Capa do projeto`;
-    if (project.coverEmbed) {
-      return '<iframe class="hero-project-embed" src="' + esc(project.coverEmbed) + '" title="' + esc(heroLabel) + '" loading="eager" allow="fullscreen; autoplay; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>';
-    }
-    if (project.coverVideo) {
-      return `<video muted autoplay loop playsinline preload="metadata" title="${esc(heroLabel)}" aria-label="${esc(heroLabel)}" data-ms-video-src="${esc(project.coverVideo)}" poster="${esc(project.cover || '')}" src="${esc(project.coverVideo)}"></video>`;
-    }
-    return `<img decoding="async" fetchpriority="high" src="${esc(project.cover || '')}" alt="${esc(heroLabel)}" title="${esc(heroLabel)}">`;
-  }
   function itemHTML(item, index) {
-    const type = item.type === 'VIDEO' ? 'Vídeo' : item.type === 'MODEL' ? 'Modelo 3D' : item.type === 'EMBED' ? 'Template interativo' : 'Imagem';
+    const type = item.type === 'VIDEO' || item.type === 'VIDEO_EMBED' ? 'Vídeo' : item.type === 'MODEL' || item.type === 'SKETCHFAB' ? 'Modelo 3D interativo' : item.type === 'EMBED' ? 'Conteúdo interativo' : 'Imagem';
     const mediaLabel = item.title || `${project.title} — ${type} ${String(index+1).padStart(2,'0')}`;
     let visual='';
     if (item.type === 'VIDEO') {
       visual=`<video controls muted loop playsinline preload="none" title="${esc(mediaLabel)}" aria-label="${esc(mediaLabel)}" ${item.poster ? `poster="${esc(item.poster)}"` : ''} data-ms-lazy-video="${esc(item.url)}"></video>`;
+    } else if (item.type === 'VIDEO_EMBED' || item.type === 'SKETCHFAB') {
+      visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen; autoplay; picture-in-picture; xr-spatial-tracking" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'EMBED') {
       visual=`<iframe class="project-embed" src="${esc(item.url)}" title="${esc(mediaLabel)}" loading="lazy" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
     } else if (item.type === 'MODEL') {
@@ -108,7 +102,7 @@
     } else {
       visual=`<img loading="lazy" decoding="async" src="${esc(item.url)}" alt="${esc(mediaLabel)}" title="${esc(mediaLabel)}" data-lightbox>`;
     }
-    const modelAction=item.type==='MODEL' ? `<a class="model-file-link" href="${esc(item.url)}" target="_blank" rel="noopener">ABRIR GLB ↗</a>` : '';
+    const modelAction=item.type==='MODEL' || item.type==='SKETCHFAB' ? `<a class="model-file-link" href="${esc(item.link || item.url)}" target="_blank" rel="noopener">ABRIR MODELO 3D ↗</a>` : '';
     const caption = `<div class="caption"><div><strong>${esc(mediaLabel)}</strong>${item.description ? `<p>${esc(item.description)}</p>` : ''}</div><div class="caption-meta"><small>${type} · ${String(index+1).padStart(2,'0')}</small>${modelAction}</div></div>`;
     return `<article class="media-item ${mediaClass(item)}" role="group" aria-label="${esc(mediaLabel)}" style="transition-delay:${Math.min(index,7)*55}ms"><div class="media-visual">${visual}</div>${caption}</article>`;
   }
@@ -128,19 +122,14 @@
   const quoteURL = '../../servicos/?orcamento=1&ref=' + encodeURIComponent(project.slug) + '&projeto=' + encodeURIComponent(project.title);
 
   app.innerHTML = `
-    <section class="hero"><div class="wrap"><div class="hero-grid">
+    <section class="hero"><div class="wrap"><div class="hero-grid hero-grid-text">
       <div class="hero-copy">
         <div class="eyebrow">${esc(project.tag || 'Projeto')} · ${String(idx+1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}</div>
         <h1>${esc(project.title)}</h1>
         ${project.description ? `<p class="description">${esc(project.description)}</p>` : ''}
         ${detailsHTML()}
       </div>
-      <div class="hero-media">${heroMediaHTML()}<div class="hero-label"><span>Projeto / Mensagem Studio</span><b>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'}</b></div></div>
     </div></div></section>
-    <section class="gallery-section"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>Conteúdo do projeto preservado na ordem do portfólio original.</p></div>
-      <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
-    </div></section>
     ${caseStudyHTML()}
     <section class="project-conversion"><div class="wrap">
       <div class="conversion-card">
@@ -159,7 +148,11 @@
     <section class="project-nav"><div class="wrap"><div class="project-nav-grid">
       <a class="project-link" href="../${esc(prev.slug)}/"><small>← Projeto anterior</small><strong>${esc(prev.title)}</strong></a>
       <a class="project-link next" href="../${esc(next.slug)}/"><small>Próximo projeto →</small><strong>${esc(next.title)}</strong></a>
-    </div></div></section>`;
+    </div></div></section>
+    <section class="gallery-section"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">MÍDIAS DO PROJETO</div><h2>Galeria.</h2></div><p>${galleryMedia.length} ${galleryMedia.length===1?'mídia':'mídias'} do projeto, organizadas depois das informações.</p></div>
+      <div class="media-grid">${galleryMedia.map(itemHTML).join('')}</div>
+    </div></section>`;
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealItems = [...document.querySelectorAll('.media-item')];

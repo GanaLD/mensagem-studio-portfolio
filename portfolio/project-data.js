@@ -267,17 +267,16 @@ window.MENSAGEM_PROJECTS = [
   ],
   "cover": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png",
   "coverVideo": "",
-  "coverEmbed": "https://www.behance.net/embed/project/258653933?ilo0=1",
   "media": [
     {
-      "type": "IMAGE",
-      "title": "Capa do vídeo ROCK SHOW",
-      "url": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png"
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo completo — ROCK SHOW",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/QmEiithdKBR/embed?api_key=behance1&bgcolor=%23191919"
     },
     {
-      "type": "EMBED",
-      "title": "Vídeo ROCK SHOW no Behance",
-      "url": "https://www.behance.net/embed/project/258653933?ilo0=1"
+      "type": "IMAGE",
+      "title": "Capa original do projeto ROCK SHOW",
+      "url": "https://mir-s3-cdn-cf.behance.net/projects/max_808/04d5a5258653933.Y3JvcCwxMDI4LDgwNCwzMCww.png"
     }
   ]
 },
@@ -389,9 +388,19 @@ window.MENSAGEM_PROJECTS = [
       "type": "IMAGE",
       "title": "MAED JOIAS — Imagem 18",
       "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/412b22258653511.6afce8eab239f.jpg"
+    },
+    {
+      "type": "SKETCHFAB",
+      "title": "Modelo 3D interativo — Anel Open3D Texturizado",
+      "url": "https://sketchfab.com/models/7e8bc55466494a599e4bea5ee0692e99/embed?autostart=0&ui_theme=dark",
+      "link": "https://sketchfab.com/3d-models/anel-open3d-texturizado-7e8bc55466494a599e4bea5ee0692e99"
+    },
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo de logo reveal — MAED JOIAS",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/LiF8zuv5HPR/embed?api_key=behance1&bgcolor=%23191919"
     }
   ]
-}
 },
   {
   "slug": "barbeador-aureos",
@@ -411,8 +420,18 @@ window.MENSAGEM_PROJECTS = [
   ],
   "cover": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2bc12f258653663.6afceab5ebbfd.jpg",
   "coverVideo": "",
-  "coverEmbed": "https://www.behance.net/embed/project/258653663?ilo0=1",
   "media": [
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 1 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/JvLP9hInAbF/embed?api_key=behance1&bgcolor=%23191919"
+    },
+    {
+      "type": "SKETCHFAB",
+      "title": "Modelo 3D interativo — Barbeador Aureos",
+      "url": "https://sketchfab.com/models/8331f1367cce413d891dd7ddab1edc96/embed?autostart=0&ui_theme=dark",
+      "link": "https://sketchfab.com/3d-models/barbeador-aureos-8331f1367cce413d891dd7ddab1edc96"
+    },
     {
       "type": "IMAGE",
       "title": "Barbeador Aureos — Imagem 1",
@@ -469,9 +488,14 @@ window.MENSAGEM_PROJECTS = [
       "url": "https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/eae306258653663.6afceab5ed0b7.jpg"
     },
     {
-      "type": "EMBED",
-      "title": "Vídeo e apresentação do Barbeador Aureos no Behance",
-      "url": "https://www.behance.net/embed/project/258653663?ilo0=1"
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 2 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/TP3f475UMEy/embed?api_key=behance1&bgcolor=%23191919"
+    },
+    {
+      "type": "VIDEO_EMBED",
+      "title": "Vídeo 3 — Barbeador Aureos",
+      "url": "https://www-ccv.adobe.io/v1/player/ccv/JntLbFWsUct/embed?api_key=behance1&bgcolor=%23191919"
     }
   ]
 }
