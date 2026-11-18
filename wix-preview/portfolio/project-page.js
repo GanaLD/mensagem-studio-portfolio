@@ -16,7 +16,7 @@
   function mediaClass(item) {
     if (item.type === 'MODEL') return 'wide model';
     if (item.type === 'SKETCHFAB') return 'wide embed sketchfab';
-    if (item.type === 'VIDEO_EMBED') return 'wide embed video-embed';
+    if (item.type === 'VIDEO_EMBED') return `wide embed video-embed${item.aspect === 'portrait' ? ' portrait-video' : ''}`;
     if (item.type === 'EMBED') return 'wide embed';
     const r = ratioFrom(item.type === 'VIDEO' ? (item.poster || '') : item.url);
     if (r >= 1.55) return 'wide';

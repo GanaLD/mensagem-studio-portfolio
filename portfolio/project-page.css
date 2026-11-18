@@ -59,3 +59,6 @@ linear-gradient(145deg,rgba(15,18,12,.96),rgba(7,8,6,.98));border:1px solid rgba
 .media-item.sketchfab .model-details summary{padding:16px 18px;color:var(--lime);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .media-item.sketchfab .model-details[open] .project-embed{display:block;width:100%;height:min(76vh,760px);min-height:480px;border:0;background:#080907}
 @media(max-width:650px){.media-item.sketchfab .model-preview{min-height:62svh}.media-item.sketchfab .model-preview-link{left:14px;right:14px;bottom:14px}.media-item.sketchfab .model-details[open] .project-embed{height:62svh;min-height:420px}}
+.media-item.video-embed.portrait-video .media-visual{aspect-ratio:auto;min-height:0;display:grid;place-items:center}
+.media-item.video-embed.portrait-video .project-embed{width:min(100%,450px);height:auto;aspect-ratio:9/16;min-height:0;max-height:82svh}
+@media(max-width:650px){.media-item.video-embed.portrait-video .project-embed{width:min(100%,450px);height:auto;aspect-ratio:9/16;max-height:none}}

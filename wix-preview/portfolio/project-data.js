@@ -271,6 +271,7 @@ window.MENSAGEM_PROJECTS = [
     {
       "type": "VIDEO_EMBED",
       "title": "Vídeo completo — ROCK SHOW",
+      "aspect": "portrait",
       "url": "https://www-ccv.adobe.io/v1/player/ccv/QmEiithdKBR/embed?api_key=behance1&bgcolor=%23191919"
     },
     {
@@ -399,6 +400,7 @@ window.MENSAGEM_PROJECTS = [
     {
       "type": "VIDEO_EMBED",
       "title": "Vídeo de logo reveal — MAED JOIAS",
+      "aspect": "portrait",
       "url": "https://www-ccv.adobe.io/v1/player/ccv/LiF8zuv5HPR/embed?api_key=behance1&bgcolor=%23191919"
     }
   ]
@@ -425,6 +427,7 @@ window.MENSAGEM_PROJECTS = [
     {
       "type": "VIDEO_EMBED",
       "title": "Vídeo 1 — Barbeador Aureos",
+      "aspect": "portrait",
       "url": "https://www-ccv.adobe.io/v1/player/ccv/JvLP9hInAbF/embed?api_key=behance1&bgcolor=%23191919"
     },
     {
@@ -492,11 +495,13 @@ window.MENSAGEM_PROJECTS = [
     {
       "type": "VIDEO_EMBED",
       "title": "Vídeo 2 — Barbeador Aureos",
+      "aspect": "portrait",
       "url": "https://www-ccv.adobe.io/v1/player/ccv/TP3f475UMEy/embed?api_key=behance1&bgcolor=%23191919"
     },
     {
       "type": "VIDEO_EMBED",
       "title": "Vídeo 3 — Barbeador Aureos",
+      "aspect": "portrait",
       "url": "https://www-ccv.adobe.io/v1/player/ccv/JntLbFWsUct/embed?api_key=behance1&bgcolor=%23191919"
     }
   ]
