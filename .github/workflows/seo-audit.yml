@@ -118,6 +118,9 @@ jobs:
                   errors.append(f"MISSING PAGE: {path}")
                   continue
               html = p.read_text(encoding="utf-8")
+              h1_count = len(re.findall(r"<h1\b", html, flags=re.I))
+              if h1_count != 1:
+                  errors.append(f"{path}: expected exactly one H1, got {h1_count}")
               checks = {
                   "title": r"<title>[^<]{8,}</title>",
                   "description": r'<meta\s+name=["\']description["\'][^>]+content=["\'][^"\']{60,}["\']',
@@ -193,9 +196,11 @@ jobs:
               if not re.search(re.escape(f'rel="canonical" href="{canonical}"'), html, flags=re.I | re.S):
                   errors.append(f"{path}: backup canonical must point to production")
 
-          pjs = Path("portfolio/project-page.js")
-          if not pjs.exists() or "<h1>" not in pjs.read_text(encoding="utf-8"):
-              errors.append("project renderer: H1 not found")
+          home_html = Path("index.html").read_text(encoding="utf-8")
+          if "hero-card-continue" in home_html or "heroCardContinue" in home_html:
+              errors.append("homepage: duplicated lateral CONTINUE cue remains")
+          if 'class="hero-scroll-cue"' not in home_html:
+              errors.append("homepage: bottom scroll cue is missing")
 
           if errors:
               print("\n".join("ERROR: " + e for e in errors))
